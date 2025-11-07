@@ -8,7 +8,7 @@ import { AiLiteracyBadge } from "@/components/ui/AiLiteracyBadge";
 import { aiLiteracyConfig } from "@/lib/aiLiteracyConfig";
 import Fuse from "fuse.js";
 import Image from "next/image";
-import { BookOpen, Target, Sparkles, ArrowRight } from "lucide-react";
+import { BookOpen, Target, Sparkles, ArrowRight, Lightbulb } from "lucide-react";
 
 export default function Home() {
   const [searchQuery, setSearchQuery] = useState("");
@@ -181,48 +181,87 @@ export default function Home() {
         </div>
       </section>
 
-      {/* AI-Litteracitet Feature Card */}
+      {/* Feature Cards Section */}
       <section className="bg-gray-50 py-16">
         <div className="container mx-auto px-4">
-          <div className="mx-auto max-w-5xl">
+          <div className="mx-auto max-w-6xl grid md:grid-cols-2 gap-6">
+
+            {/* AI-Litteracitet Card */}
             <a
               href="/ai-litteracitet"
               className="group block overflow-hidden rounded-2xl bg-white border-2 border-gray-200 shadow-lg transition-all duration-300 hover:border-primary-300 hover:shadow-xl"
             >
-              <div className="grid md:grid-cols-5 gap-8 items-center p-8 md:p-10">
-                {/* Left - Image */}
-                <div className="md:col-span-2 flex justify-center">
+              <div className="p-8">
+                {/* Icon */}
+                <div className="flex justify-center mb-6">
                   <div className="relative">
                     <div className="absolute -inset-4 bg-gradient-to-br from-primary-100/50 to-cyan-100/50 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                     <Image
                       src="/menu_icon.png"
                       alt="AI-litteracitet"
-                      width={160}
-                      height={160}
+                      width={120}
+                      height={120}
                       className="relative drop-shadow-lg transition-transform duration-300 group-hover:scale-105"
                     />
                   </div>
                 </div>
 
-                {/* Right - Content */}
-                <div className="md:col-span-3">
+                {/* Content */}
+                <div className="text-center">
                   <div className="mb-3 inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-primary-100 to-cyan-100 px-3 py-1 text-xs font-semibold text-primary-700">
                     <Sparkles className="h-3 w-3" />
                     Didaktiskt ramverk
                   </div>
-                  <h2 className="mb-3 text-2xl md:text-3xl font-bold text-gray-900">
+                  <h2 className="mb-3 text-2xl font-bold text-gray-900">
                     AI-litteracitet som didaktisk kompass
                   </h2>
                   <p className="mb-4 text-gray-600 leading-relaxed">
-                    Mer än verktygskunskap – en epistemisk förmåga att förstå hur kunskap formas och används när AI är en medskapare.
+                    Mer än verktygskunskap – en epistemisk förmåga att förstå hur kunskap formas när AI är en medskapare.
                   </p>
-                  <div className="flex items-center gap-2 text-primary-600 font-semibold group-hover:gap-3 transition-all">
+                  <div className="flex items-center justify-center gap-2 text-primary-600 font-semibold group-hover:gap-3 transition-all">
                     <span>Utforska ramverket</span>
                     <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
                   </div>
                 </div>
               </div>
             </a>
+
+            {/* Didaktiska Modeller Card */}
+            <a
+              href="/didaktiska-modeller"
+              className="group block overflow-hidden rounded-2xl bg-white border-2 border-gray-200 shadow-lg transition-all duration-300 hover:border-indigo-300 hover:shadow-xl"
+            >
+              <div className="p-8">
+                {/* Icon */}
+                <div className="flex justify-center mb-6">
+                  <div className="relative">
+                    <div className="absolute -inset-4 bg-gradient-to-br from-indigo-100/50 via-purple-100/50 to-pink-100/50 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                    <div className="relative w-30 h-30 flex items-center justify-center rounded-2xl bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 shadow-xl transition-transform duration-300 group-hover:scale-105 p-6">
+                      <Lightbulb className="w-16 h-16 text-white" strokeWidth={1.5} />
+                    </div>
+                  </div>
+                </div>
+
+                {/* Content */}
+                <div className="text-center">
+                  <div className="mb-3 inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-indigo-100 via-purple-100 to-pink-100 px-3 py-1 text-xs font-semibold text-indigo-700">
+                    <Lightbulb className="h-3 w-3" />
+                    Pedagogisk guide
+                  </div>
+                  <h2 className="mb-3 text-2xl font-bold text-gray-900">
+                    Didaktiska modeller för AI i klassrummet
+                  </h2>
+                  <p className="mb-4 text-gray-600 leading-relaxed">
+                    Praktiska ramverk för att undervisa med, om, mot och genom AI – från TPACK-AI till lärarens epistemiska roll.
+                  </p>
+                  <div className="flex items-center justify-center gap-2 text-indigo-600 font-semibold group-hover:gap-3 transition-all">
+                    <span>Upptäck ramverken</span>
+                    <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
+                  </div>
+                </div>
+              </div>
+            </a>
+
           </div>
         </div>
       </section>

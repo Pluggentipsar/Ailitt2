@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import Image from 'next/image';
+import Link from 'next/link';
 
 export const metadata: Metadata = {
   title: 'Didaktiska modeller för AI-undervisning | AI-litteracitet',
@@ -9,69 +10,99 @@ export const metadata: Metadata = {
 export default function DidaktiskaModellerPage() {
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Hero Section */}
-      <div className="bg-gradient-to-br from-primary-600 via-cyan-600 to-blue-600 text-white">
-        <div className="container mx-auto px-4 py-16 md:py-24">
-          <div className="max-w-4xl">
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">
-              Didaktiska modeller för undervisning med, om, mot och genom AI
+      {/* Hero Section with Background Image */}
+      <section className="relative overflow-hidden bg-gradient-mesh pb-20 pt-24 sm:pb-32 sm:pt-32">
+        {/* Background image */}
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{ backgroundImage: 'url(/didaktisk.png)' }}
+        />
+
+        {/* Dark gradient overlay for text contrast */}
+        <div className="absolute inset-0 bg-gradient-to-br from-gray-900/70 via-gray-900/50 to-transparent" />
+
+        {/* Content */}
+        <div className="container relative mx-auto px-4">
+          <div className="mx-auto max-w-4xl animate-fade-in-down">
+            <h1 className="mb-6 text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight text-white drop-shadow-lg">
+              Didaktiska modeller för undervisning{" "}
+              <span className="bg-gradient-to-r from-cyan-400 via-cyan-300 to-blue-400 bg-clip-text text-transparent drop-shadow-[0_2px_10px_rgba(34,211,238,0.5)]">
+                med, om, mot och genom AI
+              </span>
             </h1>
-            <p className="text-xl md:text-2xl text-white/90 leading-relaxed">
+            <p className="text-xl md:text-2xl text-gray-100 leading-relaxed drop-shadow-md">
               Från teknik till didaktik – och vidare till epistemisk medvetenhet
             </p>
           </div>
         </div>
-      </div>
+      </section>
 
-      {/* Main Content */}
-      <article className="container mx-auto px-4 py-12 max-w-4xl">
-
-        {/* Introduction */}
-        <section className="prose prose-lg max-w-none mb-16">
-          <p className="lead text-xl text-gray-700 leading-relaxed">
-            AI har på kort tid förändrat förutsättningarna för både lärande och undervisning.
-            Språket, bilden och texten – de byggstenar som hela skolans kunskapsuppdrag vilar på –
-            delas nu med system som kan skriva, resonera och analysera.
-          </p>
-
-          <p className="text-gray-700">
-            Men skolans uppgift är fortfarande densamma: att utveckla elevernas förmåga att tänka,
-            kommunicera och förstå världen.
-          </p>
-
-          <p className="text-gray-700">
-            Det avgörande skiftet handlar därför inte om teknik, utan om <strong>kunskapssyn</strong>.
-          </p>
-
-          <div className="bg-primary-50 border-l-4 border-primary-500 p-6 my-8 rounded-r-lg">
-            <p className="text-lg font-medium text-primary-900 mb-2">
-              Kärnfrågan
+      {/* Ingress Section */}
+      <section className="bg-white py-12 border-b border-gray-200">
+        <div className="container mx-auto px-4">
+          <div className="mx-auto max-w-4xl">
+            <p className="text-xl text-gray-700 leading-relaxed mb-6">
+              På denna sida presenteras <strong>sju centrala didaktiska ramverk</strong> som hjälper dig att
+              designa undervisning där AI blir en katalysator för tänkande och lärande – inte bara ett
+              produktionsverktyg.
             </p>
-            <p className="text-primary-800 mb-0">
-              Frågan är inte <em>hur</em> vi använder AI, utan <em>vad</em> lärandet blir när människor
-              och maskiner tänker tillsammans.
+            <p className="text-lg text-gray-600 leading-relaxed">
+              Du hittar både klassiska modeller som TPACK och SAMR, samt nyare perspektiv som
+              ECPA, Omvänd Bloom och Affordansperspektivet. Tillsammans bildar de en <strong>tankekarta</strong> för
+              att navigera AI-didaktiken – från teknisk integration till epistemisk medvetenhet.
             </p>
           </div>
+        </div>
+      </section>
 
-          <p className="text-gray-700">
-            Här behöver läraren nya didaktiska modeller – inte för att ersätta befintliga arbetssätt,
-            utan för att fördjupa dem.
-          </p>
-        </section>
-
-        {/* From Tech to Knowledge Design */}
-        <section className="mb-16">
+      {/* Main Content */}
+      <div className="container mx-auto px-4 py-12">
+        <div className="mx-auto flex max-w-7xl gap-8">
+          {/* Main content */}
+          <article className="flex-1 max-w-4xl">
+        {/* Introduction */}
+        <section id="introduktion" className="mb-16">
           <h2 className="text-3xl font-bold text-gray-900 mb-6">
             Från teknikanvändning till kunskapsdesign
           </h2>
 
           <div className="prose prose-lg max-w-none">
-            <p className="text-gray-700">
+            <p className="text-xl text-gray-700 leading-relaxed mb-6">
+              AI har på kort tid förändrat förutsättningarna för både lärande och undervisning.
+              Språket, bilden och texten – de byggstenar som hela skolans kunskapsuppdrag vilar på –
+              delas nu med system som kan skriva, resonera och analysera.
+            </p>
+
+            <p className="text-gray-700 mb-4">
+              Men skolans uppgift är fortfarande densamma: att utveckla elevernas förmåga att tänka,
+              kommunicera och förstå världen.
+            </p>
+
+            <p className="text-gray-700 mb-6">
+              Det avgörande skiftet handlar därför inte om teknik, utan om <strong>kunskapssyn</strong>.
+            </p>
+
+            <div className="bg-primary-50 border-l-4 border-primary-500 p-6 my-8 rounded-r-lg">
+              <p className="text-lg font-medium text-primary-900 mb-2">
+                Kärnfrågan
+              </p>
+              <p className="text-primary-800 mb-0">
+                Frågan är inte <em>hur</em> vi använder AI, utan <em>vad</em> lärandet blir när människor
+                och maskiner tänker tillsammans.
+              </p>
+            </div>
+
+            <p className="text-gray-700 mb-6">
+              Här behöver läraren nya didaktiska modeller – inte för att ersätta befintliga arbetssätt,
+              utan för att fördjupa dem.
+            </p>
+
+            <p className="text-gray-700 mb-4">
               De flesta diskussioner om AI i skolan börjar i verktyg: "Hur fungerar ChatGPT?"
               eller "Vilket AI-verktyg kan eleverna använda för att skriva?"
             </p>
 
-            <p className="text-gray-700">
+            <p className="text-gray-700 mb-4">
               Men den didaktiska frågan är djupare:
             </p>
 
@@ -79,7 +110,7 @@ export default function DidaktiskaModellerPage() {
               Vilken typ av tänkande, språk och förståelse möjliggörs genom detta arbetssätt?
             </blockquote>
 
-            <p className="text-gray-700">
+            <p className="text-gray-700 mb-4">
               Att undervisa med AI handlar om att <strong>designa lärande</strong>, inte om att
               effektivisera uppgifter.
             </p>
@@ -92,7 +123,7 @@ export default function DidaktiskaModellerPage() {
         </section>
 
         {/* Epistemic Awareness */}
-        <section className="mb-16">
+        <section id="epistemisk-medvetenhet" className="mb-16">
           <h2 className="text-3xl font-bold text-gray-900 mb-6">
             Epistemisk medvetenhet – att förstå hur kunskap blir till
           </h2>
@@ -134,7 +165,7 @@ export default function DidaktiskaModellerPage() {
         </section>
 
         {/* Four Perspectives */}
-        <section className="mb-16">
+        <section id="fyra-perspektiv" className="mb-16">
           <h2 className="text-3xl font-bold text-gray-900 mb-6">
             Fyra perspektiv på undervisning i AI-eran
           </h2>
@@ -247,7 +278,7 @@ export default function DidaktiskaModellerPage() {
         <div className="border-t-2 border-gray-200 my-16"></div>
 
         {/* Section 2: Frameworks */}
-        <section className="mb-16">
+        <section id="ramverk" className="mb-16">
           <div className="mb-12">
             <span className="text-sm font-semibold text-primary-600 uppercase tracking-wide">Del 2</span>
             <h2 className="text-4xl font-bold text-gray-900 mt-2 mb-4">
@@ -284,7 +315,7 @@ export default function DidaktiskaModellerPage() {
           </div>
 
           {/* TPACK-AI */}
-          <div className="mt-12 bg-white p-8 rounded-lg shadow-sm border border-gray-200">
+          <div id="tpack" className="mt-12 bg-white p-8 rounded-lg shadow-sm border border-gray-200">
             <h3 className="text-2xl font-bold text-gray-900 mb-4">
               TPACK-AI – den utvidgade lärarkompetensen
             </h3>
@@ -340,7 +371,7 @@ export default function DidaktiskaModellerPage() {
           </div>
 
           {/* SAMR */}
-          <div className="mt-8 bg-white p-8 rounded-lg shadow-sm border border-gray-200">
+          <div id="samr" className="mt-8 bg-white p-8 rounded-lg shadow-sm border border-gray-200">
             <h3 className="text-2xl font-bold text-gray-900 mb-4">
               SAMR – från ersättning till omdefinition
             </h3>
@@ -384,7 +415,7 @@ export default function DidaktiskaModellerPage() {
           </div>
 
           {/* SOLO Taxonomy */}
-          <div className="mt-8 bg-white p-8 rounded-lg shadow-sm border border-gray-200">
+          <div id="solo" className="mt-8 bg-white p-8 rounded-lg shadow-sm border border-gray-200">
             <h3 className="text-2xl font-bold text-gray-900 mb-4">
               SOLO-taxonomin – att synliggöra förståelsens djup
             </h3>
@@ -435,7 +466,7 @@ export default function DidaktiskaModellerPage() {
           </div>
 
           {/* ECPA */}
-          <div className="mt-8 bg-white p-8 rounded-lg shadow-sm border border-gray-200">
+          <div id="ecpa" className="mt-8 bg-white p-8 rounded-lg shadow-sm border border-gray-200">
             <h3 className="text-2xl font-bold text-gray-900 mb-4">
               ECPA – Enskilt, Chatbot, Par, Alla
             </h3>
@@ -494,7 +525,7 @@ export default function DidaktiskaModellerPage() {
           </div>
 
           {/* Omvänd Bloom */}
-          <div className="mt-8 bg-white p-8 rounded-lg shadow-sm border border-gray-200">
+          <div id="omvand-bloom" className="mt-8 bg-white p-8 rounded-lg shadow-sm border border-gray-200">
             <h3 className="text-2xl font-bold text-gray-900 mb-4">
               Omvänd Bloom – skapa först, förstå sen
             </h3>
@@ -532,7 +563,7 @@ export default function DidaktiskaModellerPage() {
           </div>
 
           {/* Affordansperspektivet */}
-          <div className="mt-8 bg-white p-8 rounded-lg shadow-sm border border-gray-200">
+          <div id="affordans" className="mt-8 bg-white p-8 rounded-lg shadow-sm border border-gray-200">
             <h3 className="text-2xl font-bold text-gray-900 mb-4">
               Affordansperspektivet – fokus på handling, inte funktion
             </h3>
@@ -572,7 +603,7 @@ export default function DidaktiskaModellerPage() {
           </div>
 
           {/* Double Loop */}
-          <div className="mt-8 bg-white p-8 rounded-lg shadow-sm border border-gray-200">
+          <div id="double-loop" className="mt-8 bg-white p-8 rounded-lg shadow-sm border border-gray-200">
             <h3 className="text-2xl font-bold text-gray-900 mb-4">
               Double Loop-modellen – reflektion i två led
             </h3>
@@ -635,20 +666,202 @@ export default function DidaktiskaModellerPage() {
           </div>
         </section>
 
-        {/* Continue button or navigation */}
-        <div className="mt-16 text-center">
-          <a
-            href="/didaktiska-modeller/perspektiv"
-            className="inline-flex items-center px-8 py-4 bg-primary-600 hover:bg-primary-700 text-white font-semibold rounded-lg transition-colors shadow-lg hover:shadow-xl"
-          >
-            Läs mer: Att undervisa med, om, mot och genom AI
-            <svg className="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-            </svg>
-          </a>
+        {/* Navigation Cards */}
+        <div className="mt-16">
+          <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
+            Fördjupa dig vidare
+          </h2>
+
+          <div className="grid md:grid-cols-3 gap-6">
+            {/* Card 1 */}
+            <Link
+              href="/didaktiska-modeller/perspektiv"
+              className="group bg-white p-6 rounded-lg shadow-sm border-2 border-gray-200 hover:border-primary-500 hover:shadow-lg transition-all"
+            >
+              <div className="flex items-center justify-between mb-4">
+                <span className="text-sm font-semibold text-primary-600 uppercase tracking-wide">
+                  Del 3
+                </span>
+                <svg
+                  className="w-6 h-6 text-gray-400 group-hover:text-primary-600 group-hover:translate-x-1 transition-all"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </div>
+              <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-primary-700 transition-colors">
+                Med, om, mot och genom AI
+              </h3>
+              <p className="text-gray-600">
+                Didaktiska principer och konkreta exempel från svenskämnet
+              </p>
+            </Link>
+
+            {/* Card 2 */}
+            <Link
+              href="/didaktiska-modeller/uppgifter"
+              className="group bg-white p-6 rounded-lg shadow-sm border-2 border-gray-200 hover:border-cyan-500 hover:shadow-lg transition-all"
+            >
+              <div className="flex items-center justify-between mb-4">
+                <span className="text-sm font-semibold text-cyan-600 uppercase tracking-wide">
+                  Del 4
+                </span>
+                <svg
+                  className="w-6 h-6 text-gray-400 group-hover:text-cyan-600 group-hover:translate-x-1 transition-all"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </div>
+              <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-cyan-700 transition-colors">
+                Uppgiftsbank
+              </h3>
+              <p className="text-gray-600">
+                Konkreta uppgifter för AI-litteracitet i Svenska 1
+              </p>
+            </Link>
+
+            {/* Card 3 */}
+            <Link
+              href="/didaktiska-modeller/lararens-roll"
+              className="group bg-white p-6 rounded-lg shadow-sm border-2 border-gray-200 hover:border-purple-500 hover:shadow-lg transition-all"
+            >
+              <div className="flex items-center justify-between mb-4">
+                <span className="text-sm font-semibold text-purple-600 uppercase tracking-wide">
+                  Del 5
+                </span>
+                <svg
+                  className="w-6 h-6 text-gray-400 group-hover:text-purple-600 group-hover:translate-x-1 transition-all"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </div>
+              <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-purple-700 transition-colors">
+                Lärarens epistemiska roll
+              </h3>
+              <p className="text-gray-600">
+                Att undervisa i osäkerhet och bygga epistemisk medvetenhet
+              </p>
+            </Link>
+          </div>
         </div>
 
       </article>
+
+      {/* Desktop TOC - sticky sidebar */}
+      <aside className="hidden lg:block w-64 flex-shrink-0">
+        <div className="sticky top-24">
+          <nav className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+            <h2 className="text-lg font-bold text-gray-900 mb-4 flex items-center gap-2">
+              <svg className="w-5 h-5 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+              Innehåll
+            </h2>
+            <ul className="space-y-2 text-sm">
+              <li>
+                <a href="#introduktion" className="text-gray-700 hover:text-primary-600 transition-colors flex items-center gap-2">
+                  <span className="text-primary-400">→</span>
+                  Från teknikanvändning till kunskapsdesign
+                </a>
+              </li>
+              <li>
+                <a href="#epistemisk-medvetenhet" className="text-gray-700 hover:text-primary-600 transition-colors flex items-center gap-2">
+                  <span className="text-primary-400">→</span>
+                  Epistemisk medvetenhet
+                </a>
+              </li>
+              <li>
+                <a href="#fyra-perspektiv" className="text-gray-700 hover:text-primary-600 transition-colors flex items-center gap-2">
+                  <span className="text-primary-400">→</span>
+                  Fyra perspektiv på undervisning
+                </a>
+              </li>
+              <li>
+                <a href="#ramverk" className="text-gray-700 hover:text-primary-600 transition-colors flex items-center gap-2">
+                  <span className="text-primary-400">→</span>
+                  Ramverk och tankemodeller
+                </a>
+              </li>
+              <li className="pl-4">
+                <a href="#tpack" className="text-gray-600 hover:text-primary-600 transition-colors flex items-center gap-2">
+                  <span className="text-cyan-400">•</span>
+                  TPACK-AI
+                </a>
+              </li>
+              <li className="pl-4">
+                <a href="#samr" className="text-gray-600 hover:text-primary-600 transition-colors flex items-center gap-2">
+                  <span className="text-cyan-400">•</span>
+                  SAMR
+                </a>
+              </li>
+              <li className="pl-4">
+                <a href="#solo" className="text-gray-600 hover:text-primary-600 transition-colors flex items-center gap-2">
+                  <span className="text-cyan-400">•</span>
+                  SOLO-taxonomin
+                </a>
+              </li>
+              <li className="pl-4">
+                <a href="#ecpa" className="text-gray-600 hover:text-primary-600 transition-colors flex items-center gap-2">
+                  <span className="text-cyan-400">•</span>
+                  ECPA
+                </a>
+              </li>
+              <li className="pl-4">
+                <a href="#omvand-bloom" className="text-gray-600 hover:text-primary-600 transition-colors flex items-center gap-2">
+                  <span className="text-cyan-400">•</span>
+                  Omvänd Bloom
+                </a>
+              </li>
+              <li className="pl-4">
+                <a href="#affordans" className="text-gray-600 hover:text-primary-600 transition-colors flex items-center gap-2">
+                  <span className="text-cyan-400">•</span>
+                  Affordansperspektivet
+                </a>
+              </li>
+              <li className="pl-4">
+                <a href="#double-loop" className="text-gray-600 hover:text-primary-600 transition-colors flex items-center gap-2">
+                  <span className="text-cyan-400">•</span>
+                  Double Loop
+                </a>
+              </li>
+            </ul>
+            <div className="mt-6 pt-6 border-t border-gray-200">
+              <p className="text-xs text-gray-600 mb-3 font-semibold">Fördjupning</p>
+              <ul className="space-y-2 text-sm">
+                <li>
+                  <Link href="/didaktiska-modeller/perspektiv" className="text-primary-600 hover:text-primary-700 transition-colors flex items-center gap-2">
+                    <span>→</span>
+                    Del 3: Med, om, mot och genom AI
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/didaktiska-modeller/uppgifter" className="text-cyan-600 hover:text-cyan-700 transition-colors flex items-center gap-2">
+                    <span>→</span>
+                    Del 4: Uppgiftsbank
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/didaktiska-modeller/lararens-roll" className="text-purple-600 hover:text-purple-700 transition-colors flex items-center gap-2">
+                    <span>→</span>
+                    Del 5: Lärarens roll
+                  </Link>
+                </li>
+              </ul>
+            </div>
+          </nav>
+        </div>
+      </aside>
+
+        </div>
+      </div>
 
       {/* Footer CTA */}
       <div className="bg-gray-900 text-white py-12 mt-16">

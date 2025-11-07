@@ -35,6 +35,12 @@ export function Header() {
             AI-litteracitet
           </Link>
           <Link
+            href="/didaktiska-modeller"
+            className="text-gray-700 transition-colors hover:text-primary-600 relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-gradient-to-r after:from-primary-600 after:to-cyan-500 after:transition-all hover:after:w-full"
+          >
+            Didaktiska modeller
+          </Link>
+          <Link
             href="/amnen"
             className="text-gray-700 transition-colors hover:text-primary-600 relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-gradient-to-r after:from-primary-600 after:to-cyan-500 after:transition-all hover:after:w-full"
           >
