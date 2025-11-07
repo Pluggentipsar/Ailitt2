@@ -5,6 +5,7 @@ import { MetaBadge } from "@/components/ui/MetaBadge";
 import { ModuleContent } from "@/components/module/ModuleContent";
 import { ScrollProgress } from "@/components/ui/ScrollProgress";
 import { ModuleActions } from "@/components/module/ModuleActions";
+import { getSubjectColors } from "@/lib/subject-colors";
 
 interface PageProps {
   params: {
@@ -61,6 +62,8 @@ export default function ModulePage({ params }: PageProps) {
     notFound();
   }
 
+  const colors = getSubjectColors(module.subject);
+
   return (
     <>
       <ScrollProgress />
@@ -72,25 +75,44 @@ export default function ModulePage({ params }: PageProps) {
           </span>
         </nav>
 
-        {/* Header */}
-        <header className="mb-8 max-w-4xl animate-fade-in-up" style={{ animationDelay: '0.1s', animationFillMode: 'backwards' }}>
-        <h1 className="mb-4 text-4xl font-bold tracking-tight text-gray-900">
-          {module.title}
-        </h1>
+        {/* Header with gradient background */}
+        <header
+          className="mb-12 rounded-2xl overflow-hidden shadow-3 animate-fade-in-up"
+          style={{ animationDelay: '0.1s', animationFillMode: 'backwards' }}
+        >
+          {/* Gradient background */}
+          <div
+            className="relative p-8 md:p-12"
+            style={{ background: colors.gradient }}
+          >
+            {/* Subtle pattern overlay */}
+            <div className="absolute inset-0 bg-pattern opacity-10"></div>
 
-        <p className="mb-6 text-lg text-gray-600">{module.description}</p>
+            {/* Content */}
+            <div className="relative">
+              <h1 className="mb-4 text-4xl md:text-5xl font-bold tracking-tight text-white drop-shadow-lg">
+                {module.title}
+              </h1>
 
-        {/* Metadata badges */}
-        <div className="mb-4 flex flex-wrap gap-2">
-          {module.time && <MetaBadge type="time" value={module.time} />}
-          {module.groupSize && (
-            <MetaBadge type="group" value={module.groupSize} />
-          )}
-        </div>
+              <p className="mb-6 text-lg md:text-xl text-white/90 leading-relaxed drop-shadow-md max-w-3xl">
+                {module.description}
+              </p>
 
-        {/* AI Literacy badges */}
-        <AiLiteracyBadgeList ids={module.ai_literacy_ids} />
-      </header>
+              {/* Metadata badges */}
+              <div className="mb-6 flex flex-wrap gap-2">
+                {module.time && <MetaBadge type="time" value={module.time} variant="light" />}
+                {module.groupSize && (
+                  <MetaBadge type="group" value={module.groupSize} variant="light" />
+                )}
+              </div>
+
+              {/* AI Literacy badges */}
+              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 inline-block">
+                <AiLiteracyBadgeList ids={module.ai_literacy_ids} />
+              </div>
+            </div>
+          </div>
+        </header>
 
       {/* Action buttons */}
       <div className="mb-8 flex justify-end animate-fade-in" style={{ animationDelay: '0.2s', animationFillMode: 'backwards' }}>

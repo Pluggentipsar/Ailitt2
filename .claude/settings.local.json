@@ -10,7 +10,10 @@
       "Bash(git add:*)",
       "Bash(del NUL 2)",
       "Bash(git commit:*)",
-      "Bash(git push:*)"
+      "Bash(git push:*)",
+      "Bash(copy \"headerbackground1_50.png\" \"public\\headerbackground1_50.png\")",
+      "Bash(copy menu_icon.png publicmenu_icon.png)",
+      "Bash(cp:*)"
     ],
     "deny": [],
     "ask": []

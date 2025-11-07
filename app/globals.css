@@ -138,19 +138,37 @@
   }
 
   .prose table {
-    @apply w-full text-left border-collapse my-6;
+    @apply w-full text-left border-collapse my-6 text-base;
   }
 
   .prose thead {
-    @apply border-b-2 border-gray-300;
+    @apply bg-gradient-to-r from-primary-50 to-cyan-50;
+  }
+
+  .prose thead tr {
+    @apply border-b-2 border-primary-200;
   }
 
   .prose th {
-    @apply font-semibold text-gray-900 p-3;
+    @apply font-semibold text-gray-900 p-4 text-left;
+  }
+
+  .prose tbody tr {
+    @apply border-b border-gray-200 transition-colors hover:bg-gray-50;
   }
 
   .prose td {
-    @apply p-3 border-b border-gray-200;
+    @apply p-4 text-gray-700;
+  }
+
+  .prose td:first-child,
+  .prose th:first-child {
+    @apply pl-4;
+  }
+
+  .prose td:last-child,
+  .prose th:last-child {
+    @apply pr-4;
   }
 
   .prose blockquote {

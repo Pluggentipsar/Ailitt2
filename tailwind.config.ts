@@ -8,6 +8,32 @@ const config: Config = {
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
+  safelist: [
+    // AI Literacy badge colors - backgrounds
+    'from-purple-50', 'via-violet-50', 'to-purple-100',
+    'from-blue-50', 'via-sky-50', 'to-blue-100',
+    'from-green-50', 'via-emerald-50', 'to-green-100',
+    'from-red-50', 'via-rose-50', 'to-red-100',
+    'from-orange-50', 'via-amber-50', 'to-orange-100',
+    'from-fuchsia-50', 'via-pink-50', 'to-fuchsia-100',
+    'from-teal-50', 'via-cyan-50', 'to-teal-100',
+    // AI Literacy badge colors - dots
+    'from-purple-400', 'to-violet-600',
+    'from-blue-400', 'to-sky-600',
+    'from-green-400', 'to-emerald-600',
+    'from-red-400', 'to-rose-600',
+    'from-orange-400', 'to-amber-600',
+    'from-fuchsia-400', 'to-pink-600',
+    'from-teal-400', 'to-cyan-600',
+    // AI Literacy badge colors - rings
+    'ring-purple-400/50',
+    'ring-blue-400/50',
+    'ring-green-400/50',
+    'ring-red-400/50',
+    'ring-orange-400/50',
+    'ring-fuchsia-400/50',
+    'ring-teal-400/50',
+  ],
   theme: {
     extend: {
       colors: {

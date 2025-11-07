@@ -34,23 +34,34 @@ export function AiLiteracyBadge({
       onClick={onClick}
       disabled={!onClick}
       className={cn(
-        "group inline-flex items-center gap-2 rounded-full border px-3 py-1.5 text-sm font-medium transition-all duration-200 shadow-sm",
-        aspect.bgColor,
-        "border-gray-200",
-        onClick && "cursor-pointer hover:shadow-md hover:scale-105 hover:border-gray-300 active:scale-100",
-        isActive && "ring-2 ring-offset-2 shadow-lg border-transparent",
-        isActive && `ring-${aspect.color}-400`,
+        "group relative inline-flex items-center gap-2.5 rounded-full border border-white/50 px-4 py-2 text-sm font-medium transition-all duration-200",
+        "bg-gradient-to-br shadow-sm",
+        aspect.gradient,
+        "backdrop-blur-sm",
+        onClick && "cursor-pointer hover:shadow-lg hover:scale-105 active:scale-100",
+        isActive && "ring-2 ring-offset-2 shadow-xl border-white",
+        isActive && aspect.ringColor,
         !onClick && "cursor-default",
         className
       )}
     >
-      <div className={cn(
-        "h-2 w-2 rounded-full transition-transform",
-        aspect.dotColor,
-        onClick && "group-hover:scale-125",
-        isActive && "scale-125 shadow-sm"
-      )} />
-      <span className="text-gray-800 font-semibold">{aspect.name}</span>
+      {/* Glowing dot */}
+      <div className="relative">
+        <div className={cn(
+          "h-2.5 w-2.5 rounded-full bg-gradient-to-br transition-all duration-200",
+          aspect.dotColor,
+          onClick && "group-hover:scale-125 group-hover:shadow-md",
+          isActive && "scale-125"
+        )} />
+        {/* Glow effect */}
+        <div className={cn(
+          "absolute inset-0 h-2.5 w-2.5 rounded-full bg-gradient-to-br blur-sm opacity-50 transition-all duration-200",
+          aspect.dotColor,
+          onClick && "group-hover:opacity-75 group-hover:blur-md",
+          isActive && "opacity-75 blur-md"
+        )} />
+      </div>
+      <span className="text-gray-800 font-semibold relative z-10">{aspect.name}</span>
     </button>
   );
 

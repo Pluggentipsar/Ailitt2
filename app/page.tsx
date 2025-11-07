@@ -7,6 +7,8 @@ import { SearchResultCard } from "@/components/search/SearchResultCard";
 import { AiLiteracyBadge } from "@/components/ui/AiLiteracyBadge";
 import { aiLiteracyConfig } from "@/lib/aiLiteracyConfig";
 import Fuse from "fuse.js";
+import Image from "next/image";
+import { BookOpen, Target, Sparkles, ArrowRight } from "lucide-react";
 
 export default function Home() {
   const [searchQuery, setSearchQuery] = useState("");
@@ -59,14 +61,20 @@ export default function Home() {
     <div className="min-h-screen">
       {/* Hero Section */}
       <section className="relative overflow-hidden bg-gradient-mesh pb-20 pt-24 sm:pb-32 sm:pt-32">
-        {/* Background gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-br from-primary-50 via-white to-accent-50 opacity-60" />
+        {/* Background image */}
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{ backgroundImage: 'url(/headerbackground1_50.png)' }}
+        />
+
+        {/* Dark gradient overlay for text contrast */}
+        <div className="absolute inset-0 bg-gradient-to-br from-gray-900/70 via-gray-900/50 to-transparent" />
 
         {/* Content */}
         <div className="container relative mx-auto px-4">
           <div className="mx-auto max-w-4xl text-center animate-fade-in-down">
             {/* Badge */}
-            <div className="mb-6 inline-flex items-center gap-2 rounded-full bg-primary-100 px-4 py-2 text-sm font-medium text-primary-700">
+            <div className="mb-6 inline-flex items-center gap-2 rounded-full bg-white/90 backdrop-blur-sm px-4 py-2 text-sm font-medium text-primary-700 shadow-lg">
               <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
               </svg>
@@ -74,16 +82,16 @@ export default function Home() {
             </div>
 
             {/* Heading */}
-            <h1 className="mb-6 text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight text-gray-900">
+            <h1 className="mb-6 text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight text-white drop-shadow-lg">
               Bygg{" "}
-              <span className="bg-gradient-to-r from-primary-600 via-cyan-500 to-blue-500 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-cyan-400 via-cyan-300 to-blue-400 bg-clip-text text-transparent drop-shadow-[0_2px_10px_rgba(34,211,238,0.5)]">
                 AI-litteracitet
               </span>{" "}
               utifrån det centrala innehållet
             </h1>
 
             {/* Subheading */}
-            <p className="mx-auto mb-8 max-w-2xl text-xl text-gray-600 leading-relaxed">
+            <p className="mx-auto mb-8 max-w-2xl text-xl text-gray-100 leading-relaxed drop-shadow-md">
               En resursplattform för att integrera undervisning om och med AI i dina ämnen, kopplat till Skolverkets kursplaner.
             </p>
 
@@ -107,28 +115,128 @@ export default function Home() {
             </div>
 
             {/* Stats */}
-            <div className="mt-16 grid grid-cols-3 gap-8 border-t border-gray-200 pt-8 animate-fade-in-up" style={{ animationDelay: '0.3s', animationFillMode: 'backwards' }}>
+            <div className="mt-16 grid grid-cols-3 gap-8 border-t border-white/30 pt-8 animate-fade-in-up" style={{ animationDelay: '0.3s', animationFillMode: 'backwards' }}>
               <div>
-                <div className="text-3xl font-bold text-primary-600">{allModules.length}</div>
-                <div className="text-sm text-gray-600">Moduler</div>
+                <div className="text-3xl font-bold text-cyan-300 drop-shadow-lg">{allModules.length}</div>
+                <div className="text-sm text-gray-100 drop-shadow-md">Moduler</div>
               </div>
               <div>
-                <div className="text-3xl font-bold text-primary-600">{aiLiteracyConfig.length}</div>
-                <div className="text-sm text-gray-600">AI-aspekter</div>
+                <div className="text-3xl font-bold text-cyan-300 drop-shadow-lg">{aiLiteracyConfig.length}</div>
+                <div className="text-sm text-gray-100 drop-shadow-md">AI-aspekter</div>
               </div>
               <div>
-                <div className="text-3xl font-bold text-primary-600">∞</div>
-                <div className="text-sm text-gray-600">Möjligheter</div>
+                <div className="text-3xl font-bold text-cyan-300 drop-shadow-lg">∞</div>
+                <div className="text-sm text-gray-100 drop-shadow-md">Möjligheter</div>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Main Content */}
-      <div id="search" className="container mx-auto px-4 py-12">
+      {/* Value Proposition Section */}
+      <section className="bg-white py-20">
+        <div className="container mx-auto px-4">
+          <div className="mx-auto max-w-6xl">
+            <div className="grid gap-8 md:grid-cols-3">
+              {/* Feature 1 */}
+              <div className="text-center">
+                <div className="mb-4 inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-primary-100 to-cyan-100">
+                  <BookOpen className="h-7 w-7 text-primary-600" />
+                </div>
+                <h3 className="mb-2 text-lg font-semibold text-gray-900">
+                  Kopplat till kursplaner
+                </h3>
+                <p className="text-gray-600 leading-relaxed">
+                  Alla moduler är kopplade till Skolverkets centrala innehåll och läroplaner
+                </p>
+              </div>
 
-      {/* Search Section */}
+              {/* Feature 2 */}
+              <div className="text-center">
+                <div className="mb-4 inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-primary-100 to-cyan-100">
+                  <Target className="h-7 w-7 text-primary-600" />
+                </div>
+                <h3 className="mb-2 text-lg font-semibold text-gray-900">
+                  Praktiska aktiviteter
+                </h3>
+                <p className="text-gray-600 leading-relaxed">
+                  Färdiga lektionsupplägg med tydliga instruktioner och bedömningsstöd
+                </p>
+              </div>
+
+              {/* Feature 3 */}
+              <div className="text-center">
+                <div className="mb-4 inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-primary-100 to-cyan-100">
+                  <Sparkles className="h-7 w-7 text-primary-600" />
+                </div>
+                <h3 className="mb-2 text-lg font-semibold text-gray-900">
+                  AI-litteracitet integrerat
+                </h3>
+                <p className="text-gray-600 leading-relaxed">
+                  Sju dimensioner som väver in AI-förståelse naturligt i undervisningen
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* AI-Litteracitet Feature Card */}
+      <section className="bg-gray-50 py-16">
+        <div className="container mx-auto px-4">
+          <div className="mx-auto max-w-5xl">
+            <a
+              href="/ai-litteracitet"
+              className="group block overflow-hidden rounded-2xl bg-white border-2 border-gray-200 shadow-lg transition-all duration-300 hover:border-primary-300 hover:shadow-xl"
+            >
+              <div className="grid md:grid-cols-5 gap-8 items-center p-8 md:p-10">
+                {/* Left - Image */}
+                <div className="md:col-span-2 flex justify-center">
+                  <div className="relative">
+                    <div className="absolute -inset-4 bg-gradient-to-br from-primary-100/50 to-cyan-100/50 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                    <Image
+                      src="/menu_icon.png"
+                      alt="AI-litteracitet"
+                      width={160}
+                      height={160}
+                      className="relative drop-shadow-lg transition-transform duration-300 group-hover:scale-105"
+                    />
+                  </div>
+                </div>
+
+                {/* Right - Content */}
+                <div className="md:col-span-3">
+                  <div className="mb-3 inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-primary-100 to-cyan-100 px-3 py-1 text-xs font-semibold text-primary-700">
+                    <Sparkles className="h-3 w-3" />
+                    Didaktiskt ramverk
+                  </div>
+                  <h2 className="mb-3 text-2xl md:text-3xl font-bold text-gray-900">
+                    AI-litteracitet som didaktisk kompass
+                  </h2>
+                  <p className="mb-4 text-gray-600 leading-relaxed">
+                    Mer än verktygskunskap – en epistemisk förmåga att förstå hur kunskap formas och används när AI är en medskapare.
+                  </p>
+                  <div className="flex items-center gap-2 text-primary-600 font-semibold group-hover:gap-3 transition-all">
+                    <span>Utforska ramverket</span>
+                    <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* Main Content */}
+      <div id="search" className="container mx-auto px-4 py-16">
+
+      {/* Search Section Header */}
+      <div className="mb-8 text-center">
+        <h2 className="text-3xl font-bold text-gray-900 mb-2">Utforska moduler</h2>
+        <p className="text-gray-600">Sök och filtrera efter ämne, kurs eller AI-litteracitetsaspekt</p>
+      </div>
+
+      {/* Search Bar */}
       <div className="mb-8 animate-fade-in-up" style={{ animationDelay: '0.1s', animationFillMode: 'backwards' }}>
         <SearchBar
           value={searchQuery}
