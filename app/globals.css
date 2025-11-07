@@ -1,0 +1,347 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+    --radius: 0.5rem;
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: 'kern' 1, 'liga' 1, 'calt' 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  /* Förbättrad typografi för olika element */
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-semibold tracking-tight;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  /* Optimal läslängd för innehåll */
+  .prose {
+    @apply max-w-none;
+  }
+
+  .prose p {
+    @apply text-body-lg text-gray-700;
+    max-width: 70ch;
+  }
+
+  .prose h2 {
+    @apply text-h2-lg lg:text-h2-lg text-gray-900 mt-12 mb-6;
+  }
+
+  .prose h3 {
+    @apply text-h3-lg lg:text-h3-lg text-gray-900 mt-8 mb-4;
+  }
+
+  .prose h4 {
+    @apply text-xl text-gray-900 mt-6 mb-3;
+  }
+
+  .prose ul, .prose ol {
+    @apply text-body-lg text-gray-700;
+    max-width: 70ch;
+  }
+
+  .prose li {
+    @apply my-2;
+  }
+
+  .prose strong {
+    @apply font-semibold text-gray-900;
+  }
+
+  .prose em {
+    @apply italic text-gray-800;
+  }
+
+  .prose a {
+    @apply text-primary-600 hover:text-primary-700 underline decoration-primary-300 hover:decoration-primary-500 transition-colors duration-base;
+  }
+
+  .prose code {
+    @apply font-mono text-sm bg-gray-100 px-1.5 py-0.5 rounded text-gray-800;
+  }
+
+  .prose pre {
+    @apply bg-gray-900 text-gray-100 p-4 rounded-lg overflow-x-auto;
+  }
+
+  .prose pre code {
+    @apply bg-transparent p-0 text-gray-100;
+  }
+
+  .prose table {
+    @apply w-full text-left border-collapse my-6;
+  }
+
+  .prose thead {
+    @apply border-b-2 border-gray-300;
+  }
+
+  .prose th {
+    @apply font-semibold text-gray-900 p-3;
+  }
+
+  .prose td {
+    @apply p-3 border-b border-gray-200;
+  }
+
+  .prose blockquote {
+    @apply border-l-4 border-primary-500 pl-4 italic text-gray-700 my-6;
+  }
+
+  /* Sök-highlight stil */
+  mark {
+    @apply bg-yellow-200 text-gray-900 px-0.5 rounded;
+  }
+
+  /* Smooth scrolling för anchor links */
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 6rem; /* Account for sticky header */
+  }
+
+  /* Focus styles för accessibility */
+  *:focus-visible {
+    @apply outline-2 outline-offset-2 outline-primary-500;
+  }
+}
+
+/* Utility classes för konsekvent spacing */
+@layer utilities {
+  .container-reading {
+    @apply mx-auto max-w-4xl px-4 sm:px-6 lg:px-8;
+  }
+
+  .container-wide {
+    @apply mx-auto max-w-7xl px-4 sm:px-6 lg:px-8;
+  }
+
+  /* Elevation system */
+  .elevation-0 {
+    @apply shadow-none;
+  }
+
+  .elevation-1 {
+    @apply shadow-1 hover:shadow-2 transition-shadow duration-base;
+  }
+
+  .elevation-2 {
+    @apply shadow-2 hover:shadow-3 transition-shadow duration-base;
+  }
+
+  .elevation-3 {
+    @apply shadow-3 hover:shadow-4 transition-shadow duration-base;
+  }
+
+  /* Gradient text */
+  .text-gradient {
+    @apply bg-gradient-to-r from-primary-600 to-accent-600 bg-clip-text text-transparent;
+  }
+
+  /* Smooth transitions */
+  .transition-smooth {
+    @apply transition-all duration-base ease-smooth;
+  }
+
+  /* Pulse animation for interactive elements */
+  @keyframes pulse-subtle {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.8;
+    }
+  }
+
+  .pulse-subtle {
+    animation: pulse-subtle 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  /* Shimmer effect for loading states */
+  .shimmer {
+    background: linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0.5) 50%,
+      rgba(255, 255, 255, 0) 100%
+    );
+    background-size: 200% 100%;
+  }
+
+  /* Subtle background pattern */
+  .bg-pattern {
+    background-image: radial-gradient(circle at 1px 1px, rgb(209 213 219 / 0.15) 1px, transparent 0);
+    background-size: 32px 32px;
+  }
+}
+
+/* Print styles */
+@media print {
+  /* Hide non-essential elements */
+  nav,
+  aside,
+  button,
+  .no-print,
+  [role="complementary"] {
+    @apply hidden !important;
+  }
+
+  /* Reset colors for print */
+  * {
+    @apply text-black bg-white !important;
+  }
+
+  /* Optimize typography for print */
+  body {
+    @apply text-sm !important;
+  }
+
+  h1 {
+    @apply text-2xl mb-4 !important;
+  }
+
+  h2 {
+    @apply text-xl mb-3 mt-6 !important;
+    page-break-after: avoid;
+  }
+
+  h3 {
+    @apply text-lg mb-2 mt-4 !important;
+    page-break-after: avoid;
+  }
+
+  /* Avoid breaks inside elements */
+  p, ul, ol, pre, blockquote {
+    page-break-inside: avoid;
+  }
+
+  /* Show links */
+  a[href]:after {
+    content: " (" attr(href) ")";
+    @apply text-xs text-gray-600;
+  }
+
+  a[href^="#"]:after,
+  a[href^="javascript:"]:after {
+    content: "";
+  }
+
+  /* Optimize spacing */
+  .container {
+    @apply max-w-full px-8 !important;
+  }
+
+  /* Show print-only elements */
+  .print-only {
+    @apply block !important;
+  }
+
+  /* Selective section printing - when printing a specific section */
+  body[data-print-section] .prose > * {
+    @apply hidden !important;
+  }
+
+  /* Show the module title and breadcrumb */
+  body[data-print-section] h1,
+  body[data-print-section] nav {
+    @apply block !important;
+  }
+
+  /* Hide all section groups by default */
+  body[data-print-section] .prose .group {
+    @apply hidden !important;
+  }
+
+  /* Show only the target section that was marked by PrintHandler */
+  body[data-print-section] .prose .print-target-section {
+    @apply block !important;
+  }
+
+  /* Selective activity printing - when printing a specific activity */
+  body[data-print-activity] .prose > * {
+    @apply hidden !important;
+  }
+
+  body[data-print-activity] h1,
+  body[data-print-activity] nav {
+    @apply block !important;
+  }
+
+  /* Hide all activities by default */
+  body[data-print-activity] .prose > div[id] {
+    @apply hidden !important;
+  }
+
+  /* Show only the target activity that was marked by PrintHandler */
+  body[data-print-activity] .print-target-activity {
+    @apply block !important;
+  }
+}
