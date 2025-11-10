@@ -70,14 +70,14 @@ export function TableOfContents({
 
   return (
     <nav className={cn("space-y-1 sticky top-24", className)} aria-label="Innehållsförteckning">
-      <div className="rounded-xl border border-gray-200 bg-white/80 backdrop-blur-sm p-4 shadow-sm">
-        <p className="mb-3 text-sm font-semibold text-gray-900 flex items-center gap-2">
+      <div className="rounded-xl border border-gray-200 bg-white/80 backdrop-blur-sm p-4 shadow-sm max-h-[calc(100vh-7rem)] flex flex-col">
+        <p className="mb-3 text-sm font-semibold text-gray-900 flex items-center gap-2 flex-shrink-0">
           <svg className="h-4 w-4 text-primary-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
           </svg>
           På denna sida
         </p>
-        <ul className="space-y-1 text-sm">
+        <ul className="space-y-1 text-sm overflow-y-auto pr-2 -mr-2 custom-scrollbar">
           {headings.map((heading) => (
             <li key={heading.id}>
               <a
