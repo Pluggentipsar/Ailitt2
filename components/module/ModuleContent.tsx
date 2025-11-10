@@ -8,6 +8,12 @@ import { TableOfContents } from "@/components/navigation/TableOfContents";
 import { MobileTOCDrawer } from "@/components/navigation/MobileTOCDrawer";
 import { SectionActions } from "@/components/ui/SectionActions";
 import { useMemo, createContext, useContext } from "react";
+import {
+  TaskDetails,
+  TaskCard,
+  TaskDeck,
+  UppgiftsbankHighlights,
+} from "@/components/uppgiftsbank/UppgiftsbankUI";
 
 interface ModuleContentProps {
   module: Module;
@@ -93,7 +99,10 @@ export function ModuleContent({ module }: ModuleContentProps) {
   const mdxComponents = {
     ActivityBlock,
     h2: H2WithActions,
-    // h3 doesn't need IDs since they're not in TOC
+    UppgiftsbankHighlights,
+    TaskCard,
+    TaskDeck,
+    details: TaskDetails,
   };
 
   return (

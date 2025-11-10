@@ -7,13 +7,15 @@ import { ScrollProgress } from "@/components/ui/ScrollProgress";
 import { ModuleActions } from "@/components/module/ModuleActions";
 import { getSubjectColors } from "@/lib/subject-colors";
 
-interface PageProps {
-  params: {
-    subject: string;
-    course: string;
-    slug: string;
-  };
-}
+type ModuleRouteParams = {
+  subject: string;
+  course: string;
+  slug: string;
+};
+
+type ModulePageProps = {
+  params: Promise<ModuleRouteParams>;
+};
 
 export async function generateStaticParams() {
   return allModules.map((module) => {
@@ -26,13 +28,14 @@ export async function generateStaticParams() {
   });
 }
 
-export async function generateMetadata({ params }: PageProps) {
+export async function generateMetadata({ params }: ModulePageProps) {
+  const resolvedParams = await params;
   const module = allModules.find((m) => {
     const parts = m._raw.flattenedPath.split("/");
     return (
-      parts[0] === params.subject &&
-      parts[1] === params.course &&
-      parts[2] === params.slug
+      parts[0] === resolvedParams.subject &&
+      parts[1] === resolvedParams.course &&
+      parts[2] === resolvedParams.slug
     );
   });
 
@@ -48,13 +51,14 @@ export async function generateMetadata({ params }: PageProps) {
   };
 }
 
-export default function ModulePage({ params }: PageProps) {
+export default async function ModulePage({ params }: ModulePageProps) {
+  const resolvedParams = await params;
   const module = allModules.find((m) => {
     const parts = m._raw.flattenedPath.split("/");
     return (
-      parts[0] === params.subject &&
-      parts[1] === params.course &&
-      parts[2] === params.slug
+      parts[0] === resolvedParams.subject &&
+      parts[1] === resolvedParams.course &&
+      parts[2] === resolvedParams.slug
     );
   });
 
@@ -63,6 +67,16 @@ export default function ModulePage({ params }: PageProps) {
   }
 
   const colors = getSubjectColors(module.subject);
+  const courseLabel = module.course?.toLowerCase() ?? "";
+  const useSvenskaHero = courseLabel.includes("svenska 1");
+  const heroStyles = useSvenskaHero
+    ? {
+        backgroundImage:
+          "linear-gradient(135deg, rgba(20,184,166,0.92) 0%, rgba(6,182,212,0.9) 55%, rgba(15,118,110,0.9) 100%), url(/svenska.png)",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+      }
+    : { background: colors.gradient };
 
   return (
     <>
@@ -77,14 +91,11 @@ export default function ModulePage({ params }: PageProps) {
 
         {/* Header with gradient background */}
         <header
-          className="mb-12 rounded-2xl overflow-hidden shadow-3 animate-fade-in-up"
-          style={{ animationDelay: '0.1s', animationFillMode: 'backwards' }}
+          className="mb-12 overflow-hidden rounded-2xl shadow-3 animate-fade-in-up"
+          style={{ animationDelay: "0.1s", animationFillMode: "backwards" }}
         >
           {/* Gradient background */}
-          <div
-            className="relative p-8 md:p-12"
-            style={{ background: colors.gradient }}
-          >
+          <div className="relative p-8 md:p-12" style={heroStyles}>
             {/* Subtle pattern overlay */}
             <div className="absolute inset-0 bg-pattern opacity-10"></div>
 

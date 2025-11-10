@@ -1,200 +1,278 @@
 "use client";
 
-import Image from "next/image";
 import { AiLiteracyBadge } from "@/components/ui/AiLiteracyBadge";
 import { aiLiteracyConfig } from "@/lib/aiLiteracyConfig";
 
 const principles = [
   {
     title: "Transparens i process",
-    description: "Eleverna behöver kunna beskriva hur AI har använts: syfte, prompt, bearbetning och reflektion. Dokumentationen gör lärandet synligt och förhandlingsbart.",
+    description:
+      "Eleverna dokumenterar hur AI har använts: syfte, prompt, bearbetning och slutsatser. Det gör lärandet synligt och går att bedöma.",
   },
   {
     title: "Begreppslig förståelse",
-    description: "AI-litteracitet kräver ett gemensamt språk för modeller, data, bias och etik. Utan begrepp blir det svårt att värdera resultat eller styra verktygen med omdöme.",
+    description:
+      "Ett gemensamt språk för modeller, data, bias och etik är avgörande för att kunna styra verktygen med omdöme.",
   },
   {
     title: "Kritisk och kreativ flexibilitet",
-    description: "Vi tränar eleverna att både ifrågasätta och laborera med AI för att stärka den egna rösten – inte ersätta den. Tekniken blir ett stöd, inte en genväg.",
+    description:
+      "Vi tränar eleverna att både ifrågasätta och laborera tillsammans med AI för att stärka den egna rösten – inte ersätta den.",
   },
+];
+
+const heroStats = [
+  {
+    value: "7",
+    label: "dimensioner",
+    description: "Från berättelser till samhällsanalys",
+  },
+  {
+    value: "3",
+    label: "didaktiska axlar",
+    description: "Förstå, använda och reflektera",
+  },
+  {
+    value: "∞",
+    label: "kombinationer",
+    description: "Anpassa till ämne, nivå och syfte",
+  },
+];
+
+const commitments = [
+  "Behåll mänsklig agens när AI blir medtänkare.",
+  "Låt frågor, inte verktyg, styra undervisningen.",
+  "Synliggör hur AI påverkar röst, stil och källor.",
 ];
 
 export default function AILitteracitetPage() {
   return (
-    <div className="min-h-screen">
-      {/* Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-primary-500 via-cyan-500 to-blue-500 pb-20 pt-24 sm:pb-32 sm:pt-32">
-        {/* Pattern overlay */}
-        <div className="absolute inset-0 bg-pattern opacity-10" />
+    <div className="min-h-screen bg-gray-50">
+      <section className="relative overflow-hidden pb-28 pt-32 sm:pb-36 sm:pt-40">
+        <div
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: "url(/ailitt_background.png)" }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-br from-slate-950/90 via-cyan-900/70 to-sky-800/40" />
+        <div className="absolute inset-0 bg-pattern opacity-20" />
 
-        <div className="container relative mx-auto px-4">
-          <div className="mx-auto max-w-4xl text-center">
-            <h1 className="mb-6 text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight text-white drop-shadow-lg">
+        <div className="container relative mx-auto px-4 text-white">
+          <div className="mx-auto max-w-4xl text-center drop-shadow-[0_8px_30px_rgba(3,7,18,0.35)]">
+            <p className="text-sm font-semibold uppercase tracking-[0.35em] text-white/70">
+              AI-LITTERACITET
+            </p>
+            <h1 className="mt-4 text-4xl font-bold leading-tight sm:text-5xl lg:text-6xl">
               AI-litteracitet som didaktisk kompass
             </h1>
-            <p className="mx-auto mb-8 max-w-3xl text-xl text-white/90 leading-relaxed drop-shadow-md">
+            <p className="mx-auto mt-6 max-w-3xl text-lg text-white/90 leading-relaxed">
               AI-litteracitet är mer än verktygskunskap. Det är en epistemisk förmåga att förstå hur kunskap formas, värderas och används i en tid där AI är en medskapare. Här bryter vi ner ramverket i sju dimensioner med progression från berättelser till samhällsanalys.
             </p>
+          </div>
+
+          <div className="mx-auto mt-12 grid max-w-4xl gap-5 sm:grid-cols-3">
+            {heroStats.map((stat) => (
+              <div
+                key={stat.label}
+                className="rounded-3xl border border-white/20 bg-white/10 p-6 text-white backdrop-blur-lg shadow-lg shadow-cyan-900/20"
+              >
+                <p className="text-4xl font-bold">{stat.value}</p>
+                <p className="text-xs font-semibold uppercase tracking-[0.35em] text-white/70">
+                  {stat.label}
+                </p>
+                <p className="mt-2 text-sm text-white/85">{stat.description}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Main Content */}
-      <div className="container mx-auto px-4 py-16">
-        {/* Grundtanken */}
-        <section className="mb-20 mx-auto max-w-4xl">
-          <h2 className="mb-6 text-3xl font-bold text-gray-900">
-            Grundtanken: epistemisk medvetenhet
-          </h2>
-
-          <div className="prose prose-lg max-w-none">
-            <p className="text-gray-700 leading-relaxed mb-4">
-              Epistemisk medvetenhet handlar om att förstå hur kunskap formas, förmedlas och värderas – och att bli medveten om hur våra sätt att tänka påverkas av verktygen vi använder, särskilt AI.
-            </p>
-
-            <p className="text-gray-700 leading-relaxed mb-4">
-              När vi interagerar med en chattbot sker inte bara en informationsutväxling; det sker en förhandling om vad som räknas som kunskap. I klassrummet innebär det att elever inte bara behöver lära sig hur AI fungerar, utan också hur AI påverkar dem som tänkande och lärande människor.
-            </p>
-
-            <div className="bg-gradient-to-br from-primary-50 to-cyan-50 border-l-4 border-primary-500 p-6 rounded-lg my-8">
-              <p className="text-gray-800 italic font-medium">
-                Processmodellen "Jag – AI – Jag" uppmuntrar eleverna att pausa, formulera frågor, pröva tillsammans med AI och sedan återta ägandeskapet över slutsatsen.
+      <div className="container relative z-10 mx-auto -mt-12 space-y-16 px-4 pb-24">
+        <section className="mx-auto max-w-5xl rounded-3xl border border-white/40 bg-white/95 p-10 shadow-2xl shadow-cyan-200/30 backdrop-blur">
+          <div className="flex flex-col gap-8 lg:flex-row">
+            <div className="flex-1">
+              <p className="text-xs font-semibold uppercase tracking-[0.35em] text-cyan-600">
+                GRUNDTANKEN
               </p>
-            </div>
-
-            <p className="text-gray-700 leading-relaxed mb-4">
-              Målet är inte att avvisa eller okritiskt omfamna AI, utan att behålla mänsklig agens – att tänka med AI utan att låta AI tänka åt oss. Frågorna står i centrum och bär lärandet, men de kräver eftertanke: vilka röster hörs i AI:s svar – och vilka saknas? Vad händer med min förståelse när jag samarbetar med AI?
-            </p>
-
-            <p className="text-gray-700 leading-relaxed">
-              Den som använder modellen uppmuntras att vara kritisk, nyfiken och självständig. Att pröva, reflektera och avgöra vad som är mest relevant i den egna kontexten.
-            </p>
-          </div>
-        </section>
-
-        {/* Om ramverket */}
-        <section className="mb-20 mx-auto max-w-4xl">
-          <h2 className="mb-6 text-3xl font-bold text-gray-900">
-            Om ramverket
-          </h2>
-
-          <div className="prose prose-lg max-w-none">
-            <p className="text-gray-700 leading-relaxed mb-4">
-              Ramverket bygger på OECD:s modell för AI-kompetenser och tolkas här med fokus på epistemisk medvetenhet.
-            </p>
-
-            <p className="text-gray-700 leading-relaxed mb-6">
-              OECD beskriver tre övergripande dimensioner: att förstå AI, att använda AI och att reflektera kring AI. Här omtolkas de utifrån skolans didaktiska vardag och ett tydligt fokus på kunskapens vägar.
-            </p>
-
-            <div className="grid gap-4 md:grid-cols-3 mb-6">
-              <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
-                <h3 className="font-semibold text-gray-900 mb-2">1. Att förstå AI</h3>
-                <p className="text-sm text-gray-600">Hur tekniken fungerar, dess möjligheter och begränsningar.</p>
-              </div>
-              <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
-                <h3 className="font-semibold text-gray-900 mb-2">2. Att använda AI</h3>
-                <p className="text-sm text-gray-600">Kunna samarbeta med och styra AI-verktyg på ett ansvarsfullt sätt.</p>
-              </div>
-              <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
-                <h3 className="font-semibold text-gray-900 mb-2">3. Att reflektera kring AI</h3>
-                <p className="text-sm text-gray-600">Förstå de etiska, sociala och samhälleliga konsekvenserna.</p>
+              <h2 className="mt-3 text-3xl font-bold text-gray-900">
+                Epistemisk medvetenhet
+              </h2>
+              <div className="mt-5 space-y-4 text-lg leading-relaxed text-gray-700">
+                <p>
+                  Epistemisk medvetenhet handlar om att förstå hur kunskap formas,
+                  förmedlas och värderas – och att se hur våra sätt att tänka
+                  påverkas av verktygen vi använder, särskilt AI.
+                </p>
+                <p>
+                  När vi interagerar med en chattbot sker inte bara en
+                  informationsutväxling; det sker en förhandling om vad som räknas
+                  som kunskap. Elever behöver därför förstå både hur AI fungerar och
+                  hur AI formar dem som tänkande och lärande människor.
+                </p>
+                <p>
+                  Målet är inte att avvisa eller okritiskt omfamna AI, utan att
+                  behålla mänsklig agens – att tänka med AI utan att låta AI tänka åt
+                  oss.
+                </p>
               </div>
             </div>
 
-            <p className="text-gray-700 leading-relaxed">
-              Målet är att eleverna ska veta så mycket om AI att de själva kan bestämma vad AI ska vara för dem – verktyg, medspelare eller spegel. Samtidigt behöver vi behålla ett kritiskt omdöme.
-            </p>
+            <div className="w-full rounded-3xl bg-gradient-to-br from-cyan-600/90 via-sky-500/85 to-blue-500/85 p-8 text-white shadow-xl lg:w-96">
+              <p className="text-sm font-semibold uppercase tracking-[0.35em] text-white/70">
+                PROCESSMODELL
+              </p>
+              <h3 className="mt-2 text-2xl font-semibold">
+                ”Jag – AI – Jag”
+              </h3>
+              <p className="mt-3 text-white/90">
+                Pausa, formulera frågor, pröva tillsammans med AI och återta sedan
+                ägandeskapet över slutsatserna.
+              </p>
+              <ul className="mt-6 space-y-3 text-sm text-white/90">
+                {commitments.map((item) => (
+                  <li
+                    key={item}
+                    className="flex items-start gap-3 rounded-2xl bg-white/10 p-3"
+                  >
+                    <span className="mt-1 h-2 w-2 rounded-full bg-white/70" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
         </section>
 
-        {/* Tre principer */}
-        <section className="mb-20">
-          <div className="mx-auto max-w-4xl mb-12">
-            <h2 className="mb-6 text-3xl font-bold text-gray-900">
-              Tre principer i klassrummet
+        <section className="mx-auto max-w-5xl">
+          <div className="rounded-3xl border border-gray-100 bg-white p-10 shadow-lg">
+            <p className="text-xs font-semibold uppercase tracking-[0.35em] text-gray-500">
+              OM RAMVERKET
+            </p>
+            <h2 className="mt-3 text-3xl font-bold text-gray-900">
+              OECD:s tre axlar, tolkade för klassrummet
             </h2>
-            <p className="text-gray-700 leading-relaxed">
-              Principerna hjälper dig omsätta epistemisk medvetenhet i planering och undervisning.
+            <div className="mt-6 grid gap-6 md:grid-cols-3">
+              {[
+                {
+                  title: "Förstå AI",
+                  body: "Begrepp, datakvalitet, bias och hur modeller tränas.",
+                },
+                {
+                  title: "Använd AI",
+                  body: "Strategier, verktygshantering och respons i arbetsprocesser.",
+                },
+                {
+                  title: "Reflektera kring AI",
+                  body: "Etik, relationer, samhällskritik och epistemisk beredskap.",
+                },
+              ].map((item) => (
+                <div
+                  key={item.title}
+                  className="rounded-2xl border border-gray-100 bg-gradient-to-br from-gray-50 to-white p-6 shadow-sm"
+                >
+                  <h3 className="text-xl font-semibold text-gray-900">
+                    {item.title}
+                  </h3>
+                  <p className="mt-2 text-sm text-gray-600">{item.body}</p>
+                </div>
+              ))}
+            </div>
+            <p className="mt-6 text-gray-600">
+              Axlarna vävs samman i AI-litteracitet. Vi börjar i berättelserna,
+              skiftar till förståelse och praktiskt användande, och landar i etik,
+              relationer och samhällsanalys.
             </p>
           </div>
+        </section>
 
-          <div className="grid gap-8 md:grid-cols-3 max-w-6xl mx-auto">
+        <section className="mx-auto max-w-5xl">
+          <div className="mb-10 text-center">
+            <p className="text-xs font-semibold uppercase tracking-[0.35em] text-cyan-600">
+              DIDAKTISKA PRINCIPER
+            </p>
+            <h2 className="mt-3 text-3xl font-bold text-gray-900">
+              Så håller vi ihop form, innehåll och etik
+            </h2>
+          </div>
+          <div className="grid gap-6 md:grid-cols-3">
             {principles.map((principle, index) => (
               <div
-                key={index}
-                className="bg-gradient-to-br from-white to-gray-50 border border-gray-200 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow"
+                key={principle.title}
+                className="relative rounded-3xl border border-gray-100 bg-white p-6 shadow-lg shadow-cyan-100/60"
               >
-                <div className="mb-4 inline-flex items-center justify-center w-12 h-12 rounded-full bg-gradient-to-br from-primary-500 to-cyan-500 text-white font-bold text-xl">
+                <div className="absolute -top-3 left-6 inline-flex h-10 w-10 items-center justify-center rounded-full bg-cyan-500 text-lg font-bold text-white shadow-md">
                   {index + 1}
                 </div>
-                <h3 className="font-bold text-xl text-gray-900 mb-3">
+                <h3 className="mt-6 text-xl font-semibold text-gray-900">
                   {principle.title}
                 </h3>
-                <p className="text-gray-600 leading-relaxed">
-                  {principle.description}
-                </p>
+                <p className="mt-3 text-gray-600">{principle.description}</p>
               </div>
             ))}
           </div>
         </section>
 
-        {/* Sju dimensioner */}
-        <section className="mb-20">
-          <div className="mx-auto max-w-4xl mb-12 text-center">
-            <h2 className="mb-6 text-3xl font-bold text-gray-900">
-              Sju dimensioner – en progression
+        <section>
+          <div className="mx-auto mb-12 max-w-3xl text-center">
+            <p className="text-xs font-semibold uppercase tracking-[0.35em] text-gray-500">
+              SJU DIMENSIONER
+            </p>
+            <h2 className="mt-3 text-3xl font-bold text-gray-900">
+              En progression att kombinera
             </h2>
-            <p className="text-gray-700 leading-relaxed">
-              Dimensionerna kan kombineras men bygger också på varandra. Börja i berättelserna, gå vidare mot förståelse och användning, och landa i etik, relationer och samhällsanalys.
+            <p className="mt-4 text-gray-600">
+              Dimensionerna kan läsas i ordning eller kombineras efter behov.
+              Tillsammans ger de ett språk för att planera undervisning där AI
+              blir medtänkare utan att dominera.
             </p>
           </div>
-
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto">
+          <div className="mx-auto grid max-w-6xl gap-6 md:grid-cols-2 lg:grid-cols-3">
             {aiLiteracyConfig.map((dimension, index) => (
               <div
                 key={dimension.id}
-                className={`group relative bg-gradient-to-br ${dimension.gradient} border border-white/50 rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105`}
+                className={`group relative rounded-2xl border border-white/50 bg-gradient-to-br ${dimension.gradient} p-6 text-white shadow-lg transition duration-300 hover:-translate-y-1 hover:shadow-2xl`}
               >
-                {/* Steg nummer */}
-                <div className="absolute -top-3 -right-3 w-10 h-10 bg-white rounded-full shadow-md flex items-center justify-center">
-                  <span className="text-sm font-bold text-gray-900">
-                    {index === 0 ? "0" : index}
-                  </span>
+                <div className="absolute -top-3 -right-3 flex h-10 w-10 items-center justify-center rounded-full bg-white/90 text-sm font-bold text-gray-900 shadow-lg">
+                  {index === 0 ? "0" : index}
                 </div>
-
-                {/* Badge */}
                 <div className="mb-4">
                   <AiLiteracyBadge id={dimension.id} showTooltip={false} />
                 </div>
-
-                {/* Description */}
-                <p className="text-gray-700 leading-relaxed text-sm">
+                <p className="text-sm leading-relaxed text-white/90">
                   {dimension.description}
                 </p>
-
-                {/* Hover decoration */}
-                <div className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${dimension.dotColor} opacity-0 group-hover:opacity-5 transition-opacity duration-300`} />
+                <div
+                  className={`pointer-events-none absolute inset-0 rounded-2xl opacity-0 transition-opacity duration-300 group-hover:opacity-15 ${dimension.dotColor}`}
+                />
               </div>
             ))}
           </div>
         </section>
 
-        {/* CTA Section */}
-        <section className="bg-gradient-to-br from-primary-500 via-cyan-500 to-blue-500 rounded-3xl p-12 text-center shadow-2xl max-w-4xl mx-auto">
-          <h2 className="text-3xl font-bold text-white mb-4 drop-shadow-lg">
-            Redo att börja?
+        <section className="mx-auto max-w-4xl rounded-3xl border border-cyan-100 bg-gradient-to-br from-cyan-500 via-sky-500 to-blue-600 p-12 text-center text-white shadow-xl">
+          <h2 className="text-3xl font-bold drop-shadow-lg">
+            Redo att bygga AI-litteracitet i undervisningen?
           </h2>
-          <p className="text-xl text-white/90 mb-8 drop-shadow-md">
-            Utforska moduler som integrerar AI-litteracitet i undervisningen
+          <p className="mt-4 text-white/90">
+            Utforska moduler som använder dimensionerna i praktiken – från Svenska
+            1 till kommande ämneshubbar.
           </p>
           <a
-            href="/"
-            className="inline-flex items-center gap-2 rounded-full bg-white px-8 py-4 font-semibold text-primary-600 shadow-lg transition-all duration-200 hover:shadow-xl hover:scale-105 active:scale-95"
+            href="/amnen"
+            className="mt-8 inline-flex items-center gap-2 rounded-full bg-white px-8 py-4 text-base font-semibold text-cyan-600 shadow-lg transition hover:-translate-y-0.5 hover:shadow-2xl"
           >
-            Till modulerna
-            <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            Till ämneshubbarna
+            <svg
+              className="h-5 w-5"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M17 8l4 4m0 0l-4 4m4-4H3"
+              />
             </svg>
           </a>
         </section>

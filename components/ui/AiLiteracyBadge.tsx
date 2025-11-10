@@ -87,6 +87,7 @@ interface AiLiteracyBadgeListProps {
   className?: string;
   onBadgeClick?: (id: number) => void;
   activeIds?: number[];
+  showTooltip?: boolean;
 }
 
 export function AiLiteracyBadgeList({
@@ -94,6 +95,7 @@ export function AiLiteracyBadgeList({
   className,
   onBadgeClick,
   activeIds = [],
+  showTooltip = true,
 }: AiLiteracyBadgeListProps) {
   return (
     <div className={cn("flex flex-wrap gap-2", className)}>
@@ -103,6 +105,7 @@ export function AiLiteracyBadgeList({
           id={id}
           onClick={onBadgeClick ? () => onBadgeClick(id) : undefined}
           isActive={activeIds.includes(id)}
+          showTooltip={showTooltip}
         />
       ))}
     </div>
