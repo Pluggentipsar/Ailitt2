@@ -45,7 +45,7 @@ export const SUBJECT_CONFIGS: SubjectHubConfig[] = [
       "Här samlar vi kompletta arbetsområden, uppgiftsbanker och stöd för bedömning. Varje modul knyter an till ämnesplanen och väver in AI som medtänkare utan att tappa ämnesdjupet.",
     highlights: [
       "Kompletta moduler för Svenska 1",
-      "Planerade spår för Svenska 2–3",
+      "Svenska 2 med fördjupad retorik och AI-litteracitet",
       "Bedömning, respons och uppgiftsbank",
     ],
     hero: {
@@ -66,7 +66,7 @@ export const SUBJECT_CONFIGS: SubjectHubConfig[] = [
         slug: "svenska-2",
         title: "Svenska 2",
         description: "Fördjupande moduler om retorik, kritisk textanalys, vetenskapligt skrivande och källmedvetenhet med AI.",
-        status: "planned",
+        status: "available",
       },
       {
         slug: "svenska-3",
