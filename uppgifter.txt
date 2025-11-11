@@ -1,0 +1,910 @@
+Svenska 2
+📚 Tema 1: AI i skolan – hot eller hjälp?
+Källa:
+	• Skolverket (2024-12-12). “Begränsad användning av AI-tjänster i grundskolan, fritidshem och förskoleklass.”
+	• Sveriges Radio (2025). “Läraren Peter använder AI i skolan: ’Blivit lite som en kollega’.”
+Uppgift:
+Skriv ett utredande PM med frågeställningen:
+	“Hur påverkar generativ AI lärarrollen och elevers lärande?”
+Syfte och lärandefokus:
+	• Förstå och analysera hur digitala verktyg påverkar undervisning och lärande.
+	• Träna på att väga fördelar och nackdelar utifrån flera perspektiv (lärare, elev, samhälle).
+	• AI-litteracitet: använd AI som strukturstöd men verifiera fakta via artiklarna.
+AI-stöd i processen:
+Promptförslag:
+	“Ge mig tre olika dispositioner för ett PM om AI i skolan med fokus på lärarrollen.”
+Centralt innehåll:
+	• Skriftlig framställning av utredande texter.
+	• Informationssökning och värdering av information.
+	• Digitala verktyg för textbearbetning.
+
+⚖️ Tema 2: Rättvisa, makt och algoritmer
+Källa:
+	• Dagens Nyheter (2024-08-05). “Sverige måste återta makten över algoritmerna.”
+	• Sveriges Ingenjörer (2024-06-20). “Jämställdhet inom AI är en demokratifråga.”
+Uppgift:
+Skriv en debattartikel där du tar ställning till:
+	“AI gör samhället mer effektivt men mindre rättvist.”
+Syfte och lärandefokus:
+	• Träna argumentation med tydlig tes och motargument.
+	• Diskutera bias, transparens och etik i teknik.
+	• Reflektera över språkets makt och demokratiska dimension.
+AI-stöd i processen:
+Promptförslag:
+	“Agera som djävulens advokat. Jag argumenterar för att AI hotar jämlikhet – ge mig tre motargument som jag kan bemöta.”
+Centralt innehåll:
+	• Skriftlig och muntlig argumentation.
+	• Retoriska verkningsmedel.
+	• Etiska perspektiv i språk och samhälle.
+
+🧠 Tema 3: AI, desinformation och demokrati
+Källa:
+	• Stockholms universitet (2025-10-02). “AI och demokratin – därför måste vi få inflytande över utvecklingen.”
+	• Omni (2024-04). “Många elever litar för mycket på AI.”
+Uppgift:
+Skriv ett argumenterande tal för klassen på temat:
+	“AI hotar demokratin genom att påverka vår tillgång till sanning.”
+Syfte och lärandefokus:
+	• Utveckla förmågan att använda retorik för att förklara komplexa samhällsfrågor.
+	• Kritiskt granska informationskällor och förstå begrepp som filterbubbla och bias.
+	• Använd AI för att testa olika inledningar, men skriv talet självständigt.
+AI-stöd i processen:
+Promptförslag:
+	“Ge mig tre olika inledningar till ett tal som handlar om AI och sanning – en personlig, en saklig, och en provocerande.”
+Centralt innehåll:
+	• Muntlig framställning av utredande och argumenterande slag.
+	• Retoriska verkningsmedel.
+	• Informationssökning och värdering av information.
+
+🎨 Tema 4: Kreativitet, konst och ägande
+Källa:
+	• Akademikerförbundet SSR (2024-05-28). “Sverige blundar för AI-skandalerna i välfärden.”
+	• Dagens Nyheter (2024-03-29). “När AI frågar behöver Sverige intelligenta svar.”
+Uppgift:
+Skriv en essä eller krönika:
+	“Om AI kan skapa konst, musik och litteratur – vad återstår då för människan?”
+Syfte och lärandefokus:
+	• Utforska gränsen mellan människa och maskin i skapandet.
+	• Träna på stilistisk variation och personlig röst.
+	• Diskutera etik, upphovsrätt och kreativitet.
+AI-stöd i processen:
+Promptförslag:
+	“Läs min text och föreslå en metafor som förstärker temat människa kontra maskin.”
+Centralt innehåll:
+	• Kreativt skrivande och språkets estetiska funktion.
+	• Språkliga drag i argumenterande och reflekterande texter.
+	• Etik och upphovsrätt.
+
+🧩 Tema 5: AI och framtidens arbetsliv
+Källa:
+
+Uppgift:
+Skriv ett PM med frågeställningen:
+	“Hur förändrar AI framtidens yrken – och vilka färdigheter blir viktigast?”
+Syfte och lärandefokus:
+	• Träna utredande skrivande och källkritisk syntes.
+	• Diskutera framtid, arbetsmarknad och kompetens.
+	• Reflektera över hur språk och kommunikation påverkas i ett AI-samhälle.
+AI-stöd i processen:
+Promptförslag:
+	“Föreslå tre möjliga frågeställningar för ett PM om AI och framtidens arbetsliv, med fokus på gymnasieelever.”
+Centralt innehåll:
+	• Skriftlig framställning av utredande texter.
+	• Samhällsanalys och framtidsperspektiv.
+	• Språklig variation och formalia.
+
+    🧩 Del C – Uppgiftskort med AI-integration
+Varje uppgiftskort innehåller:
+1️⃣ Uppgiftstyp, 2️⃣ AI-användning, 3️⃣ Centralt innehåll, 4️⃣ AI-litteracitetsfokus.
+
+🃏 Uppgiftskort 1 – Dialog med AI om moral och makt
+Uppgift:
+Efter att ha läst Kallocain eller 1984, skriv en reflekterande text där du samtalar med en AI om övervakning och sanning.
+AI ska få rollen som en karaktär i romanen (t.ex. Leo Kall eller O’Brien).
+AI-användning:
+Prompt:
+	“Agera som Leo Kall och förklara varför övervakning är nödvändig. Jag kommer att ifrågasätta dig som en nutida medborgare.”
+Bedömning:
+	• Analysdjup, etiskt resonemang, textbindning.
+	• Eleven ska i metatexten redovisa AI:s roll i processen.
+Centralt innehåll:
+Argumenterande skrivande, litteraturanalys, etik.
+AI-litteracitet: 3️⃣ Etik, 5️⃣ Människa & maskin.
+
+🃏 Uppgiftskort 2 – Stiltransformation
+Uppgift:
+AI skriver om ett stycke ur Romeo och Julia i futuristisk dystopistil.
+Eleven analyserar: Vad händer med språket, världsbilden och människosynen?
+AI-användning:
+	“Skriv om Julias monolog i Romeo och Julia som om hon vore en robot i år 2150.”
+Bedömning:
+	• Stilistisk analys, litteraturhistorisk förståelse, reflektion.
+Centralt innehåll:
+Skönlitterära verkningsmedel, epoker, språkvariation.
+AI-litteracitet: 0️⃣ Berättelsen om AI, 5️⃣ Människa & maskin.
+
+🃏 Uppgiftskort 3 – AI som litteraturkritiker
+Uppgift:
+Läs en novell (t.ex. Ett halvt ark papper).
+Be AI analysera den och jämför dess tolkning med din egen.
+Skriv sedan ett kort PM: ”Vad kan AI förstå – och inte förstå – i litteratur?”
+AI-användning:
+	“Analysera novellen Ett halvt ark papper och diskutera vad den säger om mänsklig sorg.”
+Centralt innehåll:
+Analys av skönlitteratur, muntlig och skriftlig framställning.
+AI-litteracitet: 4️⃣ Kritiskt granska AI-genererat innehåll.
+
+🃏 Uppgiftskort 4 – Kreativt skrivande: Mitt liv som algoritm
+Uppgift:
+Skriv en kort berättelse i jag-form där du vaknar upp som en AI-modell.
+Hur förändras ditt sätt att tänka, känna och förstå världen?
+AI-användning:
+	“Ge tre idéer för hur en AI skulle beskriva känslan av att ‘bli medveten’.”
+Centralt innehåll:
+Kreativt skrivande, språklig variation, identitet.
+AI-litteracitet: 5️⃣ Människa & maskin, 6️⃣ Framtid & samhälle.
+
+🃏 Uppgiftskort 5 – Litteratur och samtid: Den digitala etiken
+Uppgift:
+Koppla ett klassiskt verk till en samtida debattartikel om teknik, ansvar eller identitet.
+Exempel: Frankenstein ↔ DN-artikel: “Vem tar ansvar när AI skadar?”
+AI-användning:
+	“Sammanfatta DN-artikeln om AI-etik och jämför dess budskap med Shelleys Frankenstein.”
+Bedömning:
+Förmåga att göra textkopplingar, syntes och samhällsanalys.
+AI-litteracitet: 3️⃣ Etik, 4️⃣ Kritiskt granska, 6️⃣ Framtid & samhälle.
+
+
+“Hur tänker en maskin?” – Vad AI egentligen är (och inte är)
+
+Typ:
+Informerande/utredande
+AI-litteracitet:
+1. Vad är AI
+
+Syfteskoppling: Utvecklar förmågan att förklara, analysera och använda språk för lärande.
+
+Centralt innehåll: Muntlig framställning av utredande slag; informationssökning och värdering av information.
+
+Användning: Eleverna förklarar hur språkmodeller fungerar och jämför maskinellt "tänkande" med mänskligt tänkande.
+
+
+02
+“AI i klassrummet – fusk eller framtid?”
+
+Typ:
+Argumenterande
+AI-litteracitet:
+2. Etik + 3. Kritiskt granska
+
+Syfteskoppling: Tränar elevernas förmåga att ta ställning, argumentera och förstå språkets makt i samhället.
+
+Centralt innehåll: Retorisk arbetsprocess; argumenterande framställning; etiska perspektiv.
+
+Användning: Eleverna tar ställning till hur AI bör användas i skolan och vilka värden som ska styra.
+
+
+03
+“Vi borde införa AI-körkort i skolan.”
+
+Typ:
+Argumenterande
+AI-litteracitet:
+6. Framtid & samhälle + 1. Vad är AI
+
+Syfteskoppling: Förbereder elever för aktivt deltagande i samhället genom att formulera välgrundade ställningstaganden.
+
+Centralt innehåll: Argumentation, mottagaranpassning, informationssökning och källkritik.
+
+Användning: Eleverna argumenterar för utbildning i digital kompetens och AI-etik.
+
+
+04
+“Människa eller maskin – vem ska vi lita på?”
+
+Typ:
+Reflekterande/argumenterande
+AI-litteracitet:
+2. Etik + 4. Människa & maskin
+
+Syfteskoppling: Främjar personlig och etisk utveckling; stärker elevens förmåga att resonera kring tillit och ansvar.
+
+Centralt innehåll: Muntlig framställning; språkets funktion för tänkande och lärande.
+
+Användning: Eleverna reflekterar kring förtroende, trovärdighet och digitala illusioner.
+
+
+05
+“AI och kreativitet – kan maskiner skapa konst?”
+
+Typ:
+Informerande/reflekterande
+AI-litteracitet:
+0. Berättelsen om AI + 1. Vad är AI
+
+Syfteskoppling: Utmanar elevernas bildning och kreativitet; belyser skönlitteraturens och konstens roll i en ny tid.
+
+Centralt innehåll: Skönlitterära verkningsmedel; språkets estetiska dimension; muntlig framställning.
+
+Användning: Eleverna använder exempel från musik, konst och poesi skapade med AI.
+
+
+06
+“Från Frankenstein till ChatGPT – drömmen om intelligens”
+
+Typ:
+Informerande/litterärt reflekterande
+AI-litteracitet:
+0. Berättelsen om AI
+
+Syfteskoppling: Utvecklar förståelse för hur litteratur speglar människans idéer och rädslor.
+
+Centralt innehåll: Samtida och äldre litteratur; litterära epoker och idéströmningar.
+
+Användning: Ett tal som binder ihop populärkultur, litteratur och teknik.
+
+
+07
+“AI och klimatet – räddare eller resursförbrukare?”
+
+Typ:
+Informerande/argumenterande
+AI-litteracitet:
+6. Framtid & samhälle
+
+Syfteskoppling: Förbereder elever för samhällsengagemang; stärker deras förmåga att resonera om komplexa frågor.
+
+Centralt innehåll: Utredande och argumenterande framställning; kritisk värdering av källor.
+
+Användning: Eleverna undersöker AI:s energiförbrukning och miljömässiga konsekvenser.
+
+
+08
+“När maskiner pratar svenska – språkets framtid i AI-tider”
+
+Typ:
+Informerande/reflekterande
+AI-litteracitet:
+4. Människa & maskin + 1. Vad är AI
+
+Syfteskoppling: Stärker språklig medvetenhet och förståelse för språklig variation.
+
+Centralt innehåll: Det svenska språkets grammatik, variation och nordiska språkförhållanden.
+
+Användning: Eleverna reflekterar över hur AI påverkar svenskan, minoritetsspråk och flerspråkighet.
+
+
+09
+“Algoritmerna styr våra tankar”
+
+Typ:
+Argumenterande/informerande
+AI-litteracitet:
+6. Framtid & samhälle + 2. Etik
+
+Syfteskoppling: Ger insikt i språkets roll för makt och påverkan; stärker elevernas demokratiska kompetens.
+
+Centralt innehåll: Kritiskt granska sakprosa, språkets funktion i samhället, digitala medier.
+
+Användning: Eleverna analyserar filterbubblor, känslostyrda algoritmer och påverkan.
+
+
+10
+“Deepfakes och förtroende – när rösten inte är min”
+
+Typ:
+Informerande/argumenterande
+AI-litteracitet:
+2. Etik + 3. Kritiskt granska
+
+Syfteskoppling: Tränar källkritik och etisk medvetenhet; utvecklar förståelse för hur språk och teknik formar sanning.
+
+Centralt innehåll: Retoriska verkningsmedel, muntlig framställning, informationsvärdering.
+
+Användning: Eleverna kan visa klipp, analysera röster och diskutera konsekvenser för samhällstillit.
+
+
+11
+“AI i journalistiken – slutet för sanningen?”
+
+Typ:
+Informerande/argumenterande
+AI-litteracitet:
+3. Kritiskt granska + 2. Etik
+
+Syfteskoppling: Förbereder elever för kritiskt deltagande i samhällsdebatten.
+
+Centralt innehåll: Läsning och samtal om sakprosa; källkritik och digital källbedömning.
+
+Användning: Eleverna undersöker hur medier använder AI för att producera nyheter och vilka risker det innebär.
+
+
+12
+“AI och språket som makt”
+
+Typ:
+Reflekterande/argumenterande
+AI-litteracitet:
+4. Människa & maskin + 2. Etik
+
+Syfteskoppling: Ger eleverna förståelse för språkets roll i makt, identitet och demokrati.
+
+Centralt innehåll: Språkförhållanden, språkanvändning, språklig variation.
+
+Användning: Eleverna diskuterar hur AI kan reproducera maktstrukturer i språk och samhälle.
+
+
+13
+“AI och människans unika röst”
+
+Typ:
+Reflekterande
+AI-litteracitet:
+4. Människa & maskin
+
+Syfteskoppling: Främjar personlig utveckling och stärker tilltron till den egna rösten.
+
+Centralt innehåll: Actio, elocutio; muntlig framställning med fokus på ethos.
+
+Användning: Ett tal om autenticitet och mänsklig närvaro i en tid av syntetiska röster.
+
+
+14
+“Vem bär ansvaret när AI gör fel?”
+
+Typ:
+Argumenterande/etiskt reflekterande
+AI-litteracitet:
+2. Etik + 6. Framtid & samhälle
+
+Syfteskoppling: Utvecklar förståelse för ansvar, moral och samhällsetik.
+
+Centralt innehåll: Muntlig argumentation, retoriska verkningsmedel, etiska dilemman.
+
+Användning: Eleverna diskuterar ansvarsfördelning mellan programmerare, företag och användare.
+
+
+15
+“AI och demokratin – en röst utan medborgarskap”
+
+Typ:
+Argumenterande/reflekterande
+AI-litteracitet:
+6. Framtid & samhälle + 2. Etik
+
+Syfteskoppling: Förbereder eleverna för aktivt deltagande i demokratiska beslutsprocesser.
+
+Centralt innehåll: Argumentation, samhällsrelevanta frågor, kritisk granskning.
+
+Användning: Ett avslutande, värderande tal om vad det innebär att vara människa och medborgare i en AI-styrd värld.
+
+SVENSKA 1
+
+01
+Uppgift
+
+Jag – AI – Jag
+Metareflektion och epistemisk startpunkt
+
+Syfte
+Att eleverna ska förstå hur deras relation till AI påverkar deras tänkande, skrivande och syn på kunskap.
+
+Instruktioner
+Skriv en personlig reflektion (ca 1–2 sidor) om hur du använder AI i vardagen – i skolan, privat, kreativt, eller inte alls.
+
+Beskriv ett tillfälle då AI hjälpte dig – och ett då det gick fel eller kändes konstigt.
+
+Reflektera:    - Hur påverkar AI ditt sätt att tänka, skriva, söka eller skapa?    - Vem "äger" idéerna när du använder AI?
+
+Avsluta texten med en framtidsblick: Hur kan du bli en mer medveten och självständig användare av AI?
+
+För läraren (fördjupning)
+Låt eleverna dela valda citat i par eller smågrupper och jämföra upplevelser – hur lika/olika är deras relation till AI?
+
+Avsluta med att introducera begreppet epistemisk medvetenhet.
+
+AI-litteracitetskoppling
+0. Berättelsen om AI: Elevernas egna berättelser om teknikens roll i deras liv
+1. Vad är AI: Grundläggande förståelse för vad en språkmodell gör
+5. Människa och maskin: Reflektion över relationen människa–teknologi och ansvar
+02
+Uppgift
+
+AI-retorikern
+Tala med – och om – tekniken
+
+Syfte
+Att eleverna tränar muntlig framställning och retorisk analys i relation till en aktuell samhällsfråga.
+
+Instruktioner
+Välj ett ämne kopplat till AI, t.ex.:    - "AI och framtidens arbete"    - "AI i skolan – hot eller möjlighet?"    - "Kan en maskin ha moral?"
+
+Använd AI som retorikcoach. Be den t.ex.:        Ge mig tre sätt att inleda ett tal som ska väcka känslor om ämnet X.    
+
+Välj ut idéer du tycker fungerar och skriv ditt eget tal (3–5 minuter).
+
+Spela in eller håll talet inför gruppen.
+
+Reflektera kort efteråt: Vilka råd tog du från AI – och vilka valde du bort? Varför?
+
+För läraren (fördjupning)
+Koppla till ethos, logos, pathos. Diskutera skillnaden mellan övertygelse och manipulation, samt hur AI kan förstärka eller stöta ethos (trovärdighet).
+
+AI-litteracitetskoppling
+2. Verktyg: AI som stöd i retorisk process
+4. Etik: Trovärdighet, påverkan och ansvar
+5. Människa–maskin: Agens i samspel med teknik
+03
+Uppgift
+
+AI-detektiven
+Hallucination och trovärdighet
+
+Syfte
+Att eleverna ska träna källkritik i den nya informationsmiljön där AI skapar trovärdiga men ibland felaktiga texter.
+
+Instruktioner
+Läraren ger en AI-genererad sakprosatext som innehåller felaktigheter (hallucinationer).
+
+Eleverna arbetar i par och granskar varje faktauppgift:    - Finns källan?    - Stämmer statistiken?    - Är citat eller namn påhittade?
+
+De markerar misstänkta delar, söker verifierande information via NE, bibliotek eller officiella databaser.
+
+Skriv en rapport:    "Så avslöjade vi AI:ns hallucinationer."
+
+För läraren (fördjupning)
+Koppla till skillnaden mellan plausibilitet (låter sant) och sanningsenlighet (är sant).
+
+AI-litteracitetskoppling
+1. Vad är AI: Förstå att AI genererar snarare än hämtar fakta
+3. Källkritik och bias: Utveckla strategier för verifiering
+4. Etik: Ansvar för att inte sprida felaktig information
+04
+Uppgift
+
+Filterbubblan & Jag
+Informationsflöde, algoritmer och identitet
+
+Syfte
+Att eleverna ska förstå hur språk, medier och algoritmer formar deras världsbild.
+
+Instruktioner
+Analysera ditt eget flöde (TikTok, YouTube, Instagram, Spotify, etc.).
+
+Lista vilka typer av innehåll du får oftast.
+
+Reflektera:    - Vad säger det om dina intressen, värderingar och köns-/åldersprofil?    - Vilka perspektiv får du sällan?
+
+Skapa en visuell karta över ditt flöde – som en mindmap, collage, infografik eller dikt.
+
+Skriv en kort analys: "Vad säger min filterbubbla om mig?"
+
+För läraren (fördjupning)
+Diskutera begreppen algoritm, personaliserat innehåll och automation bias.
+
+Avsluta med att fråga: "Är det jag som formar mitt flöde – eller mitt flöde som formar mig?"
+
+AI-litteracitetskoppling
+3. Källkritik och bias: Förstå algoritmers urval
+4. Etik: Personlig integritet och påverkan
+6. Framtid och samhälle: Digital demokrati
+05
+Uppgift
+
+Skriv med maskinen
+AI som skrivpartner – inte spökskrivare
+
+Syfte
+Att eleverna ska utveckla skrivstrategier och reflektera över sin process.
+
+Instruktioner
+Välj en uppsats- eller essäuppgift.
+
+Använd AI endast i avgränsade steg (idé, disposition, stilförslag).
+
+Dokumentera processen:    - Dina egna idéer    - Dina prompts till AI    - Hur du bearbetade och ändrade texten
+
+Lämna in både texten och din processlogg (kort reflektion över vad AI tillförde).
+
+För läraren (fördjupning)
+Lägg vikt vid agens: att eleven visar kontroll över verktyget.
+
+Diskutera begreppet "Av-AI-fiering" – att återta textens mänskliga ton.
+
+AI-litteracitetskoppling
+2. Verktyg: AI som stöd i skrivprocessen
+5. Människa–maskin: Reflektion över kreativitet och kontroll
+06
+Uppgift
+
+Litteraturens maskiner
+AI som tema i fiktionen
+
+Syfte
+Att eleverna ska förstå hur berättelser om artificiell intelligens speglar mänskliga frågor om makt, ansvar och identitet.
+
+Instruktioner
+Välj ett litterärt eller filmiskt verk där AI, robotar eller skapande står i centrum (t.ex. Frankenstein, Klara och solen, Ex Machina, Äkta människor).
+
+Gör en analys:    - Hur framställs relationen mellan människa och maskin?    - Vilka rädslor eller drömmar uttrycks?    - Vem bär ansvar för det som sker?
+
+Diskutera sedan i grupp:    "Vad säger den här berättelsen om vår tid?"
+
+För läraren (fördjupning)
+Knyt analysen till litteraturhistoriska epoker:
+
+Frankenstein (Romantiken → ansvar och vetenskap)
+Kallocain (Modernismen → kontroll och övervakning)
+Klara och solen (Samtiden → empati och medvetande)
+AI-litteracitetskoppling
+0. Berättelsen om AI: Hur vi kulturellt tolkat AI som symbol
+4. Etik: Skaparansvar och moral
+5. Människa och maskin: Vad det betyder att vara mänsklig
+07
+Uppgift
+
+AI och språkmakt
+Normer, variation och rättvisa i språket
+
+Syfte
+Att synliggöra hur språk, klass och makt möts i AI-systemens sätt att förstå och värdera språk.
+
+Instruktioner
+Skriv tre korta texter i olika språkstilar (standardsvenska, dialekt, ungdomsslang).
+
+Klistra in dem i en AI och be den ge språkrespons.
+
+Dokumentera:    - Vilka fel rättar den?    - Hur förändras tonen?    - Behandlas vissa stilar som "felaktiga"?
+
+Skriv en reflektion om språklig makt:    "Vilken sorts svenska upphöjs – och vilken osynliggörs?"
+
+För läraren (fördjupning)
+Diskutera språklig bias och homogenisering.
+
+Koppla till språkideologier, sociolekter och normkritik.
+
+AI-litteracitetskoppling
+3. Källkritik och bias: Identifiera normer i språkmodeller
+4. Etik: Språklig rättvisa och representation
+6. Framtid och samhälle: Språkets demokratiska roll
+08
+Uppgift
+
+Den mänskliga rösten
+Vad gör en text levande?
+
+Syfte
+Att utveckla förståelse för stil, ton och mänskligt uttryck i skrivande.
+
+Instruktioner
+Skriv en kort text (t.ex. om ett minne, en händelse eller ett ämne du brinner för).
+
+Be AI skriva en text om samma sak.
+
+Läs båda högt i klassen (utan att säga vilken som är vilken).
+
+Låt gruppen gissa: vilken är mänsklig? Varför?
+
+Diskutera: Vad kännetecknar "mänsklig röst"?
+
+För läraren (fördjupning)
+Knyt till begreppet ethos (trovärdighet genom stil).
+
+Diskutera "LLM-svenska" – hur AI låter korrekt men själlös.
+
+AI-litteracitetskoppling
+2. Verktyg: AI som stilistiskt jämförelseobjekt
+5. Människa och maskin: Autenticitet, röst och ägarskap
+09
+Uppgift
+
+Poeten i algoritmen
+Kreativt skrivande med och mot AI
+
+Syfte
+Att undersöka gränsen mellan maskinell och mänsklig kreativitet.
+
+Instruktioner
+Välj en diktform (haiku, sonett, slamtext, fri vers).
+
+Be AI skriva en dikt enligt samma form.
+
+Skriv sedan en svarsdikt – en replik på AI:s försök.
+
+Presentera båda och diskutera:    - Vilken dikt väcker mest känsla?    - Vad kan AI skapa – och vad saknar den?
+
+För läraren (fördjupning)
+Låt eleverna analysera AI:s språk (klichéer, rytm, bildspråk).
+
+Koppla till begrepp som konnotation, metafor, tonläge.
+
+AI-litteracitetskoppling
+2. Verktyg: AI som kreativt stöd
+5. Människa och maskin: Skillnaden mellan att förstå och att känna
+10
+Uppgift
+
+Framtidens språk
+AI och språkutveckling
+
+Syfte
+Att träna språkreflektion och framtidstänkande.
+
+Instruktioner
+Skriv en krönika med rubriken:    "Hur kommer svenskan att låta år 2075?"
+
+Använd AI för att samla idéer om framtidens språk (nya ord, trender, hot).
+
+Reflektera över:    - Lånord och globalisering    - AI:s påverkan på stil och uttryck    - Din egen roll som framtidens språkbrukare
+
+För läraren (fördjupning)
+Jämför tidigare språkhistoriska förändringar: t.ex. tryckpressen, sms-språk, digitalisering.
+
+AI-litteracitetskoppling
+5. Människa och maskin: Samspel mellan teknik och språk
+6. Framtid och samhälle: Språkets evolution i tekniska system
+11
+Uppgift
+
+Etik i algoritmernas tid
+Argumentation och värdering
+
+Syfte
+Att eleverna tränar etiskt och retoriskt tänkande i en komplex samhällsfråga.
+
+Instruktioner
+Skriv en debattartikel om ämnet:    "AI ska alltid stå under mänsklig kontroll."
+
+Använd AI för att hitta motargument.
+
+Strukturera texten enligt klassisk disposition (tes, argument, motargument, slutsats).
+
+Diskutera sedan: Var går gränsen mellan hjälp och manipulation?
+
+För läraren (fördjupning)
+Knyt till källkritik, ansvar och demokrati.
+
+Diskutera begrepp som automatiserat beslutsfattande och digital etik.
+
+AI-litteracitetskoppling
+4. Etik: Teknik, makt och ansvar
+6. Framtid och samhälle: Demokratifrågor i algoritmiska system
+12
+Uppgift
+
+Mitt AI-manifest
+Avslutande reflektion och agens
+
+Syfte
+Att summera kursen genom en personlig position: vem vill jag vara i AI-eran?
+
+Instruktioner
+Skriv (eller skapa som podd, video eller collage) ett personligt manifest med titeln:    "Så vill jag tänka, skriva och leva i en värld med AI."
+
+Inkludera:    - vad du lärt dig om språk, etik och kreativitet    - din syn på människans roll i en teknologisk värld    - ett konkret löfte till dig själv: "Jag ska alltid…"
+
+För läraren (fördjupning)
+Passar som slutuppgift. Kan kombineras med muntlig presentation eller estetisk gestaltning.
+
+AI-litteracitetskoppling
+0–6 Samtliga: Reflektion, agens och värdering
+13
+Uppgift
+
+Jag och min algoritm
+Digital självbild och medieanalys
+
+Syfte
+Att öka förståelsen för hur algoritmer påverkar självbild, identitet och samhällsdebatt.
+
+Instruktioner
+Analysera ditt eget digitala flöde (t.ex. TikTok, YouTube, Instagram).
+
+Lista vilka teman och typer av innehåll du ser mest.
+
+Reflektera:    - Vad tror algoritmen att du gillar?    - Känner du igen dig i den bilden?
+
+Skriv en personlig text:    "Jag och min algoritm – vem formar vem?"
+
+För läraren (fördjupning)
+Knyt till begrepp som filterbubbla, profilering och digital självrepresentation.
+
+Diskutera etik: vem äger informationen om dig?
+
+AI-litteracitetskoppling
+3. Källkritik och bias: Algoritmiska perspektiv
+4. Etik: Integritet och självpresentation
+6. Framtid och samhälle: Digital identitet
+14
+Uppgift
+
+AI – skriv en novell om framtiden
+Berättarteknik, genre och kreativitet
+
+Syfte
+Att låta eleverna skapa framtidsberättelser i samspel med AI för att utforska både form och innehåll.
+
+Instruktioner
+Välj om din novell ska vara en utopi, dystopi eller realistisk framtid.
+
+Bestäm årtal (t.ex. 2050, 2070, 2100).
+
+Använd AI för att generera idéer om miljö, karaktärer och konflikt.
+
+Skriv novellen själv.
+
+Gör sedan en novellanalys av din egen text: struktur, språk, karaktärer, tema, budskap.
+
+För läraren (fördjupning)
+Låt eleverna läsa varandras noveller och analysera hur AI påverkade idéer men inte stilen.
+
+Diskutera genrer och framtidsteman.
+
+AI-litteracitetskoppling
+2. Verktyg: AI som medskapare
+5. Människa och maskin: Skillnad mellan maskinellt och mänskligt berättande
+6. Framtid och samhälle: Framtidsvisioner
+15
+Uppgift
+
+Litteraturens byggklossar – skapa med AI
+Träna litteraturvetenskapliga begrepp i par
+
+Syfte
+Att eleverna genom samarbete och AI ska förstå hur berättelsens delar samverkar.
+
+Instruktioner
+Dela klassen i grupper:    - Grupp A ansvarar för tema, konflikt, budskap    - Grupp B för karaktärer, miljö, berättarperspektiv
+
+Kombinera gruppernas svar och be AI skriva en berättelse.
+
+Läs texten och analysera:    - Hur tolkade AI begreppen?    - Fungerar berättelsen som helhet?    - Vad saknas – känsla, logik, stil?
+
+Reflektera:    "Vad lärde vi oss om hur berättelser byggs?"
+
+För läraren (fördjupning)
+Knyt till litteraturvetenskapliga begrepp: tema, motiv, dramaturgi.
+
+Utmärkt som övergång till eget skrivande eller analysmoment.
+
+AI-litteracitetskoppling
+1. Vad är AI: Förstå mönstergenerering
+2. Verktyg: AI som skapande stöd
+5. Människa och maskin: Tolkningsförmåga och kreativitet
+16
+Uppgift
+
+Karaktären talar tillbaka
+Från analys till dialog – förståelse genom skapande
+
+Syfte
+Att fördjupa litterär förståelse genom att först analysera en karaktär utan AI, och därefter använda AI som ett verktyg för att pröva och utforska karaktärens perspektiv.
+
+Denna uppgift tränar elevernas förmåga att analysera text, formulera precisa prompts och reflektera över skillnaden mellan tolkning och imitation.
+
+Instruktioner
+Steg 1 – Klassisk karaktärsanalys (utan AI)
+Välj en karaktär ur ett skönlitterärt verk (t.ex. Dr Henck i Pälsen, Nora i Ett dockhem, Jonas i Kallocain).
+
+Gör en noggrann karaktärsanalys utifrån texten:    - Egenskaper och handlingar – vad gör och säger personen?    - Relationer – hur agerar hen mot andra?    - Inre drivkrafter – vad vill, fruktar eller längtar karaktären efter?    - Utveckling – hur förändras hen under berättelsen?
+
+Skriv en sammanfattande text på ca ½–1 sida.
+
+Steg 2 – Skapa en prompt baserad på din analys
+Förvandla din analys till en prompt där AI:n ska agera som karaktären.
+Exempel:
+
+
+Agera som Dr Henck i Hjalmar Söderbergs novell Pälsen. Du är stolt, sårad och
+medveten om din sociala position. Jag vill intervjua dig om din relation till
+Gustav och om vad som hände den där kvällen.
+
+Kontrollera att din prompt innehåller:    - Kontext (verk, tid, relationer)    - Karaktärsdrag (t.ex. cynisk, varm, maktlysten)    - Frågor eller situationer att reagera på
+Steg 3 – Intervju och skapande
+Genomför en intervju i AI-verktyget – du ställer frågorna, AI svarar som karaktären.
+
+Sammanställ resultatet i en textform:    - Alternativ A: Skriv ett reportage eller porträtt: "Ett samtal med Dr Henck"    - Alternativ B: Skriv ett brev, dagboksinlägg eller inre monolog från karaktärens perspektiv    - Alternativ C: Skriv en kort novell som fortsätter berättelsen ("Vad hände sen?")
+
+Reflektera avslutningsvis:    "Hur väl stämde AI:s svar överens med min analys? Vad visar det om skillnaden mellan att förstå och att efterlikna en karaktär?"
+
+För läraren (fördjupning)
+Denna uppgift kan användas i slutet av ett litteraturmoment
+Lyft skillnaden mellan tolkning (mänskligt resonemang) och generering (statistiskt mönster)
+Diskutera också autenticitet och författarens intentioner – hur långt kan man gå i att "tala för" en karaktär?
+Passar väl att kombinera med del 4 (litteratur) eller del 5 (språklig variation och makt)
+AI-litteracitetskoppling
+1. Vad är AI: Förstå hur en språkmodell "imiterar" snarare än förstår
+2. Verktyg: Använda AI som analytiskt och kreativt laboratorium
+5. Människa och maskin: Skillnaden mellan empati, tolkning och simulering
+0. Berättelsen om AI: Hur tekniken kan spegla mänsklig förståelse
+
+1
+Jag och min algoritm
+Mot AI
+
+Etik
+
+Framtid & samhälle
+🎯 Syfte
+
+Att utveckla digital källkritik, identitetsmedvetenhet och förståelse för algoritmers påverkan.
+
+📋 Instruktion
+
+Be eleverna öppna sina sociala medieflöden (TikTok, Instagram, YouTube, etc.) och observera vilka typer av inlägg de får.
+Låt dem dokumentera 10–15 inlägg och kategorisera dem: nyheter, underhållning, reklam, åsikter, ideal, etc.
+Diskutera i par: Vad säger detta flöde om mig som person? Hur tror jag att algoritmen har byggt denna bild?
+Sammanfatta reflektionen i en kort text: "Jag och min algoritm – en dag i mitt digitala jag."
+💬 Reflektionsfrågor
+
+Hur påverkar algoritmen vad jag ser – och vad jag inte ser?
+Är bilden av mig i flödet sann?
+Hur påverkar detta min världsbild och identitet?
+2
+AI – skriv en novell om framtiden
+Genom AI
+
+Berättelsen om AI
+
+Vad är AI?
+
+Kritiskt granska
+🎯 Syfte
+
+Att använda kreativt skrivande för att utforska teknikens möjligheter och risker, samt analysera språk och struktur.
+
+📋 Instruktion
+
+Eleverna väljer ett framtidsscenario: utopi, dystopi eller realistisk framtid (t.ex. år 2050, 2070, 2100).
+De planerar novellen (miljö, konflikt, karaktärer) och skriver själva synopsiset.
+AI används sedan som medförfattare – för att utveckla miljöbeskrivningar, dialoger eller titelförslag.
+Efteråt skriver eleverna en novellanalys: berättarperspektiv, struktur, språk, tema, budskap.
+💬 Reflektionsfrågor
+
+Vilka delar av texten kändes mänskliga – och vilka kändes som "AI"?
+Vad händer med kreativitet när jag skapar tillsammans med en maskin?
+Kan en maskin förstå hopp, rädsla eller kärlek?
+3
+Karaktärsanalys → Intervju → Text
+Genom AI
+
+Vad är AI?
+
+Människa & maskin
+🎯 Syfte
+
+Att fördjupa förståelsen av litterära karaktärer och gestalta perspektiv.
+
+📋 Instruktion
+
+Eleverna gör en traditionell karaktärsanalys av en person i en novell eller roman (utseende, egenskaper, relationer, inre konflikt, utveckling).
+De omvandlar analysen till en prompt: "Agera som [karaktärens namn] från [verk]. Jag ska intervjua dig om dina handlingar och känslor. Svara i jagform och håll dig till romanens tid."
+Eleverna genomför intervjun i chattform.
+Utifrån samtalet skriver de en ny text – exempelvis en dagboksanteckning, ett brev, eller en tidningsintervju.
+💬 Reflektionsfrågor
+
+Hur förändrades min förståelse för karaktären när jag "talade" med hen?
+Kändes svaren trovärdiga?
+Vad säger detta om skillnaden mellan att förstå en text och att simulera förståelse?
+4
+Stilistiskt detektivarbete – "LLM-svenska"
+Om AI
+
+Vad är AI?
+
+Människa & maskin
+🎯 Syfte
+
+Att utveckla språkkänsla, stilmedvetenhet och kritiskt tänkande kring textkvalitet.
+
+📋 Instruktion
+
+Läraren blandar korta texter: elevtexter, litterära texter, AI-texter och hybridversioner.
+Eleverna gissar vilka som är AI-genererade och motiverar med stilistiska observationer (t.ex. rytm, konkretion, klichéer).
+Klassen formulerar gemensamt en lista över typiska drag i LLM-svenska.
+Eleverna får sedan bearbeta en AI-text – och göra den mer personlig, konkret och rytmisk.
+💬 Reflektionsfrågor
+
+Vad är det som gör en text mänsklig?
+Hur känns det när språket blir för perfekt?
+Vilka normer för språk reproduceras av AI?
