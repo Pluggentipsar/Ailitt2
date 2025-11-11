@@ -14,7 +14,12 @@
       "Bash(copy \"headerbackground1_50.png\" \"public\\headerbackground1_50.png\")",
       "Bash(copy menu_icon.png publicmenu_icon.png)",
       "Bash(cp:*)",
-      "Bash(npx contentlayer2:*)"
+      "Bash(npx contentlayer2:*)",
+      "Bash(findstr:*)",
+      "Bash(cat:*)",
+      "Bash(del \"C:\\Codex\\Ailitt2\\content\\svenska\\svenska-2\\skriftlig-framstallning-textbearbetning.mdx\")",
+      "Bash(move:*)",
+      "Bash(find:*)"
     ],
     "deny": [],
     "ask": []

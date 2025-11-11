@@ -1,0 +1,1093 @@
+✍️ Svenska 2 – Skriftlig framställning och textbearbetning
+Förflyttningen från skrivande med AI till skrivande genom AI
+I Svenska 2 flyttas fokus från att använda AI som hjälp för ordval och idéer (nivå 1) till att metodiskt och kritiskt styra AI som del av den akademiska skrivprocessen.
+Eleverna ska inte bara kunna producera texter – de ska kunna visa hur de skriver, varför de gör vissa val och när AI får och inte får användas.
+
+🎯 Syfte och övergripande mål
+Arbetet med AI i skrivundervisningen ska:
+	1. Stärka språkets roll som verktyg för tänkande – eleverna tränas i att formulera, precisera och motivera sina idéer genom text.
+	2. Utveckla strategisk och kritisk digital kompetens – de lär sig använda generativa verktyg på ett sätt som bevarar mänsklig röst och akademisk integritet.
+	3. Förbereda för aktivt samhällsdeltagande – genom att skriva, analysera och ta ställning i frågor där språk, kunskap och teknik möts.
+	4. Stödja bildning och personlig röst – skrivandet blir ett sätt att förstå sin egen position i en tid där AI producerar språk lika flytande som människor.
+
+🧭 Koppling till ämnets syfte (ur kursplanen)
+Syftesdel	Hur AI-integrerad skrivundervisning stöder det
+Utveckla förmågan att skriva med anpassning till syfte, mottagare och sammanhang.	Genom iterativ prompting och textbearbetning tränar eleverna att anpassa ton, struktur och genre till olika kontexter – AI används som sparringpartner för mottagaranpassning.
+Utveckla kunskaper om det svenska språket.	Genom jämförelser mellan AI-genererad och egen text upptäcker eleverna språkliga mönster, stilistiska drag och textbindning på djupet.
+Stimulera tilltro till den egna språkliga förmågan.	Eleverna ser att AI kan stötta men inte ersätta deras röst. Självreflektionen kring när AI hjälper och när det stör stärker självförtroendet som skribent.
+Förbereda för aktivt deltagande i samhället.	Att skriva om och med AI gör eleverna medvetna om hur språk formar kunskap, fakta och makt – en nyckel för demokratisk kompetens.
+Utveckla kritiskt reflekterande förhållningssätt till språk och information.	Genom källkritisk träning mot hallucinationer och falska källor lär sig eleverna verifiera fakta och stå till svars för sina val.
+Orientera sig i en digital textvärld.	AI-verktyg integreras i alla skrivfaser – men alltid med krav på processlogg, transparens och källansvar.
+
+📚 Koppling till centralt innehåll i Svenska 2
+Centralt innehåll	Exempel på AI-integrerad aktivitet
+Skriftlig framställning av argumenterande och utredande texter.	“Den iterativa PM-processen” – eleverna arbetar stegvis med disposition, syntes och språkförbättring genom promptloggar.
+Struktur och språkliga drag i olika texttyper.	Eleverna analyserar hur AI organiserar text och jämför med mänsklig struktur – vilka val är effektiva, vilka blir mekaniska?
+Språkriktighet och språklig precision.	AI används som språkcoach för koncishet och variation, men eleverna måste motivera varje ändring.
+Digitala verktyg för textbearbetning och respons.	Respons-triangulering: AI-feedback jämförs med kamrat- och lärarrespons → metatext om vad som förbättrade texten mest.
+Citat- och referatteknik.	Övning: “Jakten på hallucinationen” – eleverna granskar AI-skapade källor och tränar korrekta referat enligt formalia.
+
+🧩 AI-litteracitet i fokus (nivå 2)
+Förskjutning från nivå 1 → nivå 2	Vad eleverna lär sig
+Från enkel instruktion → iterativ process	Stegvis prompting (R-K-U-B) för struktur, analys och språklig förfining.
+Från korrektur → stilistisk medvetenhet	Språket analyseras på meningsnivå: rytm, ton, textbindning och genreprecision.
+Från konsument → kritisk redaktör	Eleven utvecklar kontroll över AI-materialet, upptäcker generiska drag och tar ansvar för slutprodukten.
+
+💬 AI-litteracitetsdimensioner i denna delkurs
+Dimension	Exempel i skrivundervisningen
+0 – Berättelsen om AI	Analys av hur AI-skrivande skildras i media och litteratur (t.ex. “AI-poesi” eller “ChatGPT-skandaler”).
+2 – Vad är AI	Förstå att modellen saknar egen kunskap; diskutera språkmodeller som sannolikhetsmaskiner.
+3 – Etik	Dokumentera och redovisa användning; diskutera plagiering, ansvar och transparens.
+4 – Kritiskt granska AI-innehåll	Faktagranskning, källverifiering, analys av generiska strukturer.
+5 – Människa och maskin	Reflektion över röst, stil och autenticitet – vad betyder “min text” i AI-tiden?
+6 – Framtid och samhälle	Diskussioner om hur skrivande förändras i arbetsliv, forskning och demokrati.
+
+🔑 Kärnidé
+	I Svenska 2 blir skrivandet inte bara en produkt – utan en process där eleven lär sig att samarbeta med, ifrågasätta och överträffa maskinen.
+	
+✍️ Del 2 – Centrala begrepp och genrespecifika krav
+💡 Syfte
+Den här delen ger eleverna ett gemensamt språk för skrivprocessen.
+Genom att kombinera klassisk textanalys med AI-litteracitet kan läraren synliggöra hur struktur, röst och källhantering formar trovärdiga texter – oavsett om de skrivs med eller utan AI-stöd.
+
+🧠 Grundbegrepp i skrivundervisningen
+Begrepp	Förklaring	AI-koppling
+Utredande text (PM)	En text som besvarar en frågeställning genom att analysera och väga olika perspektiv. Objektiv ton, tydlig struktur.	AI används för att testa formuleringar av frågeställning och disposition – men eleven styr analysen.
+Argumenterande text	En text som driver en tes med hjälp av underbyggda argument och bemötande av motargument (refutatio).	AI som “djävulens advokat”: genererar motargument som eleven bemöter och värderar.
+Disposition	Textens struktur – inledning, huvuddel, avslutning – och logiken mellan delarna.	AI kan föreslå dispositioner; eleverna jämför, väljer och motiverar sitt val.
+Textbindning	Samband mellan meningar och stycken genom sambandsmarkörer och tematisk progression.	AI-verktyg används för att analysera och förbättra textbindning, men eleven avgör vilka ändringar som bevarar ton och flyt.
+Röst och ton	Författarens stil, attityd och närvaro i texten.	“Av-AI-fiering”: bearbeta bort generiska uttryck för att återta en mänsklig röst.
+Källor	Underlag som stödjer resonemang. Ska vara relevanta, tillförlitliga och redovisade enligt formalia.	AI kan ge söktermer, men eleverna måste verifiera fakta i oberoende källor.
+Citat- och referatteknik	Att markera och kommentera andras ord korrekt.	Övningar i hur AI får citeras och hur hallucinationer avslöjas.
+Metatext / AI-logg	Kort text som redovisar hur eleven använt AI under skrivprocessen.	Gör agens och källkritik synlig – del av bedömningen.
+
+🧩 Genrespecifika krav och kvaliteter
+🧭 Utredande text (PM)
+Mål: Besvara en avgränsad frågeställning med hjälp av fakta och analys.
+Kriterium	Vad eleven ska visa	AI-stöd som tränar färdigheten
+Frågeställning	Tydligt fokus, ej beskrivande utan analytisk.	“Ge tre omformuleringar av min frågeställning så att den blir mer analytisk och mindre värderande.”
+Disposition	Logisk struktur (inledning–utredning–avslutning).	AI jämför dispositioner och markerar var syntes bör ske.
+Syntes	Egen analys som binder ihop källorna.	AI kan ge exempel på möjliga samband, men eleven väljer och omformulerar.
+Formalia och ton	Sakligt språk, varierad meningsbyggnad.	AI-coach för stilistisk formalia: korta meningar, tydliga sambandsord.
+⚖️ Argumenterande text
+Mål: Ta ställning i en fråga med övertygande språk och etisk medvetenhet.
+Kriterium	Vad eleven ska visa	AI-stöd som tränar färdigheten
+Tes och syfte	Klart ställningstagande redan i inledningen.	“Ge tre varianter av min tes med olika ton: neutral, engagerad, provokativ.”
+Argumentation	Logisk uppbyggnad (logos, ethos, pathos).	AI ger exempel på hur varje argumenttyp kan uttryckas – eleven jämför effekten.
+Motargument & bemötande	Förmåga att förutse och bemöta motstånd.	AI agerar motdebattör – eleven skriver refutatio manuellt.
+Språklig kraft & variation	Retoriska grepp, tydlig disposition.	AI ger förslag på stilfigurer; eleverna väljer och motiverar sina val.
+
+🧮 Koppling till AI-litteracitet
+AI-dimension	I praktiken i skrivundervisningen
+2 – Vad är AI	Eleverna lär sig att språkmodeller skapar sannolika, inte sanna, texter.
+3 – Etik	De redovisar AI-användning och reflekterar över ansvar och originalitet.
+4 – Kritiskt granska AI-innehåll	De faktakontrollerar, granskar referenser och upptäcker generiska formuleringar.
+5 – Människa och maskin	De identifierar och återtar sin egen röst; reflekterar över autenticitet.
+
+🧭 Koppling till syfte och centralt innehåll
+Fokus	Syfteskoppling	Centralt innehåll (Sv 2)
+Frågeställning & disposition	Språk som verktyg för tänkande och analys.	Struktur och språkliga drag i texter.
+Syntes & refutatio	Göra underbyggda ställningstaganden.	Skriftlig framställning av utredande och argumenterande texter.
+Textbindning & stil	Språklig säkerhet och mottagaranpassning.	Språkriktighet, textens funktion i sitt sammanhang.
+Källkritik & citatteknik	Kritiskt granska information och visa akademisk integritet.	Informationssökning, värdering av information, citat- och referatteknik.
+Metatext & etik	Reflektera över språkets roll i digitalt skapande.	Digitala verktyg för textbearbetning och respons.
+
+🔑 Kärnidé
+	I Svenska 2 lär sig eleven att skriva med AI – men framför allt genom AI:
+	genom att reflektera, välja, formulera och stå för sitt språk i en digital tid.
+
+Perfekt. Här kommer Del 3 – AI i skrivprocessens faser i samma AI·litt-stil som tidigare, med en tydlig didaktisk struktur (för lärare) och praktiska exempel (för elever).
+Del 3 kan användas som egen modul eller som en övergång till de följande delarna (Del 4: Utredande text och Del 5: Argumenterande text).
+
+🧩 Del 3 – AI i skrivprocessens faser
+Från planering till bearbetning: AI som metodiskt verktyg och kritisk motpart
+
+✍️ Översikt
+I Svenska 2 ska eleverna inte bara skriva mer avancerade texter – de ska förstå skrivandet som en process.
+AI kan här fungera som verktyg för planering, språkcoach och kritisk spegel, men bara om eleverna tränas i att använda det medvetet.
+Varje fas i skrivandet blir därför också en fas i AI-litteracitet:
+	1. Planera (intellectio & inventio) → AI som idéstöd.
+	2. Producera (dispositio & elocutio) → AI som skrivsparring.
+	3. Bearbeta (emendatio & reflexio) → AI som kritisk redaktör.
+
+🧭 1. Planering och strukturering
+🎯 Mål
+Eleven ska kunna avgränsa ett ämne, formulera en tydlig frågeställning eller tes och skapa en hållbar disposition.
+💡 Lärarens fokus
+Betona att AI inte skapar frågeställningar – det testar dem. Den mänskliga delen är att avgöra vad som är värt att undersöka.
+Moment	Exempel på AI-användning	AI-litteracitet som tränas
+Ämnesavgränsning	“Ge mig fem möjliga infallsvinklar på ämnet AI i vården som passar en utredande text.”	2️⃣ Vad är AI – förstå modellens roll som generator, inte källa.
+Formulera frågeställning	“Jag vill skriva ett PM om hur AI påverkar språkinlärning. Föreslå tre forskningsfrågor som är smala nog för en gymnasieuppgift.”	5️⃣ Människa & maskin – elevens eget perspektiv styr.
+Disposition (PM)	“Här är mina källpunkter: [lista]. Skapa ett förslag på disposition enligt PM-struktur (inledning – utredning – avslutning).”	4️⃣ Kritiskt granska – jämföra och förbättra dispositionen.
+Disposition (debattartikel)	“Min tes: AI bör inte ersätta lärare. Föreslå disposition med tre huvudargument och ett motargument.”	6️⃣ Framtid & samhälle – hur struktur påverkar övertygelse.
+🧠 Metodtips:
+Låt eleverna skapa två alternativa dispositioner via AI och sedan motivera skriftligt vilken de väljer.
+→ Det tränar agens och metakognition snarare än kopiering.
+
+🧮 2. Produktion och formulering
+🎯 Mål
+Eleven ska kunna skriva sammanhängande, analytiska texter med tydlig röd tråd, korrekt språk och personlig röst.
+💡 Lärarens fokus
+AI används för språklig förfining och resonemangsstöd, men eleverna måste förstå vad de själva tänker och varför.
+AI ska inte skriva texten, utan synliggöra strukturer, ordval och resonemang.
+Moment	Exempel på AI-användning	AI-litteracitet som tränas
+Syntes mellan källor (PM)	“Hjälp mig formulera en sammanfattning som visar skillnaden mellan dessa två perspektiv [klistra in källutdrag].”	4️⃣ Kritiskt granska – jämföra påståenden, inte återge.
+Utveckla argument (debatt)	“Min tes är att AI gör oss passiva. Ge tre argument som stöds av forskning, och ange vilka källtyper jag bör kontrollera.”	3️⃣ Etik – verifiera fakta, använd AI som sökguide.
+Språkförfining	“Justera texten mot en mer formell ton (utan att ta bort min personliga stil). Markera förändringar.”	5️⃣ Människa & maskin – behålla egen röst.
+Variation i uttryck	“Ge fem alternativa sätt att inleda ett stycke som handlar om motargument.”	2️⃣ Vad är AI – språkets mönsterigenkänning, medveten imitation.
+🧠 Metodtips:
+Låt eleverna dokumentera sina interaktioner i en AI-logg (prompt + valda förändringar).
+De får sedan reflektera: Vad förbättrade AI:n? Vad behöll jag? Vad valde jag bort – och varför?
+
+🔁 3. Respons och bearbetning
+🎯 Mål
+Eleven ska kunna bearbeta sin text utifrån riktad respons och visa förbättringar i struktur, språk och resonemang.
+💡 Lärarens fokus
+Respons är inte en slutpunkt – det är en andra skrivomgång.
+AI kan ge snabb och formell feedback, men eleverna måste bedöma dess relevans och trovärdighet.
+Moment	Exempel på AI-användning	AI-litteracitet som tränas
+Riktad feedback	“Läs detta stycke. Bedöm endast sambandsmarkörer – var behöver jag tydligare kopplingar?”	2️⃣ Vad är AI + 4️⃣ Kritiskt granska – precision i feedback.
+Textbindning och logik	“Identifiera meningar där logiken bryts. Föreslå hur jag kan förbättra övergången.”	5️⃣ Människa & maskin – mänsklig redigering som styr verktyget.
+Reflektion över AI-respons	“Vilka tre förändringar föreslog AI? Vilka valde jag att följa och varför?”	3️⃣ Etik – ansvar och transparens i skrivprocessen.
+🧠 Metodtips:
+Kombinera AI-respons med kamratrespons → låt eleverna jämföra.
+Vilken respons var mest konkret, användbar, nyanserad?
+Den reflektionen kan ingå i bedömningen av kritiskt tänkande och processförståelse.
+
+📖 Lektionsidé: Den iterativa skrivloopen
+Syfte:
+Träna elevernas förmåga att planera, producera och bearbeta en text genom upprepade cykler av mänsklig och AI-feedback.
+Genomförande (3 × 60 min):
+	1. Planering (lektion 1)
+		○ Eleverna formulerar frågeställning/tes och disposition med AI som idéstöd.
+		○ De väljer en av dispositionerna och motiverar sitt val skriftligt.
+	2. Produktion (lektion 2)
+		○ De skriver första utkastet.
+		○ Använder AI för riktad feedback (struktur, ton, textbindning).
+		○ Dokumenterar varje prompt och resultat i sin AI-logg.
+	3. Bearbetning (lektion 3)
+		○ De granskar AI-feedbacken, gör medvetna förändringar och motiverar dem i loggen.
+		○ Kort reflektion: Hur förändrades min text och mitt sätt att tänka?
+💬 Bedömningsfokus:
+Processynlighet, metakognition, språklig precision och självständig analys.
+
+🎓 Koppling till syfte och centralt innehåll
+Fas	Syfteskoppling	Centralt innehåll (Sv 2)
+Planering	Språk som verktyg för tänkande och planering.	Struktur och språkliga drag; digitala verktyg för textbearbetning.
+Produktion	Språklig anpassning och tydligt syfte.	Skriftlig framställning av argumenterande och utredande texter.
+Bearbetning	Kritiskt och reflekterande förhållningssätt.	Respons, språkriktighet, citat- och referatteknik.
+
+🔑 Kärnidé
+	AI ska inte förenkla skrivandet – det ska fördjupa tänkandet.
+	När eleverna lär sig använda AI som en del av den retoriska skrivloopen växer både deras språk och deras ansvar.
+
+📘 Del 4 – Utredande text (PM) och AI
+Från sammanställning till syntes
+
+🎯 Mål och syfte
+I Svenska 2 ska eleverna kunna skriva en utredande text (PM) som:
+	• besvarar en frågeställning genom att analysera och väga olika perspektiv,
+	• visar självständig syntes av källor,
+	• håller en saklig och formell stil med korrekta referenser.
+Med AI-integrering blir målet att eleverna:
+	1. använder AI som planeringsstöd (för frågeställning, disposition, perspektiv),
+	2. tränar kritisk käll- och språkgranskning,
+	3. utvecklar sin egna röst och analytiska förmåga i förhållande till maskinellt språk.
+
+🧭 Steg-för-steg i den AI-stödda PM-processen
+🧩 1. Frågeställning och avgränsning
+Lärarens fokus:
+PM är inte en faktarapport utan en analytisk text. Frågeställningen ska vara möjlig att besvara genom jämförelse och reflektion.
+Moment	Exempel på AI-användning	Elevens uppgift
+Brainstorma	“Ge fem möjliga forskningsfrågor om AI och språk som går att besvara i ett PM.”	Välj två intressanta förslag, bedöm om de är beskrivande eller analytiska.
+Avgränsa	“Omformulera min fråga så att den blir smalare och mer fokuserad på orsak eller konsekvens.”	Diskutera i par: vilken formulering leder till en analys, inte en lista?
+Perspektivkarta	“Visa möjliga vinklar (teknisk, etisk, språklig, samhällelig) på ämnet AI i skolan.”	Rita en mindmap – välj två perspektiv att jämföra i PM:et.
+💬 Reflektionsfråga:
+Hur förändras ditt tänkande när du testar olika formuleringar i AI – vem har egentligen kontroll över vad som verkar viktigt?
+
+🧱 2. Disposition och struktur
+Lärarens fokus:
+AI kan hjälpa eleverna att strukturera stoffet, men de måste förstå var i texten analysen sker.
+Moment	Exempel på AI-användning	AI-litteracitet
+Skapa disposition	“Jag ska skriva ett PM om hur AI påverkar läraryrket. Här är mina tre huvudpunkter: [lista]. Skapa disposition med underrubriker enligt PM-struktur.”	2️⃣ Vad är AI – förstå struktur som mönster, inte sanning.
+Jämföra modeller	“Visa skillnaden mellan en tematisk och en frågebaserad disposition.”	4️⃣ Kritiskt granska – välja och motivera disposition.
+Övergångar	“Ge förslag på sambandsmarkörer för att binda ihop mina stycken.”	5️⃣ Människa & maskin – medveten textbindning.
+💬 Miniövning:
+Visa två AI-förslag på disposition. Låt klassen markera: Var sker syntes? Var är det bara uppräkning?
+
+🧩 3. Källhantering och syntes
+Lärarens fokus:
+AI kan inte ersätta källor – men det kan hjälpa eleven att jämföra och formulera skillnader mellan dem.
+Moment	Exempel på AI-användning	Vad eleven tränar
+Sammanställa	“Sammanfatta skillnaden mellan dessa två källor (klistra in utdrag).”	Syntes – formulera egna slutsatser av andras tankar.
+Identifiera luckor	“Vilka perspektiv saknas i dessa två källor?”	Analys – upptäcka vad som inte sägs.
+Källkritik	“Vilka påståenden i texten saknar källa eller låter osäkra?”	4️⃣ Kritiskt granska AI – genomskåda hallucinationer.
+💬 Metodtips:
+Be eleverna färgkoda sin text: blått = fakta ur källa, grönt = egen analys, gult = AI-stöd.
+Diskutera sedan: Vilken färg dominerar? Vad betyder det för textens kvalitet?
+
+🧰 4. Språk, ton och stil
+Lärarens fokus:
+AI ska hjälpa eleverna att utveckla en saklig, korrekt och levande prosa, utan att göra den generisk.
+Moment	Exempel på AI-användning	Fällor att diskutera
+Språkförfining	“Förkorta detta stycke till 100 ord utan att ändra innehållet.”	Förlorad nyans – eleverna måste jämföra versioner.
+Tonjustering	“Justera detta stycke mot en mer formell ton, men behåll enkel syntax.”	För stel? AI överformulerar ofta.
+Av-AI-fiering	“Bearbeta denna text så att den låter mer mänsklig: kortare meningar, konkreta exempel, mindre klichéer.”	5️⃣ Människa & maskin – elevens röst återtas.
+💬 Miniövning:
+Visa två versioner av samma text (AI:s och elevens).
+Låt klassen rösta: Vilken känns mest trovärdig och mänsklig? Varför?
+
+🔁 5. Reflektion och metatext
+Syfte:
+Göra elevens skrivprocess synlig och bedömbar.
+Uppgift:
+Skriv ett kort processappendix (AI-logg) som redovisar:
+	• Var i processen du använde AI (planering, formulering, bearbetning).
+	• Vad du valde att behålla, ändra eller förkasta.
+	• Hur AI påverkade ditt tänkande om ämnet.
+💬 Lärarens bedömning:
+Ett välformulerat appendix visar agens, metakognition och etik – tre kärnkompetenser i AI-litteracitet.
+
+🧮 Lektionsförslag: “Det undersökande PM:et”
+📍 2–3 lektioner (á 70 min)
+Fas	Aktivitet	AI-integrering	Produkt
+Lektion 1	Brainstorma ämne → formulera 2–3 frågeställningar	AI = idéstöd (testa formuleringar)	Vald frågeställning + disposition
+Lektion 2	Arbeta med 2 källor → skriv utredande avsnitt	AI = syntespartner (jämför källor)	Textutkast + källförteckning
+Lektion 3	Textbearbetning + AI-respons	AI = redaktör (stil, logik, textbindning)	Färdig text + AI-logg
+Bedömning:
+	• Analys och syntesnivå.
+	• Språklig precision.
+	• Transparens i AI-användning.
+
+🧭 Koppling till syfte och centralt innehåll
+Fokus	Syfteskoppling	Centralt innehåll (Sv 2)
+Frågeställning & analys	Språk som verktyg för tänkande och lärande.	Struktur och språkliga drag i utredande texter.
+Källhantering & syntes	Göra underbyggda ställningstaganden.	Informationssökning och värdering av källor.
+Språk & stil	Språklig säkerhet och formell precision.	Skriftspråkets normer och textens funktion.
+Reflektion & AI-logg	Kritiskt reflekterande och etiskt förhållningssätt.	Användning av digitala verktyg för textbearbetning och respons.
+
+🔑 Kärnidé
+	PM-skrivandet handlar inte om att låta AI svara på frågan –
+	utan om att visa hur människan formulerar frågan, väger svaren och tar ansvar för orden.
+
+⚖️ Del 5 – Argumenterande text och AI
+Från tes till refutatio: AI som motståndare och mentor
+
+🎯 Mål och syfte
+I Svenska 2 ska eleverna kunna skriva argumenterande texter som:
+	• formulerar en tydlig tes och välgrundade argument,
+	• bemöter motargument (refutatio),
+	• håller en övertygande och anpassad ton utifrån mottagare och syfte.
+Med AI-integrering utvecklas elevernas förmåga att:
+	1. använda AI för att testa styrkan i sina argument genom att simulera motstånd,
+	2. analysera hur språk skapar påverkan – i både mänsklig och maskinell retorik,
+	3. förstå etik, bias och trovärdighet i digital argumentation.
+
+🧭 1. Från åsikt till tes
+Lärarens fokus:
+Eleverna ska förstå skillnaden mellan åsikt och argumenterbar tes.
+AI används som testarena: en plats där eleven kan pröva, justera och skärpa sin ståndpunkt.
+Moment	Exempel på AI-användning	Vad eleven tränar
+Förtydliga tes	“Jag tycker att AI i skolan är dåligt. Gör om det till en tes som är tydlig, avgränsad och möjlig att argumentera för.”	Att formulera en tes med riktning och fokus.
+Testa styrka	“Granska min tes: Är den för bred, för självklar eller lagom kontroversiell?”	Kritiskt tänkande och mottagaranalys.
+Formulera syfte	“Min målgrupp är lärare. Hur kan jag formulera om min tes för att passa dem?”	Retorisk anpassning (aptum).
+💬 Miniövning:
+Visa tre elevteser och låt AI bedöma vilken som är mest argumenterbar – klassen diskuterar om AI har rätt och varför.
+
+🧱 2. Argumentation – logos, ethos, pathos
+Lärarens fokus:
+AI kan hjälpa eleverna att bygga en argumentstruktur, men de måste förstå hur retoriska medel påverkar.
+Moment	Exempel på AI-användning	Retorisk koppling
+Bygga argument	“Ge mig tre argument FÖR tesen ‘AI bör användas i undervisningen’ och tre EMOT. Rangordna efter logisk styrka.”	Logos – logisk trovärdighet.
+Etosanalys	“Skriv samma argument i två versioner: 1) som expert, 2) som elev. Jämför trovärdigheten.”	Ethos – talarens roll och förtroende.
+Känsloanalys	“Skriv om detta argument så att det väcker känsla (pathos) utan att bli manipulativt.”	Pathos – emotionell påverkan.
+💬 Klassdiskussion:
+Hur märks det när AI försöker “låta övertygande”?
+Vilka känslor använder den – och är de effektiva eller överdrivna?
+
+🧩 3. Refutatio – att bemöta motargument
+Lärarens fokus:
+AI är idealisk som “djävulens advokat”. Det hjälper eleverna att träna motstånd och stärka sin logiska stringens.
+Moment	Exempel på AI-användning	AI-litteracitet som tränas
+Skapa motstånd	“Agera som en motdebattör som är kunnig inom ämnet. Bemöt min tes med dina starkaste motargument.”	6️⃣ Framtid & samhälle – AI som dialogpartner i debatt.
+Bemöta motargument	“Här är ett motargument som jag fått: [klistra in]. Ge mig förslag på tre möjliga bemötanden.”	3️⃣ Etik – balansera saklighet och respekt.
+Kontrollera balans	“Läs mitt stycke om motargument. Är jag rättvis mot motparten eller halmgubbe?”	4️⃣ Kritiskt granska – upptäcka retorisk bias.
+💬 Miniövning:
+AI levererar ett “falskt men övertygande” motargument. Klassen dissekerar det: Vad gör det retoriskt starkt men faktamässigt svagt?
+
+💬 4. Språk och stil – argumentationens ton
+Lärarens fokus:
+AI kan hjälpa eleverna att förstå hur ton, rytm och ordval påverkar trovärdighet.
+Moment	Exempel på AI-användning	Vanlig fallgrop
+Stilistisk variation	“Skriv om detta stycke med olika ton: 1) nyhetskommentator, 2) influencer, 3) forskare.”	Risk för stilistisk “maskering” – eleven tappar sin egen röst.
+Rytm och tempo	“Gör texten mer slagkraftig: korta meningar, anaforer, kontraster.”	För mycket dramatik – läraren diskuterar balans.
+Argumentationsfallgropar	“Analysera om denna text innehåller retoriska felslut.”	4️⃣ Kritiskt granska – logisk precision.
+💬 Klassövning:
+Analysera en AI-genererad debattartikel och markera retoriska felslut (t.ex. halmgubbe, glidande betydelse, cirkelargument).
+
+🔁 5. Revision och reflektion
+Syfte:
+Eleven ska synliggöra sin egen process – vad AI tillfört och vad som är eget.
+Elevens AI-logg (bilaga till texten):
+	1. Min tes och syfte.
+	2. Mina viktigaste prompter och resultat.
+	3. Vad jag ändrade i AI:s förslag – och varför.
+	4. Vad jag lärde mig om argumentation genom denna process.
+💬 Lärarens feedbackfokus:
+	• Hur eleven värderar AI:s argument – inte hur snyggt de kopierar dem.
+	• Hur väl eleven förstår sin egen påverkan på ton och ethos.
+
+🧮 Lektionsförslag: “Debatt mot maskinen”
+📍 2–3 lektioner (á 70 min)
+Fas	Aktivitet	AI-integrering	Produkt
+Lektion 1	Eleverna formulerar tes och målgrupp	AI = sparring för tesformulering och syfte	Fastställd tes + disposition
+Lektion 2	AI agerar motdebattör (“djävulens advokat”)	AI = motståndare	Utvecklad refutatio (stycke eller hel text)
+Lektion 3	Stilverkstad – ethos, logos, pathos	AI = retorisk coach	Reviderad text + AI-logg
+🧠 Bedömning:
+	• Tydlig tes och logiskt byggda argument.
+	• Refutatio som visar förståelse för flera perspektiv.
+	• Språkets anpassning till syfte och mottagare.
+	• Transparens och kritisk AI-reflektion i logg/metatext.
+
+🧭 Koppling till syfte och centralt innehåll
+Fokus	Syfteskoppling	Centralt innehåll (Sv 2)
+Tes och syfte	Förmåga att uttrycka och motivera egna ställningstaganden.	Argumenterande framställning; mottagaranpassning.
+Argumentation och refutatio	Aktivt deltagande i samhällsdebatt, kritiskt tänkande.	Retoriska verkningsmedel, språklig påverkan.
+Språk och ton	Språklig säkerhet och anpassning.	Struktur och språkliga drag i argumenterande texter.
+AI-logg och etik	Reflektion över språk, teknik och ansvar.	Digitala verktyg för textbearbetning och respons.
+
+🔑 Kärnidé
+	Att skriva en argumenterande text med AI handlar inte om att vinna en debatt –
+	utan om att förstå hur språk, logik och teknik tillsammans formar sannolikhet, trovärdighet och makt.
+
+Underbart 👌
+Här kommer Del 6 – Språk, stil och textbindning — en av de mest centrala delarna i Svenska 2 och kanske den mest spännande i AI-eran. Fokus ligger på att utveckla språklig medvetenhet, precision och egen stil genom jämförelse mellan mänskligt och AI-genererat språk.
+
+🪶 Del 6 – Språk, stil och textbindning
+Från korrekthet till röst
+
+🎯 Mål och syfte
+I Svenska 2 förväntas eleverna visa:
+	• språkriktighet och variation,
+	• tydlig textbindning och logisk struktur,
+	• stilsäkerhet – att språket fungerar i sitt sammanhang.
+Med AI som verktyg handlar det inte längre bara om rätta fel, utan om att förstå varför språket låter som det gör och hur man behåller sin egen röst i en tid av maskinellt språk.
+
+🧭 1. Språkriktighet och stilistisk medvetenhet
+Lärarens fokus:
+AI är fenomenalt på korrektur – men också på att jämna ut allt som sticker ut.
+Eleverna ska därför se skillnad mellan grammatisk korrekthet och stilistisk personlighet.
+Moment	Exempel på AI-användning	Vad eleven tränar
+Grammatikcheck	“Markera grammatiska fel i denna text utan att ändra stilen.”	Språkriktighet utan stilförlust.
+Stilbedömning	“Vilket tonläge har denna text – formell, neutral, personlig?”	Metaspråklig medvetenhet.
+Röstanalys	“Identifiera meningar där texten låter generisk. Hur kan jag skriva dem mer personligt utan att tappa saklighet?”	Egen röst och autenticitet.
+💬 Miniövning:
+Visa en AI-skapad text och en elevtext om samma ämne.
+Låt eleverna i par ringa in meningar där AI:n “låter smart men säger lite”. Diskutera: Vad gör din formulering mer mänsklig?
+
+🪶 2. Textbindning – den röda tråden
+Lärarens fokus:
+Textbindning är ofta den mest förbisedda färdigheten.
+AI kan hjälpa till att synliggöra logiska luckor och repetitioner – men eleverna behöver förstå sambandsmarkörernas semantik, inte bara mekanik.
+Moment	Exempel på AI-användning	Färdighet
+Sambandsanalys	“Lista alla sambandsord i min text och kategorisera dem (orsak, följd, kontrast, förstärkning).”	Medveten textstruktur.
+Styckeövergång	“Föreslå en mening som binder ihop detta stycke med nästa.”	Styckelogik och kohesion.
+Variation	“Ge fem alternativa sätt att inleda detta stycke utan ‘Dessutom’ eller ‘Å andra sidan’.”	Språklig variation.
+💬 Miniövning:
+Låt AI lista sambandsmarkörer i en elevtext. Eleverna byter text och redigerar varandras övergångar – men utan att lägga till nya ord.
+Diskutera hur små språkliga justeringar förändrar textens rytm.
+
+🧩 3. Ton, rytm och meningsbyggnad
+Lärarens fokus:
+Att låta texten andas är centralt i Svenska 2.
+AI kan fungera som rytmcoach – men eleverna måste känna igen när rytmen bryts mot deras egen stil.
+Moment	Exempel på AI-användning	Risk att diskutera
+Variation i längd	“Kortare meningar – men behåll akademisk ton.”	AI klipper utan förståelse för rytm.
+Aktiv/passiv röst	“Skriv om detta stycke till aktiv röst. Hur förändras tonen?”	Mekanisk “actionisering”.
+Klang och rytm	“Justera meningsrytmen för bättre flyt – behåll innehållet.”	Förlorad personlighet.
+💬 Klassövning:
+Låt AI skriva samma stycke i tre rytmiska stilar:
+	• akademisk (långa meningar),
+	• journalistisk (korta, rytmiska),
+	• berättande (växlande rytm).
+Diskutera hur rytm förändrar läsarens upplevelse och trovärdighet.
+
+🧠 4. Av-AI-fiering – att återta sin röst
+Lärarens fokus:
+“ChatGPT-svenska” kännetecknas av tre drag:
+	1. överdriven artighet,
+	2. klichéartade formuleringar,
+	3. homogen rytm och ordförråd.
+Eleverna ska aktivt kunna identifiera och bearbeta dessa drag i sin egen text.
+Moment	Exempel på AI-användning	AI-litteracitet
+Identifiera generiskt språk	“Vilka meningar låter generiska eller förutsägbara?”	4️⃣ Kritiskt granska AI – språk som sannolikhetsprodukt.
+Stiljustering	“Förvandla denna text till en mer levande stil, men utan att bli informell.”	5️⃣ Människa & maskin – återta autentisk röst.
+Lexikal precision	“Byt ut allmänna ord (‘påverkan’, ‘utveckling’) mot mer precisa synonymer.”	2️⃣ Vad är AI – språkets djup kontra yta.
+💬 Miniövning:
+AI skriver: “AI påverkar vårt samhälle på många sätt.”
+Eleven skriver om till:
+	“När algoritmer sorterar våra ansikten, våra nyheter och våra röster – då handlar påverkan inte längre om framtiden, utan om nuet.”
+	Diskutera: Vad händer med ton, tempo och närvaro?
+
+🔁 5. Bearbetning och respons
+Syfte:
+Att kombinera AI-respons med mänsklig respons för att öva redaktörsrollen.
+Steg	Aktivitet	Produkt
+1	AI ger respons på stil, ton och textbindning.	Automatisk respons (textmarkeringar).
+2	Kamrater ger respons på läsarupplevelse.	Kamratkommentarer.
+3	Eleven jämför, väljer och motiverar sina ändringar.	Processlogg (AI-logg + reflektion).
+💬 Frågor till reflektionen:
+	• Vad förbättrade AI mest – struktur, rytm eller ton?
+	• Vad missade AI som en människa såg direkt?
+	• Hur har jag stärkt min egen röst genom bearbetningen?
+
+🧮 Lektionsförslag: “Från ChatGPT-svenska till din egen röst”
+📍 2 lektioner (á 70 min)
+Fas	Aktivitet	AI-integrering	Produkt
+Lektion 1	Analys av generisk AI-text (“ChatGPT-svenska”)	AI som analysobjekt	Markerad text + diskussion
+Lektion 2	Av-AI-fiering av egen text	AI som coach (stil, rytm, precision)	Reviderad text + reflektion
+🧠 Bedömning:
+	• Stilistisk variation och textbindning.
+	• Förmåga att identifiera och motverka generiska drag.
+	• Språklig anpassning till genre och mottagare.
+	• Synlig processreflektion (AI-logg).
+
+🧭 Koppling till syfte och centralt innehåll
+Fokus	Syfteskoppling	Centralt innehåll (Sv 2)
+Språkriktighet	Språklig säkerhet och förståelse för språkets struktur.	Skriftspråkets normer och språklig precision.
+Textbindning	Språk som verktyg för tänkande och struktur.	Struktur och språkliga drag i texter.
+Stil och röst	Språklig kreativitet och personlig uttrycksförmåga.	Språkriktighet och textens funktion i sitt sammanhang.
+Av-AI-fiering	Etiskt och kritiskt förhållningssätt till teknikens påverkan på språk.	Digitala verktyg för textbearbetning och respons.
+
+🔑 Kärnidé
+	AI kan ge dig korrekt språk –
+	men bara du kan ge det liv, rytm och mening.
+
+
+Perfekt, Joel 🙌
+Här kommer Del 7 – Källkritik, citat- och referatteknik samt akademisk integritet, i samma AI·litt-format som tidigare delar.
+Den här modulen knyter ihop mycket av Svenska 2:s kärna: att skriva med ansvar, urskilja sanning från sannolikhet, och förstå hur AI förändrar vår syn på kunskap.
+
+🔍 Del 7 – Källkritik, citat- och referatteknik & akademisk integritet
+Att tänka som en forskare i AI-eran
+
+🎯 Mål och syfte
+I Svenska 2 ska eleverna kunna:
+	• söka, värdera och använda information från olika typer av källor,
+	• tillämpa korrekt citat- och referatteknik,
+	• visa kritiskt omdöme och integritet i skrivprocessen.
+Med AI-integrering blir målet att eleverna:
+	1. förstår varför AI inte är en källa,
+	2. tränar sig i att upptäcka och avslöja hallucinationer,
+	3. utvecklar strategier för etisk och transparent användning av AI i skrift.
+
+🧭 1. Vad är en källa – och vad är inte det?
+Lärarens fokus:
+AI kan låta som en källa, men det är en språkmodell – den återger sannolikheter, inte sanningar.
+Det innebär att all information från AI måste verifieras i primärkällor.
+Moment	Exempel på AI-användning	Elevens uppgift
+Källa vs. modell	“Förklara skillnaden mellan en språkmodell och en källa.”	Diskutera i par: Vad krävs för att något ska vara en källa?
+Fakta eller språk	“Vilka meningar i detta stycke bygger på fakta, och vilka på språkliga antaganden?”	Markera texten i två färger.
+Källtyper	“Ge exempel på tre tillförlitliga källor om [ämne] som kan verifieras.”	Testa om AI:ns exempel finns – dokumentera resultatet.
+💬 Miniövning:
+AI får skriva ett stycke om “AI i skolan” och lägga till tre “källor”.
+Eleverna undersöker vilka som existerar.
+Diskussion: Varför uppstår hallucinationer? Vad betyder det för källkritik i framtiden?
+
+📚 2. Citat, referat och syntes
+Lärarens fokus:
+AI kan hjälpa eleverna att variera formalia, men inte att avgöra vad som är värt att citera.
+Syftet är att visa förståelse och förädling, inte kopiering.
+Moment	Exempel på AI-användning	AI-litteracitet
+Citatval	“Jag vill citera denna mening, men den är för lång. Hur kan jag korta utan att förvanska meningen?”	3️⃣ Etik – trogen återgivning.
+Referatmarkörer	“Visa fem alternativa referatmarkörer för att undvika upprepning av ‘enligt X’.”	2️⃣ Vad är AI – språkets variation.
+Syntes	“Jämför dessa två citat och hjälp mig formulera en mening som visar skillnaden mellan dem.”	4️⃣ Kritiskt granska – skapa egen förståelse.
+💬 Miniövning:
+Eleverna klistrar in två källcitat och ber AI om en syntes.
+Sedan diskuterar de: Är AI:s formulering en sammanfattning eller en tolkning?
+→ Här blir skillnaden mellan sammanfatta och analysera tydlig.
+
+🧩 3. Att citera AI – transparens och etik
+Lärarens fokus:
+Elever ska kunna redovisa AI-användning tydligt, men förstå att AI inte ersätter källor.
+Exempel på formulering i metatext:
+	“Under skrivprocessen använde jag ChatGPT (OpenAI, 2025) för att formulera om stycken och få exempel på disposition.
+	Ingen information från verktyget används som källa, och all fakta har verifierats i primärkällor.”
+💬 Diskussionsfråga:
+När blir AI ett verktyg, och när blir det medförfattare?
+Hur påverkar det bedömning, ansvar och trovärdighet?
+Situation	Etiskt korrekt?	Kommentar
+Använda AI för stavning och språkförbättring	✅ Ja	Verktygsstöd, likvärdigt med grammatikprogram.
+Låta AI skriva ett stycke i texten	⚠️ Delvis	Kräver tydlig redovisning och egen bearbetning.
+Citat från AI som källa	❌ Nej	AI är inte verifierbar; använd alltid primärkällor.
+
+🔎 4. Jakten på hallucinationen
+Lärarens fokus:
+AI-hallucinationer är en utmärkt språngbräda för källkritisk analys.
+Eleverna tränas i triangulering, ursprungsspårning och logisk granskning.
+Moment	Exempel på AI-användning	Vad eleven tränar
+Fakta-check	“Verifiera dessa tre påståenden: [klistra in]. Ange om de är sanna, falska eller oklara.”	Källgranskning och faktakontroll.
+Spåra citat	“Var kommer detta citat egentligen ifrån?”	Ursprungsanalys.
+Bedöm trovärdighet	“Rangordna dessa tre källor efter trovärdighet – motivera.”	Källkritiska kriterier: äkthet, tid, beroende, tendens.
+💬 Klassövning:
+AI skriver: “Enligt forskaren Anna Lund (2019) visar studier att AI förbättrar kreativiteten hos elever.”
+Elevernas uppgift: hitta studien – om den inte finns, analysera varför AI hittade på den.
+Diskussion:
+	• Hur påverkar “falsk auktoritet” vår upplevelse av ethos?
+	• Hur kan vi som lärare använda detta för att stärka elevernas källmedvetenhet?
+
+⚖️ 5. Akademisk integritet – ansvar i AI-eran
+Lärarens fokus:
+Integritet handlar om ärlighet och transparens.
+Eleverna ska kunna visa vad som är eget arbete och hur AI använts.
+Moment	Exempel på AI-användning	Elevens reflektion
+Processlogg	“Beskriv hur du använde AI i din text: vad hjälpte dig mest, vad valde du bort?”	Metareflektion – synlig process.
+Plagiatdiskussion	“Hur skiljer sig inspiration, samarbete och plagiat när AI är inblandat?”	Etik och upphovsrätt.
+Jämför versioner	“Visa skillnaden mellan ditt ursprungliga stycke och det AI-förbättrade.”	Självständighet och ansvar.
+💬 Samtalsövning:
+Låt eleverna i grupper ta ställning till tre gråzoner:
+	1. AI föreslår exempel.
+	2. AI skriver en definition.
+	3. AI sammanfattar källor.
+→ Är alla lika etiska? Var går gränsen mellan stöd och ersättning?
+
+🧮 Lektionsförslag: “Källkritik 2.0 – att avslöja en AI”
+📍 2 lektioner (á 70 min)
+Fas	Aktivitet	AI-integrering	Produkt
+Lektion 1	Läraren visar en AI-genererad text med falska referenser.	AI = analysobjekt	Fakta- och källgranskningsprotokoll.
+Lektion 2	Eleverna skriver en kort text där de redovisar sin AI-användning enligt formalia.	AI = processverktyg	Metatext + reflektionslogg.
+🧠 Bedömning:
+	• Förmåga att värdera källors relevans och tillförlitlighet.
+	• Korrekt och etisk användning av citat och referatteknik.
+	• Reflekterad redovisning av AI-användning.
+	• Självständighet i syntes och analys.
+
+🧭 Koppling till syfte och centralt innehåll
+Fokus	Syfteskoppling	Centralt innehåll (Sv 2)
+Källkritik	Kritiskt reflekterande förhållningssätt till språk och information.	Informationssökning och värdering av texter.
+Citat- och referatteknik	Språkets funktion för lärande och kommunikation.	Citat- och referatteknik.
+AI-etik och integritet	Aktivt deltagande i samhället med ansvar.	Digitala verktyg för textbearbetning och respons.
+Transparens	Personlig utveckling och tilltro till egen förmåga.	Språkriktighet och textens funktion i sitt sammanhang.
+
+🔑 Kärnidé
+	Källkritik i AI-eran handlar inte bara om att kontrollera fakta –
+	utan om att förstå hur sanning formas när maskinen talar som en människa.
+🔍 Del 7 – Källkritik, citat- och referatteknik & akademisk integritet
+Att tänka som en forskare i AI-eran
+
+🎯 Mål och syfte
+I Svenska 2 ska eleverna kunna:
+	• söka, värdera och använda information från olika typer av källor,
+	• tillämpa korrekt citat- och referatteknik,
+	• visa kritiskt omdöme och integritet i skrivprocessen.
+Med AI-integrering blir målet att eleverna:
+	1. förstår varför AI inte är en källa,
+	2. tränar sig i att upptäcka och avslöja hallucinationer,
+	3. utvecklar strategier för etisk och transparent användning av AI i skrift.
+
+🧭 1. Vad är en källa – och vad är inte det?
+Lärarens fokus:
+AI kan låta som en källa, men det är en språkmodell – den återger sannolikheter, inte sanningar.
+Det innebär att all information från AI måste verifieras i primärkällor.
+Moment	Exempel på AI-användning	Elevens uppgift
+Källa vs. modell	“Förklara skillnaden mellan en språkmodell och en källa.”	Diskutera i par: Vad krävs för att något ska vara en källa?
+Fakta eller språk	“Vilka meningar i detta stycke bygger på fakta, och vilka på språkliga antaganden?”	Markera texten i två färger.
+Källtyper	“Ge exempel på tre tillförlitliga källor om [ämne] som kan verifieras.”	Testa om AI:ns exempel finns – dokumentera resultatet.
+💬 Miniövning:
+AI får skriva ett stycke om “AI i skolan” och lägga till tre “källor”.
+Eleverna undersöker vilka som existerar.
+Diskussion: Varför uppstår hallucinationer? Vad betyder det för källkritik i framtiden?
+
+📚 2. Citat, referat och syntes
+Lärarens fokus:
+AI kan hjälpa eleverna att variera formalia, men inte att avgöra vad som är värt att citera.
+Syftet är att visa förståelse och förädling, inte kopiering.
+Moment	Exempel på AI-användning	AI-litteracitet
+Citatval	“Jag vill citera denna mening, men den är för lång. Hur kan jag korta utan att förvanska meningen?”	3️⃣ Etik – trogen återgivning.
+Referatmarkörer	“Visa fem alternativa referatmarkörer för att undvika upprepning av ‘enligt X’.”	2️⃣ Vad är AI – språkets variation.
+Syntes	“Jämför dessa två citat och hjälp mig formulera en mening som visar skillnaden mellan dem.”	4️⃣ Kritiskt granska – skapa egen förståelse.
+💬 Miniövning:
+Eleverna klistrar in två källcitat och ber AI om en syntes.
+Sedan diskuterar de: Är AI:s formulering en sammanfattning eller en tolkning?
+→ Här blir skillnaden mellan sammanfatta och analysera tydlig.
+
+🧩 3. Att citera AI – transparens och etik
+Lärarens fokus:
+Elever ska kunna redovisa AI-användning tydligt, men förstå att AI inte ersätter källor.
+Exempel på formulering i metatext:
+	“Under skrivprocessen använde jag ChatGPT (OpenAI, 2025) för att formulera om stycken och få exempel på disposition.
+	Ingen information från verktyget används som källa, och all fakta har verifierats i primärkällor.”
+💬 Diskussionsfråga:
+När blir AI ett verktyg, och när blir det medförfattare?
+Hur påverkar det bedömning, ansvar och trovärdighet?
+Situation	Etiskt korrekt?	Kommentar
+Använda AI för stavning och språkförbättring	✅ Ja	Verktygsstöd, likvärdigt med grammatikprogram.
+Låta AI skriva ett stycke i texten	⚠️ Delvis	Kräver tydlig redovisning och egen bearbetning.
+Citat från AI som källa	❌ Nej	AI är inte verifierbar; använd alltid primärkällor.
+
+🔎 4. Jakten på hallucinationen
+Lärarens fokus:
+AI-hallucinationer är en utmärkt språngbräda för källkritisk analys.
+Eleverna tränas i triangulering, ursprungsspårning och logisk granskning.
+Moment	Exempel på AI-användning	Vad eleven tränar
+Fakta-check	“Verifiera dessa tre påståenden: [klistra in]. Ange om de är sanna, falska eller oklara.”	Källgranskning och faktakontroll.
+Spåra citat	“Var kommer detta citat egentligen ifrån?”	Ursprungsanalys.
+Bedöm trovärdighet	“Rangordna dessa tre källor efter trovärdighet – motivera.”	Källkritiska kriterier: äkthet, tid, beroende, tendens.
+💬 Klassövning:
+AI skriver: “Enligt forskaren Anna Lund (2019) visar studier att AI förbättrar kreativiteten hos elever.”
+Elevernas uppgift: hitta studien – om den inte finns, analysera varför AI hittade på den.
+Diskussion:
+	• Hur påverkar “falsk auktoritet” vår upplevelse av ethos?
+	• Hur kan vi som lärare använda detta för att stärka elevernas källmedvetenhet?
+
+⚖️ 5. Akademisk integritet – ansvar i AI-eran
+Lärarens fokus:
+Integritet handlar om ärlighet och transparens.
+Eleverna ska kunna visa vad som är eget arbete och hur AI använts.
+Moment	Exempel på AI-användning	Elevens reflektion
+Processlogg	“Beskriv hur du använde AI i din text: vad hjälpte dig mest, vad valde du bort?”	Metareflektion – synlig process.
+Plagiatdiskussion	“Hur skiljer sig inspiration, samarbete och plagiat när AI är inblandat?”	Etik och upphovsrätt.
+Jämför versioner	“Visa skillnaden mellan ditt ursprungliga stycke och det AI-förbättrade.”	Självständighet och ansvar.
+💬 Samtalsövning:
+Låt eleverna i grupper ta ställning till tre gråzoner:
+	1. AI föreslår exempel.
+	2. AI skriver en definition.
+	3. AI sammanfattar källor.
+→ Är alla lika etiska? Var går gränsen mellan stöd och ersättning?
+
+🧮 Lektionsförslag: “Källkritik 2.0 – att avslöja en AI”
+📍 2 lektioner (á 70 min)
+Fas	Aktivitet	AI-integrering	Produkt
+Lektion 1	Läraren visar en AI-genererad text med falska referenser.	AI = analysobjekt	Fakta- och källgranskningsprotokoll.
+Lektion 2	Eleverna skriver en kort text där de redovisar sin AI-användning enligt formalia.	AI = processverktyg	Metatext + reflektionslogg.
+🧠 Bedömning:
+	• Förmåga att värdera källors relevans och tillförlitlighet.
+	• Korrekt och etisk användning av citat och referatteknik.
+	• Reflekterad redovisning av AI-användning.
+	• Självständighet i syntes och analys.
+
+🧭 Koppling till syfte och centralt innehåll
+Fokus	Syfteskoppling	Centralt innehåll (Sv 2)
+Källkritik	Kritiskt reflekterande förhållningssätt till språk och information.	Informationssökning och värdering av texter.
+Citat- och referatteknik	Språkets funktion för lärande och kommunikation.	Citat- och referatteknik.
+AI-etik och integritet	Aktivt deltagande i samhället med ansvar.	Digitala verktyg för textbearbetning och respons.
+Transparens	Personlig utveckling och tilltro till egen förmåga.	Språkriktighet och textens funktion i sitt sammanhang.
+
+🔑 Kärnidé
+	Källkritik i AI-eran handlar inte bara om att kontrollera fakta –
+	utan om att förstå hur sanning formas när maskinen talar som en människa.
+
+Perfekt 👌
+Här kommer Del 8 – Respons och textbearbetning (AI / kamrat / lärare) — sista delen i skrivblocket för Svenska 2, utformad i samma AI·litt-format.
+Fokus här är att göra skrivandet till en cyklisk, synlig och medveten process, där AI kompletterar mänsklig respons utan att ta över den.
+
+🔁 Del 8 – Respons och textbearbetning
+Från respons till reflektion
+
+🎯 Mål och syfte
+I Svenska 2 ska eleverna:
+	• kunna bearbeta texter utifrån egen och andras respons,
+	• utveckla språklig precision och struktur,
+	• visa självständighet och metakognition i skrivprocessen.
+Med AI-integrering blir målet att eleverna:
+	1. lär sig skilja på mekanisk feedback och kritisk bedömning,
+	2. tränar självreglering – att avgöra vilken respons de ska följa,
+	3. dokumenterar och reflekterar över hur AI påverkar deras val och tänkande.
+
+🧭 1. Tre perspektiv på respons
+💡 Lärarens fokus
+Respons blir mest lärorik när eleverna får se sina texter genom flera läsare – människa och maskin.
+AI ger snabb strukturfeedback, men saknar emotionell läsning. Kamraten ser innehåll, men inte alltid språk. Läraren ger riktning och djup.
+Typ av respons	Styrka	Begränsning	Elevens roll
+AI-respons	Snabb, konkret, teknisk.	Saknar värdering, kan vara för generell.	Välja ut och pröva relevanta förslag.
+Kamratrespons	Autentisk läsreaktion, perspektivskifte.	Ofta otydlig eller snäll.	Träna på att ge riktad och konstruktiv feedback.
+Lärarrespons	Kvalitativ, normgrundad, bedömningsnära.	Resurskrävande.	Tolka, prioritera och omsätta i handling.
+💬 Diskussionsfråga:
+Vilken typ av respons får dig att vilja förbättra mest – och varför?
+
+✍️ 2. AI som riktad responsmotor
+Lärarens fokus:
+AI kan ge fokuserad återkoppling, om eleverna lär sig ge fokuserade prompter.
+Moment	Exempel på AI-prompt	Vad eleven tränar
+Struktur	“Granska endast styckeordningen. Behöver något flyttas för bättre logik?”	Textstruktur och röd tråd.
+Stil	“Ge respons på ton: låter jag neutral, övertygande eller för formell?”	Stilmedvetenhet och mottagaranpassning.
+Argumentation	“Identifiera svagaste argumentet i min text. Hur kan jag stärka det?”	Självkritisk analys.
+Textbindning	“Lista mina sambandsmarkörer och föreslå var variation behövs.”	Kohesion och språkprecision.
+💬 Miniövning:
+Låt eleverna be AI om feedback på ett område i taget.
+De markerar förslag de vill använda, förkastar andra, och motiverar skriftligt:
+	“Jag ändrade X eftersom … / Jag behöll Y eftersom …”
+
+🤝 3. Respons-triangulering
+💡 Syfte
+Att jämföra AI-respons, kamratrespons och egen analys för att synliggöra hur olika läsare uppfattar texten.
+Steg-för-steg (kan göras under två lektioner):
+	1. Eleverna gör självskattning av sin text med en kort checklista (struktur, språk, syfte).
+	2. De skickar texten till AI med en riktad prompt.
+	3. De byter text med en kamrat för mänsklig respons.
+	4. De jämför och skriver en metareflektion:
+“Vilken respons hjälpte mig mest och varför?”
+“Vad förstod AI – och vad missade den?”
+💬 Lärarens roll:
+Lyft skillnaden mellan respons som spegel (förståelse) och respons som karta (vägledning).
+
+🧩 4. Bearbetning i tre nivåer
+Nivå	Fokus	Exempel på AI-användning	Lärarens mål
+Textnivå	Form, språk, textbindning	“Korta meningarna i detta stycke och öka flytet.”	Språklig precision.
+Strukturnivå	Disposition, röd tråd	“Visa var jag upprepar idéer i texten.”	Logik och progression.
+Tanknivå	Resonemang, analys, ethos	“Vilket av mina argument är minst trovärdigt – och varför?”	Djupare reflektion.
+💬 Miniövning:
+Låt eleverna markera sina förändringar i olika färger:
+🟢 AI-förslag de använde, 🔵 AI-förslag de förkastade, 🟣 egna nya idéer.
+→ Den visuella spårningen gör lärandeprocessen konkret.
+
+🧠 5. Reflektion och synlig process
+Syfte:
+Att bedöma hur eleven tänker kring skrivande, inte bara vad de producerar.
+AI-loggens sista del (efter bearbetning):
+	1. Vilken typ av respons var mest användbar?
+	2. Vad lärde jag mig om min egen text?
+	3. Vad skulle jag göra annorlunda i nästa skrivuppgift?
+💬 Exempel på elevreflektion:
+	“AI hjälpte mig se att jag saknade övergångar.
+	Kamraten såg däremot att mitt ethos bröts i slutet.
+	Jag valde att ändra båda – nu känns texten både tydligare och mer trovärdig.”
+
+🧮 Lektionsförslag: “Respons i tre speglar”
+📍 2–3 lektioner (á 70 min)
+Fas	Aktivitet	AI-roll	Produkt
+Lektion 1	Självskattning + AI-respons på valt område	Riktad responsmotor	AI-respons + markerad text
+Lektion 2	Kamratrespons enligt mall	Ingen	Kamratkommentarer
+Lektion 3	Bearbetning + metareflektion	AI som språkcoach	Slutversion + AI-logg
+🧠 Bedömning:
+	• Elevens förmåga att värdera och använda respons.
+	• Språklig utveckling mellan version 1 och 2.
+	• Kritiskt förhållningssätt till AI-råd.
+	• Synlig metareflektion i AI-logg.
+
+🧭 Koppling till syfte och centralt innehåll
+Fokus	Syfteskoppling	Centralt innehåll (Sv 2)
+Respons och reflektion	Språk som verktyg för lärande och självvärdering.	Användning av digitala verktyg för textbearbetning och respons.
+Språklig utveckling	Tilltro till den egna förmågan genom bearbetning.	Struktur, språkriktighet och textens funktion.
+Kritiskt tänkande	Förhållningssätt till språk och information.	Informationssökning och värdering av texter.
+Etik och transparens	Ansvar i digital textvärld.	Citat- och referatteknik, akademisk integritet.
+
+🔑 Kärnidé
+	AI kan ge snabb återkoppling –
+	men bara människan kan avgöra vilken feedback som leder till lärande.
+
+Perfekt 👌
+Här kommer Del 8 – Respons och textbearbetning (AI / kamrat / lärare) — sista delen i skrivblocket för Svenska 2, utformad i samma AI·litt-format.
+Fokus här är att göra skrivandet till en cyklisk, synlig och medveten process, där AI kompletterar mänsklig respons utan att ta över den.
+
+🔁 Del 8 – Respons och textbearbetning
+Från respons till reflektion
+
+🎯 Mål och syfte
+I Svenska 2 ska eleverna:
+	• kunna bearbeta texter utifrån egen och andras respons,
+	• utveckla språklig precision och struktur,
+	• visa självständighet och metakognition i skrivprocessen.
+Med AI-integrering blir målet att eleverna:
+	1. lär sig skilja på mekanisk feedback och kritisk bedömning,
+	2. tränar självreglering – att avgöra vilken respons de ska följa,
+	3. dokumenterar och reflekterar över hur AI påverkar deras val och tänkande.
+
+🧭 1. Tre perspektiv på respons
+💡 Lärarens fokus
+Respons blir mest lärorik när eleverna får se sina texter genom flera läsare – människa och maskin.
+AI ger snabb strukturfeedback, men saknar emotionell läsning. Kamraten ser innehåll, men inte alltid språk. Läraren ger riktning och djup.
+Typ av respons	Styrka	Begränsning	Elevens roll
+AI-respons	Snabb, konkret, teknisk.	Saknar värdering, kan vara för generell.	Välja ut och pröva relevanta förslag.
+Kamratrespons	Autentisk läsreaktion, perspektivskifte.	Ofta otydlig eller snäll.	Träna på att ge riktad och konstruktiv feedback.
+Lärarrespons	Kvalitativ, normgrundad, bedömningsnära.	Resurskrävande.	Tolka, prioritera och omsätta i handling.
+💬 Diskussionsfråga:
+Vilken typ av respons får dig att vilja förbättra mest – och varför?
+
+✍️ 2. AI som riktad responsmotor
+Lärarens fokus:
+AI kan ge fokuserad återkoppling, om eleverna lär sig ge fokuserade prompter.
+Moment	Exempel på AI-prompt	Vad eleven tränar
+Struktur	“Granska endast styckeordningen. Behöver något flyttas för bättre logik?”	Textstruktur och röd tråd.
+Stil	“Ge respons på ton: låter jag neutral, övertygande eller för formell?”	Stilmedvetenhet och mottagaranpassning.
+Argumentation	“Identifiera svagaste argumentet i min text. Hur kan jag stärka det?”	Självkritisk analys.
+Textbindning	“Lista mina sambandsmarkörer och föreslå var variation behövs.”	Kohesion och språkprecision.
+💬 Miniövning:
+Låt eleverna be AI om feedback på ett område i taget.
+De markerar förslag de vill använda, förkastar andra, och motiverar skriftligt:
+	“Jag ändrade X eftersom … / Jag behöll Y eftersom …”
+
+🤝 3. Respons-triangulering
+💡 Syfte
+Att jämföra AI-respons, kamratrespons och egen analys för att synliggöra hur olika läsare uppfattar texten.
+Steg-för-steg (kan göras under två lektioner):
+	1. Eleverna gör självskattning av sin text med en kort checklista (struktur, språk, syfte).
+	2. De skickar texten till AI med en riktad prompt.
+	3. De byter text med en kamrat för mänsklig respons.
+	4. De jämför och skriver en metareflektion:
+“Vilken respons hjälpte mig mest och varför?”
+“Vad förstod AI – och vad missade den?”
+💬 Lärarens roll:
+Lyft skillnaden mellan respons som spegel (förståelse) och respons som karta (vägledning).
+
+🧩 4. Bearbetning i tre nivåer
+Nivå	Fokus	Exempel på AI-användning	Lärarens mål
+Textnivå	Form, språk, textbindning	“Korta meningarna i detta stycke och öka flytet.”	Språklig precision.
+Strukturnivå	Disposition, röd tråd	“Visa var jag upprepar idéer i texten.”	Logik och progression.
+Tanknivå	Resonemang, analys, ethos	“Vilket av mina argument är minst trovärdigt – och varför?”	Djupare reflektion.
+💬 Miniövning:
+Låt eleverna markera sina förändringar i olika färger:
+🟢 AI-förslag de använde, 🔵 AI-förslag de förkastade, 🟣 egna nya idéer.
+→ Den visuella spårningen gör lärandeprocessen konkret.
+
+🧠 5. Reflektion och synlig process
+Syfte:
+Att bedöma hur eleven tänker kring skrivande, inte bara vad de producerar.
+AI-loggens sista del (efter bearbetning):
+	1. Vilken typ av respons var mest användbar?
+	2. Vad lärde jag mig om min egen text?
+	3. Vad skulle jag göra annorlunda i nästa skrivuppgift?
+💬 Exempel på elevreflektion:
+	“AI hjälpte mig se att jag saknade övergångar.
+	Kamraten såg däremot att mitt ethos bröts i slutet.
+	Jag valde att ändra båda – nu känns texten både tydligare och mer trovärdig.”
+
+🧮 Lektionsförslag: “Respons i tre speglar”
+📍 2–3 lektioner (á 70 min)
+Fas	Aktivitet	AI-roll	Produkt
+Lektion 1	Självskattning + AI-respons på valt område	Riktad responsmotor	AI-respons + markerad text
+Lektion 2	Kamratrespons enligt mall	Ingen	Kamratkommentarer
+Lektion 3	Bearbetning + metareflektion	AI som språkcoach	Slutversion + AI-logg
+🧠 Bedömning:
+	• Elevens förmåga att värdera och använda respons.
+	• Språklig utveckling mellan version 1 och 2.
+	• Kritiskt förhållningssätt till AI-råd.
+	• Synlig metareflektion i AI-logg.
+
+🧭 Koppling till syfte och centralt innehåll
+Fokus	Syfteskoppling	Centralt innehåll (Sv 2)
+Respons och reflektion	Språk som verktyg för lärande och självvärdering.	Användning av digitala verktyg för textbearbetning och respons.
+Språklig utveckling	Tilltro till den egna förmågan genom bearbetning.	Struktur, språkriktighet och textens funktion.
+Kritiskt tänkande	Förhållningssätt till språk och information.	Informationssökning och värdering av texter.
+Etik och transparens	Ansvar i digital textvärld.	Citat- och referatteknik, akademisk integritet.
+
+🔑 Kärnidé
+	AI kan ge snabb återkoppling –
+	men bara människan kan avgöra vilken feedback som leder till lärande.
+
+Perfekt 👌
+Här kommer Del 9 – Kreativt skrivande och stilövningar med AI, formulerad i samma AI·litt-struktur som tidigare delar.
+Den här delen fördjupar det estetiska perspektivet i Svenska 2: hur AI kan användas för inspiration, imitation och reflektion utan att ersätta elevens egen röst.
+
+🌙 Del 9 – Kreativt skrivande och stilövningar med AI
+Att utforska språkets möjligheter i samspel med maskinen
+
+🎯 Mål och syfte
+I Svenska 2 ska eleverna få utveckla:
+	• kreativt skrivande i olika genrer,
+	• språklig fantasi och stilistisk medvetenhet,
+	• förståelse för skönlitteraturens verkningsmedel och dess koppling till samhället.
+Med AI-integrering blir målet att eleverna:
+	1. använder AI som idépartner – inte spökskrivare,
+	2. utvecklar stilkänsla och genremedvetenhet genom att jämföra mänskligt och maskinellt skrivande,
+	3. reflekterar över upphovsrätt, autenticitet och kreativitetens natur.
+
+🧭 1. AI som inspirationsverktyg
+Lärarens fokus:
+AI kan hjälpa eleverna att komma igång, övervinna skrivkramp och utforska olika berättarperspektiv.
+Men den kreativa styrkan uppstår först när eleven styr AI – inte tvärtom.
+Moment	Exempel på AI-användning	Elevens fokus
+Idégenerering	“Ge mig fem oväntade idéer till en novell om ensamhet i en digital värld.”	Fantasi och associationsförmåga.
+Perspektivskifte	“Skriv samma scen ur en AI:s synvinkel.”	Berättarperspektiv och identitet.
+Karaktärsbygge	“Beskriv en person som verkar mänsklig men är en AI – utan att läsaren vet det.”	Gestaltning och subtilitet.
+💬 Miniövning:
+Eleverna ber AI skapa en berättelseidé i tre meningar. Sedan ändrar de den så att en människa blir AI:n och AI:n blir mänsklig.
+Diskutera: Vad händer med temat och känslan?
+
+🪶 2. Stilövning: Pastiche och parodi
+Lärarens fokus:
+Att härma en stil är ett sätt att förstå hur språk skapar effekt.
+AI kan fungera som stilgenerator som eleverna sedan analyserar och kontrasterar med egen text.
+Moment	Exempel på AI-användning	AI-litteracitet
+Stilimitation	“Skriv en novellöppning i stil med Selma Lagerlöf.”	0️⃣ Berättelsen om AI – stil som spegel av kultur.
+Parodi	“Gör om denna klassiska dikt till en parodi i sociala medier-ton.”	1️⃣ Vad är AI – mönsterigenkänning, inte känsla.
+Stilanalys	“Vilka språkliga drag kännetecknar denna text jämfört med originalet?”	4️⃣ Kritiskt granska – AI:s imitation av röst.
+💬 Miniövning:
+Låt AI skriva en kort text i Hjalmar Söderbergs stil.
+Eleverna identifierar ordval, meningslängd, bildspråk – och skriver sedan en egen pastisch där de för in ett nutida tema (“övervakning”, “chatbotrelationer”).
+Reflektion: När känns något “äkta”?
+
+🎭 3. AI som kreativ motspelare – “Stafettskrivning 2.0”
+Syfte:
+Att använda AI som interaktiv medförfattare i en kontrollerad process.
+Steg	Aktivitet	Lärandefokus
+1	Eleven skriver första stycket i en berättelse.	Inledning och ton.
+2	AI fortsätter berättelsen i samma stil.	Stiligenkänning och kontinuitet.
+3	Eleven redigerar AI:s del för att passa in.	Bearbetning och röst.
+4	Eleven avslutar berättelsen själv.	Helhet och rytm.
+💬 Diskussion efteråt:
+	• Var gick AI ur spår?
+	• Vad i din egen text gjorde berättelsen mer levande?
+	• Vem äger egentligen berättelsen?
+
+⚖️ 4. Etik och upphovsrätt i kreativt skrivande
+Lärarens fokus:
+AI väcker centrala frågor om skapande, autenticitet och konstnärligt värde.
+Dessa samtal kopplar direkt till skolans demokratiska och humanistiska uppdrag.
+Fråga att diskutera	Knyter till…
+Är en AI-genererad dikt “konst”?	Estetik och konstfilosofi.
+Får man publicera AI-genererade texter utan att ange det?	Upphovsrätt och transparens.
+Kan AI vara kreativ – eller bara härmande?	Människa & maskin, etik, framtid.
+💬 Klassdiskussion:
+Visa en AI-genererad dikt och en elevdikt om samma tema (t.ex. “tidens gång”).
+Låt klassen gissa vilken som är vilken – och diskutera vad som gör den mänskliga texten mänsklig.
+
+🌍 5. Kreativ skrivuppgift: “Min framtid utan ord”
+📍 2–3 lektioner (á 70 min)
+Syfte:
+Att förena litterär gestaltning, framtidstema och AI-reflektion.
+Uppgift:
+Skriv en novell, dikt eller monolog om en framtid där människor har slutat tala – och AI tolkar våra känslor åt oss.
+Steg-för-steg:
+	1. Idéfas: AI som brainstormpartner (“Hur skulle ett samhälle utan språk fungera?”).
+	2. Skrivfas: Eleven skriver första versionen helt själv.
+	3. Bearbetningsfas: AI används för att föreslå stilförstärkningar (rytm, bildspråk).
+	4. Reflektionsfas: Eleven skriver en kort metatext om hur AI påverkade berättelsen.
+🧠 Bedömning:
+	• Gestaltning och stilistisk variation.
+	• Språklig medvetenhet och originalitet.
+	• Etisk och reflekterad AI-användning.
+
+🧭 Koppling till syfte och centralt innehåll
+Fokus	Syfteskoppling	Centralt innehåll (Sv 2)
+Kreativt skrivande	Estetiskt och personligt språkbruk.	Kreativt skrivande, språkets funktion för tänkande och lärande.
+Stilmedvetenhet	Förstå språkets uttryckskraft och normer.	Skönlitterära verkningsmedel, stilanalys.
+AI och kreativitet	Reflektion över teknik, människa och konst.	Digitala verktyg i textskapande och etiska perspektiv.
+Upphovsrätt	Ansvar och integritet i skapande.	Svensk språklagstiftning, upphovsrätt, etik.
+
+🔑 Kärnidé
+	AI kan härma stil – men bara människan kan skapa mening.
+
+Perfekt, Joel 🙌
+Här kommer Del 11 – Ämnesbank & uppgiftskort — nu formaterad i AI·litt-struktur, med tydlig layout för lärare, konkreta kopplingar till centralt innehåll och AI-litteracitet, samt svenska nyhetskällor som underlag för elevernas texter.
+
+🧩 Del 11 – Ämnesbank & uppgiftskort
+AI-litteracitet i utredande, argumenterande och kreativa skrivuppgifter
+
+🎯 Syfte
+Denna del hjälper läraren att planera skrivuppgifter i Svenska 2 som tränar:
+	• utredande och argumenterande skrivande,
+	• kritisk informationssökning och källvärdering,
+	• medveten och etisk AI-användning i skrivprocessen.
+Varje uppgift har:
+1️⃣ en aktuell svensk nyhetskälla,
+2️⃣ en tydlig skrivgenre,
+3️⃣ koppling till centralt innehåll och AI-litteracitet,
+4️⃣ förslag på AI-stöd i processen.
+
+🧭 Översikt: AI-litteracitet i skrivuppgifterna
+AI-litteracitetsdimension	Tränas genom…
+2 – Vad är AI	Analysera hur medier beskriver AI och teknikens funktion.
+3 – Etik	Diskutera AI:s påverkan på mänskligt ansvar, upphovsrätt och integritet.
+4 – Kritiskt granska AI-innehåll	Jämföra nyhetsartiklar med AI-genererade versioner; källkritisk kontroll.
+5 – Människa & maskin	Reflektera över språk, empati och kreativitet i mänskligt vs maskinellt skrivande.
+6 – Framtid & samhälle	Utforska hur AI påverkar arbete, demokrati och utbildning.
+
+📚 Tema 1: AI i skolan – hot eller hjälp?
+Källa:
+	• Skolverket (2024-12-12). “Begränsad användning av AI-tjänster i grundskolan, fritidshem och förskoleklass.”
+	• Sveriges Radio (2025). “Läraren Peter använder AI i skolan: ’Blivit lite som en kollega’.”
+Uppgift:
+Skriv ett utredande PM med frågeställningen:
+	“Hur påverkar generativ AI lärarrollen och elevers lärande?”
+Syfte och lärandefokus:
+	• Förstå och analysera hur digitala verktyg påverkar undervisning och lärande.
+	• Träna på att väga fördelar och nackdelar utifrån flera perspektiv (lärare, elev, samhälle).
+	• AI-litteracitet: använd AI som strukturstöd men verifiera fakta via artiklarna.
+AI-stöd i processen:
+Promptförslag:
+	“Ge mig tre olika dispositioner för ett PM om AI i skolan med fokus på lärarrollen.”
+Centralt innehåll:
+	• Skriftlig framställning av utredande texter.
+	• Informationssökning och värdering av information.
+	• Digitala verktyg för textbearbetning.
+
+⚖️ Tema 2: Rättvisa, makt och algoritmer
+Källa:
+	• Dagens Nyheter (2024-08-05). “Sverige måste återta makten över algoritmerna.”
+	• Sveriges Ingenjörer (2024-06-20). “Jämställdhet inom AI är en demokratifråga.”
+Uppgift:
+Skriv en debattartikel där du tar ställning till:
+	“AI gör samhället mer effektivt men mindre rättvist.”
+Syfte och lärandefokus:
+	• Träna argumentation med tydlig tes och motargument.
+	• Diskutera bias, transparens och etik i teknik.
+	• Reflektera över språkets makt och demokratiska dimension.
+AI-stöd i processen:
+Promptförslag:
+	“Agera som djävulens advokat. Jag argumenterar för att AI hotar jämlikhet – ge mig tre motargument som jag kan bemöta.”
+Centralt innehåll:
+	• Skriftlig och muntlig argumentation.
+	• Retoriska verkningsmedel.
+	• Etiska perspektiv i språk och samhälle.
+
+🧠 Tema 3: AI, desinformation och demokrati
+Källa:
+	• Stockholms universitet (2025-10-02). “AI och demokratin – därför måste vi få inflytande över utvecklingen.”
+	• Omni (2024-04). “Många elever litar för mycket på AI.”
+Uppgift:
+Skriv ett argumenterande tal för klassen på temat:
+	“AI hotar demokratin genom att påverka vår tillgång till sanning.”
+Syfte och lärandefokus:
+	• Utveckla förmågan att använda retorik för att förklara komplexa samhällsfrågor.
+	• Kritiskt granska informationskällor och förstå begrepp som filterbubbla och bias.
+	• Använd AI för att testa olika inledningar, men skriv talet självständigt.
+AI-stöd i processen:
+Promptförslag:
+	“Ge mig tre olika inledningar till ett tal som handlar om AI och sanning – en personlig, en saklig, och en provocerande.”
+Centralt innehåll:
+	• Muntlig framställning av utredande och argumenterande slag.
+	• Retoriska verkningsmedel.
+	• Informationssökning och värdering av information.
+
+🎨 Tema 4: Kreativitet, konst och ägande
+Källa:
+	• Akademikerförbundet SSR (2024-05-28). “Sverige blundar för AI-skandalerna i välfärden.”
+	• Dagens Nyheter (2024-03-29). “När AI frågar behöver Sverige intelligenta svar.”
+Uppgift:
+Skriv en essä eller krönika:
+	“Om AI kan skapa konst, musik och litteratur – vad återstår då för människan?”
+Syfte och lärandefokus:
+	• Utforska gränsen mellan människa och maskin i skapandet.
+	• Träna på stilistisk variation och personlig röst.
+	• Diskutera etik, upphovsrätt och kreativitet.
+AI-stöd i processen:
+Promptförslag:
+	“Läs min text och föreslå en metafor som förstärker temat människa kontra maskin.”
+Centralt innehåll:
+	• Kreativt skrivande och språkets estetiska funktion.
+	• Språkliga drag i argumenterande och reflekterande texter.
+	• Etik och upphovsrätt.
+
+🧩 Tema 5: AI och framtidens arbetsliv
+Källa:
+
+Uppgift:
+Skriv ett PM med frågeställningen:
+	“Hur förändrar AI framtidens yrken – och vilka färdigheter blir viktigast?”
+Syfte och lärandefokus:
+	• Träna utredande skrivande och källkritisk syntes.
+	• Diskutera framtid, arbetsmarknad och kompetens.
+	• Reflektera över hur språk och kommunikation påverkas i ett AI-samhälle.
+AI-stöd i processen:
+Promptförslag:
+	“Föreslå tre möjliga frågeställningar för ett PM om AI och framtidens arbetsliv, med fokus på gymnasieelever.”
+Centralt innehåll:
+	• Skriftlig framställning av utredande texter.
+	• Samhällsanalys och framtidsperspektiv.
+	• Språklig variation och formalia.
+
+
+🔑 Kärnidé
+	Genom att skriva med och om AI utvecklar eleverna inte bara språk och källkritik –
+	utan förståelse för hur ord, algoritmer och människor formar framtidens samhälle.

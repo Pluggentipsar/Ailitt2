@@ -63,7 +63,7 @@ export default async function SubjectHubPage({ params }: SubjectPageProps) {
   const modulesByCourse = config.courses.reduce(
     (acc, course) => {
       acc[course.slug] = subjectModules.filter(
-        (module) => module.course === course.title
+        (module) => module.course === course.title && !module.parent
       );
       return acc;
     },

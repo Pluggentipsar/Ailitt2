@@ -42,12 +42,21 @@ export const Module = defineDocumentType(() => ({
       description: "Gruppstorlek (t.ex. 'Individuellt', 'Smågrupper (3-4 elever)')",
       required: false,
     },
+    parent: {
+      type: "string",
+      description: "Moderns överordnade modul (för att skapa hierarkiska strukturer)",
+      required: false,
+    },
   },
   computedFields: {
     url: {
       type: "string",
       resolve: (doc) => {
         const parts = doc._raw.flattenedPath.split("/");
+        // Remove 'page' from the end if it exists (for folder-based routing)
+        if (parts[parts.length - 1] === "page") {
+          parts.pop();
+        }
         return `/amnen/${parts.join("/")}`;
       },
     },
