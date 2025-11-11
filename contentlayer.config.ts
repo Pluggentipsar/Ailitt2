@@ -64,6 +64,9 @@ export const Module = defineDocumentType(() => ({
       type: "string",
       resolve: (doc) => {
         const parts = doc._raw.flattenedPath.split("/");
+        if (parts[parts.length - 1] === "page") {
+          parts.pop();
+        }
         return parts[parts.length - 1];
       },
     },

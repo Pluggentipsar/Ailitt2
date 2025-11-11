@@ -23,6 +23,8 @@ import {
   TalbankenUsage,
 } from "@/components/talbank/TalbankenLayout";
 import { cn } from "@/lib/utils";
+import { ModuleQuickNav } from "@/components/module/ModuleQuickNav";
+import { ModuleStepNav } from "@/components/module/ModuleStepNav";
 
 interface ModuleContentProps {
   module: Module;
@@ -121,6 +123,8 @@ export function ModuleContent({ module }: ModuleContentProps) {
   const mdxComponents = {
     ActivityBlock,
     h2: H2WithActions,
+    ModuleQuickNav,
+    ModuleStepNav,
     UppgiftsbankHighlights,
     TaskCard,
     TaskDeck,

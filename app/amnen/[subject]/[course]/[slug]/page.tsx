@@ -4,6 +4,10 @@ import { allModules } from "contentlayer/generated";
 import { AiLiteracyBadgeList } from "@/components/ui/AiLiteracyBadge";
 import { MetaBadge } from "@/components/ui/MetaBadge";
 import { ModuleContent } from "@/components/module/ModuleContent";
+import {
+  ModuleQuickNav,
+  type ModuleNavId,
+} from "@/components/module/ModuleQuickNav";
 import { ScrollProgress } from "@/components/ui/ScrollProgress";
 import { ModuleActions } from "@/components/module/ModuleActions";
 import { getSubjectColors } from "@/lib/subject-colors";
@@ -86,19 +90,70 @@ export default async function ModulePage({ params }: ModulePageProps) {
       : heroVariant === "svenska2"
         ? {
             backgroundImage:
-              "linear-gradient(120deg, rgba(15,23,42,0.92) 0%, rgba(13,148,136,0.9) 42%, rgba(8,145,178,0.88) 100%), url(/svenska.png)",
+              "linear-gradient(125deg, rgba(15,23,42,0.95) 0%, rgba(30,64,175,0.92) 45%, rgba(59,130,246,0.9) 100%), url(/svenska.png)",
             backgroundSize: "cover",
             backgroundPosition: "center",
           }
         : { background: colors.gradient };
 
+  const routeSlug = resolvedParams.slug;
+  const moduleSlug = module.slug ?? routeSlug;
+  const modul2ParentLabel =
+    "Modul 2: Skriftlig framställning och textbearbetning";
+  const modul2NavLookup: Record<string, ModuleNavId> = {
+    "skriftlig-framstallning": "overview",
+    process: "process",
+    genrer: "genres",
+    "sprak-kallor": "language",
+    bedomning: "assessment",
+  };
+  const currentQuickNav =
+    moduleSlug &&
+    modul2NavLookup[moduleSlug as keyof typeof modul2NavLookup];
+  const shouldShowQuickNav =
+    module.subject === "Svenska" &&
+    module.course === "Svenska 2" &&
+    (moduleSlug === "skriftlig-framstallning" ||
+      module.parent === modul2ParentLabel) &&
+    currentQuickNav;
+
+  const focusPillPresets: Record<string, string[]> = {
+    "retorik-muntlig-framstallning": [
+      "Retorikens sex delar",
+      "AI som talcoach",
+      "Publikanalys & ethos",
+    ],
+    "skriftlig-framstallning": [
+      "Processlogg & stil",
+      "AI-stödd skrivkraft",
+      "Källkritik i text",
+    ],
+    process: [
+      "Planera · producera · bearbeta",
+      "AI som processmotor",
+      "Transparens & loggbok",
+    ],
+    genrer: [
+      "PM & argumentation",
+      "Struktur + stilgrepp",
+      "AI som responspartner",
+    ],
+    "sprak-kallor": [
+      "Språkprecision",
+      "Källkritik & referenser",
+      "Etik i AI-stött skrivande",
+    ],
+    bedomning: [
+      "Matriser & progression",
+      "Formativ AI-respons",
+      "Uppgiftsbank",
+    ],
+  };
+
   const focusPills =
     heroVariant === "svenska2"
-      ? [
-          "Retorikens sex delar",
-          "AI som talcoach",
-          "Publikanalys & ethos",
-        ]
+      ? focusPillPresets[moduleSlug] ??
+        [module.subject, module.course].filter(Boolean)
       : [module.subject, module.course].filter(Boolean);
 
   const quickStats = [
@@ -277,6 +332,12 @@ export default async function ModulePage({ params }: ModulePageProps) {
           </section>
 
           <section className="relative mx-auto max-w-6xl rounded-[32px] border border-slate-100 bg-white/95 px-4 py-8 shadow-3 md:px-8 md:py-12">
+            {shouldShowQuickNav && currentQuickNav && (
+              <ModuleQuickNav
+                current={currentQuickNav}
+                className="mb-10"
+              />
+            )}
             <ModuleContent module={module} />
           </section>
         </div>
