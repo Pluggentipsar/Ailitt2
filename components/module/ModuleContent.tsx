@@ -14,6 +14,15 @@ import {
   TaskDeck,
   UppgiftsbankHighlights,
 } from "@/components/uppgiftsbank/UppgiftsbankUI";
+import { TalbankenItem } from "@/components/talbank/TalbankenItem";
+import {
+  TalbankenBoard,
+  TalbankenCard,
+  TalbankenTimeline,
+  TalbankenTimelineItem,
+  TalbankenUsage,
+} from "@/components/talbank/TalbankenLayout";
+import { cn } from "@/lib/utils";
 
 interface ModuleContentProps {
   module: Module;
@@ -61,18 +70,31 @@ export function ModuleContent({ module }: ModuleContentProps) {
   const MDXContent = useMDXComponent(module.body.code);
 
   // Custom H2 component with section actions
-  const H2WithActions = ({ children, ...props }: any) => {
+  const H2WithActions = ({ children, className, ...props }: any) => {
     const context = useContext(ModuleContext);
     const title = typeof children === "string" ? children : "";
     const id = context.headingIdMap.get(title) || "";
 
     return (
-      <div className="group relative">
-        <h2 id={id} {...props}>
-          {children}
+      <div className="group relative scroll-mt-28">
+        <h2
+          id={id}
+          {...props}
+          className={cn(
+            "relative mb-8 mt-12 flex flex-col text-3xl font-semibold tracking-tight text-slate-900 lg:text-[2.15rem]",
+            "before:absolute before:-left-4 before:top-6 before:h-10 before:w-10 before:-translate-x-full before:rounded-full before:bg-teal-500/10 before:blur-2xl before:content-['']",
+            "after:mt-4 after:h-1.5 after:w-20 after:rounded-full after:bg-gradient-to-r after:from-teal-400 after:via-cyan-400 after:to-blue-500 after:content-[''] lg:after:w-28",
+            className
+          )}
+        >
+          <span className="relative z-10">{children}</span>
+          <span
+            aria-hidden="true"
+            className="mt-3 h-px w-full max-w-xl bg-gradient-to-r from-transparent via-slate-200 to-transparent"
+          />
         </h2>
         {title && id && (
-          <div className="absolute -right-2 top-2 opacity-0 group-hover:opacity-100 transition-opacity duration-base">
+          <div className="absolute -right-3 top-3 opacity-0 transition-opacity duration-base group-hover:opacity-100">
             <SectionActions
               bookmark={{
                 type: "section",
@@ -103,13 +125,19 @@ export function ModuleContent({ module }: ModuleContentProps) {
     TaskCard,
     TaskDeck,
     details: TaskDetails,
+    TalbankenItem,
+    TalbankenBoard,
+    TalbankenUsage,
+    TalbankenCard,
+    TalbankenTimeline,
+    TalbankenTimelineItem,
   };
 
   return (
     <ModuleContext.Provider value={moduleContext}>
-      <div className="mx-auto flex max-w-7xl gap-8">
+      <div className="mx-auto flex max-w-6xl gap-10 lg:gap-16">
         {/* Main content */}
-        <article className="flex-1 max-w-4xl">
+        <article className="min-w-0 flex-1">
           {/* Content */}
           <div className="prose prose-lg prose-gray max-w-none">
             <MDXContent components={mdxComponents} />
@@ -117,9 +145,12 @@ export function ModuleContent({ module }: ModuleContentProps) {
         </article>
 
         {/* Desktop TOC - sticky sidebar */}
-        <aside className="hidden lg:block w-64 flex-shrink-0">
-          <div className="sticky top-24">
-            <TableOfContents headings={headings} />
+        <aside className="hidden w-72 flex-shrink-0 lg:block">
+          <div className="sticky top-28">
+            <TableOfContents
+              headings={headings}
+              className="static top-0"
+            />
           </div>
         </aside>
       </div>

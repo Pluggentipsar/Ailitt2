@@ -14,8 +14,9 @@ interface ModuleCardProps {
   time?: string;
   groupSize?: string;
   featuredMedia?: {
-    image: string;
+    image?: string;
     gradient?: string;
+    accent?: string;
   };
 }
 
@@ -43,10 +44,12 @@ export function ModuleCard({
         {hasFeaturedMedia && featuredMedia ? (
           <>
             <div className="relative h-44">
-              <div
-                className="absolute inset-0 bg-cover bg-center"
-                style={{ backgroundImage: `url(${featuredMedia.image})` }}
-              />
+              {featuredMedia.image && (
+                <div
+                  className="absolute inset-0 bg-cover bg-center"
+                  style={{ backgroundImage: `url(${featuredMedia.image})` }}
+                />
+              )}
               <div
                 className="absolute inset-0 opacity-95"
                 style={{

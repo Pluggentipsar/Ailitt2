@@ -8,6 +8,7 @@ import {
   SUBJECT_CONFIGS,
   getSubjectConfig,
 } from "@/lib/subjects";
+import { getCourseBranding } from "@/lib/course-branding";
 
 type SubjectRouteParams = {
   subject: string;
@@ -183,14 +184,6 @@ export default async function SubjectHubPage({ params }: SubjectPageProps) {
           <div className="space-y-10">
             {config.courses.map((course) => {
               const courseModules = modulesByCourse[course.slug] ?? [];
-              const isSvenska1 = course.slug === "svenska-1";
-              const featuredMedia = isSvenska1
-                ? {
-                    image: "/svenska.png",
-                    gradient:
-                      "linear-gradient(135deg, rgba(20,184,166,0.92) 0%, rgba(6,182,212,0.9) 55%, rgba(15,118,110,0.9) 100%)",
-                  }
-                : undefined;
 
               return (
                 <section
@@ -238,7 +231,9 @@ export default async function SubjectHubPage({ params }: SubjectPageProps) {
 
                   {courseModules.length > 0 ? (
                     <div className="grid gap-6 sm:grid-cols-2">
-                      {courseModules.map((module) => (
+                      {courseModules.map((module) => {
+                        const moduleBranding = getCourseBranding(module.course);
+                        return (
                         <ModuleCard
                           key={module._id}
                           title={module.title}
@@ -249,9 +244,10 @@ export default async function SubjectHubPage({ params }: SubjectPageProps) {
                           aiLiteracyIds={module.ai_literacy_ids}
                           time={module.time}
                           groupSize={module.groupSize}
-                          featuredMedia={featuredMedia}
+                          featuredMedia={moduleBranding}
                         />
-                      ))}
+                      );
+                    })}
                     </div>
                   ) : course.pageUrl ? (
                     <div className="rounded-2xl border border-cyan-100 bg-white/90 p-8 text-gray-700 shadow-sm">

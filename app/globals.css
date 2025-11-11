@@ -260,6 +260,177 @@
     background-size: 32px 32px;
   }
 
+  /* Talbanken showcase */
+  .talbanken-board {
+    @apply relative overflow-hidden rounded-[32px] border border-slate-100 bg-white/95 px-6 py-10 shadow-3 sm:px-12;
+  }
+
+  .talbanken-board::before,
+  .talbanken-board::after {
+    content: "";
+    position: absolute;
+    border-radius: 9999px;
+    filter: blur(60px);
+    opacity: 0.65;
+    pointer-events: none;
+  }
+
+  .talbanken-board::before {
+    inset: -20% 20% auto auto;
+    background: radial-gradient(circle, rgba(45, 212, 191, 0.45), transparent 60%);
+  }
+
+  .talbanken-board::after {
+    inset: auto auto -30% 10%;
+    background: radial-gradient(circle, rgba(14, 165, 233, 0.4), transparent 60%);
+  }
+
+  .talbanken-intro {
+    @apply relative z-10 flex flex-col gap-6 pb-8 md:flex-row md:items-center;
+  }
+
+  .talbanken-copy p {
+    @apply text-lg leading-relaxed text-slate-700;
+  }
+
+  .talbanken-copy p + p {
+    @apply mt-3;
+  }
+
+  .talbanken-stats {
+    @apply flex flex-shrink-0 gap-4 rounded-3xl border border-white/60 bg-white/70 p-4 shadow-inner;
+  }
+
+  .talbanken-stats > div {
+    @apply min-w-[110px] rounded-2xl bg-gradient-to-br from-slate-50 via-white to-cyan-50 px-4 py-3 text-center shadow;
+  }
+
+  .talbanken-stats span {
+    @apply block text-2xl font-bold tracking-tight text-slate-900;
+  }
+
+  .talbanken-stats p {
+    @apply text-xs font-semibold uppercase tracking-[0.25em] text-slate-500;
+  }
+
+  .talbanken-grid {
+    @apply relative z-10 grid gap-4 md:gap-6;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  }
+
+  .talbanken-item {
+    @apply flex flex-col rounded-3xl border border-slate-200 bg-white/85 shadow-2 transition-all duration-300;
+  }
+
+  .talbanken-item-open {
+    @apply border-cyan-200 bg-gradient-to-br from-white via-cyan-50/70 to-emerald-50/80 shadow-3;
+  }
+
+  .talbanken-trigger {
+    @apply flex w-full items-start gap-4 rounded-3xl px-5 py-5 text-left transition-all duration-200;
+  }
+
+  .talbanken-item-open .talbanken-trigger {
+    @apply text-cyan-800;
+  }
+
+  .talbanken-number {
+    @apply flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-2xl bg-slate-900 text-sm font-semibold text-white shadow-inner shadow-slate-800/20;
+  }
+
+  .talbanken-item-open .talbanken-number {
+    @apply bg-cyan-600 shadow-cyan-600/40;
+  }
+
+  .talbanken-header {
+    @apply flex-1 space-y-2;
+  }
+
+  .talbanken-heading {
+    @apply text-lg font-semibold leading-snug text-slate-900;
+  }
+
+  .talbanken-meta {
+    @apply flex flex-wrap gap-3 text-[0.8rem] font-medium text-slate-500;
+  }
+
+  .talbanken-meta span {
+    @apply flex items-center gap-1;
+  }
+
+  .talbanken-meta strong {
+    @apply font-semibold text-slate-900;
+  }
+
+  .talbanken-item-open .talbanken-meta strong {
+    @apply text-cyan-700;
+  }
+
+  .talbanken-icon {
+    @apply mt-1 h-5 w-5 flex-shrink-0 text-slate-400 transition-transform duration-200;
+  }
+
+  .talbanken-body {
+    @apply border-t border-slate-100 px-5 pb-6 text-sm leading-relaxed text-slate-700;
+  }
+
+  .talbanken-body > :not(:first-child) {
+    @apply mt-3;
+  }
+
+  .talbanken-body strong {
+    @apply text-slate-900;
+  }
+
+  .talbanken-body em {
+    @apply text-slate-600;
+  }
+
+  .talbanken-usage {
+    @apply mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-3;
+  }
+
+  .talbanken-card {
+    @apply rounded-3xl border border-slate-200 bg-white/90 p-6 shadow-2 backdrop-blur;
+  }
+
+  .talbanken-card-accent {
+    @apply bg-gradient-to-br from-white via-emerald-50 to-cyan-50 border-cyan-200/70 shadow-3;
+  }
+
+  .talbanken-kicker {
+    @apply text-xs font-semibold uppercase tracking-[0.4em] text-slate-500;
+  }
+
+  .talbanken-card ul {
+    @apply mt-4 space-y-2 text-sm leading-relaxed text-slate-700;
+  }
+
+  .talbanken-card li {
+    @apply relative pl-4;
+  }
+
+  .talbanken-card li::before {
+    content: "•";
+    @apply absolute left-0 text-cyan-500;
+  }
+
+  .talbanken-timeline {
+    @apply mt-6 space-y-4;
+  }
+
+  .talbanken-timeline li {
+    @apply rounded-2xl border border-slate-100 bg-white/80 p-4 shadow-sm;
+  }
+
+  .talbanken-timeline span {
+    @apply text-xs font-semibold uppercase tracking-[0.35em] text-cyan-600;
+  }
+
+  .talbanken-timeline p {
+    @apply mt-1 text-sm text-slate-700;
+  }
+
   /* Custom scrollbar for TOC */
   .custom-scrollbar::-webkit-scrollbar {
     width: 6px;
