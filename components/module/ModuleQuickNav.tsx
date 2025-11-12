@@ -1,76 +1,42 @@
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 
-export type ModuleNavId =
-  | "overview"
-  | "process"
-  | "genres"
-  | "language"
-  | "assessment";
-
-const MODULE_NAV_ITEMS: Array<{
-  id: ModuleNavId;
+export interface ModuleQuickNavItem {
+  slug: string;
   label: string;
   title: string;
   href: string;
-}> = [
-  {
-    id: "overview",
-    label: "Del 1–2",
-    title: "Översikt & målbild",
-    href: "/amnen/svenska/svenska-2/skriftlig-framstallning",
-  },
-  {
-    id: "process",
-    label: "Del 3",
-    title: "AI i skrivprocessens faser",
-    href: "/amnen/svenska/svenska-2/process",
-  },
-  {
-    id: "genres",
-    label: "Del 4–5",
-    title: "Genrer – PM & argumentation",
-    href: "/amnen/svenska/svenska-2/genrer",
-  },
-  {
-    id: "language",
-    label: "Del 6–8",
-    title: "Språk, källor och respons",
-    href: "/amnen/svenska/svenska-2/sprak-kallor",
-  },
-  {
-    id: "assessment",
-    label: "Del 9–11",
-    title: "Bedömning och uppgifter",
-    href: "/amnen/svenska/svenska-2/bedomning",
-  },
-];
+}
 
 interface ModuleQuickNavProps {
-  current: ModuleNavId;
+  heading: string;
+  currentSlug: string;
+  items: ModuleQuickNavItem[];
   className?: string;
 }
 
 export function ModuleQuickNav({
-  current,
+  heading,
+  currentSlug,
+  items,
   className,
 }: ModuleQuickNavProps) {
+  if (!items.length) return null;
+
   return (
     <nav
       className={cn("module-quick-nav", className)}
-      aria-label="Snabbnavigering modul 2"
+      aria-label={heading}
     >
-      <p className="module-quick-nav__label">
-        Modul 2 · Skriftlig framställning
-      </p>
+      <p className="module-quick-nav__label">{heading}</p>
       <div className="module-quick-nav__items">
-        {MODULE_NAV_ITEMS.map((item) => {
-          const isCurrent = item.id === current;
+        {items.map((item) => {
+          const isCurrent = item.slug === currentSlug;
 
           if (isCurrent) {
             return (
               <div
-                key={item.id}
+                key={item.slug}
                 className="module-quick-nav__item is-current"
                 aria-current="page"
               >
@@ -91,7 +57,7 @@ export function ModuleQuickNav({
 
           return (
             <Link
-              key={item.id}
+              key={item.slug}
               href={item.href}
               className="module-quick-nav__item"
             >

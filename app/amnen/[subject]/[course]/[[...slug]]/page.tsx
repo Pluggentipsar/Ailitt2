@@ -6,7 +6,7 @@ import { MetaBadge } from "@/components/ui/MetaBadge";
 import { ModuleContent } from "@/components/module/ModuleContent";
 import {
   ModuleQuickNav,
-  type ModuleNavId,
+  type ModuleQuickNavItem,
 } from "@/components/module/ModuleQuickNav";
 import { ScrollProgress } from "@/components/ui/ScrollProgress";
 import { ModuleActions } from "@/components/module/ModuleActions";
@@ -15,32 +15,119 @@ import { getSubjectColors } from "@/lib/subject-colors";
 type ModuleRouteParams = {
   subject: string;
   course: string;
-  slug: string;
+  slug?: string[];
 };
 
 type ModulePageProps = {
   params: Promise<ModuleRouteParams>;
 };
 
+type ModuleNavConfig = {
+  parentTitle: string;
+  heading: string;
+  items: ModuleQuickNavItem[];
+};
+
+const MODULE_NAV_CONFIGS: Record<string, ModuleNavConfig> = {
+  "skriftlig-framstallning": {
+    parentTitle: "Modul 2: Skriftlig framställning och textbearbetning",
+    heading: "Modul 2 · Skriftlig framställning",
+    items: [
+      {
+        slug: "skriftlig-framstallning",
+        label: "Del 1–2",
+        title: "Översikt & målbild",
+        href: "/amnen/svenska/svenska-2/skriftlig-framstallning",
+      },
+      {
+        slug: "process",
+        label: "Del 3",
+        title: "AI i skrivprocessens faser",
+        href: "/amnen/svenska/svenska-2/process",
+      },
+      {
+        slug: "genrer",
+        label: "Del 4–5",
+        title: "Genrer – PM & argumentation",
+        href: "/amnen/svenska/svenska-2/genrer",
+      },
+      {
+        slug: "sprak-kallor",
+        label: "Del 6–8",
+        title: "Språk, källor och respons",
+        href: "/amnen/svenska/svenska-2/sprak-kallor",
+      },
+      {
+        slug: "bedomning",
+        label: "Del 9–11",
+        title: "Bedömning och uppgifter",
+        href: "/amnen/svenska/svenska-2/bedomning",
+      },
+    ],
+  },
+  "litteratur-litteraturhistoria": {
+    parentTitle: "Modul 3: Litteratur och litteraturhistoria",
+    heading: "Modul 3 · Litteratur och litteraturhistoria",
+    items: [
+      {
+        slug: "litteratur-litteraturhistoria",
+        label: "Del 1–2",
+        title: "Översikt & mål",
+        href: "/amnen/svenska/svenska-2/litteratur-litteraturhistoria",
+      },
+      {
+        slug: "tolkning",
+        label: "Del 3–4",
+        title: "AI och tolkningens gränser",
+        href: "/amnen/svenska/svenska-2/litteratur-litteraturhistoria/tolkning",
+      },
+      {
+        slug: "epoker",
+        label: "Del 5.1–5.10",
+        title: "Alla litterära epoker",
+        href: "/amnen/svenska/svenska-2/litteratur-litteraturhistoria/epoker",
+      },
+      {
+        slug: "arbetsformer",
+        label: "Del 5.11–5.13",
+        title: "Arbetsformer & uppgifter",
+        href: "/amnen/svenska/svenska-2/litteratur-litteraturhistoria/arbetsformer",
+      },
+    ],
+  },
+};
+
 export async function generateStaticParams() {
   return allModules.map((module) => {
     const parts = module._raw.flattenedPath.split("/");
+    const rawSlugParts = parts.slice(2);
+    const slugParts =
+      rawSlugParts[rawSlugParts.length - 1] === "page"
+        ? rawSlugParts.slice(0, -1)
+        : rawSlugParts;
     return {
       subject: parts[0],
       course: parts[1],
-      slug: parts[2],
+      slug: slugParts,
     };
   });
 }
 
 export async function generateMetadata({ params }: ModulePageProps) {
   const resolvedParams = await params;
+  const requestedSlug = resolvedParams.slug ?? [];
   const module = allModules.find((m) => {
     const parts = m._raw.flattenedPath.split("/");
+    const rawSlugParts = parts.slice(2);
+    const slugParts =
+      rawSlugParts[rawSlugParts.length - 1] === "page"
+        ? rawSlugParts.slice(0, -1)
+        : rawSlugParts;
     return (
       parts[0] === resolvedParams.subject &&
       parts[1] === resolvedParams.course &&
-      parts[2] === resolvedParams.slug
+      slugParts.length === requestedSlug.length &&
+      slugParts.every((segment, index) => segment === requestedSlug[index])
     );
   });
 
@@ -58,12 +145,19 @@ export async function generateMetadata({ params }: ModulePageProps) {
 
 export default async function ModulePage({ params }: ModulePageProps) {
   const resolvedParams = await params;
+  const requestedSlug = resolvedParams.slug ?? [];
   const module = allModules.find((m) => {
     const parts = m._raw.flattenedPath.split("/");
+    const rawSlugParts = parts.slice(2);
+    const slugParts =
+      rawSlugParts[rawSlugParts.length - 1] === "page"
+        ? rawSlugParts.slice(0, -1)
+        : rawSlugParts;
     return (
       parts[0] === resolvedParams.subject &&
       parts[1] === resolvedParams.course &&
-      parts[2] === resolvedParams.slug
+      slugParts.length === requestedSlug.length &&
+      slugParts.every((segment, index) => segment === requestedSlug[index])
     );
   });
 
@@ -96,26 +190,19 @@ export default async function ModulePage({ params }: ModulePageProps) {
           }
         : { background: colors.gradient };
 
-  const routeSlug = resolvedParams.slug;
-  const moduleSlug = module.slug ?? routeSlug;
-  const modul2ParentLabel =
-    "Modul 2: Skriftlig framställning och textbearbetning";
-  const modul2NavLookup: Record<string, ModuleNavId> = {
-    "skriftlig-framstallning": "overview",
-    process: "process",
-    genrer: "genres",
-    "sprak-kallor": "language",
-    bedomning: "assessment",
-  };
-  const currentQuickNav =
-    moduleSlug &&
-    modul2NavLookup[moduleSlug as keyof typeof modul2NavLookup];
-  const shouldShowQuickNav =
-    module.subject === "Svenska" &&
-    module.course === "Svenska 2" &&
-    (moduleSlug === "skriftlig-framstallning" ||
-      module.parent === modul2ParentLabel) &&
-    currentQuickNav;
+  const slugParts = requestedSlug;
+  const moduleSlug =
+    module.slug ??
+    (slugParts.length ? slugParts[slugParts.length - 1] : "");
+  const navConfigEntry = Object.entries(MODULE_NAV_CONFIGS).find(
+    ([rootSlug, config]) =>
+      rootSlug === slugParts[0] ||
+      config.items.some((item) => item.slug === moduleSlug) ||
+      module.parent === config.parentTitle
+  );
+  const quickNavConfig = navConfigEntry?.[1];
+  const shouldShowQuickNav = Boolean(quickNavConfig);
+
 
   const focusPillPresets: Record<string, string[]> = {
     "retorik-muntlig-framstallning": [
@@ -146,6 +233,26 @@ export default async function ModulePage({ params }: ModulePageProps) {
     bedomning: [
       "Matriser & progression",
       "Formativ AI-respons",
+      "Uppgiftsbank",
+    ],
+    "litteratur-litteraturhistoria": [
+      "Läsning & tolkning",
+      "Epoker & idéströmningar",
+      "AI som litterär spegel",
+    ],
+    tolkning: [
+      "Närläsning vs AI",
+      "Karaktärsfördjupning",
+      "Etiska perspektiv",
+    ],
+    epoker: [
+      "Från antiken till nutid",
+      "Idéströmningar & samhälle",
+      "AI som historieberättare",
+    ],
+    arbetsformer: [
+      "Kreativt skrivande",
+      "Samtal & muntlig analys",
       "Uppgiftsbank",
     ],
   };
@@ -332,9 +439,11 @@ export default async function ModulePage({ params }: ModulePageProps) {
           </section>
 
           <section className="relative mx-auto max-w-6xl rounded-[32px] border border-slate-100 bg-white/95 px-4 py-8 shadow-3 md:px-8 md:py-12">
-            {shouldShowQuickNav && currentQuickNav && (
+            {shouldShowQuickNav && quickNavConfig && (
               <ModuleQuickNav
-                current={currentQuickNav}
+                heading={quickNavConfig.heading}
+                currentSlug={moduleSlug}
+                items={quickNavConfig.items}
                 className="mb-10"
               />
             )}
