@@ -95,6 +95,54 @@ const MODULE_NAV_CONFIGS: Record<string, ModuleNavConfig> = {
       },
     ],
   },
+  "sprak-sprakforhallanden": {
+    parentTitle: "Modul 4: Språk och språkförhållanden",
+    heading: "Modul 4 · Språk och språkförhållanden",
+    items: [
+      {
+        slug: "sprak-sprakforhallanden",
+        label: "Del 1–2",
+        title: "Översikt & syfte",
+        href: "/amnen/svenska/svenska-2/sprak-sprakforhallanden",
+      },
+      {
+        slug: "systemforstaelse",
+        label: "Del 3",
+        title: "Centrala begrepp & systemförståelse",
+        href: "/amnen/svenska/svenska-2/sprak-sprakforhallanden/systemforstaelse",
+      },
+      {
+        slug: "grammatik",
+        label: "Del 4",
+        title: "Grammatik i praktiken",
+        href: "/amnen/svenska/svenska-2/sprak-sprakforhallanden/grammatik",
+      },
+      {
+        slug: "stil-variation",
+        label: "Del 5",
+        title: "Dissekera ChatGPT-svenskan",
+        href: "/amnen/svenska/svenska-2/sprak-sprakforhallanden/stil-variation",
+      },
+      {
+        slug: "nordiska-sprak",
+        label: "Del 6",
+        title: "Den nordiska översättningsutmaningen",
+        href: "/amnen/svenska/svenska-2/sprak-sprakforhallanden/nordiska-sprak",
+      },
+      {
+        slug: "minoritetssprak",
+        label: "Del 7",
+        title: "AI och minoritetsspråken",
+        href: "/amnen/svenska/svenska-2/sprak-sprakforhallanden/minoritetssprak",
+      },
+      {
+        slug: "flersprakighet",
+        label: "Del 10",
+        title: "Flerspråkighet & individ",
+        href: "/amnen/svenska/svenska-2/sprak-sprakforhallanden/flersprakighet",
+      },
+    ],
+  },
 };
 
 export async function generateStaticParams() {
@@ -254,6 +302,41 @@ export default async function ModulePage({ params }: ModulePageProps) {
       "Kreativt skrivande",
       "Samtal & muntlig analys",
       "Uppgiftsbank",
+    ],
+    "sprak-sprakforhallanden": [
+      "Grammatik & struktur",
+      "Språkpolitik & makt",
+      "AI som språkspegel",
+    ],
+    systemforstaelse: [
+      "LLM-grundprinciper",
+      "Sannolikhet vs regler",
+      "Språk som mönster",
+    ],
+    grammatik: [
+      "Satslösning i praktiken",
+      "AI:s grammatikförståelse",
+      "Mänsklig vs maskinell analys",
+    ],
+    "stil-variation": [
+      "ChatGPT-svenska",
+      "Språklig homogenisering",
+      "Kreativitet & norm",
+    ],
+    "nordiska-sprak": [
+      "Grannspråksförståelse",
+      "Maskinöversättning",
+      "Kulturell dimension",
+    ],
+    minoritetssprak: [
+      "Digital rättvisa",
+      "Språkpolitik & lag",
+      "Minoritetsspråkens framtid",
+    ],
+    flersprakighet: [
+      "Språkrepertoar",
+      "Identitet & tillhörighet",
+      "AI som språkpartner",
     ],
   };
 
