@@ -470,11 +470,11 @@ function getBookmarkLink(bookmark: Bookmark) {
   }
   if (bookmark.type === "section") {
     return bookmark.sectionId
-      ? ${bookmark.moduleUrl}#
+      ? `${bookmark.moduleUrl}#${bookmark.sectionId}`
       : bookmark.moduleUrl;
   }
   return bookmark.activityId
-    ? ${bookmark.moduleUrl}#
+    ? `${bookmark.moduleUrl}#${bookmark.activityId}`
     : bookmark.moduleUrl;
 }
 
@@ -503,9 +503,9 @@ function getBookmarkDescription(bookmark: Bookmark) {
 
 function getNoteLink(note: Note) {
   if (note.type === "section") {
-    return note.sectionId ? ${note.moduleUrl}# : note.moduleUrl;
+    return note.sectionId ? `${note.moduleUrl}#${note.sectionId}` : note.moduleUrl;
   }
-  return note.activityId ? ${note.moduleUrl}# : note.moduleUrl;
+  return note.activityId ? `${note.moduleUrl}#${note.activityId}` : note.moduleUrl;
 }
 
 type BookmarkGroup = {
