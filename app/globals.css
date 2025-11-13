@@ -60,6 +60,10 @@
 }
 
 @layer base {
+  html {
+    overflow-x: hidden;
+  }
+
   * {
     @apply border-border;
   }
@@ -84,7 +88,7 @@
 
   /* Optimal läslängd för innehåll */
   .prose {
-    @apply max-w-none;
+    @apply max-w-none overflow-x-hidden;
   }
 
   .prose p {
@@ -189,6 +193,11 @@
     .prose table th,
     .prose table td {
       white-space: nowrap;
+    }
+
+    .prose pre {
+      max-width: 100%;
+      overflow-x: auto;
     }
   }
 

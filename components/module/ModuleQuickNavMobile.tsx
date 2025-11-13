@@ -21,7 +21,9 @@ export function ModuleQuickNavMobile({
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
-    if (!open) return;
+    if (!open) {
+      return;
+    }
 
     const onKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
@@ -46,8 +48,8 @@ export function ModuleQuickNavMobile({
           </span>
           <span className="text-base">{heading}</span>
         </span>
-        <span aria-hidden className="text-lg text-cyan-600">
-          ?
+        <span aria-hidden className="text-2xl text-cyan-600">
+          ≡
         </span>
       </button>
 
