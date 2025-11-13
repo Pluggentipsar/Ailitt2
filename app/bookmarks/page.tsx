@@ -75,7 +75,11 @@ export default function SavedPage() {
             <button
               key={tab.id}
               onClick={() => setActiveTab(tab.id)}
-              className={inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-semibold transition-all duration-200 }
+              className={`inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-semibold transition-all duration-200 ${
+                activeTab === tab.id
+                  ? "bg-gradient-to-r from-primary-600 to-cyan-500 text-white shadow-md"
+                  : "bg-white border border-gray-200 text-gray-700 hover:bg-gray-50"
+              }`}
             >
               <tab.icon className="h-4 w-4" />
               {tab.label}
@@ -180,16 +184,20 @@ function BookmarksPanel({
   return (
     <div className="space-y-8">
       <div className="flex flex-wrap gap-2">
-        {([
-          { id: "all", label: Alla () },
-          { id: "module", label: Moduler (), icon: GraduationCap },
-          { id: "section", label: Sektioner (), icon: List },
-          { id: "activity", label: Lektioner (), icon: FileText },
-        ] as const).map((chip) => (
+        {[
+          { id: "all", label: `Alla (${bookmarks.length})` },
+          { id: "module", label: `Moduler (${counts.module})`, icon: GraduationCap },
+          { id: "section", label: `Sektioner (${counts.section})`, icon: List },
+          { id: "activity", label: `Lektioner (${counts.activity})`, icon: FileText },
+        ].map((chip) => (
           <button
             key={chip.id}
             onClick={() => setBookmarkFilter(chip.id as BookmarkFilter)}
-            className={inline-flex items-center gap-1.5 rounded-full px-4 py-2 text-sm font-medium transition-all }
+            className={`inline-flex items-center gap-1.5 rounded-full px-4 py-2 text-sm font-medium transition-all ${
+              bookmarkFilter === chip.id
+                ? "bg-gradient-to-r from-primary-600 to-cyan-500 text-white shadow-md"
+                : "bg-white border border-gray-200 text-gray-700 hover:bg-gray-50"
+            }`}
           >
             {chip.icon && <chip.icon className="h-4 w-4" />}
             {chip.label}
@@ -211,7 +219,7 @@ function BookmarksPanel({
             <div
               key={moduleId}
               className="rounded-3xl border border-gray-100 bg-white/90 p-6 shadow-sm animate-fade-in-up"
-              style={{ animationDelay: ${0.1 + index * 0.05}s, animationFillMode: "backwards" }}
+              style={{ animationDelay: `${0.1 + index * 0.05}s`, animationFillMode: "backwards" }}
             >
               <div className="mb-4 flex flex-col gap-2 md:flex-row md:items-center md:justify-between">
                 <div>
@@ -256,15 +264,27 @@ function NotesPanel({
   return (
     <div className="space-y-8">
       <div className="flex flex-wrap gap-2">
-        {([
-          { id: "all", label: Alla () },
-          { id: "section", label: Sektioner (), icon: List },
-          { id: "activity", label: Lektioner (), icon: FileText },
-        ] as const).map((chip) => (
+        {[
+          { id: "all", label: `Alla (${notes.length})` },
+          {
+            id: "section",
+            label: `Sektioner (${notes.filter((n) => n.type === "section").length})`,
+            icon: List,
+          },
+          {
+            id: "activity",
+            label: `Lektioner (${notes.filter((n) => n.type === "activity").length})`,
+            icon: FileText,
+          },
+        ].map((chip) => (
           <button
             key={chip.id}
             onClick={() => setNoteFilter(chip.id as NoteFilter)}
-            className={inline-flex items-center gap-1.5 rounded-full px-4 py-2 text-sm font-medium transition-all }
+            className={`inline-flex items-center gap-1.5 rounded-full px-4 py-2 text-sm font-medium transition-all ${
+              noteFilter === chip.id
+                ? "bg-gradient-to-r from-primary-600 to-cyan-500 text-white shadow-md"
+                : "bg-white border border-gray-200 text-gray-700 hover:bg-gray-50"
+            }`}
           >
             {chip.icon && <chip.icon className="h-4 w-4" />}
             {chip.label}
@@ -286,7 +306,7 @@ function NotesPanel({
             <div
               key={moduleId}
               className="rounded-3xl border border-gray-100 bg-white/90 p-6 shadow-sm animate-fade-in-up"
-              style={{ animationDelay: ${0.1 + index * 0.05}s, animationFillMode: "backwards" }}
+              style={{ animationDelay: `${0.1 + index * 0.05}s`, animationFillMode: "backwards" }}
             >
               <div className="mb-4 flex flex-col gap-2 md:flex-row md:items-center md:justify-between">
                 <div>
