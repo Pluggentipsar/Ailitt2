@@ -1,4 +1,4 @@
-"use client";
+Ôªø"use client";
 
 import Link from "next/link";
 import Image from "next/image";
@@ -8,10 +8,9 @@ const NAV_LINKS = [
   { href: "/", label: "Hem" },
   { href: "/ai-litteracitet", label: "AI-litteracitet" },
   { href: "/didaktiska-modeller", label: "Didaktiska modeller" },
-  { href: "/amnen", label: "ƒmnen" },
+  { href: "/amnen", label: "√Ñmnen" },
   { href: "/aktiviteter", label: "Aktiviteter" },
-  { href: "/bookmarks", label: "Bokm‰rken" },
-  { href: "/notes", label: "Anteckningar" },
+  { href: "/bookmarks", label: "Sparat" },
   { href: "/om", label: "Om" },
 ];
 
@@ -19,7 +18,9 @@ export function Header() {
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
-    if (!open) return;
+    if (!open) {
+      return;
+    }
 
     const onKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
@@ -85,7 +86,7 @@ export function Header() {
                 className="rounded-full border border-slate-200 px-3 py-1 text-sm font-semibold"
                 onClick={() => setOpen(false)}
               >
-                St‰ng
+                St√§ng
               </button>
             </div>
             <div className="flex flex-col divide-y divide-slate-100">
