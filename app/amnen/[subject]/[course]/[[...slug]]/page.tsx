@@ -8,6 +8,7 @@ import {
   ModuleQuickNav,
   type ModuleQuickNavItem,
 } from "@/components/module/ModuleQuickNav";
+import { ModuleQuickNavMobile } from "@/components/module/ModuleQuickNavMobile";
 import { ScrollProgress } from "@/components/ui/ScrollProgress";
 import { ModuleActions } from "@/components/module/ModuleActions";
 import { getSubjectColors } from "@/lib/subject-colors";
@@ -523,12 +524,22 @@ export default async function ModulePage({ params }: ModulePageProps) {
 
           <section className="relative mx-auto max-w-6xl rounded-[32px] border border-slate-100 bg-white/95 px-4 py-8 shadow-3 md:px-8 md:py-12">
             {shouldShowQuickNav && quickNavConfig && (
-              <ModuleQuickNav
-                heading={quickNavConfig.heading}
-                currentSlug={moduleSlug}
-                items={quickNavConfig.items}
-                className="mb-10"
-              />
+              <>
+                <div className="hidden md:block">
+                  <ModuleQuickNav
+                    heading={quickNavConfig.heading}
+                    currentSlug={moduleSlug}
+                    items={quickNavConfig.items}
+                    className="mb-10"
+                  />
+                </div>
+                <ModuleQuickNavMobile
+                  heading={quickNavConfig.heading}
+                  currentSlug={moduleSlug}
+                  items={quickNavConfig.items}
+                  className="mb-8 md:hidden"
+                />
+              </>
             )}
             <ModuleContent module={module} />
           </section>

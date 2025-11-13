@@ -65,7 +65,7 @@
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground overflow-x-hidden;
     font-feature-settings: 'kern' 1, 'liga' 1, 'calt' 1;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -173,6 +173,23 @@
 
   .prose blockquote {
     @apply border-l-4 border-primary-500 pl-4 italic text-gray-700 my-6;
+  }
+
+  @media (max-width: 768px) {
+    .prose table {
+      display: block;
+      overflow-x: auto;
+      width: 100%;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .prose table thead,
+    .prose table tbody,
+    .prose table tr,
+    .prose table th,
+    .prose table td {
+      white-space: nowrap;
+    }
   }
 
   /* Sök-highlight stil */
