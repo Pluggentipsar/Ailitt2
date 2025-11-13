@@ -67,7 +67,7 @@ export function ModuleQuickNavMobile({
                 className="rounded-full border border-slate-200 px-3 py-1 text-sm font-semibold"
                 onClick={() => setOpen(false)}
               >
-                St‰ng
+                St√§ng
               </button>
             </div>
             <div className="max-h-[70vh] space-y-3 overflow-y-auto">
