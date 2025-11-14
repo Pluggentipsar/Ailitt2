@@ -234,12 +234,12 @@ export default function ActivitiesPage() {
               Aktiviteter
             </p>
             <h1 className="mt-4 text-4xl font-bold leading-tight sm:text-5xl">
-              Filterbar aktivitetsbank for Svenska 1 och 2
+              Filtrerbar aktivitetsbank för Svenska 1 och 2
             </h1>
             <p className="mt-4 text-lg text-white/85">
-              Hitta uppgifter som matchar AI-litteracitet, centralt innehall och de
-              amnesdelar du arbetar med just nu. Varje aktivitet innehaller syfte,
-              instruktioner och foreslagna AI-stod.
+              Hitta uppgifter som matchar AI-litteracitet, centralt innehåll och de
+              ämnesdelar du arbetar med just nu. Varje aktivitet innehåller syfte,
+              instruktioner och föreslagna AI-stod.
             </p>
           </div>
 
@@ -263,7 +263,7 @@ export default function ActivitiesPage() {
         </div>
       </section>
 
-      <div className="container mx-auto -mt-16 px-4 pb-24">
+      <div className="container relative z-10 mx-auto -mt-16 px-4 pb-24">
         <div className="grid gap-8 lg:grid-cols-[300px,1fr]">
           <div className="space-y-6">
             <details className="rounded-2xl border border-white/40 bg-white/95 p-4 shadow-lg lg:hidden">
