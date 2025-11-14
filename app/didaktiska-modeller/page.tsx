@@ -1,5 +1,4 @@
 import { Metadata } from 'next';
-import Image from 'next/image';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
@@ -7,59 +6,183 @@ export const metadata: Metadata = {
   description: 'Från teknik till didaktik – och vidare till epistemisk medvetenhet. Ramverk och modeller för undervisning med, om, mot och genom AI.',
 };
 
+const heroStats = [
+  {
+    value: "4",
+    label: "perspektiv",
+    description: "Med, om, mot och genom AI",
+  },
+  {
+    value: "7",
+    label: "nyckelmodeller",
+    description: "TPACK-AI, SAMR, SOLO, ECPA m.fl.",
+  },
+  {
+    value: "3",
+    label: "praktiknivåer",
+    description: "Planera • Gestalta • Reflektera",
+  },
+];
+
+const compassCards = [
+  {
+    title: "Med AI",
+    question: "Hur kan AI förstärka lärprocessen?",
+    focus: "Pedagogisk design, process och strategi.",
+    accent: "from-primary-500/10 to-primary-500/5",
+  },
+  {
+    title: "Om AI",
+    question: "Hur kan elever förstå och granska tekniken?",
+    focus: "Begrepp, analys och epistemisk medvetenhet.",
+    accent: "from-cyan-500/10 to-cyan-500/5",
+  },
+  {
+    title: "Mot AI",
+    question: "Hur utvecklar vi etik och ansvar?",
+    focus: "Demokrati, värdering och agens.",
+    accent: "from-amber-500/10 to-amber-500/5",
+  },
+  {
+    title: "Genom AI",
+    question: "Hur kan AI stödja språk och kreativitet utan att ta över?",
+    focus: "Språkutveckling, metareflektion och röst.",
+    accent: "from-violet-500/10 to-violet-500/5",
+  },
+];
+
+const tpackDimensions = [
+  {
+    title: "Content (C)",
+    question: "Vad ska eleverna lära sig?",
+    examples: "Språklig stil, källkritik, retorik, ekologi …",
+  },
+  {
+    title: "Pedagogical (P)",
+    question: "Hur lär de sig bäst?",
+    examples: "Samtal, processkrivning, kamratrespons …",
+  },
+  {
+    title: "Technological (T)",
+    question: "Vilka verktyg stöttar detta?",
+    examples: "Chattbot, bildgenerator, video-AI …",
+  },
+  {
+    title: "Epistemic (E)",
+    question: "Hur påverkar AI vad det innebär att veta?",
+    examples: "Vems röst hörs? Vad är sant? Hur skapas förståelse?",
+  },
+];
+
+const soloLevels = [
+  {
+    title: "Pre-structural",
+    description: "Missförstånd eller gissningar.",
+    aiUse: "AI används oreflekterat.",
+  },
+  {
+    title: "Uni-structural",
+    description: "En aspekt förstås.",
+    aiUse: "Eleven kan beskriva vad AI gör.",
+  },
+  {
+    title: "Multi-structural",
+    description: "Flera aspekter förstås.",
+    aiUse: "Eleven kan förklara hur AI fungerar.",
+  },
+  {
+    title: "Relational",
+    description: "Samband och helheter förstås.",
+    aiUse: "Eleven analyserar hur AI påverkar lärandet.",
+  },
+  {
+    title: "Extended abstract",
+    description: "Abstraktion och överföring.",
+    aiUse: "Eleven generaliserar och reflekterar över AI i samhället.",
+  },
+];
+
 export default function DidaktiskaModellerPage() {
   return (
-    <div className="min-h-screen bg-gray-50">
-      {/* Hero Section with Background Image */}
-      <section className="relative overflow-hidden bg-gradient-mesh pb-20 pt-24 sm:pb-32 sm:pt-32">
-        {/* Background image */}
+    <div className="min-h-screen bg-gray-50 overflow-x-hidden">
+      <section className="relative overflow-hidden pb-28 pt-32 sm:pb-36 sm:pt-40">
         <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: 'url(/didaktisk.png)' }}
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: "url(/didaktisk.png)" }}
         />
+        <div className="absolute inset-0 bg-gradient-to-br from-slate-950/90 via-cyan-900/70 to-sky-800/40" />
+        <div className="absolute inset-0 bg-pattern opacity-20" />
 
-        {/* Dark gradient overlay for text contrast */}
-        <div className="absolute inset-0 bg-gradient-to-br from-gray-900/70 via-gray-900/50 to-transparent" />
-
-        {/* Content */}
-        <div className="container relative mx-auto px-4">
-          <div className="mx-auto max-w-4xl animate-fade-in-down">
-            <h1 className="mb-6 text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight text-white drop-shadow-lg">
+        <div className="container relative mx-auto px-4 text-white">
+          <div className="mx-auto max-w-4xl text-center drop-shadow-[0_8px_30px_rgba(3,7,18,0.45)]">
+            <p className="text-sm font-semibold uppercase tracking-[0.35em] text-white/70">
+              DIDAKTISKA MODELLER
+            </p>
+            <h1 className="mt-4 text-4xl font-bold leading-tight sm:text-5xl lg:text-6xl">
               Didaktiska modeller för undervisning{" "}
-              <span className="bg-gradient-to-r from-cyan-400 via-cyan-300 to-blue-400 bg-clip-text text-transparent drop-shadow-[0_2px_10px_rgba(34,211,238,0.5)]">
+              <span className="bg-gradient-to-r from-cyan-300 via-sky-300 to-blue-300 bg-clip-text text-transparent">
                 med, om, mot och genom AI
               </span>
             </h1>
-            <p className="text-xl md:text-2xl text-gray-100 leading-relaxed drop-shadow-md">
-              Från teknik till didaktik – och vidare till epistemisk medvetenhet
+            <p className="mx-auto mt-6 max-w-3xl text-lg leading-relaxed text-white/90">
+              Från teknik till didaktik – och vidare till epistemisk medvetenhet. Här hittar du ramverk som knyter samman ämne, pedagogik, teknik och etik när AI blir en medtänkare i klassrummet.
             </p>
+          </div>
+
+          <div className="mx-auto mt-12 grid max-w-4xl gap-5 sm:grid-cols-3">
+            {heroStats.map((stat) => (
+              <div
+                key={stat.label}
+                className="rounded-3xl border border-white/20 bg-white/10 p-6 text-center text-white backdrop-blur-lg shadow-lg shadow-slate-950/30"
+              >
+                <p className="text-4xl font-bold">{stat.value}</p>
+                <p className="text-xs font-semibold uppercase tracking-[0.35em] text-white/70">
+                  {stat.label}
+                </p>
+                <p className="mt-2 text-sm text-white/85">{stat.description}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Ingress Section */}
-      <section className="bg-white py-12 border-b border-gray-200">
-        <div className="container mx-auto px-4">
-          <div className="mx-auto max-w-4xl">
-            <p className="text-xl text-gray-700 leading-relaxed mb-6">
-              På denna sida presenteras <strong>sju centrala didaktiska ramverk</strong> som hjälper dig att
-              designa undervisning där AI blir en katalysator för tänkande och lärande – inte bara ett
-              produktionsverktyg.
-            </p>
-            <p className="text-lg text-gray-600 leading-relaxed">
-              Du hittar både klassiska modeller som TPACK och SAMR, samt nyare perspektiv som
-              ECPA, Omvänd Bloom och Affordansperspektivet. Tillsammans bildar de en <strong>tankekarta</strong> för
-              att navigera AI-didaktiken – från teknisk integration till epistemisk medvetenhet.
-            </p>
+      <div className="container relative z-10 mx-auto -mt-12 space-y-12 px-4 pb-24">
+        <section className="mx-auto max-w-5xl rounded-3xl border border-white/60 bg-white/95 p-10 shadow-2xl shadow-cyan-200/20 backdrop-blur">
+          <div className="flex flex-col gap-8 lg:flex-row">
+            <div className="flex-1">
+              <p className="text-xs font-semibold uppercase tracking-[0.35em] text-cyan-600">
+                VARFÖR RAMVERK?
+              </p>
+              <h2 className="mt-3 text-3xl font-bold text-gray-900">Från teknik till kunskapsdesign</h2>
+              <p className="mt-5 text-lg leading-relaxed text-gray-700">
+                På denna sida presenteras <strong>sju centrala didaktiska ramverk</strong> som hjälper dig att designa undervisning där AI blir en katalysator för tänkande och lärande – inte bara ett produktionsverktyg.
+              </p>
+              <p className="mt-4 text-gray-600">
+                Klassiska modeller som TPACK och SAMR möter nyare perspektiv som ECPA, Omvänd Bloom och affordans-tänkande. Tillsammans bildar de en <strong>tankekarta</strong> för att navigera AI-didaktiken från teknisk integration till epistemisk medvetenhet.
+              </p>
+            </div>
+            <div className="flex-1 rounded-2xl border border-cyan-100 bg-gradient-to-br from-primary-50/80 to-cyan-50/70 p-6 shadow-inner shadow-cyan-100/60">
+              <p className="text-sm font-semibold uppercase tracking-wide text-cyan-700">Snabb överblick</p>
+              <ul className="mt-4 space-y-4 text-gray-700">
+                <li className="flex gap-3">
+                  <span className="text-primary-500">•</span>
+                  <span>Didaktiska modeller kopplade till konkreta klassrumspraktiker.</span>
+                </li>
+                <li className="flex gap-3">
+                  <span className="text-primary-500">•</span>
+                  <span>Fokus på progression: planera, gestalta och reflektera med AI.</span>
+                </li>
+                <li className="flex gap-3">
+                  <span className="text-primary-500">•</span>
+                  <span>Länkar till moduler och arbetsformer i Svenska 1 och 2.</span>
+                </li>
+              </ul>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Main Content */}
-      <div className="container mx-auto px-4 py-12">
-        <div className="mx-auto flex max-w-7xl gap-8">
-          {/* Main content */}
-          <article className="flex-1 max-w-4xl">
+        <div className="mx-auto flex max-w-7xl flex-col gap-10 lg:flex-row">
+          <article className="flex-1 rounded-3xl border border-white/60 bg-white/95 p-10 shadow-xl shadow-slate-200/60 backdrop-blur">
         {/* Introduction */}
         <section id="introduktion" className="mb-16">
           <h2 className="text-3xl font-bold text-gray-900 mb-6">
@@ -175,62 +298,19 @@ export default function DidaktiskaModellerPage() {
             De motsvarar också fyra dimensioner av AI-litteracitet: att använda, förstå, värdera och agera.
           </p>
 
-          <div className="overflow-x-auto">
-            <table className="min-w-full bg-white border border-gray-200 rounded-lg overflow-hidden shadow-sm">
-              <thead className="bg-gradient-to-r from-primary-50 to-cyan-50">
-                <tr>
-                  <th className="px-6 py-4 text-left text-sm font-semibold text-gray-900">Perspektiv</th>
-                  <th className="px-6 py-4 text-left text-sm font-semibold text-gray-900">Fråga</th>
-                  <th className="px-6 py-4 text-left text-sm font-semibold text-gray-900">Fokus</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-gray-200">
-                <tr className="hover:bg-gray-50 transition-colors">
-                  <td className="px-6 py-4">
-                    <span className="font-semibold text-primary-700">Med AI</span>
-                  </td>
-                  <td className="px-6 py-4 text-gray-700">
-                    Hur kan AI användas för att förstärka lärandeprocessen?
-                  </td>
-                  <td className="px-6 py-4 text-gray-600">
-                    Pedagogisk design, process, strategi
-                  </td>
-                </tr>
-                <tr className="hover:bg-gray-50 transition-colors">
-                  <td className="px-6 py-4">
-                    <span className="font-semibold text-cyan-700">Om AI</span>
-                  </td>
-                  <td className="px-6 py-4 text-gray-700">
-                    Hur kan elever förstå, analysera och granska tekniken?
-                  </td>
-                  <td className="px-6 py-4 text-gray-600">
-                    Kritiskt och epistemiskt tänkande
-                  </td>
-                </tr>
-                <tr className="hover:bg-gray-50 transition-colors">
-                  <td className="px-6 py-4">
-                    <span className="font-semibold text-blue-700">Mot AI</span>
-                  </td>
-                  <td className="px-6 py-4 text-gray-700">
-                    Hur kan elever utveckla en etisk och demokratisk hållning gentemot teknikens påverkan?
-                  </td>
-                  <td className="px-6 py-4 text-gray-600">
-                    Ansvar, agens och värdering
-                  </td>
-                </tr>
-                <tr className="hover:bg-gray-50 transition-colors">
-                  <td className="px-6 py-4">
-                    <span className="font-semibold text-purple-700">Genom AI</span>
-                  </td>
-                  <td className="px-6 py-4 text-gray-700">
-                    Hur kan AI stödja språkutveckling, reflektion och kreativitet utan att ta över?
-                  </td>
-                  <td className="px-6 py-4 text-gray-600">
-                    Språklig och metakognitiv utveckling
-                  </td>
-                </tr>
-              </tbody>
-            </table>
+          <div className="grid gap-6 md:grid-cols-2">
+            {compassCards.map((card) => (
+              <div
+                key={card.title}
+                className={`rounded-3xl border border-gray-100 bg-gradient-to-br ${card.accent} p-6 shadow-sm`}
+              >
+                <p className="text-xs font-semibold uppercase tracking-[0.35em] text-gray-500">
+                  {card.question}
+                </p>
+                <h3 className="mt-2 text-2xl font-bold text-gray-900">{card.title}</h3>
+                <p className="mt-3 text-gray-700">{card.focus}</p>
+              </div>
+            ))}
           </div>
 
           <p className="text-gray-700 mt-8">
@@ -330,38 +410,19 @@ export default function DidaktiskaModellerPage() {
               hur AI förändrar själva kunskapens natur.
             </p>
 
-            <div className="overflow-x-auto">
-              <table className="min-w-full bg-white border border-gray-200 rounded-lg">
-                <thead className="bg-primary-50">
-                  <tr>
-                    <th className="px-4 py-3 text-left text-sm font-semibold text-gray-900">Dimension</th>
-                    <th className="px-4 py-3 text-left text-sm font-semibold text-gray-900">Fråga</th>
-                    <th className="px-4 py-3 text-left text-sm font-semibold text-gray-900">Exempel</th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-gray-200">
-                  <tr>
-                    <td className="px-4 py-3 font-medium text-gray-900">Content (C)</td>
-                    <td className="px-4 py-3 text-gray-700">Vad ska eleverna lära sig?</td>
-                    <td className="px-4 py-3 text-gray-600">Språklig stil, källkritik, ekosystem…</td>
-                  </tr>
-                  <tr>
-                    <td className="px-4 py-3 font-medium text-gray-900">Pedagogical (P)</td>
-                    <td className="px-4 py-3 text-gray-700">Hur lär de sig bäst?</td>
-                    <td className="px-4 py-3 text-gray-600">Samtal, samarbete, processkrivning…</td>
-                  </tr>
-                  <tr>
-                    <td className="px-4 py-3 font-medium text-gray-900">Technological (T)</td>
-                    <td className="px-4 py-3 text-gray-700">Vilka digitala verktyg stöder detta?</td>
-                    <td className="px-4 py-3 text-gray-600">Chattbot, bildgenerator, video-AI…</td>
-                  </tr>
-                  <tr>
-                    <td className="px-4 py-3 font-medium text-gray-900">Epistemic (E)</td>
-                    <td className="px-4 py-3 text-gray-700">Hur påverkar AI vad det innebär att veta?</td>
-                    <td className="px-4 py-3 text-gray-600">Vems röst hörs? Vad är sant? Hur skapas förståelse?</td>
-                  </tr>
-                </tbody>
-              </table>
+            <div className="grid gap-4 md:grid-cols-2">
+              {tpackDimensions.map((dimension) => (
+                <div
+                  key={dimension.title}
+                  className="rounded-2xl border border-gray-200 bg-gradient-to-br from-gray-50 to-white p-5 shadow-sm shadow-gray-100"
+                >
+                  <p className="text-xs font-semibold uppercase tracking-[0.3em] text-primary-500">
+                    {dimension.title}
+                  </p>
+                  <p className="mt-2 text-base font-semibold text-gray-900">{dimension.question}</p>
+                  <p className="mt-3 text-sm text-gray-600">{dimension.examples}</p>
+                </div>
+              ))}
             </div>
 
             <p className="text-gray-700 mt-6">
@@ -425,43 +486,22 @@ export default function DidaktiskaModellerPage() {
               en elev förstår ett innehåll – från ytlig till komplex nivå.
             </p>
 
-            <div className="overflow-x-auto">
-              <table className="min-w-full bg-white border border-gray-200 rounded-lg">
-                <thead className="bg-blue-50">
-                  <tr>
-                    <th className="px-4 py-3 text-left text-sm font-semibold text-gray-900">Nivå</th>
-                    <th className="px-4 py-3 text-left text-sm font-semibold text-gray-900">Beskrivning</th>
-                    <th className="px-4 py-3 text-left text-sm font-semibold text-gray-900">AI-tillämpning</th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-gray-200 text-sm">
-                  <tr>
-                    <td className="px-4 py-3 font-medium text-gray-900">Pre-structural</td>
-                    <td className="px-4 py-3 text-gray-700">Eleven missförstår eller gissar</td>
-                    <td className="px-4 py-3 text-gray-600">AI används oreflekterat</td>
-                  </tr>
-                  <tr>
-                    <td className="px-4 py-3 font-medium text-gray-900">Uni-structural</td>
-                    <td className="px-4 py-3 text-gray-700">En aspekt förstås</td>
-                    <td className="px-4 py-3 text-gray-600">Eleven kan beskriva vad AI gör</td>
-                  </tr>
-                  <tr>
-                    <td className="px-4 py-3 font-medium text-gray-900">Multi-structural</td>
-                    <td className="px-4 py-3 text-gray-700">Flera aspekter förstås</td>
-                    <td className="px-4 py-3 text-gray-600">Eleven kan förklara hur AI fungerar</td>
-                  </tr>
-                  <tr>
-                    <td className="px-4 py-3 font-medium text-gray-900">Relational</td>
-                    <td className="px-4 py-3 text-gray-700">Samband förstås</td>
-                    <td className="px-4 py-3 text-gray-600">Eleven kan analysera hur AI påverkar lärandet</td>
-                  </tr>
-                  <tr>
-                    <td className="px-4 py-3 font-medium text-gray-900">Extended Abstract</td>
-                    <td className="px-4 py-3 text-gray-700">Abstraktion och överföring</td>
-                    <td className="px-4 py-3 text-gray-600">Eleven kan generalisera och reflektera över kunskap i AI-samhället</td>
-                  </tr>
-                </tbody>
-              </table>
+            <div className="grid gap-4 md:grid-cols-2">
+              {soloLevels.map((level, index) => (
+                <div
+                  key={level.title}
+                  className="rounded-2xl border border-blue-100 bg-blue-50/50 p-5 shadow-inner shadow-blue-100/60"
+                >
+                  <div className="flex items-center justify-between text-xs font-semibold uppercase tracking-[0.25em] text-blue-500">
+                    <span>Nivå {index + 1}</span>
+                    <span>{level.title}</span>
+                  </div>
+                  <p className="mt-3 text-base font-semibold text-gray-900">{level.description}</p>
+                  <div className="mt-3 rounded-xl bg-white/80 p-3 text-sm text-gray-600">
+                    <span className="font-semibold text-blue-700">AI i praktiken:</span> {level.aiUse}
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
 
@@ -756,9 +796,9 @@ export default function DidaktiskaModellerPage() {
       </article>
 
       {/* Desktop TOC - sticky sidebar */}
-      <aside className="hidden lg:block w-64 flex-shrink-0">
+      <aside className="hidden w-72 flex-shrink-0 lg:block">
         <div className="sticky top-24">
-          <nav className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+          <nav className="rounded-3xl border border-white/70 bg-white/95 p-6 shadow-xl shadow-slate-200/60 backdrop-blur">
             <h2 className="text-lg font-bold text-gray-900 mb-4 flex items-center gap-2">
               <svg className="w-5 h-5 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
