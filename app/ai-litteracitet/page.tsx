@@ -225,21 +225,21 @@ export default function AILitteracitetPage() {
               blir medtänkare utan att dominera.
             </p>
           </div>
-          <div className="mx-auto grid max-w-6xl gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {aiLiteracyConfig.map((dimension, index) => (
-              <div
-                key={dimension.id}
-                className={`group relative rounded-2xl border border-white/50 bg-gradient-to-br ${dimension.gradient} p-6 text-white shadow-lg transition duration-300 hover:-translate-y-1 hover:shadow-2xl`}
-              >
-                <div className="absolute -top-3 -right-3 flex h-10 w-10 items-center justify-center rounded-full bg-white/90 text-sm font-bold text-gray-900 shadow-lg">
-                  {index === 0 ? "0" : index}
-                </div>
-                <div className="mb-4">
-                  <AiLiteracyBadge id={dimension.id} showTooltip={false} />
-                </div>
-                <p className="text-sm leading-relaxed text-white/90">
-                  {dimension.description}
-                </p>
+            <div className="mx-auto grid max-w-6xl gap-6 md:grid-cols-2 lg:grid-cols-3 text-gray-900">
+              {aiLiteracyConfig.map((dimension, index) => (
+                <div
+                  key={dimension.id}
+                  className={`group relative rounded-2xl border border-white/50 bg-gradient-to-br ${dimension.gradient} p-6 text-gray-800 shadow-lg transition duration-300 hover:-translate-y-1 hover:shadow-2xl`}
+                >
+                  <div className="absolute -top-3 -right-3 flex h-10 w-10 items-center justify-center rounded-full bg-white/90 text-sm font-bold text-gray-900 shadow-lg">
+                    {index === 0 ? "0" : index}
+                  </div>
+                  <div className="mb-4">
+                    <AiLiteracyBadge id={dimension.id} showTooltip={false} />
+                  </div>
+                  <p className="text-sm leading-relaxed text-gray-900">
+                    {dimension.description}
+                  </p>
                 <div
                   className={`pointer-events-none absolute inset-0 rounded-2xl opacity-0 transition-opacity duration-300 group-hover:opacity-15 ${dimension.dotColor}`}
                 />
