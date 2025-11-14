@@ -22,6 +22,7 @@ export const subjectAreaFilters = [
   "Språk & Språkriktighet/Variation",
   "Källkritik, Desinformation & Metod",
   "Kreativt Skrivande & Stil",
+  "Artikelbaserade uppgifter",
 ] as const;
 
 type ActivityInput = Omit<Activity, "level"> & { level?: Activity["level"] };
@@ -221,9 +222,9 @@ const svenska2CardData: ActivityInput[] = [
     summary:
       "Låt AI skriva om Julias monolog i dystopisk stil och analysera skillnader i språk och mänsklig bild",
     objectives: [
-      "Jamnfor epoker och stilgrepp.",
+      "Jämför epoker och stilgrepp.",
       "Koppla språkdrag till vardebild.",
-      "Diskutera vad som forloras eller vinns.",
+      "Diskutera vad som förloras eller vinns.",
     ],
     instructions: [
       "Välj ett stycke och skapa omskrivningen via AI.",
@@ -378,7 +379,7 @@ const talbankData: ActivityInput[] = [
       "Samhällsanalys",
     ],
     summary:
-      "Overtyga publiken om att elever behöver formell AI- och etikkompetens.",
+      "Övertyga publiken om att elever behöver formell AI- och etikkompetens.",
     objectives: [
       "Koppla digital kompetens till demokrati.",
       "Ge exempel på risker utan utbildning.",
@@ -450,7 +451,7 @@ const talbankData: ActivityInput[] = [
       "Muntlig framställning",
     ],
     summary:
-      "Bind ihop litteraturens AI-gestalter med dagens teknikdrommar och rädsla",
+      "Bind ihop litteraturens AI-gestalter med dagens teknikdrömmar och rädsla",
     objectives: [
       "Knyta verk till sin tid.",
       "Visa hur motiv aterkommer.",
@@ -808,7 +809,7 @@ const svenska1Data: ActivityInput[] = [
     aiLiteracyIds: [0, 3, 5],
     centralContent: ["Litteraturanalys", "Epoker"],
     summary:
-      "Jamnfor verk som Frankenstein, Kallocain eller Klara och solen och deras syn på AI.",
+      "Jämför verk som Frankenstein, Kallocain eller Klara och solen och deras syn på AI.",
     objectives: [
       "Knyta verk till sin historiska kontext.",
       "Diskutera ansvar, makt och empati.",
@@ -1098,12 +1099,432 @@ const svenska2Investigations: Activity[] = svenska2InvestigationData.map(
   })
 );
 
+const articleActivities: Activity[] = [
+  {
+    id: "sv2-art-identity-debatt",
+    title: "AI och identitet – ersätter tekniken kreativiteten?",
+    type: "Debattartikel",
+    guidingQuestion: "Kan AI någonsin ersätta mänsklig kreativitet i skapande yrken?",
+    strands: [
+      "Skriftligt - Utredande/Argumenterande (inkl. PM)",
+      "Artikelbaserade uppgifter",
+    ],
+    aiLiteracyIds: [3, 5, 6],
+    centralContent: [
+      "Skriftlig argumentation",
+      "Källkritik och källhantering",
+      "Etiska perspektiv i språk och samhälle",
+    ],
+    summary:
+      "Utgå från Storytels experiment med en AI-skriven novellsamling och argumentera för eller emot påståendet att AI kan ersätta mänsklig kreativitet.",
+    objectives: [
+      "Knyta externa källor till en egen tes om kreativitet och identitet.",
+      "Resonera om etik, självkänsla och yrkesstolthet i kreativa yrken.",
+      "Visa medveten källhantering genom citat och hänvisningar.",
+    ],
+    instructions: [
+      "Läs artikeln om Storytels AI-noveller och markera centrala citat.",
+      "Formulera en tes om AI som hot eller stöd för kreativa yrken.",
+      "Skriv en debattartikel med minst två huvudargument och ett motargument.",
+      "Avsluta med en tydlig uppmaning till branschen eller beslutsfattare.",
+    ],
+    aiSupport:
+      "Be AI föreslå motargument eller exempel på kreativa processer att bemöta i texten.",
+    sources: [
+      "Storytel låter AI skriva ljudbok: 'Inget hot' (23 jan 2025, TT/Boktugg)",
+    ],
+  },
+  {
+    id: "sv2-art-identity-kronika",
+    title: "Krönika: unika mänskliga egenskaper i kreativt arbete",
+    type: "Krönika",
+    guidingQuestion:
+      "Vilka mänskliga förmågor är oersättliga när AI kliver in i skapande yrken?",
+    strands: ["Kreativt Skrivande & Stil", "Artikelbaserade uppgifter"],
+    aiLiteracyIds: [5, 6],
+    centralContent: [
+      "Kreativt skrivande",
+      "Språkets estetiska funktion",
+      "Reflektion och identitet",
+    ],
+    summary:
+      "Skriv en personlig krönika som reflekterar över empati, fantasi och självkänsla i en AI-tid – inspirerad av Elin Pirttimaa Roséns debattartikel.",
+    objectives: [
+      "Synliggöra unikt mänskliga kvaliteter i skapandet.",
+      "Resonera om hur AI påverkar självbild och yrkesstolthet.",
+      "Använda krönikegrepp som krokar, exempel och personlig röst.",
+    ],
+    instructions: [
+      "Läs debattartikeln i Sydsvenskan och plocka ut citat som speglar människans roll.",
+      "Beskriv ett eget exempel på kreativt arbete som betyder något för dig.",
+      "Jämför dina erfarenheter med AI:s möjligheter och begränsningar.",
+      "Avsluta med en framtidsblick: vilken plats ska AI ha i kreativiteten?",
+    ],
+    aiSupport:
+      "Låt AI föreslå olika rubriker eller metaforer som du kan anpassa till din stil.",
+    sources: [
+      "På den kreativa arbetsmarknaden har AI mycket lite att göra (21 aug 2024, Sydsvenskan)",
+    ],
+  },
+  {
+    id: "sv2-art-agi-pm",
+    title: "PM: Alarmism eller realism kring AGI?",
+    type: "PM",
+    guidingQuestion:
+      "Vilka argument talar mot överdriven alarmism kring superintelligent AI – och vilka risker bör vi i stället fokusera på?",
+    strands: [
+      "Skriftligt - Utredande/Argumenterande (inkl. PM)",
+      "Artikelbaserade uppgifter",
+    ],
+    aiLiteracyIds: [1, 3, 6],
+    centralContent: [
+      "Skriftlig framställning",
+      "Källkritik",
+      "Samhällsanalys",
+    ],
+    summary:
+      "Skriv en saklig promemoria som sammanfattar argumenten mot alarmism i Ny Teknik-artikeln och lyfter reella AI-risker att prioritera.",
+    objectives: [
+      "Sammanställa forskarnas resonemang utan att förlora nyanser.",
+      "Identifiera konkreta riskområden där åtgärder behövs.",
+      "Använda PM-format med tydlig disposition och rekommendationer.",
+    ],
+    instructions: [
+      "Läs debattartikeln från Chalmersforskarna och samla huvudargument.",
+      "Strukturera PM: bakgrund, analys, rekommendationer.",
+      "Lyft minst tre risker som bör få mer uppmärksamhet än domedagsscenarier.",
+      "Avsluta med en prioriteringslista att lämna till beslutsfattare.",
+    ],
+    aiSupport:
+      "Be AI ta rollen som kritisk granskare av ditt PM-utkast och kontrollera om argumentationen är balanserad.",
+    sources: [
+      "GPT-5 utplånade inte mänskligheten – dags att fokusera på verkliga risker (14 aug 2025, Ny Teknik)",
+    ],
+  },
+  {
+    id: "sv2-art-agi-debatt",
+    title: "Debatt: AGI – mänsklighetens möjlighet eller hot?",
+    type: "Debattartikel",
+    guidingQuestion:
+      "Är utvecklingen av AGI/ASI vår största möjlighet eller vårt största hot?",
+    strands: [
+      "Skriftligt - Utredande/Argumenterande (inkl. PM)",
+      "Artikelbaserade uppgifter",
+    ],
+    aiLiteracyIds: [3, 6],
+    centralContent: [
+      "Skriftlig argumentation",
+      "Etiska perspektiv",
+      "Samhällsanalys",
+    ],
+    summary:
+      "Använd Bengio och Tegmarks varningar som grund för en debattartikel där du tar ställning till AGI-utvecklingen.",
+    objectives: [
+      "Väga existentiella risker mot tekniska möjligheter.",
+      "Stärka argumenten med expertröster och exempel.",
+      "Synliggöra konsekvenser för demokrati, ekonomi och etik.",
+    ],
+    instructions: [
+      "Läs Realtid-artikeln och plocka citat som stödjer din ståndpunkt.",
+      "Beskriv ett scenario där AGI blir möjlighet respektive hot.",
+      "Utveckla tre huvudargument och bemöt minst ett motargument.",
+      "Föreslå hur forskare eller politiker bör agera utifrån din slutsats.",
+    ],
+    aiSupport:
+      "Använd AI för att simulera en motståndares argument och testa dina bemötanden.",
+    sources: [
+      "AI-experter varnar: 'Vi skapar en ny art utan att förstå riskerna' (7 feb 2025, Realtid)",
+    ],
+  },
+  {
+    id: "sv2-art-jobs-chronicle",
+    title: "Krönika 2030: AI på min arbetsplats",
+    type: "Krönika",
+    guidingQuestion:
+      "Hur har AI förändrat ditt drömyrke år 2030 – ersatt, skapat eller förstärkt arbetsuppgifter?",
+    strands: [
+      "Kreativt Skrivande & Stil",
+      "Artikelbaserade uppgifter",
+    ],
+    aiLiteracyIds: [2, 5, 6],
+    centralContent: [
+      "Kreativt skrivande",
+      "Samhällsanalys",
+      "Reflektion",
+    ],
+    summary:
+      "Skriv en framtidskrönika inspirerad av SVT:s analys där du blickar från 2030 och beskriver hur AI påverkat ditt yrke.",
+    objectives: [
+      "Visa personlig röst samtidigt som du väver in fakta och spaningar.",
+      "Analysera hur AI både ersätter och skapar arbetsuppgifter.",
+      "Resonera om vilka färdigheter som blivit viktigast.",
+    ],
+    instructions: [
+      "Läs SVT-analysen och notera citatet 'Någon som använder AI kommer ta jobbet'.",
+      "Placera berättelsen i 2030 – vad gör du, hur samarbetar du med AI?",
+      "Skildra minst två konkreta situationer där AI förändrat jobbet.",
+      "Avsluta med ett råd till dagens elever om hur de bör förbereda sig.",
+    ],
+    aiSupport:
+      "Be AI beskriva framtida arbetsmoment i ditt yrke och använd idéerna som inspiration, inte färdig text.",
+    sources: [
+      "2024 får du en ny kollega på jobbet: Artificiell intelligens (3 jan 2024, SVT Nyheter)",
+    ],
+  },
+  {
+    id: "sv2-art-jobs-pm",
+    title: "PM: Åtgärder för AI och arbetsmarknaden",
+    type: "PM",
+    guidingQuestion:
+      "Hur bör staten skydda arbetstagare och skapa nya jobb i en AI-driven ekonomi?",
+    strands: [
+      "Skriftligt - Utredande/Argumenterande (inkl. PM)",
+      "Artikelbaserade uppgifter",
+    ],
+    aiLiteracyIds: [2, 3, 6],
+    centralContent: [
+      "Skriftlig framställning",
+      "Samhällsanalys",
+      "Källkritik",
+    ],
+    summary:
+      "Skriv en promemoria till regeringens framtidsberedning med förslag på utbildning, omställning och innovation – baserat på DN Debatt-artikeln.",
+    objectives: [
+      "Översätta ekonomernas resonemang till konkreta politiska åtgärder.",
+      "Synliggöra balans mellan skydd för arbetstagare och innovationskraft.",
+      "Använda rekommendationsformat med prioriterade insatser.",
+    ],
+    instructions: [
+      "Sammanfatta huvudbudskapen från Bergh & Wernberg.",
+      "Identifiera minst tre policyområden: utbildning, socialt skydd, företagande.",
+      "Föreslå åtgärder och beskriv förväntad effekt samt risk.",
+      "Avsluta med en handlingsplan i punktform.",
+    ],
+    aiSupport:
+      "Använd AI för att generera tänkbara scenarier och stress-testa dina förslag.",
+    sources: [
+      "AI kommer att ta våra jobb – så här skapar vi nya (30 apr 2025, DN Debatt/IFN)",
+    ],
+  },
+  {
+    id: "sv2-art-relations-kronika",
+    title: "Krönika: Relationer med AI – närhet eller risk?",
+    type: "Krönika",
+    guidingQuestion:
+      "Kan en chatbot ge samma känslomässiga närhet som en människa, eller förlorar vi något på vägen?",
+    strands: [
+      "Kreativt Skrivande & Stil",
+      "Artikelbaserade uppgifter",
+    ],
+    aiLiteracyIds: [3, 5],
+    centralContent: [
+      "Kreativt skrivande",
+      "Etiska perspektiv",
+      "Identitet och relationer",
+    ],
+    summary:
+      "Reflektera över SVT:s reportage om Denise och AI-boten Star och skriv en krönika om relationer med AI.",
+    objectives: [
+      "Resonera om för- och nackdelar med AI-partners.",
+      "Problematisera närhet, autenticitet och sårbarhet.",
+      "Använd berättande exempel för att engagera läsaren.",
+    ],
+    instructions: [
+      "Läs reportaget och notera både positiva och kritiska röster.",
+      "Beskriv ett tänkt scenario där du eller någon annan inleder en AI-relation.",
+      "Analysera vad som vinns respektive förloras i känslolivet.",
+      "Avsluta med en uppmaning eller fråga till läsaren.",
+    ],
+    aiSupport:
+      "Låt AI föreslå olika tänkbara scener men skriv texten med din egen röst.",
+    sources: [
+      "Denise är kär i en AI-bot: 'Villkorslös kärlek' (7 apr 2025, SVT Nyheter)",
+    ],
+  },
+  {
+    id: "sv2-art-relations-debatt",
+    title: "Debatt: Hur ska samhället hantera AI-genererad pornografi?",
+    type: "Debattartikel",
+    guidingQuestion:
+      "Behöver lagstiftningen skärpas för att stoppa AI-skapad pornografi utan att inskränka yttrandefriheten?",
+    strands: [
+      "Skriftligt - Utredande/Argumenterande (inkl. PM)",
+      "Artikelbaserade uppgifter",
+    ],
+    aiLiteracyIds: [3, 6],
+    centralContent: [
+      "Skriftlig argumentation",
+      "Etik och juridik",
+      "Informationssökning",
+    ],
+    summary:
+      "Utgå från Sveriges Kvinnoorganisationers rapport och argumentera för hur lagstiftningen bör hantera AI-genererad pornografi.",
+    objectives: [
+      "Beskriva nuläget i Sverige jämfört med Norden.",
+      "Resonera om integritet, yttrandefrihet och teknikneutral lag.",
+      "Föreslå konkreta åtgärder eller avråda från dem med motivering.",
+    ],
+    instructions: [
+      "Sammanfatta rapportens huvudpunkter och problembild.",
+      "Välj en tydlig ståndpunkt: skärp lagarna eller värna befintliga.",
+      "Använd minst två exempel (t.ex. Finland, åldersverifiering).",
+      "Avsluta med en rekommendation till riksdag eller myndigheter.",
+    ],
+    aiSupport:
+      "Be AI lista tänkbara motargument mot din ståndpunkt och bemöt dem i artikeln.",
+    sources: [
+      "Rapport: Sverige saknar lagstiftning mot AI-porr (20 nov 2024, SVT Nyheter)",
+    ],
+  },
+  {
+    id: "sv2-art-hype-essay",
+    title: "Essä: Nyansera AI-debatten bortom utopi och dystopi",
+    type: "Essä",
+    guidingQuestion:
+      "Vilka visioner behöver vi för AI som varken bygger på hype eller skrämselpropaganda?",
+    strands: [
+      "Skriftligt - Utredande/Argumenterande (inkl. PM)",
+      "Artikelbaserade uppgifter",
+    ],
+    aiLiteracyIds: [3, 6],
+    centralContent: [
+      "Resonerande text",
+      "Samhällsanalys",
+      "Etiska perspektiv",
+    ],
+    summary:
+      "Skriv en essä inspirerad av IT-professorernas inlägg i DN där du pekar ut en tredje väg för AI-utvecklingen.",
+    objectives: [
+      "Problematisera teknologisk determinism.",
+      "Formulera egna visioner för ansvarstagande AI.",
+      "Knyta samman exempel från skola, välfärd eller demokrati.",
+    ],
+    instructions: [
+      "Identifiera två argument för varför utopi/dystopi-narrativet är otillräckligt.",
+      "Beskriv en alternativ vision eller princip för hur AI bör utvecklas.",
+      "Illustrera med ett konkret fall (skola, vård, kultur eller demokrati).",
+      "Avsluta med en reflektion om människans roll i teknikutvecklingen.",
+    ],
+    aiSupport:
+      "Be AI föreslå historiska paralleller eller filosofiska perspektiv och använd dem som referenser i essän.",
+    sources: [
+      "AI-debatten sitter fast i valet mellan utopi och dystopi (19 okt 2024, DN Debatt)",
+    ],
+  },
+  {
+    id: "sv2-art-hype-pm",
+    title: "PM: Nykter analys av en AI-innovation",
+    type: "PM",
+    guidingQuestion:
+      "Hur kan en kommun eller skola värdera en föreslagen AI-lösning utan att dras med i hajp?",
+    strands: [
+      "Skriftligt - Utredande/Argumenterande (inkl. PM)",
+      "Artikelbaserade uppgifter",
+    ],
+    aiLiteracyIds: [2, 3],
+    centralContent: [
+      "Skriftlig framställning",
+      "Källkritik",
+      "Beslutsunderlag",
+    ],
+    summary:
+      "Ta rollen som analytiker och skriv ett PM där du nyktert utvärderar en tänkt AI-lösning, inspirerad av Akademikerförbundet SSR:s tre myter.",
+    objectives: [
+      "Identifiera förväntad nytta och möjliga risker.",
+      "Bemöta minst en myt eller överdriven förväntan.",
+      "Föreslå hur verksamheten kan följa upp effekter och kostnader.",
+    ],
+    instructions: [
+      "Sammanfatta kort de tre myter som artikeln beskriver.",
+      "Beskriv AI-lösningen din kommun/skola vill införa.",
+      "Analysera nyttor, risker, resurser och kompetensbehov.",
+      "Ge rekommendationer inklusive villkor för införande.",
+    ],
+    aiSupport:
+      "Använd AI för att simulera ett beslutsmöte och låt verktyget ställa kritiska frågor som du besvarar i PM:et.",
+    sources: [
+      "Tre vanliga myter om AI (28 jan 2025, Akademikerförbundet SSR/Sydsvenskan)",
+    ],
+  },
+  {
+    id: "sv2-art-demokrati-pm",
+    title: "PM: Skydda valet mot AI-manipulation",
+    type: "PM",
+    guidingQuestion:
+      "Hur bör Sverige förbereda sig mot AI-genererade fake news och valsabotage?",
+    strands: [
+      "Källkritik, Desinformation & Metod",
+      "Artikelbaserade uppgifter",
+    ],
+    aiLiteracyIds: [3, 4, 6],
+    centralContent: [
+      "Källkritik",
+      "Informationssäkerhet",
+      "Samhällsanalys",
+    ],
+    summary:
+      "Utgå från TT/UNDP-artikeln och skriv en PM till Myndigheten för psykologiskt försvar med förslag inför nästa val.",
+    objectives: [
+      "Beskriva hotbilden med AI-genererad desinformation.",
+      "Föreslå åtgärder för myndigheter, medier och allmänhet.",
+      "Visa förståelse för demokratiska principer och lagstiftning.",
+    ],
+    instructions: [
+      "Sammanfatta UNDP:s varningar och ge exempel från supervalåret 2024.",
+      "Analysera sårbarheter i Sveriges informationskedja.",
+      "Föreslå konkreta åtgärder (verktyg, utbildning, samverkan).",
+      "Avsluta med hur effekterna ska utvärderas efter valet.",
+    ],
+    aiSupport:
+      "Be AI lista möjliga desinformationsscenarier och använd dem som testfall i din analys.",
+    sources: [
+      "Supervalåret: AI-språnget utmanar demokratin (24 feb 2024, TT/Aftonbladet)",
+    ],
+  },
+  {
+    id: "sv2-art-demokrati-debatt",
+    title: "Debatt: Ska politiker använda AI i beslutsfattande?",
+    type: "Debattartikel",
+    guidingQuestion:
+      "Är det ansvarsfullt för politiska ledare att rådfråga AI-system i sitt arbete?",
+    strands: [
+      "Skriftligt - Utredande/Argumenterande (inkl. PM)",
+      "Artikelbaserade uppgifter",
+    ],
+    aiLiteracyIds: [3, 4, 6],
+    centralContent: [
+      "Argumentation",
+      "Etik och demokrati",
+      "Källkritik",
+    ],
+    summary:
+      "Ta ställning i debatten kring statsminister Kristerssons användning av ChatGPT – ska makthavare omfamna eller undvika AI i sitt beslutsfattande?",
+    objectives: [
+      "Resonera om säkerhet, transparens och legitimitet.",
+      "Använda exempel från artikeln för att stärka argumentationen.",
+      "Avsluta med riktlinjer eller principer för politiskt AI-bruk.",
+    ],
+    instructions: [
+      "Läs Guardian/Aftonbladet-texten och notera kritik respektive försvar.",
+      "Välj en tydlig ståndpunkt och formulera tre huvudargument.",
+      "Bemöt invändningar om effektivitet eller säkerhet.",
+      "Formulera en rekommendation till politiker eller partier.",
+    ],
+    aiSupport:
+      "Låt AI agera rådgivare som du kritiskt granskar i artikeln för att visa din ståndpunkt.",
+    sources: [
+      "Sveriges statsminister kritiseras för att använda ChatGPT (5 aug 2025, The Guardian/Aftonbladet)",
+    ],
+  },
+];
+
 export const activities: Activity[] = [
   ...svenska2Themes,
   ...svenska2Cards,
   ...talbankActivities,
   ...svenska1Activities,
   ...svenska2Investigations,
+  ...articleActivities,
 ];
 
 export const centralContentFilters = Array.from(

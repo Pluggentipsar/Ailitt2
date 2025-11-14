@@ -171,7 +171,7 @@ export default function ActivitiesPage() {
         </div>
       </FilterSection>
 
-      <FilterSection title="Amnesdel">
+      <FilterSection title="Ämnesdel">
         <div className="flex flex-wrap gap-2">
           {subjectAreaFilters.map((strand) => (
             <button
@@ -247,7 +247,7 @@ export default function ActivitiesPage() {
             <HeroStat
               label="Aktiviteter"
               value={activities.length.toString()}
-              detail="Tal, pam, skrivuppgifter och undersokningar"
+              detail="Tal,PM, skrivuppgifter och undersökningar"
             />
             <HeroStat
               label="AI-litteracitets-spann"
@@ -257,7 +257,7 @@ export default function ActivitiesPage() {
             <HeroStat
               label="Amnesdelar"
               value={subjectAreaFilters.length.toString()}
-              detail="Muntligt, skrivande, sprak, litteratur, kallkritik, kreativitet"
+              detail="Muntligt, skrivande, språk, litteratur, källkritik, kreativitet"
             />
           </div>
         </div>
