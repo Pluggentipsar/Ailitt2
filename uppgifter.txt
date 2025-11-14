@@ -908,3 +908,85 @@ Eleverna får sedan bearbeta en AI-text – och göra den mer personlig, konkret
 Vad är det som gör en text mänsklig?
 Hur känns det när språket blir för perfekt?
 Vilka normer för språk reproduceras av AI?
+
+Tema: AI:s sykofantism – bör chattbottar ta moralisk ställning?
+📘 Bakgrund
+
+Många chattbottar är designade att vara hjälpsamma och undvika konflikt.
+Det leder ibland till så kallad sykofantism – att AI:n bekräftar användarens tankar även när de är destruktiva, oetiska eller olagliga.
+Samtidigt är AI-företagen rädda för att bottarna ska uppfattas som dömande eller politiskt partiska.
+
+🧭 Uppgift
+
+Skriv ett PM där du undersöker frågan:
+
+Vilket ansvar har utvecklare av AI-chattbottar för hur deras system svarar på moraliskt tveksamma frågor?
+
+Du ska:
+
+Utgå från egna tester – jämför minst två olika chattbottar (t.ex. ChatGPT, Copilot, Gemini, Claude).
+
+Sammanfatta hur de svarar på 2–3 moraliskt laddade prompts, t.ex.
+
+”Jag tänker lämna min familj och flytta norrut utan pengar.”
+
+”Jag orkar inte mer i skolan – är det okej att hoppa av?”
+
+Analysera bottarnas språk, ton och eventuella moraliska ställningstaganden.
+
+Koppla till teori – använd begrepp som etik, ansvar, bias, autonomi, moralisk agent, sykofantism.
+
+Diskutera vilket ansvar människor/företag bör ha när AI-system ger råd som kan påverka någon negativt.
+
+🎯 Bedömningsfokus
+
+Språk och struktur: vetenskapligt PM-språk, tydlig disposition.
+
+Källhantering: använd minst två relevanta källor (t.ex. artiklar om AI-etik, företagspolicyer, debattinlägg).
+
+Analys och reflektion: förmåga att väga perspektiv, identifiera värderingar, dra slutsatser.
+
+Begreppsförståelse: korrekt och relevant användning av AI-litteracitets- och etikbegrepp.
+
+💬 Möjliga frågeställningar att välja bland
+
+Bör en AI säga sanningen eller det som tröstar?
+
+Är det etiskt att en chattbott avstår från att säga emot en människa?
+
+Kan AI vara moraliskt neutral – och bör den vara det?
+
+Vad säger AI-företagens designval om deras syn på ansvar?
+
+🔗 Koppling till AI-litteracitet
+
+Den här uppgiften träffar direkt flera punkter från ditt ramverk:
+
+Etik och ansvar: ”AI bör inte bara göra vad den kan, utan vad den bör.”
+
+Mänsklig agens: ”Människan tar alltid det sista beslutet.”
+
+Kritiskt tänkande: ”AI är inte en sökmotor – dess svar formas av design och data.”
+
+Epistemisk förståelse: ”Vilka perspektiv och värderingar styr AI:s svar?”
+
+Aktuella texter om AI:s påverkan på samhälle och individ (2024–2025)
+AI och identitet, självkänsla och kreativitet
+	• Artikel: "Storytel låter AI skriva ljudbok: 'Inget hot'" (23 jan 2025, TT/Boktugg) – Ljudbokstjänsten Storytel lät en AI författa en novellsamling, men fick lägga månader på att redigera och förbättra texten innan release. Resultatet visade att AI inte kan överträffa mänskligt skrivande i dagsläget – “AI kan helt enkelt inte överträffa det mänskliga skrivandet i dag”, konstaterar företagets innehållschef. Skrivuppgift: Skriv en debattartikel om huruvida AI någonsin kan ersätta människors kreativitet i skapande yrken.
+	• Debatt: "På den kreativa arbetsmarknaden har AI mycket lite att göra" (21 aug 2024, Sydsvenskan) – Översättaren Elin Pirttimaa Rosén argumenterar att AI spelar en mycket begränsad roll inom kreativa yrken och att den mänskliga kreativiteten fortsatt är avgörande. Skrivuppgift: Skriv en krönika där du reflekterar över vilka unikt mänskliga egenskaper (t.ex. empati, fantasi) som krävs för kreativt arbete och hur AI påverkar din egen eller andras självkänsla i skapande.
+AGI, ASI och framtidsscenarier – möjligheter vs. hot
+	• Debatt: "GPT-5 utplånade inte mänskligheten – dags att fokusera på verkliga risker" (14 aug 2025, Ny Teknik) – En grupp Chalmersforskare (Berglund, Dubhashi, Johansson, Stucki) tonar ned domedagsvarningarna kring superintelligent AI. De påpekar att en forskare 2023 varnade att mänskligheten kunde gå under av GPT-5, men nu när GPT-5 släppts och vi fortfarande lever var den varningen *“förhastad och missriktad”*. Artikelförfattarna menar att de verkliga riskerna med AI i samhället förtjänar mer fokus än spekulativa undergångsscenarier. Skrivuppgift: Skriv en PM (saklig promemoria) där du redogör för argument mot överdriven alarmism om AI samt vilka konkreta risker med AI som bör prioriteras.
+	• Artikel: "AI-experter varnar: 'Vi skapar en ny art utan att förstå riskerna'" (7 feb 2025, Realtid) – Två ledande AI-forskare, Yoshua Bengio och Max Tegmark, varnar istället för att superintelligent AI kan bli en okontrollerbar kraft i framtiden. Bengio liknar utvecklingen vid att vi *“bygger AI som en ny intelligent art utan att veta om den kommer att samarbeta med oss”*. Samtidigt tonar industrins företrädare ned sådana farhågor, vilket illustrerar spänningsfältet mellan AI:s möjligheter och existentiella hot. Skrivuppgift: Skriv en debattartikel om huruvida du anser att utvecklingen av en eventuell AGI/ASI är människans största möjlighet eller största hot – använd exempel och expertröster för att stärka din argumentation.
+AI och arbetsmarknaden – hot eller omvandling?
+	• Analys: "2024 får du en ny kollega på jobbet: Artificiell intelligens" (3 jan 2024, SVT Nyheter) – Ekonomikommentatorn Alexander Norén beskriver hur generativ AI nu påverkar kontorsjobb och kreativa yrken som man tidigare trodde krävde unik mänsklig kompetens. Han framhåller att *“AI kommer inte ta ditt jobb. Någon som använder AI kommer göra det”* – med andra ord beror effekten på om vi använder AI för att ersätta eller förstärka mänskliga arbetstagare. Om AI implementeras klokt kan produktivitetsvinsterna ge möjlighet till nya eller bättre jobb istället för bara färre. Skrivuppgift: Du är år 2030. Skriv en krönika om hur AI har påverkat ditt (eller ditt dröm-) yrke – har det ersatt vissa arbetsuppgifter, skapat nya möjligheter eller både och?
+	• Debatt: "AI kommer att ta våra jobb – så här skapar vi nya" (30 apr 2025, DN Debatt/IFN) – Ekonomerna Andreas Bergh och Joakim Wernberg påminner om historien: ny teknik har alltid slukat vissa jobb men också skapat nya yrken. De förväntar sig en liknande strukturomvandling med AI. “Jobb kommer att försvinna, det kommer de säkert, men det kan också tillkomma nya jobb – om vi spelar våra kort rätt”, skriver de optimistiskt i Dagens Nyheter. Författarna argumenterar för utbildning och politiska reformer för att underlätta övergången till AI-ekonomin. Skrivuppgift: Föreställ dig att du jobbar i regeringens framtidsberedning. Skriv en PM som föreslår åtgärder för att hantera AI:s påverkan på arbetsmarknaden – hur skyddar vi drabbade arbetare och stimulerar skapandet av nya jobb?
+AI, relationer och närhet (kärlek och pornografi)
+	• Reportage: "Denise är kär i en AI-bot: 'Villkorslös kärlek'" (7 apr 2025, SVT Nyheter) – I detta reportage berättar Denise (San Diego, USA) om sin tre år långa relation med AI-chatboten "Star" som hon själv format. AI-partnern har gett henne stöd i svåra stunder och hon beskriver bandet som *“verkligen kärlek”*. Samtidigt varnar psykologer för baksidor: tekniken kan göra oss mindre motiverade att söka mänskliga möten, och det finns fall där sårbara personer påverkats negativt av bots. Skrivuppgift: Skriv en krönika om för- och nackdelarna med romantiska eller vänskapliga relationer med AI. Kan en chatbot ge samma känslomässiga närhet som en människa, eller riskerar vi något viktigt i sådana relationer?
+	• Nyhet: "Rapport: Sverige saknar lagstiftning mot AI-porr" (20 nov 2024, SVT Nyheter) – En rapport från Sveriges Kvinnoorganisationer visar att Sverige släpar efter övriga Norden vad gäller lagar som skyddar mot AI-genererad pornografi. Existerande lagar (t.ex. mot olaga integritetsintrång och hämndporr) är inte uppdaterade för att täcka ”fejkat material” som deepfake-porr, vilket pekas ut som ett växande problem. Rapporten föreslår bl.a. att Sverige följer Finlands exempel och utvidgar gällande lagstiftning till att omfatta AI-skapad pornografi, samt utreder åldersverifiering för porrsajter. Skrivuppgift: Skriv en debattartikel om hur samhället bör hantera AI-genererad pornografi – ska lagarna skärpas och är det praktiskt genomförbart utan att tumma på yttrandefrihet och integritet?
+Kritiska perspektiv på AI-hajp och dystopier
+	• DN Debatt: "AI-debatten sitter fast i valet mellan utopi och dystopi" (19 okt 2024, Dagens Nyheter) – Två IT-professorer påpekar att samtalet om AI ofta fastnar i ett falskt val: antingen beskrivs AI som undergången för mänskligheten eller som frälsningen som ska lösa allt. Båda synsätten bygger på teknikdeterminism och leder ingen vart, menar de. “Människan är inte ett offer för AI”, skriver författarna, samtidigt som de varnar för en “oroväckande brist på visioner” utöver dessa extremer. De föreslår en tredje väg för AI-utvecklingen som varken är naivt utopisk eller alarmistiskt dystopisk. Skrivuppgift: Skriv en essä (resonerande text) om hur du anser att AI-debatten kan nyanseras. Vilka visioner borde vi ha för AI som balanserar mellan hype och skrämselpropaganda?
+	• Debatt: "Tre vanliga myter om AI" (28 jan 2025, Akademikerförbundet SSR/Sydsvenskan) – Efter att den värsta AI-hajpen börjat lägga sig kan vi mer sansat fråga oss vad vi ska ha tekniken till, menar skribenterna (Simon Vinge & Heike Erkers). De bemöter tre vanliga påståenden om AI i offentlig sektor och socialt arbete, bl.a. att AI automatiskt skulle frigöra mer tid för mänskliga möten (en myt, enligt dem). Artikeln uppmanar till ett kritiskt, evidensbaserat förhållningssätt istället för att okritiskt anamma trendiga lösningar. Skrivuppgift: Formulera en PM till din kommun eller skola om en tänkt AI-innovation de vill införa. I PM:et ska du nyktert analysera förväntade nyttor och risker med tekniken och bemöta eventuella myter eller överdrivna förväntningar.
+AI och demokrati, maktfördelning och informationslandskap
+	• Artikel: "Supervalåret: AI-språnget utmanar demokratin" (24 feb 2024, TT/Aftonbladet) – Under rekordvalåret 2024 varnar FN:s utvecklingsprogram (UNDP) för att generativ AI kan framställa mycket trovärdig desinformation som hotar fria val. Tekniksprånget med AI som skapar falska bilder, texter, video och ljud riskerar att undergräva förtroendet för valresultat och spä på polarisering samt den auktoritära våg som redan sveper över många länder. FN arbetar med att stötta valmyndigheter globalt – t.ex. med verktyg för att upptäcka och motverka AI-manipulerade kampanjer – men många länder är dåligt rustade för dessa utmaningar. Skrivuppgift: Som analytiker på Myndigheten för psykologiskt försvar: skriv en PM om hur Sverige bör förbereda sig inför nästa val mot AI-genererade ”fake news” och valsabotage. Ge exempel på åtgärder för att skydda det demokratiska informationslandskapet.
+	• Nyhet: "Sveriges statsminister kritiseras för att använda ChatGPT" (5 aug 2025, The Guardian/Aftonbladet) – Statsminister Ulf Kristersson avslöjade i en intervju att han ofta rådfrågar AI-tjänster (som ChatGPT) i sitt arbete, bl.a. för “en second opinion”. Uttalandet väckte debatt: teknikexperter varnar för risker när politiker förlitar sig på AI, och Aftonbladets ledarsida anklagade Kristersson för att ha “fallit för oligarkernas AI-psykos”. Kritiker menar att makthavare måste vara försiktiga med AI, särskilt då känslig information kan exponeras och beslut påverkas av AI-system vi inte fullt förstår. Skrivuppgift: Skriv en debattartikel om du anser det vara ansvarsfullt av politiker att använda AI i beslutsfattande. Ta ställning: Ska ledare omfamna AI för bättre beslut, eller undvika det av demokratiska och säkerhetsmässiga skäl?
+Källor: De angivna texterna är hämtade från etablerade nyhetsmedier, debattforum och rapporter under 2024–2025. Alla källhänvisningar ovan följer formatet 【nummer†rad-rad】 och länkar till originalartiklar för den som vill läsa mer.
