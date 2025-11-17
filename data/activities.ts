@@ -1099,7 +1099,7 @@ const svenska2Investigations: Activity[] = svenska2InvestigationData.map(
   })
 );
 
-const articleActivities: Activity[] = [
+const articleActivitiesData: ActivityInput[] = [
   {
     id: "sv2-art-identity-debatt",
     title: "AI och identitet – ersätter tekniken kreativiteten?",
@@ -1517,6 +1517,11 @@ const articleActivities: Activity[] = [
     ],
   },
 ];
+
+const articleActivities: Activity[] = articleActivitiesData.map((item) => ({
+  level: "Svenska 2",
+  ...item,
+}));
 
 export const activities: Activity[] = [
   ...svenska2Themes,
