@@ -3,11 +3,26 @@ export type GradeLevel = '1-3' | '4-6';
 export interface DialogueLine {
   speaker: 'Maja' | 'Gnista' | 'Narrator' | 'Leo' | 'Mamma' | 'Sara' | 'Kassörskan' | 'Musikanten';
   text: string;
+  image?: string;
 }
 
 export interface StoryChapter {
   title: string;
   dialogue: DialogueLine[];
+}
+
+export interface Activity {
+  title: string;
+  studentDescription: string;
+  teacherInstructions: {
+    purpose?: string;
+    preparation?: string[];
+    steps: string[];
+    discussion?: string;
+    examples?: string[]; // New field for concrete examples
+    explanation?: string; // New field for teacher background info
+  };
+  type: 'analog' | 'digital';
 }
 
 export interface ModulePart {
@@ -16,19 +31,53 @@ export interface ModulePart {
   description: string;
   icon?: string;
   story?: StoryChapter;
+  learningMaterial?: {
+    title: string;
+    content: string;
+    image?: string;
+    video?: string;
+  };
+  activities?: Activity[];
 }
 
 export const grundskolaModules: ModulePart[] = [
   {
     id: 'berattelsen-om-ai',
     title: 'Berättelsen om AI',
-    description: 'AI:s historia, utveckling och kulturella narrativ',
+    description: 'Hur började allt? Vi följer med Maja när hon upptäcker en gammal dator på vinden.',
+    learningMaterial: {
+      title: "Kapitel 0 – Berättelsen om AI: “Maja möter Gnista”",
+      content: `
+**AI betyder artificiell intelligens.** Ett svårt ord som egentligen betyder något ganska enkelt:
+
+👉 **AI är program som människor har skapat.**
+Människor har skrivit massor av kod — alltså instruktioner för en dator — så att AI kan hjälpa till med olika saker.
+
+En AI kan ibland låta som en figur i en saga eller ett spel.
+Men det betyder inte att den är en person.
+
+👉 **AI är egentligen bara kod som räknar och följer instruktioner.**
+I filmer och spel kan robotar vara superhjältar, prata som människor eller ha känslor.
+Det är roligt att titta på — men det är inte så AI fungerar i verkligheten.
+
+👉 **AI i filmer är fantasi. AI i verkligheten är ett verktyg.**
+En AI kan hjälpa dig att skriva, rita, hitta ord eller ge idéer.
+Men den bestämmer inte själv.
+Den vet inte saker som en människa vet.
+Och den har inga känslor.
+
+När du använder AI är det du som tänker och bestämmer.
+AI är bara ett hjälpverktyg — lite som en miniräknare eller en smart app.
+        `,
+      image: "/chapter_0_learning.jpg",
+      video: "/0.mp4"
+    },
     story: {
       title: 'Kapitel 0 – Maja möter Gnista',
       dialogue: [
-        { speaker: 'Narrator', text: 'Maja satt vid sin surfplatta och ritade. Hon höll på att göra en riktigt färgglad rymdraket, med stjärnor som glittrade runt omkring. Hon var så koncentrerad att hon nästan inte märkte när skärmen plötsligt började lysa lite extra.' },
-        { speaker: 'Narrator', text: 'Plopp! Mitt bredvid hennes raket dök en liten ljus gnista upp. Den såg ut som en liten figur av ljus – med stora runda, nyfikna ögon. Den vinkade, fast det egentligen bara var en del av animationen.' },
-        { speaker: 'Gnista', text: 'Hej! Jag heter Gnista. Jag är en AI.' },
+        { speaker: 'Narrator', text: 'Maja satt vid sin surfplatta och ritade. Hon höll på att göra en riktigt färgglad rymdraket, med stjärnor som glittrade runt omkring. Hon var så koncentrerad att hon nästan inte märkte när skärmen plötsligt började lysa lite extra.', image: '/saga1.jpg' },
+        { speaker: 'Narrator', text: 'Plopp! Mitt bredvid hennes raket dök en liten ljus gnista upp. Den såg ut som en liten figur av ljus – med stora runda, nyfikna ögon. Den vinkade, fast det egentligen bara var en del av animationen.', image: '/saga2.jpg' },
+        { speaker: 'Gnista', text: 'Hej! Jag heter Gnista. Jag är en AI.', image: '/saga3.jpg' },
         { speaker: 'Maja', text: 'En… vadå?' },
         { speaker: 'Gnista', text: 'AI. Det är ett slags super-verktyg som bor i datorer och surfplattor. Jag är inte magisk, och jag är inte en person. Jag är ett program som människor har byggt och tränat.' },
         { speaker: 'Maja', text: 'Men… du låter som en figur ur en film. Som robotar som kan prata och tänka och… ja, typ göra allt!' },
@@ -42,12 +91,207 @@ export const grundskolaModules: ModulePart[] = [
         { speaker: 'Gnista', text: 'Det kan jag säkert. Om du berättar vad du behöver hjälp med.' },
         { speaker: 'Narrator', text: 'Och just där började deras äventyr.' },
       ]
-    }
+    },
+    activities: [
+      {
+        title: '1. AI eller inte AI? – Sorteringsleken (Analog)',
+        studentDescription: 'Här ska du lista ut vilka saker som använder AI och vilka som inte gör det!\nLäraren säger ett ord (t.ex. “robotdammsugare”, “penna”, “kamerafilter”).\nDu springer eller pekar på rätt sida: AI eller Inte AI.',
+        teacherInstructions: {
+          purpose: 'Introducera AI som verktyg, inte magi.',
+          explanation: 'AI (Artificiell Intelligens) handlar ofta om datorer som kan "lära sig" eller känna igen mönster. En vanlig brödrost följer bara ett schema (tid), medan en robotdammsugare "ser" rummet och fattar beslut.',
+          preparation: ['Förbered två zoner i klassrummet: “AI” och “Inte AI”.'],
+          steps: [
+            'Säg ett föremål i taget; eleverna springer till rätt zon.',
+            'Diskutera kort efter varje runda: Varför är detta AI/inte AI?'
+          ],
+          examples: [
+            '✅ Robotdammsugare (AI: Den "ser" och undviker hinder)',
+            '❌ Brödrost (Inte AI: Den blir bara varm på tid)',
+            '✅ FaceID / Ansiktsfilter (AI: Den känner igen ditt ansikte)',
+            '❌ Elcykel (Inte AI: Den ger bara kraft, den "tänker" inte)',
+            '✅ YouTube-rekommendationer (AI: Den gissar vad du gillar)',
+            '❌ Miniräknare (Inte AI: Den gör bara exakt vad du trycker)'
+          ]
+        },
+        type: 'analog'
+      },
+      {
+        title: '2. Sortera Sakerna – Digitalt Spel',
+        studentDescription: 'Spela spelet på skärmen! Dra sakerna till rätt låda: "AI" eller "Inte AI".\nKlicka på "Kontrollera" när du är klar för att se om du hade rätt.',
+        teacherInstructions: {
+          purpose: 'Öva på att känna igen AI i vardagen genom ett interaktivt spel.',
+          explanation: 'Detta är den digitala versionen av sorteringsleken. Eleverna får direkt feedback och förklaringar på varför något är AI eller inte.',
+          steps: [
+            'Låt eleverna spela en och en eller i par på en surfplatta/dator.',
+            'Eller spela tillsammans på storskärm: Låt en elev komma fram och dra ett kort.',
+            'Läs förklaringarna högt tillsammans.'
+          ]
+        },
+        type: 'digital'
+      },
+      {
+        title: '3. Sant eller påhittat? – Filmrobot-leken',
+        studentDescription: 'Lyssna noga!\nLäraren säger något om AI eller robotar.\nDu hoppar åt höger om du tror att det är sant i verkligheten.\nDu hoppar åt vänster om du tror att det är påhittat.',
+        teacherInstructions: {
+          purpose: 'Fokusera på skillnaden fantasi vs verklighet.',
+          explanation: 'Barn möter ofta AI i filmer (som Wall-E eller Star Wars) där robotar har känslor och egen vilja. I verkligheten är AI bara kod utan känslor.',
+          steps: [
+            'Läs upp ett påstående.',
+            'Låt eleverna hoppa till höger (SANT) eller vänster (PÅHITTAT).',
+            'Berätta det rätta svaret.'
+          ],
+          examples: [
+            '🤥 "En robot kan bli kär i en annan robot." (Påhittat)',
+            '✅ "En dator kan vinna över världsmästaren i schack." (Sant)',
+            '🤥 "AI kan bestämma sig för att vara elak." (Påhittat)',
+            '✅ "En bil kan köra själv utan förare." (Sant - finns, men ovanligt)',
+            '🤥 "Om du pratar med en AI så förstår den allt du känner." (Påhittat - den bara gissar ord)'
+          ]
+        },
+        type: 'analog'
+      },
+      {
+        title: '4. Hitta AI-apparaterna! – Interaktiv klickjakt',
+        studentDescription: 'Här ska du hitta 5 saker som använder AI!\nKlicka på de saker du tror har AI i sig.\nSen trycker du på “Kontrollera svar” för att se hur många du fick rätt.',
+        teacherInstructions: {
+          purpose: 'Visa att AI finns i vardagliga prylar.',
+          explanation: 'Många saker vi använder varje dag har "osynlig" AI. Det är inte alltid robotar, utan ofta smarta funktioner i appar.',
+          steps: [
+            'Låt eleverna gissa vilka prylar som är "smarta".',
+            'Diskutera vad som gör att en pryl använder AI:',
+            '– Kan den lära sig?',
+            '– Kan den tolka mönster?',
+            '– Fattar den “små beslut”?'
+          ],
+          examples: [
+            '📱 Smartphone (Kamera, Röstassistent, Appar)',
+            '📺 Smart TV (Rekommenderar filmer)',
+            '🎮 Spelkonsol (Fiender i spel som "tänker")',
+            '🧹 Robotdammsugare',
+            '🗣️ Smart högtalare (Google Home, Alexa)'
+          ]
+        },
+        type: 'digital'
+      },
+      {
+        title: '5. AI-stoppdans – Rörelseaktivitet',
+        studentDescription: 'Dans när musiken spelar!\nNär musiken stoppar ropar läraren en AI-pryl.\nDu ska frysa och göra en rörelse som visar vad AI:n gör.',
+        teacherInstructions: {
+          purpose: 'Koppla kropp → begrepp.',
+          explanation: 'Genom att gestalta tekniken blir den mindre abstrakt. Det hjälper eleverna att minnas funktionerna.',
+          steps: [
+            'Starta musik.',
+            'När du stoppar musiken: ropa en AI-pryl.',
+            'Eleverna gestaltar prylen med en rörelse.',
+            'Starta musiken igen.'
+          ],
+          examples: [
+            '🧹 Robotdammsugare: Kryp/rulla på golvet och "krocka" försiktigt.',
+            '🗣️ Smart högtalare: Stå blickstilla och håll handen bakom örat (lyssnar).',
+            '🗺️ Kart-app: Peka med hela armen "Sväng höger!".',
+            '📸 Ansiktsfilter: Gör en grimas och håll händerna som en ram runt ansiktet.'
+          ]
+        },
+        type: 'analog'
+      },
+      {
+        title: '6. Rita: “AI i film” vs “AI i verkligheten”',
+        studentDescription: 'Dela pappret i två rutor:\n🦾 AI i film – rita hur AI brukar se ut i filmer.\n📱 AI i verkligheten – rita hur AI fungerar på riktigt.',
+        teacherInstructions: {
+          purpose: 'Diskutera: Vad är fantasi? Vad är verklighet?',
+          explanation: 'Hjälp eleverna se kontrasten mellan "Hollywood-AI" (humanoida robotar) och "Verklig AI" (koder, servrar, osynliga funktioner).',
+          steps: [
+            'Dela ut papper och pennor.',
+            'Be dem vika pappret på mitten.',
+            'Vänster sida: "Film" (t.ex. robotar med ögon).',
+            'Höger sida: "Verklighet" (t.ex. en mobiltelefon eller en dator).'
+          ]
+        },
+        type: 'analog'
+      },
+      {
+        title: '7. AI-detektiver – Light version',
+        studentDescription: 'Gå runt i klassrummet och leta efter saker som kan ha AI.\nRita eller skriv ned dem på ett papper.',
+        teacherInstructions: {
+          purpose: 'Be eleverna hitta 3–5 föremål som verkar “smarta”.',
+          explanation: 'Detta tränar observationsförmågan. Det är okej om de gissar fel – diskussionen är det viktiga.',
+          steps: [
+            'Be eleverna hitta 3–5 föremål som verkar “smarta”.',
+            'Samlas i ring och gå igenom fynden.',
+            'Diskutera: Vad får dig att tro att den har AI?'
+          ],
+          examples: [
+            '🔍 "Har vi någon smart högtalare?"',
+            '🔍 "Finns det en iPad? Vilka appar på den har AI?"',
+            '🔍 "Termostaten på väggen? (Kanske, kanske inte - bra diskussion!)"',
+            '🔍 "Brandvarnaren? (Oftast inte AI, bara en sensor)"'
+          ]
+        },
+        type: 'analog'
+      },
+      {
+        title: '8. AI finns överallt! – Utforskaren',
+        studentDescription: 'Klicka på ikonerna för att upptäcka hur AI hjälper oss i vardagen.\nLär dig om allt från mobiltelefoner till robotdammsugare!',
+        teacherInstructions: {
+          purpose: 'Visa bredden av AI-användning i vardagen.',
+          explanation: 'Eleverna får utforska 12 olika områden där AI används. Varje område har exempel och en "Visste du att"-fakta.',
+          steps: [
+            'Låt eleverna utforska fritt eller gå igenom ikonerna tillsammans.',
+            'Diskutera: Vilka av dessa använder ni hemma?',
+            'Lyssna på förklaringarna med talsyntesen.'
+          ]
+        },
+        type: 'digital'
+      },
+      {
+        title: '9. Vem kan vad? – AI vs Människa',
+        studentDescription: 'Ett quiz där du ska gissa: Kan AI göra detta? Eller är det bara människor som kan?\nSe upp för luringar där AI bara "låtsas"!',
+        teacherInstructions: {
+          purpose: 'Diskutera skillnaden mellan simulering och äkta känslor/förståelse.',
+          explanation: 'Detta quiz utmanar eleverna att tänka djupare. AI kan skriva en "snäll" text, men den ÄR inte snäll. Den bara simulerar.',
+          steps: [
+            'Låt eleverna göra quizet enskilt eller i par.',
+            'Lyft särskilt frågorna om känslor och kreativitet.',
+            'Diskutera: Varför säger vi att AI "låtsas"?'
+          ]
+        },
+        type: 'digital'
+      }
+    ]
   },
   {
     id: 'vad-ar-ai',
     title: 'Vad är AI?',
     description: 'Teknisk förståelse av hur AI-system fungerar',
+    learningMaterial: {
+      title: "Kapitel 1 – Vad är AI?: “Gnista inuti burken”",
+      content: `
+AI fungerar lite annorlunda än människor.
+AI lär sig genom att få se massor av exempel — bilder, texter, filmer och ljud.
+
+👉 **AI tränas på data.**
+
+När AI tränas hittar den mönster.
+Till exempel: Om den har sett många bilder på hundar och katter, kan den gissa vad som är vad.
+
+• Men den vet inte.
+• Den gissar smart.
+• AI tänker inte själv.
+• AI känner inte.
+• AI förstår inte hur det är att vara människa.
+
+👉 **AI tänker inte och känner inte — den bara räknar.**
+
+Och eftersom AI tränas på de exempel den får, kan den ibland visa världen orättvist.
+Till exempel: Om AI mest sett bilder på manliga brandmän kan den tro att brandmän oftast är män.
+
+👉 **AI visar inte alltid världen rättvist.**
+
+Därför är dina egna tankar viktiga — du ser mer än AI gör.
+        `,
+      image: "/kap2.png",
+      video: "/2.mp4"
+    },
     story: {
       title: 'Kapitel 1 – Gnista inuti burken',
       dialogue: [
@@ -75,7 +319,152 @@ export const grundskolaModules: ModulePart[] = [
         { speaker: 'Narrator', text: 'Maja log åt surfplattan.' },
         { speaker: 'Maja', text: 'Då kör vi vidare, Gnista.' },
       ]
-    }
+    },
+    activities: [
+      {
+        title: '1. Mönsterleken – “Vad kommer härnäst?”',
+        studentDescription: 'Här ska du hitta mönster!\nLäraren visar ett mönster på tavlan.\nDet kan vara färger, symboler, ljud eller siffror.\nExempel:\n🔴 🔴 🔵 🔵 🔴 🔴 🔵 🔵 …\nEller: 3 – 6 – 9 – 12 – …\nDin uppgift är att gissa vad som kommer härnäst!\nPrecis så här jobbar AI också — den letar efter mönster.',
+        teacherInstructions: {
+          purpose: 'Introducera AI:s mönsterigenkänning på ett konkret och kroppsligt sätt.',
+          preparation: [
+            'Whiteboard eller digital tavla',
+            'Färgpennor eller symbolbilder (valfritt)'
+          ],
+          steps: [
+            'Visa ett mönster på tavlan (färger, former, siffror eller rörelser).',
+            'Låt eleverna gissa nästa del i mönstret.',
+            'Repetera med svårare mönster.',
+            'Förklara: “AI gör exakt det här – fast med jättemånga exempel och mycket snabbare.”'
+          ],
+          explanation: 'Alla årskurser kan delta. Kan kopplas till matte. Förbereder barnen på tanken att AI bygger på statistik, inte “sanning”.'
+        },
+        type: 'analog'
+      },
+      {
+        title: '1b. Mönsterleken – Digitalt Spel',
+        studentDescription: 'Kan du lista ut mönstret?\nDra rätt figur till den tomma rutan.\nKlarar du alla nivåer?',
+        teacherInstructions: {
+          purpose: 'Träna mönsterigenkänning interaktivt.',
+          steps: [
+            'Låt eleverna spela en och en eller i par.',
+            'Diskutera efteråt: Hur visste ni vad som skulle komma härnäst?'
+          ],
+          explanation: 'Digital version av mönsterleken med direkt feedback.'
+        },
+        type: 'digital'
+      },
+      {
+        title: '2. Träna klasskompisen-roboten – “AI följer exakta instruktioner”',
+        studentDescription: 'En i klassen får vara robot.\nDu och dina kompisar ska ge roboten instruktioner.\nMen roboten får bara göra exakt det du säger!\nExempel:\n“Gå två steg framåt. Stopp. Sträck ut handen. Ta pennan.”\nOm instruktionen är otydlig → roboten gör något tokigt!\nAI fungerar likadant – den gör bara det den får instruktioner om.',
+        teacherInstructions: {
+          purpose: 'Förklara att AI inte förstår avsikt — den utför bokstavliga steg.',
+          steps: [
+            'Välj en elev som “robot”.',
+            'Klassen ska tillsammans ge roboten stegvisa instruktioner.',
+            'Om instruktionen är otydlig, ska roboten antingen stå still eller tolka den bokstavligt.',
+            'Diskutera efteråt: Var gick det fel? Hur kunde vi göra instruktionen tydligare?'
+          ],
+          explanation: 'Lämpligt för alla åldrar, särskilt åk 1–2.'
+        },
+        type: 'analog'
+      },
+      {
+        title: '2b. Robot-programmering – Digitalt Spel',
+        studentDescription: 'Hjälp roboten att hitta till målet!\nGe den exakta instruktioner.\nRoboten gör BARA det du säger.',
+        teacherInstructions: {
+          purpose: 'Förstå sekvenser och exakta instruktioner.',
+          steps: [
+            'Låt eleverna lösa banorna genom att bygga program.',
+            'Diskutera: Vad händer om man missar ett steg?'
+          ],
+          explanation: 'Visar hur datorer följer kod rad för rad.'
+        },
+        type: 'digital'
+      },
+      {
+        title: '3. AI-gissningar – “Gissa vem jag beskriver?”',
+        studentDescription: 'Läraren beskriver något — t.ex. ett djur — med ledtrådar.\nDu gissar vilket djur det är!\nExempel:\n“Har fläckar. Är snabb. Lever i Afrika.” → Gepard\n“Har päls. Kan vara liten. Kan vara stor.” → Otydligt → många svar\nAI fungerar likadant: den gissar utifrån ledtrådar.',
+        teacherInstructions: {
+          purpose: 'Förstå gissning vs kunskap.',
+          steps: [
+            'Börja med tydliga ledtrådar → ett svar.',
+            'Ge sedan otydliga ledtrådar → flera möjliga svar.',
+            'Förklara: “Om AI får få eller otydliga exempel, måste den Gissa.”'
+          ],
+          explanation: 'Koppling: perfekt inför kapitel 3 (när AI gissar fel).'
+        },
+        type: 'analog'
+      },
+      {
+        title: '4. Träningsbanan – “Fler exempel gör AI bättre”',
+        studentDescription: 'Du får se två olika bunchar bilder:\n• 2 exempel → jättesvårt att se mönster\n• 20 exempel → mycket lättare\nAI lär sig också bättre när den får många exempel.',
+        teacherInstructions: {
+          purpose: 'Visa att fler exempel ger säkrare gissningar.',
+          preparation: ['Bildkort'],
+          steps: [
+            'Visa två situationer: 1. Visa två hundbilder → fråga vad som är lika.',
+            '2. Visa 20 hundbilder → mycket tydligare mönster.',
+            'Diskutera: “Ju fler exempel, desto säkrare gissar AI.”'
+          ],
+          explanation: 'Fokus: dataset-storlek'
+        },
+        type: 'analog'
+      },
+      {
+        title: '5. AI:s mönsterhjärna – “Hitta dolda mönster”',
+        studentDescription: 'Du får se en rad med figurer.\nDet finns ett mönster gömt där.\nKan du hitta det?\nExempel:\n🔺🟦🟦🔺🟦🔺🔺🟦🔺\nMarkera vad som upprepas!',
+        teacherInstructions: {
+          purpose: 'Förklara att AI “ser” mönster i stora datamängder.',
+          preparation: ['Mönstersidor eller tavla'],
+          steps: [
+            'Låt eleverna ringa in delar som upprepas.',
+            'Ställ frågor: Vad upprepas? Finns det en regel? Är mönstret helt regelbundet eller lite rörigt?'
+          ],
+          explanation: 'Förklara att AI “ser” mönster i stora datamängder.'
+        },
+        type: 'analog'
+      },
+      {
+        title: '6. “Veta eller gissa smart?” – konkret begreppslek',
+        studentDescription: 'Läraren visar saker:\n– något du vet (finns i rummet)\n– något du måste gissa (suddig bild, klipp av ett djur)\nDu pekar på “Veta” eller “Gissa”.\nAI gissar oftare än den vet.',
+        teacherInstructions: {
+          purpose: 'Perfekt meta-aktivitet. Skilja på fakta och sannolikhet.',
+          steps: [
+            'Visa saker: något du vet (finns i rummet) vs något du måste gissa (suddig bild).',
+            'Låt eleverna peka på “Veta” eller “Gissa”.',
+            'Förklara: Veta = sett själv, fakta, tydligt. Gissa = ledtrådar, mönster, osäkerhet.'
+          ],
+          explanation: 'Knyt till hållbar AI-användning.'
+        },
+        type: 'analog'
+      },
+      {
+        title: '7. Mini-saga-byggaren – “AI skapar av mönster”',
+        studentDescription: 'Du får tre kort:\n• en hjälte\n• en plats\n• ett problem\nLägg dem i ordning och skapa en liten saga!\nAI gör något liknande när den skriver text.',
+        teacherInstructions: {
+          purpose: 'Fokuserar på struktur, inte kvalitet.',
+          steps: [
+            'Dela ut tre kort: en hjälte, en plats, ett problem.',
+            'Låt eleverna lägga dem i ordning och skapa en liten saga.',
+            'Poängtera att AI inte “förstår berättelser” utan följer vanliga mönster.'
+          ]
+        },
+        type: 'analog'
+      },
+      {
+        title: '8. Färglägg Gnistas hjärna – Anti-antropomorfism',
+        studentDescription: 'Du får en bild av Gnista.\nSkriv i rutan:\n“Gnista är en figur. AI är egentligen ______.”\nDu kan skriva:\n• kod\n• ett program\n• data\n• ett verktyg',
+        teacherInstructions: {
+          purpose: 'Fortsättning på kapitel 0:s “AI är kod, inte person”.',
+          steps: [
+            'Dela ut en bild av Gnista.',
+            'Låt eleverna skriva i rutan vad AI egentligen är (kod, program, data, verktyg).',
+            'Låt eleverna dekorera sin egen “AI-sanning”.'
+          ]
+        },
+        type: 'analog'
+      }
+    ]
   },
   {
     id: 'anvanda-ai',
@@ -181,30 +570,6 @@ export const grundskolaModules: ModulePart[] = [
     story: {
       title: 'Kapitel 5 – Team Maja',
       dialogue: [
-        { speaker: 'Narrator', text: 'En morgon satt Maja och gjorde sin läxa. Hon skulle skriva en liten faktatext om igelkottar, men hon fastnade på första meningen.' },
-        { speaker: 'Maja', text: 'Gnista, kan du hjälpa mig börja?' },
-        { speaker: 'Narrator', text: 'Gnista dök upp.' },
-        { speaker: 'Gnista', text: 'Jag kan komma med idéer. Vad vill du berätta?' },
-        { speaker: 'Narrator', text: 'Maja visste ungefär vad hon ville skriva, och med Gnistas hjälp hittade hon snabbt några bra ord att starta med. Det gick lättare än tidigare. När hon var klar stängde hon surfplattan och gick ut på skolgården. Där mötte hon sin kompis Sara som såg lite ledsen ut.' },
-        { speaker: 'Maja', text: 'Hej. Vill du vara med och leka?' },
-        { speaker: 'Narrator', text: 'Sara ryckte på axlarna och skrapade med foten.' },
-        { speaker: 'Sara', text: 'Nä… inte idag.' },
-        { speaker: 'Narrator', text: 'Maja satte sig bredvid henne.' },
-        { speaker: 'Maja', text: 'Är det något som hänt?' },
-        { speaker: 'Sara', text: 'Jag tappade bort min favoritpenna.' },
-        { speaker: 'Narrator', text: 'Maja funderade.' },
-        { speaker: 'Maja', text: 'Gnista, kan du hjälpa mig att trösta Sara?' },
-        { speaker: 'Narrator', text: 'Gnista dök upp på skärmen.' },
-        { speaker: 'Gnista', text: 'Jag kan säga ord som brukar låta tröstande. Men jag vet inte hur Sara känner sig. Jag kan inte förstå om orden hjälper eller inte.' },
-        { speaker: 'Narrator', text: 'Sara tittade upp.' },
-        { speaker: 'Sara', text: 'Vad menar du?' },
-        { speaker: 'Gnista', text: 'Jag kan inte känna glädje eller sorg. Jag kan bara gissa vad människor brukar säga. Men jag vet inte vad som passar just nu, och jag kan inte vara med och leka eller hålla någon i handen. Sånt kan bara människor.' },
-        { speaker: 'Narrator', text: 'Maja nickade.' },
-        { speaker: 'Maja', text: 'Okej. Då är det jag som fixar det här.' },
-        { speaker: 'Narrator', text: 'Hon lade armen om Sara.' },
-        { speaker: 'Maja', text: 'Kom, vi letar efter pennan tillsammans. Jag är bra på att leta.' },
-        { speaker: 'Narrator', text: 'Sara log lite.' },
-        { speaker: 'Sara', text: 'Ja… det vore snällt.' },
         { speaker: 'Narrator', text: 'Medan de letade tänkte Maja på något viktigt.' },
         { speaker: 'Maja', text: 'Gnista kan hjälpa mig med ord och idéer. Men jag är den som bestämmer vad jag ska göra. Jag kan leka. Trösta. Förstå hur andra känner sig. Det kan inte en dator.' },
         { speaker: 'Narrator', text: 'När de hittade pennan under ett bord jublade Sara högt. De sprang ut och fortsatte leka. Senare, när Maja öppnade surfplattan igen, sa hon:' },
@@ -285,5 +650,5 @@ export const grundskolaModules: ModulePart[] = [
         { speaker: 'Maja', text: 'Jag–AI–Jag. Det känns smart.' },
       ]
     }
-  },
+  }
 ];

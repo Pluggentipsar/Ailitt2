@@ -102,8 +102,30 @@ const config: Config = {
         success: designTokens.colors.success,
         warning: designTokens.colors.warning,
         error: designTokens.colors.error,
+        // Modern Playful Palette
+        modern: {
+          bg: '#FFFCF8',
+          primary: '#FF6B6B', // Coral
+          secondary: '#4ECDC4', // Mint
+          accent: '#FFE66D', // Yellow
+          text: '#2D3436', // Dark Grey
+          purple: '#A855F7', // Existing purple for continuity
+          gradient: {
+            'sunset': 'linear-gradient(135deg, #FF6B6B 0%, #FF8E53 100%)',
+            'ocean': 'linear-gradient(135deg, #4ECDC4 0%, #556270 100%)',
+            'mint': 'linear-gradient(135deg, #4ECDC4 0%, #22D3EE 100%)',
+            'berry': 'linear-gradient(135deg, #A855F7 0%, #EC4899 100%)',
+            'sunshine': 'linear-gradient(135deg, #FFE66D 0%, #FFD93D 100%)',
+            'hero': 'linear-gradient(135deg, #FFF1EB 0%, #ACE0F9 100%)',
+          }
+        },
       },
       backgroundImage: {
+        'gradient-modern-sunset': 'linear-gradient(135deg, #FF6B6B 0%, #FF8E53 100%)',
+        'gradient-modern-ocean': 'linear-gradient(135deg, #4ECDC4 0%, #22D3EE 100%)', // Brighter ocean
+        'gradient-modern-berry': 'linear-gradient(135deg, #c084fc 0%, #db2777 100%)',
+        'gradient-modern-gold': 'linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%)',
+        'gradient-modern-hero': 'linear-gradient(120deg, #fdfbf7 0%, #e0f2fe 100%)', // Softer hero
         'gradient-primary': designTokens.colors.gradient.primary,
         'gradient-accent': designTokens.colors.gradient.accent,
         'gradient-warm': designTokens.colors.gradient.warm,
@@ -122,6 +144,8 @@ const config: Config = {
       },
       fontFamily: {
         sans: ["var(--font-inter)", "system-ui", "-apple-system", "sans-serif"],
+        fredoka: ["var(--font-fredoka)", "sans-serif"],
+        nunito: ["var(--font-nunito)", "sans-serif"],
         mono: [
           "ui-monospace",
           "JetBrains Mono",
@@ -201,6 +225,12 @@ const config: Config = {
           "0%": { backgroundPosition: "-1000px 0" },
           "100%": { backgroundPosition: "1000px 0" },
         },
+        "blob": {
+          "0%": { transform: "translate(0px, 0px) scale(1)" },
+          "33%": { transform: "translate(30px, -50px) scale(1.1)" },
+          "66%": { transform: "translate(-20px, 20px) scale(0.9)" },
+          "100%": { transform: "translate(0px, 0px) scale(1)" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -211,6 +241,8 @@ const config: Config = {
         "slide-in-right": "slide-in-right 0.3s ease-out",
         "scale-in": "scale-in 0.3s ease-out",
         "shimmer": "shimmer 2s linear infinite",
+        "blob": "blob 7s infinite",
+        "pulse-slow": "pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite",
       },
     },
   },
