@@ -369,8 +369,8 @@ Därför är dina egna tankar viktiga — du ser mer än AI gör.
         type: 'analog'
       },
       {
-        title: '2b. Robot-programmering – Digitalt Spel',
-        studentDescription: 'Hjälp roboten att hitta till målet!\nGe den exakta instruktioner.\nRoboten gör BARA det du säger.',
+        title: '2b. Programmering vs AI – Digitalt Spel',
+        studentDescription: 'Programmera roboten steg för steg!\nDu ger den exakta instruktioner: uppåt, nedåt, vänster, höger.\nDet här är SKILLNADEN: Programmering = exakta instruktioner. AI = lär sig från exempel.',
         teacherInstructions: {
           purpose: 'Förstå sekvenser och exakta instruktioner.',
           steps: [

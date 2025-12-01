@@ -117,11 +117,71 @@ const LEVELS: Level[] = [
         ],
         correctAnswerId: 'opt1',
         explanation: "Trumma, klapp, klapp. Trumma, klapp... Klapp! En rytm som upprepas."
+    },
+    {
+        id: 6,
+        patternType: "Storlek - Växande",
+        sequence: [
+            { id: 'st1', content: '⭐', color: 'bg-yellow-50' },
+            { id: 'st2', content: '🌟', color: 'bg-yellow-100' },
+            { id: 'st3', content: '✨', color: 'bg-yellow-200' },
+            { id: 'st4', content: '⭐', color: 'bg-yellow-50' },
+            { id: 'st5', content: '🌟', color: 'bg-yellow-100' },
+            null
+        ],
+        options: [
+            { id: 'opt1', content: '✨', color: 'bg-yellow-200' },
+            { id: 'opt2', content: '⭐', color: 'bg-yellow-50' },
+            { id: 'opt3', content: '🌟', color: 'bg-yellow-100' }
+        ],
+        correctAnswerId: 'opt1',
+        explanation: "Liten, mellan, stor. Liten, mellan... Stor! Stjärnorna växer i ett mönster."
+    },
+    {
+        id: 7,
+        patternType: "ABCABC - Komplex",
+        sequence: [
+            { id: 'f1', content: '🍎', color: 'bg-red-100' },
+            { id: 'f2', content: '🍌', color: 'bg-yellow-100' },
+            { id: 'f3', content: '🍊', color: 'bg-orange-100' },
+            { id: 'f4', content: '🍎', color: 'bg-red-100' },
+            { id: 'f5', content: '🍌', color: 'bg-yellow-100' },
+            null
+        ],
+        options: [
+            { id: 'opt1', content: '🍊', color: 'bg-orange-100' },
+            { id: 'opt2', content: '🍎', color: 'bg-red-100' },
+            { id: 'opt3', content: '🍌', color: 'bg-yellow-100' }
+        ],
+        correctAnswerId: 'opt1',
+        explanation: "Äpple, banan, apelsin. Äpple, banan... Apelsin! En frukt-sekvens som upprepas."
+    },
+    {
+        id: 8,
+        patternType: "AABBAABB - Svår",
+        sequence: [
+            { id: 'h1', content: '❤️', color: 'bg-pink-100' },
+            { id: 'h2', content: '❤️', color: 'bg-pink-100' },
+            { id: 'h3', content: '💙', color: 'bg-blue-100' },
+            { id: 'h4', content: '💙', color: 'bg-blue-100' },
+            { id: 'h5', content: '❤️', color: 'bg-pink-100' },
+            { id: 'h6', content: '❤️', color: 'bg-pink-100' },
+            { id: 'h7', content: '💙', color: 'bg-blue-100' },
+            null
+        ],
+        options: [
+            { id: 'opt1', content: '💙', color: 'bg-blue-100' },
+            { id: 'opt2', content: '❤️', color: 'bg-pink-100' },
+            { id: 'opt3', content: '💚', color: 'bg-green-100' }
+        ],
+        correctAnswerId: 'opt1',
+        explanation: "Två röda, två blå, två röda, två blå... Det ska vara ett blått hjärta till!"
     }
 ];
 
 export function AiPatternGame({ onClose }: AiPatternGameProps) {
     const [gameStarted, setGameStarted] = useState(false);
+    const [gameComplete, setGameComplete] = useState(false);
     const [currentLevelIndex, setCurrentLevelIndex] = useState(0);
     const [draggedItem, setDraggedItem] = useState<PatternItem | null>(null);
     const [placedItem, setPlacedItem] = useState<PatternItem | null>(null);
@@ -202,10 +262,155 @@ export function AiPatternGame({ onClose }: AiPatternGameProps) {
             setShowExplanation(false);
         } else {
             // Game Complete
-            speak("Bra jobbat! Du har klarat alla mönster. Du tänker precis som en AI!");
-            onClose();
+            setPlacedItem(null);
+            setIsCorrect(null);
+            setShowExplanation(false);
+            setGameComplete(true);
+
+            // Wait a bit before speaking the completion message
+            setTimeout(() => {
+                const completionMessage = `Fantastiskt! Du har klarat alla åtta nivåer! Du är en riktig mönster-mästare! Visste du att precis det du just gjorde, är samma sak som en AI gör när den lär sig? En AI tittar på många exempel, hittar mönster, och gör sedan gissningar om vad som kommer härnäst. Precis som du gjorde! När en AI tränas, visar vi den tusentals exempel, och den letar efter mönster. Du har tränat din hjärna att hitta mönster, precis som vi tränar en AI. Bra jobbat!`;
+                speak(completionMessage);
+            }, 500);
+
+            confetti({
+                particleCount: 200,
+                spread: 160,
+                origin: { y: 0.5 },
+                colors: ['#FFD700', '#FFA500', '#FF4500', '#FF69B4', '#00CED1']
+            });
         }
     };
+
+    // Game Complete Screen
+    if (gameComplete) {
+        return (
+            <div className="fixed inset-0 z-[9999] bg-gradient-to-br from-green-600 via-emerald-600 to-teal-600 flex items-center justify-center p-4 animate-in fade-in duration-500 font-fredoka overflow-y-auto">
+                <div className="bg-white/10 backdrop-blur-xl rounded-[3rem] max-w-5xl w-full p-8 sm:p-12 shadow-2xl border border-white/20 text-center relative overflow-hidden my-8">
+                    <div className="absolute top-0 left-0 w-full h-full bg-[url('https://www.transparenttextures.com/patterns/stardust.png')] opacity-20" />
+
+                    <div className="relative z-10">
+                        {/* Trophy Animation */}
+                        <div className="w-32 h-32 sm:w-40 sm:h-40 bg-gradient-to-br from-yellow-300 to-orange-500 rounded-full flex items-center justify-center mx-auto mb-8 shadow-[0_0_60px_rgba(255,215,0,0.6)] animate-bounce">
+                            <span className="text-8xl">🏆</span>
+                        </div>
+
+                        <h2 className="font-black text-5xl sm:text-6xl md:text-7xl text-transparent bg-clip-text bg-gradient-to-r from-yellow-200 via-white to-orange-200 mb-6 drop-shadow-lg">
+                            Fantastiskt jobbat!
+                        </h2>
+
+                        <p className="text-2xl sm:text-3xl text-white font-bold mb-8 drop-shadow-md">
+                            Du klarade alla {LEVELS.length} nivåer! 🎉
+                        </p>
+
+                        {/* Achievement Stars */}
+                        <div className="flex justify-center gap-3 mb-10">
+                            {[...Array(LEVELS.length)].map((_, i) => (
+                                <Star key={i} className="w-8 h-8 sm:w-10 sm:h-10 text-yellow-300 fill-yellow-300 animate-in zoom-in duration-300" style={{ animationDelay: `${i * 100}ms` }} />
+                            ))}
+                        </div>
+
+                        {/* AI Connection Explanation */}
+                        <div className="bg-white/20 backdrop-blur-md rounded-[2rem] p-6 sm:p-10 mb-8 border-4 border-white/30 max-w-3xl mx-auto">
+                            <div className="flex items-center justify-center gap-4 mb-6">
+                                <span className="text-6xl">🤖</span>
+                                <span className="text-6xl">❤️</span>
+                                <span className="text-6xl">🧠</span>
+                            </div>
+
+                            <h3 className="font-black text-3xl sm:text-4xl text-white mb-6 drop-shadow-md">
+                                Visste du detta?
+                            </h3>
+
+                            <div className="space-y-6 text-left">
+                                <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border-2 border-white/20">
+                                    <p className="text-xl sm:text-2xl text-white/95 font-bold leading-relaxed font-nunito">
+                                        <span className="text-3xl mr-3">✨</span>
+                                        Precis det du just gjorde är <span className="text-yellow-300">samma sak som en AI gör</span> när den lär sig!
+                                    </p>
+                                </div>
+
+                                <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border-2 border-white/20">
+                                    <p className="text-xl sm:text-2xl text-white/95 font-bold leading-relaxed font-nunito">
+                                        <span className="text-3xl mr-3">🔍</span>
+                                        En AI tittar på många exempel, <span className="text-yellow-300">hittar mönster</span>, och gör sedan gissningar om vad som kommer härnäst.
+                                    </p>
+                                </div>
+
+                                <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border-2 border-white/20">
+                                    <p className="text-xl sm:text-2xl text-white/95 font-bold leading-relaxed font-nunito">
+                                        <span className="text-3xl mr-3">🎯</span>
+                                        När en AI tränas, visar vi den <span className="text-yellow-300">tusentals exempel</span>, och den letar efter mönster - precis som du gjorde!
+                                    </p>
+                                </div>
+
+                                <div className="bg-gradient-to-r from-yellow-400/20 to-orange-400/20 backdrop-blur-sm rounded-2xl p-6 border-2 border-yellow-300/50">
+                                    <p className="text-xl sm:text-2xl text-white font-black leading-relaxed font-nunito">
+                                        <span className="text-3xl mr-3">🌟</span>
+                                        Du har tränat din hjärna att hitta mönster, <span className="text-yellow-300">precis som vi tränar en AI!</span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Buttons */}
+                        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                            <button
+                                onClick={() => {
+                                    const message = "Fantastiskt! Du har klarat alla åtta nivåer! Du är en riktig mönster-mästare! Visste du att precis det du just gjorde, är samma sak som en AI gör när den lär sig? En AI tittar på många exempel, hittar mönster, och gör sedan gissningar om vad som kommer härnäst. Precis som du gjorde! När en AI tränas, visar vi den tusentals exempel, och den letar efter mönster. Du har tränat din hjärna att hitta mönster, precis som vi tränar en AI. Bra jobbat!";
+                                    speak(message);
+                                }}
+                                className={`
+                                    px-8 py-5 rounded-2xl font-bold text-xl transition-all flex items-center gap-3
+                                    ${isSpeaking
+                                        ? 'bg-white text-green-600 ring-4 ring-yellow-400 scale-105'
+                                        : 'bg-white/20 text-white hover:bg-white/30 hover:scale-105'
+                                    }
+                                `}
+                            >
+                                <Volume2 className={`w-7 h-7 ${isSpeaking ? 'animate-pulse' : ''}`} />
+                                {isSpeaking ? 'Lyssnar...' : 'Lyssna på förklaringen'}
+                            </button>
+
+                            <button
+                                onClick={() => {
+                                    stopSpeaking();
+                                    setGameComplete(false);
+                                    setGameStarted(false);
+                                    setCurrentLevelIndex(0);
+                                }}
+                                className="px-8 py-5 rounded-2xl bg-white/20 text-white hover:bg-white/30 font-bold text-xl transition-all flex items-center gap-3 hover:scale-105 border-2 border-white/30"
+                            >
+                                <RefreshCcw className="w-7 h-7" />
+                                Spela igen
+                            </button>
+
+                            <button
+                                onClick={() => {
+                                    stopSpeaking();
+                                    onClose();
+                                }}
+                                className="px-12 py-5 rounded-2xl bg-gradient-to-r from-yellow-400 to-orange-500 text-white font-bold text-2xl hover:from-yellow-300 hover:to-orange-400 shadow-[0_0_30px_rgba(255,165,0,0.5)] hover:shadow-[0_0_50px_rgba(255,165,0,0.7)] hover:scale-105 transition-all flex items-center gap-4"
+                            >
+                                Avsluta
+                                <CheckCircle2 className="w-8 h-8" />
+                            </button>
+                        </div>
+                    </div>
+
+                    <button
+                        onClick={() => {
+                            stopSpeaking();
+                            onClose();
+                        }}
+                        className="absolute top-8 right-8 p-4 rounded-full bg-white/10 hover:bg-white/20 text-white transition-all hover:rotate-90"
+                    >
+                        <X className="w-8 h-8" />
+                    </button>
+                </div>
+            </div>
+        );
+    }
 
     // Intro Screen
     if (!gameStarted) {

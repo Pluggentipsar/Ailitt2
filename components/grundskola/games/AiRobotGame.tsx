@@ -1,14 +1,14 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import { X, Volume2, Play, RotateCcw, Trash2, ArrowUp, ArrowLeft, ArrowRight, Star, Bot, Flag } from "lucide-react";
+import { X, Volume2, Play, RotateCcw, Trash2, ArrowUp, ArrowLeft, ArrowRight, ArrowDown, Star, Bot, Flag } from "lucide-react";
 import confetti from "canvas-confetti";
 
 interface AiRobotGameProps {
     onClose: () => void;
 }
 
-type CommandType = 'FORWARD' | 'LEFT' | 'RIGHT';
+type CommandType = 'UP' | 'DOWN' | 'LEFT' | 'RIGHT';
 
 interface Command {
     id: string;
@@ -21,23 +21,24 @@ interface Command {
 interface Level {
     id: number;
     gridSize: number;
-    robotStart: { x: number; y: number; dir: number }; // dir: 0=Up, 1=Right, 2=Down, 3=Left
+    robotStart: { x: number; y: number };
     goal: { x: number; y: number };
     obstacles: { x: number; y: number }[];
     maxCommands: number;
 }
 
 const COMMANDS: Command[] = [
-    { id: 'fwd', type: 'FORWARD', icon: ArrowUp, label: 'Gå Framåt', color: 'bg-blue-500' },
-    { id: 'left', type: 'LEFT', icon: ArrowLeft, label: 'Sväng Vänster', color: 'bg-purple-500' },
-    { id: 'right', type: 'RIGHT', icon: ArrowRight, label: 'Sväng Höger', color: 'bg-pink-500' },
+    { id: 'up', type: 'UP', icon: ArrowUp, label: 'Gå Uppåt', color: 'bg-blue-500' },
+    { id: 'down', type: 'DOWN', icon: ArrowDown, label: 'Gå Nedåt', color: 'bg-green-500' },
+    { id: 'left', type: 'LEFT', icon: ArrowLeft, label: 'Gå Vänster', color: 'bg-purple-500' },
+    { id: 'right', type: 'RIGHT', icon: ArrowRight, label: 'Gå Höger', color: 'bg-pink-500' },
 ];
 
 const LEVELS: Level[] = [
     {
         id: 1,
         gridSize: 5,
-        robotStart: { x: 0, y: 4, dir: 0 }, // Bottom Left, facing Up
+        robotStart: { x: 0, y: 4 }, // Bottom Left
         goal: { x: 0, y: 0 }, // Top Left
         obstacles: [],
         maxCommands: 5
@@ -45,7 +46,7 @@ const LEVELS: Level[] = [
     {
         id: 2,
         gridSize: 5,
-        robotStart: { x: 0, y: 4, dir: 1 }, // Bottom Left, facing Right
+        robotStart: { x: 0, y: 4 }, // Bottom Left
         goal: { x: 4, y: 4 }, // Bottom Right
         obstacles: [{ x: 2, y: 4 }], // Obstacle in middle
         maxCommands: 8
@@ -53,7 +54,7 @@ const LEVELS: Level[] = [
     {
         id: 3,
         gridSize: 5,
-        robotStart: { x: 2, y: 2, dir: 0 }, // Center
+        robotStart: { x: 2, y: 2 }, // Center
         goal: { x: 4, y: 0 }, // Top Right
         obstacles: [{ x: 2, y: 1 }, { x: 3, y: 2 }],
         maxCommands: 10
@@ -70,6 +71,7 @@ export function AiRobotGame({ onClose }: AiRobotGameProps) {
     const [message, setMessage] = useState("");
     const [showSuccess, setShowSuccess] = useState(false);
     const [showTutorial, setShowTutorial] = useState(true);
+    const [gameComplete, setGameComplete] = useState(false);
 
     const currentLevel = LEVELS[currentLevelIndex];
     const timeoutRef = useRef<NodeJS.Timeout | null>(null);
@@ -128,45 +130,41 @@ export function AiRobotGame({ onClose }: AiRobotGameProps) {
         // Reset to start first
         let currentX = currentLevel.robotStart.x;
         let currentY = currentLevel.robotStart.y;
-        let currentDir = currentLevel.robotStart.dir;
-        setRobotState({ x: currentX, y: currentY, dir: currentDir });
+        setRobotState({ x: currentX, y: currentY });
 
         await new Promise(r => setTimeout(r, 500));
 
         for (let i = 0; i < program.length; i++) {
             const cmd = program[i];
+            let nextX = currentX;
+            let nextY = currentY;
 
-            if (cmd.type === 'FORWARD') {
-                // 0=Up (y-1), 1=Right (x+1), 2=Down (y+1), 3=Left (x-1)
-                let nextX = currentX;
-                let nextY = currentY;
-
-                if (currentDir === 0) nextY--;
-                if (currentDir === 1) nextX++;
-                if (currentDir === 2) nextY++;
-                if (currentDir === 3) nextX--;
-
-                // Check bounds and obstacles
-                if (
-                    nextX < 0 || nextX >= currentLevel.gridSize ||
-                    nextY < 0 || nextY >= currentLevel.gridSize ||
-                    currentLevel.obstacles.some(o => o.x === nextX && o.y === nextY)
-                ) {
-                    setMessage("Ouch! Krockade!");
-                    speak("Ouch! Jag krockade!");
-                    setIsPlaying(false);
-                    return;
-                }
-
-                currentX = nextX;
-                currentY = nextY;
+            // Simple directional movements
+            if (cmd.type === 'UP') {
+                nextY--;
+            } else if (cmd.type === 'DOWN') {
+                nextY++;
             } else if (cmd.type === 'LEFT') {
-                currentDir = (currentDir - 1 + 4) % 4;
+                nextX--;
             } else if (cmd.type === 'RIGHT') {
-                currentDir = (currentDir + 1) % 4;
+                nextX++;
             }
 
-            setRobotState({ x: currentX, y: currentY, dir: currentDir });
+            // Check bounds and obstacles
+            if (
+                nextX < 0 || nextX >= currentLevel.gridSize ||
+                nextY < 0 || nextY >= currentLevel.gridSize ||
+                currentLevel.obstacles.some(o => o.x === nextX && o.y === nextY)
+            ) {
+                setMessage("Ouch! Krockade!");
+                speak("Ouch! Jag krockade!");
+                setIsPlaying(false);
+                return;
+            }
+
+            currentX = nextX;
+            currentY = nextY;
+            setRobotState({ x: currentX, y: currentY });
             await new Promise(r => setTimeout(r, 800)); // Wait for animation
         }
 
@@ -199,10 +197,146 @@ export function AiRobotGame({ onClose }: AiRobotGameProps) {
         if (currentLevelIndex < LEVELS.length - 1) {
             setCurrentLevelIndex(prev => prev + 1);
         } else {
-            speak("Du har klarat alla banor! Du är en mäster-programmerare!");
-            onClose();
+            // All levels complete! Show completion screen
+            setGameComplete(true);
+            // Big confetti celebration
+            confetti({
+                particleCount: 200,
+                spread: 120,
+                origin: { y: 0.5 },
+                colors: ['#60A5FA', '#A78BFA', '#F472B6', '#FBBF24', '#34D399']
+            });
         }
     };
+
+    // Game Complete Screen
+    if (gameComplete) {
+        const completionMessage = `Fantastiskt! Du har programmerat roboten genom alla nivåer! Du är en riktig programmerare nu! När du programmerade roboten, gav du den exakta instruktioner, steg för steg. Det är traditionell programmering. Men visste du att AI fungerar annorlunda? Istället för att ge en AI exakta instruktioner, så tränar vi den med massor av exempel. AI:n letar efter mönster i exemplen och lär sig själv vad den ska göra. Det är som skillnaden mellan att följa ett recept exakt, och att prova massa olika recept tills du lär dig vad som smakar gott! Båda sätten är viktiga i datorvärlden. Bra jobbat!`;
+
+        return (
+            <div className="fixed inset-0 z-[9999] bg-gradient-to-br from-blue-600 via-indigo-600 to-purple-600 flex items-center justify-center p-8 overflow-y-auto font-fredoka">
+                <div className="max-w-5xl w-full space-y-8 py-12">
+                    {/* Trophy and Title */}
+                    <div className="flex flex-col items-center gap-6">
+                        <div className="w-40 h-40 bg-gradient-to-br from-yellow-300 via-yellow-400 to-orange-500 rounded-full flex items-center justify-center shadow-[0_0_60px_rgba(251,191,36,0.6)] animate-bounce border-8 border-yellow-200">
+                            <span className="text-8xl">🏆</span>
+                        </div>
+
+                        <h2 className="text-5xl sm:text-6xl md:text-7xl font-black text-transparent bg-clip-text bg-gradient-to-r from-yellow-200 via-white to-yellow-200 text-center leading-tight drop-shadow-lg">
+                            Grattis, Programmerare!
+                        </h2>
+
+                        <p className="text-2xl sm:text-3xl text-white/95 font-bold text-center max-w-3xl drop-shadow-md font-nunito">
+                            Du har klarat alla {LEVELS.length} nivåer!
+                        </p>
+
+                        {/* Achievement Stars */}
+                        <div className="flex justify-center gap-3 flex-wrap">
+                            {[...Array(LEVELS.length)].map((_, i) => (
+                                <Star
+                                    key={i}
+                                    className="w-10 h-10 text-yellow-300 fill-yellow-300 drop-shadow-[0_0_10px_rgba(253,224,71,0.8)] animate-in zoom-in"
+                                    style={{ animationDelay: `${i * 100}ms`, animationDuration: '500ms' }}
+                                />
+                            ))}
+                        </div>
+                    </div>
+
+                    {/* AI Training Explanation */}
+                    <div className="space-y-6 max-w-4xl mx-auto">
+                        <h3 className="text-4xl font-black text-white text-center mb-8">
+                            <span className="text-5xl mr-3">🤖</span>
+                            Programmering och AI
+                        </h3>
+
+                        <div className="space-y-4">
+                            <div className="bg-white/10 backdrop-blur-md rounded-3xl p-6 border-4 border-white/20 shadow-xl transform hover:scale-105 transition-transform">
+                                <p className="text-2xl text-white/95 font-bold leading-relaxed font-nunito">
+                                    <span className="text-4xl mr-3">📝</span>
+                                    När du programmerade roboten, gav du den <span className="text-yellow-300">exakta instruktioner</span>, steg för steg. Det är <span className="text-cyan-300">traditionell programmering</span>.
+                                </p>
+                            </div>
+
+                            <div className="bg-white/10 backdrop-blur-md rounded-3xl p-6 border-4 border-white/20 shadow-xl transform hover:scale-105 transition-transform">
+                                <p className="text-2xl text-white/95 font-bold leading-relaxed font-nunito">
+                                    <span className="text-4xl mr-3">✨</span>
+                                    Men <span className="text-pink-300">AI fungerar annorlunda</span>! Istället för exakta instruktioner, så <span className="text-green-300">tränar vi AI:n med massor av exempel</span>.
+                                </p>
+                            </div>
+
+                            <div className="bg-white/10 backdrop-blur-md rounded-3xl p-6 border-4 border-white/20 shadow-xl transform hover:scale-105 transition-transform">
+                                <p className="text-2xl text-white/95 font-bold leading-relaxed font-nunito">
+                                    <span className="text-4xl mr-3">🧠</span>
+                                    AI:n <span className="text-purple-300">letar efter mönster</span> i exemplen och <span className="text-yellow-300">lär sig själv</span> vad den ska göra!
+                                </p>
+                            </div>
+
+                            <div className="bg-white/10 backdrop-blur-md rounded-3xl p-6 border-4 border-white/20 shadow-xl transform hover:scale-105 transition-transform">
+                                <p className="text-2xl text-white/95 font-bold leading-relaxed font-nunito">
+                                    <span className="text-4xl mr-3">🍪</span>
+                                    Det är som skillnaden mellan att <span className="text-cyan-300">följa ett recept exakt</span>, och att <span className="text-pink-300">prova massa recept</span> tills du lär dig vad som smakar gott!
+                                </p>
+                            </div>
+
+                            <div className="bg-gradient-to-r from-green-500/20 to-emerald-500/20 backdrop-blur-md rounded-3xl p-6 border-4 border-green-400/40 shadow-xl">
+                                <p className="text-2xl text-white font-black leading-relaxed text-center font-nunito">
+                                    <span className="text-4xl mr-3">🌟</span>
+                                    Båda sätten är viktiga i datorvärlden!
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* Action Buttons */}
+                    <div className="flex flex-col sm:flex-row gap-6 justify-center items-center pt-8">
+                        <button
+                            onClick={() => {
+                                if (isSpeaking) {
+                                    stopSpeaking();
+                                } else {
+                                    speak(completionMessage);
+                                }
+                            }}
+                            className={`
+                                px-10 py-6 rounded-[2rem] font-bold text-2xl transition-all flex items-center gap-4 border-4
+                                ${isSpeaking
+                                    ? 'bg-white/30 text-white border-white shadow-[0_8px_0_rgba(255,255,255,0.3)] hover:shadow-[0_4px_0_rgba(255,255,255,0.3)] hover:translate-y-[4px]'
+                                    : 'bg-white/20 text-white border-white/50 shadow-[0_8px_0_rgba(255,255,255,0.2)] hover:shadow-[0_4px_0_rgba(255,255,255,0.2)] hover:translate-y-[4px]'
+                                }
+                            `}
+                        >
+                            <Volume2 className={`w-8 h-8 ${isSpeaking ? 'animate-pulse' : ''}`} />
+                            {isSpeaking ? 'Lyssnar...' : 'Lyssna på förklaringen'}
+                        </button>
+
+                        <button
+                            onClick={() => {
+                                stopSpeaking();
+                                setGameComplete(false);
+                                setCurrentLevelIndex(0);
+                                setGameStarted(false);
+                            }}
+                            className="px-10 py-6 rounded-[2rem] bg-gradient-to-r from-cyan-500 to-blue-500 text-white font-bold text-2xl border-4 border-cyan-300 shadow-[0_8px_0_rgba(6,182,212,0.4)] hover:shadow-[0_4px_0_rgba(6,182,212,0.4)] hover:translate-y-[4px] active:shadow-none active:translate-y-[8px] transition-all flex items-center gap-3"
+                        >
+                            <RotateCcw className="w-7 h-7" />
+                            Spela igen
+                        </button>
+
+                        <button
+                            onClick={() => {
+                                stopSpeaking();
+                                onClose();
+                            }}
+                            className="px-10 py-6 rounded-[2rem] bg-gradient-to-r from-purple-500 to-pink-500 text-white font-bold text-2xl border-4 border-purple-300 shadow-[0_8px_0_rgba(168,85,247,0.4)] hover:shadow-[0_4px_0_rgba(168,85,247,0.4)] hover:translate-y-[4px] active:shadow-none active:translate-y-[8px] transition-all flex items-center gap-3"
+                        >
+                            Avsluta
+                            <X className="w-7 h-7" />
+                        </button>
+                    </div>
+                </div>
+            </div>
+        );
+    }
 
     // Intro Screen
     if (!gameStarted) {
@@ -217,18 +351,20 @@ export function AiRobotGame({ onClose }: AiRobotGameProps) {
                         </div>
 
                         <h2 className="font-black text-6xl text-transparent bg-clip-text bg-gradient-to-r from-blue-200 via-white to-cyan-200 mb-6 drop-shadow-sm">
-                            Robot-programmering
+                            Programmering vs AI
                         </h2>
 
                         <p className="text-2xl text-white/90 mb-10 font-medium leading-relaxed max-w-2xl mx-auto drop-shadow-md font-nunito">
-                            Hjälp roboten att hitta till målet!
+                            Programmera roboten steg för steg!
                             <br />
-                            Ge den exakta instruktioner. Roboten gör BARA det du säger.
+                            Du ger den exakta instruktioner: Uppåt ⬆️, Nedåt ⬇️, Vänster ⬅️, Höger ➡️
+                            <br />
+                            <span className="text-yellow-300 font-bold">Det här är SKILLNADEN:</span> Programmering = exakta instruktioner. AI = lär sig från exempel.
                         </p>
 
                         <div className="flex gap-6 justify-center">
                             <button
-                                onClick={() => speak("Hjälp roboten att hitta till målet! Ge den exakta instruktioner. Roboten gör bara det du säger.")}
+                                onClick={() => speak("Programmera roboten steg för steg! Du ger den exakta instruktioner: Uppåt, Nedåt, Vänster eller Höger. Det här är skillnaden: Programmering är exakta instruktioner. AI lär sig från exempel.")}
                                 className={`
                                     px-8 py-5 rounded-2xl font-bold text-xl transition-all flex items-center gap-3
                                     ${isSpeaking
@@ -274,13 +410,13 @@ export function AiRobotGame({ onClose }: AiRobotGameProps) {
                         <Bot className="w-7 h-7" />
                     </div>
                     <div>
-                        <h2 className="font-bold text-2xl text-white tracking-wide">Robot-programmering</h2>
+                        <h2 className="font-bold text-2xl text-white tracking-wide">Programmering vs AI</h2>
                         <p className="text-blue-300 font-medium font-nunito">Nivå {currentLevel.id} av {LEVELS.length}</p>
                     </div>
                 </div>
                 <div className="flex gap-4">
                     <button
-                        onClick={() => speak("Använd knapparna till vänster för att bygga ett program. Tryck på Play för att köra.")}
+                        onClick={() => speak("Använd pilknapparna till vänster för att säga åt roboten vart den ska gå. Tryck på Kör Program för att starta.")}
                         className={`
                             p-3 rounded-full transition-all
                             ${isSpeaking ? 'bg-blue-500/20 text-blue-300 ring-2 ring-blue-500' : 'bg-slate-700 text-slate-400 hover:bg-slate-600 hover:text-white'}
@@ -464,14 +600,16 @@ export function AiRobotGame({ onClose }: AiRobotGameProps) {
                                 width: `calc(100% / ${currentLevel.gridSize} - 8px)`,
                                 height: `calc(100% / ${currentLevel.gridSize} - 8px)`,
                                 left: `calc(${robotState.x} * (100% / ${currentLevel.gridSize}) + 4px)`,
-                                top: `calc(${robotState.y} * (100% / ${currentLevel.gridSize}) + 4px)`,
-                                transform: `rotate(${robotState.dir * 90}deg)`
+                                top: `calc(${robotState.y} * (100% / ${currentLevel.gridSize}) + 4px)`
                             }}
                         >
                             <div className="w-3/4 h-3/4 bg-blue-500 rounded-xl shadow-lg flex items-center justify-center relative border-2 border-blue-300">
                                 <Bot className="w-2/3 h-2/3 text-white" />
-                                {/* Eyes indicating direction */}
-                                <div className="absolute -top-2 left-1/2 -translate-x-1/2 w-2 h-2 bg-red-500 rounded-full shadow-[0_0_5px_rgba(239,68,68,1)]" />
+                                {/* Two eyes on the robot face */}
+                                <div className="absolute top-1/4 left-1/3 w-2 h-2 bg-white rounded-full" />
+                                <div className="absolute top-1/4 right-1/3 w-2 h-2 bg-white rounded-full" />
+                                {/* Smile */}
+                                <div className="absolute bottom-1/4 left-1/2 -translate-x-1/2 w-6 h-2 border-b-2 border-white rounded-full" />
                             </div>
                             {/* Start Label */}
                             {program.length === 0 && !isPlaying && (
