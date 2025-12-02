@@ -1,13 +1,14 @@
 import React from 'react';
 
-export default function GradeLayout({
+export default async function GradeLayout({
     children,
     params,
 }: {
     children: React.ReactNode;
-    params: { grade: string };
+    params: Promise<{ grade: string }>;
 }) {
-    const isAk13 = params.grade === 'ak-1-3';
+    const { grade } = await params;
+    const isAk13 = grade === 'ak-1-3';
 
     return (
         <div className="relative min-h-screen">
