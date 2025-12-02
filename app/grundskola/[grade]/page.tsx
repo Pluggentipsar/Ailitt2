@@ -5,9 +5,9 @@ import { ArrowLeft } from "lucide-react";
 import { notFound } from "next/navigation";
 
 interface PageProps {
-    params: {
+    params: Promise<{
         grade: string;
-    };
+    }>;
 }
 
 export function generateStaticParams() {
@@ -17,8 +17,8 @@ export function generateStaticParams() {
     ];
 }
 
-export default function GradeDashboard({ params }: PageProps) {
-    const { grade } = params;
+export default async function GradeDashboard({ params }: PageProps) {
+    const { grade } = await params;
 
     if (grade !== 'ak-1-3' && grade !== 'ak-4-6') {
         notFound();
