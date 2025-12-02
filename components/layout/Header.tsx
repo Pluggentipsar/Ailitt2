@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 
 const NAV_LINKS = [
   { href: "/", label: "Hem" },
+  { href: "/grundskola", label: "Grundskola" },
   { href: "/ai-litteracitet", label: "AI-litteracitet" },
   { href: "/didaktiska-modeller", label: "Didaktiska modeller" },
   { href: "/amnen", label: "Ämnen" },

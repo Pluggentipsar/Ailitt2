@@ -979,7 +979,7 @@ Och kom ihåg:
 👉 **Vi ska aldrig skicka vidare en film eller bild om vi inte är säkra på att den är sann och snäll.**
 Precis som vi inte vill att någon ska sprida låtsasbilder på oss, ska vi vara rädda om andra.
 `,
-      image: '/kap4.png',
+      image: '/fejkbilder.png',
       video: '/ai_latsas.mp4'
     },
     activities: [
@@ -1730,7 +1730,7 @@ AI är smart på sitt sätt. Men du lever på riktigt. Det är skillnaden.
     cardImage: '/aifriend.png',
     description: 'Om skillnaden mellan mänsklig vänskap och AI:s simulering av känslor',
     story: {
-      title: 'Kapitel 7.5 – AI är inte en kompis: ”Gnista menar det inte”',
+      title: 'Kapitel 7 – AI är inte en kompis: ”Gnista menar det inte”',
       audio: '/saga_ai_kompis.wav',
       dialogue: [
         { speaker: 'Narrator', text: 'Maja hade haft en jobbig dag i skolan. Hon hade bråkat med en kompis på rasten och kände sig tung i magen. När hon kom hem satte hon sig vid surfplattan och öppnade Gnista.' },
@@ -1759,7 +1759,7 @@ AI är smart på sitt sätt. Men du lever på riktigt. Det är skillnaden.
       ]
     },
     learningMaterial: {
-      title: 'Kapitel 7.5 – AI är inte en kompis',
+      title: 'Kapitel 7 – AI är inte en kompis',
       content: `
 När du pratar med en AI kan den låta snäll och förstående. Den kan säga:
 • “Vad bra du är!”

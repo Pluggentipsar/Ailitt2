@@ -181,6 +181,42 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Grundskola Promo Section */}
+      <section className="relative overflow-hidden bg-gradient-to-r from-blue-600 to-indigo-700 py-16">
+        <div className="absolute inset-0 bg-[url('/headerbackground1_50.png')] opacity-10 bg-cover bg-center mix-blend-overlay"></div>
+        <div className="container relative mx-auto px-4">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-8">
+            <div className="text-white max-w-2xl">
+              <div className="inline-flex items-center gap-2 rounded-full bg-white/20 backdrop-blur-sm px-4 py-1 text-sm font-medium text-blue-100 mb-4 border border-white/20">
+                <Sparkles className="h-4 w-4" />
+                Nyhet för grundskolan
+              </div>
+              <h2 className="text-3xl md:text-4xl font-bold mb-4">AI-litteracitet för de yngsta</h2>
+              <p className="text-blue-100 text-lg mb-8 leading-relaxed">
+                Ett komplett digitalt läromedel med sagor, filmer och aktiviteter anpassade för F-6. Låt eleverna utforska AI genom lek och kritiskt tänkande.
+              </p>
+              <a
+                href="/grundskola"
+                className="inline-flex items-center gap-2 rounded-full bg-white text-blue-700 px-8 py-3 font-bold shadow-lg hover:bg-blue-50 hover:scale-105 transition-all duration-200"
+              >
+                Gå till Grundskola-hubben
+                <ArrowRight className="h-5 w-5" />
+              </a>
+            </div>
+            <div className="relative hidden md:block">
+              <div className="absolute -inset-4 bg-white/20 rounded-full blur-2xl"></div>
+              <Image
+                src="/saga1.jpg"
+                alt="Maja och Gnista"
+                width={300}
+                height={300}
+                className="relative rounded-2xl shadow-2xl rotate-3 hover:rotate-0 transition-transform duration-500 border-4 border-white/20"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Feature Cards Section */}
       <section className="bg-gray-50 py-16">
         <div className="container mx-auto px-4">
@@ -269,80 +305,80 @@ export default function Home() {
       {/* Main Content */}
       <div id="search" className="container mx-auto px-4 py-16">
 
-      {/* Search Section Header */}
-      <div className="mb-8 text-center">
-        <h2 className="text-3xl font-bold text-gray-900 mb-2">Utforska moduler</h2>
-        <p className="text-gray-600">Sök och filtrera efter ämne, kurs eller AI-litteracitetsaspekt</p>
-      </div>
-
-      {/* Search Bar */}
-      <div className="mb-8 animate-fade-in-up" style={{ animationDelay: '0.1s', animationFillMode: 'backwards' }}>
-        <SearchBar
-          value={searchQuery}
-          onChange={setSearchQuery}
-          className="mx-auto max-w-2xl"
-        />
-      </div>
-
-      {/* Filter Section */}
-      <div className="mb-8 animate-fade-in-up" style={{ animationDelay: '0.2s', animationFillMode: 'backwards' }}>
-        <h2 className="mb-4 text-sm font-semibold text-gray-700">
-          Filtrera på AI-litteracitetsaspekter:
-        </h2>
-        <div className="flex flex-wrap gap-2">
-          {aiLiteracyConfig.map((aspect, index) => (
-            <div
-              key={aspect.id}
-              className="animate-scale-in"
-              style={{
-                animationDelay: `${0.3 + index * 0.05}s`,
-                animationFillMode: 'backwards'
-              }}
-            >
-              <AiLiteracyBadge
-                id={aspect.id}
-                onClick={() => toggleLiteracyId(aspect.id)}
-                isActive={selectedLiteracyIds.includes(aspect.id)}
-              />
-            </div>
-          ))}
+        {/* Search Section Header */}
+        <div className="mb-8 text-center">
+          <h2 className="text-3xl font-bold text-gray-900 mb-2">Utforska moduler</h2>
+          <p className="text-gray-600">Sök och filtrera efter ämne, kurs eller AI-litteracitetsaspekt</p>
         </div>
-      </div>
 
-      {/* Results Section */}
-      <div className="mb-4">
-        <p className="text-sm text-gray-600">
-          {filteredModules.length}{" "}
-          {filteredModules.length === 1 ? "modul" : "moduler"} hittades
-        </p>
-      </div>
+        {/* Search Bar */}
+        <div className="mb-8 animate-fade-in-up" style={{ animationDelay: '0.1s', animationFillMode: 'backwards' }}>
+          <SearchBar
+            value={searchQuery}
+            onChange={setSearchQuery}
+            className="mx-auto max-w-2xl"
+          />
+        </div>
 
-      {filteredModules.length === 0 ? (
-        <div className="py-12 text-center">
-          <p className="text-gray-600">
-            Inga moduler hittades. Prova att ändra dina sökkriterier.
+        {/* Filter Section */}
+        <div className="mb-8 animate-fade-in-up" style={{ animationDelay: '0.2s', animationFillMode: 'backwards' }}>
+          <h2 className="mb-4 text-sm font-semibold text-gray-700">
+            Filtrera på AI-litteracitetsaspekter:
+          </h2>
+          <div className="flex flex-wrap gap-2">
+            {aiLiteracyConfig.map((aspect, index) => (
+              <div
+                key={aspect.id}
+                className="animate-scale-in"
+                style={{
+                  animationDelay: `${0.3 + index * 0.05}s`,
+                  animationFillMode: 'backwards'
+                }}
+              >
+                <AiLiteracyBadge
+                  id={aspect.id}
+                  onClick={() => toggleLiteracyId(aspect.id)}
+                  isActive={selectedLiteracyIds.includes(aspect.id)}
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Results Section */}
+        <div className="mb-4">
+          <p className="text-sm text-gray-600">
+            {filteredModules.length}{" "}
+            {filteredModules.length === 1 ? "modul" : "moduler"} hittades
           </p>
         </div>
-      ) : (
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {filteredModules.map((module) => (
-            <SearchResultCard
-              key={module._id}
-              moduleId={module._id}
-              title={module.title}
-              description={module.description}
-              searchableContent={module.searchableContent}
-              url={module.url}
-              subject={module.subject}
-              course={module.course}
-              aiLiteracyIds={module.ai_literacy_ids}
-              time={module.time}
-              groupSize={module.groupSize}
-              searchQuery={searchQuery}
-            />
-          ))}
-        </div>
-      )}
+
+        {filteredModules.length === 0 ? (
+          <div className="py-12 text-center">
+            <p className="text-gray-600">
+              Inga moduler hittades. Prova att ändra dina sökkriterier.
+            </p>
+          </div>
+        ) : (
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {filteredModules.map((module) => (
+              <SearchResultCard
+                key={module._id}
+                moduleId={module._id}
+                title={module.title}
+                description={module.description}
+                searchableContent={module.searchableContent}
+                url={module.url}
+                subject={module.subject}
+                course={module.course}
+                aiLiteracyIds={module.ai_literacy_ids}
+                time={module.time}
+                groupSize={module.groupSize}
+                searchQuery={searchQuery}
+              />
+            ))}
+          </div>
+        )}
       </div>
     </div>
   );
