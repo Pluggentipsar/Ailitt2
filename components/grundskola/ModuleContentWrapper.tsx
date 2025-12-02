@@ -3,8 +3,9 @@
 import { useState } from "react";
 import { ModulePart } from "@/lib/grundskola-data";
 import { ChatDialog } from "@/components/grundskola/ChatDialog";
+import { ChatbotDemo } from "./ChatbotDemo";
 import { ActivityHub } from "./ActivityHub";
-import { BookOpen, CheckCircle2, ArrowRight, ArrowLeft, Sparkles, BrainCircuit, GraduationCap, PlayCircle, Maximize2, X, Star } from "lucide-react";
+import { BookOpen, CheckCircle2, ArrowRight, ArrowLeft, Sparkles, BrainCircuit, GraduationCap, PlayCircle, Maximize2, X, Star, Lightbulb, Image as ImageIcon, Music, Type, Video, ChevronRight, ChevronLeft } from "lucide-react";
 import { TeacherInstructions } from "@/components/grundskola/TeacherInstructions";
 import confetti from 'canvas-confetti';
 
@@ -14,12 +15,13 @@ interface ModuleContentWrapperProps {
     imageSrc?: string;
 }
 
-type Step = 'story' | 'learning' | 'exercises';
+type Step = 'story' | 'learning' | 'examples' | 'exercises';
 
 export function ModuleContentWrapper({ module, grade, imageSrc }: ModuleContentWrapperProps) {
     const [currentStep, setCurrentStep] = useState<Step>('story');
     const [completedSteps, setCompletedSteps] = useState<Step[]>([]);
     const [showImageModal, setShowImageModal] = useState(false);
+    const [selectedImage, setSelectedImage] = useState<string | null>(null);
     const [showVideoModal, setShowVideoModal] = useState(false);
 
     const isAk13 = grade === 'ak-1-3';
@@ -27,6 +29,7 @@ export function ModuleContentWrapper({ module, grade, imageSrc }: ModuleContentW
     const steps: { id: Step; label: string; icon: React.ElementType; description: string }[] = [
         { id: 'story', label: 'Berättelse', icon: Sparkles, description: 'Lyssna och häng med' },
         { id: 'learning', label: 'Läs och lär', icon: BookOpen, description: 'Fördjupa dig' },
+        { id: 'examples', label: 'Exempel', icon: Lightbulb, description: 'Se vad AI kan göra' },
         { id: 'exercises', label: 'Övningar', icon: BrainCircuit, description: 'Testa dina kunskaper' },
     ];
 
@@ -51,6 +54,10 @@ export function ModuleContentWrapper({ module, grade, imageSrc }: ModuleContentW
             window.scrollTo({ top: 0, behavior: 'smooth' });
         } else if (currentStep === 'learning') {
             handleStepComplete('learning');
+            setCurrentStep('examples');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        } else if (currentStep === 'examples') {
+            handleStepComplete('examples');
             setCurrentStep('exercises');
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
@@ -58,7 +65,8 @@ export function ModuleContentWrapper({ module, grade, imageSrc }: ModuleContentW
 
     const goToPrevStep = () => {
         if (currentStep === 'learning') setCurrentStep('story');
-        else if (currentStep === 'exercises') setCurrentStep('learning');
+        else if (currentStep === 'examples') setCurrentStep('learning');
+        else if (currentStep === 'exercises') setCurrentStep('examples');
         window.scrollTo({ top: 0, behavior: 'smooth' });
     };
 
@@ -75,6 +83,7 @@ export function ModuleContentWrapper({ module, grade, imageSrc }: ModuleContentW
                         const iconColors = {
                             story: 'bg-gradient-to-br from-[#4FACFE] to-[#00F2FE] shadow-[0_8px_16px_rgba(79,172,254,0.4)]', // Blue/Cyan
                             learning: 'bg-gradient-to-br from-[#FFD200] to-[#F7971E] shadow-[0_8px_16px_rgba(255,210,0,0.4)]', // Yellow/Orange
+                            examples: 'bg-gradient-to-br from-[#A855F7] to-[#D946EF] shadow-[0_8px_16px_rgba(168,85,247,0.4)]', // Purple/Pink
                             exercises: 'bg-gradient-to-br from-[#A0E1F5] to-[#E0C3FC] shadow-[0_8px_16px_rgba(160,225,245,0.4)]', // Pastel
                         };
 
@@ -114,7 +123,7 @@ export function ModuleContentWrapper({ module, grade, imageSrc }: ModuleContentW
                                 <ChatDialog
                                     dialogue={module.story.dialogue}
                                     imageSrc={imageSrc}
-                                    audioSrc="/saga1.wav"
+                                    audioSrc={module.story.audio}
                                     onComplete={goToNextStep}
                                     variant={isAk13 ? 'playful' : 'standard'}
                                 />
@@ -177,6 +186,38 @@ export function ModuleContentWrapper({ module, grade, imageSrc }: ModuleContentW
 
                                                 <button
                                                     onClick={() => setShowImageModal(true)}
+                                                    className="absolute top-4 right-4 p-3 bg-white/10 hover:bg-white/20 backdrop-blur-md rounded-full text-white transition-all hover:scale-110 opacity-0 group-hover:opacity-100"
+                                                >
+                                                    <Maximize2 className="w-6 h-6" />
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                )}
+
+                                {/* Second Image Card */}
+                                {module.learningMaterial?.image2 && (
+                                    <div className="relative group">
+                                        <div className="absolute -inset-4 bg-gradient-to-br from-green-400 to-emerald-300 rounded-[2.5rem] opacity-20 blur-2xl group-hover:opacity-30 transition-opacity duration-500" />
+                                        <div className="relative bg-gradient-to-br from-gray-900 to-green-900 rounded-[2.5rem] overflow-hidden shadow-2xl border border-white/10">
+                                            <div className="absolute top-0 left-0 w-full h-full bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10 mix-blend-overlay" />
+
+                                            <div className="relative h-[300px] sm:h-[400px] w-full p-6 flex items-center justify-center">
+                                                <img
+                                                    src={module.learningMaterial.image2}
+                                                    alt={module.learningMaterial.title + " del 2"}
+                                                    className="max-h-full max-w-full object-contain drop-shadow-2xl transform transition-transform duration-700 hover:scale-105 cursor-zoom-in"
+                                                    onClick={() => {
+                                                        setSelectedImage(module.learningMaterial!.image2!);
+                                                        setShowImageModal(true);
+                                                    }}
+                                                />
+
+                                                <button
+                                                    onClick={() => {
+                                                        setSelectedImage(module.learningMaterial!.image2!);
+                                                        setShowImageModal(true);
+                                                    }}
                                                     className="absolute top-4 right-4 p-3 bg-white/10 hover:bg-white/20 backdrop-blur-md rounded-full text-white transition-all hover:scale-110 opacity-0 group-hover:opacity-100"
                                                 >
                                                     <Maximize2 className="w-6 h-6" />
@@ -305,6 +346,190 @@ export function ModuleContentWrapper({ module, grade, imageSrc }: ModuleContentW
                     </div>
                 )}
 
+                {currentStep === 'examples' && module.generativeExamples && (
+                    <div className="animate-in fade-in slide-in-from-bottom-8 duration-700 ease-out space-y-12">
+                        {/* Intro Section */}
+                        <div className="bg-white/60 backdrop-blur-xl rounded-[3rem] p-8 sm:p-12 shadow-xl border border-white/50 text-center max-w-4xl mx-auto">
+                            <h2 className="text-4xl sm:text-5xl font-fredoka font-bold text-gray-800 mb-6">
+                                {module.generativeExamples.intro.title}
+                            </h2>
+                            <p className="text-xl sm:text-2xl text-gray-700 font-nunito leading-relaxed">
+                                {module.generativeExamples.intro.description}
+                            </p>
+                        </div>
+
+                        {/* Examples Grid */}
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                            {module.generativeExamples.sections.map((section, idx) => {
+                                const icons = {
+                                    image: ImageIcon,
+                                    music: Music,
+                                    text: Type,
+                                    video: Video
+                                };
+                                const SectionIcon = icons[section.type];
+                                const colors = {
+                                    image: 'from-pink-400 to-rose-400',
+                                    music: 'from-violet-400 to-purple-400',
+                                    text: 'from-amber-400 to-orange-400',
+                                    video: 'from-cyan-400 to-blue-400'
+                                };
+
+                                return (
+                                    <div key={idx} className="bg-white rounded-[2.5rem] overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 border-2 border-gray-100">
+                                        <div className={`bg-gradient-to-r ${colors[section.type]} p-6 flex items-center gap-4`}>
+                                            <div className="bg-white/20 p-3 rounded-2xl backdrop-blur-sm">
+                                                <SectionIcon className="w-8 h-8 text-white" />
+                                            </div>
+                                            <h3 className="text-2xl font-bold text-white font-fredoka">{section.title}</h3>
+                                        </div>
+
+                                        <div className="p-8 space-y-6">
+                                            <p className="text-gray-600 text-lg leading-relaxed font-medium">
+                                                {section.description}
+                                            </p>
+                                            {/* Content Rendering */}
+                                            <div className="bg-gray-50 rounded-2xl p-4 border border-gray-100">
+                                                {section.type === 'image' && section.content?.images && (
+                                                    <div className="space-y-4">
+                                                        <div
+                                                            className="relative aspect-video rounded-xl overflow-hidden bg-gray-200 group shadow-md cursor-pointer"
+                                                            onClick={() => {
+                                                                setSelectedImage(section.content!.images![0]);
+                                                                setShowImageModal(true);
+                                                            }}
+                                                        >
+                                                            <img
+                                                                src={section.content.images[0]}
+                                                                alt="AI Example Main"
+                                                                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                                                            />
+                                                            <div className="absolute inset-0 flex items-center justify-center bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity">
+                                                                <Maximize2 className="w-12 h-12 text-white drop-shadow-lg" />
+                                                            </div>
+                                                        </div>
+                                                        {section.content.images.length > 1 && (
+                                                            <div className="grid grid-cols-3 gap-2">
+                                                                {section.content.images.slice(1).map((img, i) => (
+                                                                    <div
+                                                                        key={i}
+                                                                        className="aspect-square rounded-lg overflow-hidden bg-gray-200 shadow-sm hover:shadow-md transition-shadow cursor-pointer relative group"
+                                                                        onClick={() => {
+                                                                            setSelectedImage(img);
+                                                                            setShowImageModal(true);
+                                                                        }}
+                                                                    >
+                                                                        <img
+                                                                            src={img}
+                                                                            alt={`AI Example ${i + 2}`}
+                                                                            className="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
+                                                                        />
+                                                                        <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors" />
+                                                                    </div>
+                                                                ))}
+                                                            </div>
+                                                        )}
+                                                    </div>
+                                                )}
+
+                                                {section.type === 'music' && (
+                                                    <div className="space-y-4">
+                                                        {section.content?.video && (
+                                                            <div className="relative aspect-video rounded-xl overflow-hidden bg-black shadow-md">
+                                                                <video
+                                                                    src={section.content.video}
+                                                                    className="w-full h-full object-cover"
+                                                                    controls
+                                                                />
+                                                            </div>
+                                                        )}
+                                                        {section.content?.audio && (
+                                                            <div className="flex items-center gap-4 bg-white p-4 rounded-xl shadow-sm border border-gray-100">
+                                                                <div className="w-12 h-12 rounded-full bg-violet-100 text-violet-600 flex items-center justify-center shrink-0">
+                                                                    <Music className="w-6 h-6" />
+                                                                </div>
+                                                                <audio
+                                                                    src={section.content.audio}
+                                                                    controls
+                                                                    className="w-full h-8"
+                                                                />
+                                                            </div>
+                                                        )}
+                                                    </div>
+                                                )}
+
+                                                {section.type === 'text' && section.content?.textSamples && (
+                                                    <div className="space-y-4">
+                                                        {section.content.textSamples.map((sample, i) => (
+                                                            <div key={i} className="bg-white p-4 rounded-xl shadow-sm border border-gray-100">
+                                                                <div className="text-xs font-bold text-amber-500 uppercase tracking-wider mb-1">Prompt</div>
+                                                                <p className="text-sm text-gray-500 italic mb-3">"{sample.prompt}"</p>
+                                                                <div className="text-xs font-bold text-green-500 uppercase tracking-wider mb-1">AI Svar</div>
+                                                                <p className="text-gray-800 font-medium">{sample.result}</p>
+                                                            </div>
+                                                        ))}
+                                                    </div>
+                                                )}
+
+                                                {section.type === 'video' && (
+                                                    <div className="space-y-4">
+                                                        {section.content?.video && (
+                                                            <div className="relative aspect-video rounded-xl overflow-hidden bg-black">
+                                                                <video
+                                                                    src={section.content.video}
+                                                                    className="w-full h-full object-cover opacity-80"
+                                                                    controls
+                                                                />
+                                                            </div>
+                                                        )}
+                                                        {section.content?.videos && (
+                                                            <div className="grid grid-cols-1 gap-4">
+                                                                {section.content.videos.map((vid, i) => (
+                                                                    <div key={i} className="relative aspect-video rounded-xl overflow-hidden bg-black shadow-md">
+                                                                        <video
+                                                                            src={vid}
+                                                                            className="w-full h-full object-cover"
+                                                                            controls
+                                                                        />
+                                                                    </div>
+                                                                ))}
+                                                            </div>
+                                                        )}
+                                                    </div>
+                                                )}
+                                            </div>
+                                        </div>
+                                    </div>
+                                );
+                            })}
+                        </div>
+
+                        {/* Chatbot Demo Section */}
+                        {module.chatbotActivities && (
+                            <div className="mt-16 animate-in fade-in slide-in-from-bottom-12 duration-1000 delay-300">
+                                <ChatbotDemo activities={module.chatbotActivities} />
+                            </div>
+                        )}
+
+                        <div className="flex flex-col-reverse sm:flex-row justify-between items-center pt-4 gap-4 px-4">
+                            <button
+                                onClick={goToPrevStep}
+                                className="w-full sm:w-auto bg-white hover:bg-gray-50 text-gray-600 font-bold text-lg flex items-center justify-center gap-2 px-8 py-4 rounded-full shadow-lg transition-all hover:scale-105"
+                            >
+                                <ArrowLeft className="w-5 h-5" />
+                                Tillbaka
+                            </button>
+                            <button
+                                onClick={goToNextStep}
+                                className="group w-full sm:w-auto flex items-center justify-center gap-3 rounded-full font-bold transition-all shadow-xl hover:-translate-y-1 bg-gradient-to-r from-[#FF9966] to-[#FF5E62] text-white px-10 py-5 text-xl hover:shadow-[0_10px_20px_rgba(255,153,102,0.4)]"
+                            >
+                                Till övningarna!
+                                <ArrowRight className="group-hover:translate-x-1 transition-transform w-6 h-6" />
+                            </button>
+                        </div>
+                    </div>
+                )}
+
                 {currentStep === 'exercises' && (
                     <div className="animate-in fade-in slide-in-from-bottom-8 duration-700 ease-out space-y-12">
                         {module.activities && module.activities.length > 0 ? (
@@ -398,17 +623,23 @@ export function ModuleContentWrapper({ module, grade, imageSrc }: ModuleContentW
             </div>
 
             {/* Image Modal */}
-            {showImageModal && module.learningMaterial?.image && (
-                <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/90 backdrop-blur-sm animate-in fade-in duration-300" onClick={() => setShowImageModal(false)}>
+            {showImageModal && (selectedImage || module.learningMaterial?.image) && (
+                <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/90 backdrop-blur-sm animate-in fade-in duration-300" onClick={() => {
+                    setShowImageModal(false);
+                    setSelectedImage(null);
+                }}>
                     <button
-                        onClick={() => setShowImageModal(false)}
+                        onClick={() => {
+                            setShowImageModal(false);
+                            setSelectedImage(null);
+                        }}
                         className="absolute top-6 right-6 p-2 bg-white/10 hover:bg-white/20 rounded-full text-white transition-colors"
                     >
                         <X className="w-8 h-8" />
                     </button>
                     <img
-                        src={module.learningMaterial.image}
-                        alt={module.learningMaterial.title}
+                        src={selectedImage || module.learningMaterial?.image}
+                        alt="Full size"
                         className="max-w-full max-h-[90vh] object-contain rounded-lg shadow-2xl animate-in zoom-in-95 duration-300"
                         onClick={(e) => e.stopPropagation()}
                     />

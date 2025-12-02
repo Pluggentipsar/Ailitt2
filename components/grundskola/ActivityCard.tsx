@@ -12,6 +12,8 @@ import { AiServicesExplorer } from "./games/AiServicesExplorer";
 import { AiVsHumanQuiz } from "./games/AiVsHumanQuiz";
 import { AiPatternGame } from "./games/AiPatternGame";
 import { AiRobotGame } from "./games/AiRobotGame";
+import { PromptGuessingGame } from "./games/PromptGuessingGame";
+import TrainAiGame from "./games/TrainAiGame";
 
 interface ActivityCardProps {
     activity: Activity;
@@ -25,6 +27,8 @@ export function ActivityCard({ activity, index }: ActivityCardProps) {
     const [showQuiz, setShowQuiz] = useState(false);
     const [showPatternGame, setShowPatternGame] = useState(false);
     const [showRobotGame, setShowRobotGame] = useState(false);
+    const [showPromptGame, setShowPromptGame] = useState(false);
+    const [showTrainAiGame, setShowTrainAiGame] = useState(false);
     const [showSteps, setShowSteps] = useState(false);
 
     const isDigital = activity.type === 'digital';
@@ -34,6 +38,8 @@ export function ActivityCard({ activity, index }: ActivityCardProps) {
     const isQuiz = activity.title.includes('Vem kan vad?');
     const isPatternGame = activity.title.includes('Mönsterleken');
     const isRobotGame = activity.title.includes('Programmering vs AI');
+    const isPromptGame = activity.title.includes('Vilken prompt skapade texten?');
+    const isTrainAiGame = activity.title.includes('Träna Gnista');
 
     const Icon = isDigital ? Gamepad2 : PenTool;
 
@@ -45,6 +51,8 @@ export function ActivityCard({ activity, index }: ActivityCardProps) {
         if (isQuiz) return '🧠';
         if (isPatternGame) return '🎨';
         if (isRobotGame) return '🤖';
+        if (isPromptGame) return '📝';
+        if (isTrainAiGame) return '🎓';
         return isDigital ? '🎮' : '✏️';
     };
 
@@ -154,6 +162,26 @@ export function ActivityCard({ activity, index }: ActivityCardProps) {
                                 className="w-full py-6 sm:py-8 px-8 rounded-[2rem] font-fredoka font-bold text-2xl sm:text-3xl transition-all flex items-center justify-center gap-4 bg-white text-[#00BCD4] shadow-[0_8px_0_#B2EBF2] hover:shadow-[0_4px_0_#B2EBF2] hover:translate-y-[4px] border-4 border-[#00BCD4]"
                             >
                                 <span className="text-4xl">🤖</span>
+                                <span>Starta spelet!</span>
+                            </button>
+                        )}
+
+                        {isPromptGame && (
+                            <button
+                                onClick={() => setShowPromptGame(true)}
+                                className="w-full py-6 sm:py-8 px-8 rounded-[2rem] font-fredoka font-bold text-2xl sm:text-3xl transition-all flex items-center justify-center gap-4 bg-white text-[#00BCD4] shadow-[0_8px_0_#B2EBF2] hover:shadow-[0_4px_0_#B2EBF2] hover:translate-y-[4px] border-4 border-[#00BCD4]"
+                            >
+                                <span className="text-4xl">📝</span>
+                                <span>Starta spelet!</span>
+                            </button>
+                        )}
+
+                        {isTrainAiGame && (
+                            <button
+                                onClick={() => setShowTrainAiGame(true)}
+                                className="w-full py-6 sm:py-8 px-8 rounded-[2rem] font-fredoka font-bold text-2xl sm:text-3xl transition-all flex items-center justify-center gap-4 bg-white text-[#00BCD4] shadow-[0_8px_0_#B2EBF2] hover:shadow-[0_4px_0_#B2EBF2] hover:translate-y-[4px] border-4 border-[#00BCD4]"
+                            >
+                                <span className="text-4xl">🎓</span>
                                 <span>Starta spelet!</span>
                             </button>
                         )}
@@ -309,6 +337,26 @@ export function ActivityCard({ activity, index }: ActivityCardProps) {
             {/* Robot Game Portal */}
             {showRobotGame && createPortal(
                 <AiRobotGame onClose={() => setShowRobotGame(false)} />,
+                document.body
+            )}
+
+            {/* Prompt Guessing Game Portal */}
+            {showPromptGame && createPortal(
+                <PromptGuessingGame onClose={() => setShowPromptGame(false)} />,
+                document.body
+            )}
+
+            {/* Train AI Game Portal */}
+            {showTrainAiGame && createPortal(
+                <div className="fixed inset-0 z-[9999] bg-white">
+                    <button
+                        onClick={() => setShowTrainAiGame(false)}
+                        className="absolute top-4 right-4 z-50 p-2 bg-white rounded-full shadow-lg hover:bg-gray-100"
+                    >
+                        <X className="w-8 h-8" />
+                    </button>
+                    <TrainAiGame />
+                </div>,
                 document.body
             )}
         </>

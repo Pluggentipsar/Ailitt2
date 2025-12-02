@@ -5,10 +5,10 @@ import { ArrowLeft } from "lucide-react";
 import { notFound } from "next/navigation";
 
 interface PageProps {
-    params: {
+    params: Promise<{
         grade: string;
         partId: string;
-    };
+    }>;
 }
 
 export function generateStaticParams() {
@@ -21,8 +21,8 @@ export function generateStaticParams() {
     return params;
 }
 
-export default function ModulePartPage({ params }: PageProps) {
-    const { grade, partId } = params;
+export default async function ModulePartPage({ params }: PageProps) {
+    const { grade, partId } = await params;
     const module = grundskolaModules.find((m) => m.id === partId);
 
     if (!module) {

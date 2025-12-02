@@ -71,6 +71,12 @@ export function ModuleCard({ module, grade, index }: ModuleCardProps) {
             border: 'border-[#F2E6FF]',
             button: 'bg-[#E0C3FC]/20 text-[#8A4FBD]'
         },
+        { // 7.5 AI är inte en kompis (Red/Warning)
+            bg: 'bg-gradient-to-b from-[#FF512F] to-[#DD2476]',
+            shadow: 'shadow-[0_10px_20px_rgba(221,36,118,0.4)]',
+            border: 'border-[#FFC3A0]',
+            button: 'bg-[#FF512F]/20 text-[#DD2476]'
+        },
         { // 7. Framtid & samhälle (Green/Teal)
             bg: 'bg-gradient-to-b from-[#43E97B] to-[#38F9D7]',
             shadow: 'shadow-[0_10px_20px_rgba(67,233,123,0.4)]',
@@ -105,7 +111,7 @@ export function ModuleCard({ module, grade, index }: ModuleCardProps) {
                     <div className="bg-white/30 backdrop-blur-md rounded-3xl p-4 mb-4 border border-white/40 shadow-sm flex flex-col items-center text-center">
                         <div className="relative w-full aspect-square mb-3 rounded-2xl overflow-hidden shadow-inner bg-white/50">
                             <img
-                                src={`/del${index + 1}.png`}
+                                src={module.cardImage || `/del${index + 1}.png`}
                                 alt={module.title}
                                 className="w-full h-full object-contain p-2 hover:scale-110 transition-transform duration-500"
                             />
