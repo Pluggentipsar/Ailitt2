@@ -226,14 +226,14 @@ export default async function ModulePage({ params }: ModulePageProps) {
     heroVariant === "svenska1"
       ? {
           backgroundImage:
-            "linear-gradient(135deg, rgba(20,184,166,0.92) 0%, rgba(6,182,212,0.9) 55%, rgba(15,118,110,0.9) 100%), url(/svenska.png)",
+            "linear-gradient(135deg, rgba(20,184,166,0.92) 0%, rgba(6,182,212,0.9) 55%, rgba(15,118,110,0.9) 100%), url(/svenska.webp)",
           backgroundSize: "cover",
           backgroundPosition: "center",
         }
       : heroVariant === "svenska2"
         ? {
             backgroundImage:
-              "linear-gradient(125deg, rgba(15,23,42,0.95) 0%, rgba(30,64,175,0.92) 45%, rgba(59,130,246,0.9) 100%), url(/svenska.png)",
+              "linear-gradient(125deg, rgba(15,23,42,0.95) 0%, rgba(30,64,175,0.92) 45%, rgba(59,130,246,0.9) 100%), url(/svenska.webp)",
             backgroundSize: "cover",
             backgroundPosition: "center",
           }

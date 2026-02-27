@@ -1543,7 +1543,7 @@ export default function SubjectBedomningPage() {
       <section className="relative overflow-hidden pb-24 pt-32 sm:pt-36">
         <div
           className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: "url(/svenska.png)" }}
+          style={{ backgroundImage: "url(/svenska.webp)" }}
         />
         <div className="absolute inset-0 z-0 bg-gradient-to-br from-slate-950/90 via-cyan-900/70 to-sky-800/40" />
         <div className="absolute inset-0 z-0 bg-pattern opacity-15" />

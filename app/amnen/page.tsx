@@ -38,7 +38,7 @@ export default function AmnenPage() {
       <section className="relative overflow-hidden pb-20 pt-28 sm:pb-28 sm:pt-32">
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: "url(/Subjects.png)" }}
+          style={{ backgroundImage: "url(/Subjects.webp)" }}
         />
         <div className="absolute inset-0 bg-gradient-to-br from-gray-900/85 via-gray-900/60 to-gray-900/30" />
 

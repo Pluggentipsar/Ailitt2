@@ -64,7 +64,7 @@ export default function Home() {
         {/* Background image */}
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: 'url(/headerbackground1_50.png)' }}
+          style={{ backgroundImage: 'url(/headerbackground1_50.webp)' }}
         />
 
         {/* Dark gradient overlay for text contrast */}
@@ -183,7 +183,7 @@ export default function Home() {
 
       {/* Grundskola Promo Section */}
       <section className="relative overflow-hidden bg-gradient-to-r from-blue-600 to-indigo-700 py-16">
-        <div className="absolute inset-0 bg-[url('/headerbackground1_50.png')] opacity-10 bg-cover bg-center mix-blend-overlay"></div>
+        <div className="absolute inset-0 bg-[url('/headerbackground1_50.webp')] opacity-10 bg-cover bg-center mix-blend-overlay"></div>
         <div className="container relative mx-auto px-4">
           <div className="flex flex-col md:flex-row items-center justify-between gap-8">
             <div className="text-white max-w-2xl">

@@ -545,7 +545,7 @@ Och eftersom AI tränats på många exempel kan den ibland visa samma typer av p
 Då kan du hjälpa den säga: “Visa fler olika!”
 Så allt blir rättvist.
       `,
-      image: "/kap3.png",
+      image: "/kap3.webp",
       video: "/3.mp4"
     },
     story: {
@@ -827,7 +827,7 @@ Så allt blir rättvist.
           title: 'AI som skapar bilder',
           description: 'Kan skapa alla möjliga sorters bilder baserat på dina beskrivningar - från enkla teckningar till detaljerade konstverk!',
           content: {
-            images: ['/exempel_bild1.png', '/exempel_bild2.png', '/exempel_bild3.png']
+            images: ['/exempel_bild1.webp', '/exempel_bild2.webp', '/exempel_bild3.webp']
           }
         },
         {
@@ -900,7 +900,7 @@ Så allt blir rättvist.
   {
     id: 'latsas-bilder',
     title: 'Fejkbilder och fejkfilmer',
-    cardImage: '/ny_kap4.png',
+    cardImage: '/ny_kap4.webp',
     description: 'När AI lurar ögat - om deepfakes och källkritik',
     story: {
       title: 'Kapitel 4 – Låtsasbilder & låtsasfilmer: “Filmen om rektorn”',
@@ -979,7 +979,7 @@ Och kom ihåg:
 👉 **Vi ska aldrig skicka vidare en film eller bild om vi inte är säkra på att den är sann och snäll.**
 Precis som vi inte vill att någon ska sprida låtsasbilder på oss, ska vi vara rädda om andra.
 `,
-      image: '/fejkbilder.png',
+      image: '/fejkbilder.webp',
       video: '/ai_latsas.mp4'
     },
     activities: [
@@ -1103,7 +1103,7 @@ Om något känns konstigt – kolla! Du är smartare än AI, för du kan tänka 
 👉 **Berätta inte hemligheter**
 Glöm inte: AI behöver inte veta privata saker. Du ska inte skriva hemligheter eller personlig information till en AI.
       `,
-      image: '/kap5.png',
+      image: '/kap5.webp',
       image2: '/kap5_extra.jpg',
       video: '/kallkritik.mp4'
     },
@@ -1326,7 +1326,7 @@ Innan du använder AI kan du fråga dig:
 
 Om du kan svara bra på alla tre frågorna – då använder du AI på ett bra sätt.
       `,
-      image: '/kap6.png'
+      image: '/kap6.webp'
     },
     activities: [
       {
@@ -1581,7 +1581,7 @@ AI är likadan. Den gör saker – men den vet inte varför, och den bryr sig in
 Du är den som bestämmer vad verktyget ska användas till. Du är den som har målet, idén och viljan.
 AI är smart på sitt sätt. Men du lever på riktigt. Det är skillnaden.
       `,
-      image: '/kap6.png'
+      image: '/kap6.webp'
     },
     activities: [
       {
@@ -1727,7 +1727,7 @@ AI är smart på sitt sätt. Men du lever på riktigt. Det är skillnaden.
   {
     id: 'ai-inte-kompis',
     title: 'AI är inte en kompis',
-    cardImage: '/aifriend.png',
+    cardImage: '/aifriend.webp',
     description: 'Om skillnaden mellan mänsklig vänskap och AI:s simulering av känslor',
     story: {
       title: 'Kapitel 7 – AI är inte en kompis: ”Gnista menar det inte”',

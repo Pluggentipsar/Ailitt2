@@ -15,7 +15,7 @@ export default async function GradeLayout({
             {isAk13 && (
                 <div className="fixed inset-0 z-[-1]">
                     <img
-                        src="/ak1-3-bg.png"
+                        src="/ak1-3-bg.webp"
                         alt="Background"
                         className="w-full h-full object-cover"
                     />

@@ -52,7 +52,7 @@ export const SUBJECT_CONFIGS: SubjectHubConfig[] = [
       title: "Svenska som hubb för",
       highlight: "språk, kultur och epistemisk medvetenhet",
       lead: "Här möts litteratur, språk och teknik.",
-      backgroundImage: "/svenska.png",
+      backgroundImage: "/svenska.webp",
     },
     matchSubjects: ["Svenska"],
     courses: [

@@ -51,7 +51,7 @@ export default async function SubjectHubPage({ params }: SubjectPageProps) {
   const hero = config.hero ?? {
     title: config.name,
     lead: config.summary,
-    backgroundImage: "/Subjects.png",
+    backgroundImage: "/Subjects.webp",
   };
 
   const subjectModules = config.matchSubjects.length

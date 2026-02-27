@@ -108,7 +108,7 @@ export default function DidaktiskaModellerPage() {
       <section className="relative overflow-hidden pb-28 pt-32 sm:pb-36 sm:pt-40">
         <div
           className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: "url(/didaktisk.png)" }}
+          style={{ backgroundImage: "url(/didaktisk.webp)" }}
         />
         <div className="absolute inset-0 bg-gradient-to-br from-slate-950/90 via-cyan-900/70 to-sky-800/40" />
         <div className="absolute inset-0 bg-pattern opacity-20" />
