@@ -36,3 +36,7 @@ next-env.d.ts
 
 # contentlayer
 .contentlayer
+
+# large media files (host externally)
+public/*.mp4
+public/*.wav
