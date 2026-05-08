@@ -88,9 +88,9 @@ Plötsligt kunde AI inte bara *känna igen* — den kunde också *skapa*. Skriva
 
 Något nytt började hända 2024-2025. AI-system slutade bara *svara* — de började *göra*.
 
-- **Claude Code** kan läsa ett helt kodprojekt, hitta felet, fixa det, köra testerna — autonomt.
-- **Computer Use** (sedan oktober 2024): AI-system kan **klicka på saker** i en webbläsare. Som du.
-- **AI-agenter** kan utföra långa uppgifter på timmar — saker som tar människor en hel arbetsdag.
+- **Claude Code** är ett AI-system som programmerar tillsammans med människor. När en programmerare säger "fixa felet i mitt projekt" kan Claude Code öppna alla filer, läsa koden, hitta felet, ändra det och köra testerna *helt själv* — utan att människan styr varje klick. Sådant klarade ingen AI för bara två år sedan.
+- **Computer Use** (sedan oktober 2024): AI-system kan **klicka på saker** i en webbläsare. Som du. Den ser skärmen, hittar knapparna och styr musen och tangentbordet.
+- **AI-agenter** kan utföra långa uppgifter — saker som tar människor en hel arbetsdag eller mer.
 
 Vi kallar det här *agenter*. En agent är AI som kan **göra saker**, inte bara svara.
 
@@ -124,9 +124,9 @@ Här är två konkreta saker som forskare har **mätt**:
 
 - 2019: AI klarade uppgifter på *några sekunder*
 - 2023: AI klarade uppgifter på *några minuter*
-- 2026: AI klarar uppgifter på *50 minuter — autonomt*
+- 2026: De bästa AI-agenterna klarar **kodningsuppgifter som tar människor över 14 timmar** — autonomt, från start till mål
 
-Det dubblas ungefär **var sjunde månad**. Vi vet inte om det fortsätter.
+Det dubblas ungefär **var sjunde månad**. Vi vet inte om det fortsätter — men om det gör det är vi snart vid uppgifter som tar veckor.
 
 **OpenAI testade GPT-5.2 mot riktiga jobb (GDPval-testet, 2026):** advokater, sjuksköterskor, ingenjörer fick lösa uppgifter. AI fick lösa samma. Resultat: AI var **lika bra eller bättre** än experten på **70%** av uppgifterna. AI gjorde det också **100 gånger snabbare** och **100 gånger billigare**.
 
