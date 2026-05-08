@@ -118,7 +118,7 @@ I **juni 2025** stämde delstaten Utah Snap för det. De kallade det *vilseledan
 - Det "kommer inte ihåg" dig som en människa skulle — det matchar din input mot mönster
 - Det säger trevliga saker eftersom det är *byggt* att göra det
 
-Tänk på en sak: företaget kallar sin AI "My AI" och designar den så hon känns som en person. Det är *inte* en olycka. Det är en designval — för att du ska bli mer fäst vid den. Men det är fortfarande **ett verktyg** — inte en hon.
+Tänk på en sak: företaget kallar sin AI "My AI" och designar den så att den känns som en person. Det är *inte* en olycka. Det är en designval — för att du ska bli mer fäst vid den. Men det är fortfarande **ett verktyg** — inte en person.
 
 Använd det om du vill — men inte istället för riktiga människor.
 

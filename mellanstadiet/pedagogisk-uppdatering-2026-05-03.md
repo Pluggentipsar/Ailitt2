@@ -267,18 +267,19 @@ Detta gör eleverna *medvetna* — och stärker deras agens.
 ### Akuta uppdateringar (åtgärdas direkt utan Joel-godkännande)
 
 - [x] Granskning klar
-- [ ] L6 elevtext rad 117-121: byt "hon" → "den" / "AI-systemet"
-- [ ] L2 lärartext rad 218: byt "Hon säger oftast" → "Den producerar oftast"
-- [ ] Skapa språkguide-fil (`sprakguide-antropomorfism.md`)
-- [ ] Lägga till språkguide-referens i master-plan
+- [x] L6 elevtext rad 117-121: byt "hon" → "den" / "AI-systemet" *(bullets fixade tidigare; meta-paragrafens "så hon känns" + "inte en hon" åtgärdade 2026-05-08)*
+- [x] L2 lärartext rad 218: byt "Hon säger oftast" → "Den producerar oftast" *(redan åtgärdat — texten lyder nu "Modellen producerar oftast")*
+- [x] Skapa språkguide-fil (`sprakguide-antropomorfism.md`)
+- [x] Lägga till språkguide-referens i master-plan *(finns under "Forskningsbas")*
+- [x] L6 lärarhandledning rad 329: byt "Men hon förstår inte dig" → "Men den förstår inte dig" *(åtgärdat 2026-05-08)*
 
 ### Större ändringar (kräver Joels godkännande)
 
-- [ ] Förstärk Tänkartrappan med "iterera"-steg (Förslag 1)
-- [ ] Introducera "Klassens-projekt" från L1 som röd tråd (Förslag 2)
-- [ ] Tydligare "design-artifacts" som portfolio (Förslag 3)
+- [x] Förstärk Tänkartrappan med "iterera"-steg (Förslag 1) *(integrerat i L3 elevtext + master-plan)*
+- [x] Direkt antropomorfism-övning i L2 *(integrerat i L2 lärarhandledning, 10-påståenden-övningen)*
+- [~] Tydligare "design-artifacts" som portfolio (Förslag 3) *(designportfolio-sektion finns i master-plan; portfolio-mall + integration i bedömningsstöd återstår)*
+- [ ] Introducera "Klassens-projekt" från L1 som röd tråd (Förslag 2) *(förslagsdokument skapat — `klassens-projekt-rod-trad.md` — men ej integrerat i respektive lektions lärarhandledning)*
 - [ ] Fyra-dimensioners-bedömning från SAILD (Förslag 4)
-- [ ] Direkt antropomorfism-övning i L2
 
 ### Kontinuerligt
 

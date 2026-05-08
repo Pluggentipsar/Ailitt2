@@ -326,7 +326,7 @@ Skriv elevhälsans nummer / kontakt på tavlan. Synligt.
 | "Är det dåligt att jag pratar med Snap My AI?" | "Inte automatiskt. Det blir dåligt om du *bara* pratar med AI och inte människor. Var balanserad." |
 | "Är det fel att tycka om att prata med AI?" | "Nej. Det är *normalt* — AI är designad att kännas trevlig. Bara veta att det inte är samma sak som äkta vänskap." |
 | "Kan AI bli *medveten* en dag?" | "Forskare diskuterar det. Idag — nej. AI känner ingenting. Vi pratar mer i lektion 7." |
-| "Min Snap My AI sa något viktigt — räknas det?" | "Den kan ge bra information eller idéer. Men hon förstår inte dig. Vi får inte blanda det." |
+| "Min Snap My AI sa något viktigt — räknas det?" | "Den kan ge bra information eller idéer. Men den förstår inte dig. Vi får inte blanda det." |
 | "Är jag konstig om jag pratat med AI mycket?" | "Nej. Du är inte konstig. Men det är klokt att lägga till *fler* sätt att få stöd — människor är viktiga." |
 | "Vad ska jag göra om en kompis pratar bara med AI?" | "Var en bra kompis. Visa att du finns. Säg: 'Vill du fika?' Det betyder mycket." |
 
