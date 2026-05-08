@@ -4,7 +4,9 @@ import { Citat } from "@/components/mellanstadiet/Citat";
 import { Begrepp } from "@/components/mellanstadiet/Begrepp";
 import { Quiz } from "@/components/mellanstadiet/Quiz";
 import { TidslinjePussel } from "@/components/mellanstadiet/TidslinjePussel";
+import { MetrTimeline } from "@/components/mellanstadiet/MetrTimeline";
 import { BegreppsBank } from "@/components/mellanstadiet/BegreppsBank";
+import { SpelCallout } from "@/components/mellanstadiet/SpelCallout";
 
 export function Lektion1Content({ lesson }: { lesson: MellanstadietLesson }) {
   return (
@@ -309,6 +311,9 @@ export function Lektion1Content({ lesson }: { lesson: MellanstadietLesson }) {
           <strong>kodningsuppgifter som tar människor över 14 timmar</strong> —
           autonomt, från start till mål. Det dubblas ungefär var sjunde månad.
         </p>
+
+        <MetrTimeline accentHex={lesson.accentHex} />
+
         <p>
           <strong>OpenAI testade GPT-5.2 mot riktiga jobb</strong> (GDPval
           2026): advokater, sjuksköterskor, ingenjörer fick lösa uppgifter. AI
@@ -368,6 +373,11 @@ export function Lektion1Content({ lesson }: { lesson: MellanstadietLesson }) {
         intro="Du har just läst om filmer och om verkliga händelser. Pussla nu ihop dem på en gemensam tidslinje. Vad gissade filmerna rätt? Vad blev annorlunda?"
       >
         <TidslinjePussel accentHex={lesson.accentHex} />
+
+        <SpelCallout
+          gameSlugs={["nasta-ord"]}
+          intro="Vill du själv prova hur det är att gissa nästa ord — som AI gör?"
+        />
       </Sektion>
 
       {/* === STEG E: PRAKTIK === */}

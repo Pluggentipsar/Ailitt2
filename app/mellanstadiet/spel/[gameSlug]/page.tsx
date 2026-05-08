@@ -8,6 +8,7 @@ import {
 import { NastaOrdGame } from "@/components/mellanstadiet/games/NastaOrdGame";
 import { AiEllerManniskaGame } from "@/components/mellanstadiet/games/AiEllerManniskaGame";
 import { BiasDetektiven } from "@/components/mellanstadiet/games/BiasDetektiven";
+import { MonsterFangaren } from "@/components/mellanstadiet/games/MonsterFangaren";
 
 export function generateStaticParams() {
   return MELLANSTADIET_GAMES.filter((g) => g.status === "ready").map((g) => ({
@@ -67,6 +68,7 @@ export default async function GamePage({
 
       {/* Spelet */}
       <section className="px-4 pt-12">
+        {game.id === "monster-fangaren" && <MonsterFangaren />}
         {game.id === "nasta-ord" && <NastaOrdGame />}
         {game.id === "ai-eller-manniska" && <AiEllerManniskaGame />}
         {game.id === "bias-detektiven" && <BiasDetektiven />}

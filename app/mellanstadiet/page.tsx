@@ -1,6 +1,7 @@
 import Link from "next/link";
-import { ArrowRight, Sparkles, Clock, Beaker } from "lucide-react";
+import { ArrowRight, Sparkles, Clock, Beaker, Gamepad2 } from "lucide-react";
 import { MELLANSTADIET_LESSONS } from "@/lib/mellanstadiet-data";
+import { MELLANSTADIET_GAMES } from "@/lib/mellanstadiet-games";
 
 export default function MellanstadietLanding() {
   return (
@@ -30,6 +31,10 @@ export default function MellanstadietLanding() {
               Börja med Lektion 1
               <ArrowRight className="h-4 w-4" />
             </Link>
+            <Link href="/mellanstadiet/spel" className="ms-btn ms-btn-secondary">
+              <Gamepad2 className="h-4 w-4" />
+              Spel & undersökningar
+            </Link>
             <a href="#om-kursen" className="ms-btn ms-btn-secondary">
               Om kursen
             </a>
@@ -39,7 +44,7 @@ export default function MellanstadietLanding() {
           <div className="mt-20 grid grid-cols-2 gap-x-8 gap-y-6 sm:grid-cols-4">
             {[
               { value: "7", label: "lektioner" },
-              { value: "8", label: "interaktiva moment" },
+              { value: `${MELLANSTADIET_GAMES.length}`, label: "spel & lekar" },
               { value: "63", label: "källfall 2025–26" },
               { value: "0", label: "fiktiva karaktärer" },
             ].map((stat) => (
@@ -98,8 +103,65 @@ export default function MellanstadietLanding() {
         </div>
       </section>
 
+      {/* Spel-sektion */}
+      <section id="spel" className="px-4 py-24">
+        <div className="mx-auto max-w-5xl">
+          <div className="ms-mono mb-4 text-[#94a3b8]">
+            // SPEL & UNDERSÖKNINGAR · {MELLANSTADIET_GAMES.length} ST
+          </div>
+          <div className="flex flex-wrap items-end justify-between gap-4">
+            <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
+              Lär dig genom att spela
+            </h2>
+            <Link
+              href="/mellanstadiet/spel"
+              className="ms-mono inline-flex items-center gap-1.5 text-[#fcd34d] transition-colors hover:text-white"
+            >
+              ALLA SPEL <ArrowRight className="h-3.5 w-3.5" />
+            </Link>
+          </div>
+          <p className="mt-3 max-w-2xl text-[#cbd5e1]">
+            Att läsa <em>om</em> AI är en sak. Att <em>prova</em> är en annan.
+            Här är fyra spel som tar dig in i begreppen via händerna.
+          </p>
+
+          <div className="mt-10 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+            {MELLANSTADIET_GAMES.filter((g) => g.status === "ready").map(
+              (game) => (
+                <Link
+                  key={game.id}
+                  href={`/mellanstadiet/spel/${game.slug}`}
+                  className="group flex flex-col rounded-xl border border-[#243248] bg-[#1a2235] p-5 transition-all hover:-translate-y-1 hover:border-white/40"
+                >
+                  <div
+                    className="ms-mono mb-3 inline-flex w-fit items-center gap-1 rounded px-2 py-1 text-[#0a0e1a]"
+                    style={{ background: game.accentHex }}
+                  >
+                    <Gamepad2 className="h-3 w-3" />
+                    {game.type.toUpperCase()}
+                  </div>
+                  <h3 className="text-lg font-bold text-white">
+                    {game.title}
+                  </h3>
+                  <p className="mt-1 flex-1 text-sm text-[#94a3b8]">
+                    {game.tagline}
+                  </p>
+                  <div className="ms-mono mt-3 flex items-center justify-between text-xs text-[#94a3b8]">
+                    <span>{game.duration}</span>
+                    <ArrowRight
+                      className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1"
+                      style={{ color: game.accentHex }}
+                    />
+                  </div>
+                </Link>
+              )
+            )}
+          </div>
+        </div>
+      </section>
+
       {/* Lektioner */}
-      <section id="lektioner" className="px-4 py-24">
+      <section id="lektioner" className="border-t border-[#243248] px-4 py-24">
         <div className="mx-auto max-w-5xl">
           <div className="ms-mono mb-4 text-[#94a3b8]">
             // KURSPLAN · 7 LEKTIONER

@@ -25,6 +25,22 @@ export interface MellanstadietGame {
 
 export const MELLANSTADIET_GAMES: MellanstadietGame[] = [
   {
+    id: "monster-fangaren",
+    slug: "monster-fangaren",
+    title: "Mönster-fångaren",
+    tagline: "Klassisk arkad — du tränar AI:n medan du fångar fallande objekt",
+    description:
+      "Styr en paddel med två fack (HUND/KATT). Det du fångar blir AI:s träningsdata. Efter 45 sekunder testar AI:n sig själv — gjorde du jobbet bra?",
+    lesson: "L2",
+    pedagogy:
+      "Du upplever själv att ensidig träning ger ensidiga gissningar. Slutpoängen kombinerar arkad-skicklighet med AI:s testresultat.",
+    type: "Arkad",
+    duration: "3 min",
+    accentHex: "#10b981",
+    difficulty: 2,
+    status: "ready",
+  },
+  {
     id: "nasta-ord",
     slug: "nasta-ord",
     title: "Nästa ord",

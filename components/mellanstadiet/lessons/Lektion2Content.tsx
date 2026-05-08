@@ -5,6 +5,7 @@ import { Begrepp } from "@/components/mellanstadiet/Begrepp";
 import { Quiz } from "@/components/mellanstadiet/Quiz";
 import { MonsterLabbet } from "@/components/mellanstadiet/MonsterLabbet";
 import { BegreppsBank } from "@/components/mellanstadiet/BegreppsBank";
+import { SpelCallout } from "@/components/mellanstadiet/SpelCallout";
 
 export function Lektion2Content({ lesson }: { lesson: MellanstadietLesson }) {
   return (
@@ -259,6 +260,11 @@ export function Lektion2Content({ lesson }: { lesson: MellanstadietLesson }) {
         intro="Nu får du själv prova. Du är AI-tränaren. Välj vilka bilder som ska in i träningsdatat. Sedan ser du vad AI:n gissar på fyra nya bilder. Pröva olika kombinationer — och se vad som händer."
       >
         <MonsterLabbet accentHex={lesson.accentHex} />
+
+        <SpelCallout
+          gameSlugs={["monster-fangaren", "bias-detektiven", "ai-eller-manniska"]}
+          intro="Vill du fördjupa dig i bias och AI-stil? Här är tre spel som tar det vidare."
+        />
       </Sektion>
 
       {/* === STEG E: PRAKTIK === */}
