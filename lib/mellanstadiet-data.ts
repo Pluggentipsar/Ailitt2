@@ -107,7 +107,7 @@ export const MELLANSTADIET_LESSONS: MellanstadietLesson[] = [
     accent: "yellow",
     accentHex: "#eab308",
     interaktivt: "Dilemma-spelet",
-    status: "draft",
+    status: "ready",
   },
   {
     id: "lektion-6",
@@ -124,7 +124,7 @@ export const MELLANSTADIET_LESSONS: MellanstadietLesson[] = [
     accent: "violet",
     accentHex: "#8b5cf6",
     interaktivt: "Smicker-testet",
-    status: "draft",
+    status: "ready",
   },
   {
     id: "lektion-7",

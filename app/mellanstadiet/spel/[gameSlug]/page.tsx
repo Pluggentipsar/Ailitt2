@@ -10,6 +10,8 @@ import { AiEllerManniskaGame } from "@/components/mellanstadiet/games/AiEllerMan
 import { BiasDetektiven } from "@/components/mellanstadiet/games/BiasDetektiven";
 import { MonsterFangaren } from "@/components/mellanstadiet/games/MonsterFangaren";
 import { HallucinationRally } from "@/components/mellanstadiet/games/HallucinationRally";
+import { SycophancyDetektorn } from "@/components/mellanstadiet/games/SycophancyDetektorn";
+import { DilemmaSpelet } from "@/components/mellanstadiet/DilemmaSpelet";
 
 export function generateStaticParams() {
   return MELLANSTADIET_GAMES.filter((g) => g.status === "ready").map((g) => ({
@@ -74,6 +76,8 @@ export default async function GamePage({
         {game.id === "ai-eller-manniska" && <AiEllerManniskaGame />}
         {game.id === "bias-detektiven" && <BiasDetektiven />}
         {game.id === "hallucination-rally" && <HallucinationRally />}
+        {game.id === "sycophancy-detektorn" && <SycophancyDetektorn />}
+        {game.id === "dilemma-spelet" && <DilemmaSpelet />}
       </section>
     </div>
   );

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   Check,
   X,
@@ -59,6 +59,20 @@ export function SammanfattningsQuiz({
     setCorrect(0);
     setDone(false);
   };
+
+  useEffect(() => {
+    if (done && correct === total) {
+      // Trippa confetti vid full pott
+      import("canvas-confetti").then(({ default: confetti }) => {
+        confetti({
+          particleCount: 80,
+          spread: 70,
+          origin: { y: 0.6 },
+          colors: [accentHex, "#fcd34d", "#a5b4fc", "#fff"],
+        });
+      });
+    }
+  }, [done, correct, total, accentHex]);
 
   if (done) {
     const pct = Math.round((correct / total) * 100);

@@ -73,6 +73,38 @@ export const MELLANSTADIET_GAMES: MellanstadietGame[] = [
     status: "ready",
   },
   {
+    id: "sycophancy-detektorn",
+    slug: "sycophancy-detektorn",
+    title: "Sycophancy-detektorn",
+    tagline: "Smicker eller ärligt? Du bedömer 10 AI-svar.",
+    description:
+      "AI-svar låter ofta lika trevliga oavsett om de smickrar eller är ärliga. Du läser tio scenarier — kan du skilja på AI som håller med och AI som faktiskt försöker hjälpa?",
+    lesson: "L6",
+    pedagogy:
+      "Sycophancy är farligt eftersom det LÅTER snällt. Du tränar dig att se igenom smicker — det är en superkraft som gäller även mot människor.",
+    type: "Quiz",
+    duration: "5 min",
+    accentHex: "#8b5cf6",
+    difficulty: 3,
+    status: "ready",
+  },
+  {
+    id: "dilemma-spelet",
+    slug: "dilemma-spelet",
+    title: "Dilemma-spelet",
+    tagline: "Åtta etiska val — inga rätta svar, bara konsekvenser",
+    description:
+      "Du möter åtta etiska dilemman — fusk, kompis i kris, AI-bilder, dark patterns, AI och miljö, AI som tröst. Varje val har konsekvenser. Slut: din etiska profil enligt tre etiska frågor.",
+    lesson: "L5",
+    pedagogy:
+      "Etik är inte ett facit. Du tränas i Joel Rangsjös tre frågor: är det ärligt? lär jag mig? snällt mot andra?",
+    type: "Undersökning",
+    duration: "8 min",
+    accentHex: "#eab308",
+    difficulty: 2,
+    status: "ready",
+  },
+  {
     id: "hallucination-rally",
     slug: "hallucination-rally",
     title: "Hallucination-rally",

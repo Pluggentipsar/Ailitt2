@@ -122,9 +122,41 @@
   font-weight: 600;
 }
 
-/* Förvald scroll-anchoring för sektionsnav */
+/* Förvald scroll-anchoring — kompenserar för sticky SectionNav (~64px desktop, ~80px mobile) */
 .mellanstadiet-root [id] {
-  scroll-margin-top: 5rem;
+  scroll-margin-top: 6rem;
+}
+
+@media (min-width: 768px) {
+  .mellanstadiet-root [id] {
+    scroll-margin-top: 5.5rem;
+  }
+}
+
+/* Bättre touch-targets för mellanstadie-fingrar — alla knappar minst 40px höga */
+.mellanstadiet-root button,
+.mellanstadiet-root a[href] {
+  min-height: 36px;
+}
+
+/* Smooth scroll för section-nav-hopp */
+@media (prefers-reduced-motion: no-preference) {
+  .mellanstadiet-root {
+    scroll-behavior: smooth;
+  }
+}
+
+/* Större line-height för läsvänlighet */
+.mellanstadiet-root .ms-prose p,
+.mellanstadiet-root .ms-prose li {
+  line-height: 1.75;
+}
+
+/* Tydligare focus-ring för tangentbordsnavigering */
+.mellanstadiet-root *:focus-visible {
+  outline: 2px solid #fcd34d;
+  outline-offset: 2px;
+  border-radius: 4px;
 }
 
 /* Animation utils */
