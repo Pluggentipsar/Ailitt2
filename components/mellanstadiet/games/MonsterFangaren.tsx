@@ -72,7 +72,7 @@ interface TrainingEntry {
 
 export function MonsterFangaren() {
   const [gameState, setGameState] = useState<GameState>("menu");
-  const [paddleX, setPaddleX] = useState(50); // procent
+  const [paddleX, setPaddleX] = useState(50); // procent — endast för rendering
   const [items, setItems] = useState<FallingItem[]>([]);
   const [training, setTraining] = useState<TrainingEntry[]>([]);
   const [score, setScore] = useState(0);
@@ -86,6 +86,17 @@ export function MonsterFangaren() {
   const tickTimerRef = useRef<ReturnType<typeof setInterval> | null>(null);
   const nextIdRef = useRef(1);
   const elapsedRef = useRef(0);
+  // Refs för paddel — så animation-loopen kan läsa utan att starta om
+  const paddleXRef = useRef(50);
+
+  const movePaddle = useCallback((newX: number) => {
+    const clamped = Math.max(
+      PADDLE_WIDTH / 2,
+      Math.min(100 - PADDLE_WIDTH / 2, newX)
+    );
+    paddleXRef.current = clamped;
+    setPaddleX(clamped);
+  }, []);
 
   // Mät arenahöjd
   useEffect(() => {
@@ -104,9 +115,9 @@ export function MonsterFangaren() {
     if (gameState !== "playing") return;
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "ArrowLeft" || e.key === "a") {
-        setPaddleX((x) => Math.max(PADDLE_WIDTH / 2, x - 6));
+        movePaddle(paddleXRef.current - 6);
       } else if (e.key === "ArrowRight" || e.key === "d") {
-        setPaddleX((x) => Math.min(100 - PADDLE_WIDTH / 2, x + 6));
+        movePaddle(paddleXRef.current + 6);
       } else if (e.key === " ") {
         e.preventDefault();
         setGameState("paused");
@@ -114,29 +125,26 @@ export function MonsterFangaren() {
     };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
-  }, [gameState]);
+  }, [gameState, movePaddle]);
 
   // Touch/pekarstyrning
   const handlePointer = useCallback(
     (e: React.PointerEvent<HTMLDivElement>) => {
       if (gameState !== "playing") return;
-      if (e.pointerType === "mouse" && e.buttons === 0) {
-        // mus utan tryck = följ ändå
-      }
       const rect = e.currentTarget.getBoundingClientRect();
       const pct = ((e.clientX - rect.left) / rect.width) * 100;
-      setPaddleX(
-        Math.max(PADDLE_WIDTH / 2, Math.min(100 - PADDLE_WIDTH / 2, pct))
-      );
+      movePaddle(pct);
     },
-    [gameState]
+    [gameState, movePaddle]
   );
 
-  // Spelloop — animation + collision
+  // Spelloop — animation + collision. Läser paddleX från ref så loopen
+  // INTE startar om vid varje paddelrörelse (kritisk performance-fix).
   useEffect(() => {
     if (gameState !== "playing") return;
 
     const tick = () => {
+      const currentPaddleX = paddleXRef.current;
       setItems((curr) => {
         const arenaH = arenaHeightRef.current;
         const paddleY = arenaH - 60;
@@ -151,14 +159,13 @@ export function MonsterFangaren() {
 
           // Träffar paddelnivån?
           if (newY >= paddleY && it.y < paddleY) {
-            // Var den över paddel?
             const halfW = PADDLE_WIDTH / 2;
             const itemPctX = it.x;
-            const paddleLeft = paddleX - halfW;
-            const paddleRight = paddleX + halfW;
+            const paddleLeft = currentPaddleX - halfW;
+            const paddleRight = currentPaddleX + halfW;
 
             if (itemPctX >= paddleLeft && itemPctX <= paddleRight) {
-              // Vilket fack landade den i? (vänster halva av paddel = HUND, höger = KATT)
+              // Vilket fack? (vänster halva av paddel = HUND, höger = KATT)
               const localPct = (itemPctX - paddleLeft) / PADDLE_WIDTH;
               const placedIn: Animal = localPct < 0.5 ? "hund" : "katt";
               const correctlyClassified = placedIn === it.animal;
@@ -169,11 +176,11 @@ export function MonsterFangaren() {
                 scoreDelta -= 5;
               }
               newTraining.push({
-                animal: placedIn, // Vad spelaren TROR det är (det blir AI:s träning)
+                animal: placedIn,
                 color: it.color,
                 correctlyClassified,
               });
-              continue; // ta bort från fallande
+              continue;
             }
           }
 
@@ -200,7 +207,7 @@ export function MonsterFangaren() {
     return () => {
       if (animFrameRef.current) cancelAnimationFrame(animFrameRef.current);
     };
-  }, [gameState, paddleX]);
+  }, [gameState]);
 
   // Spawnloop
   useEffect(() => {
@@ -260,6 +267,7 @@ export function MonsterFangaren() {
     setScore(0);
     setMisses(0);
     setTimeLeft(GAME_DURATION);
+    paddleXRef.current = 50;
     setPaddleX(50);
     elapsedRef.current = 0;
     setGameState("playing");
