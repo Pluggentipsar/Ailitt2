@@ -72,8 +72,8 @@ export const MELLANSTADIET_LESSONS: MellanstadietLesson[] = [
     duration: "90 min",
     accent: "emerald",
     accentHex: "#10b981",
-    interaktivt: "Prompt-labbet",
-    status: "draft",
+    interaktivt: "Prompt-Labbet",
+    status: "ready",
   },
   {
     id: "lektion-4",
@@ -90,7 +90,7 @@ export const MELLANSTADIET_LESSONS: MellanstadietLesson[] = [
     accent: "rose",
     accentHex: "#f43f5e",
     interaktivt: "Hallucinationsjakten",
-    status: "draft",
+    status: "ready",
   },
   {
     id: "lektion-5",

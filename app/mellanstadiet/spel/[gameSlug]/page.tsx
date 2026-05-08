@@ -9,6 +9,7 @@ import { NastaOrdGame } from "@/components/mellanstadiet/games/NastaOrdGame";
 import { AiEllerManniskaGame } from "@/components/mellanstadiet/games/AiEllerManniskaGame";
 import { BiasDetektiven } from "@/components/mellanstadiet/games/BiasDetektiven";
 import { MonsterFangaren } from "@/components/mellanstadiet/games/MonsterFangaren";
+import { HallucinationRally } from "@/components/mellanstadiet/games/HallucinationRally";
 
 export function generateStaticParams() {
   return MELLANSTADIET_GAMES.filter((g) => g.status === "ready").map((g) => ({
@@ -72,6 +73,7 @@ export default async function GamePage({
         {game.id === "nasta-ord" && <NastaOrdGame />}
         {game.id === "ai-eller-manniska" && <AiEllerManniskaGame />}
         {game.id === "bias-detektiven" && <BiasDetektiven />}
+        {game.id === "hallucination-rally" && <HallucinationRally />}
       </section>
     </div>
   );

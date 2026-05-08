@@ -73,6 +73,22 @@ export const MELLANSTADIET_GAMES: MellanstadietGame[] = [
     status: "ready",
   },
   {
+    id: "hallucination-rally",
+    slug: "hallucination-rally",
+    title: "Hallucination-rally",
+    tagline: "90 sek att hitta så många påhittade fakta som möjligt",
+    description:
+      "Ett flöde av AI-genererade påståenden. Du har 90 sekunder och tre val: PÅHITTAT, STÄMMER eller SKIPPA. Hastighet straffar dig — som det gjorde advokaterna 2025.",
+    lesson: "L4",
+    pedagogy:
+      "Snabbläsning + AI:s självsäkra ton = farlig kombination. Du upplever varför granskning kräver tid.",
+    type: "Arkad",
+    duration: "3 min",
+    accentHex: "#f43f5e",
+    difficulty: 3,
+    status: "ready",
+  },
+  {
     id: "bias-detektiven",
     slug: "bias-detektiven",
     title: "Bias-detektiven",
