@@ -7,6 +7,12 @@ import { TidslinjePussel } from "@/components/mellanstadiet/TidslinjePussel";
 import { MetrTimeline } from "@/components/mellanstadiet/MetrTimeline";
 import { BegreppsBank } from "@/components/mellanstadiet/BegreppsBank";
 import { SpelCallout } from "@/components/mellanstadiet/SpelCallout";
+import { PlaceholderImage } from "@/components/mellanstadiet/PlaceholderImage";
+import { ReflectionPrompt } from "@/components/mellanstadiet/ReflectionPrompt";
+import { PravaMedAI } from "@/components/mellanstadiet/PravaMedAI";
+import { DiskutteraBlock } from "@/components/mellanstadiet/DiskutteraBlock";
+import { SammanfattningsQuiz } from "@/components/mellanstadiet/SammanfattningsQuiz";
+import { VagorDiagram } from "@/components/mellanstadiet/VagorDiagram";
 
 export function Lektion1Content({ lesson }: { lesson: MellanstadietLesson }) {
   return (
@@ -27,6 +33,12 @@ export function Lektion1Content({ lesson }: { lesson: MellanstadietLesson }) {
         accentHex={lesson.accentHex}
         intro="R2-D2 i Star Wars. Baymax i Big Hero 6. JARVIS i Iron Man. Pokédex i Pokémon. En zombie i Minecraft. Vilken av dem är AI på riktigt?"
       >
+        <PlaceholderImage
+          caption="Filmcollage: R2-D2, Baymax, JARVIS, Wall-E, Pokédex, Minecraft-zombie sida vid sida"
+          hint="Joel klipper ihop kort sekvens — 8-12 sek per karaktär"
+          aspect="16/9"
+        />
+
         <p>
           <strong>Trickfråga.</strong> Ingen av dem.
         </p>
@@ -38,6 +50,17 @@ export function Lektion1Content({ lesson }: { lesson: MellanstadietLesson }) {
           datorhallar långt borta. Vi pratar med dem genom våra telefoner och
           datorer.
         </p>
+
+        <ReflectionPrompt
+          accentHex={lesson.accentHex}
+          mode="skriv"
+          question="Innan du läser vidare — vad trodde DU att AI var när du var liten?"
+          followups={[
+            "Vad var den första AI:n du minns att du mötte?",
+            "Vad gjorde den?",
+            "Trodde du att den 'tänkte'?",
+          ]}
+        />
 
         <Quiz
           accentHex={lesson.accentHex}
@@ -84,6 +107,12 @@ export function Lektion1Content({ lesson }: { lesson: MellanstadietLesson }) {
         duration="15 min"
         accentHex={lesson.accentHex}
       >
+        <PlaceholderImage
+          caption="Två parallella tidslinjer: 'Berättelser om AI' (Frankenstein, HAL, Skynet, Wall-E) och 'AI på riktigt' (Turing, Deep Blue, AlphaGo, ChatGPT)"
+          hint="Joel: en illustrerad dubbel-tidslinje, kanske svart-vit för fantasi och färg för verklighet"
+          aspect="3/2"
+        />
+
         <h3>Berättelsen i fantasin</h3>
         <p>
           År <strong>1818</strong> skrev Mary Shelley en bok som heter{" "}
@@ -160,6 +189,13 @@ export function Lektion1Content({ lesson }: { lesson: MellanstadietLesson }) {
           försvann i luften.
         </p>
         <p>Bara ett halvår senare gick det inte längre att se skillnad.</p>
+
+        <PlaceholderImage
+          caption="Will Smith spaghetti 2023 (vänster, suddig och konstig) jämfört med Sora 2026 (höger, fotorealistisk)"
+          hint="Joel: två stillbilder sida vid sida — visar utvecklingen på 3 år"
+          aspect="16/7"
+        />
+
         <p>
           År <strong>2024</strong> fick AI-forskarna{" "}
           <strong>Nobelpriset i fysik och kemi</strong> — det första Nobelpriset
@@ -178,6 +214,17 @@ export function Lektion1Content({ lesson }: { lesson: MellanstadietLesson }) {
         <p>
           Det är där vi är just nu. <strong>2026.</strong>
         </p>
+
+        <DiskutteraBlock
+          accentHex={lesson.accentHex}
+          format="par"
+          question="Vad gissade filmerna RÄTT om — och vad blev annorlunda?"
+          prompts={[
+            "Filmerna hade nästan alltid AI med kropp. Hur ser AI ut idag?",
+            "Filmerna gjorde ofta AI till skurken. Är dagens AI 'ond'?",
+            "Vad gissade filmerna ändå RÄTT? (tips: AI som vinner i spel)",
+          ]}
+        />
       </Sektion>
 
       {/* === STEG C: KÄRNTEXT === */}
@@ -189,6 +236,8 @@ export function Lektion1Content({ lesson }: { lesson: MellanstadietLesson }) {
         accentHex={lesson.accentHex}
         intro="Forskare brukar dela in AI:s utveckling i stora vågor. Du läser nu om alla fyra."
       >
+        <VagorDiagram />
+
         <h3>Våg 1: AI som följer regler (1956–2000)</h3>
         <p>
           Människor <em>programmerade in</em> alla regler i datorn. &quot;Om
@@ -272,6 +321,13 @@ export function Lektion1Content({ lesson }: { lesson: MellanstadietLesson }) {
           du ger ett uppdrag.
         </Citat>
 
+        <PravaMedAI
+          accentHex={lesson.accentHex}
+          title="Förklara agenter med AI:s egna ord"
+          prompt="Förklara skillnaden mellan en AI-chattbot och en AI-agent för en 11-åring. Ge tre konkreta exempel på vad en agent kan göra som en vanlig chattbot inte kan."
+          observation="Stämmer AI:s svar med vad du läst i den här lektionen? Hittade du minst tre exempel? Är de specifika eller generiska? Ifrågasätt fritt."
+        />
+
         <h3>Varför går det så snabbt just nu?</h3>
         <p>Tre saker har hänt samtidigt:</p>
         <p>
@@ -326,6 +382,17 @@ export function Lektion1Content({ lesson }: { lesson: MellanstadietLesson }) {
           Men AI gör fortfarande misstag. Människan behövs för att kontrollera.
           Det är vad du kommer lära dig i den här kursen.
         </p>
+
+        <ReflectionPrompt
+          accentHex={lesson.accentHex}
+          mode="tänk"
+          question="Om AI dubblas var sjunde månad — vad kan AI göra om TVÅ ÅR?"
+          followups={[
+            "Försök räkna: hur många dubblingar blir det på 24 månader?",
+            "Vad innebär det om uppgifter på 14 timmar dubblas tre gånger?",
+            "Vilka jobb skulle förändras mest? Vilka tror du består?",
+          ]}
+        />
 
         <Quiz
           accentHex={lesson.accentHex}
@@ -395,16 +462,31 @@ export function Lektion1Content({ lesson }: { lesson: MellanstadietLesson }) {
           Instagram, Spotifys rekommendationer, ett spel med smarta motståndare.
           Räkna upp till 10. Ta med din lista nästa lektion.
         </p>
-        <p>
-          <strong>Bonusövning:</strong> Be ChatGPT (eller annat AI-verktyg) om{" "}
-          <em>tre saker som hände inom AI år [ditt födelseår]</em>. Granska
-          sedan svaret mot Wikipedia eller en lärobok. Dokumentera vad AI:n hade
-          rätt och fel om.
-        </p>
 
-        <Citat accentHex={lesson.accentHex}>
-          Du kommer bli förvånad över hur mycket AI du redan använder.
-        </Citat>
+        <PravaMedAI
+          accentHex={lesson.accentHex}
+          title="Födelseårstestet"
+          prompt="Berätta tre konkreta saker som hände inom AI-utvecklingen år [skriv ditt födelseår]. Var specifik med datum och företag."
+          observation="Skriv ner svaret. Kontrollera mot Wikipedia eller en lärobok. Hade AI rätt om allt? Hittade den på något? Markera vad som stämde och vad som var påhittat."
+        />
+
+        <PravaMedAI
+          accentHex={lesson.accentHex}
+          title="Lokal kontroll-test"
+          prompt="Berätta om [din skola/fotbollsklubb/lokala park]. Vad har hänt där de senaste tio åren?"
+          observation="AI känner ofta inte till lokala detaljer. Hur märks det i svaret? Är det generiskt? Hittar den på? Det här är ett bra sätt att se när AI gissar utan grund."
+        />
+
+        <DiskutteraBlock
+          accentHex={lesson.accentHex}
+          format="par"
+          question="Jämför era AI-vecka-loggar"
+          prompts={[
+            "Hade ni samma AI:er på listan? Vilka skillnader?",
+            "Hur många av punkterna visste ni var AI innan denna lektion?",
+            "Är det något ni använder dagligen som ni inte tänkte på som AI?",
+          ]}
+        />
       </Sektion>
 
       {/* === STEG F: LANDNING === */}
@@ -434,6 +516,69 @@ export function Lektion1Content({ lesson }: { lesson: MellanstadietLesson }) {
             mer.
           </li>
         </ol>
+
+        <SammanfattningsQuiz
+          accentHex={lesson.accentHex}
+          title="Sammanfattningsquiz · L1"
+          questions={[
+            {
+              prompt: "Vilket år lanserades ChatGPT?",
+              options: [
+                { text: "2017 — samma år som transformer-arkitekturen", correct: false, feedback: "2017 var året transformer-arkitekturen publicerades. Men ChatGPT kom senare." },
+                { text: "30 november 2022", correct: true, feedback: "Just det. På fem dagar hade en miljon användare börjat använda den." },
+                { text: "2024 — samtidigt som AI-Nobelpriset", correct: false, feedback: "Nobelpriset till AI kom 2024, men ChatGPT lanserades två år tidigare." },
+                { text: "2020 — under pandemin", correct: false, feedback: "Nej, ChatGPT lanserades efter pandemin." },
+              ],
+            },
+            {
+              prompt: "Vad är harness?",
+              options: [
+                { text: "En typ av AI-modell", correct: false, feedback: "Nej. Modellen är 'hjärnan'. Harness är något annat." },
+                { text: "Verktygen runt AI som låter den agera — läsa filer, klicka, köra kod", correct: true, feedback: "Just det. Som selen på en häst — det som ger AI 'kropp'." },
+                { text: "Datorkraften som tränar AI", correct: false, feedback: "Datorkraft är en av tre ingredienser för dagens AI, men inte harness." },
+                { text: "Ett företag som bygger AI", correct: false, feedback: "Inte alls — det är ett tekniskt begrepp om verktygen runt en AI-modell." },
+              ],
+            },
+            {
+              prompt: "Vilken är den bästa beskrivningen av en AI-agent?",
+              options: [
+                { text: "AI med en fysisk robot-kropp", correct: false, feedback: "Inte alls — AI-agenter har ingen kropp. De är program." },
+                { text: "AI som kan utföra uppgifter, inte bara svara — klicka, köra kod, fatta delbeslut", correct: true, feedback: "Rätt. Chattbot = någon du frågar. Agent = någon du ger ett uppdrag." },
+                { text: "En förbjuden, farlig typ av AI", correct: false, feedback: "Nej — agenter är vanliga 2026 och används brett." },
+                { text: "AI som har egen vilja", correct: false, feedback: "Nej — AI har ingen egen vilja. Agenter följer instruktioner människor har gett." },
+              ],
+            },
+            {
+              prompt: "Vad menas med att AI 'dubblas var sjunde månad' enligt METR?",
+              options: [
+                { text: "AI blir dubbelt så dyr", correct: false, feedback: "Nej — det är inte priset som dubblas." },
+                { text: "Hur långa uppgifter AI kan göra autonomt fördubblas", correct: true, feedback: "Just det. 2019 var det sekunder. 2026 är det 14 timmar för agenter på kodningsuppgifter." },
+                { text: "AI blir dubbelt så bra på allt", correct: false, feedback: "Det här gäller specifikt tidshorisonten — hur LÅNGA uppgifter AI klarar." },
+                { text: "Antalet AI-företag dubblas", correct: false, feedback: "Inte det måttet. METR mäter förmåga, inte bransch." },
+              ],
+            },
+            {
+              prompt: "Var det Iron Man-filmen som först visade AI som löser kemi-problem?",
+              options: [
+                { text: "Ja — JARVIS löste flera kemi-problem i Iron Man", correct: false, feedback: "Iron Man visar fiktiv AI. Riktig AI som löser kemi-problem är AlphaFold (Nobelpris 2024)." },
+                { text: "Nej — det var verkligheten som hann före. AlphaFold löste protein-problem och fick Nobelpris 2024", correct: true, feedback: "Just det. Filmer hann inte gissa rätt om allt — verkligheten överraskade på vissa punkter." },
+                { text: "Ja — alla AI-genombrott har förutspåtts av filmer", correct: false, feedback: "Inte alls. Många riktiga AI-genombrott (transformer, Nobelpris, agenter) var oväntade." },
+                { text: "Det går inte att jämföra film och verklighet", correct: false, feedback: "Jo — det är just det vi gör i den här lektionen. Vissa filmer hade rätt, andra fel." },
+              ],
+            },
+          ]}
+        />
+
+        <ReflectionPrompt
+          accentHex={lesson.accentHex}
+          mode="skriv"
+          question="Tre frågor till dig själv"
+          followups={[
+            "Vad i lektionen förvånade dig mest?",
+            "Vilken AI-användning har du som du nu ser annorlunda på?",
+            "Vad vill du veta mer om till nästa lektion?",
+          ]}
+        />
       </Sektion>
 
       {/* Begreppsbank */}

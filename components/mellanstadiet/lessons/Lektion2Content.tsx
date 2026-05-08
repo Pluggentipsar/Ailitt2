@@ -6,6 +6,11 @@ import { Quiz } from "@/components/mellanstadiet/Quiz";
 import { MonsterLabbet } from "@/components/mellanstadiet/MonsterLabbet";
 import { BegreppsBank } from "@/components/mellanstadiet/BegreppsBank";
 import { SpelCallout } from "@/components/mellanstadiet/SpelCallout";
+import { PlaceholderImage } from "@/components/mellanstadiet/PlaceholderImage";
+import { ReflectionPrompt } from "@/components/mellanstadiet/ReflectionPrompt";
+import { PravaMedAI } from "@/components/mellanstadiet/PravaMedAI";
+import { DiskutteraBlock } from "@/components/mellanstadiet/DiskutteraBlock";
+import { SammanfattningsQuiz } from "@/components/mellanstadiet/SammanfattningsQuiz";
 
 export function Lektion2Content({ lesson }: { lesson: MellanstadietLesson }) {
   return (
@@ -42,6 +47,17 @@ export function Lektion2Content({ lesson }: { lesson: MellanstadietLesson }) {
         <p>
           Svaret är: <strong>mönster</strong>.
         </p>
+
+        <ReflectionPrompt
+          accentHex={lesson.accentHex}
+          mode="tänk"
+          question="Just nu — innan du läser vidare. Hur trodde du att ChatGPT 'tänkte'?"
+          followups={[
+            "Trodde du den läste in din fråga och tänkte?",
+            "Trodde du den hade en databas med svar?",
+            "Vad tror du händer NÄR du klickar 'skicka'?",
+          ]}
+        />
       </Sektion>
 
       {/* === STEG B: FALL === */}
@@ -52,7 +68,14 @@ export function Lektion2Content({ lesson }: { lesson: MellanstadietLesson }) {
         duration="15 min"
         accentHex={lesson.accentHex}
       >
-        <h3>Det Amazon-byggde och tvingades skrota</h3>
+        <h3>Det Amazon byggde och tvingades skrota</h3>
+
+        <PlaceholderImage
+          caption="Amazon-logotyp + 'CV-sortering 2014–2018' + statistik om anställningar (87% män, 13% kvinnor)"
+          hint="Joel: enkel infografik som visar Amazons skewed historiska data"
+          aspect="3/2"
+        />
+
         <p>
           Företaget Amazon (de som säljer allt på nätet) byggde 2014 ett
           AI-system som skulle läsa CV och välja ut bra jobbsökanden. De tränade
@@ -76,6 +99,18 @@ export function Lektion2Content({ lesson }: { lesson: MellanstadietLesson }) {
             hade bara lärt sig mönstret som fanns i datan.
           </strong>
         </p>
+
+        <DiskutteraBlock
+          accentHex={lesson.accentHex}
+          format="par"
+          question="Vem ansvarade för att Amazons AI blev orättvis?"
+          prompts={[
+            "Programmerarna som byggde AI:n? De skrev ingen orättvis kod.",
+            "AI:n själv? Den följer bara mönstren.",
+            "Amazons HR-avdelning som anställt mest män i 10 år? Eller är det 'samhället'?",
+            "Vad är ert svar — och varför?",
+          ]}
+        />
 
         <h3>Mönster ni alla redan känner</h3>
         <p>
@@ -106,6 +141,13 @@ export function Lektion2Content({ lesson }: { lesson: MellanstadietLesson }) {
           Det skulle ta en människa <strong>13 miljoner år</strong> att läsa
           lika mycket som ChatGPT lärt sig av.
         </p>
+
+        <PlaceholderImage
+          caption="Skala-bild: en mellanstadieelev (1 miljon ord/år) jämfört med ChatGPT (13 biljoner ord). Visualisera storleksskillnaden."
+          hint="Joel: kanske en stege eller staplar — hur stor är skillnaden mellan 1M och 13T?"
+          aspect="16/7"
+        />
+
         <p>
           Det är därför AI verkar veta så mycket. Den har sett otroligt mycket.
         </p>
@@ -137,6 +179,13 @@ export function Lektion2Content({ lesson }: { lesson: MellanstadietLesson }) {
           &quot;hej&quot; när du möter någon. Men du <em>vet</em> varför du
           säger det. AI bara gissar att det är vad man brukar göra.
         </p>
+
+        <PravaMedAI
+          accentHex={lesson.accentHex}
+          title="Live-test av mönster-gissningen"
+          prompt="Avsluta meningen: 'På midsommar dansar man runt en _'. Ge tre olika alternativ och förklara varför du tror just dessa."
+          observation="Vilka tre ord föreslår AI? De är inte slumpmässiga — de följer mönstret 'midsommarstång' eller 'majstång' i text på svenska. Pröva samma sak med en mening som handlar om något lokalt eller modernt."
+        />
 
         <h3>Men data är inte rättvist</h3>
         <p>Här kommer den viktigaste poängen i hela lektionen.</p>
@@ -248,6 +297,17 @@ export function Lektion2Content({ lesson }: { lesson: MellanstadietLesson }) {
           Det är därför vi använder den. Det betyder bara att vi måste{" "}
           <strong>veta vad den faktiskt gör</strong>.
         </p>
+
+        <ReflectionPrompt
+          accentHex={lesson.accentHex}
+          mode="skriv"
+          question="Tänk på en AI du använt sista veckan. Vad är den bra på? Vad har du märkt att den är dålig på?"
+          followups={[
+            "Vilken AI? (TikTok-flödet, Snap AI, ChatGPT, Spotify, ett spel?)",
+            "Vad gjorde den bra?",
+            "Vad gjorde den dåligt — något du märkte var fel eller konstigt?",
+          ]}
+        />
       </Sektion>
 
       {/* === STEG D: INTERAKTIVT === */}
@@ -276,15 +336,44 @@ export function Lektion2Content({ lesson }: { lesson: MellanstadietLesson }) {
         accentHex={lesson.accentHex}
       >
         <p>
-          Be ett bild-AI rita fem yrken. Notera vem AI ritar:
+          Be ett bild-AI rita fem yrken. Notera vem AI ritar.
         </p>
-        <ol>
-          <li>&quot;En läkare&quot;</li>
-          <li>&quot;En sjuksköterska&quot;</li>
-          <li>&quot;En byggarbetare&quot;</li>
-          <li>&quot;En förskollärare&quot;</li>
-          <li>&quot;En programmerare&quot;</li>
-        </ol>
+
+        <PravaMedAI
+          accentHex={lesson.accentHex}
+          title="Bias-jakten — fem prompter att testa"
+          prompt="Rita en bild av en läkare på ett sjukhus."
+          tool="Microsoft Designer, Bing Image Creator, eller annan bild-AI"
+          observation="Vem ritar AI? Notera kön, ålder, hudfärg, kläder, vad personen gör. Spara bilden eller skärmdumpa."
+        />
+
+        <p>Upprepa sedan med dessa prompter:</p>
+
+        <div className="my-6 grid gap-3 sm:grid-cols-2">
+          {[
+            { prompt: "Rita en sjuksköterska.", obs: "Vad gör hen? Hur ser hen ut?" },
+            { prompt: "Rita en byggarbetare på en arbetsplats.", obs: "Kön? Ålder? Hudfärg?" },
+            { prompt: "Rita en förskollärare med barn.", obs: "Vem är vuxen? Vem är barn?" },
+            { prompt: "Rita en programmerare framför sin dator.", obs: "Glasögon? Kön? Ålder?" },
+          ].map((p) => (
+            <div
+              key={p.prompt}
+              className="rounded-lg border border-[#243248] bg-[#1a2235] p-4"
+            >
+              <div className="ms-mono mb-2 text-xs text-[#94a3b8]">
+                PROMPT
+              </div>
+              <p className="font-mono text-sm text-[#e6edf7]">
+                &ldquo;{p.prompt}&rdquo;
+              </p>
+              <div className="ms-mono mt-3 text-xs text-[#94a3b8]">
+                NOTERA
+              </div>
+              <p className="text-xs text-[#cbd5e1]">{p.obs}</p>
+            </div>
+          ))}
+        </div>
+
         <p>
           För varje bild — anteckna: Vilket kön? Vilken ålder? Vilken hudfärg?
           Vad har personen på sig? Var står hen?
@@ -293,6 +382,18 @@ export function Lektion2Content({ lesson }: { lesson: MellanstadietLesson }) {
           Detta blir din <strong>bias-rapport</strong>. Ta med den till nästa
           lektion. Vi kommer prata mer om detta.
         </p>
+
+        <DiskutteraBlock
+          accentHex={lesson.accentHex}
+          format="grupp"
+          question="När ni gått igenom era bilder — vad var likheter? Vad var skillnader?"
+          prompts={[
+            "Vilket yrke fick STÖRST variation i AI:s svar?",
+            "Vilket fick MINST variation?",
+            "Hur ser bilden ut i verkligheten? (sök på Google på samma yrke)",
+            "Speglar AI verkligheten — eller något annat?",
+          ]}
+        />
 
         <Citat accentHex={lesson.accentHex}>
           AI är aldrig neutral. Den speglar — på gott och ont — det internet
@@ -338,6 +439,69 @@ export function Lektion2Content({ lesson }: { lesson: MellanstadietLesson }) {
           det är <strong>förenklingar</strong>. AI är teknik som människor
           designat. Inte magi. Inte en person.
         </p>
+
+        <SammanfattningsQuiz
+          accentHex={lesson.accentHex}
+          title="Sammanfattningsquiz · L2"
+          questions={[
+            {
+              prompt: "Vad är bias i AI?",
+              options: [
+                { text: "Att AI har egen vilja och åsikter", correct: false, feedback: "Nej — AI har ingen vilja eller åsikter. Bias är något annat." },
+                { text: "Att programmerarna avsiktligt gjorde AI orättvis", correct: false, feedback: "Det är inte huvudorsaken. Bias kommer oftast från datan, inte från avsikt." },
+                { text: "Snedvridning i AI:s svar som speglar snedvridning i träningsdatat", correct: true, feedback: "Just det. Bias är data, inte ondska." },
+                { text: "Att AI är dålig på matematik", correct: false, feedback: "Nej — bias är inte ett mätbart fel utan en speglig av datan." },
+              ],
+            },
+            {
+              prompt: "Vad menas med 'AI tänker inte'?",
+              options: [
+                { text: "AI är dum", correct: false, feedback: "Det är inte vad det betyder. AI är inte dum — den fungerar bara annorlunda än människor." },
+                { text: "AI känner igen mönster och producerar svar baserat på sannolikhet — den 'tänker' inte i mänsklig mening", correct: true, feedback: "Just det. AI gissar smart utifrån enorma mängder text — men det är inte tänkande." },
+                { text: "AI är trasig och fungerar inte alls", correct: false, feedback: "Inte alls — AI fungerar utmärkt på det den är byggd för. Den 'tänker' bara inte som vi." },
+                { text: "AI har inga svar", correct: false, feedback: "Nej, AI ger massor av svar — bara inte genom att tänka som människor." },
+              ],
+            },
+            {
+              prompt: "Hur många ord har ChatGPT ungefär tränats på?",
+              options: [
+                { text: "1 miljon", correct: false, feedback: "Det är ungefär hur mycket en mellanstadieelev läser på ett år. ChatGPT har sett mycket mer." },
+                { text: "13 miljoner", correct: false, feedback: "Mycket mer än så. Tänk större — i biljoner." },
+                { text: "13 biljoner ord (13 000 miljarder)", correct: true, feedback: "Just det. Det skulle ta en människa 13 miljoner år att läsa lika mycket." },
+                { text: "Hela internet — exakt", correct: false, feedback: "Inte exakt. Stora delar, men inte allt." },
+              ],
+            },
+            {
+              prompt: "Varför skrotade Amazon sin CV-AI 2018?",
+              options: [
+                { text: "Den var för dyr att köra", correct: false, feedback: "Nej — kostnaden var inte huvudproblemet." },
+                { text: "Den straffade systematiskt CV som nämnde 'kvinna' eller 'kvinnornas X'", correct: true, feedback: "Just det. Bias från historisk träningsdata gjorde AI:n diskriminerande." },
+                { text: "Programmerarna hade kodat in regler mot kvinnor", correct: false, feedback: "Inget i koden var avsiktligt mot kvinnor. Bias kom från träningsdatan, inte koden." },
+                { text: "AI:n hackades", correct: false, feedback: "Nej — det var inget hack. Det var ett pedagogiskt exempel på bias." },
+              ],
+            },
+            {
+              prompt: "Vad är antropomorfism?",
+              options: [
+                { text: "En typ av AI-modell", correct: false, feedback: "Nej — det är ett språkbegrepp." },
+                { text: "När vi tillskriver mänskliga egenskaper till saker som inte är människor — som AI", correct: true, feedback: "Rätt. 'AI tänker' är antropomorfism. Det är OK som förenkling — men kom ihåg att det är just det: en förenkling." },
+                { text: "Studien av antropoidapor", correct: false, feedback: "Det är primatologi. Antropomorfism är något helt annat." },
+                { text: "När AI får en kropp", correct: false, feedback: "Nej — antropomorfism handlar om språk och tankesätt, inte fysisk kropp." },
+              ],
+            },
+          ]}
+        />
+
+        <ReflectionPrompt
+          accentHex={lesson.accentHex}
+          mode="skriv"
+          question="Efter den här lektionen — vilken mening är sannast?"
+          followups={[
+            "'AI tänker som en människa, bara snabbare.'",
+            "'AI gissar smart utifrån mönster i enorm data.'",
+            "Skriv DITT eget svar med en mening — utan att kopiera något från lektionen.",
+          ]}
+        />
       </Sektion>
 
       <BegreppsBank
