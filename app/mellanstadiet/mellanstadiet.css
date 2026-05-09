@@ -159,6 +159,27 @@
   border-radius: 4px;
 }
 
+/* Print-stilar — för diplom och utskriftbar mall.
+   När print-attribut sätts på en .diplom-card ska bara den visas. */
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  .diplom-card,
+  .diplom-card * {
+    visibility: visible;
+  }
+  .diplom-card {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    border: 4px double currentColor !important;
+    box-shadow: none !important;
+    page-break-inside: avoid;
+  }
+}
+
 /* Animation utils */
 @keyframes ms-fadein {
   from { opacity: 0; transform: translateY(8px); }

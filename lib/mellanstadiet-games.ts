@@ -89,6 +89,22 @@ export const MELLANSTADIET_GAMES: MellanstadietGame[] = [
     status: "ready",
   },
   {
+    id: "byg-din-framtid",
+    slug: "byg-din-framtid",
+    title: "Bygg din framtid",
+    tagline: "7 val × 4 alternativ — vilken framtid bygger DU för 2040?",
+    description:
+      "Sju domäner: arbete, skola, transport, fritid, vänskap, demokrati, klimat. Per domän väljer du en framtidsbild. Slutet visar din helhetsbild — och om den lutar utopisk, pragmatisk eller oroande.",
+    lesson: "L7",
+    pedagogy:
+      "Framtiden är inte en plats vi besöker — den byggs av val. Du tränas i att tänka konkret om hur AI förändrar samhället, och se DINA preferenser.",
+    type: "Undersökning",
+    duration: "8 min",
+    accentHex: "#06b6d4",
+    difficulty: 2,
+    status: "ready",
+  },
+  {
     id: "dilemma-spelet",
     slug: "dilemma-spelet",
     title: "Dilemma-spelet",

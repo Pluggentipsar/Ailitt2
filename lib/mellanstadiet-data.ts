@@ -141,7 +141,7 @@ export const MELLANSTADIET_LESSONS: MellanstadietLesson[] = [
     accent: "cyan",
     accentHex: "#06b6d4",
     interaktivt: "Bygg din framtid",
-    status: "draft",
+    status: "ready",
   },
 ];
 
