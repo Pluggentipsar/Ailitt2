@@ -1,8 +1,10 @@
 import { ReactNode } from "react";
+import { getNextSection } from "@/lib/mellanstadiet-sections";
+import { NextSectionButton } from "./NextSectionButton";
 
 interface SektionProps {
   id: string;
-  step: string; // "A", "B", ...
+  step: string;
   title: string;
   duration?: string;
   intro?: string;
@@ -10,7 +12,6 @@ interface SektionProps {
   children: ReactNode;
 }
 
-/** Wrapper för en lektionssektion (Krok / Fall / Kärntext / Interaktivt / Praktik / Landning). */
 export function Sektion({
   id,
   step,
@@ -20,6 +21,8 @@ export function Sektion({
   accentHex,
   children,
 }: SektionProps) {
+  const next = getNextSection(id);
+
   return (
     <section id={id} className="border-t border-[#243248] py-16">
       <div className="mx-auto max-w-3xl px-4">
@@ -47,6 +50,13 @@ export function Sektion({
         )}
 
         <div className="ms-prose">{children}</div>
+
+        {next && (
+          <NextSectionButton
+            next={next}
+            accentHex={accentHex}
+          />
+        )}
       </div>
     </section>
   );

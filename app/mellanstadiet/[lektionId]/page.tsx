@@ -6,21 +6,13 @@ import {
 import { LessonHero } from "@/components/mellanstadiet/LessonHero";
 import { LessonFooter } from "@/components/mellanstadiet/LessonFooter";
 import { SectionNav } from "@/components/mellanstadiet/SectionNav";
+import { STANDARD_SECTIONS } from "@/lib/mellanstadiet-sections";
 import { Lektion1Content } from "@/components/mellanstadiet/lessons/Lektion1Content";
 import { Lektion2Content } from "@/components/mellanstadiet/lessons/Lektion2Content";
 import { Lektion3Content } from "@/components/mellanstadiet/lessons/Lektion3Content";
 import { Lektion4Content } from "@/components/mellanstadiet/lessons/Lektion4Content";
 import { Lektion5Content } from "@/components/mellanstadiet/lessons/Lektion5Content";
 import { Lektion6Content } from "@/components/mellanstadiet/lessons/Lektion6Content";
-
-const STANDARD_SECTIONS = [
-  { id: "krok", step: "A", title: "Krok" },
-  { id: "fall", step: "B", title: "Fall" },
-  { id: "kartext", step: "C", title: "Kärntext" },
-  { id: "interaktivt", step: "D", title: "Interaktivt" },
-  { id: "praktik", step: "E", title: "Praktik" },
-  { id: "landning", step: "F", title: "Landning" },
-];
 
 const CLIFFHANGERS: Record<string, string> = {
   "lektion-1": "Imorgon: hur kan något som inte tänker ändå verka så smart?",

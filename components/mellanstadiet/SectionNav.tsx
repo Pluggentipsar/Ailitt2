@@ -2,12 +2,9 @@
 
 import { useEffect, useState } from "react";
 import { Menu, X, Check } from "lucide-react";
+import type { SectionEntry } from "@/lib/mellanstadiet-sections";
 
-export interface SectionEntry {
-  id: string;
-  step: string;
-  title: string;
-}
+export type { SectionEntry };
 
 interface SectionNavProps {
   sections: SectionEntry[];
@@ -157,7 +154,7 @@ export function SectionNav({ sections, accentHex }: SectionNavProps) {
       >
         <div className="flex items-center gap-3 px-4 py-3">
           <span
-            className="flex h-9 w-9 flex-none items-center justify-center rounded-full font-mono text-sm font-bold text-[#0a0e1a]"
+            className="flex h-11 w-11 flex-none items-center justify-center rounded-full font-mono text-base font-bold text-[#0a0e1a]"
             style={{ background: accentHex }}
             aria-hidden
           >
@@ -174,7 +171,7 @@ export function SectionNav({ sections, accentHex }: SectionNavProps) {
           <button
             type="button"
             onClick={() => setOpen((s) => !s)}
-            className="flex h-10 w-10 items-center justify-center rounded-md border border-[#243248] bg-[#1a2235] text-white transition-colors hover:bg-[#243248]"
+            className="flex h-11 w-11 items-center justify-center rounded-md border border-[#243248] bg-[#1a2235] text-white transition-colors hover:bg-[#243248]"
             aria-label={open ? "Stäng meny" : "Öppna meny"}
             aria-expanded={open}
           >
@@ -205,10 +202,10 @@ export function SectionNav({ sections, accentHex }: SectionNavProps) {
                     <button
                       type="button"
                       onClick={() => handleJump(s.id)}
-                      className="flex w-full items-center gap-3 border-b border-[#243248] px-4 py-3 text-left last:border-0 hover:bg-[#1a2235]"
+                      className="flex min-h-[52px] w-full items-center gap-3 border-b border-[#243248] px-4 py-4 text-left last:border-0 hover:bg-[#1a2235] active:bg-[#1a2235]"
                     >
                       <span
-                        className={`flex h-8 w-8 flex-none items-center justify-center rounded-full font-mono text-xs font-bold transition-all ${
+                        className={`flex h-9 w-9 flex-none items-center justify-center rounded-full font-mono text-sm font-bold transition-all ${
                           isActive ? "text-[#0a0e1a]" : "text-[#0a0e1a]"
                         }`}
                         style={{
