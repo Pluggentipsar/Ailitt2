@@ -1,0 +1,249 @@
+/* Mellanstadiet — egen visuell identitet.
+   Mörk, futuristisk, men inte skrämmande. Neon-accenter per lektion.
+   Avsiktligt frikopplat från Ailitt:s ljusare grundskola-stil. */
+
+.mellanstadiet-root {
+  --ms-bg: #0a0e1a;
+  --ms-bg-elevated: #111827;
+  --ms-bg-card: #1a2235;
+  --ms-border: #243248;
+  --ms-text: #e6edf7;
+  --ms-text-muted: #94a3b8;
+  --ms-text-dim: #64748b;
+  --ms-mono: ui-monospace, "SF Mono", "JetBrains Mono", "Fira Code", monospace;
+
+  background: var(--ms-bg);
+  color: var(--ms-text);
+  min-height: 100vh;
+  font-feature-settings: "ss01", "cv11";
+}
+
+/* Subtilt grid-mönster för "labb"-känslan */
+.mellanstadiet-root .ms-grid-bg {
+  background-image:
+    radial-gradient(circle at 20% 0%, rgba(99, 102, 241, 0.08), transparent 40%),
+    radial-gradient(circle at 80% 100%, rgba(245, 158, 11, 0.06), transparent 40%),
+    linear-gradient(rgba(36, 50, 72, 0.4) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(36, 50, 72, 0.4) 1px, transparent 1px);
+  background-size: auto, auto, 64px 64px, 64px 64px;
+}
+
+.mellanstadiet-root .ms-mono {
+  font-family: var(--ms-mono);
+  font-size: 0.8rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.mellanstadiet-root h1,
+.mellanstadiet-root h2,
+.mellanstadiet-root h3,
+.mellanstadiet-root h4 {
+  letter-spacing: -0.02em;
+}
+
+/* Reading-prose — tighter than Tailwind prose, ljusare på mörk bg */
+.mellanstadiet-root .ms-prose {
+  color: var(--ms-text);
+  line-height: 1.7;
+  font-size: 1.0625rem;
+}
+
+.mellanstadiet-root .ms-prose p {
+  margin-block: 1em;
+}
+
+.mellanstadiet-root .ms-prose strong {
+  color: #fff;
+  font-weight: 600;
+}
+
+.mellanstadiet-root .ms-prose em {
+  color: #c7d2fe;
+  font-style: italic;
+}
+
+.mellanstadiet-root .ms-prose a {
+  color: #93c5fd;
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
+  text-decoration-color: rgba(147, 197, 253, 0.4);
+}
+
+.mellanstadiet-root .ms-prose a:hover {
+  text-decoration-color: rgba(147, 197, 253, 1);
+}
+
+.mellanstadiet-root .ms-prose ul,
+.mellanstadiet-root .ms-prose ol {
+  padding-left: 1.5em;
+  margin-block: 1em;
+}
+
+.mellanstadiet-root .ms-prose li {
+  margin-block: 0.4em;
+}
+
+.mellanstadiet-root .ms-prose ul > li::marker {
+  color: var(--ms-text-muted);
+}
+
+.mellanstadiet-root .ms-prose blockquote {
+  border-left: 3px solid currentColor;
+  padding-left: 1.25em;
+  margin-block: 1.5em;
+  font-style: italic;
+  color: var(--ms-text-muted);
+}
+
+.mellanstadiet-root .ms-prose code {
+  font-family: var(--ms-mono);
+  background: var(--ms-bg-elevated);
+  padding: 0.125em 0.375em;
+  border-radius: 4px;
+  font-size: 0.9em;
+  color: #fcd34d;
+}
+
+.mellanstadiet-root .ms-prose h2,
+.mellanstadiet-root .ms-prose h3 {
+  margin-top: 2em;
+  margin-bottom: 0.5em;
+  color: #fff;
+}
+
+.mellanstadiet-root .ms-prose h2 {
+  font-size: 1.625rem;
+  font-weight: 700;
+}
+
+.mellanstadiet-root .ms-prose h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+/* Förvald scroll-anchoring — kompenserar för sticky SectionNav (~64px desktop, ~80px mobile) */
+.mellanstadiet-root [id] {
+  scroll-margin-top: 6rem;
+}
+
+@media (min-width: 768px) {
+  .mellanstadiet-root [id] {
+    scroll-margin-top: 5.5rem;
+  }
+}
+
+/* Bättre touch-targets för mellanstadie-fingrar — alla knappar minst 40px höga */
+.mellanstadiet-root button,
+.mellanstadiet-root a[href] {
+  min-height: 36px;
+}
+
+/* Smooth scroll för section-nav-hopp */
+@media (prefers-reduced-motion: no-preference) {
+  .mellanstadiet-root {
+    scroll-behavior: smooth;
+  }
+}
+
+/* Större line-height för läsvänlighet */
+.mellanstadiet-root .ms-prose p,
+.mellanstadiet-root .ms-prose li {
+  line-height: 1.75;
+}
+
+/* Tydligare focus-ring för tangentbordsnavigering */
+.mellanstadiet-root *:focus-visible {
+  outline: 2px solid #fcd34d;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Print-stilar — för diplom och utskriftbar mall.
+   När print-attribut sätts på en .diplom-card ska bara den visas. */
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  .diplom-card,
+  .diplom-card * {
+    visibility: visible;
+  }
+  .diplom-card {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    border: 4px double currentColor !important;
+    box-shadow: none !important;
+    page-break-inside: avoid;
+  }
+}
+
+/* Animation utils */
+@keyframes ms-fadein {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.mellanstadiet-root .ms-fadein {
+  animation: ms-fadein 0.4s ease-out both;
+}
+
+@keyframes ms-pulse-glow {
+  0%, 100% { box-shadow: 0 0 0 0 currentColor; opacity: 0.6; }
+  50% { box-shadow: 0 0 12px 2px currentColor; opacity: 1; }
+}
+
+/* Gemensam kortstil */
+.mellanstadiet-root .ms-card {
+  background: var(--ms-bg-card);
+  border: 1px solid var(--ms-border);
+  border-radius: 12px;
+}
+
+.mellanstadiet-root .ms-card-elev {
+  background: var(--ms-bg-elevated);
+  border: 1px solid var(--ms-border);
+  border-radius: 12px;
+}
+
+/* Knappar */
+.mellanstadiet-root .ms-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.625rem 1.125rem;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: all 200ms cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  border: 1px solid transparent;
+}
+
+.mellanstadiet-root .ms-btn-primary {
+  background: #fff;
+  color: #0a0e1a;
+}
+
+.mellanstadiet-root .ms-btn-primary:hover {
+  background: #e2e8f0;
+  transform: translateY(-1px);
+}
+
+.mellanstadiet-root .ms-btn-secondary {
+  background: transparent;
+  color: var(--ms-text);
+  border-color: var(--ms-border);
+}
+
+.mellanstadiet-root .ms-btn-secondary:hover {
+  background: var(--ms-bg-card);
+  border-color: var(--ms-text-muted);
+}
+
+.mellanstadiet-root .ms-btn-secondary:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
