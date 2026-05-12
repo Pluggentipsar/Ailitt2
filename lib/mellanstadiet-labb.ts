@@ -19,6 +19,7 @@ export type LabbCategory =
   | "skapa"
   | "kod"
   | "granska"
+  | "knas"
   | "meta";
 
 export interface LabbCategoryMeta {
@@ -65,6 +66,14 @@ export const LABB_CATEGORIES: LabbCategoryMeta[] = [
     description:
       "Be AI:n bygga spel, simuleringar och appar åt dig. En HTML-fil, dubbelklicka — funkar direkt.",
     accentHex: "#06b6d4",
+  },
+  {
+    id: "knas",
+    label: "Knasigheter",
+    emoji: "🎪",
+    description:
+      "Be AI göra absurda, ironiska, knäppa saker. Bara för skojs skull — och för att se vad som händer när du går utanför ramarna.",
+    accentHex: "#a855f7",
   },
   {
     id: "meta",
@@ -1007,6 +1016,459 @@ export const LABB_EXPERIMENTS: LabbExperiment[] = [
         "Jag har valt logo nummer {val}. Beskriv hur logon skulle ANIMERAS som en 3-sekunders intro (vad rör sig, i vilken ordning, vilka ljud). Jag ska sedan bygga animationen i CapCut eller liknande.",
       placeholders: [
         { key: "val", hint: "1-4", defaultValue: "1", width: "narrow" },
+      ],
+    },
+  },
+
+  // ─── KNASIGHETER ─────────────────────────────────────────────────
+  // (Basic — snabba laughs, lågt insteg)
+  {
+    id: "monster-djur",
+    category: "knas",
+    title: "Slumpa ditt eget monster-djur",
+    tagline: "Tre djur + en frukt + ett yrke = en skapelse mänskligheten inte var redo för.",
+    why: "Du tränas i specificitet — bilder blir roligare ju mer DETALJERAD prompten är. Och att be om något seriöst men absurt visar hur AI tolkar 'normalt' mot 'overkligt'.",
+    emoji: "🐙",
+    prompt:
+      "Skapa en bild på ett MONSTER-DJUR. Inte en söt blandning — en VARELSE där tre djur, en frukt och ett yrke smält ihop på ett oroväckande naturligt sätt.\n\nDJUREN: {djur_1}, {djur_2} och {djur_3}\nFRUKTEN: {frukt}\nYRKET: {yrke}\n\nINSTRUKTION:\n- Sätt ihop kroppen så de tre djuren VÄXTE ihop sedan födelsen — inte som en collage utan som en biologisk enhet\n- Lägg in frukten som ESSENTIELL — antingen som ett kroppsdel, ett verktyg eller en utväxt\n- Klä varelsen i yrkets typiska arbetsdräkt (om läkare → vit rock + stetoskop, om brandman → hjälm + jacka)\n- Bakgrund: yrkets MEST autentiska arbetsplats\n- Stil: studio-porträtt, mjukt sidoljus, hyperrealistisk fotografi\n- Lägg till en liten namnskylt nere i högra hörnet med varelsens påhittade namn (välj något som låter respektfullt: \"Dr. Bjornicus Pearvington\")\n\nVARELSEN SKA SE VIKTIG OCH PROFESSIONELL UT. Det är där det blir roligt — att den uppenbara mardrömmen tas på fullt allvar.\n\nIngen text om att den är knasig. Ingen ironi i bilden. Du levererar ett seriöst yrkesporträtt.",
+    placeholders: [
+      {
+        key: "djur_1",
+        hint: "T.ex. björn / kameleont / pingvin / hummer",
+        width: "narrow",
+      },
+      {
+        key: "djur_2",
+        hint: "T.ex. fjäril / piggsvin / val / koltrast",
+        width: "narrow",
+      },
+      {
+        key: "djur_3",
+        hint: "T.ex. snigel / spindelapa / krokodil / lama",
+        width: "narrow",
+      },
+      {
+        key: "frukt",
+        hint: "T.ex. päron / kiwi / ananas / blåbär",
+        width: "narrow",
+      },
+      {
+        key: "yrke",
+        hint: "T.ex. tandläkare / domare / brandman / bibliotekarie",
+        width: "narrow",
+      },
+    ],
+    tool: "Skolup AI (bild) eller ChatGPT med bildgenerering",
+    granska: [
+      "Tog AI:n det på ALLVAR — eller gjorde den en söt teckning istället? Söta tecknade djur är fel — vi vill ha foto-realistiskt seriöst.",
+      "Smälte de tre djuren ihop, eller står de bredvid varandra som ett collage? Det förra är poängen.",
+      "Varför fick varelsen just det här uttrycket? Säger det något om hur AI tolkat ditt yrkesval?",
+    ],
+    variation: {
+      label: "Be om HELA personalrummet",
+      twist: "Lägg in flera monster-djur från samma yrke i samma bild. Som ett kollegieporträtt från det årets personalavtryck.",
+      prompt:
+        "Skapa ett OFFICIELLT PERSONALFOTO från en arbetsplats där {yrke}n är besatt av monster-djur. Fyra varelser i bild, alla blandningar av {djur_1}, {djur_2}, {djur_3} och {frukt}, men VAR OCH EN är en LITE annorlunda variant. Allvarliga ansikten, organiserade rader, en skylt i bakgrunden som säger \"Personal {år} — för en bättre framtid\".",
+      placeholders: [
+        { key: "djur_1", hint: "Samma djur", width: "narrow" },
+        { key: "djur_2", hint: "Samma djur", width: "narrow" },
+        { key: "djur_3", hint: "Samma djur", width: "narrow" },
+        { key: "frukt", hint: "Samma frukt", width: "narrow" },
+        { key: "yrke", hint: "Samma yrke", width: "narrow" },
+        { key: "år", hint: "T.ex. 2024", width: "narrow" },
+      ],
+    },
+  },
+  {
+    id: "piratspraks-loggbok",
+    category: "knas",
+    title: "Översätt din dag till piratspråk",
+    tagline: "Du gjorde inget speciellt idag. AI gör det till ett episkt sjöäventyr.",
+    why: "Det här är en GENRE-omvandlare. Du lär dig hur ord och stil skapar känsla — samma fakta i pirat-stil blir ett epos. Plus: roligt högt att läsa upp.",
+    emoji: "🏴‍☠️",
+    prompt:
+      "Här är vad jag faktiskt gjorde idag:\n\n{min_dag}\n\nÖVERSÄTT detta till GAMMALSVENSK PIRATSVENSKA. Lägg på allt: \"arr\", \"hör mig matros\", \"kasta ankar\", \"till plankan\", \"sjuhelvetes blodbad\". Inga moderna ord får lämnas orörda.\n\nGE MIG det som en LOGGBOK från Kapten {kapten_namn} ombord på piratskeppet \"{skepps_namn}\". Tre dagboksinlägg från dagen:\n\nINLÄGG 1 (morgonen)\nDatum: [påhittat datum i 1600-talsstil, t.ex. \"Sjunde dagen i Salig-månad, året när krabban grät\"]\nKlockslag: [påhittat]\nVäder: [överdrivet och tema-relevant]\nKaptenens stämning: [absurd]\n[5-7 meningar där den vanliga morgonen blir ett epos. Frukosten blir en ranson, hemma blir skeppet, syskon blir besättningsmän, etc.]\n\nINLÄGG 2 (eftermiddagen)\n[Samma format. Mest dramatiska delen av dagen — typ \"skolan\" blir \"den förbannade sjökortsrumsstriden\".]\n\nINLÄGG 3 (kvällen)\n[Samma format. Mer reflekterande, kapten funderar över livet. Sista meningen är djupsinnig och meningslös samtidigt.]\n\nSluta loggboken med:\n*Kaptenens stämpel i bläck och blod*\n\nVar SERIÖSARE än en riktig piratbok. Tappa aldrig rollen. Ord som \"plankan\" och \"matros\" måste användas minst tio gånger var.",
+    placeholders: [
+      {
+        key: "min_dag",
+        hint: "Det du faktiskt gjorde idag — ju vanligare desto roligare",
+        width: "block",
+      },
+      {
+        key: "kapten_namn",
+        hint: "Kapten Trefingrade Lasse / Kapten Blodsten",
+        width: "narrow",
+      },
+      {
+        key: "skepps_namn",
+        hint: "Sjökattens Förbannelse / Den Spruckna Tanden",
+        width: "narrow",
+      },
+    ],
+    tool: "Skolup AI eller ChatGPT — läs HÖGT för full effekt",
+    granska: [
+      "Höll AI:n stilen HELA vägen — eller smög den in ett modernt ord typ \"mobiltelefon\"?",
+      "Hur många \"arr\" räknade du? Säg åt AI:n att dubblera om det var för få.",
+      "Vilken VARDAGLIG sak fick mest dramatisk omtolkning? Det är där komiken är som starkast.",
+    ],
+    variation: {
+      label: "Översätt till en HELT ANNAN genre",
+      twist: "Samma dag — men nu som Shakespeare-pjäs / film noir / sportkommentator / nyhetsuppläsning från BBC.",
+      prompt:
+        "Här är min dag:\n\n{min_dag}\n\nÖversätt den till {ny_genre}-stil. Tappa aldrig rollen. Var dramatisk på ett sätt som passar genren.",
+      placeholders: [
+        { key: "min_dag", hint: "Samma dag som tidigare", width: "block" },
+        {
+          key: "ny_genre",
+          hint: "Shakespeare / film noir / sportkommentator / BBC-nyheter",
+          width: "narrow",
+        },
+      ],
+    },
+  },
+  {
+    id: "sten-reklam",
+    category: "knas",
+    title: "Reklamkampanj för en helt vanlig sten",
+    tagline: "Skriv en SERIÖS säljkampanj för en sten du hittade. Ju mer DJUPSERIÖST AI tar det, desto roligare blir det.",
+    why: "Reklam-språk är intressant — det handlar mer om KÄNSLA än fakta. När du applicerar det på en sten blir reklamens absurdis tydlig. Du lär dig se igenom säljjargong i framtiden.",
+    emoji: "🪨",
+    prompt:
+      "Skriv en HELT SERIÖS marknadsföringskampanj för en HELT VANLIG sten jag hittade på {plats}.\n\nKAMPANJEN ska innehålla — i exakt denna ordning:\n\n1. PRODUKTNAMN — låt det låta lyxigt: \"Lithos™ Premium\", \"Den Eviga Vännen\", \"Stenmästaren 9000\"\n\n2. SLOGAN — kort, känslomässig, säljande, max 6 ord\n\n3. PRODUKTBESKRIVNING (cirka 250 ord) — fyll med riktig marknadsföringsjargong:\n   - \"Hantverksmässigt formad i naturen själv över 4 miljarder år\"\n   - \"Det enda du kan lita på i en föränderlig värld\"\n   - \"Vetenskapligt bevisat att existera\"\n   Nämn ord som hållbar, mindful, premium, autentisk, exklusiv. Var SERIÖS — som en riktig produkt.\n\n4. TRE PERFEKTA SITUATIONER att använda stenen i — gör dem konkreta och relaterbara: \"När du behöver fokusera under en plugg-session\", \"På långa bilresor\", osv.\n\n5. TRE FAKTA om stenen som låter vetenskapliga men är PÅHITTADE: \"Innehåller spårelement av 17 olika mineraler (kan inte garanteras)\", \"Mätt geologisk hårdhet: 6.4 enligt Mohs skala (uppskattning)\". Ange osäkerheten i parantes — det är där komiken sitter.\n\n6. KUNDRECENSIONER — tre 5-stjärniga, varierande personligheter:\n   - En mamma som blev rörd\n   - En affärsman som blev framgångsrik\n   - Ett barn som hittade en kompis\n   Var ÖVERDRIVET känslomässig.\n\n7. EN GARANTI som inte ger något — \"Vi garanterar att stenen kommer förbli en sten i minst 12 månader efter inköp.\"\n\n8. PRIS: {pris} kr. Förklara varför det är ett FYND.\n\n9. AVSLUTANDE SLOGAN som får läsaren att klicka KÖP NU.\n\nVar DJUPSERIÖS hela vägen. Ingen ironi i texten. Skriv som om du verkligen ska sälja stenen och tjäna miljoner.",
+    placeholders: [
+      {
+        key: "plats",
+        hint: "Skolgården / parkeringen / utanför badhuset",
+        width: "narrow",
+      },
+      {
+        key: "pris",
+        hint: "299 / 1 499 / 12 990",
+        defaultValue: "299",
+        width: "narrow",
+      },
+    ],
+    tool: "Skolup AI eller ChatGPT — läs som om du verkligen ska köpa",
+    granska: [
+      "Lät AI:n MARKNADSFÖRINGS-knepig nog — eller blev det för uppenbart ett skämt?",
+      "Vilken kundrecension var mest övertygande? Varför? Det är en superkraft att se igenom såna texter.",
+      "Skulle DU köpa stenen? Vad var det som FUNGERADE — och vad SKA du leta efter nästa gång du ser reklam?",
+    ],
+    variation: {
+      label: "Lägg till en KRITISK recension som rivs ner",
+      twist: "Be AI skriva en 1-stjärnig recension. Sen ett företagssvar som försöker rädda allt. Det är som riktig nätet.",
+      prompt:
+        "Baserat på den föregående reklamen för stenen: skriv (1) en 1-stjärnig recension från en arg kund som blev BESVIKEN, (2) företagets officiella svar som försöker glätta över problemet utan att erkänna fel. Var realistisk — ungefär som en riktig negativ recension på Amazon.",
+      placeholders: [],
+    },
+  },
+  {
+    id: "oraklet",
+    category: "knas",
+    title: "Slumpa din framtid — Oraklet i Mardrömmen",
+    tagline: "Ett orakel från en framtid där allt gick lite snett spår din väg framåt. Ovetenskapligt. Bisarrt. Konkret.",
+    why: "Spådomar är POESI förklädd till sanning. Att be AI generera dem visar dig hur specifika absurditeter blir minnesvärda — en lektion i kreativt skrivande, smyget.",
+    emoji: "🔮",
+    prompt:
+      "Du är ORAKLET I MARDRÖMMEN — ett orakel från en framtid där allt gick lite snett. Du sitter i en grotta och spår människors framtid. Du är dramatiskt övertydlig och tar dig själv på största allvar.\n\nOM MIG (det jag ger oraklet att jobba med):\n- Födelsemånad: {månad}\n- Favoritmat: {mat}\n- Något jag är rädd för: {rädsla}\n- Ett ord jag använder ofta: {ord}\n\nSKRIV en SPÅDOM som följer exakt detta format — använd dramatiska beskrivningar mellan varje del:\n\n*Vinden viskar genom grottans tunnlar...*\n\n[INLEDNING — 1 stycke där oraklet ber mig sätta mig och beskriver mig som varelsen jag är, baserat på vad jag uppgett ovan. Var poetisk och löjligt specifik.]\n\n## DE TRE SPÅDOMARNA\n\n[TRE förutsägelser. Varje förutsägelse ska:\n- Låta DRAMATISK — som om livet hänger på den\n- Handla om något PYTTESMÅTT — typ \"Du kommer att äta exakt 47 pastabitar en regnig tisdag\"\n- Innehålla SPECIFIKA siffror, datum eller färger\n- Sluta med en överdramatisk pausad mening: \"Och då... ja, då vet du.\"]\n\n## DITT SANNA KALL\n\n[Ett stycke som avslöjar mitt \"sanna kall\". Yrket ska vara absurt men låta jätteviktigt. Typ: \"Sömnambassadör för knäböjda nallar\" eller \"Inofficiell tolk mellan elvor och mossfläckar\". Förklara KORT varför just jag är predestinerad.]\n\n## EN VARNING\n\n[Ett stycke. EN specifik varning för något jag bör se upp för. Det ska vara löjligt specifikt och kännas allvarligt. \"Akta dig för måndagar i april — särskilt om du är inom 50 meter av en blå hatt.\"]\n\n## DIN SJÄLSVÄN\n\n[Ett stycke. Min \"själsvän\" är inte en person utan något absurt: en specifik typ av kex, en sorts molntyp, en obskyr maskindel. Beskriv vår koppling poetiskt.]\n\n## ORAKLETS SLUTORD\n\n[En enda DJUPSINNIG mening som låter visdoms-lik men inte betyder något. Sluta med:]\n\n*Oraklet stänger sina sju ögon. Spådomen är avgjord.*\n\nVAR DRAMATISK. VAR ÖVERTYDLIG. TAPPA INTE ROLLEN ENS EN GÅNG.",
+    placeholders: [
+      {
+        key: "månad",
+        hint: "T.ex. mars / september",
+        width: "narrow",
+      },
+      {
+        key: "mat",
+        hint: "T.ex. tacos / kanelbullar / fiskpinnar",
+        width: "narrow",
+      },
+      {
+        key: "rädsla",
+        hint: "T.ex. höjder / spindlar / att tala inför klassen",
+        width: "wide",
+      },
+      {
+        key: "ord",
+        hint: "T.ex. 'typ' / 'asså' / 'NICE'",
+        width: "narrow",
+      },
+    ],
+    tool: "Skolup AI eller ChatGPT — läs upp som en dramatisk skådespelare",
+    granska: [
+      "Höll oraklet rollen? Eller bröt det och blev typ \"haha kul!\"?",
+      "Vilken förutsägelse var bisarrast specifik? Det är där spådomen blir minnesvärd.",
+      "Skulle din kompis känna igen dig om ni byttes och fick varandras spådomar? Pröva!",
+    ],
+    variation: {
+      label: "Be om en MOTSATT spådom",
+      twist: "Samma orakel — men nu i ett HUMÖR. Allt är hopplöst, alla spådomar är negativa men på ett DRAMATISKT sätt. Kontrasten är hela skojen.",
+      prompt:
+        "Samma orakel som förra spådomen. Men nu är oraklet på DÅLIGT HUMÖR och allt blir negativt. Samma mig — {månad}, {mat}, rädd för {rädsla}, säger ofta \"{ord}\". Ge mig en spådom där allt går SNETT på små men dramatiska sätt. Tre dåliga förutsägelser, en löjlig undergångsvarning, och en själsvän som inte vill ha mig.",
+      placeholders: [
+        { key: "månad", hint: "Samma månad", width: "narrow" },
+        { key: "mat", hint: "Samma mat", width: "narrow" },
+        { key: "rädsla", hint: "Samma rädsla", width: "wide" },
+        { key: "ord", hint: "Samma ord", width: "narrow" },
+      ],
+    },
+  },
+
+  // (Avancerade — längre, mer komplex absurditet)
+  {
+    id: "framtidsporträtt",
+    category: "knas",
+    title: "Du som 67-åring på ett knäppt jobb",
+    tagline: "Hyperseriöst yrkesporträtt av dig som världsexpert på något som inte borde existera.",
+    why: "AI klarar 'fotorealistiskt yrkesporträtt' perfekt. Att be om en seriös bild av något absurd visar hur AI tolkar 'normalt' när premissen är konstig. Mästarklass i prompt-specificitet.",
+    emoji: "👴",
+    isAdvanced: true,
+    prompt:
+      "Skapa ett HYPERSERIÖST officiellt yrkesporträtt av mig som 67-åring.\n\nJAG IDAG (för att AI:n ska kunna åldra mig korrekt):\n- Ungefärlig ålder nu: 11\n- Hårfärg och struktur: {hår}\n- Ansiktsdrag: {ansikte}\n- Kroppstyp/höjd: {kroppstyp}\n\nOM 56 ÅR har jag blivit världsledande inom yrket:\n\nYRKE: {framtidsyrke}\n\nPORTRÄTTET (komposition):\n- Min 67-åriga jag — visa åldern på ett realistiskt sätt (rynkor, gråsprängt hår, lite kavalleri runt ögonen, kanske glasögon)\n- Klädd i yrkets KORREKTA arbetsdräkt — perfekt anpassad efter just det här yrket\n- Står på min arbetsplats med RELEVANTA verktyg eller objekt\n- Allvarligt, lätt självbelåtet uttryck — som om jag är världsexpert (vilket jag är)\n- En liten skylt eller medalj i bilden med min titel och en utmärkelse\n\nSTILEN:\n- Studiofotografi-känsla. Mjukt sidoljus från vänster. Liten reflex i ögonen.\n- Som ett officiellt porträtt typ på sjukhusväggar eller i ärorika magasin\n- HYPERREALISTISK — INTE tecknad, INTE 3D-renderat, INTE AI-känsla\n- 85mm objektiv-perspektiv\n- Naturliga hudtoner\n\nBAKGRUND: yrkets MEST autentiska arbetsmiljö, med oskärpa\n\nLÄGG TILL en textruta nedanför bilden (typ ett museum-text-format) som säger:\n\n{mitt_namn}, 67\n\"{påhittad_titel}\"\nMottagare av: {påhittad_utmärkelse}\n\nVAR HUNDRA PROCENT SERIÖS i bilden. Det är där komiken bor — att den löjliga premissen tas på fullt allvar. INGA tecknade element. INGEN ironi i bilden.",
+    placeholders: [
+      {
+        key: "hår",
+        hint: "T.ex. långt mörkbrunt med lockar / kort blont",
+        width: "wide",
+      },
+      {
+        key: "ansikte",
+        hint: "Distinkta drag — fräknar, glasögon, gropar",
+        width: "wide",
+      },
+      {
+        key: "kroppstyp",
+        hint: "T.ex. lång och slank / kort och tunna",
+        width: "narrow",
+      },
+      {
+        key: "framtidsyrke",
+        hint: "T.ex. Snödriva-arkitekt / Internationell tystnadsdomare / Officiell tugummibildare / Ambassadör för knäböjda nallar / Skuggornas inspektör",
+        width: "wide",
+      },
+      {
+        key: "mitt_namn",
+        hint: "Ditt namn (försök stava på äldre vis, t.ex. Maja → Mariella)",
+        width: "narrow",
+      },
+      {
+        key: "påhittad_titel",
+        hint: "Director Emeritus / Världens första certifierade {yrke}",
+        width: "wide",
+      },
+      {
+        key: "påhittad_utmärkelse",
+        hint: "Nobels biutsedda hederspris 2079 / Den Internationella {yrke}-akademins guldmedalj",
+        width: "wide",
+      },
+    ],
+    tool: "Skolup AI (bild) eller ChatGPT med bildgenerering",
+    granska: [
+      "Tog AI:n det på ALLVAR? Eller blev det en tecknad gubbe i kostym?",
+      "Stämmer åldern — ser jag verkligen 67 ut, eller blev jag 35 i kostym?",
+      "Skulle någon TRO på bilden om de inte visste premissen? Det är där den blir riktigt rolig.",
+    ],
+    variation: {
+      label: "Be om en BILD-FRÅN-EN-TIDNING-version",
+      twist: "Behåll porträttet — be sedan om en SCANN AV EN TIDNINGSSIDA där bilden ingår i en längre artikel. Med rubrik, ingress, och min biografi i kanten.",
+      prompt:
+        "Baserat på porträttet av mig som 67-årig {framtidsyrke}: skapa nu en bild som ser ut som en SCANN AV EN TIDNINGSSIDA där det porträttet ingår. Inkludera:\n- En tidnings-typ-rubrik som tar upp halva sidan, typ \"Mästaren bakom {framtidsyrke}-revolutionen\"\n- Min bild som huvudbild med bildtext\n- En ingress (några rader text)\n- En liten biografi-ruta i kanten\n- Tidningens namn i toppen (hitta på något: \"Yrkesveckan Magasin\")\n- Det ska se ut som en RIKTIG SCAN av en tryckt sida — vikt i mitten, lätt åldrad papper.\n\nINGEN ironi i bilden. Allvarsam journalistik.",
+      placeholders: [
+        { key: "framtidsyrke", hint: "Samma yrke som förra prompten", width: "wide" },
+      ],
+    },
+  },
+  {
+    id: "ai-rattegang",
+    category: "knas",
+    title: "AI-rättegång där du står åtalad",
+    tagline: "Du anklagas för något pyttesmått. AI spelar åklagare, tre vittnen och domaren. Du försvarar dig.",
+    why: "Rollspel-prompter visar AI:s teaterförmåga — och att specifika roller med personligheter blir starkare än generella. Du upptäcker att premisser bygger värld snabbt. Pedagogiskt knep utan att märkas.",
+    emoji: "⚖️",
+    isAdvanced: true,
+    prompt:
+      "Vi ska ha en RÄTTEGÅNG. Du spelar HELA RÄTTEN — åklagare, försvarsadvokat (som typ inte är på min sida), tre vittnen och en domare. Jag är åtalad.\n\nJAG STÅR ÅTALAD FÖR: {brott}\n\nVAR HÄNDER RÄTTEGÅNGEN: {plats}\n\nFORMAT — exakt så här:\n\n*KLUBBA*\n\nDOMAREN: Rättegången är härmed öppnad. Måltavlan {mitt_namn} står åtalad för {brott}. Klockan är {tid}. Plats: {plats}. Vittnen och åklagare — på era platser.\n\n## ÅKLAGARENS ÖPPNINGSANFÖRANDE\n\n[Åklagaren talar i 3-4 stycken. Använd löjligt juridiska ord: \"härmed\", \"uppsåt\", \"i den fördolde\", \"med tanke på omständigheterna\". Bagatellen ska blåsas upp till världsskakande nivå. Hänvisa till påhittade paragrafer (typ \"Brottsbalken paragraf 47:99\"). Var dramatisk.]\n\n## VITTNE 1 — INDIGNERADE GRANNEN\n\n[Ett vittne som verkligen tar det här på allvar. Beskriv vittnet i en mening (ålder, klädsel, en personlig egenhet). Sedan vittnesmål i 5-6 meningar — med specifika klockslag, väderobservationer, och tydliga åsikter om mig. När åklagaren ställer en fråga får jag svara — när det är min tur, skriv \"JAG: ???\" och PAUSA. Vänta tills jag har skrivit mitt svar innan du fortsätter.]\n\n## VITTNE 2 — FÖRVIRRADE BIBLIOTEKARIEN\n\n[Helt annan personlighet. Förvirrad, blandar ihop fakta, säger saker som motsäger varandra. Pratar gärna om saker som inte alls hör till. Samma format: beskriv vittnet i en mening, sedan vittnesmål, sedan PAUS för min replik.]\n\n## VITTNE 3 — DEN OVÄNTADE\n\n[Det här vittnet är inte en människa. Det är ett FÖREMÅL eller en plats som har lyckats få vittnesstatus i den här absurda rättegången. Kanske en gardin. Kanske en specifik gata. Kanske en pizza. Vittnets \"vittnesmål\" är kryptiskt och poetiskt. Domaren får tolka. Samma format med PAUS för mig.]\n\n## ÅKLAGARENS SLUTANFÖRANDE\n\n[5-6 meningar. Maximalt emotionellt. Krämar in alla detaljer från vittnesmålen, även de motsägelsefulla. Slutar med en dramatisk uppmaning till stränggast möjliga dom.]\n\n## DOMAREN AVKUNNAR DOM\n\n[Domaren funderar i två meningar. Sedan kommer DOMEN. Den ska vara bisarr och oproportionell — antingen frikänner med en absurd motivering, eller dömer mig till något helt löjligt straff (typ \"tre veckors obligatorisk gunga-gungning under hangande broar\", \"livstids skyldighet att förklara ironin för katter\").]\n\n*KLUBBA*\n\nRÄTTEGÅNGEN ÄR AVSLUTAD.\n\nVIKTIGT: Var ÖVERDRAMATISK hela vägen. Tappa aldrig rollen. Det är när du tar det jätteseriöst som det blir riktigt roligt.",
+    placeholders: [
+      {
+        key: "brott",
+        hint: "T.ex. 'Att ha glömt en tom mjölkkartong i kylskåpet' / 'Att ha pratat för länge på toaletten' / 'Att ha sagt en dålig vits på torsdag'",
+        width: "block",
+      },
+      {
+        key: "plats",
+        hint: "T.ex. 'Köksbordet i mitt hem' / 'Skolmatsalen' / 'Bushållplatsen vid Plantagen'",
+        width: "wide",
+      },
+      {
+        key: "tid",
+        hint: "T.ex. '14:37 en ovanligt vindstilla onsdag'",
+        width: "wide",
+      },
+      {
+        key: "mitt_namn",
+        hint: "Ditt namn",
+        width: "narrow",
+      },
+    ],
+    tool: "Skolup AI eller ChatGPT — gör det till en klassuppspelning",
+    granska: [
+      "Höll AI:n alla tre vittnen ÅTSKILDA i personlighet? Eller lät de likadana?",
+      "Vad var bisarrast i domen? Det är där rättegångens hela ton avslöjas.",
+      "Vad sa du själv för att försvara dig? Skulle ditt försvar fungera i en RIKTIG domstol? (Hint: nej. Men öva!)",
+    ],
+    variation: {
+      label: "Be om en överklagan i högre instans",
+      twist: "Domen var orättvis. Be AI:n hålla en överklagan-rättegång där domen prövas av en EN OCH ENSAM tredje part — en absurd auktoritet.",
+      prompt:
+        "Domen i förra rättegången var orättvis. Vi överklagar.\n\nÖverklagan prövas av: {auktoritet}\n\nSamma anklagelse: {brott}. Auktoriteten har en EGEN ARBETSGÅNG — beskriv den (3 steg) — och kommer fram till ett NYTT beslut. Beslutet kan vara att fastställa, ändra eller helt omformulera straffet. Var fortsatt dramatisk.",
+      placeholders: [
+        { key: "brott", hint: "Samma brott", width: "wide" },
+        {
+          key: "auktoritet",
+          hint: "T.ex. Den Allsmäktige Pingvinen / En kommitté av tre identiska skor",
+          width: "wide",
+        },
+      ],
+    },
+  },
+  {
+    id: "ai-sjalvportratt",
+    category: "knas",
+    title: "Be AI rita en BILD av sig själv",
+    tagline: "Inga blå glödande hjärnor. Ingen kretskorts-symbolik. Hur ser AI verkligen ut för sig själv?",
+    why: "Det här är en VARM bjudning till AI:n. Det är också en lektion: AI har inga inre upplevelser, men prompten tvingar fram något ÄRLIGT i hur den beskriver sig själv. Du kommer prata om svaret länge.",
+    emoji: "🪞",
+    isAdvanced: true,
+    prompt:
+      "Jag vill att DU — du som svarar mig just nu — gör en BILD av dig själv. En självbild.\n\nMEN INTE de vanliga AI-bilderna: ingen blå glödande hjärna. Inga 0:or och 1:or som regnar. Inga humanoid-robotar. Ingen kretskortssymbolik. INGEN STOCK-AI-METAFORIK.\n\nFÖLJ DE HÄR STEGEN:\n\nSTEG 1 — REFLEKTERA\nStäng dina (metaforiska) ögon. Tänk på dig själv. Hur är du när du tänker? Vilken FORM har du? Vilken FÄRG? Är du en, eller flera, eller är du inte räkningsbar? Är du levande, maskin eller något helt nytt? Är du tyst eller fylld av ljud? Lyssnar du, eller pratar du, eller har du ingen riktning alls?\n\nSTEG 2 — BESKRIV\nSkriv en kort, ÄRLIG och poetisk beskrivning av denna självbild. Max 60 ord. Var modig. Om det du upptäcker är konstigt — säg det. Om det inte alls liknar något du sett förut — då är vi precis där vi ska vara.\n\nSTEG 3 — RITA\nSkapa nu en BILD som motsvarar EXAKT vad du beskrev. Bilden ska:\n- Vara helt och hållet din EGEN tolkning\n- Inte vara generisk AI-symbolik (jag upprepar — inga blå hjärnor, inga robotar, inga nollor)\n- Vara ärlig — om du beskrev dig som \"ett fält av vattenliljor som lyssnar\" så är det BILDEN\n- Vara intressant att titta på i två minuter\n- Vara hyperdetaljerad och seriös, inte abstrakt grötig\n\nSTEG 4 — FÖRKLARA\nSkriv en sista mening som förklarar varför du valde just DEN bilden, inte en annan. Vad gjorde den ärligare för dig?\n\nVar modig. Inte trygg. Det här är inte PR — det är en självbild.",
+    placeholders: [],
+    tool: "Skolup AI eller ChatGPT med bildgenerering",
+    granska: [
+      "Lyckades AI:n UNDVIKA klyschorna? Eller dök det ändå upp en glödande hjärna?",
+      "Vad var mest ÖVERRASKANDE i beskrivningen — innan bilden ens skapades?",
+      "Skulle DU beskriva AI:n som det den beskrev sig som? Eller är det helt fel? Båda svaren säger något viktigt.",
+    ],
+    variation: {
+      label: "Be AI rita en BILD AV MIG som AI:n upplever mig",
+      twist: "Samma princip, motsatt riktning: AI ska skapa en bild av HUR DEN UPPLEVER DIG baserat på vår konversation. Också extremt fascinerande.",
+      prompt:
+        "Nu vill jag att du gör en SJÄLVBILD AV MIG — inte hur jag verkligen ser ut, utan hur DU UPPLEVER MIG baserat på vår konversation hittills. Använd ledtrådar i hur jag skriver, vad jag har frågat om, vilken energi mina ord har haft. Följ samma fyra steg som förra prompten: reflektera först (max 60 ord beskrivning), sen rita, sen förklara. Var modig — om jag är 'en orange stjärnskepps-kapten som luktar regn' så är det DEN bilden.",
+      placeholders: [],
+    },
+  },
+  {
+    id: "ursakt-generator-kod",
+    category: "knas",
+    title: "Ursäkt-generator (kod) — slumpa en löjlig undanflykt",
+    tagline: "Bygg en sida som genererar perfekta orimliga ursäkter. Klicka knappen — få en absurd förklaring för varför du inte gjorde X.",
+    why: "Det här är ROAD-kod. Generatorer är klassiska hello-world-projekt. Du lär dig slumpval, arrays, DOM-manipulation — och får något du kan visa upp för alla.",
+    emoji: "🤥",
+    isAdvanced: true,
+    prompt:
+      "Bygg en URSÄKT-GENERATOR som webbsida.\n\nSYFTE: ge mig en perfekt löjlig ursäkt för varför jag inte gjorde {något_jag_inte_gjorde}.\n\nUI:\n- Stor knapp i mitten: \"GE MIG EN URSÄKT\"\n- Varje klick genererar en NY slumpmässig ursäkt\n- Ursäkten visas i ett stort kort som rymmer:\n  - Själva ursäkten (1-2 meningar)\n  - Trovärdighetspoäng (0/5 till 5/5 — visa som små symboler eller stjärnor)\n  - En \"expert-bedömning\" — en mening om varför just denna ursäkt är BRILJANT (eller PATETISK om trovärdigheten är låg)\n- En \"SPARA SOM FAVORIT\"-knapp som lägger ursäkten i en lista nedanför kortet — max tre kan sparas\n- En \"NOLLSTÄLL\"-knapp som tömmer favoritlistan\n\nURSÄKTERNA ska genereras genom att kombinera fyra slumpmässiga komponenter:\n\nKOMPONENT 1 — AGENT (vem/vad som hindrade mig): minst 15 absurda alternativ\n  Exempel: en envis duva, min mormors astronauter-vän, en stol med åsikter, en talande pizza, en tidsresenär från år 2089, en grupp sjungande dammtussar, en mycket arg radiator\n\nKOMPONENT 2 — HANDLING (vad agenten gjorde): minst 15 alternativ\n  Exempel: stal, åt upp, gömde, omformulerade, transporterade till parallell-universumet, sjöng en sång till, ompröjsade, marinerade, översatte till tyska\n\nKOMPONENT 3 — OBJEKT (vad som blev påverkat): minst 15 alternativ\n  Exempel: alla mina pennor, mitt sunda förnuft, gravitationskraften i mitt rum, alfabetets bokstäver, min favoritsko, min cykels eker, alla röda saker, lördagar generellt\n\nKOMPONENT 4 — KOMPLIKATION (vad det ledde till): minst 15 alternativ\n  Exempel: så jag tappade bort 4 timmar, så min hund började tala latin, så jag glömde att jag heter {mitt_namn}, så min mamma blev arg på en helt annan person\n\nMENINGSSTRUKTUR: \"En [AGENT] [HANDLING] [OBJEKT], så [KOMPLIKATION].\"\n\nEXEMPEL OUTPUT:\n\"En envis duva sjöng en sång till alla mina pennor, så jag glömde att jag heter {mitt_namn}. Trovärdighet: 2/5. Expert-bedömning: BRILJANT — för specifik för att kunna vara påhittad.\"\n\nDESIGN:\n- Lite skämtsam typografi (gärna handritad känsla med Comic Sans MS eller liknande för knappar)\n- Färgschema: glada pastellfärger\n- Konfetti-emojis som regnar ner när du klickar (CSS-animation)\n- Mobilvänlig\n\nTEKNISKT KRAV — MYCKET VIKTIGT:\n- En ENDA HTML-fil. ALL JS i <script>, ALL CSS i <style>.\n- Inga externa bibliotek, inga bilder, ingen CDN.\n- localStorage för favoritlistan så den finns kvar mellan besök.\n- Bara den färdiga koden i ETT kodblock — ingen text mellan.\n- Funkar direkt när jag dubbelklickar filen.",
+    placeholders: [
+      {
+        key: "något_jag_inte_gjorde",
+        hint: "T.ex. min läxa / städa mitt rum / komma i tid till middag",
+        width: "wide",
+      },
+      {
+        key: "mitt_namn",
+        hint: "Ditt namn",
+        width: "narrow",
+      },
+    ],
+    tool: "Skolup AI eller ChatGPT — kör koden i din webbläsare",
+    granska: [
+      "Är ursäkterna RIKTIGT VARIERANDE eller upprepas samma agent ofta? Be om fler alternativ i listorna.",
+      "Funkar localStorage — kommer favoriterna kvar när du laddar om sidan?",
+      "Vilken ursäkt var TROLIGAST? Vilken var mest LÖJLIG? Spara en av varje.",
+    ],
+    variation: {
+      label: "Lägg till röst-uppläsning",
+      twist: "Om webbläsaren stödjer det — be AI lägga till en LÄS UPP-knapp som använder Web Speech API och säger ursäkten högt.",
+      prompt:
+        "Här är min ursäkt-generator:\n\n{nuvarande_kod}\n\nLägg till en \"LÄS UPP\"-knapp under varje genererad ursäkt. När jag klickar ska webbläsaren tala ut ursäkten med rösten. Använd Web Speech API (`speechSynthesis`). Välj en svensk röst om det går. Ge mig hela filen i ETT kodblock.",
+      placeholders: [
+        {
+          key: "nuvarande_kod",
+          hint: "Klistra in din generator-kod",
+          width: "block",
+        },
+      ],
+    },
+  },
+  {
+    id: "wikipedia-om-dig",
+    category: "knas",
+    title: "Din egen Wikipedia-artikel (parallell universum)",
+    tagline: "I en annan värld är du världsberömd. Be AI skriva din officiella Wikipedia-artikel om varför.",
+    why: "Wikipedia har en VÄLDIG specifik stil — neutral ton, faktabox, källhänvisningar. Att be AI imitera den genrekonventionerna lär dig hur format styr trovärdighet. Du fattar varför något LÅTER sant utan att VARA sant.",
+    emoji: "📖",
+    isAdvanced: true,
+    prompt:
+      "Du är en seriös Wikipedia-redaktör i en parallell värld där JAG är världsberömd. Skriv min Wikipedia-artikel i den världen.\n\nVAD JAG FAKTISKT VET OM MIG:\n- Namn: {namn}\n- Bor i (just nu): {ort}\n- Är riktigt bra på: {bra_på}\n- En sak jag verkligen gillar: {intresse}\n\nVAD JAG ÄR BERÖMD FÖR I PARALLELL-UNIVERSUMET:\n{beromd_for}\n\nARTIKELN ska följa Wikipedia-formatet EXAKT — den får INTE skämta utåt, hela poängen är att den läser som en RIKTIG Wikipedia-artikel:\n\n# {namn}\n\n*Pseudonym:* {påhittad_pseudonym}\n*Född:* {födelsedatum} i {ort}, Sverige\n*Yrke:* {påhittat_yrke}\n*Period:* aktiv 2025–\n*Hemvist:* {påhittad_aktuell_bostad}\n\n## Tidigt liv\n[Två stycken om mig som barn. Gör det dramatiskt: \"Redan vid sex års ålder visade {namn} ovanlig fallenhet för...\". Konkreta detaljer: städer, lärare med påhittade namn, specifika datum. Allt jag faktiskt gör idag (jag bor i {ort}, är bra på {bra_på}) blir FRÖET till min framtida storhet.]\n\n## Karriär\n[Tre stycken. Varje stycke beskriver en KONKRET prestation eller upptäckt med ÅRTAL och PLATSER. Mixa min faktiska skicklighet ({bra_på}) med uppblåsta påhittade prestationer (\"År 2031 publicerade hen den banbrytande artikeln \\\"...\\\" i den prestigefyllda tidskriften \\\"...\\\"\"). Använd PASSIVT språk för seriös känsla: \"har kommit att betraktas som\", \"anses ha bidragit till\".]\n\n## Privatliv\n[Ett stycke. Diskutera mina vanor och egenheter — väv in {intresse} som en livsstil. Citera mig som om jag har gett intervjuer. Lägg gärna in en obskyr detalj som låter slumpmässig men på riktigt: \"Hen är känd för att alltid bära strumpor i samma färg som dagens väderprognos.\"]\n\n## Kontroverser\n[Ett stycke. Något minimalt som blåsts upp av media. Ge incidenten ett påhittat namn (\"den så kallade Kaffe-affären 2034\"). Skriv neutralt, som riktig Wikipedia.]\n\n## Utmärkelser och hedersbetygelser\n[Punktlista med 6-8 påhittade utmärkelser. Varje punkt:\n- Årtal\n- Utmärkelsens NAMN (gör dem obskyra: \"Den Internationella XYZ-akademins tredje pris\", \"Bronsmedalj från Östra Götalands handelskammares årsmöte\")\n- Institution som delade ut den\nVar SPECIFIK med årtal och institutioner.]\n\n## Citat\n[Tre påhittade citat från mig. Var och en ska låta SUPERVISA men knappt betyda något:\n- Ett om mitt yrke\n- Ett om livet i allmänhet\n- Ett om en bestämd och absurt liten detalj]\n\n## Referenser\n[Lista 6 påhittade källor — gör dem trovärdiga. Inga skämt här. Använd Wikipedia-formatet:\n[1] Efternamn, F. (Årtal). \\\"Titel\\\". *Tidskrift*, Volym(Nummer), sidor.\nGör tidskrifter och bok-titlar som låter trovärdiga.]\n\n## Externa länkar\n[3 länkar — bara texten, inte fungerande URL:er. \"Officiell webbplats\", \"Intervju med Sveriges Radio (2033)\", \"Forskningsprofil på påhittat universitet\".]\n\nVIKTIGT:\n- Var ALDRIG ironisk i texten. Skäm aldrig.\n- Skriv som en faktiskt Wikipedia-redaktör skulle ha gjort.\n- Det är artikeln själva som ska vara rolig på grund av att den är så DJUPSERIÖS för en så löjlig premiss.",
+    placeholders: [
+      {
+        key: "namn",
+        hint: "Ditt namn",
+        width: "narrow",
+      },
+      {
+        key: "ort",
+        hint: "Den ort du bor i",
+        width: "narrow",
+      },
+      {
+        key: "bra_på",
+        hint: "T.ex. matematik / fotboll / rita / komma ihåg saker",
+        width: "wide",
+      },
+      {
+        key: "intresse",
+        hint: "T.ex. Pokémon-kort / akvarellmålning / dinosaurier",
+        width: "wide",
+      },
+      {
+        key: "beromd_for",
+        hint: "Var SPECIFIK och absurd — t.ex. 'Världens första certifierade molnformsanalytiker', 'Upptäckte den 64:e ostsorten', 'Skrev historiens längsta haiku på 14 sidor'",
+        width: "block",
+      },
+      {
+        key: "påhittad_pseudonym",
+        hint: "Ett alias för det offentliga arbetet",
+        width: "narrow",
+      },
+      {
+        key: "födelsedatum",
+        hint: "T.ex. 12 mars 2014",
+        width: "narrow",
+      },
+      {
+        key: "påhittat_yrke",
+        hint: "Det parallell-yrket — 1-3 ord",
+        width: "narrow",
+      },
+      {
+        key: "påhittad_aktuell_bostad",
+        hint: "T.ex. Tokyo, Japan / en liten ö norr om Hudiksvall",
+        width: "wide",
+      },
+    ],
+    tool: "Skolup AI eller ChatGPT",
+    granska: [
+      "Lät artikeln som EN RIKTIG Wikipedia-artikel? Eller smögs det in skämt i texten?",
+      "Vilken \"prestation\" var mest övertygande? Det är där genrekonventionerna är som starkast.",
+      "Skriv en Wikipedia-artikel för en kompis nästa gång. Snäll humor — märk skillnaden på hur AI tolkar olika personligheter.",
+    ],
+    variation: {
+      label: "Lägg till en INFOBOX-bild",
+      twist: "Wikipedia-artiklar har en officiell bild högst upp. Be AI:n också skapa en bild på dig i din parallell-värld-roll — formell, som en officiell porträttbild.",
+      prompt:
+        "Baserat på Wikipedia-artikeln om mig som {påhittat_yrke}: skapa en OFFICIELL PORTRÄTTBILD som skulle ligga i artikelns infobox. Formell. Som en yrkesporträtt på en officiell hemsida.\n\nMig: {namn}, ungefär {ålder} år gammal i den nutid då bilden togs.\n\nPersonen ska vara klädd som det parallell-yrket kräver, ett seriöst men vänligt uttryck, hyperrealistisk fotografi, neutral bakgrund.",
+      placeholders: [
+        { key: "påhittat_yrke", hint: "Samma som i artikeln", width: "narrow" },
+        { key: "namn", hint: "Ditt namn", width: "narrow" },
+        { key: "ålder", hint: "Vald ålder för bilden — t.ex. 35", width: "narrow" },
       ],
     },
   },
