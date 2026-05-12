@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { ArrowLeft, FlaskConical } from "lucide-react";
+import { LABB_CATEGORIES, LABB_EXPERIMENTS } from "@/lib/mellanstadiet-labb";
 
 /* AI-labbets hero. Bjuder in, sätter ramen och slår fast pedagogisk
  * grundprincip: DU ÄR CHEFEN. */
@@ -27,9 +28,11 @@ export function LabbHero() {
         </h1>
 
         <p className="mt-6 max-w-2xl text-xl leading-relaxed text-[var(--ms-text-body)]">
-          Tio stationer. Tio färdiga prompter du kan kopiera in i Skolup AI.
-          Du fyller i det <span className="font-semibold">gula</span> själv —
-          det är din prompt. Den är ditt verktyg. Du är chefen.
+          {LABB_EXPERIMENTS.length} stationer fördelat på{" "}
+          {LABB_CATEGORIES.length} kategorier. Färdiga prompter du kopierar in
+          i Skolup AI. Du fyller i det{" "}
+          <span className="font-semibold">gula</span> själv — det är din
+          prompt. Den är ditt verktyg. Du är chefen.
         </p>
 
         <div className="mt-8 inline-flex items-center gap-3 rounded-xl border border-[#fcd34d]/40 bg-[#fcd34d]/10 px-4 py-3">
