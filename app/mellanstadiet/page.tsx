@@ -221,19 +221,19 @@ export default function MellanstadietLanding() {
                 Sandlådan där du <span className="italic text-[#fcd34d]">leker</span> med AI på riktigt.
               </h2>
               <p className="mt-4 max-w-2xl text-lg leading-relaxed text-[var(--ms-text-body)]">
-                Tio färdiga prompter du kan kopiera in i Skolup AI eller annan
-                chattbot. Du fyller i ditt eget ämne, din egen text. Du granskar
-                svaret. Du iterar. Bygger på Tänkartrappan — och på{" "}
+                Färdiga prompter du kopierar in i Skolup AI eller annan chattbot.
+                Du fyller i ditt eget ämne, din egen text. Du granskar svaret.
+                Du iterar. Bygger på Tänkartrappan — och på{" "}
                 <em>SAILD: eleven som designer, inte konsument.</em>
               </p>
 
               <ul className="mt-6 space-y-2 text-[var(--ms-text-body)]">
                 {[
-                  "📚 Få något förklarat på ett nytt sätt",
-                  "❓ Bli förhörd inför ett prov",
-                  "✍️ Få feedback på din text",
-                  "🎨 Skapa bilder och låtar med ord",
-                  "🔍 Lura AI:n — hittar den på?",
+                  "📚 Sokratisk debatt + pluggcoach + minnesteknik",
+                  "✍️ Faktagranska ditt svar + studieguide av dina anteckningar",
+                  "🎨 Actionfigur, filmposter, Pixar-porträtt, logotyp",
+                  "💻 Bygg spel, simuleringar och appar — ren HTML, kör direkt",
+                  "🧠 Meta-prompter: be AI bygga BÄTTRE prompter åt dig",
                 ].map((row) => (
                   <li key={row} className="flex gap-3">
                     <span className="text-lg">{row.split(" ")[0]}</span>
