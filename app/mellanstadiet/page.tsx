@@ -103,65 +103,8 @@ export default function MellanstadietLanding() {
         </div>
       </section>
 
-      {/* Spel-sektion */}
-      <section id="spel" className="px-4 py-24">
-        <div className="mx-auto max-w-5xl">
-          <div className="ms-mono mb-4 text-[var(--ms-text-muted)]">
-            // SPEL & UNDERSÖKNINGAR · {MELLANSTADIET_GAMES.length} ST
-          </div>
-          <div className="flex flex-wrap items-end justify-between gap-4">
-            <h2 className="text-3xl font-bold tracking-tight text-[var(--ms-text)] sm:text-4xl">
-              Lär dig genom att spela
-            </h2>
-            <Link
-              href="/mellanstadiet/spel"
-              className="ms-mono inline-flex items-center gap-1.5 text-[#fcd34d] transition-colors hover:text-[var(--ms-text)]"
-            >
-              ALLA SPEL <ArrowRight className="h-3.5 w-3.5" />
-            </Link>
-          </div>
-          <p className="mt-3 max-w-2xl text-[var(--ms-text-body)]">
-            Att läsa <em>om</em> AI är en sak. Att <em>prova</em> är en annan.
-            Här är fyra spel som tar dig in i begreppen via händerna.
-          </p>
-
-          <div className="mt-10 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-            {MELLANSTADIET_GAMES.filter((g) => g.status === "ready").map(
-              (game) => (
-                <Link
-                  key={game.id}
-                  href={`/mellanstadiet/spel/${game.slug}`}
-                  className="group flex flex-col rounded-xl border border-[var(--ms-border)] bg-[var(--ms-bg-card)] p-5 transition-all hover:-translate-y-1 hover:border-[var(--ms-text)]/40"
-                >
-                  <div
-                    className="ms-mono mb-3 inline-flex w-fit items-center gap-1 rounded px-2 py-1 text-[var(--ms-bg)]"
-                    style={{ background: game.accentHex }}
-                  >
-                    <Gamepad2 className="h-3 w-3" />
-                    {game.type.toUpperCase()}
-                  </div>
-                  <h3 className="text-lg font-bold text-[var(--ms-text)]">
-                    {game.title}
-                  </h3>
-                  <p className="mt-1 flex-1 text-sm text-[var(--ms-text-muted)]">
-                    {game.tagline}
-                  </p>
-                  <div className="ms-mono mt-3 flex items-center justify-between text-xs text-[var(--ms-text-muted)]">
-                    <span>{game.duration}</span>
-                    <ArrowRight
-                      className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1"
-                      style={{ color: game.accentHex }}
-                    />
-                  </div>
-                </Link>
-              )
-            )}
-          </div>
-        </div>
-      </section>
-
       {/* Lektioner */}
-      <section id="lektioner" className="border-t border-[var(--ms-border)] px-4 py-24">
+      <section id="lektioner" className="px-4 py-24">
         <div className="mx-auto max-w-5xl">
           <div className="ms-mono mb-4 text-[var(--ms-text-muted)]">
             // KURSPLAN · 7 LEKTIONER
@@ -246,6 +189,66 @@ export default function MellanstadietLanding() {
               </li>
             ))}
           </ol>
+        </div>
+      </section>
+
+      {/* Spel-sektion */}
+      <section
+        id="spel"
+        className="border-t border-[var(--ms-border)] bg-[var(--ms-bg-subtle)] px-4 py-24"
+      >
+        <div className="mx-auto max-w-5xl">
+          <div className="ms-mono mb-4 text-[var(--ms-text-muted)]">
+            // SPEL & UNDERSÖKNINGAR · {MELLANSTADIET_GAMES.length} ST
+          </div>
+          <div className="flex flex-wrap items-end justify-between gap-4">
+            <h2 className="text-3xl font-bold tracking-tight text-[var(--ms-text)] sm:text-4xl">
+              Lär dig genom att spela
+            </h2>
+            <Link
+              href="/mellanstadiet/spel"
+              className="ms-mono inline-flex items-center gap-1.5 text-[#fcd34d] transition-colors hover:text-[var(--ms-text)]"
+            >
+              ALLA SPEL <ArrowRight className="h-3.5 w-3.5" />
+            </Link>
+          </div>
+          <p className="mt-3 max-w-2xl text-[var(--ms-text-body)]">
+            Att läsa <em>om</em> AI är en sak. Att <em>prova</em> är en annan.
+            Här är fyra spel som tar dig in i begreppen via händerna.
+          </p>
+
+          <div className="mt-10 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+            {MELLANSTADIET_GAMES.filter((g) => g.status === "ready").map(
+              (game) => (
+                <Link
+                  key={game.id}
+                  href={`/mellanstadiet/spel/${game.slug}`}
+                  className="group flex flex-col rounded-xl border border-[var(--ms-border)] bg-[var(--ms-bg-card)] p-5 transition-all hover:-translate-y-1 hover:border-[var(--ms-text)]/40"
+                >
+                  <div
+                    className="ms-mono mb-3 inline-flex w-fit items-center gap-1 rounded px-2 py-1 text-[var(--ms-bg)]"
+                    style={{ background: game.accentHex }}
+                  >
+                    <Gamepad2 className="h-3 w-3" />
+                    {game.type.toUpperCase()}
+                  </div>
+                  <h3 className="text-lg font-bold text-[var(--ms-text)]">
+                    {game.title}
+                  </h3>
+                  <p className="mt-1 flex-1 text-sm text-[var(--ms-text-muted)]">
+                    {game.tagline}
+                  </p>
+                  <div className="ms-mono mt-3 flex items-center justify-between text-xs text-[var(--ms-text-muted)]">
+                    <span>{game.duration}</span>
+                    <ArrowRight
+                      className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1"
+                      style={{ color: game.accentHex }}
+                    />
+                  </div>
+                </Link>
+              )
+            )}
+          </div>
         </div>
       </section>
 
