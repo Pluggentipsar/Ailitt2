@@ -14,14 +14,14 @@ export function Citat({
 }: CitatProps) {
   return (
     <figure
-      className="my-8 rounded-xl border border-[#243248] bg-[#1a2235] p-8"
+      className="my-8 rounded-xl border border-[var(--ms-border)] bg-[var(--ms-bg-card)] p-8"
       style={{ borderLeft: `4px solid ${accentHex}` }}
     >
-      <blockquote className="text-xl font-medium leading-relaxed text-white sm:text-2xl">
+      <blockquote className="text-xl font-medium leading-relaxed text-[var(--ms-text)] sm:text-2xl">
         {children}
       </blockquote>
       {attribution && (
-        <figcaption className="ms-mono mt-4 text-[#94a3b8]">
+        <figcaption className="ms-mono mt-4 text-[var(--ms-text-muted)]">
           — {attribution}
         </figcaption>
       )}

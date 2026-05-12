@@ -55,18 +55,18 @@ export function Quiz({
 
   return (
     <div
-      className="my-10 overflow-hidden rounded-xl border bg-[#0d1322]"
+      className="my-10 overflow-hidden rounded-xl border bg-[var(--ms-bg-subtle)]"
       style={{ borderColor: `${accentHex}40` }}
     >
       <div
-        className="ms-mono px-6 py-2 text-[#0a0e1a]"
+        className="ms-mono px-6 py-2 text-[var(--ms-bg)]"
         style={{ background: accentHex }}
       >
         {title || "KOLL — välj rätt svar"}
       </div>
 
       <div className="p-6">
-        <p className="mb-5 text-lg font-medium leading-relaxed text-white">
+        <p className="mb-5 text-lg font-medium leading-relaxed text-[var(--ms-text)]">
           {question.prompt}
         </p>
 
@@ -80,18 +80,18 @@ export function Quiz({
             const baseClass =
               "flex w-full items-start gap-3 rounded-lg border p-4 text-left transition-all duration-200";
 
-            let stateClass = "border-[#243248] bg-[#1a2235] text-[#e6edf7]";
+            let stateClass = "border-[var(--ms-border)] bg-[var(--ms-bg-card)] text-[var(--ms-text)]";
             if (showCorrect) {
               stateClass =
                 "border-emerald-500/60 bg-emerald-500/10 text-emerald-50";
             } else if (showWrong) {
               stateClass = "border-rose-500/60 bg-rose-500/10 text-rose-50";
             } else if (revealed) {
-              stateClass = "border-[#243248] bg-[#1a2235] text-[#64748b]";
+              stateClass = "border-[var(--ms-border)] bg-[var(--ms-bg-card)] text-[var(--ms-text-dim)]";
             }
 
             const hoverClass =
-              !revealed && "hover:border-white/40 hover:bg-[#243248]";
+              !revealed && "hover:border-[var(--ms-text)]/40 hover:bg-[var(--ms-border)]";
 
             return (
               <button
@@ -110,7 +110,7 @@ export function Quiz({
                       ? "border-emerald-400 bg-emerald-400/20 text-emerald-200"
                       : showWrong
                       ? "border-rose-400 bg-rose-400/20 text-rose-200"
-                      : "border-[#243248] bg-[#0a0e1a] text-[#94a3b8]"
+                      : "border-[var(--ms-border)] bg-[var(--ms-bg)] text-[var(--ms-text-muted)]"
                   }`}
                 >
                   {showCorrect ? (
@@ -151,7 +151,7 @@ export function Quiz({
               <button
                 type="button"
                 onClick={reset}
-                className="inline-flex items-center gap-1.5 rounded-md border border-[#243248] px-3 py-1.5 text-sm text-[#cbd5e1] transition-colors hover:bg-[#243248]"
+                className="inline-flex items-center gap-1.5 rounded-md border border-[var(--ms-border)] px-3 py-1.5 text-sm text-[var(--ms-text-body)] transition-colors hover:bg-[var(--ms-border)]"
               >
                 <RotateCcw className="h-3.5 w-3.5" />
                 Försök igen
@@ -160,7 +160,7 @@ export function Quiz({
                 <button
                   type="button"
                   onClick={next}
-                  className="ms-mono rounded-md bg-white px-3 py-1.5 text-sm text-[#0a0e1a]"
+                  className="ms-mono rounded-md bg-white px-3 py-1.5 text-sm text-[var(--ms-bg)]"
                 >
                   Nästa →
                 </button>
@@ -171,11 +171,11 @@ export function Quiz({
 
         {!revealed && question.hint && (
           <details className="mt-4">
-            <summary className="ms-mono inline-flex cursor-pointer items-center gap-1.5 text-[#94a3b8] hover:text-white">
+            <summary className="ms-mono inline-flex cursor-pointer items-center gap-1.5 text-[var(--ms-text-muted)] hover:text-[var(--ms-text)]">
               <Lightbulb className="h-3.5 w-3.5" />
               LEDTRÅD
             </summary>
-            <p className="ms-fadein mt-2 text-sm text-[#cbd5e1]">
+            <p className="ms-fadein mt-2 text-sm text-[var(--ms-text-body)]">
               {question.hint}
             </p>
           </details>

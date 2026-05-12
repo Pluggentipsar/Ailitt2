@@ -48,7 +48,7 @@ export function Lektion5Content({ lesson }: { lesson: MellanstadietLesson }) {
           ].map((opt) => (
             <div
               key={opt.v}
-              className="rounded-lg border bg-[#1a2235] p-4"
+              className="rounded-lg border bg-[var(--ms-bg-card)] p-4"
               style={{ borderColor: `${lesson.accentHex}40` }}
             >
               <div
@@ -57,7 +57,7 @@ export function Lektion5Content({ lesson }: { lesson: MellanstadietLesson }) {
               >
                 {opt.v}
               </div>
-              <p className="text-[#cbd5e1]">{opt.reason}</p>
+              <p className="text-[var(--ms-text-body)]">{opt.reason}</p>
             </div>
           ))}
         </div>
@@ -274,7 +274,7 @@ export function Lektion5Content({ lesson }: { lesson: MellanstadietLesson }) {
           ].map((r) => (
             <div
               key={r.who}
-              className="rounded-lg border border-[#243248] bg-[#1a2235] p-4"
+              className="rounded-lg border border-[var(--ms-border)] bg-[var(--ms-bg-card)] p-4"
             >
               <div
                 className="ms-mono"
@@ -282,7 +282,7 @@ export function Lektion5Content({ lesson }: { lesson: MellanstadietLesson }) {
               >
                 {r.who}
               </div>
-              <p className="text-sm text-[#cbd5e1]">{r.does}</p>
+              <p className="text-sm text-[var(--ms-text-body)]">{r.does}</p>
             </div>
           ))}
         </div>

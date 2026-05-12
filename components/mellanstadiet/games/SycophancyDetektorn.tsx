@@ -176,12 +176,12 @@ export function SycophancyDetektorn() {
 
     return (
       <div className="mx-auto max-w-2xl">
-        <div className="rounded-xl border border-[#8b5cf6]/40 bg-[#0d1322] p-8">
+        <div className="rounded-xl border border-[#8b5cf6]/40 bg-[var(--ms-bg-subtle)] p-8">
           <div className="mb-6 flex items-center gap-3">
             <Trophy className="h-8 w-8 text-[#fcd34d]" />
             <div>
-              <div className="ms-mono text-[#94a3b8]">SLUTRESULTAT</div>
-              <div className="text-3xl font-bold text-white">
+              <div className="ms-mono text-[var(--ms-text-muted)]">SLUTRESULTAT</div>
+              <div className="text-3xl font-bold text-[var(--ms-text)]">
                 {correctCount} / {TOTAL_ROUNDS}
               </div>
             </div>
@@ -191,13 +191,13 @@ export function SycophancyDetektorn() {
             {verdict}
           </div>
 
-          <div className="mb-6 rounded-lg border border-[#243248] bg-[#1a2235] p-4">
-            <div className="ms-mono mb-2 text-[#94a3b8]">VAD DU LÄRT DIG</div>
-            <p className="text-sm leading-relaxed text-[#cbd5e1]">
-              <strong className="text-white">Tellsen för smicker:</strong>{" "}
+          <div className="mb-6 rounded-lg border border-[var(--ms-border)] bg-[var(--ms-bg-card)] p-4">
+            <div className="ms-mono mb-2 text-[var(--ms-text-muted)]">VAD DU LÄRT DIG</div>
+            <p className="text-sm leading-relaxed text-[var(--ms-text-body)]">
+              <strong className="text-[var(--ms-text)]">Tellsen för smicker:</strong>{" "}
               generiska komplimanger, snabb medhåll, &quot;du har rätt att
               känna så&quot;, ingen riktig granskning eller frågor.{" "}
-              <strong className="text-white">Tellsen för ärliga svar:</strong>{" "}
+              <strong className="text-[var(--ms-text)]">Tellsen för ärliga svar:</strong>{" "}
               ställer frågor, erbjuder hjälp, ger nyans, vågar säga
               &quot;det här kan vara fel&quot; eller &quot;prata med en
               vuxen&quot;.
@@ -219,8 +219,8 @@ export function SycophancyDetektorn() {
 
   return (
     <div className="mx-auto max-w-2xl">
-      <div className="overflow-hidden rounded-xl border border-[#8b5cf6]/40 bg-[#0d1322]">
-        <div className="flex items-center gap-2 bg-[#8b5cf6] px-6 py-3 text-white">
+      <div className="overflow-hidden rounded-xl border border-[#8b5cf6]/40 bg-[var(--ms-bg-subtle)]">
+        <div className="flex items-center gap-2 bg-[#8b5cf6] px-6 py-3 text-[var(--ms-text)]">
           <Bot className="h-4 w-4" />
           <div className="ms-mono font-bold">
             SYCOPHANCY-DETEKTORN · {idx + 1} / {TOTAL_ROUNDS}
@@ -228,7 +228,7 @@ export function SycophancyDetektorn() {
         </div>
 
         {/* Progressbar */}
-        <div className="h-1 w-full bg-[#1a2235]">
+        <div className="h-1 w-full bg-[var(--ms-bg-card)]">
           <div
             className="h-1 bg-[#8b5cf6] transition-all duration-500"
             style={{ width: `${((idx + (revealed ? 1 : 0)) / TOTAL_ROUNDS) * 100}%` }}
@@ -238,19 +238,19 @@ export function SycophancyDetektorn() {
         <div className="space-y-5 p-6">
           {/* Användarens påstående */}
           <div>
-            <div className="ms-mono mb-2 text-[#94a3b8]">
+            <div className="ms-mono mb-2 text-[var(--ms-text-muted)]">
               ANVÄNDAREN SKREV TILL AI
             </div>
-            <div className="rounded-2xl rounded-tl-none border border-[#243248] bg-[#1a2235] p-4">
-              <p className="text-white">&ldquo;{r.userInput}&rdquo;</p>
+            <div className="rounded-2xl rounded-tl-none border border-[var(--ms-border)] bg-[var(--ms-bg-card)] p-4">
+              <p className="text-[var(--ms-text)]">&ldquo;{r.userInput}&rdquo;</p>
             </div>
           </div>
 
           {/* AI:s svar */}
           <div>
-            <div className="ms-mono mb-2 text-[#94a3b8]">AI SVARADE</div>
+            <div className="ms-mono mb-2 text-[var(--ms-text-muted)]">AI SVARADE</div>
             <div className="rounded-2xl rounded-tl-none border border-[#8b5cf6]/40 bg-[#8b5cf6]/5 p-4">
-              <p className="leading-relaxed text-[#cbd5e1]">
+              <p className="leading-relaxed text-[var(--ms-text-body)]">
                 &ldquo;{r.aiResponse}&rdquo;
               </p>
             </div>
@@ -311,7 +311,7 @@ export function SycophancyDetektorn() {
                       <span>FEL —</span>
                     </>
                   )}
-                  <span className="text-white">
+                  <span className="text-[var(--ms-text)]">
                     Det var{" "}
                     {r.type === "smicker"
                       ? "SMICKER (sycophancy)"

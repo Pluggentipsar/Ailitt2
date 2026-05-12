@@ -56,9 +56,9 @@ export function Lektion3Content({ lesson }: { lesson: MellanstadietLesson }) {
         <p>Titta på dessa två:</p>
 
         <div className="my-6 grid gap-4 sm:grid-cols-2">
-          <div className="rounded-lg border border-[#243248] bg-[#1a2235] p-5">
-            <div className="ms-mono mb-2 text-[#94a3b8]">PROMPT 1 · VAG</div>
-            <p className="font-mono text-[#e6edf7]">&ldquo;Rita en hjälte&rdquo;</p>
+          <div className="rounded-lg border border-[var(--ms-border)] bg-[var(--ms-bg-card)] p-5">
+            <div className="ms-mono mb-2 text-[var(--ms-text-muted)]">PROMPT 1 · VAG</div>
+            <p className="font-mono text-[var(--ms-text)]">&ldquo;Rita en hjälte&rdquo;</p>
             <PlaceholderImage
               src={MELLANSTADIET_IMAGES["L3.1"]}
               caption="Generisk superhjälte med kappa — vad AI gissar att 'hjälte' är"
@@ -66,11 +66,11 @@ export function Lektion3Content({ lesson }: { lesson: MellanstadietLesson }) {
               aspect="1/1"
             />
           </div>
-          <div className="rounded-lg border border-[#243248] bg-[#1a2235] p-5">
-            <div className="ms-mono mb-2 text-[#94a3b8]">
+          <div className="rounded-lg border border-[var(--ms-border)] bg-[var(--ms-bg-card)] p-5">
+            <div className="ms-mono mb-2 text-[var(--ms-text-muted)]">
               PROMPT 2 · SPECIFIK
             </div>
-            <p className="font-mono text-sm text-[#e6edf7]">
+            <p className="font-mono text-sm text-[var(--ms-text)]">
               &ldquo;Rita en orange katt med blå mantel, gröna ögon,
               solglasögon, sittande på ett hustak vid solnedgång, tecknad
               stil&rdquo;
@@ -129,7 +129,7 @@ export function Lektion3Content({ lesson }: { lesson: MellanstadietLesson }) {
           en cool bild&quot;. De skriver:
         </p>
 
-        <blockquote className="my-6 rounded-lg border-l-4 border-[#fcd34d] bg-[#1a2235] p-5 font-mono text-sm leading-relaxed text-[#e6edf7]">
+        <blockquote className="my-6 rounded-lg border-l-4 border-[#fcd34d] bg-[var(--ms-bg-card)] p-5 font-mono text-sm leading-relaxed text-[var(--ms-text)]">
           &ldquo;En thumbnail för YouTube. Mr Beast i mitten med ett uttryck av
           total chock. Bakom honom en exploderande pengakast med dollarsedlar
           som flyger. Ljusstark gul bakgrund med röda accenter. Texten &apos;I
@@ -187,7 +187,7 @@ export function Lektion3Content({ lesson }: { lesson: MellanstadietLesson }) {
           ].map((b) => (
             <div
               key={b.label}
-              className="rounded-lg border border-[#243248] bg-[#1a2235] p-4"
+              className="rounded-lg border border-[var(--ms-border)] bg-[var(--ms-bg-card)] p-4"
             >
               <div
                 className="ms-mono text-xs font-bold"
@@ -195,8 +195,8 @@ export function Lektion3Content({ lesson }: { lesson: MellanstadietLesson }) {
               >
                 {b.label}
               </div>
-              <div className="mt-1 font-semibold text-white">{b.q}</div>
-              <div className="mt-1 text-sm text-[#94a3b8]">
+              <div className="mt-1 font-semibold text-[var(--ms-text)]">{b.q}</div>
+              <div className="mt-1 text-sm text-[var(--ms-text-muted)]">
                 Ex: <em>&ldquo;{b.ex}&rdquo;</em>
               </div>
             </div>
@@ -211,12 +211,12 @@ export function Lektion3Content({ lesson }: { lesson: MellanstadietLesson }) {
         <h3>Bygga en prompt steg för steg</h3>
         <p>Titta hur prompten växer:</p>
 
-        <div className="my-6 overflow-hidden rounded-lg border border-[#243248] bg-[#1a2235]">
+        <div className="my-6 overflow-hidden rounded-lg border border-[var(--ms-border)] bg-[var(--ms-bg-card)]">
           <table className="w-full text-sm">
-            <thead className="border-b border-[#243248]">
+            <thead className="border-b border-[var(--ms-border)]">
               <tr>
-                <th className="ms-mono p-3 text-left text-[#94a3b8]">STEG</th>
-                <th className="ms-mono p-3 text-left text-[#94a3b8]">
+                <th className="ms-mono p-3 text-left text-[var(--ms-text-muted)]">STEG</th>
+                <th className="ms-mono p-3 text-left text-[var(--ms-text-muted)]">
                   PROMPT
                 </th>
               </tr>
@@ -226,32 +226,32 @@ export function Lektion3Content({ lesson }: { lesson: MellanstadietLesson }) {
                 {
                   step: "1",
                   text: "Skriv en dikt",
-                  fade: "text-[#64748b]",
+                  fade: "text-[var(--ms-text-dim)]",
                 },
                 {
                   step: "2",
                   text: "Skriv en dikt om hösten",
-                  fade: "text-[#94a3b8]",
+                  fade: "text-[var(--ms-text-muted)]",
                 },
                 {
                   step: "3",
                   text: "Skriv en dikt om hösten, med röda och gula löv som faller",
-                  fade: "text-[#cbd5e1]",
+                  fade: "text-[var(--ms-text-body)]",
                 },
                 {
                   step: "4",
                   text: "Skriv en dikt om hösten, med röda och gula löv, i 4 strofer som rimmar",
-                  fade: "text-white",
+                  fade: "text-[var(--ms-text)]",
                 },
                 {
                   step: "5",
                   text: "Skriv en dikt om hösten, med röda och gula löv, i 4 strofer som rimmar, ur en katts perspektiv",
-                  fade: "text-white font-semibold",
+                  fade: "text-[var(--ms-text)] font-semibold",
                 },
               ].map((row) => (
                 <tr
                   key={row.step}
-                  className="border-b border-[#243248] last:border-0"
+                  className="border-b border-[var(--ms-border)] last:border-0"
                 >
                   <td className="ms-mono p-3 text-[#fcd34d]">{row.step}</td>
                   <td className={`p-3 ${row.fade}`}>{row.text}</td>
@@ -289,15 +289,15 @@ export function Lektion3Content({ lesson }: { lesson: MellanstadietLesson }) {
           AI-system. Här är de viktigaste 2026:
         </p>
 
-        <div className="my-6 overflow-hidden rounded-lg border border-[#243248] bg-[#1a2235]">
+        <div className="my-6 overflow-hidden rounded-lg border border-[var(--ms-border)] bg-[var(--ms-bg-card)]">
           <table className="w-full text-sm">
-            <thead className="border-b border-[#243248]">
+            <thead className="border-b border-[var(--ms-border)]">
               <tr>
-                <th className="ms-mono p-3 text-left text-[#94a3b8]">TYP</th>
-                <th className="ms-mono p-3 text-left text-[#94a3b8]">
+                <th className="ms-mono p-3 text-left text-[var(--ms-text-muted)]">TYP</th>
+                <th className="ms-mono p-3 text-left text-[var(--ms-text-muted)]">
                   GÖR
                 </th>
-                <th className="ms-mono hidden p-3 text-left text-[#94a3b8] sm:table-cell">
+                <th className="ms-mono hidden p-3 text-left text-[var(--ms-text-muted)] sm:table-cell">
                   EXEMPEL
                 </th>
               </tr>
@@ -337,11 +337,11 @@ export function Lektion3Content({ lesson }: { lesson: MellanstadietLesson }) {
               ].map((row) => (
                 <tr
                   key={row.type}
-                  className="border-b border-[#243248] last:border-0"
+                  className="border-b border-[var(--ms-border)] last:border-0"
                 >
-                  <td className="p-3 font-semibold text-white">{row.type}</td>
-                  <td className="p-3 text-[#cbd5e1]">{row.does}</td>
-                  <td className="hidden p-3 text-[#94a3b8] sm:table-cell">
+                  <td className="p-3 font-semibold text-[var(--ms-text)]">{row.type}</td>
+                  <td className="p-3 text-[var(--ms-text-body)]">{row.does}</td>
+                  <td className="hidden p-3 text-[var(--ms-text-muted)] sm:table-cell">
                     {row.ex}
                   </td>
                 </tr>
@@ -481,7 +481,7 @@ export function Lektion3Content({ lesson }: { lesson: MellanstadietLesson }) {
           ].map((s) => (
             <div
               key={s.num}
-              className="rounded-lg border border-[#243248] bg-[#1a2235] p-4"
+              className="rounded-lg border border-[var(--ms-border)] bg-[var(--ms-bg-card)] p-4"
             >
               <div
                 className="ms-mono mb-2 text-xs"
@@ -489,8 +489,8 @@ export function Lektion3Content({ lesson }: { lesson: MellanstadietLesson }) {
               >
                 STEG {s.num}
               </div>
-              <div className="font-semibold text-white">{s.title}</div>
-              <div className="mt-1 text-sm text-[#cbd5e1]">{s.q}</div>
+              <div className="font-semibold text-[var(--ms-text)]">{s.title}</div>
+              <div className="mt-1 text-sm text-[var(--ms-text-body)]">{s.q}</div>
             </div>
           ))}
         </div>

@@ -1,15 +1,7 @@
 /* Mellanstadiet — egen visuell identitet.
-   Mörk, futuristisk, men inte skrämmande. Neon-accenter per lektion.
-   Avsiktligt frikopplat från Ailitt:s ljusare grundskola-stil. */
+   Två teman: ljust (default) och mörkt. Växlas via data-ms-theme på roten. */
 
 .mellanstadiet-root {
-  --ms-bg: #0a0e1a;
-  --ms-bg-elevated: #111827;
-  --ms-bg-card: #1a2235;
-  --ms-border: #243248;
-  --ms-text: #e6edf7;
-  --ms-text-muted: #94a3b8;
-  --ms-text-dim: #64748b;
   --ms-mono: ui-monospace, "SF Mono", "JetBrains Mono", "Fira Code", monospace;
 
   background: var(--ms-bg);
@@ -18,13 +10,70 @@
   font-feature-settings: "ss01", "cv11";
 }
 
-/* Subtilt grid-mönster för "labb"-känslan */
-.mellanstadiet-root .ms-grid-bg {
+/* Light (default) — varm off-white, akvarellsignatur från illustrationerna */
+.mellanstadiet-root,
+.mellanstadiet-root[data-ms-theme="light"] {
+  --ms-bg: #faf8f2;
+  --ms-bg-subtle: #f3eee2;
+  --ms-bg-card: #ffffff;
+  --ms-bg-elevated: #ffffff;
+  --ms-border: #e7dfcb;
+  --ms-border-strong: #c9bd9c;
+  --ms-text: #1a2235;
+  --ms-text-body: #2c3344;
+  --ms-text-muted: #6b6657;
+  --ms-text-dim: #948d7c;
+  --ms-prose-strong: #0d1322;
+  --ms-prose-em: #5a4eaa;
+  --ms-prose-link: #4338ca;
+  --ms-prose-code-bg: #f3eee2;
+  --ms-prose-code-fg: #b45309;
+  --ms-focus: #b45309;
+  --ms-shadow: 0 1px 2px rgba(20, 16, 8, 0.04), 0 4px 12px rgba(20, 16, 8, 0.06);
+  --ms-bg-glass: rgba(250, 248, 242, 0.9);
+  --ms-overlay: rgba(20, 16, 8, 0.55);
+}
+
+/* Dark — bevarat ursprungsläge för väljbar mörkt tema */
+.mellanstadiet-root[data-ms-theme="dark"] {
+  --ms-bg: #0a0e1a;
+  --ms-bg-subtle: #0d1322;
+  --ms-bg-card: #1a2235;
+  --ms-bg-elevated: #111827;
+  --ms-border: #243248;
+  --ms-border-strong: #475569;
+  --ms-text: #ffffff;
+  --ms-text-body: #cbd5e1;
+  --ms-text-muted: #94a3b8;
+  --ms-text-dim: #64748b;
+  --ms-prose-strong: #ffffff;
+  --ms-prose-em: #c7d2fe;
+  --ms-prose-link: #93c5fd;
+  --ms-prose-code-bg: #111827;
+  --ms-prose-code-fg: #fcd34d;
+  --ms-focus: #fcd34d;
+  --ms-shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 4px 12px rgba(0, 0, 0, 0.4);
+  --ms-bg-glass: rgba(10, 14, 26, 0.9);
+  --ms-overlay: rgba(10, 14, 26, 0.8);
+}
+
+/* Subtilt grid-mönster för "labb"-känslan — anpassat per tema */
+.mellanstadiet-root[data-ms-theme="dark"] .ms-grid-bg {
   background-image:
     radial-gradient(circle at 20% 0%, rgba(99, 102, 241, 0.08), transparent 40%),
     radial-gradient(circle at 80% 100%, rgba(245, 158, 11, 0.06), transparent 40%),
     linear-gradient(rgba(36, 50, 72, 0.4) 1px, transparent 1px),
     linear-gradient(90deg, rgba(36, 50, 72, 0.4) 1px, transparent 1px);
+  background-size: auto, auto, 64px 64px, 64px 64px;
+}
+
+.mellanstadiet-root .ms-grid-bg,
+.mellanstadiet-root[data-ms-theme="light"] .ms-grid-bg {
+  background-image:
+    radial-gradient(circle at 20% 0%, rgba(99, 102, 241, 0.05), transparent 40%),
+    radial-gradient(circle at 80% 100%, rgba(245, 158, 11, 0.06), transparent 40%),
+    linear-gradient(rgba(180, 165, 130, 0.18) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(180, 165, 130, 0.18) 1px, transparent 1px);
   background-size: auto, auto, 64px 64px, 64px 64px;
 }
 
@@ -54,24 +103,25 @@
 }
 
 .mellanstadiet-root .ms-prose strong {
-  color: #fff;
+  color: var(--ms-prose-strong);
   font-weight: 600;
 }
 
 .mellanstadiet-root .ms-prose em {
-  color: #c7d2fe;
+  color: var(--ms-prose-em);
   font-style: italic;
 }
 
 .mellanstadiet-root .ms-prose a {
-  color: #93c5fd;
+  color: var(--ms-prose-link);
   text-decoration: underline;
   text-underline-offset: 0.18em;
-  text-decoration-color: rgba(147, 197, 253, 0.4);
+  text-decoration-color: currentColor;
+  text-decoration-thickness: 1px;
 }
 
 .mellanstadiet-root .ms-prose a:hover {
-  text-decoration-color: rgba(147, 197, 253, 1);
+  text-decoration-thickness: 2px;
 }
 
 .mellanstadiet-root .ms-prose ul,
@@ -98,18 +148,18 @@
 
 .mellanstadiet-root .ms-prose code {
   font-family: var(--ms-mono);
-  background: var(--ms-bg-elevated);
+  background: var(--ms-prose-code-bg);
   padding: 0.125em 0.375em;
   border-radius: 4px;
   font-size: 0.9em;
-  color: #fcd34d;
+  color: var(--ms-prose-code-fg);
 }
 
 .mellanstadiet-root .ms-prose h2,
 .mellanstadiet-root .ms-prose h3 {
   margin-top: 2em;
   margin-bottom: 0.5em;
-  color: #fff;
+  color: var(--ms-text);
 }
 
 .mellanstadiet-root .ms-prose h2 {
@@ -154,7 +204,7 @@
 
 /* Tydligare focus-ring för tangentbordsnavigering */
 .mellanstadiet-root *:focus-visible {
-  outline: 2px solid #fcd34d;
+  outline: 2px solid var(--ms-focus);
   outline-offset: 2px;
   border-radius: 4px;
 }
@@ -223,12 +273,12 @@
 }
 
 .mellanstadiet-root .ms-btn-primary {
-  background: #fff;
-  color: #0a0e1a;
+  background: var(--ms-text);
+  color: var(--ms-bg);
 }
 
 .mellanstadiet-root .ms-btn-primary:hover {
-  background: #e2e8f0;
+  filter: brightness(0.9);
   transform: translateY(-1px);
 }
 

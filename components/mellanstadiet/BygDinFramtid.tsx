@@ -354,7 +354,7 @@ export function BygDinFramtid({
     return (
       <div className="mx-auto max-w-2xl">
         <div
-          className="rounded-xl border bg-[#0d1322] p-8"
+          className="rounded-xl border bg-[var(--ms-bg-subtle)] p-8"
           style={{ borderColor: `${accentHex}80` }}
         >
           <div
@@ -363,10 +363,10 @@ export function BygDinFramtid({
           >
             BYGG DIN FRAMTID 2040
           </div>
-          <h2 className="mb-3 text-3xl font-bold tracking-tight text-white">
+          <h2 className="mb-3 text-3xl font-bold tracking-tight text-[var(--ms-text)]">
             Sju val. En framtid.
           </h2>
-          <p className="mb-6 text-lg text-[#cbd5e1]">
+          <p className="mb-6 text-lg text-[var(--ms-text-body)]">
             Du får sju frågor om hur du tror — eller hoppas — att 2040 ser ut.
             Per fråga: fyra alternativ. Slutet: din egen framtidsvy som du kan
             spara.
@@ -377,13 +377,13 @@ export function BygDinFramtid({
               return (
                 <div
                   key={d.id}
-                  className="flex flex-col items-center gap-1 rounded-lg border border-[#243248] bg-[#1a2235] p-3"
+                  className="flex flex-col items-center gap-1 rounded-lg border border-[var(--ms-border)] bg-[var(--ms-bg-card)] p-3"
                 >
                   <Icon
                     className="h-5 w-5"
                     style={{ color: d.color }}
                   />
-                  <span className="text-xs text-[#cbd5e1]">{d.label}</span>
+                  <span className="text-xs text-[var(--ms-text-body)]">{d.label}</span>
                 </div>
               );
             })}
@@ -434,7 +434,7 @@ export function BygDinFramtid({
     return (
       <div className="mx-auto max-w-3xl">
         <div
-          className="rounded-xl border bg-[#0d1322] p-8"
+          className="rounded-xl border bg-[var(--ms-bg-subtle)] p-8"
           style={{ borderColor: `${accentHex}80` }}
         >
           <div className="mb-6 flex items-center gap-3">
@@ -449,7 +449,7 @@ export function BygDinFramtid({
               >
                 DIN FRAMTID 2040
               </div>
-              <h2 className="text-3xl font-bold text-white">
+              <h2 className="text-3xl font-bold text-[var(--ms-text)]">
                 Så här ser DIN värld ut
               </h2>
             </div>
@@ -492,7 +492,7 @@ export function BygDinFramtid({
               return (
                 <div
                   key={sel.domainId}
-                  className="rounded-lg border bg-[#1a2235] p-4"
+                  className="rounded-lg border bg-[var(--ms-bg-card)] p-4"
                   style={{ borderLeft: `4px solid ${d.color}` }}
                 >
                   <div className="mb-1 flex items-center gap-2">
@@ -516,8 +516,8 @@ export function BygDinFramtid({
                       {c.vibe.toUpperCase()}
                     </span>
                   </div>
-                  <div className="font-semibold text-white">{c.label}</div>
-                  <p className="mt-1 text-sm text-[#cbd5e1]">{c.description}</p>
+                  <div className="font-semibold text-[var(--ms-text)]">{c.label}</div>
+                  <p className="mt-1 text-sm text-[var(--ms-text-body)]">{c.description}</p>
                 </div>
               );
             })}
@@ -537,11 +537,11 @@ export function BygDinFramtid({
             >
               DIN BILD AV FRAMTIDEN
             </div>
-            <p className="leading-relaxed text-white">{profile}</p>
+            <p className="leading-relaxed text-[var(--ms-text)]">{profile}</p>
           </div>
 
           <div className="rounded-lg border border-[#fcd34d]/40 bg-[#fcd34d]/5 p-5 text-sm leading-relaxed text-[#fde68a]">
-            <strong className="text-white">Kom ihåg:</strong> framtiden är inte
+            <strong className="text-[var(--ms-text)]">Kom ihåg:</strong> framtiden är inte
             en plats vi besöker — den byggs av val. Dina val. Dina röster när
             du blir 18. Dina vanor med AI redan idag. Du är en av dem som
             bygger den.
@@ -565,11 +565,11 @@ export function BygDinFramtid({
   return (
     <div className="mx-auto max-w-2xl">
       <div
-        className="overflow-hidden rounded-xl border bg-[#0d1322]"
+        className="overflow-hidden rounded-xl border bg-[var(--ms-bg-subtle)]"
         style={{ borderColor: `${accentHex}80` }}
       >
         <div
-          className="flex items-center gap-2 px-6 py-3 text-white"
+          className="flex items-center gap-2 px-6 py-3 text-[var(--ms-text)]"
           style={{ background: accentHex }}
         >
           <Sparkles className="h-4 w-4" />
@@ -579,7 +579,7 @@ export function BygDinFramtid({
         </div>
 
         {/* Progress */}
-        <div className="h-1 w-full bg-[#1a2235]">
+        <div className="h-1 w-full bg-[var(--ms-bg-card)]">
           <div
             className="h-1 transition-all duration-500"
             style={{
@@ -608,7 +608,7 @@ export function BygDinFramtid({
               >
                 {domain.label.toUpperCase()}
               </div>
-              <h3 className="text-2xl font-bold text-white">
+              <h3 className="text-2xl font-bold text-[var(--ms-text)]">
                 {domain.question}
               </h3>
             </div>
@@ -621,10 +621,10 @@ export function BygDinFramtid({
                 key={c.id}
                 type="button"
                 onClick={() => choose(c.id)}
-                className="group block w-full rounded-lg border border-[#243248] bg-[#1a2235] p-4 text-left transition-all hover:-translate-y-0.5 hover:border-white/40 hover:bg-[#243248]"
+                className="group block w-full rounded-lg border border-[var(--ms-border)] bg-[var(--ms-bg-card)] p-4 text-left transition-all hover:-translate-y-0.5 hover:border-[var(--ms-text)]/40 hover:bg-[var(--ms-border)]"
               >
-                <div className="font-semibold text-white">{c.label}</div>
-                <p className="mt-1 text-sm text-[#cbd5e1]">{c.description}</p>
+                <div className="font-semibold text-[var(--ms-text)]">{c.label}</div>
+                <p className="mt-1 text-sm text-[var(--ms-text-body)]">{c.description}</p>
               </button>
             ))}
           </div>
@@ -634,7 +634,7 @@ export function BygDinFramtid({
             <button
               type="button"
               onClick={() => setDomainIdx(domainIdx - 1)}
-              className="ms-mono text-[#94a3b8] hover:text-white"
+              className="ms-mono text-[var(--ms-text-muted)] hover:text-[var(--ms-text)]"
             >
               ← Tillbaka till föregående
             </button>

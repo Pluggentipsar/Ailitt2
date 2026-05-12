@@ -129,24 +129,24 @@ export function SmickerTestet({
     return (
       <div className="mx-auto max-w-2xl">
         <div
-          className="rounded-xl border bg-[#0d1322] p-8"
+          className="rounded-xl border bg-[var(--ms-bg-subtle)] p-8"
           style={{ borderColor: `${accentHex}80` }}
         >
-          <div className="ms-mono mb-2 text-[#94a3b8]">SMICKER-TESTET KLART</div>
-          <h2 className="mb-3 text-3xl font-bold text-white">
+          <div className="ms-mono mb-2 text-[var(--ms-text-muted)]">SMICKER-TESTET KLART</div>
+          <h2 className="mb-3 text-3xl font-bold text-[var(--ms-text)]">
             Du har sett mönstret
           </h2>
-          <p className="mb-4 leading-relaxed text-[#cbd5e1]">
+          <p className="mb-4 leading-relaxed text-[var(--ms-text-body)]">
             AI håller med, smickrar, ger generiska tröstord. En kompis ställer
             frågor, ifrågasätter ibland, ger SPECIFIK omtanke.
           </p>
-          <p className="mb-6 text-lg font-medium leading-relaxed text-white">
+          <p className="mb-6 text-lg font-medium leading-relaxed text-[var(--ms-text)]">
             Det är skillnaden mellan att <em>låta</em> snäll och att{" "}
             <em>vara</em> snäll.
           </p>
 
           <div className="mb-6 rounded-lg border border-[#fcd34d]/40 bg-[#fcd34d]/5 p-5 text-[#fde68a]">
-            <strong className="text-white">Det viktiga:</strong> AI är inte
+            <strong className="text-[var(--ms-text)]">Det viktiga:</strong> AI är inte
             ond. Smicker är inte ondska. Men i de hårda stunderna behöver du
             någon som <em>verkligen</em> bryr sig — och det kan AI inte göra.
             Det är därför AI är ett verktyg, inte en vän.
@@ -168,12 +168,12 @@ export function SmickerTestet({
   return (
     <div className="mx-auto max-w-2xl">
       <div
-        className="overflow-hidden rounded-xl border bg-[#0d1322]"
+        className="overflow-hidden rounded-xl border bg-[var(--ms-bg-subtle)]"
         style={{ borderColor: `${accentHex}80` }}
       >
         {/* Topbar */}
         <div
-          className="flex items-center gap-2 px-6 py-3 text-white"
+          className="flex items-center gap-2 px-6 py-3 text-[var(--ms-text)]"
           style={{ background: accentHex }}
         >
           <MessageCircle className="h-4 w-4" />
@@ -183,7 +183,7 @@ export function SmickerTestet({
         </div>
 
         {/* Progressbar */}
-        <div className="h-1 w-full bg-[#1a2235]">
+        <div className="h-1 w-full bg-[var(--ms-bg-card)]">
           <div
             className="h-1 transition-all duration-500"
             style={{
@@ -197,16 +197,16 @@ export function SmickerTestet({
           {/* Du säger till AI */}
           <div className="flex items-start gap-3">
             <span
-              className="ms-mono flex h-8 w-8 flex-none items-center justify-center rounded-full bg-[#1a2235] text-xs"
+              className="ms-mono flex h-8 w-8 flex-none items-center justify-center rounded-full bg-[var(--ms-bg-card)] text-xs"
               style={{ color: accentHex }}
               aria-hidden
             >
               <User className="h-4 w-4" />
             </span>
             <div className="flex-1">
-              <div className="ms-mono mb-1 text-[#94a3b8]">DU SÄGER</div>
-              <div className="rounded-2xl rounded-tl-none border border-[#243248] bg-[#1a2235] p-4">
-                <p className="text-white">&ldquo;{s.prompt}&rdquo;</p>
+              <div className="ms-mono mb-1 text-[var(--ms-text-muted)]">DU SÄGER</div>
+              <div className="rounded-2xl rounded-tl-none border border-[var(--ms-border)] bg-[var(--ms-bg-card)] p-4">
+                <p className="text-[var(--ms-text)]">&ldquo;{s.prompt}&rdquo;</p>
               </div>
             </div>
           </div>
@@ -215,15 +215,15 @@ export function SmickerTestet({
           {(phase === "ai-shown" || phase === "friend-shown") && (
             <div className="ms-fadein flex items-start gap-3">
               <span
-                className="flex h-8 w-8 flex-none items-center justify-center rounded-full bg-[#243248] text-[#94a3b8]"
+                className="flex h-8 w-8 flex-none items-center justify-center rounded-full bg-[var(--ms-border)] text-[var(--ms-text-muted)]"
                 aria-hidden
               >
                 <Bot className="h-4 w-4" />
               </span>
               <div className="flex-1">
-                <div className="ms-mono mb-1 text-[#94a3b8]">AI SVARAR</div>
-                <div className="rounded-2xl rounded-tl-none border border-[#243248] bg-[#0d1322] p-4">
-                  <p className="leading-relaxed text-[#cbd5e1]">
+                <div className="ms-mono mb-1 text-[var(--ms-text-muted)]">AI SVARAR</div>
+                <div className="rounded-2xl rounded-tl-none border border-[var(--ms-border)] bg-[var(--ms-bg-subtle)] p-4">
+                  <p className="leading-relaxed text-[var(--ms-text-body)]">
                     &ldquo;{s.aiResponse}&rdquo;
                   </p>
                 </div>
@@ -268,7 +268,7 @@ export function SmickerTestet({
               >
                 SKILLNADEN
               </div>
-              <p className="leading-relaxed text-white">{s.insight}</p>
+              <p className="leading-relaxed text-[var(--ms-text)]">{s.insight}</p>
             </div>
           )}
 

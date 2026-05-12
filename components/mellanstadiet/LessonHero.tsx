@@ -12,7 +12,7 @@ export function LessonHero({ lesson }: LessonHeroProps) {
   const heroUrl = getLessonHero(lesson.number);
 
   return (
-    <section className="relative overflow-hidden border-b border-[#243248] px-4 pt-12 pb-20">
+    <section className="relative overflow-hidden border-b border-[var(--ms-border)] px-4 pt-12 pb-20">
       {/* Stort accent-tal som bakgrundsdetalj */}
       <div
         aria-hidden
@@ -25,7 +25,7 @@ export function LessonHero({ lesson }: LessonHeroProps) {
       <div className="mx-auto max-w-5xl">
         <Link
           href="/mellanstadiet"
-          className="ms-mono inline-flex items-center gap-1.5 text-[#94a3b8] transition-colors hover:text-white"
+          className="ms-mono inline-flex items-center gap-1.5 text-[var(--ms-text-muted)] transition-colors hover:text-[var(--ms-text)]"
         >
           <ArrowLeft className="h-3.5 w-3.5" />
           KURSEN · 7 LEKTIONER
@@ -42,25 +42,25 @@ export function LessonHero({ lesson }: LessonHeroProps) {
           >
             LEKTION {lesson.number.toString().padStart(2, "0")}
           </div>
-          <div className="ms-mono text-[#94a3b8]">
+          <div className="ms-mono text-[var(--ms-text-muted)]">
             DIM {lesson.dimension} · {lesson.dimensionLabel.toUpperCase()}
           </div>
         </div>
 
-        <h1 className="mt-4 text-4xl font-bold leading-[1.1] tracking-tight text-white sm:text-6xl">
+        <h1 className="mt-4 text-4xl font-bold leading-[1.1] tracking-tight text-[var(--ms-text)] sm:text-6xl">
           {lesson.title}
         </h1>
 
-        <p className="mt-6 max-w-3xl text-xl text-[#cbd5e1] sm:text-2xl">
-          <em className="not-italic text-[#94a3b8]">Kärnfråga:</em>{" "}
+        <p className="mt-6 max-w-3xl text-xl text-[var(--ms-text-body)] sm:text-2xl">
+          <em className="not-italic text-[var(--ms-text-muted)]">Kärnfråga:</em>{" "}
           {lesson.kernfraga}
         </p>
 
-        <div className="mt-8 flex flex-wrap items-center gap-4 text-sm text-[#94a3b8]">
+        <div className="mt-8 flex flex-wrap items-center gap-4 text-sm text-[var(--ms-text-muted)]">
           <span className="flex items-center gap-1.5">
             <Clock className="h-4 w-4" /> {lesson.duration}
           </span>
-          <span aria-hidden className="text-[#243248]">•</span>
+          <span aria-hidden className="text-[var(--ms-border)]">•</span>
           <span className="flex items-center gap-1.5">
             <Beaker className="h-4 w-4" /> {lesson.interaktivt}
           </span>

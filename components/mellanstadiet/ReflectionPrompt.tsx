@@ -28,7 +28,7 @@ export function ReflectionPrompt({
 
   return (
     <aside
-      className="my-8 rounded-lg border-l-4 bg-[#1a2235]/60 p-5"
+      className="my-8 rounded-lg border-l-4 bg-[var(--ms-bg-subtle)] p-5"
       style={{ borderLeftColor: accentHex }}
     >
       <div className="mb-2 flex items-center gap-2">
@@ -43,11 +43,11 @@ export function ReflectionPrompt({
           {modeLabel}
         </span>
       </div>
-      <p className="text-lg font-medium leading-relaxed text-white">
+      <p className="text-lg font-medium leading-relaxed text-[var(--ms-text)]">
         {question}
       </p>
       {followups && followups.length > 0 && (
-        <ul className="mt-3 space-y-1.5 text-[#cbd5e1]">
+        <ul className="mt-3 space-y-1.5 text-[var(--ms-text-body)]">
           {followups.map((f, i) => (
             <li key={i} className="flex gap-2">
               <span style={{ color: accentHex }}>→</span>

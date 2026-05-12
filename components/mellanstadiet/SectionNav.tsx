@@ -70,7 +70,7 @@ export function SectionNav({ sections, accentHex }: SectionNavProps) {
     <>
       {/* Desktop sticky bar */}
       <nav
-        className="sticky top-0 z-40 hidden border-b border-[#243248] bg-[#0a0e1a]/90 backdrop-blur md:block"
+        className="sticky top-0 z-40 hidden border-b border-[var(--ms-border)] bg-[var(--ms-bg-glass)] backdrop-blur md:block"
         aria-label="Sektionsnavigering"
       >
         <div className="mx-auto max-w-5xl px-4">
@@ -92,17 +92,17 @@ export function SectionNav({ sections, accentHex }: SectionNavProps) {
                     <span
                       className={`flex h-8 w-8 flex-none items-center justify-center rounded-full font-mono text-xs font-bold transition-all ${
                         isActive
-                          ? "scale-110 text-[#0a0e1a]"
+                          ? "scale-110 text-[var(--ms-bg)]"
                           : isVisited
-                          ? "text-[#0a0e1a]"
-                          : "text-[#94a3b8]"
+                          ? "text-[var(--ms-bg)]"
+                          : "text-[var(--ms-text-muted)]"
                       }`}
                       style={{
                         background: isActive
                           ? accentHex
                           : isVisited
                           ? `${accentHex}80`
-                          : "#1a2235",
+                          : "var(--ms-bg-card)",
                         boxShadow: isActive
                           ? `0 0 0 4px ${accentHex}25`
                           : "none",
@@ -117,8 +117,8 @@ export function SectionNav({ sections, accentHex }: SectionNavProps) {
                     <span
                       className={`hidden text-sm font-medium transition-colors lg:inline ${
                         isActive
-                          ? "text-white"
-                          : "text-[#94a3b8] group-hover:text-white"
+                          ? "text-[var(--ms-text)]"
+                          : "text-[var(--ms-text-muted)] group-hover:text-[var(--ms-text)]"
                       }`}
                     >
                       {s.title}
@@ -127,7 +127,7 @@ export function SectionNav({ sections, accentHex }: SectionNavProps) {
                   {i < sections.length - 1 && (
                     <span
                       aria-hidden
-                      className="mx-2 h-px flex-1 bg-[#243248]"
+                      className="mx-2 h-px flex-1 bg-[var(--ms-border)]"
                     />
                   )}
                 </li>
@@ -136,7 +136,7 @@ export function SectionNav({ sections, accentHex }: SectionNavProps) {
           </ol>
         </div>
         {/* Progress-line */}
-        <div className="h-px w-full bg-[#243248]">
+        <div className="h-px w-full bg-[var(--ms-border)]">
           <div
             className="h-px transition-all duration-500"
             style={{
@@ -149,29 +149,29 @@ export function SectionNav({ sections, accentHex }: SectionNavProps) {
 
       {/* Mobile sticky bar */}
       <nav
-        className="sticky top-0 z-40 border-b border-[#243248] bg-[#0a0e1a]/90 backdrop-blur md:hidden"
+        className="sticky top-0 z-40 border-b border-[var(--ms-border)] bg-[var(--ms-bg-glass)] backdrop-blur md:hidden"
         aria-label="Sektionsnavigering"
       >
         <div className="flex items-center gap-3 px-4 py-3">
           <span
-            className="flex h-11 w-11 flex-none items-center justify-center rounded-full font-mono text-base font-bold text-[#0a0e1a]"
+            className="flex h-11 w-11 flex-none items-center justify-center rounded-full font-mono text-base font-bold text-[var(--ms-bg)]"
             style={{ background: accentHex }}
             aria-hidden
           >
             {sections.find((s) => s.id === active)?.step}
           </span>
           <div className="flex-1">
-            <div className="ms-mono text-[10px] text-[#94a3b8]">
+            <div className="ms-mono text-[10px] text-[var(--ms-text-muted)]">
               STEG {Math.max(1, idx + 1)} / {sections.length}
             </div>
-            <div className="text-sm font-semibold text-white">
+            <div className="text-sm font-semibold text-[var(--ms-text)]">
               {sections.find((s) => s.id === active)?.title}
             </div>
           </div>
           <button
             type="button"
             onClick={() => setOpen((s) => !s)}
-            className="flex h-11 w-11 items-center justify-center rounded-md border border-[#243248] bg-[#1a2235] text-white transition-colors hover:bg-[#243248]"
+            className="flex h-11 w-11 items-center justify-center rounded-md border border-[var(--ms-border)] bg-[var(--ms-bg-card)] text-[var(--ms-text)] transition-colors hover:bg-[var(--ms-border)]"
             aria-label={open ? "Stäng meny" : "Öppna meny"}
             aria-expanded={open}
           >
@@ -180,7 +180,7 @@ export function SectionNav({ sections, accentHex }: SectionNavProps) {
         </div>
 
         {/* Progress-line */}
-        <div className="h-1 w-full bg-[#243248]">
+        <div className="h-1 w-full bg-[var(--ms-border)]">
           <div
             className="h-1 transition-all duration-500"
             style={{
@@ -192,7 +192,7 @@ export function SectionNav({ sections, accentHex }: SectionNavProps) {
 
         {/* Drop-down meny */}
         {open && (
-          <div className="ms-fadein border-t border-[#243248] bg-[#0d1322]">
+          <div className="ms-fadein border-t border-[var(--ms-border)] bg-[var(--ms-bg-subtle)]">
             <ul>
               {sections.map((s) => {
                 const isActive = s.id === active;
@@ -202,19 +202,19 @@ export function SectionNav({ sections, accentHex }: SectionNavProps) {
                     <button
                       type="button"
                       onClick={() => handleJump(s.id)}
-                      className="flex min-h-[52px] w-full items-center gap-3 border-b border-[#243248] px-4 py-4 text-left last:border-0 hover:bg-[#1a2235] active:bg-[#1a2235]"
+                      className="flex min-h-[52px] w-full items-center gap-3 border-b border-[var(--ms-border)] px-4 py-4 text-left last:border-0 hover:bg-[var(--ms-bg-card)] active:bg-[var(--ms-bg-card)]"
                     >
                       <span
                         className={`flex h-9 w-9 flex-none items-center justify-center rounded-full font-mono text-sm font-bold transition-all ${
-                          isActive ? "text-[#0a0e1a]" : "text-[#0a0e1a]"
+                          isActive ? "text-[var(--ms-bg)]" : "text-[var(--ms-bg)]"
                         }`}
                         style={{
                           background: isActive
                             ? accentHex
                             : isVisited
                             ? `${accentHex}80`
-                            : "#243248",
-                          color: isVisited || isActive ? "#0a0e1a" : "#94a3b8",
+                            : "var(--ms-border)",
+                          color: isVisited || isActive ? "var(--ms-bg)" : "var(--ms-text-muted)",
                         }}
                       >
                         {isVisited && !isActive ? (
@@ -225,7 +225,7 @@ export function SectionNav({ sections, accentHex }: SectionNavProps) {
                       </span>
                       <span
                         className={`flex-1 ${
-                          isActive ? "font-semibold text-white" : "text-[#cbd5e1]"
+                          isActive ? "font-semibold text-[var(--ms-text)]" : "text-[var(--ms-text-body)]"
                         }`}
                       >
                         {s.title}

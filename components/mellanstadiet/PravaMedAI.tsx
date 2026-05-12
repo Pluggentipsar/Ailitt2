@@ -39,25 +39,25 @@ export function PravaMedAI({
 
   return (
     <div
-      className="my-8 overflow-hidden rounded-xl border bg-[#0d1322]"
+      className="my-8 overflow-hidden rounded-xl border bg-[var(--ms-bg-subtle)]"
       style={{ borderColor: `${accentHex}40` }}
     >
       <div
-        className="flex items-center gap-2 px-5 py-2 text-[#0a0e1a]"
+        className="flex items-center gap-2 px-5 py-2 text-[var(--ms-bg)]"
         style={{ background: accentHex }}
       >
         <Bot className="h-4 w-4" />
         <span className="ms-mono font-bold">PROVA · {title.toUpperCase()}</span>
       </div>
       <div className="p-5">
-        <div className="ms-mono mb-2 text-[#94a3b8]">
+        <div className="ms-mono mb-2 text-[var(--ms-text-muted)]">
           KOPIERA OCH KLISTRA IN I {tool.toUpperCase()}
         </div>
-        <div className="group relative rounded-lg border border-[#243248] bg-[#1a2235] p-4 font-mono text-sm leading-relaxed text-[#e6edf7]">
+        <div className="group relative rounded-lg border border-[var(--ms-border)] bg-[var(--ms-bg-card)] p-4 font-mono text-sm leading-relaxed text-[var(--ms-text)]">
           <button
             type="button"
             onClick={copy}
-            className="absolute right-2 top-2 flex items-center gap-1.5 rounded-md border border-[#243248] bg-[#0a0e1a] px-2 py-1 text-xs text-[#94a3b8] opacity-0 transition-opacity hover:text-white group-hover:opacity-100 focus-visible:opacity-100"
+            className="absolute right-2 top-2 flex items-center gap-1.5 rounded-md border border-[var(--ms-border)] bg-[var(--ms-bg)] px-2 py-1 text-xs text-[var(--ms-text-muted)] opacity-0 transition-opacity hover:text-[var(--ms-text)] group-hover:opacity-100 focus-visible:opacity-100"
             aria-label="Kopiera prompt"
           >
             {copied ? (
@@ -76,8 +76,8 @@ export function PravaMedAI({
         </div>
         {observation && (
           <div className="mt-4">
-            <div className="ms-mono mb-1 text-[#94a3b8]">SEN — VAD ATT KOLLA</div>
-            <p className="text-sm leading-relaxed text-[#cbd5e1]">{observation}</p>
+            <div className="ms-mono mb-1 text-[var(--ms-text-muted)]">SEN — VAD ATT KOLLA</div>
+            <p className="text-sm leading-relaxed text-[var(--ms-text-body)]">{observation}</p>
           </div>
         )}
       </div>

@@ -33,7 +33,7 @@ export function PlaceholderImage({
     return (
       <figure id={id} className="my-8 overflow-hidden rounded-lg">
         <div
-          className="relative w-full overflow-hidden rounded-lg bg-[#0d1322]"
+          className="relative w-full overflow-hidden rounded-lg bg-[var(--ms-bg-subtle)]"
           style={{ aspectRatio: aspect.replace("/", " / ") }}
         >
           <Image
@@ -45,7 +45,7 @@ export function PlaceholderImage({
           />
         </div>
         {caption && (
-          <figcaption className="mt-3 text-sm text-[#94a3b8]">
+          <figcaption className="mt-3 text-sm text-[var(--ms-text-muted)]">
             {caption}
           </figcaption>
         )}
@@ -56,7 +56,7 @@ export function PlaceholderImage({
   return (
     <figure
       id={id}
-      className="my-8 overflow-hidden rounded-lg border border-dashed border-[#475569] bg-[#0d1322]"
+      className="my-8 overflow-hidden rounded-lg border border-dashed border-[var(--ms-border-strong)] bg-[var(--ms-bg-subtle)]"
     >
       <div
         className="relative flex flex-col items-center justify-center p-8 text-center"
@@ -71,14 +71,14 @@ export function PlaceholderImage({
           }}
         />
         <div className="relative">
-          <ImageIcon className="mx-auto h-10 w-10 text-[#475569]" />
-          <div className="ms-mono mt-3 text-[#94a3b8]">BILDPLACEHOLDER</div>
-          <div className="mt-2 max-w-md text-sm text-[#cbd5e1]">{caption}</div>
+          <ImageIcon className="mx-auto h-10 w-10 text-[var(--ms-border-strong)]" />
+          <div className="ms-mono mt-3 text-[var(--ms-text-muted)]">BILDPLACEHOLDER</div>
+          <div className="mt-2 max-w-md text-sm text-[var(--ms-text-body)]">{caption}</div>
           {hint && (
-            <div className="ms-mono mt-3 text-xs text-[#64748b]">{hint}</div>
+            <div className="ms-mono mt-3 text-xs text-[var(--ms-text-dim)]">{hint}</div>
           )}
           {children && (
-            <div className="mt-3 text-sm text-[#94a3b8]">{children}</div>
+            <div className="mt-3 text-sm text-[var(--ms-text-muted)]">{children}</div>
           )}
         </div>
       </div>

@@ -110,11 +110,11 @@ export function SluttproduktionGuide({
 
   return (
     <div
-      className="my-10 overflow-hidden rounded-xl border bg-[#0d1322]"
+      className="my-10 overflow-hidden rounded-xl border bg-[var(--ms-bg-subtle)]"
       style={{ borderColor: `${accentHex}80` }}
     >
       <div
-        className="flex items-center gap-2 px-6 py-3 text-white"
+        className="flex items-center gap-2 px-6 py-3 text-[var(--ms-text)]"
         style={{ background: accentHex }}
       >
         <Info className="h-4 w-4" />
@@ -124,11 +124,11 @@ export function SluttproduktionGuide({
       </div>
 
       <div className="p-6">
-        <p className="mb-5 text-sm leading-relaxed text-[#cbd5e1]">
+        <p className="mb-5 text-sm leading-relaxed text-[var(--ms-text-body)]">
           Detta är ditt sista uppdrag i kursen. Du väljer{" "}
-          <strong className="text-white">ett</strong> av tre format. Allt får
+          <strong className="text-[var(--ms-text)]">ett</strong> av tre format. Allt får
           använda AI som verktyg — men du måste{" "}
-          <strong className="text-white">berätta hur</strong> i din process.
+          <strong className="text-[var(--ms-text)]">berätta hur</strong> i din process.
         </p>
 
         {/* Format-tabs */}
@@ -144,13 +144,13 @@ export function SluttproduktionGuide({
                 className={`group rounded-lg border p-4 text-left transition-all ${
                   isOpen
                     ? "scale-105 shadow-lg"
-                    : "border-[#243248] hover:border-white/40"
+                    : "border-[var(--ms-border)] hover:border-[var(--ms-text)]/40"
                 }`}
                 style={{
                   borderColor: isOpen ? f.color : undefined,
                   background: isOpen
                     ? `linear-gradient(135deg, ${f.color}25, ${f.color}10)`
-                    : "#1a2235",
+                    : "var(--ms-bg-card)",
                 }}
                 aria-pressed={isOpen}
               >
@@ -164,10 +164,10 @@ export function SluttproduktionGuide({
                 >
                   FORMAT
                 </div>
-                <div className="font-bold leading-tight text-white">
+                <div className="font-bold leading-tight text-[var(--ms-text)]">
                   {f.label}
                 </div>
-                <div className="ms-mono mt-1 text-xs text-[#94a3b8]">
+                <div className="ms-mono mt-1 text-xs text-[var(--ms-text-muted)]">
                   {f.duration}
                 </div>
               </button>
@@ -182,7 +182,7 @@ export function SluttproduktionGuide({
           return (
             <div
               key={f.id}
-              className="ms-fadein rounded-xl border bg-[#1a2235] p-6"
+              className="ms-fadein rounded-xl border bg-[var(--ms-bg-card)] p-6"
               style={{ borderColor: `${f.color}80` }}
             >
               <div className="mb-4 flex items-center gap-3">
@@ -196,12 +196,12 @@ export function SluttproduktionGuide({
                   />
                 </div>
                 <div>
-                  <h3 className="text-2xl font-bold text-white">{f.label}</h3>
-                  <div className="ms-mono text-[#94a3b8]">{f.duration}</div>
+                  <h3 className="text-2xl font-bold text-[var(--ms-text)]">{f.label}</h3>
+                  <div className="ms-mono text-[var(--ms-text-muted)]">{f.duration}</div>
                 </div>
               </div>
 
-              <p className="mb-5 leading-relaxed text-[#e6edf7]">{f.intro}</p>
+              <p className="mb-5 leading-relaxed text-[var(--ms-text)]">{f.intro}</p>
 
               <div className="mb-5">
                 <div
@@ -214,7 +214,7 @@ export function SluttproduktionGuide({
                   {f.innehall.map((p, i) => (
                     <li
                       key={i}
-                      className="flex items-start gap-2 text-[#cbd5e1]"
+                      className="flex items-start gap-2 text-[var(--ms-text-body)]"
                     >
                       <Check
                         className="mt-1 h-4 w-4 flex-none"
@@ -237,7 +237,7 @@ export function SluttproduktionGuide({
                   {f.tips.map((t, i) => (
                     <li
                       key={i}
-                      className="flex items-start gap-2 text-sm text-[#cbd5e1]"
+                      className="flex items-start gap-2 text-sm text-[var(--ms-text-body)]"
                     >
                       <span style={{ color: f.color }}>→</span>
                       <span>{t}</span>

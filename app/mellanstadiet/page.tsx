@@ -9,17 +9,17 @@ export default function MellanstadietLanding() {
       {/* Hero */}
       <section className="relative px-4 pt-20 pb-32 sm:pt-28 sm:pb-40">
         <div className="mx-auto max-w-5xl">
-          <div className="ms-mono mb-6 text-[#94a3b8]">
+          <div className="ms-mono mb-6 text-[var(--ms-text-muted)]">
             ÅK 4–6 · 7 LEKTIONER · KURSMATERIAL 2026
           </div>
-          <h1 className="text-5xl font-bold leading-[1.05] tracking-tight text-white sm:text-7xl lg:text-[5.5rem]">
+          <h1 className="text-5xl font-bold leading-[1.05] tracking-tight text-[var(--ms-text)] sm:text-7xl lg:text-[5.5rem]">
             Vad <span className="italic text-[#a5b4fc]">är</span> AI?
             <br />
             Och vem ska bestämma
             <br />
             vad det <span className="italic text-[#fcd34d]">blir</span>?
           </h1>
-          <p className="mt-8 max-w-2xl text-xl leading-relaxed text-[#cbd5e1]">
+          <p className="mt-8 max-w-2xl text-xl leading-relaxed text-[var(--ms-text-body)]">
             En kurs i sju lektioner för dig i åk 4–6. Den behandlar AI som det
             faktiskt är — inte sagor om robotar. Du ska förstå hur det fungerar,
             kunna använda det, granska det och bestämma vad det får vara i ditt
@@ -49,10 +49,10 @@ export default function MellanstadietLanding() {
               { value: "0", label: "fiktiva karaktärer" },
             ].map((stat) => (
               <div key={stat.label}>
-                <div className="text-4xl font-bold text-white sm:text-5xl">
+                <div className="text-4xl font-bold text-[var(--ms-text)] sm:text-5xl">
                   {stat.value}
                 </div>
-                <div className="ms-mono mt-1 text-[#94a3b8]">{stat.label}</div>
+                <div className="ms-mono mt-1 text-[var(--ms-text-muted)]">{stat.label}</div>
               </div>
             ))}
           </div>
@@ -62,15 +62,15 @@ export default function MellanstadietLanding() {
       {/* Manifest */}
       <section
         id="om-kursen"
-        className="border-y border-[#243248] bg-[#0d1322] px-4 py-24"
+        className="border-y border-[var(--ms-border)] bg-[var(--ms-bg-subtle)] px-4 py-24"
       >
         <div className="mx-auto max-w-5xl">
-          <div className="ms-mono mb-4 text-[#94a3b8]">
+          <div className="ms-mono mb-4 text-[var(--ms-text-muted)]">
             // VARFÖR DEN HÄR KURSEN FINNS
           </div>
-          <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
+          <h2 className="text-3xl font-bold tracking-tight text-[var(--ms-text)] sm:text-4xl">
             Du sitter inte här för att lära dig vara{" "}
-            <span className="text-[#94a3b8] line-through">bättre än AI</span>.
+            <span className="text-[var(--ms-text-muted)] line-through">bättre än AI</span>.
             <br />
             Du sitter här för att lära dig vara mer{" "}
             <span className="text-[#fcd34d]">människa</span>.
@@ -95,8 +95,8 @@ export default function MellanstadietLanding() {
               },
             ].map((p) => (
               <div key={p.title}>
-                <div className="text-lg font-semibold text-white">{p.title}</div>
-                <p className="mt-2 leading-relaxed text-[#cbd5e1]">{p.body}</p>
+                <div className="text-lg font-semibold text-[var(--ms-text)]">{p.title}</div>
+                <p className="mt-2 leading-relaxed text-[var(--ms-text-body)]">{p.body}</p>
               </div>
             ))}
           </div>
@@ -106,21 +106,21 @@ export default function MellanstadietLanding() {
       {/* Spel-sektion */}
       <section id="spel" className="px-4 py-24">
         <div className="mx-auto max-w-5xl">
-          <div className="ms-mono mb-4 text-[#94a3b8]">
+          <div className="ms-mono mb-4 text-[var(--ms-text-muted)]">
             // SPEL & UNDERSÖKNINGAR · {MELLANSTADIET_GAMES.length} ST
           </div>
           <div className="flex flex-wrap items-end justify-between gap-4">
-            <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
+            <h2 className="text-3xl font-bold tracking-tight text-[var(--ms-text)] sm:text-4xl">
               Lär dig genom att spela
             </h2>
             <Link
               href="/mellanstadiet/spel"
-              className="ms-mono inline-flex items-center gap-1.5 text-[#fcd34d] transition-colors hover:text-white"
+              className="ms-mono inline-flex items-center gap-1.5 text-[#fcd34d] transition-colors hover:text-[var(--ms-text)]"
             >
               ALLA SPEL <ArrowRight className="h-3.5 w-3.5" />
             </Link>
           </div>
-          <p className="mt-3 max-w-2xl text-[#cbd5e1]">
+          <p className="mt-3 max-w-2xl text-[var(--ms-text-body)]">
             Att läsa <em>om</em> AI är en sak. Att <em>prova</em> är en annan.
             Här är fyra spel som tar dig in i begreppen via händerna.
           </p>
@@ -131,22 +131,22 @@ export default function MellanstadietLanding() {
                 <Link
                   key={game.id}
                   href={`/mellanstadiet/spel/${game.slug}`}
-                  className="group flex flex-col rounded-xl border border-[#243248] bg-[#1a2235] p-5 transition-all hover:-translate-y-1 hover:border-white/40"
+                  className="group flex flex-col rounded-xl border border-[var(--ms-border)] bg-[var(--ms-bg-card)] p-5 transition-all hover:-translate-y-1 hover:border-[var(--ms-text)]/40"
                 >
                   <div
-                    className="ms-mono mb-3 inline-flex w-fit items-center gap-1 rounded px-2 py-1 text-[#0a0e1a]"
+                    className="ms-mono mb-3 inline-flex w-fit items-center gap-1 rounded px-2 py-1 text-[var(--ms-bg)]"
                     style={{ background: game.accentHex }}
                   >
                     <Gamepad2 className="h-3 w-3" />
                     {game.type.toUpperCase()}
                   </div>
-                  <h3 className="text-lg font-bold text-white">
+                  <h3 className="text-lg font-bold text-[var(--ms-text)]">
                     {game.title}
                   </h3>
-                  <p className="mt-1 flex-1 text-sm text-[#94a3b8]">
+                  <p className="mt-1 flex-1 text-sm text-[var(--ms-text-muted)]">
                     {game.tagline}
                   </p>
-                  <div className="ms-mono mt-3 flex items-center justify-between text-xs text-[#94a3b8]">
+                  <div className="ms-mono mt-3 flex items-center justify-between text-xs text-[var(--ms-text-muted)]">
                     <span>{game.duration}</span>
                     <ArrowRight
                       className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1"
@@ -161,15 +161,15 @@ export default function MellanstadietLanding() {
       </section>
 
       {/* Lektioner */}
-      <section id="lektioner" className="border-t border-[#243248] px-4 py-24">
+      <section id="lektioner" className="border-t border-[var(--ms-border)] px-4 py-24">
         <div className="mx-auto max-w-5xl">
-          <div className="ms-mono mb-4 text-[#94a3b8]">
+          <div className="ms-mono mb-4 text-[var(--ms-text-muted)]">
             // KURSPLAN · 7 LEKTIONER
           </div>
-          <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
+          <h2 className="text-3xl font-bold tracking-tight text-[var(--ms-text)] sm:text-4xl">
             Sju lektioner i en bestämd ordning
           </h2>
-          <p className="mt-4 max-w-2xl text-[#cbd5e1]">
+          <p className="mt-4 max-w-2xl text-[var(--ms-text-body)]">
             Lektion 3 (Använda AI) ligger före lektion 4 (Granska AI) — för att
             du ska ha en känsla för verktyget innan du börjar ifrågasätta det.
             Lektion 5 (Etik) ligger i mitten — den knyter ihop &quot;förstå
@@ -185,9 +185,9 @@ export default function MellanstadietLanding() {
                       ? `/mellanstadiet/${lesson.slug}`
                       : `#`
                   }
-                  className={`group relative block overflow-hidden rounded-xl border border-[#243248] bg-[#1a2235] p-6 transition-all duration-300 sm:p-8 ${
+                  className={`group relative block overflow-hidden rounded-xl border border-[var(--ms-border)] bg-[var(--ms-bg-card)] p-6 transition-all duration-300 sm:p-8 ${
                     lesson.status === "ready"
-                      ? "hover:-translate-y-1 hover:border-white/40"
+                      ? "hover:-translate-y-1 hover:border-[var(--ms-text)]/40"
                       : "cursor-not-allowed opacity-50"
                   }`}
                   aria-disabled={lesson.status !== "ready"}
@@ -200,7 +200,7 @@ export default function MellanstadietLanding() {
 
                   <div className="grid grid-cols-[auto_1fr_auto] items-center gap-6 pl-4">
                     <div>
-                      <div className="ms-mono text-[#64748b]">LEKTION</div>
+                      <div className="ms-mono text-[var(--ms-text-dim)]">LEKTION</div>
                       <div
                         className="font-mono text-5xl font-bold tabular-nums sm:text-6xl"
                         style={{ color: lesson.accentHex }}
@@ -210,18 +210,18 @@ export default function MellanstadietLanding() {
                     </div>
 
                     <div>
-                      <div className="ms-mono mb-1 text-[#94a3b8]">
+                      <div className="ms-mono mb-1 text-[var(--ms-text-muted)]">
                         DIM {lesson.dimension} · {lesson.dimensionLabel}
                       </div>
-                      <div className="text-xl font-bold text-white sm:text-2xl">
+                      <div className="text-xl font-bold text-[var(--ms-text)] sm:text-2xl">
                         {lesson.title}
                       </div>
-                      <p className="mt-1 text-[#cbd5e1]">
-                        <em className="not-italic text-[#94a3b8]">
+                      <p className="mt-1 text-[var(--ms-text-body)]">
+                        <em className="not-italic text-[var(--ms-text-muted)]">
                           {lesson.kernfraga}
                         </em>
                       </p>
-                      <div className="mt-3 flex flex-wrap items-center gap-3 text-sm text-[#94a3b8]">
+                      <div className="mt-3 flex flex-wrap items-center gap-3 text-sm text-[var(--ms-text-muted)]">
                         <span className="flex items-center gap-1.5">
                           <Clock className="h-3.5 w-3.5" /> {lesson.duration}
                         </span>
@@ -229,7 +229,7 @@ export default function MellanstadietLanding() {
                           <Beaker className="h-3.5 w-3.5" /> {lesson.interaktivt}
                         </span>
                         {lesson.status !== "ready" && (
-                          <span className="ms-mono rounded-full border border-[#243248] px-2 py-0.5 text-[#64748b]">
+                          <span className="ms-mono rounded-full border border-[var(--ms-border)] px-2 py-0.5 text-[var(--ms-text-dim)]">
                             KOMMER
                           </span>
                         )}
@@ -238,7 +238,7 @@ export default function MellanstadietLanding() {
 
                     <div className="hidden sm:block">
                       <ArrowRight
-                        className="h-6 w-6 text-[#64748b] transition-all group-hover:translate-x-1 group-hover:text-white"
+                        className="h-6 w-6 text-[var(--ms-text-dim)] transition-all group-hover:translate-x-1 group-hover:text-[var(--ms-text)]"
                       />
                     </div>
                   </div>
@@ -250,14 +250,14 @@ export default function MellanstadietLanding() {
       </section>
 
       {/* Footer note */}
-      <section className="border-t border-[#243248] px-4 py-12 text-center">
+      <section className="border-t border-[var(--ms-border)] px-4 py-12 text-center">
         <div className="mx-auto max-w-3xl">
           <Sparkles className="mx-auto mb-4 h-5 w-5 text-[#fcd34d]" />
-          <p className="text-sm text-[#94a3b8]">
+          <p className="text-sm text-[var(--ms-text-muted)]">
             Materialet är under utveckling. Lektion 1 och 2 är publicerade —
             resterande är på väg. Källor och fall uppdateras löpande.
           </p>
-          <p className="ms-mono mt-3 text-[#64748b]">
+          <p className="ms-mono mt-3 text-[var(--ms-text-dim)]">
             VERSION 0.1 · MAJ 2026 · AI-LITTERACITET FÖR ÅK 4–6
           </p>
         </div>

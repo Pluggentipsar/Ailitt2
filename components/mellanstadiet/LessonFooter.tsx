@@ -19,12 +19,12 @@ export function LessonFooter({ lesson, cliffhanger }: LessonFooterProps) {
       : null;
 
   return (
-    <section className="border-t border-[#243248] bg-[#0d1322] px-4 py-16">
+    <section className="border-t border-[var(--ms-border)] bg-[var(--ms-bg-subtle)] px-4 py-16">
       <div className="mx-auto max-w-3xl">
         {cliffhanger && (
           <div className="mb-12 text-center">
-            <div className="ms-mono mb-3 text-[#94a3b8]">// TILL NÄSTA LEKTION</div>
-            <p className="text-2xl font-medium leading-relaxed text-white">
+            <div className="ms-mono mb-3 text-[var(--ms-text-muted)]">// TILL NÄSTA LEKTION</div>
+            <p className="text-2xl font-medium leading-relaxed text-[var(--ms-text)]">
               {cliffhanger}
             </p>
           </div>
@@ -36,16 +36,16 @@ export function LessonFooter({ lesson, cliffhanger }: LessonFooterProps) {
               href={
                 prev.status === "ready" ? `/mellanstadiet/${prev.slug}` : "#"
               }
-              className={`group flex items-center justify-between gap-4 rounded-lg border border-[#243248] bg-[#1a2235] p-5 transition-all ${
+              className={`group flex items-center justify-between gap-4 rounded-lg border border-[var(--ms-border)] bg-[var(--ms-bg-card)] p-5 transition-all ${
                 prev.status === "ready"
-                  ? "hover:border-white/40"
+                  ? "hover:border-[var(--ms-text)]/40"
                   : "cursor-not-allowed opacity-50"
               }`}
             >
-              <ArrowLeft className="h-5 w-5 flex-none text-[#64748b] transition-colors group-hover:text-white" />
+              <ArrowLeft className="h-5 w-5 flex-none text-[var(--ms-text-dim)] transition-colors group-hover:text-[var(--ms-text)]" />
               <div className="flex-1 text-right">
-                <div className="ms-mono text-[#94a3b8]">FÖRRA</div>
-                <div className="font-semibold text-white">
+                <div className="ms-mono text-[var(--ms-text-muted)]">FÖRRA</div>
+                <div className="font-semibold text-[var(--ms-text)]">
                   L{prev.number} · {prev.title}
                 </div>
               </div>
@@ -53,12 +53,12 @@ export function LessonFooter({ lesson, cliffhanger }: LessonFooterProps) {
           ) : (
             <Link
               href="/mellanstadiet"
-              className="group flex items-center justify-between gap-4 rounded-lg border border-[#243248] bg-[#1a2235] p-5 transition-all hover:border-white/40"
+              className="group flex items-center justify-between gap-4 rounded-lg border border-[var(--ms-border)] bg-[var(--ms-bg-card)] p-5 transition-all hover:border-[var(--ms-text)]/40"
             >
-              <ArrowLeft className="h-5 w-5 flex-none text-[#64748b] transition-colors group-hover:text-white" />
+              <ArrowLeft className="h-5 w-5 flex-none text-[var(--ms-text-dim)] transition-colors group-hover:text-[var(--ms-text)]" />
               <div className="flex-1 text-right">
-                <div className="ms-mono text-[#94a3b8]">TILLBAKA</div>
-                <div className="font-semibold text-white">Kursöversikt</div>
+                <div className="ms-mono text-[var(--ms-text-muted)]">TILLBAKA</div>
+                <div className="font-semibold text-[var(--ms-text)]">Kursöversikt</div>
               </div>
             </Link>
           )}
@@ -70,8 +70,8 @@ export function LessonFooter({ lesson, cliffhanger }: LessonFooterProps) {
               }
               className={`group flex items-center justify-between gap-4 rounded-lg border p-5 transition-all ${
                 next.status === "ready"
-                  ? "border-[#243248] bg-[#1a2235] hover:border-white/40"
-                  : "cursor-not-allowed border-[#243248] bg-[#1a2235] opacity-50"
+                  ? "border-[var(--ms-border)] bg-[var(--ms-bg-card)] hover:border-[var(--ms-text)]/40"
+                  : "cursor-not-allowed border-[var(--ms-border)] bg-[var(--ms-bg-card)] opacity-50"
               }`}
               style={
                 next.status === "ready"
@@ -82,13 +82,13 @@ export function LessonFooter({ lesson, cliffhanger }: LessonFooterProps) {
               }
             >
               <div className="flex-1">
-                <div className="ms-mono text-[#94a3b8]">NÄSTA</div>
-                <div className="font-semibold text-white">
+                <div className="ms-mono text-[var(--ms-text-muted)]">NÄSTA</div>
+                <div className="font-semibold text-[var(--ms-text)]">
                   L{next.number} · {next.title}
                 </div>
               </div>
               <ArrowRight
-                className="h-5 w-5 flex-none text-[#64748b] transition-all group-hover:translate-x-1 group-hover:text-white"
+                className="h-5 w-5 flex-none text-[var(--ms-text-dim)] transition-all group-hover:translate-x-1 group-hover:text-[var(--ms-text)]"
               />
             </Link>
           )}
