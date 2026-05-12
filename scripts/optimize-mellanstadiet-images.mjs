@@ -3,8 +3,8 @@
  * Konverterar Midjourney-PNG:er till optimerade WebP:er.
  *
  * Workflow:
- *   1. Lägg PNG-filer i public/images/mellanstadiet/_raw/ med namn
- *      L1.1.png, L1.2.png, ..., S8.png (samma ID som i lib/mellanstadiet-images.ts).
+ *   1. Lägg PNG-filer i mellanstadiet/_raw/ med namn L1.1.png, L1.2.png,
+ *      ..., S8.png (samma ID som i lib/mellanstadiet-images.ts).
  *   2. Kör `npm run optimize-images`.
  *   3. WebP:er hamnar i public/images/mellanstadiet/<ID>.webp.
  *
@@ -21,7 +21,7 @@ import path from "node:path";
 import sharp from "sharp";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const RAW = path.resolve(__dirname, "..", "public", "images", "mellanstadiet", "_raw");
+const RAW = path.resolve(__dirname, "..", "mellanstadiet", "_raw");
 const OUT = path.resolve(__dirname, "..", "public", "images", "mellanstadiet");
 
 const HERO_WIDTH = 1600;

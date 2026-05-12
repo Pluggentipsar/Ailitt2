@@ -2,11 +2,11 @@
  * URL:er till alla bilder i mellanstadiematerialet.
  *
  * Bilderna ligger lokalt i `public/images/mellanstadiet/<ID>.webp`. Originalen
- * (PNG från Midjourney) läggs i `public/images/mellanstadiet/_raw/` (gitignored)
- * och konverteras till WebP med `npm run optimize-images`.
+ * (PNG från Midjourney) läggs i `mellanstadiet/_raw/` (gitignored) och
+ * konverteras till WebP med `npm run optimize-images`.
  *
  * Workflow när en bild byts:
- *   1. Lägg ny PNG i public/images/mellanstadiet/_raw/<ID>.png
+ *   1. Lägg ny PNG i mellanstadiet/_raw/<ID>.png
  *   2. Kör `npm run optimize-images`
  *   3. Commit den uppdaterade <ID>.webp
  */
