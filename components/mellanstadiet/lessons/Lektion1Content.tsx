@@ -8,6 +8,7 @@ import { MetrTimeline } from "@/components/mellanstadiet/MetrTimeline";
 import { BegreppsBank } from "@/components/mellanstadiet/BegreppsBank";
 import { SpelCallout } from "@/components/mellanstadiet/SpelCallout";
 import { PlaceholderImage } from "@/components/mellanstadiet/PlaceholderImage";
+import { MELLANSTADIET_IMAGES } from "@/lib/mellanstadiet-images";
 import { ReflectionPrompt } from "@/components/mellanstadiet/ReflectionPrompt";
 import { PravaMedAI } from "@/components/mellanstadiet/PravaMedAI";
 import { DiskutteraBlock } from "@/components/mellanstadiet/DiskutteraBlock";
@@ -34,6 +35,7 @@ export function Lektion1Content({ lesson }: { lesson: MellanstadietLesson }) {
         intro="R2-D2 i Star Wars. Baymax i Big Hero 6. JARVIS i Iron Man. Pokédex i Pokémon. En zombie i Minecraft. Vilken av dem är AI på riktigt?"
       >
         <PlaceholderImage
+          src={MELLANSTADIET_IMAGES["L1.1"]}
           caption="Filmcollage: R2-D2, Baymax, JARVIS, Wall-E, Pokédex, Minecraft-zombie sida vid sida"
           hint="Joel klipper ihop kort sekvens — 8-12 sek per karaktär"
           aspect="16/9"
@@ -108,6 +110,7 @@ export function Lektion1Content({ lesson }: { lesson: MellanstadietLesson }) {
         accentHex={lesson.accentHex}
       >
         <PlaceholderImage
+          src={MELLANSTADIET_IMAGES["L1.2"]}
           caption="Två parallella tidslinjer: 'Berättelser om AI' (Frankenstein, HAL, Skynet, Wall-E) och 'AI på riktigt' (Turing, Deep Blue, AlphaGo, ChatGPT)"
           hint="Joel: en illustrerad dubbel-tidslinje, kanske svart-vit för fantasi och färg för verklighet"
           aspect="3/2"
@@ -191,6 +194,7 @@ export function Lektion1Content({ lesson }: { lesson: MellanstadietLesson }) {
         <p>Bara ett halvår senare gick det inte längre att se skillnad.</p>
 
         <PlaceholderImage
+          src={MELLANSTADIET_IMAGES["L1.3"]}
           caption="Will Smith spaghetti 2023 (vänster, suddig och konstig) jämfört med Sora 2026 (höger, fotorealistisk)"
           hint="Joel: två stillbilder sida vid sida — visar utvecklingen på 3 år"
           aspect="16/7"

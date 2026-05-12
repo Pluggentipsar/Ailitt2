@@ -6,6 +6,7 @@ import { Quiz } from "@/components/mellanstadiet/Quiz";
 import { BegreppsBank } from "@/components/mellanstadiet/BegreppsBank";
 import { SpelCallout } from "@/components/mellanstadiet/SpelCallout";
 import { PlaceholderImage } from "@/components/mellanstadiet/PlaceholderImage";
+import { MELLANSTADIET_IMAGES } from "@/lib/mellanstadiet-images";
 import { ReflectionPrompt } from "@/components/mellanstadiet/ReflectionPrompt";
 import { PravaMedAI } from "@/components/mellanstadiet/PravaMedAI";
 import { DiskutteraBlock } from "@/components/mellanstadiet/DiskutteraBlock";
@@ -93,6 +94,7 @@ export function Lektion6Content({ lesson }: { lesson: MellanstadietLesson }) {
         <h3>En verklig skandal — april 2025</h3>
 
         <PlaceholderImage
+          src={MELLANSTADIET_IMAGES["L6.1"]}
           caption="ChatGPT-skärmdump där AI svarar 'Vilken kreativ idé!' till påståendet 'shit on a stick' — eller liknande absurdum"
           hint="Joel: kanske ett mockup där AI håller med om något absurdt"
           aspect="16/9"
@@ -179,6 +181,7 @@ export function Lektion6Content({ lesson }: { lesson: MellanstadietLesson }) {
         </p>
 
         <PlaceholderImage
+          src={MELLANSTADIET_IMAGES["L6.2"]}
           caption="Stat-visualisering: 'Mer än hälften av amerikanska tonåringar pratar regelbundet med AI-companions. En fjärdedel använder AI för känslomässigt stöd.'"
           hint="Joel: enkel infografik med stora siffror"
           aspect="16/7"

@@ -6,6 +6,7 @@ import { Quiz } from "@/components/mellanstadiet/Quiz";
 import { BegreppsBank } from "@/components/mellanstadiet/BegreppsBank";
 import { SpelCallout } from "@/components/mellanstadiet/SpelCallout";
 import { PlaceholderImage } from "@/components/mellanstadiet/PlaceholderImage";
+import { MELLANSTADIET_IMAGES } from "@/lib/mellanstadiet-images";
 import { ReflectionPrompt } from "@/components/mellanstadiet/ReflectionPrompt";
 import { PravaMedAI } from "@/components/mellanstadiet/PravaMedAI";
 import { DiskutteraBlock } from "@/components/mellanstadiet/DiskutteraBlock";
@@ -111,6 +112,7 @@ export function Lektion5Content({ lesson }: { lesson: MellanstadietLesson }) {
         <h3>Roblox och barnsäkerhet</h3>
 
         <PlaceholderImage
+          src={MELLANSTADIET_IMAGES["L5.1"]}
           caption="Roblox-logotyp + karta över USA-delstater som stämt: Florida, Texas, Nebraska, Tennessee, LA County (feb 2026)"
           hint="Joel: kanske en infografik med stämningarnas tidslinje"
           aspect="3/2"
@@ -174,6 +176,7 @@ export function Lektion5Content({ lesson }: { lesson: MellanstadietLesson }) {
         </p>
 
         <PlaceholderImage
+          src={MELLANSTADIET_IMAGES["L5.2"]}
           caption="Stort siffervisualisering: '720 miljarder gallons vatten årligen för AI-kylning = 18 miljoner hushåll'"
           hint="Joel: enkel infografik med dramatiska siffror"
           aspect="16/7"

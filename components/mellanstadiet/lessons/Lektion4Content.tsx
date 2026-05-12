@@ -6,6 +6,7 @@ import { Quiz } from "@/components/mellanstadiet/Quiz";
 import { BegreppsBank } from "@/components/mellanstadiet/BegreppsBank";
 import { SpelCallout } from "@/components/mellanstadiet/SpelCallout";
 import { PlaceholderImage } from "@/components/mellanstadiet/PlaceholderImage";
+import { MELLANSTADIET_IMAGES } from "@/lib/mellanstadiet-images";
 import { ReflectionPrompt } from "@/components/mellanstadiet/ReflectionPrompt";
 import { PravaMedAI } from "@/components/mellanstadiet/PravaMedAI";
 import { DiskutteraBlock } from "@/components/mellanstadiet/DiskutteraBlock";
@@ -43,6 +44,7 @@ export function Lektion4Content({ lesson }: { lesson: MellanstadietLesson }) {
         </ol>
 
         <PlaceholderImage
+          src={MELLANSTADIET_IMAGES["L4.1"]}
           caption="Two-panel: 'Will Smith eats spaghetti' (2023, ansikte smälter) vs Sora-genererad video (2026, fotorealistisk)"
           hint="Joel: stillbilder från båda för krokens visuella jämförelse"
           aspect="16/7"
@@ -78,6 +80,7 @@ export function Lektion4Content({ lesson }: { lesson: MellanstadietLesson }) {
         <h3>Ett verkligt exempel — advokater som luras</h3>
 
         <PlaceholderImage
+          src={MELLANSTADIET_IMAGES["L4.2"]}
           caption="Domstols-illustration eller dokument-mockup. '712 fall under 2025 där advokater lämnade in AI-hallucinerade citat'"
           hint="Joel: kanske en infografik med stora siffror"
           aspect="3/2"

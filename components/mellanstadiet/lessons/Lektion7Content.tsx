@@ -6,6 +6,7 @@ import { Quiz } from "@/components/mellanstadiet/Quiz";
 import { BegreppsBank } from "@/components/mellanstadiet/BegreppsBank";
 import { SpelCallout } from "@/components/mellanstadiet/SpelCallout";
 import { PlaceholderImage } from "@/components/mellanstadiet/PlaceholderImage";
+import { MELLANSTADIET_IMAGES } from "@/lib/mellanstadiet-images";
 import { ReflectionPrompt } from "@/components/mellanstadiet/ReflectionPrompt";
 import { PravaMedAI } from "@/components/mellanstadiet/PravaMedAI";
 import { DiskutteraBlock } from "@/components/mellanstadiet/DiskutteraBlock";
@@ -61,6 +62,7 @@ export function Lektion7Content({ lesson }: { lesson: MellanstadietLesson }) {
         </div>
 
         <PlaceholderImage
+          src={MELLANSTADIET_IMAGES["L7.1"]}
           caption="Two-panel: Wall-E (människor i flytstolar) vs Star Trek (USS Enterprise på rymdresa)"
           hint="Joel: filmstillar eller iconisk illustration som visar kontrasten"
           aspect="16/7"
@@ -100,6 +102,7 @@ export function Lektion7Content({ lesson }: { lesson: MellanstadietLesson }) {
         <h3>Nobelpriset 2024</h3>
 
         <PlaceholderImage
+          src={MELLANSTADIET_IMAGES["L7.2"]}
           caption="Geoffrey Hinton, John Hopfield, Demis Hassabis och John Jumper med Nobelmedaljerna"
           hint="Joel: pressbild från Nobelceremonin 2024"
           aspect="3/2"

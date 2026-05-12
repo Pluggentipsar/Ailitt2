@@ -1,12 +1,16 @@
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowLeft, Clock, Beaker } from "lucide-react";
 import { MellanstadietLesson } from "@/lib/mellanstadiet-data";
+import { getLessonHero } from "@/lib/mellanstadiet-images";
 
 interface LessonHeroProps {
   lesson: MellanstadietLesson;
 }
 
 export function LessonHero({ lesson }: LessonHeroProps) {
+  const heroUrl = getLessonHero(lesson.number);
+
   return (
     <section className="relative overflow-hidden border-b border-[#243248] px-4 pt-12 pb-20">
       {/* Stort accent-tal som bakgrundsdetalj */}
@@ -61,6 +65,25 @@ export function LessonHero({ lesson }: LessonHeroProps) {
             <Beaker className="h-4 w-4" /> {lesson.interaktivt}
           </span>
         </div>
+
+        {heroUrl && (
+          <div
+            className="relative mt-10 w-full overflow-hidden rounded-2xl"
+            style={{
+              aspectRatio: "21 / 9",
+              boxShadow: `0 0 0 1px ${lesson.accentHex}40`,
+            }}
+          >
+            <Image
+              src={heroUrl}
+              alt={`${lesson.title} — ${lesson.tagline}`}
+              fill
+              sizes="(max-width: 1024px) 100vw, 1024px"
+              className="object-cover"
+              priority
+            />
+          </div>
+        )}
       </div>
     </section>
   );

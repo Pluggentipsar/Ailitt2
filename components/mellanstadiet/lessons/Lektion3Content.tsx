@@ -6,6 +6,7 @@ import { Quiz } from "@/components/mellanstadiet/Quiz";
 import { BegreppsBank } from "@/components/mellanstadiet/BegreppsBank";
 import { SpelCallout } from "@/components/mellanstadiet/SpelCallout";
 import { PlaceholderImage } from "@/components/mellanstadiet/PlaceholderImage";
+import { MELLANSTADIET_IMAGES } from "@/lib/mellanstadiet-images";
 import { ReflectionPrompt } from "@/components/mellanstadiet/ReflectionPrompt";
 import { PravaMedAI } from "@/components/mellanstadiet/PravaMedAI";
 import { DiskutteraBlock } from "@/components/mellanstadiet/DiskutteraBlock";
@@ -59,6 +60,7 @@ export function Lektion3Content({ lesson }: { lesson: MellanstadietLesson }) {
             <div className="ms-mono mb-2 text-[#94a3b8]">PROMPT 1 · VAG</div>
             <p className="font-mono text-[#e6edf7]">&ldquo;Rita en hjälte&rdquo;</p>
             <PlaceholderImage
+              src={MELLANSTADIET_IMAGES["L3.1"]}
               caption="Generisk superhjälte med kappa — vad AI gissar att 'hjälte' är"
               hint="Joel: en standard-superhjälte-bild"
               aspect="1/1"
@@ -74,6 +76,7 @@ export function Lektion3Content({ lesson }: { lesson: MellanstadietLesson }) {
               stil&rdquo;
             </p>
             <PlaceholderImage
+              src={MELLANSTADIET_IMAGES["L3.2"]}
               caption="Orange katt med exakt allt som promptet beskriver"
               hint="Joel: en specifik bild som matchar prompten exakt"
               aspect="1/1"
@@ -114,6 +117,7 @@ export function Lektion3Content({ lesson }: { lesson: MellanstadietLesson }) {
         </p>
 
         <PlaceholderImage
+          src={MELLANSTADIET_IMAGES["L3.3"]}
           caption="MrBeast-thumbnail med dramatiskt uttryck, pengar i bakgrunden, lysande färger"
           hint="Joel: skärmdump eller licensierad bild av en MrBeast-thumbnail"
           aspect="16/9"

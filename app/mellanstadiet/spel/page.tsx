@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import {
   ArrowLeft,
   ArrowRight,
@@ -7,6 +8,7 @@ import {
   Sparkles,
 } from "lucide-react";
 import { MELLANSTADIET_GAMES } from "@/lib/mellanstadiet-games";
+import { getGameCover } from "@/lib/mellanstadiet-images";
 
 export default function SpelHub() {
   return (
@@ -38,7 +40,9 @@ export default function SpelHub() {
       <section className="px-4 pb-24">
         <div className="mx-auto max-w-5xl">
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {MELLANSTADIET_GAMES.map((game) => (
+            {MELLANSTADIET_GAMES.map((game) => {
+              const coverUrl = getGameCover(game.slug);
+              return (
               <Link
                 key={game.id}
                 href={
@@ -52,11 +56,30 @@ export default function SpelHub() {
                     : "cursor-not-allowed opacity-50"
                 }`}
               >
-                {/* Top accent */}
-                <div
-                  className="h-2 w-full"
-                  style={{ background: game.accentHex }}
-                />
+                {coverUrl ? (
+                  <div
+                    className="relative w-full overflow-hidden"
+                    style={{ aspectRatio: "16 / 10" }}
+                  >
+                    <Image
+                      src={coverUrl}
+                      alt={game.title}
+                      fill
+                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                      className="object-cover"
+                    />
+                    <div
+                      className="absolute inset-x-0 bottom-0 h-2"
+                      style={{ background: game.accentHex }}
+                      aria-hidden
+                    />
+                  </div>
+                ) : (
+                  <div
+                    className="h-2 w-full"
+                    style={{ background: game.accentHex }}
+                  />
+                )}
 
                 <div className="flex flex-1 flex-col p-6">
                   <div className="mb-4 flex items-start justify-between gap-3">
@@ -121,7 +144,8 @@ export default function SpelHub() {
                   </div>
                 </div>
               </Link>
-            ))}
+              );
+            })}
           </div>
 
           <div className="mt-12 rounded-xl border border-[#243248] bg-[#0d1322] p-8">
