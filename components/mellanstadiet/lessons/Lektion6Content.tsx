@@ -440,6 +440,13 @@ export function Lektion6Content({ lesson }: { lesson: MellanstadietLesson }) {
 
         <MinSuperkraft accentHex={lesson.accentHex} />
 
+        <PravaMedAI
+          accentHex={lesson.accentHex}
+          title="Be AI beskriva DIG — märk vad den inte vet"
+          prompt="Beskriv vad som är unikt med en elev i åk 5 som gillar [DIN HOBBY] och är bra på [NÅGOT DU KAN]. Var konkret om personlighet, talanger och vad personen kan göra som ingen annan."
+          observation="AI har aldrig träffat dig. Räkna meningarna i svaret. Hur många handlar EGENTLIGEN om DIG — och hur många är generiska saker om alla 11-åringar? Markera de generiska. Det som blir kvar (om något) — har AI gissat eller VET den? Det här visar exakt vad AI inte kan: känna en riktig person."
+        />
+
         <h3>Brev till framtida AI</h3>
         <p>
           Hemuppgift till nästa lektion: Skriv ett brev (en halv sida, kan

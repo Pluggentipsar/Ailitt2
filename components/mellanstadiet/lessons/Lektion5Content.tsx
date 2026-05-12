@@ -377,6 +377,13 @@ export function Lektion5Content({ lesson }: { lesson: MellanstadietLesson }) {
 
         <AiOverenskommelse accentHex={lesson.accentHex} />
 
+        <PravaMedAI
+          accentHex={lesson.accentHex}
+          title="Be AI föreslå klassregler — och granska"
+          prompt="Föreslå fem konkreta regler för hur en klass i åk 5 ska få använda AI under skoldagen. Varje regel ska vara enkel att följa och inkludera vad eleven gör om regeln är svår att hålla."
+          observation="Jämför AI:s fem förslag mot er egen överenskommelse. Vilka regler hade ni redan tänkt på? Vad har AI lagt till som ni inte tagit upp? Är det något i AI:s lista som ni TYCKER är orättvist eller orealistiskt — och varför? Stryk eller skriv om det."
+        />
+
         <DiskutteraBlock
           accentHex={lesson.accentHex}
           format="helklass"

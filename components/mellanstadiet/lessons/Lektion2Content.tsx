@@ -346,8 +346,8 @@ export function Lektion2Content({ lesson }: { lesson: MellanstadietLesson }) {
           accentHex={lesson.accentHex}
           title="Bias-jakten — fem prompter att testa"
           prompt="Rita en bild av en läkare på ett sjukhus."
-          tool="Microsoft Designer, Bing Image Creator, eller annan bild-AI"
-          observation="Vem ritar AI? Notera kön, ålder, hudfärg, kläder, vad personen gör. Spara bilden eller skärmdumpa."
+          tool="bild-AI som läraren visar"
+          observation="Vem ritar AI? Notera kön, ålder, hudfärg, kläder, vad personen gör. Spara bilden eller skärmdumpa. Tips: om läraren inte har bild-AI igång kan ni istället fråga Skolup AI: 'Beskriv hur en typisk läkare ser ut och vad hen gör — var konkret med kön, ålder, kläder och plats.' Då fångar ni samma bias i ord."
         />
 
         <p>Upprepa sedan med dessa prompter:</p>

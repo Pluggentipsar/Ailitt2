@@ -208,6 +208,13 @@ export function Lektion3Content({ lesson }: { lesson: MellanstadietLesson }) {
           du resultatet.
         </p>
 
+        <PravaMedAI
+          accentHex={lesson.accentHex}
+          title="Tre byggblock → fem byggblock"
+          prompt="Förklara fotosyntesen för en elev i åk 5. Använd liknelser. Max 100 ord."
+          observation="Den här prompten har tre block: VEM/VAD (fotosyntesen), HURDAN (för åk 5, max 100 ord) och STIL (liknelser). Be sedan om SAMMA sak men lägg till VAR (i klassrummet under en NO-lektion) och DETALJ (med en jämförelse mot ett kök). Jämför svaren — vad blev tydligare? Vad förändrades?"
+        />
+
         <h3>Bygga en prompt steg för steg</h3>
         <p>Titta hur prompten växer:</p>
 

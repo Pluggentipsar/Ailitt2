@@ -13,6 +13,7 @@ import { Lektion3Content } from "@/components/mellanstadiet/lessons/Lektion3Cont
 import { Lektion4Content } from "@/components/mellanstadiet/lessons/Lektion4Content";
 import { Lektion5Content } from "@/components/mellanstadiet/lessons/Lektion5Content";
 import { Lektion6Content } from "@/components/mellanstadiet/lessons/Lektion6Content";
+import { Lektion7Content } from "@/components/mellanstadiet/lessons/Lektion7Content";
 
 const CLIFFHANGERS: Record<string, string> = {
   "lektion-1": "Imorgon: hur kan något som inte tänker ändå verka så smart?",
@@ -60,6 +61,7 @@ export default async function LektionPage({
       {lesson.id === "lektion-4" && <Lektion4Content lesson={lesson} />}
       {lesson.id === "lektion-5" && <Lektion5Content lesson={lesson} />}
       {lesson.id === "lektion-6" && <Lektion6Content lesson={lesson} />}
+      {lesson.id === "lektion-7" && <Lektion7Content lesson={lesson} />}
 
       <LessonFooter
         lesson={lesson}

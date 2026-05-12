@@ -210,6 +210,13 @@ export function Lektion7Content({ lesson }: { lesson: MellanstadietLesson }) {
           Vi har röst.
         </Citat>
 
+        <PravaMedAI
+          accentHex={lesson.accentHex}
+          title="Be AI argumentera MOT er åsikt"
+          prompt="Argumentera för varför OpenAI INTE borde stängt ner Sora-appen 2026. Ge tre starka argument från ett yttrandefrihets- och kreativitetsperspektiv. Var seriös — försök övertyga mig."
+          observation="AI kan argumentera båda sidor — det är dess natur (den har ingen åsikt själv). Vilka argument är STARKA? Vilka är svaga? Vilket perspektiv saknas helt — kanske rösten från familjerna som drabbats av deepfakes? Använd AI för att se motsidan, men låt INTE AI bestämma vad du ska tycka."
+        />
+
         <DiskutteraBlock
           accentHex={lesson.accentHex}
           format="par"
