@@ -9,6 +9,7 @@
     "build": "next build && cp -r .next/static .next/standalone/.next/static && cp -r public .next/standalone/public",
     "start": "next start",
     "lint": "next lint",
+    "optimize-images": "node scripts/optimize-mellanstadiet-images.mjs",
     "postinstall": "contentlayer2 build || true"
   },
   "dependencies": {

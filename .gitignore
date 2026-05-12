@@ -43,3 +43,7 @@ next-env.d.ts
 # large media files (host externally)
 public/*.mp4
 public/*.wav
+
+
+# Midjourney source PNGs (konverteras till WebP via npm run optimize-images)
+/public/images/mellanstadiet/_raw/

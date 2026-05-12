@@ -70,7 +70,8 @@ export function SectionNav({ sections, accentHex }: SectionNavProps) {
     <>
       {/* Desktop sticky bar */}
       <nav
-        className="sticky top-0 z-40 hidden border-b border-[var(--ms-border)] bg-[var(--ms-bg-glass)] backdrop-blur md:block"
+        className="sticky top-0 z-40 hidden border-b border-[var(--ms-border)] bg-[var(--ms-bg)] shadow-sm backdrop-blur md:block"
+        style={{ boxShadow: "0 1px 0 var(--ms-border), 0 4px 12px rgba(20, 16, 8, 0.04)" }}
         aria-label="Sektionsnavigering"
       >
         <div className="mx-auto max-w-5xl px-4">
@@ -149,7 +150,8 @@ export function SectionNav({ sections, accentHex }: SectionNavProps) {
 
       {/* Mobile sticky bar */}
       <nav
-        className="sticky top-0 z-40 border-b border-[var(--ms-border)] bg-[var(--ms-bg-glass)] backdrop-blur md:hidden"
+        className="sticky top-0 z-40 border-b border-[var(--ms-border)] bg-[var(--ms-bg)] backdrop-blur md:hidden"
+        style={{ boxShadow: "0 4px 12px rgba(20, 16, 8, 0.06)" }}
         aria-label="Sektionsnavigering"
       >
         <div className="flex items-center gap-3 px-4 py-3">
