@@ -1,7 +1,15 @@
 import Link from "next/link";
-import { ArrowRight, Sparkles, Clock, Beaker, Gamepad2 } from "lucide-react";
+import {
+  ArrowRight,
+  Sparkles,
+  Clock,
+  Beaker,
+  FlaskConical,
+  Gamepad2,
+} from "lucide-react";
 import { MELLANSTADIET_LESSONS } from "@/lib/mellanstadiet-data";
 import { MELLANSTADIET_GAMES } from "@/lib/mellanstadiet-games";
+import { LABB_EXPERIMENTS } from "@/lib/mellanstadiet-labb";
 
 export default function MellanstadietLanding() {
   return (
@@ -31,6 +39,10 @@ export default function MellanstadietLanding() {
               Börja med Lektion 1
               <ArrowRight className="h-4 w-4" />
             </Link>
+            <Link href="/mellanstadiet/labb" className="ms-btn ms-btn-secondary">
+              <FlaskConical className="h-4 w-4" />
+              AI-labbet
+            </Link>
             <Link href="/mellanstadiet/spel" className="ms-btn ms-btn-secondary">
               <Gamepad2 className="h-4 w-4" />
               Spel & undersökningar
@@ -45,7 +57,7 @@ export default function MellanstadietLanding() {
             {[
               { value: "7", label: "lektioner" },
               { value: `${MELLANSTADIET_GAMES.length}`, label: "spel & lekar" },
-              { value: "63", label: "källfall 2025–26" },
+              { value: `${LABB_EXPERIMENTS.length}`, label: "labb-stationer" },
               { value: "0", label: "fiktiva karaktärer" },
             ].map((stat) => (
               <div key={stat.label}>
@@ -189,6 +201,88 @@ export default function MellanstadietLanding() {
               </li>
             ))}
           </ol>
+        </div>
+      </section>
+
+      {/* AI-labbet — sandlåda */}
+      <section
+        id="labb"
+        className="border-t border-[var(--ms-border)] px-4 py-24"
+      >
+        <div className="mx-auto max-w-5xl">
+          <div className="ms-mono mb-4 flex items-center gap-2 text-[var(--ms-text-muted)]">
+            <FlaskConical className="h-3.5 w-3.5" />
+            // AI-LABBET · {LABB_EXPERIMENTS.length} STATIONER · SANDLÅDA
+          </div>
+
+          <div className="grid items-start gap-8 lg:grid-cols-[1.4fr_1fr]">
+            <div>
+              <h2 className="text-3xl font-bold leading-tight tracking-tight text-[var(--ms-text)] sm:text-5xl">
+                Sandlådan där du <span className="italic text-[#fcd34d]">leker</span> med AI på riktigt.
+              </h2>
+              <p className="mt-4 max-w-2xl text-lg leading-relaxed text-[var(--ms-text-body)]">
+                Tio färdiga prompter du kan kopiera in i Skolup AI eller annan
+                chattbot. Du fyller i ditt eget ämne, din egen text. Du granskar
+                svaret. Du iterar. Bygger på Tänkartrappan — och på{" "}
+                <em>SAILD: eleven som designer, inte konsument.</em>
+              </p>
+
+              <ul className="mt-6 space-y-2 text-[var(--ms-text-body)]">
+                {[
+                  "📚 Få något förklarat på ett nytt sätt",
+                  "❓ Bli förhörd inför ett prov",
+                  "✍️ Få feedback på din text",
+                  "🎨 Skapa bilder och låtar med ord",
+                  "🔍 Lura AI:n — hittar den på?",
+                ].map((row) => (
+                  <li key={row} className="flex gap-3">
+                    <span className="text-lg">{row.split(" ")[0]}</span>
+                    <span>{row.split(" ").slice(1).join(" ")}</span>
+                  </li>
+                ))}
+              </ul>
+
+              <div className="mt-8 flex flex-wrap items-center gap-3">
+                <Link
+                  href="/mellanstadiet/labb"
+                  className="ms-btn ms-btn-primary"
+                >
+                  <FlaskConical className="h-4 w-4" />
+                  Öppna AI-labbet
+                  <ArrowRight className="h-4 w-4" />
+                </Link>
+                <span className="ms-mono text-[var(--ms-text-muted)]">
+                  IDEALT EFTER FÖRELÄSNING · 20–40 MIN
+                </span>
+              </div>
+            </div>
+
+            <div
+              className="rounded-2xl border border-[var(--ms-border)] bg-[var(--ms-bg-card)] p-6 shadow-sm"
+              aria-hidden
+            >
+              <div className="ms-mono mb-3 text-[var(--ms-text-muted)]">
+                EXEMPEL · STATION
+              </div>
+              <div className="text-lg font-bold text-[var(--ms-text)]">
+                💡 Få något förklarat på ett nytt sätt
+              </div>
+              <div className="mt-4 rounded-lg border-2 border-[#6366f1]/40 bg-[#6366f1]/10 p-4 font-mono text-sm leading-relaxed text-[var(--ms-text)]">
+                <span>Förklara </span>
+                <span className="rounded border-2 border-[#6366f1] bg-[#6366f1]/20 px-2 py-0.5 font-bold text-[#6366f1]">
+                  fotosyntes
+                </span>
+                <span> för en 11-åring. Använd liknelser från </span>
+                <span className="rounded border-2 border-[#6366f1] bg-[#6366f1]/20 px-2 py-0.5 font-bold text-[#6366f1]">
+                  Minecraft
+                </span>
+                <span>. Använd korta meningar.</span>
+              </div>
+              <div className="ms-mono mt-3 text-[var(--ms-text-muted)]">
+                ↑ DET GULA ÄR DITT — FYLL I, KOPIERA, KÖR
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
