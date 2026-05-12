@@ -230,9 +230,9 @@ export default function MellanstadietLanding() {
               <ul className="mt-6 space-y-2 text-[var(--ms-text-body)]">
                 {[
                   "📚 Sokratisk debatt + pluggcoach + minnesteknik",
-                  "✍️ Faktagranska ditt svar + förbättra dina anteckningar",
+                  "✍️ Faktagranska ditt svar + studieguide av dina anteckningar",
                   "🎨 Actionfigur, filmposter, Pixar-porträtt, logotyp",
-                  "🔍 Lura AI:n — hittar den på?",
+                  "💻 Bygg spel, simuleringar och appar — ren HTML, kör direkt",
                   "🧠 Meta-prompter: be AI bygga BÄTTRE prompter åt dig",
                 ].map((row) => (
                   <li key={row} className="flex gap-3">

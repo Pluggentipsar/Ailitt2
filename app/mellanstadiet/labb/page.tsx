@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { AdvancedSection } from "@/components/mellanstadiet/labb/AdvancedSection";
+import { CodeWorkflowCallout } from "@/components/mellanstadiet/labb/CodeWorkflowCallout";
 import { LabbCategoryNav } from "@/components/mellanstadiet/labb/LabbCategoryNav";
 import { LabbExperiment } from "@/components/mellanstadiet/labb/LabbExperiment";
 import { LabbFooter } from "@/components/mellanstadiet/labb/LabbFooter";
@@ -36,6 +37,7 @@ export default function LabbPage() {
               const basic = all.filter((e) => !e.isAdvanced);
               const advanced = all.filter((e) => e.isAdvanced);
               const isMeta = cat.id === "meta";
+              const isKod = cat.id === "kod";
 
               return (
                 <section
@@ -70,6 +72,11 @@ export default function LabbPage() {
                       {cat.description}
                     </p>
                   </header>
+
+                  {/* Kod-kategorin: visa fil-spara-guiden överst */}
+                  {isKod && (
+                    <CodeWorkflowCallout accentHex={cat.accentHex} />
+                  )}
 
                   {/* Grundprompter */}
                   {basic.length > 0 && (

@@ -17,6 +17,7 @@ export type LabbCategory =
   | "lar-dig"
   | "skriv-och-forbattra"
   | "skapa"
+  | "kod"
   | "granska"
   | "meta";
 
@@ -56,6 +57,14 @@ export const LABB_CATEGORIES: LabbCategoryMeta[] = [
     emoji: "🔍",
     description: "Testa AI:n — hittar den på? Håller den med om allt?",
     accentHex: "#ef4444",
+  },
+  {
+    id: "kod",
+    label: "Skapa med kod",
+    emoji: "💻",
+    description:
+      "Be AI:n bygga spel, simuleringar och appar åt dig. En HTML-fil, dubbelklicka — funkar direkt.",
+    accentHex: "#06b6d4",
   },
   {
     id: "meta",
@@ -1114,6 +1123,359 @@ export const LABB_EXPERIMENTS: LabbExperiment[] = [
       placeholders: [],
     },
   },
+  // ─── SKAPA MED KOD ───────────────────────────────────────────────
+  // (Basic-prompter — kortare, enklare projekt)
+  {
+    id: "memory-spel",
+    category: "kod",
+    title: "Memory-spel med ditt eget tema",
+    tagline: "Klassiskt memory — fast med dina favoriter. Funkar i webbläsaren direkt.",
+    why: "Memory är en av de FÖRSTA programmen man brukar bygga. Det har precis lagom mycket logik (matchning, kort-vändning, vinst-tillstånd) för att lära sig hur en hel app hänger ihop.",
+    emoji: "🃏",
+    prompt:
+      "Bygg ett MEMORY-SPEL som webbsida.\n\nTEMA på korten: {tema}\nANTAL PAR: {antal_par}\nFÄRGSCHEMA: {färger}\n\nSPELET ska:\n- Visa korten upp-och-ner i ett snyggt rutnät\n- När jag klickar ett kort: vänd det med en smooth flip-animation\n- Klicka två kort i rad — om match: båda stannar uppvända. Om inte: båda vänder ner igen efter cirka 1 sekund.\n- Räknare som visar antal försök\n- När alla par är hittade: GAME WON-meddelande med slutpoäng + \"Spela igen\"-knapp som blandar om korten\n- Lätta animationer och hover-effekter\n\nKORT-INNEHÅLL: använd EMOJIS som passar temat (inga bilder från internet).\n\nTEKNISKT KRAV — MYCKET VIKTIGT:\n- En ENDA HTML-fil. ALL JavaScript inuti <script>-taggar. ALL CSS inuti <style>-taggar.\n- Inga externa bibliotek. Inget React, inget jQuery, inga CDN-länkar.\n- Inga bilder från internet — bara emojis och CSS.\n- Lämna mig BARA den färdiga koden i ETT block. Ingen förklaring mellan kodbitarna — jag vill kunna kopiera ALLT i ett enda svep.\n- Korta kommentarer bara där du gör något smart, så jag förstår.\n- Filen ska heta typ \"memory.html\" — när jag dubbelklickar ska den fungera direkt.",
+    placeholders: [
+      {
+        key: "tema",
+        hint: "Djur / fotbollsklubbar / frukter / popstjärnor / Pokémon",
+        width: "narrow",
+      },
+      {
+        key: "antal_par",
+        hint: "6",
+        defaultValue: "8",
+        width: "narrow",
+      },
+      {
+        key: "färger",
+        hint: "Neon-rosa och svart / pastell + guld / sjö-blå + sand",
+        width: "wide",
+      },
+    ],
+    tool: "Skolup AI eller ChatGPT — kör koden i din webbläsare",
+    granska: [
+      "Funkar spelet när du dubbelklickar HTML-filen? Om inte: läs felmeddelandet och be AI:n fixa just det.",
+      "Vänder två icke-matchande kort ner igen automatiskt — eller hänger de uppe?",
+      "Funkar 'Spela igen'-knappen? Blandas korten om?",
+    ],
+    variation: {
+      label: "Lägg till ljud + tidtagning",
+      twist: "När det funkar: be AI:n LÄGGA TILL — inte skriva om — ett pling-ljud vid match och en timer som tickar.",
+      prompt:
+        "Här är min nuvarande HTML-fil:\n\n{nuvarande_kod}\n\nLägg till två saker — utan att ändra resten:\n1. Ett kort 'pling'-ljud när jag hittar ett par (använd Web Audio API, inga ljudfiler)\n2. En timer längst upp som räknar sekunder från första klicket\n\nGe mig hela den uppdaterade filen i ETT kodblock.",
+      placeholders: [
+        {
+          key: "nuvarande_kod",
+          hint: "Klistra in hela HTML-filen du fick förra prompten",
+          width: "block",
+        },
+      ],
+    },
+  },
+  {
+    id: "klick-spel",
+    category: "kod",
+    title: "Klick-spelet där knappen flyr",
+    tagline: "En knapp. Du klickar. Den flyttar sig. Den krymper. Du svär lite. Du klickar igen.",
+    why: "Snabb dopamin — och lärorikt. Bygger på event-listening, slumptal, koordinater och game-states. Tar 30 sekunder att starta, 5 minuter att finslipa.",
+    emoji: "🎯",
+    prompt:
+      "Bygg ett ROLIGT KLICK-SPEL som webbsida.\n\nMÅL: klicka knappen {antal_klick} gånger så snabbt du kan.\n\nREGLER:\n- En stor färgglad knapp dyker upp i mitten av skärmen\n- När jag klickar: räknaren ökar med 1, knappen FLYTTAR till en ny slumpmässig position\n- Knappen blir LITE MINDRE för varje klick (men aldrig osynlig — minst ungefär 40px)\n- Knappen STANNAR INOM den synliga skärmen\n- En timer räknar sekunder från första klicket\n- Efter {antal_klick} klick: GAME OVER-skärm med slutpoäng (tid + klick) och \"Försök igen\"-knapp\n\nTEMA: {tema}\n\nEXTRA KRYDDA:\n{krydda}\n\nDESIGN:\n- Stor, läsbar text\n- Mjuka animationer när knappen flyttar (cirka 0.2 sek)\n- Mobilvänlig\n\nTEKNISKT KRAV — MYCKET VIKTIGT:\n- En ENDA HTML-fil. ALL JavaScript i <script>, ALL CSS i <style>.\n- Inga externa bibliotek, inga CDN, inga bilder från internet.\n- Använd emojis eller CSS-grafik.\n- Bara den färdiga koden i ETT block — ingen text mellan kodblocken.\n- Funkar direkt när jag dubbelklickar filen.",
+    placeholders: [
+      {
+        key: "antal_klick",
+        hint: "20",
+        defaultValue: "20",
+        width: "narrow",
+      },
+      {
+        key: "tema",
+        hint: "Rymden / djungeln / cyberpunk / regnbåge",
+        width: "narrow",
+      },
+      {
+        key: "krydda",
+        hint: "T.ex. 'knappen byter färg vid varje klick' / 'visar uppmuntrande ord typ BRA, OJ, WOW' / 'klassens fest-emojis som regnar ner i bakgrunden'",
+        width: "block",
+      },
+    ],
+    tool: "Skolup AI eller ChatGPT",
+    granska: [
+      "Stannar knappen INOM skärmen — eller försvinner den utanför ibland?",
+      "Funkar timern? Stoppas den vid GAME OVER?",
+      "Är knappen LÄSBAR även när den krymper? (Om inte — säg åt AI:n att hålla minsta storleken större.)",
+    ],
+    variation: {
+      label: "Lägg till high-score som sparas",
+      twist: "Be AI:n lägga till localStorage så att din bästa tid sparas mellan omgångarna.",
+      prompt:
+        "Här är min nuvarande HTML-fil:\n\n{nuvarande_kod}\n\nLägg till en HIGH-SCORE som sparas mellan omgångarna (använd localStorage). Visa den högst upp på sidan — och blinka i guld när jag slår mitt rekord. Ge mig hela uppdaterade filen i ETT kodblock.",
+      placeholders: [
+        {
+          key: "nuvarande_kod",
+          hint: "Klistra in koden du fick",
+          width: "block",
+        },
+      ],
+    },
+  },
+  {
+    id: "personlig-hemsida",
+    category: "kod",
+    title: "Din egen personliga hemsida",
+    tagline: "En riktig webbsida om DIG. Funkar i webbläsaren. Vad du vill ha med — du bestämmer.",
+    why: "Att bygga sin egen sida är klassisk webbutbildning. Du lär dig HTML-struktur, sektioner, smooth-scroll. Du kan gå tillbaka och ändra över tid.",
+    emoji: "🏠",
+    prompt:
+      "Bygg en PERSONLIG HEMSIDA om mig — en enda webbsida.\n\nINNEHÅLL:\n- Mitt namn: {namn}\n- Min ålder: {ålder}\n- Jag bor i: {ort}\n- Tre saker jag gillar (en mening om varje): {gillar}\n- En sak jag är riktigt bra på: {bra_på}\n- Mitt mål nästa år: {mål}\n- En rolig fakta om mig: {rolig_fakta}\n\nSEKTIONER (i ordning från toppen):\n1. HERO med stort namn, en kort presentation, och en stor knapp \"Lär känna mig\" som smooth-scrollar ner\n2. OM MIG — kort presentation\n3. MINA FAVORITER — tre snygga kort med mina tre intressen, varje kort i sin egen färg\n4. JAG ÄR BRA PÅ — en specifik prestation med stor text\n5. MITT MÅL — ett kort som lyser upp när jag hover:ar\n6. ROLIGT — den roliga faktan i en \"slumpat\"-stil\n\nDESIGN:\n- Färgschema: {färger}\n- Estetik: {estetik}\n- Smooth-scroll mellan sektionerna\n- Mjuka hover-effekter på korten\n- En \"top\"-knapp längst ner som tar mig till toppen\n- Mobilvänlig\n\nINTERAKTIVITET:\n- En enda hemlig knapp någonstans (välj själv var) — när jag klickar dyker en överraskning upp (välj något kul: confetti i CSS, en hemlig text, en gif med emojis).\n\nTEKNISKT KRAV — MYCKET VIKTIGT:\n- En ENDA HTML-fil. ALL JS i <script>, ALL CSS i <style>.\n- Inga externa bibliotek, inga bilder från internet — använd emojis eller CSS-figurer.\n- Bara den färdiga koden i ETT kodblock — ingen text mellan blocken.\n- Funkar direkt när jag dubbelklickar.",
+    placeholders: [
+      { key: "namn", hint: "Ditt namn", width: "narrow" },
+      { key: "ålder", hint: "11", width: "narrow" },
+      { key: "ort", hint: "Jönköping", width: "narrow" },
+      {
+        key: "gillar",
+        hint: "T.ex. 'Fotboll, måla, baka kakor'",
+        width: "wide",
+      },
+      {
+        key: "bra_på",
+        hint: "T.ex. 'Jag är bäst i klassen på huvudräkning'",
+        width: "wide",
+      },
+      {
+        key: "mål",
+        hint: "T.ex. 'Lära mig spela gitarr ordentligt'",
+        width: "wide",
+      },
+      {
+        key: "rolig_fakta",
+        hint: "T.ex. 'Jag kan slicka mitt eget öga (typ)'",
+        width: "wide",
+      },
+      {
+        key: "färger",
+        hint: "Pastell + neon-accent / lugna jordtoner / kvällsmörk + guld",
+        width: "wide",
+      },
+      {
+        key: "estetik",
+        hint: "T.ex. minimalistisk / 90-talsweb / arcade / studio-clean",
+        width: "narrow",
+      },
+    ],
+    tool: "Skolup AI eller ChatGPT — spara sidan, dela med kompisar",
+    granska: [
+      "Visas alla sektioner — eller har AI:n hoppat över något?",
+      "Funkar smooth-scroll, eller blir det hopp?",
+      "Hittar du den hemliga överraskningen? Och funkar den?",
+    ],
+    variation: {
+      label: "Be om en mörk version också",
+      twist: "Behåll innehållet. Be om en mörk variant med ny färg. Spara båda — välj favorit.",
+      prompt:
+        "Här är min hemsida:\n\n{nuvarande_kod}\n\nGör en VARIANT i mörkt tema — samma innehåll, samma struktur, men mörk bakgrund och nya accent-färger. Ge mig hela filen i ETT kodblock så jag kan spara den som hemsida-dark.html.",
+      placeholders: [
+        {
+          key: "nuvarande_kod",
+          hint: "Klistra in hemsidans kod",
+          width: "block",
+        },
+      ],
+    },
+  },
+
+  // (Avancerade kod-prompter)
+  {
+    id: "ranta-pa-ranta",
+    category: "kod",
+    title: "Ränta-på-ränta-simulator med reglage",
+    tagline: "Dra i reglagen. Se grafen explodera. Förstå varför Einstein kallade det världens åttonde underverk.",
+    why: "Att SE kapital växa exponentiellt — när du själv kan vrida på spakarna — är en helt annan sak än att läsa formeln. Detta är konkretiserad matematik, byggd på 5 minuter.",
+    emoji: "📈",
+    isAdvanced: true,
+    prompt:
+      "Bygg en INTERAKTIV WEBBSIDA som lär ut RÄNTA PÅ RÄNTA.\n\nTRE REGLAGE (sliders) jag kan dra:\n1. STARTBELOPP: 100 kr — 100 000 kr\n2. RÄNTA PER ÅR: 1 % — 20 %\n3. ANTAL ÅR: 1 — 50 år\n\nVISAS LIVE när jag drar (uppdateras direkt):\n- Aktuella värden på reglagen, stora siffror, med svensk thousand-separator (1 000 kr, inte 1,000)\n- Slutbeloppet efter alla år — JÄTTESTORT, gärna animerat när det ändras\n- Hur mycket av slutbeloppet som är \"din egen insats\" vs \"ränta du tjänat\" (visa båda)\n- Tabell: år-för-år (år, saldo) — gärna kollapserbar om det är många år\n\nEN GRAF (canvas eller SVG):\n- X-axel: år\n- Y-axel: belopp (kr)\n- En kurva som ritar ut hur pengarna växer\n- Uppdateras LIVE när reglagen ändras\n- Snygg, läsbar, med rutnätslinjer och axel-text\n\nPEDAGOGIK:\n- Rubrik: \"Ränta på ränta — varför Einstein kallade det världens åttonde underverk\"\n- Kort förklaring under: \"Ränta på ränta betyder att räntan du tjänar börjar tjäna RÄNTA. Lite varje år. Det märks knappt i början. Sen exploderar det.\"\n- Tre WOW-fakta längst ner som uppdateras LIVE:\n  - \"Med dessa siffror får du {X} kr efter {Y} år.\"\n  - \"Det dröjer {Z} år tills pengarna fördubblats.\"\n  - \"{P} % av slutbeloppet är ränta — bara {1-P} % är vad du själv lade in.\"\n\nDESIGN:\n- Snyggt och proffsigt som en bank-app\n- Färgschema: lugn mörkblå + guldaccent\n- Mjuka animationer\n- Mobilvänlig (sliders ska vara tappbara)\n\nTEKNISKT KRAV — MYCKET VIKTIGT:\n- En ENDA HTML-fil. ALL JavaScript inuti <script>, ALL CSS inuti <style>.\n- Använd Canvas API eller SVG för grafen — INGA externa graf-bibliotek (inget Chart.js, inget D3 från CDN).\n- Inga externa bilder.\n- Lämna BARA den färdiga koden i ETT kodblock. Ingen text mellan kodbitarna.\n- När jag dubbelklickar HTML-filen ska den funka direkt.",
+    placeholders: [],
+    tool: "Skolup AI eller ChatGPT",
+    granska: [
+      "Uppdateras grafen LIVE när du drar reglagen — eller bara när du släpper musen?",
+      "Stämmer matten? Testa: 1000 kr, 10 % ränta, 50 år → ska bli runt 117 390 kr.",
+      "Är grafen LÄSBAR — eller är staplarna så stora att man inte ser axlarna?",
+    ],
+    variation: {
+      label: "Lägg till månatligt sparande",
+      twist: "Riktigt sparande är inte bara en engångssumma — det är pengar som tickar in varje månad. Be AI:n lägga till ett fjärde reglage.",
+      prompt:
+        "Här är min nuvarande ränta-på-ränta-sida:\n\n{nuvarande_kod}\n\nLägg till ett FJÄRDE reglage: MÅNADSPARANDE (0 kr — 5000 kr/månad). Räkna och visa hur det påverkar slutbeloppet. Uppdatera grafen så två linjer syns: en utan månadsparande, en med. Ge mig hela filen i ETT kodblock.",
+      placeholders: [
+        {
+          key: "nuvarande_kod",
+          hint: "Klistra in den nuvarande HTML-filen",
+          width: "block",
+        },
+      ],
+    },
+  },
+  {
+    id: "pendel-fysik",
+    category: "kod",
+    title: "Pendelsimulator — fysik du kan dra i",
+    tagline: "En riktig pendel som svänger enligt fysikens lagar. Ändra längd, gravitation och vinkel — se vad som händer.",
+    why: "Pendelfysik är en av de SKAPLIGT vackraste sakerna i naturen — och något du normalt inte kan testa hemma. Med kod kan du. Att MASSAN inte påverkar svängningstiden är en wow-insikt du knappast tror förrän du kollar själv.",
+    emoji: "🪀",
+    isAdvanced: true,
+    prompt:
+      "Bygg en INTERAKTIV PENDELSIMULATOR som webbsida.\n\nEN ANIMERAD PENDEL i mitten av skärmen:\n- Snöre från taket + tyngd nedanför som svänger som en riktig pendel\n- Mjukt och realistiskt — använd requestAnimationFrame\n- Fysik: vinkelacceleration = -(g/L) × sin(vinkel). Integrera över små tidssteg.\n- Tappa inte energi (eller tappa LITE om du vill ha realism)\n\nTRE REGLAGE jag kan dra LIVE:\n1. PENDELNS LÄNGD (L): 0.1 m — 5 m\n2. TYNGDKRAFT (g): 1 m/s² (Pluto-aktigt) — 25 m/s² (Jupiter-aktigt)\n3. STARTVINKEL: 5° — 80°\n\nVISAS LIVE under simuleringen (uppdateras varje frame):\n- Aktuell vinkel (i grader)\n- Aktuell hastighet\n- SVÄNGNINGSTID T = 2π√(L/g) — uppräknad i sekunder\n- Antal kompletta svängningar sedan start\n\nTRE \"PROVA DETTA\"-knappar (klick = sätter g till värdet):\n- 🌙 MÅNEN (g = 1.6)\n- 🌍 JORDEN (g = 9.8)\n- 🪐 JUPITER (g = 24.8)\n\nPEDAGOGIK:\n- Stor rubrik: \"Pendeln — fysikens hjärtslag\"\n- En liten faktaruta i sidan med tre frågor som kittar nyfikenheten:\n  - \"Påverkar TYNGDEN av kulan svängningstiden? Testa.\" (svaret är NEJ — den finns inte i formeln)\n  - \"Vad händer om du fördubblar längden — fördubblas tiden?\" (NEJ — bara √2-faktor)\n  - \"Är pendeln på månen LÅNGSAMMARE eller SNABBARE än på jorden? Varför?\"\n- En \"START / STOPP / NOLLSTÄLL\"-knapp\n\nDESIGN:\n- Tavla-känsla: mörk grön bakgrund, vita streck och text\n- Animerade siffror — som en analog mätare\n- Mobilvänlig\n\nTEKNISKT KRAV — MYCKET VIKTIGT:\n- En ENDA HTML-fil. ALL JS i <script>, ALL CSS i <style>.\n- Canvas API för pendelns rörelse.\n- Inga externa fysikbibliotek, ingen CDN, inga bilder.\n- Lämna BARA koden i ETT kodblock — ingen text mellan blocken.",
+    placeholders: [],
+    tool: "Skolup AI eller ChatGPT",
+    granska: [
+      "Pendeln svänger i en GLAD rörelse — eller hackar den? Om hackar: be AI:n öka frame-rate eller mjuka tidsstegen.",
+      "Stämmer fysiken? Testa: L=1 m, g=9.8 → svängningstiden ska vara cirka 2 sekunder.",
+      "Du ändrar TYNGDEN av kulan i koden manuellt — påverkas svängningstiden? (Svar: NEJ. Det är poängen.)",
+    ],
+    variation: {
+      label: "Lägg till luftmotstånd",
+      twist: "Riktiga pendlar tappar energi. Be AI:n lägga till luftmotstånd så pendeln gradvis stannar — och ett reglage för luftmotståndet.",
+      prompt:
+        "Här är min pendelsimulator:\n\n{nuvarande_kod}\n\nLägg till LUFTMOTSTÅND som gör att pendeln gradvis tappar energi och stannar. Lägg till ett FJÄRDE reglage för LUFTMOTSTÅND (0 = inget — pendeln svänger för evigt; 1 = väldigt mycket — stannar fort). Ge mig hela filen i ETT kodblock.",
+      placeholders: [
+        {
+          key: "nuvarande_kod",
+          hint: "Klistra in pendel-koden",
+          width: "block",
+        },
+      ],
+    },
+  },
+  {
+    id: "bygg-quiz",
+    category: "kod",
+    title: "Bygg ditt eget quiz — om vad som helst",
+    tagline: "Du anger ämne + svårighet. AI bygger ett snyggt, animerat quiz du kan dela med klassen.",
+    why: "Att SKAPA ett quiz lär dig ämnet bättre än att GÖRA ett — för du måste tänka på vad som är bra felsvar (distraktorer). Det här är pedagogik som forskningen kallar test-enhanced learning.",
+    emoji: "🎓",
+    isAdvanced: true,
+    prompt:
+      "Bygg ett INTERAKTIVT QUIZ som webbsida.\n\nÄMNE: {ämne}\nANTAL FRÅGOR: {antal_frågor}\nSVÅRIGHET: {svårighet}\n\nQUIZET ska:\n- Visa EN fråga i taget, stort och tydligt\n- 4 svarsalternativ som klickbara knappar\n- När jag klickar FEL: knappen blir röd, det RÄTTA alternativet blir grönt, och en kort förklaring dyker upp\n- När jag klickar RÄTT: knappen blir grön + bekräftelse\n- Räknare högst upp: \"Fråga 3 av 10\" + en progressbar\n- En \"Nästa fråga\"-knapp dyker upp efter att jag svarat\n- Efter sista frågan: SLUTRESULTAT — poäng, procent, och en motiverande kommentar:\n  - <50 %: \"Bra start! Försök igen.\"\n  - 50–80 %: \"Snyggt jobbat — du kan det här.\"\n  - >80 %: \"Wow — du är expert.\"\n- \"Spela igen\"-knapp som börjar om\n\nINNEHÅLLET — SKAPA SJÄLV:\n- Hitta på {antal_frågor} frågor om ämnet, väl anpassade för mellanstadiet\n- Variera lätta, mediumsvåra och svåra frågor\n- Varje fråga: 1 rätt svar + 3 PLAUSIBLA fel svar (inte uppenbart fel — det ska vara verklig utmaning)\n- Kort förklaring (max 2 meningar) för varje rätt svar — så jag LÄR mig något även när jag hade fel\n\nDESIGN:\n- Snygg och kul, kort-baserad layout\n- Tema: {tema}\n- Mjuka övergångar mellan frågor\n- Mobilvänlig\n\nTEKNISKT KRAV — MYCKET VIKTIGT:\n- En ENDA HTML-fil. ALL JS i <script>, ALL CSS i <style>.\n- Inga externa bibliotek, inga bilder, ingen CDN.\n- Lämna BARA koden i ETT kodblock — ingen text mellan kodbitarna.\n- Funkar direkt när jag dubbelklickar filen.",
+    placeholders: [
+      {
+        key: "ämne",
+        hint: "Sveriges landskap / dinosaurier / multiplikationstabellen / popstjärnor / hjärnan",
+        width: "wide",
+      },
+      {
+        key: "antal_frågor",
+        hint: "10",
+        defaultValue: "10",
+        width: "narrow",
+      },
+      {
+        key: "svårighet",
+        hint: "Mellanstadie-nivå (kanske lite knepigt här och där)",
+        defaultValue: "mellanstadie-nivå",
+        width: "narrow",
+      },
+      {
+        key: "tema",
+        hint: "Rymden / arcade / minimalistisk / 80-talsneon",
+        width: "narrow",
+      },
+    ],
+    tool: "Skolup AI eller ChatGPT",
+    granska: [
+      "Är frågorna FAKTAGRANSKADE av AI:n — eller hittade den på? Slå upp 1-2 svar du är osäker på.",
+      "Är felsvaren PLAUSIBLA — eller uppenbara? Ett bra quiz har lockande felsvar.",
+      "Funkar 'Spela igen'? Blandas frågorna i ny ordning?",
+    ],
+    variation: {
+      label: "Lägg till tidspress",
+      twist: "Lägg till en timer per fråga. Då blir det mer arkad-känsla och du tränas i att tänka snabbt.",
+      prompt:
+        "Här är mitt quiz:\n\n{nuvarande_kod}\n\nLägg till en TIMER per fråga (15 sekunder per fråga). Om tiden går ut räknas det som fel och nästa fråga dyker upp automatiskt. Visa timern som en cirkel-progressbar runt frågan. Ge mig hela filen i ETT kodblock.",
+      placeholders: [
+        {
+          key: "nuvarande_kod",
+          hint: "Klistra in quiz-koden",
+          width: "block",
+        },
+      ],
+    },
+  },
+  {
+    id: "tidsmaskin",
+    category: "kod",
+    title: "Tidsmaskinen — hur många sekunder har du levt?",
+    tagline: "En live-räknare som tickar upp i realtid. Du har slagit hjärtat 400 miljoner gånger. Wow.",
+    why: "Live-räknare lär dig om tid (Date-objektet i JS) OCH ger en konkret känsla för STORA tal. Att se siffran 'sekunder jag levt' tickar förbi en miljard medan du tittar är minnesvärt på riktigt.",
+    emoji: "⏳",
+    isAdvanced: true,
+    prompt:
+      "Bygg en LIVE-RÄKNARE som visar exakt hur länge jag har levt.\n\nMIN FÖDELSEDAG: {födelsedatum}\n\nSIDAN ska visa:\n- Stor rubrik: \"Du har existerat i...\"\n- LIVE-uppdaterande räknare (varje 100 ms) som visar:\n  - X dagar · Y timmar · Z minuter · W sekunder\n- En \"total sekunder\"-räknare som tickar uppåt synligt\n- En \"sekunder kvar till min nästa födelsedag\"-räknare som tickar nedåt\n\nWOW-FAKTA (uppdaterade live med dina värden):\n- \"Du har sovit ungefär X dagar\" (uppskattning: 1/3 av tiden)\n- \"Ditt hjärta har slagit ungefär Y gånger\" (uppskattning: 70 slag/min × din tid i minuter)\n- \"Du har blinkat ungefär Z gånger\" (uppskattning: 15/min × vaken tid)\n- \"Solen har gått upp X gånger sedan du föddes\"\n- \"Jorden har snurrat X varv runt sin axel\"\n- Visa varje fakta i ett snyggt kort med en emoji\n\nDESIGN:\n- Mörk bakgrund med animerade CSS-stjärnor som tindrar\n- Stora monospace-siffror i guld eller neon-blå\n- Mjuk glow-effekt runt huvudsiffrorna\n- Mobilvänlig\n\nEXTRA: en knapp \"Berätta mer\" som visar ytterligare fakta (mer ovanliga: hur många hjärtslag kvar i ett medellivslängds-perspektiv, osv.) — varsamt formulerat, inte skrämmande.\n\nTEKNISKT KRAV — MYCKET VIKTIGT:\n- En ENDA HTML-fil. ALL JS i <script>, ALL CSS i <style>.\n- Använd setInterval(..., 100) eller requestAnimationFrame för mjuk uppdatering.\n- Inga externa bibliotek, inga bilder.\n- BARA koden i ETT kodblock.",
+    placeholders: [
+      {
+        key: "födelsedatum",
+        hint: "ÅÅÅÅ-MM-DD (t.ex. 2014-09-21)",
+        width: "narrow",
+      },
+    ],
+    tool: "Skolup AI eller ChatGPT",
+    granska: [
+      "Tickar räknaren MJUKT, eller hackar siffrorna?",
+      "Stämmer matten? Räkna efter: dagar levt × 24 × 60 × 60 = ungefär samma som total sekunder.",
+      "Är wow-fakta TROVÄRDIGA eller överdrivna? Hjärtslag t.ex. ska vara cirka 100 000/dygn.",
+    ],
+    variation: {
+      label: "Gör en VERSION till din kompis",
+      twist: "Ändra födelsedatumet — jämför sidorna. Vem har levt flest sekunder? Bra gåva.",
+      prompt:
+        "Här är min sida:\n\n{nuvarande_kod}\n\nGör om den så att den fungerar för min kompis istället — använd födelsedatumet {nytt_födelsedatum}. Lägg till en JÄMFÖR-knapp som visar skillnaden mellan oss i sekunder. Ge mig hela filen i ETT kodblock.",
+      placeholders: [
+        {
+          key: "nuvarande_kod",
+          hint: "Klistra in nuvarande HTML",
+          width: "block",
+        },
+        {
+          key: "nytt_födelsedatum",
+          hint: "Kompisens födelsedag, ÅÅÅÅ-MM-DD",
+          width: "narrow",
+        },
+      ],
+    },
+  },
+  {
+    id: "diagram-skapare",
+    category: "kod",
+    title: "Diagram-skapare — gör staplar av din egen data",
+    tagline: "Skriv in dina siffror. Få ett snyggt animerat stapeldiagram. Använd till skolprojekt, redovisningar, klass-statistik.",
+    why: "Riktiga dataanalytiker använder bibliotek som plottar — men du kan se hur de FAKTISKT funkar genom att bygga ditt eget. Förstå Canvas. Förstå hur skala beräknas. Lär dig massa i ett.",
+    emoji: "📊",
+    isAdvanced: true,
+    prompt:
+      "Bygg en INTERAKTIV WEBBSIDA där jag kan rita stapeldiagram av MIN egen data.\n\nVAD JAG SKA KUNNA GÖRA:\n1. Skriva in mina data i ett stort textfält i formatet:\n   \"Etikett, Värde\" — en rad per stapel.\n   T.ex.\n   Mån, 15\n   Tis, 22\n   Ons, 18\n2. Klicka knappen \"Rita diagram\"\n3. Se ett snyggt stapeldiagram dyka upp\n\nDIAGRAMET ska:\n- Vara ANIMERAT (staplarna växer upp från noll med en mjuk easing)\n- Visa tydliga etiketter under varje stapel\n- Visa värdet ovanför varje stapel\n- Auto-skala efter största värdet (alltså: längsta stapeln tar typ 85 % av höjden)\n- Färga staplarna i en gradient ELLER olika färger (välj smart)\n- Visa Y-axel med skala (0, 25 %, 50 %, 75 %, 100 % av max)\n\nEXTRA-FUNKTIONER:\n- Toggle: \"Visa medelvärde\" — drar en streckad linje över medelvärdet\n- Toggle: \"Visa max & min\" — markerar de\n- Färgväljare för staplarna\n- Sortering: \"Original ordning\" / \"A–Ö\" / \"Lägst → högst\" / \"Högst → lägst\"\n- En \"EXEMPEL\"-knapp som fyller textfältet med exempel-data så jag kan testa direkt\n\nFÖRSLAG TILL VAD JAG KAN VISUALISERA (visa som tips i UI:t):\n- Antal mål per spelare i mitt fotbollslag\n- Hur mycket jag spelat varje dag senaste veckan\n- Antal sidor i mina favoritböcker\n- Antal elever i varje klass på skolan\n\nDESIGN:\n- Ren, modern dashboard-känsla\n- Mobilvänlig\n\nTEKNISKT KRAV — MYCKET VIKTIGT:\n- En ENDA HTML-fil. ALL JS i <script>, ALL CSS i <style>.\n- Canvas API ELLER pure CSS för staplarna — INGA externa chart-bibliotek.\n- Inga bilder, ingen CDN.\n- BARA den färdiga koden i ETT kodblock.",
+    placeholders: [],
+    tool: "Skolup AI eller ChatGPT — använd sedan för dina skolprojekt",
+    granska: [
+      "Skalas Y-axeln rätt — eller blir staplarna inte synliga om värdena är stora?",
+      "Funkar sortering — eller hänger ordningen kvar?",
+      "Är det LÄSBART på mobil? Eller försvinner etiketterna under varandra?",
+    ],
+    variation: {
+      label: "Lägg till linje-diagram-läge",
+      twist: "Stapeldiagram är bra för kategorier — linje-diagram är bra för tid. Be om en knapp som växlar.",
+      prompt:
+        "Här är min diagram-sida:\n\n{nuvarande_kod}\n\nLägg till en TOGGLE-knapp som växlar mellan STAPELDIAGRAM och LINJEDIAGRAM. Samma data, två sätt att visa. Ge mig hela filen i ETT kodblock.",
+      placeholders: [
+        {
+          key: "nuvarande_kod",
+          hint: "Klistra in din diagram-kod",
+          width: "block",
+        },
+      ],
+    },
+  },
+
+  // ─── META-PROMPTER ──────────────────────────────────────────────
   {
     id: "be-om-format",
     category: "meta",
