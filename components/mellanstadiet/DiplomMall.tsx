@@ -25,11 +25,11 @@ export function DiplomMall({
 
   return (
     <div
-      className="my-10 overflow-hidden rounded-xl border bg-[#0d1322]"
+      className="my-10 overflow-hidden rounded-xl border bg-[var(--ms-bg-subtle)]"
       style={{ borderColor: `${accentHex}80` }}
     >
       <div
-        className="flex items-center gap-2 px-6 py-3 text-white print:hidden"
+        className="flex items-center gap-2 px-6 py-3 text-[var(--ms-text)] print:hidden"
         style={{ background: accentHex }}
       >
         <Award className="h-4 w-4" />
@@ -39,7 +39,7 @@ export function DiplomMall({
       <div className="p-6">
         {editing && (
           <div className="mb-6 print:hidden">
-            <label className="ms-mono mb-2 block text-[#94a3b8]">
+            <label className="ms-mono mb-2 block text-[var(--ms-text-muted)]">
               SKRIV DITT NAMN
             </label>
             <div className="flex flex-col gap-2 sm:flex-row">
@@ -48,7 +48,7 @@ export function DiplomMall({
                 value={namn}
                 onChange={(e) => setNamn(e.target.value)}
                 placeholder="T.ex. Maja Andersson"
-                className="flex-1 rounded-lg border border-[#243248] bg-[#1a2235] px-4 py-3 text-white placeholder-[#64748b] outline-none focus:border-white"
+                className="flex-1 rounded-lg border border-[var(--ms-border)] bg-[var(--ms-bg-card)] px-4 py-3 text-[var(--ms-text)] placeholder-[var(--ms-text-dim)] outline-none focus:border-white"
                 autoFocus
               />
               <button

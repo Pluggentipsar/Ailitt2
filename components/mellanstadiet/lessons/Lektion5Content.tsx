@@ -6,6 +6,7 @@ import { Quiz } from "@/components/mellanstadiet/Quiz";
 import { BegreppsBank } from "@/components/mellanstadiet/BegreppsBank";
 import { SpelCallout } from "@/components/mellanstadiet/SpelCallout";
 import { PlaceholderImage } from "@/components/mellanstadiet/PlaceholderImage";
+import { MELLANSTADIET_IMAGES } from "@/lib/mellanstadiet-images";
 import { ReflectionPrompt } from "@/components/mellanstadiet/ReflectionPrompt";
 import { PravaMedAI } from "@/components/mellanstadiet/PravaMedAI";
 import { DiskutteraBlock } from "@/components/mellanstadiet/DiskutteraBlock";
@@ -47,7 +48,7 @@ export function Lektion5Content({ lesson }: { lesson: MellanstadietLesson }) {
           ].map((opt) => (
             <div
               key={opt.v}
-              className="rounded-lg border bg-[#1a2235] p-4"
+              className="rounded-lg border bg-[var(--ms-bg-card)] p-4"
               style={{ borderColor: `${lesson.accentHex}40` }}
             >
               <div
@@ -56,7 +57,7 @@ export function Lektion5Content({ lesson }: { lesson: MellanstadietLesson }) {
               >
                 {opt.v}
               </div>
-              <p className="text-[#cbd5e1]">{opt.reason}</p>
+              <p className="text-[var(--ms-text-body)]">{opt.reason}</p>
             </div>
           ))}
         </div>
@@ -111,6 +112,7 @@ export function Lektion5Content({ lesson }: { lesson: MellanstadietLesson }) {
         <h3>Roblox och barnsäkerhet</h3>
 
         <PlaceholderImage
+          src={MELLANSTADIET_IMAGES["L5.1"]}
           caption="Roblox-logotyp + karta över USA-delstater som stämt: Florida, Texas, Nebraska, Tennessee, LA County (feb 2026)"
           hint="Joel: kanske en infografik med stämningarnas tidslinje"
           aspect="3/2"
@@ -174,6 +176,7 @@ export function Lektion5Content({ lesson }: { lesson: MellanstadietLesson }) {
         </p>
 
         <PlaceholderImage
+          src={MELLANSTADIET_IMAGES["L5.2"]}
           caption="Stort siffervisualisering: '720 miljarder gallons vatten årligen för AI-kylning = 18 miljoner hushåll'"
           hint="Joel: enkel infografik med dramatiska siffror"
           aspect="16/7"
@@ -271,7 +274,7 @@ export function Lektion5Content({ lesson }: { lesson: MellanstadietLesson }) {
           ].map((r) => (
             <div
               key={r.who}
-              className="rounded-lg border border-[#243248] bg-[#1a2235] p-4"
+              className="rounded-lg border border-[var(--ms-border)] bg-[var(--ms-bg-card)] p-4"
             >
               <div
                 className="ms-mono"
@@ -279,7 +282,7 @@ export function Lektion5Content({ lesson }: { lesson: MellanstadietLesson }) {
               >
                 {r.who}
               </div>
-              <p className="text-sm text-[#cbd5e1]">{r.does}</p>
+              <p className="text-sm text-[var(--ms-text-body)]">{r.does}</p>
             </div>
           ))}
         </div>

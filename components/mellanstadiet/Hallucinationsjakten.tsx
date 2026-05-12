@@ -218,34 +218,34 @@ export function Hallucinationsjakten({
 
   return (
     <div
-      className="my-12 overflow-hidden rounded-xl border bg-[#0d1322]"
+      className="my-12 overflow-hidden rounded-xl border bg-[var(--ms-bg-subtle)]"
       style={{ borderColor: `${accentHex}40` }}
     >
       <div
         className="flex items-center gap-2 px-6 py-3"
         style={{ background: accentHex }}
       >
-        <Search className="h-4 w-4 text-[#0a0e1a]" />
-        <div className="ms-mono font-bold text-[#0a0e1a]">
+        <Search className="h-4 w-4 text-[var(--ms-bg)]" />
+        <div className="ms-mono font-bold text-[var(--ms-bg)]">
           HALLUCINATIONSJAKTEN · FALL {caseIdx + 1} / {CASES.length}
         </div>
       </div>
 
       <div className="space-y-5 p-6">
         <div>
-          <div className="ms-mono mb-1 text-[#94a3b8]">PROMPTEN VAR</div>
-          <p className="font-mono text-sm text-[#cbd5e1]">
+          <div className="ms-mono mb-1 text-[var(--ms-text-muted)]">PROMPTEN VAR</div>
+          <p className="font-mono text-sm text-[var(--ms-text-body)]">
             &ldquo;{c.prompt}&rdquo;
           </p>
         </div>
 
-        <h3 className="text-xl font-bold text-white">{c.title}</h3>
+        <h3 className="text-xl font-bold text-[var(--ms-text)]">{c.title}</h3>
 
-        <p className="text-sm leading-relaxed text-[#cbd5e1]">{c.intro}</p>
+        <p className="text-sm leading-relaxed text-[var(--ms-text-body)]">{c.intro}</p>
 
         {/* Texten med klickbara meningar */}
-        <div className="rounded-lg border border-[#243248] bg-[#1a2235] p-5">
-          <div className="space-y-3 leading-relaxed text-[#e6edf7]">
+        <div className="rounded-lg border border-[var(--ms-border)] bg-[var(--ms-bg-card)] p-5">
+          <div className="space-y-3 leading-relaxed text-[var(--ms-text)]">
             {c.sentences.map((s) => {
               const isMarked = marked.has(s.id);
               const status = revealed
@@ -264,9 +264,9 @@ export function Hallucinationsjakten({
                 tp: "border-emerald-500/60 bg-emerald-500/15 text-emerald-50",
                 fp: "border-rose-500/60 bg-rose-500/15 text-rose-50",
                 fn: "border-amber-500/60 bg-amber-500/15 text-amber-50",
-                tn: "border-[#243248] bg-[#0a0e1a] text-[#94a3b8]",
-                marked: "border-[#fcd34d] bg-[#fcd34d]/10 text-white",
-                unmarked: "border-[#243248] bg-transparent text-[#e6edf7]",
+                tn: "border-[var(--ms-border)] bg-[var(--ms-bg)] text-[var(--ms-text-muted)]",
+                marked: "border-[#fcd34d] bg-[#fcd34d]/10 text-[var(--ms-text)]",
+                unmarked: "border-[var(--ms-border)] bg-transparent text-[var(--ms-text)]",
               }[status];
 
               return (
@@ -284,12 +284,12 @@ export function Hallucinationsjakten({
                       <span
                         className={`mt-0.5 inline-flex h-5 w-5 flex-none items-center justify-center rounded-full text-[10px] font-bold ${
                           status === "tp" || status === "marked"
-                            ? "bg-[#fcd34d] text-[#0a0e1a]"
+                            ? "bg-[#fcd34d] text-[var(--ms-bg)]"
                             : status === "fp"
                             ? "bg-rose-400 text-rose-950"
                             : status === "fn"
                             ? "bg-amber-400 text-amber-950"
-                            : "bg-[#243248] text-[#94a3b8]"
+                            : "bg-[var(--ms-border)] text-[var(--ms-text-muted)]"
                         }`}
                       >
                         {status === "tp" ? (
@@ -328,7 +328,7 @@ export function Hallucinationsjakten({
         {/* Action / Resultat */}
         {!revealed ? (
           <div className="flex flex-wrap items-center justify-between gap-3">
-            <div className="text-sm text-[#94a3b8]">
+            <div className="text-sm text-[var(--ms-text-muted)]">
               Du har markerat {marked.size} mening
               {marked.size === 1 ? "" : "ar"}.
             </div>
@@ -354,7 +354,7 @@ export function Hallucinationsjakten({
             </div>
           </div>
         ) : (
-          <div className="ms-fadein space-y-4 border-t border-[#243248] pt-5">
+          <div className="ms-fadein space-y-4 border-t border-[var(--ms-border)] pt-5">
             <div className="grid grid-cols-3 gap-3">
               <div className="rounded-lg border border-emerald-500/40 bg-emerald-500/10 p-3 text-center">
                 <div className="ms-mono text-emerald-300">RÄTT FYND</div>

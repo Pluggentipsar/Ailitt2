@@ -25,7 +25,7 @@ const VAGOR: Vag[] = [
     description:
       "Människor programmerade in alla regler i datorn. 'Om motståndaren spelar X, spela Y.' Det fungerade i avgränsade saker som schack — men inte i den riktiga världen.",
     examples: ["Deep Blue (schack, 1997)", "Tidiga sökmotorer", "Tidiga chatbottar"],
-    color: "#64748b",
+    color: "var(--ms-text-dim)",
   },
   {
     num: 2,
@@ -39,7 +39,7 @@ const VAGOR: Vag[] = [
       "Google Bilder (känner igen katter)",
       "TikToks flöde",
     ],
-    color: "#94a3b8",
+    color: "var(--ms-text-muted)",
   },
   {
     num: 3,
@@ -76,8 +76,8 @@ export function VagorDiagram() {
   const [active, setActive] = useState<number | null>(null);
 
   return (
-    <div className="my-10 rounded-xl border border-[#243248] bg-[#0d1322] p-6">
-      <div className="ms-mono mb-4 text-[#94a3b8]">
+    <div className="my-10 rounded-xl border border-[var(--ms-border)] bg-[var(--ms-bg-subtle)] p-6">
+      <div className="ms-mono mb-4 text-[var(--ms-text-muted)]">
         // FYRA VÅGOR · KLICKA FÖR DETALJER
       </div>
 
@@ -92,12 +92,12 @@ export function VagorDiagram() {
               className={`group rounded-lg border p-4 text-left transition-all ${
                 isActive
                   ? "scale-105 border-white/60 shadow-lg"
-                  : "border-[#243248] hover:border-white/30"
+                  : "border-[var(--ms-border)] hover:border-[var(--ms-text)]/30"
               }`}
               style={{
                 background: isActive
                   ? `linear-gradient(135deg, ${v.color}30, ${v.color}10)`
-                  : "#1a2235",
+                  : "var(--ms-bg-card)",
               }}
               aria-expanded={isActive}
             >
@@ -107,10 +107,10 @@ export function VagorDiagram() {
               >
                 VÅG {v.num} · {v.years}
               </div>
-              <div className="font-bold leading-tight text-white">
+              <div className="font-bold leading-tight text-[var(--ms-text)]">
                 {v.title}
               </div>
-              <div className="mt-2 text-xs italic text-[#94a3b8]">
+              <div className="mt-2 text-xs italic text-[var(--ms-text-muted)]">
                 {v.metaphor}
               </div>
             </button>
@@ -121,19 +121,19 @@ export function VagorDiagram() {
       {active !== null && (
         <div
           key={active}
-          className="ms-fadein mt-4 rounded-lg border bg-[#1a2235] p-5"
+          className="ms-fadein mt-4 rounded-lg border bg-[var(--ms-bg-card)] p-5"
           style={{
             borderColor: `${VAGOR[active - 1].color}60`,
           }}
         >
-          <div className="ms-mono mb-2 text-[#94a3b8]">
+          <div className="ms-mono mb-2 text-[var(--ms-text-muted)]">
             VÅG {active} · {VAGOR[active - 1].title.toUpperCase()}
           </div>
-          <p className="leading-relaxed text-[#e6edf7]">
+          <p className="leading-relaxed text-[var(--ms-text)]">
             {VAGOR[active - 1].description}
           </p>
           <div className="mt-3">
-            <div className="ms-mono mb-1 text-[#94a3b8]">EXEMPEL</div>
+            <div className="ms-mono mb-1 text-[var(--ms-text-muted)]">EXEMPEL</div>
             <div className="flex flex-wrap gap-2">
               {VAGOR[active - 1].examples.map((ex) => (
                 <span

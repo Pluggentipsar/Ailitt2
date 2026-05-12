@@ -104,7 +104,7 @@ const CASES: DarkPatternCase[] = [
         const correct = isCorrect(id);
         if (!revealed) {
           return sel(id)
-            ? "ring-2 ring-[#fcd34d] ring-offset-2 ring-offset-[#0d1322]"
+            ? "ring-2 ring-[#fcd34d] ring-offset-2 ring-offset-[var(--ms-bg-subtle)]"
             : "";
         }
         const t = tFor(id);
@@ -116,9 +116,9 @@ const CASES: DarkPatternCase[] = [
 
       return (
         <div className="rounded-xl bg-gradient-to-br from-purple-900/40 via-pink-900/30 to-orange-900/20 p-1">
-          <div className="rounded-lg bg-[#0a0e1a] p-5 text-white">
+          <div className="rounded-lg bg-[var(--ms-bg)] p-5 text-[var(--ms-text)]">
             {/* Banner */}
-            <div className="ms-mono mb-3 inline-block rounded bg-gradient-to-r from-pink-500 to-purple-500 px-2 py-0.5 text-xs font-bold text-white">
+            <div className="ms-mono mb-3 inline-block rounded bg-gradient-to-r from-pink-500 to-purple-500 px-2 py-0.5 text-xs font-bold text-[var(--ms-text)]">
               SPEL-BUTIKEN
             </div>
 
@@ -140,7 +140,7 @@ const CASES: DarkPatternCase[] = [
               <button
                 type="button"
                 onClick={() => onSelect("lb-timer")}
-                className={`rounded-md bg-rose-500 px-4 py-2 text-center font-bold text-white animate-pulse ${stateStyle(
+                className={`rounded-md bg-rose-500 px-4 py-2 text-center font-bold text-[var(--ms-text)] animate-pulse ${stateStyle(
                   "lb-timer"
                 )}`}
               >
@@ -245,7 +245,7 @@ const CASES: DarkPatternCase[] = [
         const correct = isCorrect(id);
         if (!revealed) {
           return sel(id)
-            ? "ring-2 ring-[#fcd34d] ring-offset-2 ring-offset-[#0d1322]"
+            ? "ring-2 ring-[#fcd34d] ring-offset-2 ring-offset-[var(--ms-bg-subtle)]"
             : "";
         }
         const t = tFor(id);
@@ -294,7 +294,7 @@ const CASES: DarkPatternCase[] = [
             <button
               type="button"
               onClick={() => onSelect("sub-stay")}
-              className={`mt-4 w-full rounded-lg ${stateStyle("sub-stay")} bg-emerald-500 py-4 text-lg font-bold text-white shadow-lg`}
+              className={`mt-4 w-full rounded-lg ${stateStyle("sub-stay")} bg-emerald-500 py-4 text-lg font-bold text-[var(--ms-text)] shadow-lg`}
             >
               ✓ Stanna kvar (rekommenderas)
             </button>
@@ -362,11 +362,11 @@ export function DarkPatternDetective({
 
   return (
     <div
-      className="my-12 overflow-hidden rounded-xl border bg-[#0d1322]"
+      className="my-12 overflow-hidden rounded-xl border bg-[var(--ms-bg-subtle)]"
       style={{ borderColor: `${accentHex}80` }}
     >
       <div
-        className="flex items-center gap-2 px-6 py-3 text-[#0a0e1a]"
+        className="flex items-center gap-2 px-6 py-3 text-[var(--ms-bg)]"
         style={{ background: accentHex }}
       >
         <Eye className="h-4 w-4" />
@@ -377,16 +377,16 @@ export function DarkPatternDetective({
 
       <div className="space-y-5 p-6">
         <div>
-          <h3 className="text-xl font-bold text-white">{c.title}</h3>
-          <p className="mt-1 text-[#cbd5e1]">{c.context}</p>
-          <p className="mt-1 text-sm text-[#94a3b8]">
+          <h3 className="text-xl font-bold text-[var(--ms-text)]">{c.title}</h3>
+          <p className="mt-1 text-[var(--ms-text-body)]">{c.context}</p>
+          <p className="mt-1 text-sm text-[var(--ms-text-muted)]">
             <strong className="text-[#fcd34d]">Klicka på</strong> de element du
             tror är manipulativa. {c.description}
           </p>
         </div>
 
         {/* Mockup */}
-        <div className="rounded-xl border border-[#243248] bg-[#0a0e1a] p-2 sm:p-4">
+        <div className="rounded-xl border border-[var(--ms-border)] bg-[var(--ms-bg)] p-2 sm:p-4">
           {c.render({
             selected,
             revealed,
@@ -398,7 +398,7 @@ export function DarkPatternDetective({
         {/* Action */}
         {!revealed ? (
           <div className="flex flex-wrap items-center justify-between gap-3">
-            <div className="text-sm text-[#94a3b8]">
+            <div className="text-sm text-[var(--ms-text-muted)]">
               {selected.size} markerade.
             </div>
             <div className="flex gap-2">
@@ -423,7 +423,7 @@ export function DarkPatternDetective({
             </div>
           </div>
         ) : (
-          <div className="ms-fadein space-y-4 border-t border-[#243248] pt-5">
+          <div className="ms-fadein space-y-4 border-t border-[var(--ms-border)] pt-5">
             <div className="grid grid-cols-3 gap-3">
               <div className="rounded-lg border border-emerald-500/40 bg-emerald-500/10 p-3 text-center">
                 <div className="ms-mono text-emerald-300">HITTADE</div>
@@ -466,10 +466,10 @@ export function DarkPatternDetective({
                           <AlertTriangle className="mt-0.5 h-4 w-4 flex-none text-amber-400" />
                         )}
                         <div className="flex-1">
-                          <div className="font-semibold text-white">
+                          <div className="font-semibold text-[var(--ms-text)]">
                             {t.patternName} · {t.area}
                           </div>
-                          <p className="mt-1 text-sm leading-relaxed text-[#cbd5e1]">
+                          <p className="mt-1 text-sm leading-relaxed text-[var(--ms-text-body)]">
                             {t.explanation}
                           </p>
                         </div>

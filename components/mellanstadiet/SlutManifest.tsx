@@ -131,11 +131,11 @@ export function SlutManifest({
 
   return (
     <div
-      className="my-10 overflow-hidden rounded-xl border bg-[#0d1322]"
+      className="my-10 overflow-hidden rounded-xl border bg-[var(--ms-bg-subtle)]"
       style={{ borderColor: `${accentHex}80` }}
     >
       <div
-        className="flex items-center gap-2 px-6 py-3 text-white"
+        className="flex items-center gap-2 px-6 py-3 text-[var(--ms-text)]"
         style={{ background: accentHex }}
       >
         <Sparkles className="h-4 w-4" />
@@ -143,8 +143,8 @@ export function SlutManifest({
       </div>
 
       <div className="p-6">
-        <p className="mb-5 text-sm leading-relaxed text-[#cbd5e1]">
-          Klassen formulerar <strong className="text-white">ett löfte per lektion</strong> — sju
+        <p className="mb-5 text-sm leading-relaxed text-[var(--ms-text-body)]">
+          Klassen formulerar <strong className="text-[var(--ms-text)]">ett löfte per lektion</strong> — sju
           totalt. Klicka på förslag eller skriv egna. Sätts upp som affisch i
           klassrummet och blir referenspunkt under hela året.
         </p>
@@ -152,11 +152,11 @@ export function SlutManifest({
         {/* Statusbar */}
         <div className="mb-6 flex items-center gap-3">
           <div className="flex-1">
-            <div className="ms-mono mb-1 flex items-center justify-between text-[#94a3b8]">
+            <div className="ms-mono mb-1 flex items-center justify-between text-[var(--ms-text-muted)]">
               <span>FRAMSTEG</span>
               <span>{completed} / 7</span>
             </div>
-            <div className="h-2 w-full overflow-hidden rounded-full bg-[#1a2235]">
+            <div className="h-2 w-full overflow-hidden rounded-full bg-[var(--ms-bg-card)]">
               <div
                 className="h-2 transition-all duration-500"
                 style={{
@@ -189,9 +189,9 @@ export function SlutManifest({
             return (
               <li
                 key={dim.num}
-                className="rounded-xl border bg-[#1a2235] p-5"
+                className="rounded-xl border bg-[var(--ms-bg-card)] p-5"
                 style={{
-                  borderColor: done ? dim.color : "#243248",
+                  borderColor: done ? dim.color : "var(--ms-border)",
                   borderLeftWidth: "4px",
                   borderLeftColor: dim.color,
                 }}
@@ -199,10 +199,10 @@ export function SlutManifest({
                 <div className="mb-3 flex items-center gap-3">
                   <span
                     className={`flex h-9 w-9 flex-none items-center justify-center rounded-full font-mono text-sm font-bold ${
-                      done ? "text-[#0a0e1a]" : "text-white"
+                      done ? "text-[var(--ms-bg)]" : "text-[var(--ms-text)]"
                     }`}
                     style={{
-                      background: done ? dim.color : "#243248",
+                      background: done ? dim.color : "var(--ms-border)",
                     }}
                   >
                     {done ? <Check className="h-4 w-4" /> : dim.num}
@@ -214,19 +214,19 @@ export function SlutManifest({
                     >
                       L{dim.num} · {dim.label.toUpperCase()}
                     </div>
-                    <div className="font-semibold text-white">{dim.question}</div>
+                    <div className="font-semibold text-[var(--ms-text)]">{dim.question}</div>
                   </div>
                 </div>
 
                 {existing ? (
-                  <div className="flex items-start gap-2 rounded-lg bg-[#0d1322] p-3">
-                    <p className="flex-1 leading-relaxed text-white">
+                  <div className="flex items-start gap-2 rounded-lg bg-[var(--ms-bg-subtle)] p-3">
+                    <p className="flex-1 leading-relaxed text-[var(--ms-text)]">
                       &ldquo;{existing.text}&rdquo;
                     </p>
                     <button
                       type="button"
                       onClick={() => remove(dim.num)}
-                      className="rounded p-1 text-[#94a3b8] hover:bg-[#243248] hover:text-rose-300"
+                      className="rounded p-1 text-[var(--ms-text-muted)] hover:bg-[var(--ms-border)] hover:text-rose-300"
                       aria-label="Ändra löfte"
                     >
                       <X className="h-4 w-4" />
@@ -248,7 +248,7 @@ export function SlutManifest({
                           setInputs((p) => ({ ...p, [dim.num]: e.target.value }))
                         }
                         placeholder={`Skriv eget löfte för ${dim.label.toLowerCase()}…`}
-                        className="flex-1 rounded-lg border border-[#243248] bg-[#0d1322] px-3 py-2 text-sm text-white placeholder-[#64748b] outline-none focus:border-white"
+                        className="flex-1 rounded-lg border border-[var(--ms-border)] bg-[var(--ms-bg-subtle)] px-3 py-2 text-sm text-[var(--ms-text)] placeholder-[var(--ms-text-dim)] outline-none focus:border-white"
                       />
                       <button
                         type="submit"
@@ -266,7 +266,7 @@ export function SlutManifest({
                             key={i}
                             type="button"
                             onClick={() => setLoofte(dim.num, f)}
-                            className="rounded-md border border-[#243248] bg-[#0d1322] px-3 py-2 text-left text-xs text-[#cbd5e1] transition-all hover:border-white/40 hover:text-white"
+                            className="rounded-md border border-[var(--ms-border)] bg-[var(--ms-bg-subtle)] px-3 py-2 text-left text-xs text-[var(--ms-text-body)] transition-all hover:border-[var(--ms-text)]/40 hover:text-[var(--ms-text)]"
                           >
                             + {f}
                           </button>
@@ -294,7 +294,7 @@ export function SlutManifest({
             >
               MANIFESTET ÄR KOMPLETT
             </div>
-            <p className="leading-relaxed text-white">
+            <p className="leading-relaxed text-[var(--ms-text)]">
               Sätt upp det i klassrummet. Återkom till det när någon glömmer.
               Det här är vad <em>er</em> klass står för.
             </p>

@@ -224,16 +224,16 @@ export function BiasDetektiven() {
   if (caseIdx >= CASES.length) {
     return (
       <div className="mx-auto max-w-2xl">
-        <div className="rounded-xl border border-[#f97316]/40 bg-[#0d1322] p-8 text-center">
+        <div className="rounded-xl border border-[#f97316]/40 bg-[var(--ms-bg-subtle)] p-8 text-center">
           <Trophy className="mx-auto mb-4 h-12 w-12 text-[#fcd34d]" />
-          <div className="ms-mono mb-2 text-[#94a3b8]">
+          <div className="ms-mono mb-2 text-[var(--ms-text-muted)]">
             FALLEN AVSLUTADE
           </div>
-          <h3 className="mb-4 text-3xl font-bold text-white">
+          <h3 className="mb-4 text-3xl font-bold text-[var(--ms-text)]">
             {solved} / {CASES.length} fall lösta
           </h3>
           <div className="mb-6 rounded-lg border border-[#fcd34d]/40 bg-[#fcd34d]/5 p-5 text-left text-[#fde68a]">
-            <strong className="text-white">Det du just upplevde:</strong> Du
+            <strong className="text-[var(--ms-text)]">Det du just upplevde:</strong> Du
             såg AI:s utfall, hittade bias i datan, åtgärdade — och såg
             utfallet förändras. Det är samma mönster som händer med riktiga
             AI-system. Bias är data — inte ondska. Och det är fixbart.
@@ -253,13 +253,13 @@ export function BiasDetektiven() {
 
   return (
     <div className="mx-auto max-w-3xl">
-      <div className="overflow-hidden rounded-xl border border-[#f97316]/40 bg-[#0d1322]">
+      <div className="overflow-hidden rounded-xl border border-[#f97316]/40 bg-[var(--ms-bg-subtle)]">
         {/* Topbar */}
         <div className="flex items-center justify-between bg-[#f97316] px-6 py-3">
-          <div className="ms-mono font-bold text-[#0a0e1a]">
+          <div className="ms-mono font-bold text-[var(--ms-bg)]">
             FALL {caseIdx + 1} / {CASES.length} · {c.domain}
           </div>
-          <div className="ms-mono text-[#0a0e1a]">
+          <div className="ms-mono text-[var(--ms-bg)]">
             STEG {step === "brief" ? "1" : step === "data" ? "2" : step === "fix" ? "3" : "4"} / 4
           </div>
         </div>
@@ -275,7 +275,7 @@ export function BiasDetektiven() {
                     ? "bg-[#f97316]"
                     : i < (["brief", "data", "fix", "result"] as Step[]).indexOf(step)
                     ? "bg-[#f97316]/60"
-                    : "bg-[#243248]"
+                    : "bg-[var(--ms-border)]"
                 }`}
               />
             ))}
@@ -286,12 +286,12 @@ export function BiasDetektiven() {
             <div className="ms-fadein space-y-4">
               <div className="flex items-start gap-3">
                 <Search className="mt-1 h-6 w-6 flex-none text-[#f97316]" />
-                <h3 className="text-2xl font-bold tracking-tight text-white sm:text-3xl">
+                <h3 className="text-2xl font-bold tracking-tight text-[var(--ms-text)] sm:text-3xl">
                   {c.title}
                 </h3>
               </div>
-              <p className="text-lg leading-relaxed text-[#cbd5e1]">{c.brief}</p>
-              <p className="leading-relaxed text-[#94a3b8]">{c.briefDetail}</p>
+              <p className="text-lg leading-relaxed text-[var(--ms-text-body)]">{c.brief}</p>
+              <p className="leading-relaxed text-[var(--ms-text-muted)]">{c.briefDetail}</p>
 
               <div className="rounded-lg border border-rose-500/40 bg-rose-500/10 p-4">
                 <div className="ms-mono mb-2 flex items-center gap-1.5 text-rose-300">
@@ -318,13 +318,13 @@ export function BiasDetektiven() {
           {step === "data" && (
             <div className="ms-fadein space-y-4">
               <div>
-                <div className="ms-mono mb-2 text-[#94a3b8]">
+                <div className="ms-mono mb-2 text-[var(--ms-text-muted)]">
                   STEG 2 · IDENTIFIERA BIAS
                 </div>
-                <p className="text-lg text-white">{c.trainingPrompt}</p>
-                <p className="mt-2 text-sm text-[#94a3b8]">
+                <p className="text-lg text-[var(--ms-text)]">{c.trainingPrompt}</p>
+                <p className="mt-2 text-sm text-[var(--ms-text-muted)]">
                   Klicka på de grupper som är{" "}
-                  <strong className="text-white">underrepresenterade</strong>.
+                  <strong className="text-[var(--ms-text)]">underrepresenterade</strong>.
                   Du kan välja flera.
                 </p>
               </div>
@@ -342,25 +342,25 @@ export function BiasDetektiven() {
                       className={`w-full rounded-lg border p-4 text-left transition-all ${
                         isSel
                           ? "border-[#fcd34d] bg-[#fcd34d]/10"
-                          : "border-[#243248] bg-[#1a2235] hover:border-white/40"
+                          : "border-[var(--ms-border)] bg-[var(--ms-bg-card)] hover:border-[var(--ms-text)]/40"
                       }`}
                     >
                       <div className="mb-2 flex items-center justify-between">
-                        <span className="font-semibold text-white">
+                        <span className="font-semibold text-[var(--ms-text)]">
                           {b.label}
                         </span>
                         <span
                           className={`ms-mono ${
-                            isSel ? "text-[#fcd34d]" : "text-[#94a3b8]"
+                            isSel ? "text-[#fcd34d]" : "text-[var(--ms-text-muted)]"
                           }`}
                         >
                           {total}
                         </span>
                       </div>
-                      <div className="h-3 overflow-hidden rounded-full bg-[#0a0e1a]">
+                      <div className="h-3 overflow-hidden rounded-full bg-[var(--ms-bg)]">
                         <div
                           className={`h-full transition-all ${
-                            isSel ? "bg-[#fcd34d]" : "bg-[#94a3b8]"
+                            isSel ? "bg-[#fcd34d]" : "bg-[var(--ms-text-muted)]"
                           }`}
                           style={{ width: `${pct}%` }}
                         />
@@ -409,10 +409,10 @@ export function BiasDetektiven() {
           {step === "fix" && (
             <div className="ms-fadein space-y-4">
               <div>
-                <div className="ms-mono mb-2 text-[#94a3b8]">
+                <div className="ms-mono mb-2 text-[var(--ms-text-muted)]">
                   STEG 3 · LÄGG TILL DATA
                 </div>
-                <p className="text-lg text-white">
+                <p className="text-lg text-[var(--ms-text)]">
                   Klicka <strong className="text-[#fcd34d]">+100</strong> på
                   varje underrepresenterad grupp tills den når en jämn storlek.
                   Mål: cirka {c.targetCount} per grupp.
@@ -430,14 +430,14 @@ export function BiasDetektiven() {
                   return (
                     <div
                       key={b.id}
-                      className="rounded-lg border border-[#243248] bg-[#1a2235] p-4"
+                      className="rounded-lg border border-[var(--ms-border)] bg-[var(--ms-bg-card)] p-4"
                     >
                       <div className="mb-2 flex items-center justify-between gap-2">
-                        <span className="font-semibold text-white">
+                        <span className="font-semibold text-[var(--ms-text)]">
                           {b.label}
                         </span>
                         <div className="flex items-center gap-3">
-                          <span className="ms-mono text-[#94a3b8]">
+                          <span className="ms-mono text-[var(--ms-text-muted)]">
                             {total}
                             {added > 0 && (
                               <span className="ml-1 text-[#fcd34d]">
@@ -449,7 +449,7 @@ export function BiasDetektiven() {
                             <button
                               type="button"
                               onClick={() => boost(b.id, 100)}
-                              className="ms-mono inline-flex items-center gap-1 rounded-md bg-[#fcd34d] px-2 py-1 text-xs font-bold text-[#0a0e1a] transition-transform hover:scale-105"
+                              className="ms-mono inline-flex items-center gap-1 rounded-md bg-[#fcd34d] px-2 py-1 text-xs font-bold text-[var(--ms-bg)] transition-transform hover:scale-105"
                             >
                               <Plus className="h-3 w-3" />
                               100
@@ -462,14 +462,14 @@ export function BiasDetektiven() {
                           )}
                         </div>
                       </div>
-                      <div className="h-3 overflow-hidden rounded-full bg-[#0a0e1a]">
+                      <div className="h-3 overflow-hidden rounded-full bg-[var(--ms-bg)]">
                         <div
                           className={`h-full transition-all duration-500 ${
                             reachedTarget && b.isUnderrep
                               ? "bg-emerald-400"
                               : b.isUnderrep
                               ? "bg-[#fcd34d]"
-                              : "bg-[#94a3b8]"
+                              : "bg-[var(--ms-text-muted)]"
                           }`}
                           style={{ width: `${pct}%` }}
                         />
@@ -495,10 +495,10 @@ export function BiasDetektiven() {
           {step === "result" && (
             <div className="ms-fadein space-y-4">
               <div>
-                <div className="ms-mono mb-2 text-[#94a3b8]">
+                <div className="ms-mono mb-2 text-[var(--ms-text-muted)]">
                   STEG 4 · NYTT UTFALL
                 </div>
-                <h3 className="text-2xl font-bold text-white">
+                <h3 className="text-2xl font-bold text-[var(--ms-text)]">
                   AI:n har tränats om
                 </h3>
               </div>

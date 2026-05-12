@@ -6,6 +6,7 @@ import { Quiz } from "@/components/mellanstadiet/Quiz";
 import { BegreppsBank } from "@/components/mellanstadiet/BegreppsBank";
 import { SpelCallout } from "@/components/mellanstadiet/SpelCallout";
 import { PlaceholderImage } from "@/components/mellanstadiet/PlaceholderImage";
+import { MELLANSTADIET_IMAGES } from "@/lib/mellanstadiet-images";
 import { ReflectionPrompt } from "@/components/mellanstadiet/ReflectionPrompt";
 import { PravaMedAI } from "@/components/mellanstadiet/PravaMedAI";
 import { DiskutteraBlock } from "@/components/mellanstadiet/DiskutteraBlock";
@@ -38,10 +39,10 @@ export function Lektion7Content({ lesson }: { lesson: MellanstadietLesson }) {
             <div className="ms-mono mb-2 text-rose-300">
               WALL-E-FRAMTIDEN
             </div>
-            <h3 className="mb-2 text-xl font-bold text-white">
+            <h3 className="mb-2 text-xl font-bold text-[var(--ms-text)]">
               Människor i flytstolar
             </h3>
-            <p className="text-sm leading-relaxed text-[#cbd5e1]">
+            <p className="text-sm leading-relaxed text-[var(--ms-text-body)]">
               Allas ansikten klistrade vid skärmar. Robotar gör allt. Människor
               har glömt bort hur man gör något själv.
             </p>
@@ -50,10 +51,10 @@ export function Lektion7Content({ lesson }: { lesson: MellanstadietLesson }) {
             <div className="ms-mono mb-2 text-emerald-300">
               STAR TREK-FRAMTIDEN
             </div>
-            <h3 className="mb-2 text-xl font-bold text-white">
+            <h3 className="mb-2 text-xl font-bold text-[var(--ms-text)]">
               Människor utforskar
             </h3>
-            <p className="text-sm leading-relaxed text-[#cbd5e1]">
+            <p className="text-sm leading-relaxed text-[var(--ms-text-body)]">
               Tekniken gör tråkiga jobb så att människor kan utforska, lära
               sig, samarbeta. Alla har möjlighet.
             </p>
@@ -61,6 +62,7 @@ export function Lektion7Content({ lesson }: { lesson: MellanstadietLesson }) {
         </div>
 
         <PlaceholderImage
+          src={MELLANSTADIET_IMAGES["L7.1"]}
           caption="Two-panel: Wall-E (människor i flytstolar) vs Star Trek (USS Enterprise på rymdresa)"
           hint="Joel: filmstillar eller iconisk illustration som visar kontrasten"
           aspect="16/7"
@@ -100,6 +102,7 @@ export function Lektion7Content({ lesson }: { lesson: MellanstadietLesson }) {
         <h3>Nobelpriset 2024</h3>
 
         <PlaceholderImage
+          src={MELLANSTADIET_IMAGES["L7.2"]}
           caption="Geoffrey Hinton, John Hopfield, Demis Hassabis och John Jumper med Nobelmedaljerna"
           hint="Joel: pressbild från Nobelceremonin 2024"
           aspect="3/2"
@@ -153,8 +156,8 @@ export function Lektion7Content({ lesson }: { lesson: MellanstadietLesson }) {
               className="rounded-lg border border-emerald-500/40 bg-emerald-500/5 p-4"
             >
               <div className="ms-mono mb-1 text-emerald-300">GENOMBROTT</div>
-              <div className="font-bold text-white">{b.title}</div>
-              <p className="text-sm text-[#cbd5e1]">{b.desc}</p>
+              <div className="font-bold text-[var(--ms-text)]">{b.title}</div>
+              <p className="text-sm text-[var(--ms-text-body)]">{b.desc}</p>
             </div>
           ))}
         </div>
@@ -183,7 +186,7 @@ export function Lektion7Content({ lesson }: { lesson: MellanstadietLesson }) {
                 <span className="ms-mono rounded bg-rose-500/20 px-1.5 py-0.5 text-xs text-rose-200">
                   {row.l}
                 </span>
-                <span className="font-semibold text-white">{row.what}</span>
+                <span className="font-semibold text-[var(--ms-text)]">{row.what}</span>
               </div>
               <p className="mt-1 text-rose-100">{row.who}</p>
             </div>
@@ -300,7 +303,7 @@ export function Lektion7Content({ lesson }: { lesson: MellanstadietLesson }) {
           ].map((b) => (
             <div
               key={b.level}
-              className="rounded-lg border bg-[#1a2235] p-4"
+              className="rounded-lg border bg-[var(--ms-bg-card)] p-4"
               style={{ borderColor: `${lesson.accentHex}40` }}
             >
               <div
@@ -309,7 +312,7 @@ export function Lektion7Content({ lesson }: { lesson: MellanstadietLesson }) {
               >
                 {b.level}
               </div>
-              <ul className="space-y-1 text-sm text-[#cbd5e1]">
+              <ul className="space-y-1 text-sm text-[var(--ms-text-body)]">
                 {b.items.map((it, i) => (
                   <li
                     key={i}
@@ -492,16 +495,16 @@ export function Lektion7Content({ lesson }: { lesson: MellanstadietLesson }) {
           ].map((row) => (
             <div
               key={row.n}
-              className="flex items-start gap-3 rounded-lg border bg-[#1a2235] p-4"
+              className="flex items-start gap-3 rounded-lg border bg-[var(--ms-bg-card)] p-4"
               style={{ borderLeft: `4px solid ${row.color}` }}
             >
               <span
-                className="ms-mono flex h-8 w-8 flex-none items-center justify-center rounded font-bold text-[#0a0e1a]"
+                className="ms-mono flex h-8 w-8 flex-none items-center justify-center rounded font-bold text-[var(--ms-bg)]"
                 style={{ background: row.color }}
               >
                 {row.n}
               </span>
-              <p className="leading-relaxed text-white">{row.text}</p>
+              <p className="leading-relaxed text-[var(--ms-text)]">{row.text}</p>
             </div>
           ))}
         </div>
@@ -652,21 +655,21 @@ export function Lektion7Content({ lesson }: { lesson: MellanstadietLesson }) {
         />
 
         <div
-          className="my-10 rounded-xl border bg-[#0d1322] p-8 text-center"
+          className="my-10 rounded-xl border bg-[var(--ms-bg-subtle)] p-8 text-center"
           style={{ borderColor: lesson.accentHex }}
         >
-          <p className="mb-3 text-2xl font-bold leading-relaxed text-white">
+          <p className="mb-3 text-2xl font-bold leading-relaxed text-[var(--ms-text)]">
             Du har gått sju lektioner.
             <br />
             Du vet mer om AI än de flesta vuxna i Sverige.
           </p>
-          <p className="text-lg leading-relaxed text-[#cbd5e1]">
+          <p className="text-lg leading-relaxed text-[var(--ms-text-body)]">
             Du är inte färdig att förstå AI — det blir vi aldrig. Tekniken
-            förändras. Men du har <strong className="text-white">språk</strong>.
-            Du har <strong className="text-white">verktyg</strong>. Du har{" "}
-            <strong className="text-white">din egen syn</strong>.
+            förändras. Men du har <strong className="text-[var(--ms-text)]">språk</strong>.
+            Du har <strong className="text-[var(--ms-text)]">verktyg</strong>. Du har{" "}
+            <strong className="text-[var(--ms-text)]">din egen syn</strong>.
           </p>
-          <p className="mt-4 text-lg italic text-[#cbd5e1]">
+          <p className="mt-4 text-lg italic text-[var(--ms-text-body)]">
             Det är vad bildning är. Inte att veta allt. Att vara <em>vaken</em>.
           </p>
           <p

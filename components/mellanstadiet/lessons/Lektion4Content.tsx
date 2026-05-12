@@ -6,6 +6,7 @@ import { Quiz } from "@/components/mellanstadiet/Quiz";
 import { BegreppsBank } from "@/components/mellanstadiet/BegreppsBank";
 import { SpelCallout } from "@/components/mellanstadiet/SpelCallout";
 import { PlaceholderImage } from "@/components/mellanstadiet/PlaceholderImage";
+import { MELLANSTADIET_IMAGES } from "@/lib/mellanstadiet-images";
 import { ReflectionPrompt } from "@/components/mellanstadiet/ReflectionPrompt";
 import { PravaMedAI } from "@/components/mellanstadiet/PravaMedAI";
 import { DiskutteraBlock } from "@/components/mellanstadiet/DiskutteraBlock";
@@ -43,6 +44,7 @@ export function Lektion4Content({ lesson }: { lesson: MellanstadietLesson }) {
         </ol>
 
         <PlaceholderImage
+          src={MELLANSTADIET_IMAGES["L4.1"]}
           caption="Two-panel: 'Will Smith eats spaghetti' (2023, ansikte smälter) vs Sora-genererad video (2026, fotorealistisk)"
           hint="Joel: stillbilder från båda för krokens visuella jämförelse"
           aspect="16/7"
@@ -78,6 +80,7 @@ export function Lektion4Content({ lesson }: { lesson: MellanstadietLesson }) {
         <h3>Ett verkligt exempel — advokater som luras</h3>
 
         <PlaceholderImage
+          src={MELLANSTADIET_IMAGES["L4.2"]}
           caption="Domstols-illustration eller dokument-mockup. '712 fall under 2025 där advokater lämnade in AI-hallucinerade citat'"
           hint="Joel: kanske en infografik med stora siffror"
           aspect="3/2"
@@ -158,7 +161,7 @@ export function Lektion4Content({ lesson }: { lesson: MellanstadietLesson }) {
               <div className="ms-mono mb-1 text-rose-300">
                 {c.place.toUpperCase()} · {c.date.toUpperCase()}
               </div>
-              <p className="text-[#cbd5e1]">{c.what}</p>
+              <p className="text-[var(--ms-text-body)]">{c.what}</p>
             </div>
           ))}
         </div>
@@ -213,7 +216,7 @@ export function Lektion4Content({ lesson }: { lesson: MellanstadietLesson }) {
           ].map((q) => (
             <div
               key={q.num}
-              className="rounded-lg border bg-[#1a2235] p-5"
+              className="rounded-lg border bg-[var(--ms-bg-card)] p-5"
               style={{ borderColor: `${lesson.accentHex}40` }}
             >
               <div
@@ -222,8 +225,8 @@ export function Lektion4Content({ lesson }: { lesson: MellanstadietLesson }) {
               >
                 FRÅGA {q.num} · {q.h.toUpperCase()}
               </div>
-              <div className="text-lg font-semibold text-white">{q.q}</div>
-              <p className="mt-2 text-sm text-[#94a3b8]">{q.ex}</p>
+              <div className="text-lg font-semibold text-[var(--ms-text)]">{q.q}</div>
+              <p className="mt-2 text-sm text-[var(--ms-text-muted)]">{q.ex}</p>
             </div>
           ))}
         </div>
@@ -243,9 +246,9 @@ export function Lektion4Content({ lesson }: { lesson: MellanstadietLesson }) {
         </p>
 
         <div className="my-6 grid gap-3 sm:grid-cols-2">
-          <div className="rounded-lg border border-[#243248] bg-[#1a2235] p-4">
-            <div className="ms-mono mb-2 text-[#94a3b8]">FÖR TEXT</div>
-            <ul className="space-y-1 text-sm text-[#cbd5e1]">
+          <div className="rounded-lg border border-[var(--ms-border)] bg-[var(--ms-bg-card)] p-4">
+            <div className="ms-mono mb-2 text-[var(--ms-text-muted)]">FÖR TEXT</div>
+            <ul className="space-y-1 text-sm text-[var(--ms-text-body)]">
               <li>→ Wikipedia (åtminstone som start)</li>
               <li>→ Källkritikbyrån (kallakriker.se)</li>
               <li>→ En lärobok</li>
@@ -253,9 +256,9 @@ export function Lektion4Content({ lesson }: { lesson: MellanstadietLesson }) {
               <li>→ Officiella sajter (skola, kommun, Skolverket)</li>
             </ul>
           </div>
-          <div className="rounded-lg border border-[#243248] bg-[#1a2235] p-4">
-            <div className="ms-mono mb-2 text-[#94a3b8]">FÖR BILDER</div>
-            <ul className="space-y-1 text-sm text-[#cbd5e1]">
+          <div className="rounded-lg border border-[var(--ms-border)] bg-[var(--ms-bg-card)] p-4">
+            <div className="ms-mono mb-2 text-[var(--ms-text-muted)]">FÖR BILDER</div>
+            <ul className="space-y-1 text-sm text-[var(--ms-text-body)]">
               <li>→ Google Lens — visa bilden, se var den finns på nätet</li>
               <li>→ Bing visuell sök</li>
               <li>→ Sök på bildens sammanhang</li>
@@ -378,14 +381,14 @@ export function Lektion4Content({ lesson }: { lesson: MellanstadietLesson }) {
           ].map((q) => (
             <div
               key={q.num}
-              className="rounded-lg border bg-[#1a2235] p-4"
+              className="rounded-lg border bg-[var(--ms-bg-card)] p-4"
               style={{ borderColor: `${lesson.accentHex}40` }}
             >
               <div className="ms-mono mb-1" style={{ color: lesson.accentHex }}>
                 FRÅGA {q.num}
               </div>
-              <div className="font-semibold text-white">{q.q}</div>
-              <p className="mt-1 text-sm text-[#cbd5e1]">{q.a}</p>
+              <div className="font-semibold text-[var(--ms-text)]">{q.q}</div>
+              <p className="mt-1 text-sm text-[var(--ms-text-body)]">{q.a}</p>
             </div>
           ))}
         </div>

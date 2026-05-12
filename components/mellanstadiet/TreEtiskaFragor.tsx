@@ -62,11 +62,11 @@ export function TreEtiskaFragor({ accentHex = "#eab308" }: { accentHex?: string 
 
   return (
     <div
-      className="my-10 overflow-hidden rounded-xl border bg-[#0d1322]"
+      className="my-10 overflow-hidden rounded-xl border bg-[var(--ms-bg-subtle)]"
       style={{ borderColor: `${accentHex}40` }}
     >
       <div
-        className="ms-mono px-6 py-2 font-bold text-[#0a0e1a]"
+        className="ms-mono px-6 py-2 font-bold text-[var(--ms-bg)]"
         style={{ background: accentHex }}
       >
         TRE ETISKA FRÅGOR · KLICKA FÖR DJUPDYK
@@ -86,18 +86,18 @@ export function TreEtiskaFragor({ accentHex = "#eab308" }: { accentHex?: string 
                 className={`group flex flex-col items-center gap-2 rounded-xl border p-5 text-center transition-all ${
                   isActive
                     ? "scale-105 shadow-lg"
-                    : "border-[#243248] hover:border-white/30"
+                    : "border-[var(--ms-border)] hover:border-[var(--ms-text)]/30"
                 }`}
                 style={{
                   borderColor: isActive ? fr.color : undefined,
                   background: isActive
                     ? `linear-gradient(135deg, ${fr.color}25, ${fr.color}10)`
-                    : "#1a2235",
+                    : "var(--ms-bg-card)",
                 }}
                 aria-pressed={isActive}
               >
                 <span
-                  className="flex h-12 w-12 items-center justify-center rounded-full text-[#0a0e1a]"
+                  className="flex h-12 w-12 items-center justify-center rounded-full text-[var(--ms-bg)]"
                   style={{ background: fr.color }}
                   aria-hidden
                 >
@@ -109,8 +109,8 @@ export function TreEtiskaFragor({ accentHex = "#eab308" }: { accentHex?: string 
                 >
                   FRÅGA {fr.n}
                 </div>
-                <div className="font-bold text-white">{fr.title}</div>
-                <div className="text-xs italic text-[#94a3b8]">{fr.short}</div>
+                <div className="font-bold text-[var(--ms-text)]">{fr.title}</div>
+                <div className="text-xs italic text-[var(--ms-text-muted)]">{fr.short}</div>
               </button>
             );
           })}
@@ -119,7 +119,7 @@ export function TreEtiskaFragor({ accentHex = "#eab308" }: { accentHex?: string 
         {/* Detalj */}
         <div
           key={active}
-          className="ms-fadein rounded-lg border bg-[#1a2235] p-5"
+          className="ms-fadein rounded-lg border bg-[var(--ms-bg-card)] p-5"
           style={{ borderColor: `${f.color}80` }}
         >
           <div className="mb-3 flex items-center gap-2">
@@ -128,14 +128,14 @@ export function TreEtiskaFragor({ accentHex = "#eab308" }: { accentHex?: string 
               FRÅGA {f.n} · {f.title.toUpperCase()}
             </span>
           </div>
-          <p className="leading-relaxed text-[#e6edf7]">{f.description}</p>
+          <p className="leading-relaxed text-[var(--ms-text)]">{f.description}</p>
           <div className="mt-4">
-            <div className="ms-mono mb-2 text-[#94a3b8]">EXEMPEL</div>
+            <div className="ms-mono mb-2 text-[var(--ms-text-muted)]">EXEMPEL</div>
             <ul className="space-y-1.5">
               {f.examples.map((ex, i) => (
                 <li
                   key={i}
-                  className="flex gap-2 text-sm leading-relaxed text-[#cbd5e1]"
+                  className="flex gap-2 text-sm leading-relaxed text-[var(--ms-text-body)]"
                 >
                   <span style={{ color: f.color }}>→</span>
                   <span>{ex}</span>

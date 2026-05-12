@@ -6,6 +6,7 @@ import { Quiz } from "@/components/mellanstadiet/Quiz";
 import { BegreppsBank } from "@/components/mellanstadiet/BegreppsBank";
 import { SpelCallout } from "@/components/mellanstadiet/SpelCallout";
 import { PlaceholderImage } from "@/components/mellanstadiet/PlaceholderImage";
+import { MELLANSTADIET_IMAGES } from "@/lib/mellanstadiet-images";
 import { ReflectionPrompt } from "@/components/mellanstadiet/ReflectionPrompt";
 import { PravaMedAI } from "@/components/mellanstadiet/PravaMedAI";
 import { DiskutteraBlock } from "@/components/mellanstadiet/DiskutteraBlock";
@@ -93,6 +94,7 @@ export function Lektion6Content({ lesson }: { lesson: MellanstadietLesson }) {
         <h3>En verklig skandal — april 2025</h3>
 
         <PlaceholderImage
+          src={MELLANSTADIET_IMAGES["L6.1"]}
           caption="ChatGPT-skärmdump där AI svarar 'Vilken kreativ idé!' till påståendet 'shit on a stick' — eller liknande absurdum"
           hint="Joel: kanske ett mockup där AI håller med om något absurdt"
           aspect="16/9"
@@ -124,7 +126,7 @@ export function Lektion6Content({ lesson }: { lesson: MellanstadietLesson }) {
               className="rounded-lg border border-rose-500/40 bg-rose-500/5 p-4"
             >
               <div className="ms-mono mb-1 text-rose-300">ANVÄNDAREN</div>
-              <p className="mb-3 text-[#cbd5e1]">&ldquo;{ex.user}&rdquo;</p>
+              <p className="mb-3 text-[var(--ms-text-body)]">&ldquo;{ex.user}&rdquo;</p>
               <div className="ms-mono mb-1 text-rose-300">CHATGPT (APR 2025)</div>
               <p className="text-rose-100">&ldquo;{ex.ai}&rdquo;</p>
             </div>
@@ -159,7 +161,7 @@ export function Lektion6Content({ lesson }: { lesson: MellanstadietLesson }) {
 
         <div className="my-6 rounded-lg border border-amber-500/40 bg-amber-500/5 p-5">
           <div className="ms-mono mb-2 text-amber-300">CHARACTER.AI · 2024–2026</div>
-          <p className="text-sm leading-relaxed text-[#cbd5e1]">
+          <p className="text-sm leading-relaxed text-[var(--ms-text-body)]">
             Två tonåringar i USA tog sina liv 2023–2024 efter intensiva
             relationer med Character.AI-bottar. Föräldrarna stämde. I januari
             2026 kom en uppgörelse mellan Character.AI, Google och föräldrarna.
@@ -179,6 +181,7 @@ export function Lektion6Content({ lesson }: { lesson: MellanstadietLesson }) {
         </p>
 
         <PlaceholderImage
+          src={MELLANSTADIET_IMAGES["L6.2"]}
           caption="Stat-visualisering: 'Mer än hälften av amerikanska tonåringar pratar regelbundet med AI-companions. En fjärdedel använder AI för känslomässigt stöd.'"
           hint="Joel: enkel infografik med stora siffror"
           aspect="16/7"
@@ -260,7 +263,7 @@ export function Lektion6Content({ lesson }: { lesson: MellanstadietLesson }) {
           ].map((s) => (
             <div
               key={s.num}
-              className="rounded-xl border bg-[#1a2235] p-5"
+              className="rounded-xl border bg-[var(--ms-bg-card)] p-5"
               style={{ borderColor: `${lesson.accentHex}40` }}
             >
               <div className="flex items-start gap-3">
@@ -277,8 +280,8 @@ export function Lektion6Content({ lesson }: { lesson: MellanstadietLesson }) {
                   >
                     {s.num}
                   </div>
-                  <h4 className="text-xl font-bold text-white">{s.title}</h4>
-                  <p className="mt-2 leading-relaxed text-[#cbd5e1]">
+                  <h4 className="text-xl font-bold text-[var(--ms-text)]">{s.title}</h4>
+                  <p className="mt-2 leading-relaxed text-[var(--ms-text-body)]">
                     {s.text}
                   </p>
                 </div>
@@ -381,25 +384,25 @@ export function Lektion6Content({ lesson }: { lesson: MellanstadietLesson }) {
 
         <h3>Empati-experimentet — analog klassrumsövning</h3>
 
-        <div className="my-6 rounded-lg border border-[#243248] bg-[#1a2235] p-5">
-          <div className="ms-mono mb-2 text-[#94a3b8]">10 MIN · ANALOG</div>
-          <p className="leading-relaxed text-[#cbd5e1]">
-            <strong className="text-white">Så här gör ni:</strong> Para upp er
+        <div className="my-6 rounded-lg border border-[var(--ms-border)] bg-[var(--ms-bg-card)] p-5">
+          <div className="ms-mono mb-2 text-[var(--ms-text-muted)]">10 MIN · ANALOG</div>
+          <p className="leading-relaxed text-[var(--ms-text-body)]">
+            <strong className="text-[var(--ms-text)]">Så här gör ni:</strong> Para upp er
             två och två. En av er spelar &quot;AI&quot; och svarar bara med
             korta automatiska fraser från ett kort: &quot;Det är intressant&quot;,
             &quot;Du är så stark&quot;, &quot;Bra tänkt&quot;.
           </p>
-          <p className="mt-3 leading-relaxed text-[#cbd5e1]">
+          <p className="mt-3 leading-relaxed text-[var(--ms-text-body)]">
             Den andra berättar något som spelade roll igår — bra eller jobbigt.
             &quot;AI&quot; svarar bara med fraserna.
           </p>
-          <p className="mt-3 leading-relaxed text-[#cbd5e1]">
+          <p className="mt-3 leading-relaxed text-[var(--ms-text-body)]">
             Sedan: byt ut &quot;AI&quot;-svar mot riktiga svar från
             kompisen. Hur kändes skillnaden?
           </p>
-          <div className="mt-4 rounded-lg bg-[#0d1322] p-3">
+          <div className="mt-4 rounded-lg bg-[var(--ms-bg-subtle)] p-3">
             <div className="ms-mono mb-1 text-[#fcd34d]">REFLEKTION</div>
-            <ul className="space-y-1 text-sm text-[#cbd5e1]">
+            <ul className="space-y-1 text-sm text-[var(--ms-text-body)]">
               <li>→ Vilken kändes &quot;snäll&quot;?</li>
               <li>→ Vilken kändes &quot;äkta&quot;?</li>
               <li>→ Vilken vill du ha när det är riktigt jobbigt?</li>
@@ -501,10 +504,10 @@ export function Lektion6Content({ lesson }: { lesson: MellanstadietLesson }) {
           ].map((row) => (
             <div
               key={row.what}
-              className="flex items-center justify-between gap-3 rounded-lg border border-[#243248] bg-[#1a2235] p-3"
+              className="flex items-center justify-between gap-3 rounded-lg border border-[var(--ms-border)] bg-[var(--ms-bg-card)] p-3"
               style={{ borderLeft: `4px solid ${row.color}` }}
             >
-              <span className="text-[#cbd5e1]">{row.what}</span>
+              <span className="text-[var(--ms-text-body)]">{row.what}</span>
               <span
                 className="ms-mono text-sm font-bold"
                 style={{ color: row.color }}

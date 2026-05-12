@@ -346,12 +346,12 @@ export function DilemmaSpelet({ accentHex = "#eab308" }: { accentHex?: string })
     return (
       <div className="mx-auto max-w-2xl">
         <div
-          className="rounded-xl border bg-[#0d1322] p-8"
+          className="rounded-xl border bg-[var(--ms-bg-subtle)] p-8"
           style={{ borderColor: `${accentHex}80` }}
         >
-          <div className="ms-mono mb-2 text-[#94a3b8]">DIN ETISKA PROFIL</div>
-          <h2 className="mb-2 text-3xl font-bold text-white">{profile.title}</h2>
-          <p className="mb-6 text-[#cbd5e1]">{profile.description}</p>
+          <div className="ms-mono mb-2 text-[var(--ms-text-muted)]">DIN ETISKA PROFIL</div>
+          <h2 className="mb-2 text-3xl font-bold text-[var(--ms-text)]">{profile.title}</h2>
+          <p className="mb-6 text-[var(--ms-text-body)]">{profile.description}</p>
 
           <div className="mb-6 space-y-4">
             {(
@@ -366,7 +366,7 @@ export function DilemmaSpelet({ accentHex = "#eab308" }: { accentHex?: string })
               return (
                 <div key={key}>
                   <div className="mb-1.5 flex items-center justify-between text-sm">
-                    <span className="flex items-center gap-2 text-white">
+                    <span className="flex items-center gap-2 text-[var(--ms-text)]">
                       <Icon className="h-4 w-4" style={{ color: accentHex }} />
                       {label}
                     </span>
@@ -377,10 +377,10 @@ export function DilemmaSpelet({ accentHex = "#eab308" }: { accentHex?: string })
                       {score > 0 ? `+${score}` : score} / ±{max}
                     </span>
                   </div>
-                  <div className="relative h-3 overflow-hidden rounded-full bg-[#1a2235]">
+                  <div className="relative h-3 overflow-hidden rounded-full bg-[var(--ms-bg-card)]">
                     <div
                       aria-hidden
-                      className="absolute left-1/2 top-0 h-3 w-px bg-[#475569]"
+                      className="absolute left-1/2 top-0 h-3 w-px bg-[var(--ms-border-strong)]"
                     />
                     <div
                       className="absolute top-0 h-3 transition-all"
@@ -398,7 +398,7 @@ export function DilemmaSpelet({ accentHex = "#eab308" }: { accentHex?: string })
           </div>
 
           <div className="mb-6 rounded-lg border border-[#fcd34d]/40 bg-[#fcd34d]/5 p-5 text-sm leading-relaxed text-[#fde68a]">
-            <strong className="text-white">Inga rätta svar.</strong> De tre
+            <strong className="text-[var(--ms-text)]">Inga rätta svar.</strong> De tre
             etiska frågorna är inte ett facit — de är en kompass. Ditt resultat
             visar vad du <em>just nu</em> värderar mest. Det kan ändras.
           </div>
@@ -419,12 +419,12 @@ export function DilemmaSpelet({ accentHex = "#eab308" }: { accentHex?: string })
   return (
     <div className="mx-auto max-w-2xl">
       <div
-        className="overflow-hidden rounded-xl border bg-[#0d1322]"
+        className="overflow-hidden rounded-xl border bg-[var(--ms-bg-subtle)]"
         style={{ borderColor: `${accentHex}80` }}
       >
         {/* Topbar */}
         <div
-          className="flex items-center justify-between gap-4 px-6 py-3 text-[#0a0e1a]"
+          className="flex items-center justify-between gap-4 px-6 py-3 text-[var(--ms-bg)]"
           style={{ background: accentHex }}
         >
           <div className="ms-mono font-bold">
@@ -434,7 +434,7 @@ export function DilemmaSpelet({ accentHex = "#eab308" }: { accentHex?: string })
         </div>
 
         {/* Progress */}
-        <div className="h-1 w-full bg-[#1a2235]">
+        <div className="h-1 w-full bg-[var(--ms-bg-card)]">
           <div
             className="h-1 transition-all duration-500"
             style={{
@@ -447,8 +447,8 @@ export function DilemmaSpelet({ accentHex = "#eab308" }: { accentHex?: string })
         <div className="space-y-5 p-6">
           {/* Scenario */}
           <div>
-            <div className="ms-mono mb-2 text-[#94a3b8]">SITUATIONEN</div>
-            <p className="text-lg leading-relaxed text-white">
+            <div className="ms-mono mb-2 text-[var(--ms-text-muted)]">SITUATIONEN</div>
+            <p className="text-lg leading-relaxed text-[var(--ms-text)]">
               {d.scenario}
             </p>
           </div>
@@ -458,7 +458,7 @@ export function DilemmaSpelet({ accentHex = "#eab308" }: { accentHex?: string })
             <div className="ms-mono mb-2" style={{ color: accentHex }}>
               FRÅGAN
             </div>
-            <p className="text-xl font-semibold text-white">{d.question}</p>
+            <p className="text-xl font-semibold text-[var(--ms-text)]">{d.question}</p>
           </div>
 
           {/* Alternativ */}
@@ -469,9 +469,9 @@ export function DilemmaSpelet({ accentHex = "#eab308" }: { accentHex?: string })
                   key={o.id}
                   type="button"
                   onClick={() => choose(o)}
-                  className="group block w-full rounded-lg border border-[#243248] bg-[#1a2235] p-4 text-left transition-all hover:-translate-y-0.5 hover:border-white/40 hover:bg-[#243248]"
+                  className="group block w-full rounded-lg border border-[var(--ms-border)] bg-[var(--ms-bg-card)] p-4 text-left transition-all hover:-translate-y-0.5 hover:border-[var(--ms-text)]/40 hover:bg-[var(--ms-border)]"
                 >
-                  <p className="leading-relaxed text-white">{o.text}</p>
+                  <p className="leading-relaxed text-[var(--ms-text)]">{o.text}</p>
                 </button>
               ))}
             </div>
@@ -480,9 +480,9 @@ export function DilemmaSpelet({ accentHex = "#eab308" }: { accentHex?: string })
           {/* Reveal */}
           {revealed && lastOption && (
             <div className="ms-fadein space-y-4">
-              <div className="rounded-lg border border-[#243248] bg-[#1a2235] p-4">
-                <div className="ms-mono mb-2 text-[#94a3b8]">DU VALDE</div>
-                <p className="leading-relaxed text-white">
+              <div className="rounded-lg border border-[var(--ms-border)] bg-[var(--ms-bg-card)] p-4">
+                <div className="ms-mono mb-2 text-[var(--ms-text-muted)]">DU VALDE</div>
+                <p className="leading-relaxed text-[var(--ms-text)]">
                   {lastOption.text}
                 </p>
               </div>

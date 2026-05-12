@@ -96,11 +96,11 @@ export function MinSuperkraft({
 
   return (
     <div
-      className="my-10 overflow-hidden rounded-xl border bg-[#0d1322]"
+      className="my-10 overflow-hidden rounded-xl border bg-[var(--ms-bg-subtle)]"
       style={{ borderColor: `${accentHex}80` }}
     >
       <div
-        className="flex items-center gap-2 px-6 py-3 text-white"
+        className="flex items-center gap-2 px-6 py-3 text-[var(--ms-text)]"
         style={{ background: accentHex }}
       >
         <Sparkles className="h-4 w-4" />
@@ -110,7 +110,7 @@ export function MinSuperkraft({
       </div>
 
       <div className="p-6">
-        <p className="mb-6 text-sm leading-relaxed text-[#cbd5e1]">
+        <p className="mb-6 text-sm leading-relaxed text-[var(--ms-text-body)]">
           Lista saker bara DU kan — saker AI aldrig kommer kunna göra. Tre
           kategorier: din kropp, ditt hjärta, din närvaro. Klicka på förslag
           eller skriv egna. {total > 0 && <span>Du har {total} just nu.</span>}
@@ -130,7 +130,7 @@ export function MinSuperkraft({
                     className="inline-flex h-8 w-8 items-center justify-center rounded-full"
                     style={{ background: cat.color }}
                   >
-                    <Heart className="h-4 w-4 text-[#0a0e1a]" />
+                    <Heart className="h-4 w-4 text-[var(--ms-bg)]" />
                   </span>
                   <div className="flex-1">
                     <div
@@ -139,7 +139,7 @@ export function MinSuperkraft({
                     >
                       {cat.label.toUpperCase()}
                     </div>
-                    <div className="text-xs text-[#94a3b8]">{cat.hint}</div>
+                    <div className="text-xs text-[var(--ms-text-muted)]">{cat.hint}</div>
                   </div>
                 </div>
 
@@ -149,18 +149,18 @@ export function MinSuperkraft({
                     {itemsOfCat.map((it) => (
                       <li
                         key={it.id}
-                        className="flex items-start gap-2 rounded-lg border bg-[#1a2235] p-3"
+                        className="flex items-start gap-2 rounded-lg border bg-[var(--ms-bg-card)] p-3"
                         style={{ borderColor: `${cat.color}60` }}
                       >
                         <Sparkles
                           className="mt-0.5 h-4 w-4 flex-none"
                           style={{ color: cat.color }}
                         />
-                        <p className="flex-1 text-white">{it.text}</p>
+                        <p className="flex-1 text-[var(--ms-text)]">{it.text}</p>
                         <button
                           type="button"
                           onClick={() => remove(it.id)}
-                          className="rounded p-1 text-[#94a3b8] hover:bg-[#243248] hover:text-rose-300"
+                          className="rounded p-1 text-[var(--ms-text-muted)] hover:bg-[var(--ms-border)] hover:text-rose-300"
                           aria-label="Ta bort"
                         >
                           <X className="h-3.5 w-3.5" />
@@ -185,7 +185,7 @@ export function MinSuperkraft({
                       setInputs((p) => ({ ...p, [cat.id]: e.target.value }))
                     }
                     placeholder={`Skriv något om ${cat.label.toLowerCase()}…`}
-                    className="flex-1 rounded-lg border border-[#243248] bg-[#1a2235] px-3 py-2 text-sm text-white placeholder-[#64748b] outline-none focus:border-white"
+                    className="flex-1 rounded-lg border border-[var(--ms-border)] bg-[var(--ms-bg-card)] px-3 py-2 text-sm text-[var(--ms-text)] placeholder-[var(--ms-text-dim)] outline-none focus:border-white"
                   />
                   <button
                     type="submit"
@@ -205,7 +205,7 @@ export function MinSuperkraft({
                         key={s}
                         type="button"
                         onClick={() => add(cat.id, s)}
-                        className="rounded-full border border-[#243248] bg-[#1a2235] px-3 py-1 text-xs text-[#cbd5e1] transition-all hover:border-white/40 hover:text-white"
+                        className="rounded-full border border-[var(--ms-border)] bg-[var(--ms-bg-card)] px-3 py-1 text-xs text-[var(--ms-text-body)] transition-all hover:border-[var(--ms-text)]/40 hover:text-[var(--ms-text)]"
                       >
                         + {s}
                       </button>
@@ -218,8 +218,8 @@ export function MinSuperkraft({
         </div>
 
         {total > 0 && (
-          <div className="mt-6 flex flex-wrap items-center justify-between gap-3 border-t border-[#243248] pt-5">
-            <p className="text-sm text-[#94a3b8]">
+          <div className="mt-6 flex flex-wrap items-center justify-between gap-3 border-t border-[var(--ms-border)] pt-5">
+            <p className="text-sm text-[var(--ms-text-muted)]">
               Det här är saker AI inte kan ta från dig.
             </p>
             <button

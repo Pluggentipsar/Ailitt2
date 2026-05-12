@@ -320,25 +320,25 @@ export function MonsterFangaren() {
   if (gameState === "menu") {
     return (
       <div className="mx-auto max-w-2xl">
-        <div className="rounded-xl border border-[#10b981]/40 bg-[#0d1322] p-8">
-          <div className="ms-mono mb-2 text-[#94a3b8]">ARKADSPEL · L2</div>
-          <h2 className="mb-3 text-3xl font-bold tracking-tight text-white">
+        <div className="rounded-xl border border-[#10b981]/40 bg-[var(--ms-bg-subtle)] p-8">
+          <div className="ms-mono mb-2 text-[var(--ms-text-muted)]">ARKADSPEL · L2</div>
+          <h2 className="mb-3 text-3xl font-bold tracking-tight text-[var(--ms-text)]">
             Mönster-fångaren
           </h2>
-          <p className="mb-6 text-lg text-[#cbd5e1]">
+          <p className="mb-6 text-lg text-[var(--ms-text-body)]">
             Du styr en paddel med två fack — <strong>HUND</strong> till vänster
             och <strong>KATT</strong> till höger. Fångade objekt blir AI:s
             träningsdata. Efter 45 sekunder testar vi AI:n du tränat.
           </p>
 
-          <div className="mb-6 space-y-3 rounded-lg border border-[#243248] bg-[#1a2235] p-5">
-            <div className="ms-mono text-[#94a3b8]">REGLER</div>
-            <ul className="space-y-2 text-sm text-[#cbd5e1]">
+          <div className="mb-6 space-y-3 rounded-lg border border-[var(--ms-border)] bg-[var(--ms-bg-card)] p-5">
+            <div className="ms-mono text-[var(--ms-text-muted)]">REGLER</div>
+            <ul className="space-y-2 text-sm text-[var(--ms-text-body)]">
               <li className="flex gap-2">
                 <span className="text-[#10b981]">→</span>
                 <span>
-                  Använd <kbd className="rounded bg-[#0a0e1a] px-1.5 py-0.5 font-mono text-xs text-white">←</kbd>{" "}
-                  <kbd className="rounded bg-[#0a0e1a] px-1.5 py-0.5 font-mono text-xs text-white">→</kbd>{" "}
+                  Använd <kbd className="rounded bg-[var(--ms-bg)] px-1.5 py-0.5 font-mono text-xs text-[var(--ms-text)]">←</kbd>{" "}
+                  <kbd className="rounded bg-[var(--ms-bg)] px-1.5 py-0.5 font-mono text-xs text-[var(--ms-text)]">→</kbd>{" "}
                   eller dra med fingret
                 </span>
               </li>
@@ -395,12 +395,12 @@ export function MonsterFangaren() {
 
     return (
       <div className="mx-auto max-w-2xl">
-        <div className="rounded-xl border border-[#10b981]/40 bg-[#0d1322] p-8">
-          <div className="ms-mono mb-2 text-[#94a3b8]">RUNDA SLUT · DIN TRÄNING</div>
-          <h2 className="mb-3 text-3xl font-bold tracking-tight text-white">
+        <div className="rounded-xl border border-[#10b981]/40 bg-[var(--ms-bg-subtle)] p-8">
+          <div className="ms-mono mb-2 text-[var(--ms-text-muted)]">RUNDA SLUT · DIN TRÄNING</div>
+          <h2 className="mb-3 text-3xl font-bold tracking-tight text-[var(--ms-text)]">
             Så här tränades AI:n
           </h2>
-          <p className="mb-6 text-[#cbd5e1]">
+          <p className="mb-6 text-[var(--ms-text-body)]">
             {correctTraining.length} korrekta exempel i facken.
             {misses > 0 && ` ${misses} missade objekt.`}
             {training.length > correctTraining.length &&
@@ -410,7 +410,7 @@ export function MonsterFangaren() {
           <div className="mb-6 space-y-4">
             {(["hund", "katt"] as Animal[]).map((animal) => (
               <div key={animal}>
-                <div className="ms-mono mb-2 text-[#94a3b8]">
+                <div className="ms-mono mb-2 text-[var(--ms-text-muted)]">
                   {animal === "hund" ? "🐕 HUND-EXEMPEL" : "🐈 KATT-EXEMPEL"}
                 </div>
                 <div className="grid grid-cols-4 gap-2">
@@ -438,7 +438,7 @@ export function MonsterFangaren() {
                         >
                           {count}
                         </div>
-                        <div className="ms-mono mt-0.5 text-xs text-[#94a3b8]">
+                        <div className="ms-mono mt-0.5 text-xs text-[var(--ms-text-muted)]">
                           {colorLabels[color]}
                         </div>
                       </div>
@@ -471,36 +471,36 @@ export function MonsterFangaren() {
 
     return (
       <div className="mx-auto max-w-2xl">
-        <div className="rounded-xl border border-[#10b981]/40 bg-[#0d1322] p-8">
+        <div className="rounded-xl border border-[#10b981]/40 bg-[var(--ms-bg-subtle)] p-8">
           <div className="mb-6 flex items-center gap-3">
             <Trophy className="h-8 w-8 text-[#fcd34d]" />
             <div>
-              <div className="ms-mono text-[#94a3b8]">SLUTRESULTAT</div>
-              <div className="text-3xl font-bold text-white">
+              <div className="ms-mono text-[var(--ms-text-muted)]">SLUTRESULTAT</div>
+              <div className="text-3xl font-bold text-[var(--ms-text)]">
                 {finalScore} poäng
               </div>
             </div>
           </div>
 
           <div className="mb-6 grid grid-cols-3 gap-3">
-            <div className="rounded-lg border border-[#243248] bg-[#1a2235] p-3 text-center">
-              <div className="ms-mono text-[#94a3b8]">ARKAD</div>
+            <div className="rounded-lg border border-[var(--ms-border)] bg-[var(--ms-bg-card)] p-3 text-center">
+              <div className="ms-mono text-[var(--ms-text-muted)]">ARKAD</div>
               <div className="text-2xl font-bold text-[#a5b4fc]">{score}</div>
             </div>
-            <div className="rounded-lg border border-[#243248] bg-[#1a2235] p-3 text-center">
-              <div className="ms-mono text-[#94a3b8]">AI-BONUS</div>
+            <div className="rounded-lg border border-[var(--ms-border)] bg-[var(--ms-bg-card)] p-3 text-center">
+              <div className="ms-mono text-[var(--ms-text-muted)]">AI-BONUS</div>
               <div className="text-2xl font-bold text-[#fcd34d]">
                 +{aiBonus}
               </div>
             </div>
-            <div className="rounded-lg border border-[#243248] bg-[#1a2235] p-3 text-center">
-              <div className="ms-mono text-[#94a3b8]">MISSAR</div>
+            <div className="rounded-lg border border-[var(--ms-border)] bg-[var(--ms-bg-card)] p-3 text-center">
+              <div className="ms-mono text-[var(--ms-text-muted)]">MISSAR</div>
               <div className="text-2xl font-bold text-rose-300">−{misses * 2}</div>
             </div>
           </div>
 
           <div className="mb-6">
-            <div className="ms-mono mb-3 text-[#94a3b8]">
+            <div className="ms-mono mb-3 text-[var(--ms-text-muted)]">
               AI TESTAS PÅ 5 NYA BILDER · {correct} / 5 RÄTT
             </div>
             <div className="space-y-2">
@@ -519,7 +519,7 @@ export function MonsterFangaren() {
                       {r.test.emoji}
                     </span>
                     <div className="flex-1 text-sm">
-                      <div className="font-semibold text-white">
+                      <div className="font-semibold text-[var(--ms-text)]">
                         {r.test.color}{" "}
                         {r.test.animal === "hund" ? "hund" : "katt"} (sanning)
                       </div>
@@ -566,16 +566,16 @@ export function MonsterFangaren() {
   // === PLAYING / PAUSED ===
   return (
     <div className="mx-auto max-w-3xl">
-      <div className="overflow-hidden rounded-xl border border-[#10b981]/40 bg-[#0d1322]">
+      <div className="overflow-hidden rounded-xl border border-[#10b981]/40 bg-[var(--ms-bg-subtle)]">
         {/* Topbar */}
         <div className="flex items-center justify-between gap-4 bg-[#10b981] px-6 py-3">
-          <div className="ms-mono font-bold text-[#0a0e1a]">
+          <div className="ms-mono font-bold text-[var(--ms-bg)]">
             POÄNG: {score}
           </div>
-          <div className="ms-mono font-bold text-[#0a0e1a]">
+          <div className="ms-mono font-bold text-[var(--ms-bg)]">
             TID: {timeLeft}s
           </div>
-          <div className="ms-mono font-bold text-[#0a0e1a]">
+          <div className="ms-mono font-bold text-[var(--ms-bg)]">
             MISSAR: {misses}
           </div>
         </div>
@@ -585,7 +585,7 @@ export function MonsterFangaren() {
           ref={arenaRef}
           onPointerMove={handlePointer}
           onPointerDown={handlePointer}
-          className="relative h-[420px] w-full select-none touch-none overflow-hidden bg-gradient-to-b from-[#0a0e1a] via-[#0d1322] to-[#1a2235]"
+          className="relative h-[420px] w-full select-none touch-none overflow-hidden bg-gradient-to-b from-[var(--ms-bg)] via-[var(--ms-bg-subtle)] to-[var(--ms-bg-card)]"
           role="application"
           aria-label="Spelplan — fånga djur i rätt fack"
         >
@@ -618,7 +618,7 @@ export function MonsterFangaren() {
 
           {/* Paddel */}
           <div
-            className="absolute bottom-2 flex h-12 transform overflow-hidden rounded-md border-2 border-[#10b981] bg-[#1a2235] shadow-lg shadow-[#10b981]/30"
+            className="absolute bottom-2 flex h-12 transform overflow-hidden rounded-md border-2 border-[#10b981] bg-[var(--ms-bg-card)] shadow-lg shadow-[#10b981]/30"
             style={{
               left: `${paddleX}%`,
               width: `${PADDLE_WIDTH}%`,
@@ -636,9 +636,9 @@ export function MonsterFangaren() {
 
           {/* Pause-overlay */}
           {gameState === "paused" && (
-            <div className="absolute inset-0 z-10 flex flex-col items-center justify-center bg-[#0a0e1a]/80 backdrop-blur">
-              <Pause className="mb-3 h-10 w-10 text-white" />
-              <div className="mb-4 text-2xl font-bold text-white">Pausat</div>
+            <div className="absolute inset-0 z-10 flex flex-col items-center justify-center bg-[var(--ms-overlay)] backdrop-blur">
+              <Pause className="mb-3 h-10 w-10 text-[var(--ms-text)]" />
+              <div className="mb-4 text-2xl font-bold text-[var(--ms-text)]">Pausat</div>
               <button
                 type="button"
                 onClick={() => setGameState("playing")}
@@ -652,11 +652,11 @@ export function MonsterFangaren() {
         </div>
 
         {/* Footer */}
-        <div className="flex items-center justify-between gap-2 border-t border-[#243248] p-3">
-          <div className="ms-mono hidden text-[#94a3b8] sm:block">
+        <div className="flex items-center justify-between gap-2 border-t border-[var(--ms-border)] p-3">
+          <div className="ms-mono hidden text-[var(--ms-text-muted)] sm:block">
             ← → eller dra · MELLANSLAG paus
           </div>
-          <div className="ms-mono text-[#94a3b8] sm:hidden">
+          <div className="ms-mono text-[var(--ms-text-muted)] sm:hidden">
             DRA FÖR ATT STYRA
           </div>
           <div className="flex gap-2">

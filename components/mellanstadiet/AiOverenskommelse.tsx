@@ -57,11 +57,11 @@ export function AiOverenskommelse({
 
   return (
     <div
-      className="my-10 overflow-hidden rounded-xl border bg-[#0d1322]"
+      className="my-10 overflow-hidden rounded-xl border bg-[var(--ms-bg-subtle)]"
       style={{ borderColor: `${accentHex}80` }}
     >
       <div
-        className="flex items-center gap-2 px-6 py-3 text-[#0a0e1a]"
+        className="flex items-center gap-2 px-6 py-3 text-[var(--ms-bg)]"
         style={{ background: accentHex }}
       >
         <FileText className="h-4 w-4" />
@@ -71,7 +71,7 @@ export function AiOverenskommelse({
       </div>
 
       <div className="p-6">
-        <p className="mb-5 text-sm leading-relaxed text-[#cbd5e1]">
+        <p className="mb-5 text-sm leading-relaxed text-[var(--ms-text-body)]">
           Klassen formulerar tillsammans 5–10 regler för hur AI används i
           klassrummet. Klicka på förslagen nedan eller skriv egna. När ni är
           nöjda — skriv ut och sätt upp i klassrummet.
@@ -79,11 +79,11 @@ export function AiOverenskommelse({
 
         {/* Egna regler */}
         <div className="mb-6">
-          <div className="ms-mono mb-2 text-[#94a3b8]">
+          <div className="ms-mono mb-2 text-[var(--ms-text-muted)]">
             VÅRA REGLER ({rules.length})
           </div>
           {rules.length === 0 ? (
-            <div className="rounded-lg border border-dashed border-[#475569] p-8 text-center text-[#94a3b8]">
+            <div className="rounded-lg border border-dashed border-[var(--ms-border-strong)] p-8 text-center text-[var(--ms-text-muted)]">
               Inga regler än. Klicka på förslag eller skriv egna nedan.
             </div>
           ) : (
@@ -91,22 +91,22 @@ export function AiOverenskommelse({
               {rules.map((r, i) => (
                 <li
                   key={r.id}
-                  className="flex items-start gap-3 rounded-lg border bg-[#1a2235] p-4"
+                  className="flex items-start gap-3 rounded-lg border bg-[var(--ms-bg-card)] p-4"
                   style={{ borderColor: `${accentHex}60` }}
                 >
                   <span
-                    className="flex h-7 w-7 flex-none items-center justify-center rounded-full font-mono text-sm font-bold text-[#0a0e1a]"
+                    className="flex h-7 w-7 flex-none items-center justify-center rounded-full font-mono text-sm font-bold text-[var(--ms-bg)]"
                     style={{ background: accentHex }}
                   >
                     {i + 1}
                   </span>
-                  <p className="flex-1 leading-relaxed text-white">
+                  <p className="flex-1 leading-relaxed text-[var(--ms-text)]">
                     {r.text}
                   </p>
                   <button
                     type="button"
                     onClick={() => remove(r.id)}
-                    className="rounded-md p-1 text-[#94a3b8] hover:bg-[#243248] hover:text-rose-300"
+                    className="rounded-md p-1 text-[var(--ms-text-muted)] hover:bg-[var(--ms-border)] hover:text-rose-300"
                     aria-label="Ta bort regel"
                   >
                     <X className="h-4 w-4" />
@@ -131,7 +131,7 @@ export function AiOverenskommelse({
             value={input}
             onChange={(e) => setInput(e.target.value)}
             placeholder="Skriv en egen regel…"
-            className="flex-1 rounded-lg border border-[#243248] bg-[#1a2235] px-4 py-3 text-white placeholder-[#64748b] outline-none transition-colors focus:border-[#fcd34d]"
+            className="flex-1 rounded-lg border border-[var(--ms-border)] bg-[var(--ms-bg-card)] px-4 py-3 text-[var(--ms-text)] placeholder-[var(--ms-text-dim)] outline-none transition-colors focus:border-[#fcd34d]"
           />
           <button
             type="submit"
@@ -146,7 +146,7 @@ export function AiOverenskommelse({
         {/* Förslag */}
         {remainingForslag.length > 0 && (
           <div className="mb-5">
-            <div className="ms-mono mb-2 text-[#94a3b8]">
+            <div className="ms-mono mb-2 text-[var(--ms-text-muted)]">
               FÖRSLAG ATT VÄLJA FRÅN
             </div>
             <div className="flex flex-wrap gap-2">
@@ -155,7 +155,7 @@ export function AiOverenskommelse({
                   key={i}
                   type="button"
                   onClick={() => add(f)}
-                  className="rounded-md border border-[#243248] bg-[#1a2235] px-3 py-2 text-left text-sm text-white transition-all hover:border-[#fcd34d] hover:bg-[#243248]"
+                  className="rounded-md border border-[var(--ms-border)] bg-[var(--ms-bg-card)] px-3 py-2 text-left text-sm text-[var(--ms-text)] transition-all hover:border-[#fcd34d] hover:bg-[var(--ms-border)]"
                 >
                   + {f}
                 </button>
@@ -166,8 +166,8 @@ export function AiOverenskommelse({
 
         {/* Action */}
         {rules.length > 0 && (
-          <div className="flex flex-wrap items-center justify-between gap-3 border-t border-[#243248] pt-5">
-            <div className="text-sm text-[#94a3b8]">
+          <div className="flex flex-wrap items-center justify-between gap-3 border-t border-[var(--ms-border)] pt-5">
+            <div className="text-sm text-[var(--ms-text-muted)]">
               {rules.length < 5
                 ? `${rules.length} av minst 5 regler. Lägg till ${5 - rules.length} till.`
                 : rules.length > 10

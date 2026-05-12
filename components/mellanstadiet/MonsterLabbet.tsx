@@ -178,22 +178,22 @@ export function MonsterLabbet({ accentHex = "#f59e0b" }: { accentHex?: string })
 
   return (
     <div
-      className="my-12 overflow-hidden rounded-xl border bg-[#0d1322]"
+      className="my-12 overflow-hidden rounded-xl border bg-[var(--ms-bg-subtle)]"
       style={{ borderColor: `${accentHex}40` }}
     >
       <div
         className="flex items-center justify-between gap-4 px-6 py-3"
         style={{ background: accentHex }}
       >
-        <div className="ms-mono font-bold text-[#0a0e1a]">MÖNSTERLABBET</div>
-        <div className="ms-mono hidden text-[#0a0e1a] sm:block">
+        <div className="ms-mono font-bold text-[var(--ms-bg)]">MÖNSTERLABBET</div>
+        <div className="ms-mono hidden text-[var(--ms-bg)] sm:block">
           {trainingSet.length} bilder valda · {colorsRepresented} / 4 färger
         </div>
       </div>
 
       <div className="space-y-6 p-4 sm:p-6">
-        <div className="text-sm leading-relaxed text-[#cbd5e1]">
-          <strong className="text-white">Du är AI-tränare.</strong> Välj vilka
+        <div className="text-sm leading-relaxed text-[var(--ms-text-body)]">
+          <strong className="text-[var(--ms-text)]">Du är AI-tränare.</strong> Välj vilka
           bilder som ska in i träningsdatat. När du tränat färdigt ser du vad
           AI:n gissar på fyra testbilder. Pröva olika urval — och lägg märke
           till vad som händer när träningen är ensidig.
@@ -206,7 +206,7 @@ export function MonsterLabbet({ accentHex = "#f59e0b" }: { accentHex?: string })
               key={p.id}
               type="button"
               onClick={() => usePreset(p.preset)}
-              className="group rounded-lg border border-[#243248] bg-[#1a2235] px-4 py-2 text-left transition-all hover:border-white/40"
+              className="group rounded-lg border border-[var(--ms-border)] bg-[var(--ms-bg-card)] px-4 py-2 text-left transition-all hover:border-[var(--ms-text)]/40"
             >
               <div
                 className="ms-mono mb-0.5 text-xs"
@@ -214,15 +214,15 @@ export function MonsterLabbet({ accentHex = "#f59e0b" }: { accentHex?: string })
               >
                 SNABBVAL
               </div>
-              <div className="font-semibold text-white">{p.label}</div>
-              <div className="text-xs text-[#94a3b8]">{p.description}</div>
+              <div className="font-semibold text-[var(--ms-text)]">{p.label}</div>
+              <div className="text-xs text-[var(--ms-text-muted)]">{p.description}</div>
             </button>
           ))}
         </div>
 
         {/* Bildgalleri */}
         <div>
-          <div className="ms-mono mb-3 text-[#94a3b8]">
+          <div className="ms-mono mb-3 text-[var(--ms-text-muted)]">
             VÄLJ TRÄNINGSBILDER · KLICKA FÖR ATT PLOCKA IN
           </div>
           <div className="grid grid-cols-3 gap-2 sm:grid-cols-6">
@@ -237,7 +237,7 @@ export function MonsterLabbet({ accentHex = "#f59e0b" }: { accentHex?: string })
                   className={`relative aspect-square rounded-lg border-2 p-2 text-center transition-all ${
                     isSelected
                       ? "border-white bg-white/10"
-                      : "border-[#243248] bg-[#1a2235] hover:border-[#94a3b8]"
+                      : "border-[var(--ms-border)] bg-[var(--ms-bg-card)] hover:border-[var(--ms-text-muted)]"
                   } ${revealed ? "cursor-default" : "cursor-pointer"}`}
                   aria-pressed={isSelected}
                   aria-label={img.label}
@@ -245,12 +245,12 @@ export function MonsterLabbet({ accentHex = "#f59e0b" }: { accentHex?: string })
                   <span className="text-3xl sm:text-4xl" aria-hidden>
                     {img.emoji}
                   </span>
-                  <span className="ms-mono mt-1 block text-[10px] text-[#94a3b8]">
+                  <span className="ms-mono mt-1 block text-[10px] text-[var(--ms-text-muted)]">
                     {img.color}
                   </span>
                   {isSelected && (
                     <span
-                      className="ms-mono absolute right-1 top-1 inline-flex h-5 w-5 items-center justify-center rounded-full text-[10px] font-bold text-[#0a0e1a]"
+                      className="ms-mono absolute right-1 top-1 inline-flex h-5 w-5 items-center justify-center rounded-full text-[10px] font-bold text-[var(--ms-bg)]"
                       style={{ background: accentHex }}
                     >
                       ✓
@@ -263,11 +263,11 @@ export function MonsterLabbet({ accentHex = "#f59e0b" }: { accentHex?: string })
         </div>
 
         {/* Action-rad */}
-        <div className="flex flex-wrap items-center justify-between gap-3 border-t border-[#243248] pt-5">
-          <div className="text-sm text-[#94a3b8]">
-            <strong className="text-white">{trainingSet.length}</strong> bilder
+        <div className="flex flex-wrap items-center justify-between gap-3 border-t border-[var(--ms-border)] pt-5">
+          <div className="text-sm text-[var(--ms-text-muted)]">
+            <strong className="text-[var(--ms-text)]">{trainingSet.length}</strong> bilder
             i träning ·{" "}
-            <strong className="text-white">{colorsRepresented}</strong> av 4
+            <strong className="text-[var(--ms-text)]">{colorsRepresented}</strong> av 4
             färger representerade
           </div>
           <div className="flex gap-2">
@@ -295,8 +295,8 @@ export function MonsterLabbet({ accentHex = "#f59e0b" }: { accentHex?: string })
         {/* Resultat */}
         {revealed && (
           <div className="ms-fadein space-y-4">
-            <div className="border-t border-[#243248] pt-5">
-              <div className="ms-mono mb-3 text-[#94a3b8]">
+            <div className="border-t border-[var(--ms-border)] pt-5">
+              <div className="ms-mono mb-3 text-[var(--ms-text-muted)]">
                 AI TESTAS PÅ 4 NYA BILDER · {correctCount} / 4 RÄTT
               </div>
               <div className="space-y-3">
@@ -316,9 +316,9 @@ export function MonsterLabbet({ accentHex = "#f59e0b" }: { accentHex?: string })
                           {r.test.emoji}
                         </span>
                         <div className="flex-1">
-                          <div className="font-semibold text-white">
+                          <div className="font-semibold text-[var(--ms-text)]">
                             {r.test.label}{" "}
-                            <span className="text-[#94a3b8]">
+                            <span className="text-[var(--ms-text-muted)]">
                               · sanningen: {r.test.animal.toUpperCase()}
                             </span>
                           </div>
@@ -330,7 +330,7 @@ export function MonsterLabbet({ accentHex = "#f59e0b" }: { accentHex?: string })
                             AI gissar: {r.guess.toUpperCase()}{" "}
                             {correct ? "✓" : "✗"}
                           </div>
-                          <p className="mt-1 text-sm leading-relaxed text-[#cbd5e1]">
+                          <p className="mt-1 text-sm leading-relaxed text-[var(--ms-text-body)]">
                             {r.reasoning}
                           </p>
                         </div>

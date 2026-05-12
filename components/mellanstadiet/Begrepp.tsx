@@ -28,7 +28,7 @@ export function Begrepp({ ord, children }: BegreppProps) {
         <span
           id={popId}
           role="tooltip"
-          className="ms-fadein absolute bottom-full left-1/2 z-50 mb-2 w-64 -translate-x-1/2 rounded-lg border border-[#243248] bg-[#0a0e1a] p-3 text-sm font-normal not-italic leading-relaxed text-[#e6edf7] shadow-2xl"
+          className="ms-fadein absolute bottom-full left-1/2 z-50 mb-2 w-64 -translate-x-1/2 rounded-lg border border-[var(--ms-border)] bg-[var(--ms-bg)] p-3 text-sm font-normal not-italic leading-relaxed text-[var(--ms-text)] shadow-2xl"
         >
           {children}
         </span>

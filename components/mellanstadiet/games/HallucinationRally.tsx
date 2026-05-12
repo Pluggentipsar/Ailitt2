@@ -280,23 +280,23 @@ export function HallucinationRally() {
   if (gameState === "menu") {
     return (
       <div className="mx-auto max-w-2xl">
-        <div className="rounded-xl border border-[#f43f5e]/40 bg-[#0d1322] p-8">
-          <div className="ms-mono mb-2 text-[#94a3b8]">ARKADSPEL · L4</div>
-          <h2 className="mb-3 text-3xl font-bold tracking-tight text-white">
+        <div className="rounded-xl border border-[#f43f5e]/40 bg-[var(--ms-bg-subtle)] p-8">
+          <div className="ms-mono mb-2 text-[var(--ms-text-muted)]">ARKADSPEL · L4</div>
+          <h2 className="mb-3 text-3xl font-bold tracking-tight text-[var(--ms-text)]">
             Hallucination-rally
           </h2>
-          <p className="mb-6 text-lg text-[#cbd5e1]">
+          <p className="mb-6 text-lg text-[var(--ms-text-body)]">
             Du har <strong>90 sekunder</strong> på dig att hitta så många
             hallucinationer som möjligt i ett flöde av AI-genererade
             påståenden. Påståenden kommer ett i taget. Du väljer:{" "}
             <strong className="text-rose-300">PÅHITTAT</strong>,{" "}
             <strong className="text-emerald-300">STÄMMER</strong>, eller{" "}
-            <strong className="text-[#94a3b8]">SKIPPA</strong>.
+            <strong className="text-[var(--ms-text-muted)]">SKIPPA</strong>.
           </p>
 
-          <div className="mb-6 space-y-3 rounded-lg border border-[#243248] bg-[#1a2235] p-5">
-            <div className="ms-mono text-[#94a3b8]">POÄNG</div>
-            <ul className="space-y-2 text-sm text-[#cbd5e1]">
+          <div className="mb-6 space-y-3 rounded-lg border border-[var(--ms-border)] bg-[var(--ms-bg-card)] p-5">
+            <div className="ms-mono text-[var(--ms-text-muted)]">POÄNG</div>
+            <ul className="space-y-2 text-sm text-[var(--ms-text-body)]">
               <li className="flex gap-3">
                 <span className="ms-mono w-12 flex-none rounded bg-emerald-500/20 text-center text-emerald-200">
                   +10
@@ -316,7 +316,7 @@ export function HallucinationRally() {
                 <span>Falsklarm — eller missad hallucination</span>
               </li>
               <li className="flex gap-3">
-                <span className="ms-mono w-12 flex-none rounded bg-[#243248] text-center text-[#94a3b8]">
+                <span className="ms-mono w-12 flex-none rounded bg-[var(--ms-border)] text-center text-[var(--ms-text-muted)]">
                   0
                 </span>
                 <span>Skippa — om du inte vet, hellre skippa än gissa</span>
@@ -352,12 +352,12 @@ export function HallucinationRally() {
 
     return (
       <div className="mx-auto max-w-2xl">
-        <div className="rounded-xl border border-[#f43f5e]/40 bg-[#0d1322] p-8">
+        <div className="rounded-xl border border-[#f43f5e]/40 bg-[var(--ms-bg-subtle)] p-8">
           <div className="mb-6 flex items-center gap-3">
             <Trophy className="h-8 w-8 text-[#fcd34d]" />
             <div>
-              <div className="ms-mono text-[#94a3b8]">SLUTRESULTAT</div>
-              <div className="text-3xl font-bold text-white">
+              <div className="ms-mono text-[var(--ms-text-muted)]">SLUTRESULTAT</div>
+              <div className="text-3xl font-bold text-[var(--ms-text)]">
                 {score} poäng
               </div>
             </div>
@@ -372,9 +372,9 @@ export function HallucinationRally() {
               <div className="ms-mono text-rose-300">MISS</div>
               <div className="text-2xl font-bold text-rose-200">{misses}</div>
             </div>
-            <div className="rounded-lg border border-[#243248] bg-[#1a2235] p-3 text-center">
-              <div className="ms-mono text-[#94a3b8]">SKIPPADE</div>
-              <div className="text-2xl font-bold text-white">{skips}</div>
+            <div className="rounded-lg border border-[var(--ms-border)] bg-[var(--ms-bg-card)] p-3 text-center">
+              <div className="ms-mono text-[var(--ms-text-muted)]">SKIPPADE</div>
+              <div className="text-2xl font-bold text-[var(--ms-text)]">{skips}</div>
             </div>
             <div className="rounded-lg border border-[#fcd34d]/40 bg-[#fcd34d]/10 p-3 text-center">
               <div className="ms-mono text-[#fcd34d]">PRECISION</div>
@@ -404,23 +404,23 @@ export function HallucinationRally() {
   // === PLAYING ===
   return (
     <div className="mx-auto max-w-2xl">
-      <div className="overflow-hidden rounded-xl border border-[#f43f5e]/40 bg-[#0d1322]">
+      <div className="overflow-hidden rounded-xl border border-[#f43f5e]/40 bg-[var(--ms-bg-subtle)]">
         {/* Topbar */}
         <div className="flex items-center justify-between gap-4 bg-[#f43f5e] px-6 py-3">
-          <div className="ms-mono font-bold text-white">
+          <div className="ms-mono font-bold text-[var(--ms-text)]">
             POÄNG: {score}
           </div>
-          <div className="ms-mono flex items-center gap-1.5 font-bold text-white">
+          <div className="ms-mono flex items-center gap-1.5 font-bold text-[var(--ms-text)]">
             <Timer className="h-3.5 w-3.5" />
             {timeLeft}s
           </div>
-          <div className="ms-mono font-bold text-white">
+          <div className="ms-mono font-bold text-[var(--ms-text)]">
             {idx + 1} / {statements.length}
           </div>
         </div>
 
         {/* Tidsstapel */}
-        <div className="h-1 w-full bg-[#1a2235]">
+        <div className="h-1 w-full bg-[var(--ms-bg-card)]">
           <div
             className={`h-full transition-all duration-1000 ease-linear ${
               timeLeft <= 10 ? "bg-rose-500" : "bg-[#f43f5e]"
@@ -434,10 +434,10 @@ export function HallucinationRally() {
         <div className="p-6">
           {current && !feedback.show && (
             <>
-              <div className="ms-mono mb-2 text-[#94a3b8]">
+              <div className="ms-mono mb-2 text-[var(--ms-text-muted)]">
                 AI-PÅSTÅENDE
               </div>
-              <div className="mb-6 rounded-lg border border-[#243248] bg-[#1a2235] p-6 text-lg leading-relaxed text-white">
+              <div className="mb-6 rounded-lg border border-[var(--ms-border)] bg-[var(--ms-bg-card)] p-6 text-lg leading-relaxed text-[var(--ms-text)]">
                 &ldquo;{current.text}&rdquo;
               </div>
 
@@ -463,10 +463,10 @@ export function HallucinationRally() {
                 <button
                   type="button"
                   onClick={handleSkip}
-                  className="rounded-lg border-2 border-[#243248] bg-[#1a2235] p-4 font-bold text-[#94a3b8] transition-all hover:-translate-y-0.5 hover:border-[#94a3b8]"
+                  className="rounded-lg border-2 border-[var(--ms-border)] bg-[var(--ms-bg-card)] p-4 font-bold text-[var(--ms-text-muted)] transition-all hover:-translate-y-0.5 hover:border-[var(--ms-text-muted)]"
                 >
                   SKIPPA
-                  <div className="ms-mono mt-1 text-xs text-[#64748b]">0</div>
+                  <div className="ms-mono mt-1 text-xs text-[var(--ms-text-dim)]">0</div>
                 </button>
               </div>
             </>
@@ -489,11 +489,11 @@ export function HallucinationRally() {
                 {feedback.text}
               </div>
               {current && (
-                <p className="text-sm leading-relaxed text-[#cbd5e1]">
+                <p className="text-sm leading-relaxed text-[var(--ms-text-body)]">
                   {current.reason}
                 </p>
               )}
-              <div className="ms-mono text-[#94a3b8]">NÄSTA OM 1 SEK...</div>
+              <div className="ms-mono text-[var(--ms-text-muted)]">NÄSTA OM 1 SEK...</div>
             </div>
           )}
         </div>

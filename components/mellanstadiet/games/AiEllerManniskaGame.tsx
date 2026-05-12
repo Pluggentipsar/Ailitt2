@@ -228,12 +228,12 @@ export function AiEllerManniskaGame() {
 
     return (
       <div className="mx-auto max-w-2xl">
-        <div className="rounded-xl border border-[#fcd34d]/40 bg-[#0d1322] p-8">
+        <div className="rounded-xl border border-[#fcd34d]/40 bg-[var(--ms-bg-subtle)] p-8">
           <div className="mb-6 flex items-center gap-3">
             <Trophy className="h-8 w-8 text-[#fcd34d]" />
             <div>
-              <div className="ms-mono text-[#94a3b8]">SLUTRESULTAT</div>
-              <div className="text-3xl font-bold text-white">
+              <div className="ms-mono text-[var(--ms-text-muted)]">SLUTRESULTAT</div>
+              <div className="text-3xl font-bold text-[var(--ms-text)]">
                 {correctCount} / {total} rätt
               </div>
             </div>
@@ -244,7 +244,7 @@ export function AiEllerManniskaGame() {
           </div>
 
           <div className="mb-6 space-y-2">
-            <div className="ms-mono text-[#94a3b8]">SVARSGENOMGÅNG</div>
+            <div className="ms-mono text-[var(--ms-text-muted)]">SVARSGENOMGÅNG</div>
             {shuffled.map((it, i) => {
               const ans = answers[i];
               const correct = ans === it.source;
@@ -263,7 +263,7 @@ export function AiEllerManniskaGame() {
                     </span>
                     <span>{correct ? "✓" : ans === null ? "TIDEN UT" : "✗"}</span>
                   </div>
-                  <div className="line-clamp-2 text-[#cbd5e1]">{it.text}</div>
+                  <div className="line-clamp-2 text-[var(--ms-text-body)]">{it.text}</div>
                 </div>
               );
             })}
@@ -284,20 +284,20 @@ export function AiEllerManniskaGame() {
 
   return (
     <div className="mx-auto max-w-2xl">
-      <div className="overflow-hidden rounded-xl border border-[#fcd34d]/40 bg-[#0d1322]">
+      <div className="overflow-hidden rounded-xl border border-[#fcd34d]/40 bg-[var(--ms-bg-subtle)]">
         {/* Topbar */}
         <div className="flex items-center justify-between bg-[#fcd34d] px-6 py-3">
-          <div className="ms-mono font-bold text-[#0a0e1a]">
+          <div className="ms-mono font-bold text-[var(--ms-bg)]">
             AI ELLER MÄNNISKA · {idx + 1} / {total}
           </div>
-          <div className="ms-mono flex items-center gap-1.5 font-bold text-[#0a0e1a]">
+          <div className="ms-mono flex items-center gap-1.5 font-bold text-[var(--ms-bg)]">
             <Timer className="h-3.5 w-3.5" />
             {timeLeft}s
           </div>
         </div>
 
         {/* Timer-bar */}
-        <div className="h-1 w-full bg-[#1a2235]">
+        <div className="h-1 w-full bg-[var(--ms-bg-card)]">
           <div
             className={`h-full transition-all duration-1000 ease-linear ${
               timeLeft <= 5 ? "bg-rose-500" : "bg-[#fcd34d]"
@@ -310,8 +310,8 @@ export function AiEllerManniskaGame() {
 
         <div className="space-y-6 p-6">
           {/* Texten */}
-          <div className="rounded-lg border border-[#243248] bg-[#1a2235] p-6 text-lg leading-relaxed text-white">
-            <div className="ms-mono mb-3 text-[#94a3b8]">
+          <div className="rounded-lg border border-[var(--ms-border)] bg-[var(--ms-bg-card)] p-6 text-lg leading-relaxed text-[var(--ms-text)]">
+            <div className="ms-mono mb-3 text-[var(--ms-text-muted)]">
               VEM HAR SKRIVIT DETTA?
             </div>
             &ldquo;{item.text}&rdquo;
@@ -323,17 +323,17 @@ export function AiEllerManniskaGame() {
               <button
                 type="button"
                 onClick={() => answer("ai")}
-                className="group flex items-center justify-center gap-3 rounded-xl border-2 border-[#243248] bg-[#1a2235] p-5 text-lg font-bold text-white transition-all hover:-translate-y-0.5 hover:border-[#fcd34d] hover:bg-[#fcd34d]/10"
+                className="group flex items-center justify-center gap-3 rounded-xl border-2 border-[var(--ms-border)] bg-[var(--ms-bg-card)] p-5 text-lg font-bold text-[var(--ms-text)] transition-all hover:-translate-y-0.5 hover:border-[#fcd34d] hover:bg-[#fcd34d]/10"
               >
-                <Bot className="h-6 w-6 text-[#94a3b8] transition-colors group-hover:text-[#fcd34d]" />
+                <Bot className="h-6 w-6 text-[var(--ms-text-muted)] transition-colors group-hover:text-[#fcd34d]" />
                 AI
               </button>
               <button
                 type="button"
                 onClick={() => answer("human")}
-                className="group flex items-center justify-center gap-3 rounded-xl border-2 border-[#243248] bg-[#1a2235] p-5 text-lg font-bold text-white transition-all hover:-translate-y-0.5 hover:border-[#a5b4fc] hover:bg-[#a5b4fc]/10"
+                className="group flex items-center justify-center gap-3 rounded-xl border-2 border-[var(--ms-border)] bg-[var(--ms-bg-card)] p-5 text-lg font-bold text-[var(--ms-text)] transition-all hover:-translate-y-0.5 hover:border-[#a5b4fc] hover:bg-[#a5b4fc]/10"
               >
-                <User className="h-6 w-6 text-[#94a3b8] transition-colors group-hover:text-[#a5b4fc]" />
+                <User className="h-6 w-6 text-[var(--ms-text-muted)] transition-colors group-hover:text-[#a5b4fc]" />
                 Människa
               </button>
             </div>
@@ -357,7 +357,7 @@ export function AiEllerManniskaGame() {
                   ) : (
                     <span className="text-rose-300">FEL —</span>
                   )}
-                  <span className="text-white">
+                  <span className="text-[var(--ms-text)]">
                     {item.source === "ai"
                       ? "Det här är AI"
                       : "Det här är skrivet av en människa"}
@@ -365,11 +365,11 @@ export function AiEllerManniskaGame() {
                 </div>
               </div>
 
-              <div className="rounded-lg border border-[#243248] bg-[#1a2235] p-5">
-                <div className="ms-mono mb-3 text-[#94a3b8]">
+              <div className="rounded-lg border border-[var(--ms-border)] bg-[var(--ms-bg-card)] p-5">
+                <div className="ms-mono mb-3 text-[var(--ms-text-muted)]">
                   TELLS ATT KÄNNA IGEN
                 </div>
-                <ul className="space-y-1.5 text-sm text-[#cbd5e1]">
+                <ul className="space-y-1.5 text-sm text-[var(--ms-text-body)]">
                   {item.tells.map((t, i) => (
                     <li key={i} className="flex gap-2">
                       <span className="text-[#fcd34d]">→</span>

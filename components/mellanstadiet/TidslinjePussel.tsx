@@ -247,17 +247,17 @@ export function TidslinjePussel({ accentHex = "#6366f1" }: { accentHex?: string 
 
   return (
     <div
-      className="my-12 overflow-hidden rounded-xl border bg-[#0d1322]"
+      className="my-12 overflow-hidden rounded-xl border bg-[var(--ms-bg-subtle)]"
       style={{ borderColor: `${accentHex}40` }}
     >
       <div
         className="flex items-center justify-between gap-4 px-6 py-3"
         style={{ background: accentHex }}
       >
-        <div className="ms-mono font-bold text-[#0a0e1a]">
+        <div className="ms-mono font-bold text-[var(--ms-bg)]">
           TIDSLINJE-PUSSLET
         </div>
-        <div className="ms-mono hidden text-[#0a0e1a] sm:block">
+        <div className="ms-mono hidden text-[var(--ms-bg)] sm:block">
           {placements.length} / {CARDS.length} placerade
         </div>
       </div>
@@ -265,8 +265,8 @@ export function TidslinjePussel({ accentHex = "#6366f1" }: { accentHex?: string 
       <div className="space-y-6 p-4 sm:p-6">
         {/* Instruktion */}
         {!validated && !allPlaced && (
-          <div className="text-sm leading-relaxed text-[#cbd5e1]">
-            <strong className="text-white">Så funkar det:</strong> Klicka på ett
+          <div className="text-sm leading-relaxed text-[var(--ms-text-body)]">
+            <strong className="text-[var(--ms-text)]">Så funkar det:</strong> Klicka på ett
             kort nere. Klicka sedan på rätt år och rad — <em>FANTASI</em> (filmer,
             böcker, spel) eller <em>VERKLIGHET</em> (riktiga händelser). Du
             behöver inte träffa exakt år — i samma närhet räcker.
@@ -292,13 +292,13 @@ export function TidslinjePussel({ accentHex = "#6366f1" }: { accentHex?: string 
             />
 
             {/* Tidsaxel */}
-            <div className="my-3 flex border-t border-[#243248]">
+            <div className="my-3 flex border-t border-[var(--ms-border)]">
               {YEAR_BUCKETS.map((b) => (
                 <div
                   key={b.year}
-                  className="flex-1 border-l border-[#243248] px-1 py-2 text-center"
+                  className="flex-1 border-l border-[var(--ms-border)] px-1 py-2 text-center"
                 >
-                  <div className="ms-mono text-[#94a3b8]">{b.label}</div>
+                  <div className="ms-mono text-[var(--ms-text-muted)]">{b.label}</div>
                 </div>
               ))}
             </div>
@@ -323,7 +323,7 @@ export function TidslinjePussel({ accentHex = "#6366f1" }: { accentHex?: string 
         {/* Korthög */}
         {!validated && remainingCards.length > 0 && (
           <div>
-            <div className="ms-mono mb-3 text-[#94a3b8]">
+            <div className="ms-mono mb-3 text-[var(--ms-text-muted)]">
               KORT KVAR ({remainingCards.length})
             </div>
             <div className="flex flex-wrap gap-2">
@@ -336,8 +336,8 @@ export function TidslinjePussel({ accentHex = "#6366f1" }: { accentHex?: string 
                   }
                   className={`group max-w-[260px] rounded-lg border p-3 text-left transition-all ${
                     activeCard === card.id
-                      ? "border-white bg-white text-[#0a0e1a]"
-                      : "border-[#243248] bg-[#1a2235] text-white hover:border-white/40"
+                      ? "border-white bg-white text-[var(--ms-bg)]"
+                      : "border-[var(--ms-border)] bg-[var(--ms-bg-card)] text-[var(--ms-text)] hover:border-[var(--ms-text)]/40"
                   }`}
                   aria-pressed={activeCard === card.id}
                 >
@@ -346,7 +346,7 @@ export function TidslinjePussel({ accentHex = "#6366f1" }: { accentHex?: string 
                   </div>
                   <div
                     className={`mt-1 text-xs leading-snug ${
-                      activeCard === card.id ? "text-[#475569]" : "text-[#94a3b8]"
+                      activeCard === card.id ? "text-[var(--ms-border-strong)]" : "text-[var(--ms-text-muted)]"
                     }`}
                   >
                     {card.description}
@@ -363,16 +363,16 @@ export function TidslinjePussel({ accentHex = "#6366f1" }: { accentHex?: string 
         )}
 
         {/* Action-rad */}
-        <div className="flex flex-wrap items-center justify-between gap-3 border-t border-[#243248] pt-5">
+        <div className="flex flex-wrap items-center justify-between gap-3 border-t border-[var(--ms-border)] pt-5">
           {validated ? (
             <>
               <div className="flex items-center gap-3">
                 <Trophy className="h-5 w-5 text-[#fcd34d]" />
                 <div>
-                  <div className="font-bold text-white">
+                  <div className="font-bold text-[var(--ms-text)]">
                     {correctCount} / {placements.length} korrekt
                   </div>
-                  <div className="text-sm text-[#94a3b8]">
+                  <div className="text-sm text-[var(--ms-text-muted)]">
                     {correctCount === placements.length
                       ? "Allt rätt — du har koll på tidslinjen!"
                       : "Bra försök. Granska de röda och försök igen."}
@@ -390,7 +390,7 @@ export function TidslinjePussel({ accentHex = "#6366f1" }: { accentHex?: string 
             </>
           ) : (
             <>
-              <div className="text-sm text-[#94a3b8]">
+              <div className="text-sm text-[var(--ms-text-muted)]">
                 {allPlaced
                   ? "Alla kort placerade. Klicka på Kontrollera när du är klar."
                   : `Placerat: ${placements.length} / ${CARDS.length}`}
@@ -462,7 +462,7 @@ function TimelineRow({
 }) {
   return (
     <div className="flex">
-      <div className="ms-mono w-20 flex-none border-r border-[#243248] py-3 pr-3 text-right text-[#94a3b8] sm:w-28">
+      <div className="ms-mono w-20 flex-none border-r border-[var(--ms-border)] py-3 pr-3 text-right text-[var(--ms-text-muted)] sm:w-28">
         <span className="mr-1.5" aria-hidden>
           {icon}
         </span>
@@ -480,9 +480,9 @@ function TimelineRow({
               type="button"
               onClick={() => onSlotClick(bucketIdx)}
               disabled={!isHoverable}
-              className={`relative min-h-[110px] flex-1 border-l border-[#243248] p-1.5 transition-colors ${
+              className={`relative min-h-[110px] flex-1 border-l border-[var(--ms-border)] p-1.5 transition-colors ${
                 isHoverable
-                  ? "cursor-pointer hover:bg-[#1a2235]/80"
+                  ? "cursor-pointer hover:bg-[var(--ms-bg-subtle)]"
                   : "cursor-default"
               }`}
               aria-label={`Plats ${bucketIdx + 1} på ${label}-raden`}
@@ -492,7 +492,7 @@ function TimelineRow({
                   const card = CARDS.find((c) => c.id === p.cardId)!;
                   const status = validated ? checkPlacement(p) : null;
                   const colorClass = !status
-                    ? "border-[#243248] bg-[#1a2235] text-white"
+                    ? "border-[var(--ms-border)] bg-[var(--ms-bg-card)] text-[var(--ms-text)]"
                     : status === "correct"
                     ? "border-emerald-500/60 bg-emerald-500/15 text-emerald-50"
                     : status === "wrong-year"

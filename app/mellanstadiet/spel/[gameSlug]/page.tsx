@@ -32,11 +32,11 @@ export default async function GamePage({
   return (
     <div className="ms-grid-bg pb-24">
       {/* Hero */}
-      <section className="border-b border-[#243248] px-4 pb-12 pt-12">
+      <section className="border-b border-[var(--ms-border)] px-4 pb-12 pt-12">
         <div className="mx-auto max-w-3xl">
           <Link
             href="/mellanstadiet/spel"
-            className="ms-mono inline-flex items-center gap-1.5 text-[#94a3b8] transition-colors hover:text-white"
+            className="ms-mono inline-flex items-center gap-1.5 text-[var(--ms-text-muted)] transition-colors hover:text-[var(--ms-text)]"
           >
             <ArrowLeft className="h-3.5 w-3.5" />
             ALLA SPEL
@@ -44,24 +44,24 @@ export default async function GamePage({
 
           <div className="mt-6 flex items-center gap-3">
             <span
-              className="ms-mono rounded px-2 py-1 text-[#0a0e1a]"
+              className="ms-mono rounded px-2 py-1 text-[var(--ms-bg)]"
               style={{ background: game.accentHex }}
             >
               {game.type.toUpperCase()}
             </span>
-            <span className="ms-mono text-[#94a3b8]">{game.lesson}</span>
+            <span className="ms-mono text-[var(--ms-text-muted)]">{game.lesson}</span>
           </div>
 
-          <h1 className="mt-4 text-4xl font-bold leading-tight tracking-tight text-white sm:text-5xl">
+          <h1 className="mt-4 text-4xl font-bold leading-tight tracking-tight text-[var(--ms-text)] sm:text-5xl">
             {game.title}
           </h1>
-          <p className="mt-3 text-xl text-[#cbd5e1]">{game.tagline}</p>
+          <p className="mt-3 text-xl text-[var(--ms-text-body)]">{game.tagline}</p>
 
-          <div className="mt-6 flex flex-wrap items-center gap-4 text-sm text-[#94a3b8]">
+          <div className="mt-6 flex flex-wrap items-center gap-4 text-sm text-[var(--ms-text-muted)]">
             <span className="flex items-center gap-1.5">
               <Clock className="h-3.5 w-3.5" /> {game.duration}
             </span>
-            <span aria-hidden className="text-[#243248]">•</span>
+            <span aria-hidden className="text-[var(--ms-border)]">•</span>
             <span className="flex items-center gap-1.5">
               <Target className="h-3.5 w-3.5" />
               Lärdom: {game.pedagogy}

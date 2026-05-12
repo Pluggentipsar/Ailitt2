@@ -68,11 +68,11 @@ export function Tankartrappan({ accentHex = "#10b981" }: { accentHex?: string })
 
   return (
     <div
-      className="my-10 overflow-hidden rounded-xl border bg-[#0d1322]"
+      className="my-10 overflow-hidden rounded-xl border bg-[var(--ms-bg-subtle)]"
       style={{ borderColor: `${accentHex}40` }}
     >
       <div
-        className="ms-mono px-6 py-2 font-bold text-[#0a0e1a]"
+        className="ms-mono px-6 py-2 font-bold text-[var(--ms-bg)]"
         style={{ background: accentHex }}
       >
         TÄNKARTRAPPAN · JAG → AI → JAG → ITERERA
@@ -80,7 +80,7 @@ export function Tankartrappan({ accentHex = "#10b981" }: { accentHex?: string })
 
       <div className="grid gap-0 md:grid-cols-[1fr_1.5fr]">
         {/* Vänster: trappan */}
-        <div className="border-r border-[#243248] p-4">
+        <div className="border-r border-[var(--ms-border)] p-4">
           <ol className="space-y-2">
             {STEPS.map((s) => {
               const isActive = active === s.num;
@@ -92,17 +92,17 @@ export function Tankartrappan({ accentHex = "#10b981" }: { accentHex?: string })
                     className={`group flex w-full items-center gap-3 rounded-lg border p-3 text-left transition-all ${
                       isActive
                         ? "border-white scale-[1.02] shadow-md"
-                        : "border-[#243248] hover:border-white/40"
+                        : "border-[var(--ms-border)] hover:border-[var(--ms-text)]/40"
                     }`}
                     style={{
                       background: isActive
                         ? `linear-gradient(135deg, ${s.color}25, ${s.color}10)`
-                        : "#1a2235",
+                        : "var(--ms-bg-card)",
                     }}
                     aria-pressed={isActive}
                   >
                     <span
-                      className={`flex h-9 w-9 flex-none items-center justify-center rounded-md font-bold text-[#0a0e1a]`}
+                      className={`flex h-9 w-9 flex-none items-center justify-center rounded-md font-bold text-[var(--ms-bg)]`}
                       style={{ background: s.color }}
                     >
                       {s.num}
@@ -114,11 +114,11 @@ export function Tankartrappan({ accentHex = "#10b981" }: { accentHex?: string })
                       >
                         STEG {s.num}
                       </div>
-                      <div className="font-semibold text-white">{s.short}</div>
+                      <div className="font-semibold text-[var(--ms-text)]">{s.short}</div>
                     </div>
                     <ChevronRight
                       className={`h-4 w-4 flex-none transition-transform ${
-                        isActive ? "rotate-90 text-white" : "text-[#64748b]"
+                        isActive ? "rotate-90 text-[var(--ms-text)]" : "text-[var(--ms-text-dim)]"
                       }`}
                     />
                   </button>
@@ -139,21 +139,21 @@ export function Tankartrappan({ accentHex = "#10b981" }: { accentHex?: string })
           >
             STEG {step.num}
           </div>
-          <h3 className="text-2xl font-bold tracking-tight text-white">
+          <h3 className="text-2xl font-bold tracking-tight text-[var(--ms-text)]">
             {step.label}
           </h3>
-          <p className="mt-3 leading-relaxed text-[#cbd5e1]">
+          <p className="mt-3 leading-relaxed text-[var(--ms-text-body)]">
             {step.description}
           </p>
           <div className="mt-5">
-            <div className="ms-mono mb-2 text-[#94a3b8]">
+            <div className="ms-mono mb-2 text-[var(--ms-text-muted)]">
               FRÅGOR ATT STÄLLA DIG SJÄLV
             </div>
             <ul className="space-y-1.5">
               {step.examples.map((e) => (
                 <li
                   key={e}
-                  className="flex gap-2 text-[#e6edf7]"
+                  className="flex gap-2 text-[var(--ms-text)]"
                 >
                   <span style={{ color: step.color }}>→</span>
                   <span>{e}</span>

@@ -12,7 +12,7 @@ export function BRISBanner() {
           <div className="ms-mono mb-1 text-[#a5b4fc]">
             OM DU MÅR DÅLIGT — DET FINNS NÅGON ATT PRATA MED
           </div>
-          <p className="text-sm leading-relaxed text-[#cbd5e1]">
+          <p className="text-sm leading-relaxed text-[var(--ms-text-body)]">
             Den här lektionen kan vara svår att läsa. Om du tänker på dig själv
             eller någon du känner — prata med en vuxen du litar på, en lärare,
             skolkurator, eller någon av nedan:
@@ -20,28 +20,28 @@ export function BRISBanner() {
           <div className="mt-3 flex flex-wrap gap-3">
             <a
               href="tel:116111"
-              className="inline-flex items-center gap-2 rounded-lg border border-[#a5b4fc]/40 bg-[#1a2235] px-3 py-2 transition-colors hover:bg-[#243248]"
+              className="inline-flex items-center gap-2 rounded-lg border border-[#a5b4fc]/40 bg-[var(--ms-bg-card)] px-3 py-2 transition-colors hover:bg-[var(--ms-border)]"
             >
               <Phone className="h-3.5 w-3.5 text-[#a5b4fc]" />
-              <span className="font-mono text-sm font-bold text-white">
+              <span className="font-mono text-sm font-bold text-[var(--ms-text)]">
                 BRIS · 116 111
               </span>
-              <span className="text-xs text-[#94a3b8]">
+              <span className="text-xs text-[var(--ms-text-muted)]">
                 Gratis, dygnet runt
               </span>
             </a>
             <a
               href="tel:1177"
-              className="inline-flex items-center gap-2 rounded-lg border border-[#a5b4fc]/40 bg-[#1a2235] px-3 py-2 transition-colors hover:bg-[#243248]"
+              className="inline-flex items-center gap-2 rounded-lg border border-[#a5b4fc]/40 bg-[var(--ms-bg-card)] px-3 py-2 transition-colors hover:bg-[var(--ms-border)]"
             >
               <Phone className="h-3.5 w-3.5 text-[#a5b4fc]" />
-              <span className="font-mono text-sm font-bold text-white">
+              <span className="font-mono text-sm font-bold text-[var(--ms-text)]">
                 1177
               </span>
-              <span className="text-xs text-[#94a3b8]">Vårdrådgivning</span>
+              <span className="text-xs text-[var(--ms-text-muted)]">Vårdrådgivning</span>
             </a>
           </div>
-          <p className="mt-3 text-xs text-[#94a3b8]">
+          <p className="mt-3 text-xs text-[var(--ms-text-muted)]">
             Du är inte ensam. Det finns alltid någon att prata med.
           </p>
         </div>

@@ -145,22 +145,22 @@ export function PromptLabbet({ accentHex = "#10b981" }: { accentHex?: string }) 
 
   return (
     <div
-      className="my-10 overflow-hidden rounded-xl border bg-[#0d1322]"
+      className="my-10 overflow-hidden rounded-xl border bg-[var(--ms-bg-subtle)]"
       style={{ borderColor: `${accentHex}40` }}
     >
       <div
-        className="ms-mono px-6 py-2 font-bold text-[#0a0e1a]"
+        className="ms-mono px-6 py-2 font-bold text-[var(--ms-bg)]"
         style={{ background: accentHex }}
       >
         PROMPT-LABBET · BYGG EN BILD-PROMPT MED FEM BLOCK
       </div>
 
       <div className="space-y-6 p-6">
-        <p className="text-sm leading-relaxed text-[#cbd5e1]">
-          <strong className="text-white">Så här funkar det:</strong> Klicka på
+        <p className="text-sm leading-relaxed text-[var(--ms-text-body)]">
+          <strong className="text-[var(--ms-text)]">Så här funkar det:</strong> Klicka på
           block för att lägga till dem i prompten. En av varje typ — du kan
           byta. Se hur prompten växer. Tryck sedan på{" "}
-          <strong className="text-white">Generera</strong> för att se vad AI
+          <strong className="text-[var(--ms-text)]">Generera</strong> för att se vad AI
           producerar (text-beskrivning av bilden).
         </p>
 
@@ -177,8 +177,8 @@ export function PromptLabbet({ accentHex = "#10b981" }: { accentHex?: string }) 
                   <span style={{ color: info.color }}>
                     {info.label}
                   </span>
-                  <span className="text-[#64748b]">·</span>
-                  <span className="text-[#94a3b8]">{info.question}</span>
+                  <span className="text-[var(--ms-text-dim)]">·</span>
+                  <span className="text-[var(--ms-text-muted)]">{info.question}</span>
                 </div>
                 <div className="flex flex-wrap gap-2">
                   {blocksOfType.map((b) => {
@@ -191,8 +191,8 @@ export function PromptLabbet({ accentHex = "#10b981" }: { accentHex?: string }) 
                         disabled={generated}
                         className={`rounded-lg border px-3 py-2 text-sm transition-all ${
                           isSel
-                            ? "scale-105 text-[#0a0e1a] shadow-md"
-                            : "border-[#243248] bg-[#1a2235] text-white hover:border-white/40"
+                            ? "scale-105 text-[var(--ms-bg)] shadow-md"
+                            : "border-[var(--ms-border)] bg-[var(--ms-bg-card)] text-[var(--ms-text)] hover:border-[var(--ms-text)]/40"
                         } ${generated ? "cursor-default" : "cursor-pointer"}`}
                         style={
                           isSel
@@ -217,14 +217,14 @@ export function PromptLabbet({ accentHex = "#10b981" }: { accentHex?: string }) 
         </div>
 
         {/* Promptsamlingen */}
-        <div className="rounded-lg border border-[#243248] bg-[#1a2235] p-5">
-          <div className="ms-mono mb-3 flex items-center justify-between text-[#94a3b8]">
+        <div className="rounded-lg border border-[var(--ms-border)] bg-[var(--ms-bg-card)] p-5">
+          <div className="ms-mono mb-3 flex items-center justify-between text-[var(--ms-text-muted)]">
             <span>DIN PROMPT</span>
             <span>
               {blockCount} / 5 BLOCK · {detailLevel.toUpperCase()}
             </span>
           </div>
-          <div className="font-mono text-base leading-relaxed text-white">
+          <div className="font-mono text-base leading-relaxed text-[var(--ms-text)]">
             &ldquo;{promptText}&rdquo;
           </div>
           {sorted.length > 0 && (
@@ -260,7 +260,7 @@ export function PromptLabbet({ accentHex = "#10b981" }: { accentHex?: string }) 
 
         {/* Action */}
         <div className="flex flex-wrap items-center justify-between gap-3">
-          <div className="text-sm text-[#94a3b8]">
+          <div className="text-sm text-[var(--ms-text-muted)]">
             {blockCount === 0
               ? "Lägg till minst ett block."
               : blockCount < 3
@@ -293,18 +293,18 @@ export function PromptLabbet({ accentHex = "#10b981" }: { accentHex?: string }) 
 
         {/* Resultat */}
         {generated && (
-          <div className="ms-fadein space-y-4 border-t border-[#243248] pt-6">
+          <div className="ms-fadein space-y-4 border-t border-[var(--ms-border)] pt-6">
             <div>
-              <div className="ms-mono mb-3 text-[#94a3b8]">
+              <div className="ms-mono mb-3 text-[var(--ms-text-muted)]">
                 AI:S BESKRIVNING AV BILDEN
               </div>
-              <div className="rounded-lg border border-[#243248] bg-[#1a2235] p-5">
-                <div className="aspect-[16/9] mb-3 flex items-center justify-center rounded-md border border-dashed border-[#475569] bg-[#0d1322] p-6 text-center">
+              <div className="rounded-lg border border-[var(--ms-border)] bg-[var(--ms-bg-card)] p-5">
+                <div className="aspect-[16/9] mb-3 flex items-center justify-center rounded-md border border-dashed border-[var(--ms-border-strong)] bg-[var(--ms-bg-subtle)] p-6 text-center">
                   <div>
-                    <div className="ms-mono mb-2 text-[#94a3b8]">
+                    <div className="ms-mono mb-2 text-[var(--ms-text-muted)]">
                       [BILD GENERERAS HÄR]
                     </div>
-                    <p className="text-sm text-[#cbd5e1]">
+                    <p className="text-sm text-[var(--ms-text-body)]">
                       Riktig bild-AI skulle nu producera en bild baserat på
                       din prompt. Vi visar text-beskrivning istället —
                       bildbanken byggs senare.
@@ -312,10 +312,10 @@ export function PromptLabbet({ accentHex = "#10b981" }: { accentHex?: string }) 
                   </div>
                 </div>
                 <div>
-                  <div className="ms-mono mb-1 text-[#94a3b8]">
+                  <div className="ms-mono mb-1 text-[var(--ms-text-muted)]">
                     AI SKULLE PRODUCERA NÅGOT SÅ HÄR:
                   </div>
-                  <p className="text-[#e6edf7]">
+                  <p className="text-[var(--ms-text)]">
                     {describeResult(sorted)}
                   </p>
                 </div>

@@ -207,45 +207,45 @@ export function NastaOrdGame() {
 
     return (
       <div className="mx-auto max-w-2xl">
-        <div className="rounded-xl border border-[#a5b4fc]/40 bg-[#0d1322] p-8">
+        <div className="rounded-xl border border-[#a5b4fc]/40 bg-[var(--ms-bg-subtle)] p-8">
           <div className="mb-6 flex items-center gap-3">
             <Trophy className="h-8 w-8 text-[#fcd34d]" />
             <div>
-              <div className="ms-mono text-[#94a3b8]">SLUTRESULTAT</div>
-              <div className="text-3xl font-bold text-white">
+              <div className="ms-mono text-[var(--ms-text-muted)]">SLUTRESULTAT</div>
+              <div className="text-3xl font-bold text-[var(--ms-text)]">
                 Klart!
               </div>
             </div>
           </div>
 
           <div className="mb-6 grid gap-3 sm:grid-cols-3">
-            <div className="rounded-lg border border-[#243248] bg-[#1a2235] p-4">
-              <div className="ms-mono text-[#94a3b8]">DU & AI MATCH</div>
+            <div className="rounded-lg border border-[var(--ms-border)] bg-[var(--ms-bg-card)] p-4">
+              <div className="ms-mono text-[var(--ms-text-muted)]">DU & AI MATCH</div>
               <div className="mt-1 text-3xl font-bold text-[#a5b4fc]">
                 {stats.matchedAi}
-                <span className="text-base text-[#94a3b8]">/{total}</span>
+                <span className="text-base text-[var(--ms-text-muted)]">/{total}</span>
               </div>
-              <div className="mt-1 text-xs text-[#94a3b8]">
+              <div className="mt-1 text-xs text-[var(--ms-text-muted)]">
                 Din gissning fanns i AI:s top-3
               </div>
             </div>
-            <div className="rounded-lg border border-[#243248] bg-[#1a2235] p-4">
-              <div className="ms-mono text-[#94a3b8]">EGNA SPÅR</div>
+            <div className="rounded-lg border border-[var(--ms-border)] bg-[var(--ms-bg-card)] p-4">
+              <div className="ms-mono text-[var(--ms-text-muted)]">EGNA SPÅR</div>
               <div className="mt-1 text-3xl font-bold text-[#fcd34d]">
                 {stats.nonAi}
-                <span className="text-base text-[#94a3b8]">/{total}</span>
+                <span className="text-base text-[var(--ms-text-muted)]">/{total}</span>
               </div>
-              <div className="mt-1 text-xs text-[#94a3b8]">
+              <div className="mt-1 text-xs text-[var(--ms-text-muted)]">
                 Du gissade ett OK ord som AI inte hade i top-3
               </div>
             </div>
-            <div className="rounded-lg border border-[#243248] bg-[#1a2235] p-4">
-              <div className="ms-mono text-[#94a3b8]">UTANFÖR MÖNSTRET</div>
-              <div className="mt-1 text-3xl font-bold text-[#94a3b8]">
+            <div className="rounded-lg border border-[var(--ms-border)] bg-[var(--ms-bg-card)] p-4">
+              <div className="ms-mono text-[var(--ms-text-muted)]">UTANFÖR MÖNSTRET</div>
+              <div className="mt-1 text-3xl font-bold text-[var(--ms-text-muted)]">
                 {stats.invalid}
-                <span className="text-base text-[#94a3b8]">/{total}</span>
+                <span className="text-base text-[var(--ms-text-muted)]">/{total}</span>
               </div>
-              <div className="mt-1 text-xs text-[#94a3b8]">
+              <div className="mt-1 text-xs text-[var(--ms-text-muted)]">
                 Något helt annat
               </div>
             </div>
@@ -256,8 +256,8 @@ export function NastaOrdGame() {
             <p className="leading-relaxed text-[#fde68a]">{verdict}</p>
           </div>
 
-          <div className="rounded-lg border border-[#243248] bg-[#1a2235] p-5 text-sm leading-relaxed text-[#cbd5e1]">
-            <strong className="text-white">Det är poängen:</strong> AI är inte
+          <div className="rounded-lg border border-[var(--ms-border)] bg-[var(--ms-bg-card)] p-5 text-sm leading-relaxed text-[var(--ms-text-body)]">
+            <strong className="text-[var(--ms-text)]">Det är poängen:</strong> AI är inte
             magisk. Den gissar nästa ord med statistik. Du gör samma sak — fast
             du <em>vet</em> varför du säger det. AI vet inte. Den bara gissar.
           </div>
@@ -277,19 +277,19 @@ export function NastaOrdGame() {
 
   return (
     <div className="mx-auto max-w-2xl">
-      <div className="overflow-hidden rounded-xl border border-[#a5b4fc]/40 bg-[#0d1322]">
+      <div className="overflow-hidden rounded-xl border border-[#a5b4fc]/40 bg-[var(--ms-bg-subtle)]">
         {/* Topbar */}
         <div className="flex items-center justify-between bg-[#a5b4fc] px-6 py-3">
-          <div className="ms-mono font-bold text-[#0a0e1a]">
+          <div className="ms-mono font-bold text-[var(--ms-bg)]">
             NÄSTA ORD · RUNDA {roundIdx + 1} / {total}
           </div>
-          <div className="ms-mono text-[#0a0e1a]">
+          <div className="ms-mono text-[var(--ms-bg)]">
             DU & AI MATCH: {stats.matchedAi}
           </div>
         </div>
 
         {/* Progressbar */}
-        <div className="h-1 w-full bg-[#1a2235]">
+        <div className="h-1 w-full bg-[var(--ms-bg-card)]">
           <div
             className="h-full bg-[#a5b4fc] transition-all duration-500"
             style={{ width: `${((roundIdx + (submitted ? 1 : 0)) / total) * 100}%` }}
@@ -299,8 +299,8 @@ export function NastaOrdGame() {
         <div className="space-y-6 p-6">
           {/* Prompt */}
           <div>
-            <div className="ms-mono mb-3 text-[#94a3b8]">FYLL I LUCKAN</div>
-            <div className="rounded-lg border border-[#243248] bg-[#1a2235] p-6 text-2xl font-medium leading-relaxed text-white sm:text-3xl">
+            <div className="ms-mono mb-3 text-[var(--ms-text-muted)]">FYLL I LUCKAN</div>
+            <div className="rounded-lg border border-[var(--ms-border)] bg-[var(--ms-bg-card)] p-6 text-2xl font-medium leading-relaxed text-[var(--ms-text)] sm:text-3xl">
               {round.prompt.split("___").map((part, i) => (
                 <span key={i}>
                   {part}
@@ -339,7 +339,7 @@ export function NastaOrdGame() {
                 onChange={(e) => setInput(e.target.value)}
                 autoFocus
                 placeholder="Skriv ditt ord…"
-                className="flex-1 rounded-lg border border-[#243248] bg-[#1a2235] px-4 py-3 text-lg text-white placeholder-[#64748b] outline-none transition-colors focus:border-[#a5b4fc]"
+                className="flex-1 rounded-lg border border-[var(--ms-border)] bg-[var(--ms-bg-card)] px-4 py-3 text-lg text-[var(--ms-text)] placeholder-[var(--ms-text-dim)] outline-none transition-colors focus:border-[#a5b4fc]"
               />
               <button
                 type="submit"
@@ -357,8 +357,8 @@ export function NastaOrdGame() {
             <div className="ms-fadein space-y-4">
               {/* Jämförelse */}
               <div className="grid gap-3 sm:grid-cols-2">
-                <div className="rounded-lg border border-[#243248] bg-[#1a2235] p-4">
-                  <div className="ms-mono mb-2 flex items-center gap-1.5 text-[#94a3b8]">
+                <div className="rounded-lg border border-[var(--ms-border)] bg-[var(--ms-bg-card)] p-4">
+                  <div className="ms-mono mb-2 flex items-center gap-1.5 text-[var(--ms-text-muted)]">
                     <User className="h-3.5 w-3.5" />
                     DU GISSADE
                   </div>
@@ -374,8 +374,8 @@ export function NastaOrdGame() {
                     {submitted}
                   </div>
                 </div>
-                <div className="rounded-lg border border-[#243248] bg-[#1a2235] p-4">
-                  <div className="ms-mono mb-2 flex items-center gap-1.5 text-[#94a3b8]">
+                <div className="rounded-lg border border-[var(--ms-border)] bg-[var(--ms-bg-card)] p-4">
+                  <div className="ms-mono mb-2 flex items-center gap-1.5 text-[var(--ms-text-muted)]">
                     <Bot className="h-3.5 w-3.5" />
                     AI:S TOP-3
                   </div>
@@ -386,10 +386,10 @@ export function NastaOrdGame() {
                         className={`flex items-center gap-2 ${
                           normalize(w) === normalize(submitted)
                             ? "text-emerald-300"
-                            : "text-white"
+                            : "text-[var(--ms-text)]"
                         }`}
                       >
-                        <span className="ms-mono text-[#64748b]">
+                        <span className="ms-mono text-[var(--ms-text-dim)]">
                           {i + 1}.
                         </span>
                         <span className="font-medium">{w}</span>
@@ -424,7 +424,7 @@ export function NastaOrdGame() {
                     ? "OK — men inte i AI:s top-3"
                     : "Helt eget spår"}
                 </div>
-                <p className="text-sm leading-relaxed text-[#cbd5e1]">
+                <p className="text-sm leading-relaxed text-[var(--ms-text-body)]">
                   {round.insight}
                 </p>
               </div>

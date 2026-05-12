@@ -7,6 +7,7 @@ import { MonsterLabbet } from "@/components/mellanstadiet/MonsterLabbet";
 import { BegreppsBank } from "@/components/mellanstadiet/BegreppsBank";
 import { SpelCallout } from "@/components/mellanstadiet/SpelCallout";
 import { PlaceholderImage } from "@/components/mellanstadiet/PlaceholderImage";
+import { MELLANSTADIET_IMAGES } from "@/lib/mellanstadiet-images";
 import { ReflectionPrompt } from "@/components/mellanstadiet/ReflectionPrompt";
 import { PravaMedAI } from "@/components/mellanstadiet/PravaMedAI";
 import { DiskutteraBlock } from "@/components/mellanstadiet/DiskutteraBlock";
@@ -71,6 +72,7 @@ export function Lektion2Content({ lesson }: { lesson: MellanstadietLesson }) {
         <h3>Det Amazon byggde och tvingades skrota</h3>
 
         <PlaceholderImage
+          src={MELLANSTADIET_IMAGES["L2.1"]}
           caption="Amazon-logotyp + 'CV-sortering 2014–2018' + statistik om anställningar (87% män, 13% kvinnor)"
           hint="Joel: enkel infografik som visar Amazons skewed historiska data"
           aspect="3/2"
@@ -143,6 +145,7 @@ export function Lektion2Content({ lesson }: { lesson: MellanstadietLesson }) {
         </p>
 
         <PlaceholderImage
+          src={MELLANSTADIET_IMAGES["L2.2"]}
           caption="Skala-bild: en mellanstadieelev (1 miljon ord/år) jämfört med ChatGPT (13 biljoner ord). Visualisera storleksskillnaden."
           hint="Joel: kanske en stege eller staplar — hur stor är skillnaden mellan 1M och 13T?"
           aspect="16/7"
@@ -358,18 +361,18 @@ export function Lektion2Content({ lesson }: { lesson: MellanstadietLesson }) {
           ].map((p) => (
             <div
               key={p.prompt}
-              className="rounded-lg border border-[#243248] bg-[#1a2235] p-4"
+              className="rounded-lg border border-[var(--ms-border)] bg-[var(--ms-bg-card)] p-4"
             >
-              <div className="ms-mono mb-2 text-xs text-[#94a3b8]">
+              <div className="ms-mono mb-2 text-xs text-[var(--ms-text-muted)]">
                 PROMPT
               </div>
-              <p className="font-mono text-sm text-[#e6edf7]">
+              <p className="font-mono text-sm text-[var(--ms-text)]">
                 &ldquo;{p.prompt}&rdquo;
               </p>
-              <div className="ms-mono mt-3 text-xs text-[#94a3b8]">
+              <div className="ms-mono mt-3 text-xs text-[var(--ms-text-muted)]">
                 NOTERA
               </div>
-              <p className="text-xs text-[#cbd5e1]">{p.obs}</p>
+              <p className="text-xs text-[var(--ms-text-body)]">{p.obs}</p>
             </div>
           ))}
         </div>

@@ -56,7 +56,7 @@ export function LessonComplete({
 
   return (
     <div
-      className="ms-fadein my-10 overflow-hidden rounded-xl border bg-gradient-to-br from-[#0d1322] via-[#1a2235] to-[#0d1322] p-8 text-center"
+      className="ms-fadein my-10 overflow-hidden rounded-xl border bg-gradient-to-br from-[var(--ms-bg-subtle)] via-[var(--ms-bg-card)] to-[var(--ms-bg-subtle)] p-8 text-center"
       style={{ borderColor: accentHex }}
     >
       <div className="mb-4 flex items-center justify-center gap-2">
@@ -68,11 +68,11 @@ export function LessonComplete({
         className="mx-auto mb-4 h-12 w-12"
         style={{ color: accentHex }}
       />
-      <h2 className="mb-2 text-3xl font-bold text-white">
+      <h2 className="mb-2 text-3xl font-bold text-[var(--ms-text)]">
         Lektion {lessonNumber} klar!
       </h2>
-      <p className="text-lg text-[#cbd5e1]">{lessonTitle}</p>
-      <p className="mt-4 text-sm text-[#94a3b8]">
+      <p className="text-lg text-[var(--ms-text-body)]">{lessonTitle}</p>
+      <p className="mt-4 text-sm text-[var(--ms-text-muted)]">
         Du har gått igenom alla sex steg. Snyggt jobbat — och tack för att du
         granskar AI istället för bara använder den.
       </p>
