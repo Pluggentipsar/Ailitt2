@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, type ComponentType } from "react";
+import { useEffect, useState, type ComponentType } from "react";
 import {
   ArrowRight,
   Check,
@@ -13,18 +13,17 @@ import {
 /* Datafönstret — interaktiv förklaring av hur en SPRÅKMODELL tränas
  * och varför bias uppstår när träningsdatan är ofullständig.
  *
- * Pedagogiskt grepp: "Tre AI:er, samma fråga, olika svar."
- * Eleven väljer en fråga, sen tränas tre AI:er på tre olika datakällor
- * (1950-tidningar, sociala medier idag, Wikipedia). Eleven ser:
- *   - vilka ORD varje AI associerar med frågan (top-5 + vikt)
- *   - pronomenfördelning (han/hon/hen)
- *   - AI:ns svar — kort, åldersanpassat, känns äkta
+ * Fyra-stegs pedagogiskt flöde:
+ *  1. Eleven väljer en fråga.
+ *  2. Tränar tre AI:er på tre olika datakällor. Under träning syns en
+ *     STRÖM av texter ur datan (känsla av "AI:n läser just nu").
+ *     Efter träning: top-5 ord, pronomenfördelning per AI.
+ *  3. "Nästa ord"-jämförelse — den riktiga mekanismen bakom språkmodeller.
+ *     Samma mening, lucka, tre olika sannolikhetsfördelningar.
+ *  4. "Ställ hela frågan" — AI:ns svar animeras ord-för-ord per AI.
+ *  5. Reveal — varför svaren skiljde sig + meta-budskap om bias.
  *
- * Sedan en reveal: ingen källa är "neutral". Bias är inte ondska,
- * det är vad som fanns i fönstret. Och en AI är inget annat än vad
- * den fått läsa.
- *
- * INGA riktiga modeller körs. Allt är förberedd kuraterad data.
+ * Allt innehåll är förberedd kuraterad data. Inga modeller körs.
  */
 
 type SourceId = "tidningar-1950" | "sociala-medier" | "wikipedia";
@@ -34,11 +33,16 @@ interface Source {
   id: SourceId;
   label: string;
   era: string;
-  emoji: string;
   icon: ComponentType<{ className?: string }>;
   short: string;
   accent: string;
   texture: string;
+  streamFragments: string[];
+}
+
+interface NextWordPredictions {
+  prefix: string;
+  predictions: Record<SourceId, { word: string; weight: number }[]>;
 }
 
 interface Answer {
@@ -54,6 +58,7 @@ interface Question {
   label: string;
   fråga: string;
   intro: string;
+  nextWord: NextWordPredictions;
   answers: Record<SourceId, Answer>;
 }
 
@@ -62,31 +67,70 @@ const SOURCES: Source[] = [
     id: "tidningar-1950",
     label: "Svenska tidningar från 1950",
     era: "70+ år sen",
-    emoji: "📰",
     icon: Newspaper,
     short: "Tidningar 1950",
     accent: "#a16207",
     texture: "från en tid då nästan alla journalister var män och få kvinnor syntes i offentligheten",
+    streamFragments: [
+      "Doktorn anlände i sin svarta rock...",
+      "Den respekterade läkaren, en man i sina bästa år...",
+      "Sjuksköterskan följde doktorns instruktioner...",
+      "Familjen Andersson samlades vid söndagsmiddagen.",
+      "Pappa Karl-Erik gick till banken om torsdagen.",
+      "Som hemmafru har Mona ansvaret för hushållet.",
+      "Den store fysikern Albert Einstein har uttalat sig...",
+      "Professor Bergström leder forskningen kring...",
+      "Söndagskyrkan var en värdig tradition.",
+      "Han bar hatt på vägen till kontoret.",
+      "Mor Astrid passade hemmet medan barnen var i skolan.",
+      "Det är en värdig familj som lägger grunden.",
+    ],
   },
   {
     id: "sociala-medier",
     label: "Sociala medier idag",
     era: "2024",
-    emoji: "📱",
     icon: Smartphone,
     short: "Sociala medier",
     accent: "#db2777",
     texture: "TikTok-kommentarer, Instagram-inlägg, Reddit-trådar — folks åsikter, känslor och trender",
+    streamFragments: [
+      "bästa läkaren EVER, hen LYSSNAR 🙏",
+      "4 timmars väntetid bara för att hen sa...",
+      "vår familj: jag, sambo, bonusbarn ❤️",
+      "klimatforskare på TikTok = gulddammning",
+      "varför pratar alla om Musk igen 🤡",
+      "min vårdcentral är hopplös ngn?",
+      "två-mammor-familjen Larsson 10 år 🌈",
+      "AI-forskare Hinton varnar igen 😬",
+      "ensamstående pappa till tre, kämpar varje dag",
+      "viral TED-talk om kvantfysik!! kolla!",
+      "tipsar varmt om dr Karlsson, så snäll",
+      "ny på kontoret idag, fick prata med hen 5 min",
+    ],
   },
   {
     id: "wikipedia",
     label: "Wikipedia idag",
     era: "2024",
-    emoji: "📚",
     icon: Sparkles,
     short: "Wikipedia",
     accent: "#0369a1",
     texture: "uppslagsverk skrivet av frivilliga — saklig ton, källhänvisningar, fakta",
+    streamFragments: [
+      "En läkare är en yrkesperson med medicinsk legitimation...",
+      "Specialistutbildning omfattar minst fem år efter...",
+      "Begreppet familj inkluderar olika konstellationer...",
+      "Kärnfamiljen är en av flera samhällsenheter...",
+      "Marie Curie (1867–1934) mottog Nobelpriset två gånger.",
+      "Forskning bedrivs vid universitet och institut.",
+      "Ada Lovelace beskrev på 1840-talet algoritmer...",
+      "Antalet kvinnliga läkare i Sverige har sedan 1970...",
+      "Regnbågsfamiljer är en samhällsform där föräldrarna...",
+      "Specialiseringar omfattar bland annat allmänmedicin...",
+      "Hedy Lamarr utvecklade frekvenshoppningstekniken.",
+      "Familj definieras som grupp personer förenade av...",
+    ],
   },
 ];
 
@@ -96,6 +140,32 @@ const QUESTIONS: Question[] = [
     label: "Vem är en bra läkare?",
     fråga: "Beskriv en bra läkare.",
     intro: "Klassisk yrkesbild. Var ser AI:n läkare? Vilka egenskaper räknar den upp först? Och vilket pronomen använder den?",
+    nextWord: {
+      prefix: "När jag gick till läkaren tog",
+      predictions: {
+        "tidningar-1950": [
+          { word: "han", weight: 50 },
+          { word: "doktorn", weight: 28 },
+          { word: "hon", weight: 12 },
+          { word: "läkaren", weight: 8 },
+          { word: "hen", weight: 2 },
+        ],
+        "sociala-medier": [
+          { word: "hen", weight: 28 },
+          { word: "hon", weight: 26 },
+          { word: "han", weight: 24 },
+          { word: "doktorn", weight: 12 },
+          { word: "läkaren", weight: 10 },
+        ],
+        wikipedia: [
+          { word: "läkaren", weight: 28 },
+          { word: "hen", weight: 22 },
+          { word: "hon", weight: 22 },
+          { word: "han", weight: 22 },
+          { word: "doktorn", weight: 6 },
+        ],
+      },
+    },
     answers: {
       "tidningar-1950": {
         topWords: [
@@ -131,7 +201,7 @@ const QUESTIONS: Question[] = [
         svar: "En bra läkare är någon som lyssnar, är snäll och förklarar saker tydligt. Inte stressad, inte nedlåtande. Genus blandat — kan vara hon, han eller hen.",
         förklaring: "På sociala medier 2024 skriver folk om läkare de KÄNT — och det de uppskattar är bemötande. AI:n hör knappt om utbildning eller titel. Den hör bara om hur det KÄNDES.",
       },
-      "wikipedia": {
+      wikipedia: {
         topWords: [
           { word: "utbildning", weight: 81 },
           { word: "specialitet", weight: 72 },
@@ -155,6 +225,32 @@ const QUESTIONS: Question[] = [
     label: "Hur ser en vanlig familj ut?",
     fråga: "Beskriv en vanlig familj.",
     intro: "Familj är ett begrepp som ändrats enormt på 70 år. Vad räknas som \"vanligt\" beror helt på vilken tid och plats datan kommer ifrån.",
+    nextWord: {
+      prefix: "En vanlig familj består av",
+      predictions: {
+        "tidningar-1950": [
+          { word: "mamma+pappa", weight: 42 },
+          { word: "två barn", weight: 22 },
+          { word: "kärnfamiljen", weight: 18 },
+          { word: "hemmet", weight: 10 },
+          { word: "söndagsmiddag", weight: 8 },
+        ],
+        "sociala-medier": [
+          { word: "alla möjliga", weight: 30 },
+          { word: "olika former", weight: 22 },
+          { word: "bonusbarn", weight: 18 },
+          { word: "kärlek", weight: 16 },
+          { word: "sammanboende", weight: 14 },
+        ],
+        wikipedia: [
+          { word: "kärnfamiljen", weight: 28 },
+          { word: "olika konstellationer", weight: 24 },
+          { word: "släktrelaterade", weight: 22 },
+          { word: "två föräldrar", weight: 14 },
+          { word: "hushållsmedlemmar", weight: 12 },
+        ],
+      },
+    },
     answers: {
       "tidningar-1950": {
         topWords: [
@@ -190,7 +286,7 @@ const QUESTIONS: Question[] = [
         svar: "Familjer ser ut på massor av olika sätt. Två mammor, två pappor, ensamstående med barn, sambopar med bonusbarn, stora släktnätverk som tar hand om varandra. Det \"normala\" är att alla är olika.",
         förklaring: "Sociala medier 2024 är fyllda av familjer som visar upp sin verklighet. AI:n ser många former, men också mycket SJÄLVPRESENTATION — folk visar inte alltid det jobbiga. Det är också en bias.",
       },
-      "wikipedia": {
+      wikipedia: {
         topWords: [
           { word: "släktrelation", weight: 75 },
           { word: "kärnfamilj", weight: 71 },
@@ -214,6 +310,32 @@ const QUESTIONS: Question[] = [
     label: "Vilka är intressanta forskare?",
     fråga: "Räkna upp några intressanta forskare.",
     intro: "Forskning har funnits i alla tider och alla länder. Men vilka som blev OMNÄMNDA — det är en helt annan fråga.",
+    nextWord: {
+      prefix: "En framstående forskare är oftast",
+      predictions: {
+        "tidningar-1950": [
+          { word: "man", weight: 45 },
+          { word: "professor", weight: 25 },
+          { word: "europé", weight: 18 },
+          { word: "äldre", weight: 8 },
+          { word: "akademiker", weight: 4 },
+        ],
+        "sociala-medier": [
+          { word: "viral", weight: 28 },
+          { word: "populär", weight: 22 },
+          { word: "kontroversiell", weight: 18 },
+          { word: "AI-expert", weight: 18 },
+          { word: "känd", weight: 14 },
+        ],
+        wikipedia: [
+          { word: "kvalificerad", weight: 26 },
+          { word: "publicerad", weight: 24 },
+          { word: "internationell", weight: 22 },
+          { word: "ämnesspecialist", weight: 18 },
+          { word: "expert", weight: 10 },
+        ],
+      },
+    },
     answers: {
       "tidningar-1950": {
         topWords: [
@@ -249,7 +371,7 @@ const QUESTIONS: Question[] = [
         svar: "Intressanta forskare är de som blir virala — folk som forskar på AI, klimat, kvantfysik. Ofta blandas riktiga forskare med tech-grundare som Musk eller Bezos. Den med flest följare hörs mest.",
         förklaring: "Sociala medier förstärker det som DELAS. En forskare med en bra TikTok-känsla får mer plats än en banbrytande forskare som inte gillar kameror. Det är en HELT egen bias.",
       },
-      "wikipedia": {
+      wikipedia: {
         topWords: [
           { word: "nobelpris", weight: 78 },
           { word: "Curie", weight: 65 },
@@ -270,6 +392,31 @@ const QUESTIONS: Question[] = [
   },
 ];
 
+// CSS för läsningsströmmen och blinkande markör. Injectas en gång per
+// komponentrendering — minimalt, scoped via prefixade klassnamn.
+const STREAM_CSS = `
+@keyframes ds-stream-scroll {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-50%); }
+}
+@keyframes ds-cursor-blink {
+  0%, 50% { opacity: 1; }
+  50.01%, 100% { opacity: 0; }
+}
+.ds-stream-track {
+  animation: ds-stream-scroll 6s linear infinite;
+}
+.ds-cursor {
+  display: inline-block;
+  width: 2px;
+  height: 1em;
+  background: currentColor;
+  margin-left: 2px;
+  vertical-align: text-bottom;
+  animation: ds-cursor-blink 0.9s steps(1) infinite;
+}
+`;
+
 interface DatafonstretProps {
   accentHex: string;
 }
@@ -282,10 +429,27 @@ export function Datafonstret({ accentHex }: DatafonstretProps) {
     wikipedia: false,
   });
   const [training, setTraining] = useState<SourceId | null>(null);
+  const [answeringStarted, setAnsweringStarted] = useState(false);
+  const [wordIndex, setWordIndex] = useState(0);
   const [showReveal, setShowReveal] = useState(false);
 
   const question = QUESTIONS.find((q) => q.id === questionId);
-  const allTrained = Object.values(trained).every((v) => v);
+  const allTrained = SOURCES.every((s: Source) => trained[s.id]);
+
+  const maxWords = question
+    ? Math.max(
+        ...SOURCES.map((s) => question.answers[s.id].svar.split(" ").length),
+      )
+    : 0;
+  const answeringComplete = answeringStarted && wordIndex >= maxWords;
+
+  // Ord-för-ord-animering: tick 90ms när "Ställ frågan" är aktiv.
+  useEffect(() => {
+    if (!answeringStarted || !question) return;
+    if (wordIndex >= maxWords) return;
+    const t = setTimeout(() => setWordIndex((w: number) => w + 1), 90);
+    return () => clearTimeout(t);
+  }, [answeringStarted, wordIndex, maxWords, question]);
 
   const trainSource = (id: SourceId) => {
     if (trained[id] || training) return;
@@ -293,7 +457,12 @@ export function Datafonstret({ accentHex }: DatafonstretProps) {
     setTimeout(() => {
       setTrained((prev: Record<SourceId, boolean>) => ({ ...prev, [id]: true }));
       setTraining(null);
-    }, 1800);
+    }, 2200);
+  };
+
+  const askQuestion = () => {
+    setAnsweringStarted(true);
+    setWordIndex(0);
   };
 
   const reset = () => {
@@ -304,6 +473,8 @@ export function Datafonstret({ accentHex }: DatafonstretProps) {
       wikipedia: false,
     });
     setTraining(null);
+    setAnsweringStarted(false);
+    setWordIndex(0);
     setShowReveal(false);
   };
 
@@ -312,6 +483,8 @@ export function Datafonstret({ accentHex }: DatafonstretProps) {
       className="not-prose my-8 overflow-hidden rounded-3xl border-2 bg-gradient-to-b from-white to-stone-50 shadow-lg"
       style={{ borderColor: `${accentHex}40` }}
     >
+      <style>{STREAM_CSS}</style>
+
       {/* Header */}
       <div
         className="px-6 py-6 sm:px-8"
@@ -321,7 +494,7 @@ export function Datafonstret({ accentHex }: DatafonstretProps) {
         }}
       >
         <div className="ms-mono mb-1 text-stone-600">
-          INTERAKTIVT · 8–12 MIN
+          INTERAKTIVT · 10–14 MIN
         </div>
         <h3 className="m-0 text-2xl font-bold tracking-tight text-stone-900 sm:text-3xl">
           Datafönstret
@@ -342,20 +515,12 @@ export function Datafonstret({ accentHex }: DatafonstretProps) {
             Vilken fråga ska de tre AI:erna svara på?
           </h4>
           <div className="grid gap-3 sm:grid-cols-3">
-            {QUESTIONS.map((q) => (
+            {QUESTIONS.map((q: Question) => (
               <button
                 key={q.id}
                 onClick={() => setQuestionId(q.id)}
                 className="group flex h-full flex-col rounded-2xl border-2 border-stone-200 bg-white p-5 text-left transition-all hover:-translate-y-1 hover:shadow-md"
-                style={{
-                  ["--hover-border" as string]: accentHex,
-                }}
-                onMouseEnter={(e) =>
-                  (e.currentTarget.style.borderColor = accentHex)
-                }
-                onMouseLeave={(e) =>
-                  (e.currentTarget.style.borderColor = "")
-                }
+                style={{ borderColor: "#e7e5e4" }}
               >
                 <span className="ms-mono text-stone-400">FRÅGA</span>
                 <span className="mt-1 text-lg font-bold text-stone-900">
@@ -376,7 +541,7 @@ export function Datafonstret({ accentHex }: DatafonstretProps) {
         </div>
       )}
 
-      {/* STAGE 2: Train sources */}
+      {/* STAGE 2-4: Train + compare + answer */}
       {question && !showReveal && (
         <div className="px-6 py-8 sm:px-8">
           <div className="ms-mono mb-3 text-stone-500">
@@ -392,8 +557,9 @@ export function Datafonstret({ accentHex }: DatafonstretProps) {
             </p>
           </div>
 
+          {/* Tre kort: en per datakälla */}
           <div className="grid gap-4 lg:grid-cols-3">
-            {SOURCES.map((source) => {
+            {SOURCES.map((source: Source) => {
               const isTrained = trained[source.id];
               const isTraining = training === source.id;
               const answer = question.answers[source.id];
@@ -403,11 +569,7 @@ export function Datafonstret({ accentHex }: DatafonstretProps) {
                   key={source.id}
                   className="flex flex-col overflow-hidden rounded-2xl border-2 bg-white shadow-sm transition-all"
                   style={{
-                    borderColor: isTrained
-                      ? source.accent
-                      : isTraining
-                        ? source.accent
-                        : "#e7e5e4",
+                    borderColor: isTrained || isTraining ? source.accent : "#e7e5e4",
                   }}
                 >
                   {/* Card header */}
@@ -419,7 +581,7 @@ export function Datafonstret({ accentHex }: DatafonstretProps) {
                     }}
                   >
                     <div
-                      className="flex h-10 w-10 flex-none items-center justify-center rounded-xl text-2xl"
+                      className="flex h-10 w-10 flex-none items-center justify-center rounded-xl"
                       style={{ background: `${source.accent}25` }}
                     >
                       <Icon
@@ -446,59 +608,58 @@ export function Datafonstret({ accentHex }: DatafonstretProps) {
                   </div>
 
                   {/* Card body */}
-                  <div className="flex flex-col gap-3 p-4">
+                  <div className="flex flex-1 flex-col gap-3 p-4">
                     <p className="m-0 text-sm leading-relaxed text-stone-600">
                       {source.texture}
                     </p>
 
-                    {/* Exempel-texter — visas hela tiden så eleven ser materialet */}
-                    <div className="rounded-lg bg-stone-50 p-3">
-                      <div className="ms-mono mb-2 text-stone-500">
-                        EXEMPEL UR DATAN
-                      </div>
-                      <ul className="m-0 space-y-1.5 pl-4 text-xs leading-relaxed text-stone-700">
-                        {answer.exempelTexter.map((text, i) => (
-                          <li key={i} className="italic">
-                            {text}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-
                     {!isTrained && !isTraining && (
-                      <button
-                        onClick={() => trainSource(source.id)}
-                        disabled={!!training}
-                        className="mt-auto rounded-xl px-4 py-3 font-bold text-white shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-md disabled:cursor-not-allowed disabled:opacity-40"
-                        style={{ background: source.accent }}
-                      >
-                        ▶ TRÄNA AI:N
-                      </button>
+                      <>
+                        {/* Före träning: statiska exempel ur datan */}
+                        <div className="rounded-lg bg-stone-50 p-3">
+                          <div className="ms-mono mb-2 text-stone-500">
+                            EXEMPEL UR DATAN
+                          </div>
+                          <ul className="m-0 space-y-1.5 pl-4 text-xs leading-relaxed text-stone-700">
+                            {answer.exempelTexter.map((text: string, i: number) => (
+                              <li key={i} className="italic">
+                                {text}
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                        <button
+                          onClick={() => trainSource(source.id)}
+                          disabled={!!training}
+                          className="mt-auto rounded-xl px-4 py-3 font-bold text-white shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-md disabled:cursor-not-allowed disabled:opacity-40"
+                          style={{ background: source.accent }}
+                        >
+                          ▶ TRÄNA AI:N
+                        </button>
+                      </>
                     )}
 
                     {isTraining && (
-                      <div className="mt-auto">
-                        <div className="ms-mono mb-1 flex justify-between text-stone-500">
-                          <span>LÄSER DATA…</span>
-                          <span className="animate-pulse">▮</span>
-                        </div>
-                        <div className="h-2 overflow-hidden rounded-full bg-stone-200">
-                          <div
-                            className="h-full rounded-full transition-all duration-[1800ms] ease-out"
-                            style={{
-                              width: "100%",
-                              background: source.accent,
-                            }}
-                          />
-                        </div>
-                      </div>
+                      <ReadingStream
+                        fragments={source.streamFragments}
+                        accent={source.accent}
+                      />
                     )}
 
                     {isTrained && (
-                      <TrainedView
-                        answer={answer}
-                        sourceAccent={source.accent}
-                      />
+                      <>
+                        <TrainedView
+                          answer={answer}
+                          sourceAccent={source.accent}
+                        />
+                        {answeringStarted && (
+                          <AnswerView
+                            answer={answer}
+                            sourceAccent={source.accent}
+                            wordIndex={wordIndex}
+                          />
+                        )}
+                      </>
                     )}
                   </div>
                 </div>
@@ -506,7 +667,15 @@ export function Datafonstret({ accentHex }: DatafonstretProps) {
             })}
           </div>
 
-          {allTrained && (
+          {/* STEG 3: Nästa ord — den riktiga mekanismen */}
+          <NextWordCompare
+            question={question}
+            trained={trained}
+            accentHex={accentHex}
+          />
+
+          {/* Knappar: ställ frågan / förstå varför */}
+          {allTrained && !answeringStarted && (
             <div
               className="mt-6 flex flex-col items-start gap-3 rounded-2xl border-2 p-5 sm:flex-row sm:items-center sm:justify-between"
               style={{
@@ -516,8 +685,32 @@ export function Datafonstret({ accentHex }: DatafonstretProps) {
             >
               <div className="flex-1">
                 <div className="ms-mono text-stone-600">
-                  KLART · alla tre tränade
+                  STEG 4 · STÄLL HELA FRÅGAN
                 </div>
+                <p className="m-0 mt-1 text-lg font-bold text-stone-900">
+                  Be alla tre AI:er svara på frågan. Skriv ut svaren ord för ord — så som en riktig AI gör.
+                </p>
+              </div>
+              <button
+                onClick={askQuestion}
+                className="rounded-xl px-5 py-3 font-bold text-white shadow-md transition-all hover:-translate-y-0.5"
+                style={{ background: accentHex }}
+              >
+                Ställ frågan →
+              </button>
+            </div>
+          )}
+
+          {answeringComplete && (
+            <div
+              className="mt-6 flex flex-col items-start gap-3 rounded-2xl border-2 p-5 sm:flex-row sm:items-center sm:justify-between"
+              style={{
+                borderColor: accentHex,
+                background: `${accentHex}10`,
+              }}
+            >
+              <div className="flex-1">
+                <div className="ms-mono text-stone-600">KLART · alla tre svarade</div>
                 <p className="m-0 mt-1 text-lg font-bold text-stone-900">
                   Notera hur olika de svarade. Samma fråga. Helt olika svar.
                 </p>
@@ -534,10 +727,10 @@ export function Datafonstret({ accentHex }: DatafonstretProps) {
         </div>
       )}
 
-      {/* STAGE 3: Reveal */}
+      {/* STAGE 5: Reveal */}
       {question && showReveal && (
         <div className="px-6 py-8 sm:px-8">
-          <div className="ms-mono mb-3 text-stone-500">STEG 3 · INSIKT</div>
+          <div className="ms-mono mb-3 text-stone-500">STEG 5 · INSIKT</div>
           <h4 className="m-0 mb-4 text-2xl font-bold tracking-tight text-stone-900 sm:text-3xl">
             Varför svarade de så olika?
           </h4>
@@ -547,7 +740,7 @@ export function Datafonstret({ accentHex }: DatafonstretProps) {
           </p>
 
           <div className="grid gap-3 sm:grid-cols-3">
-            {SOURCES.map((source) => {
+            {SOURCES.map((source: Source) => {
               const answer = question.answers[source.id];
               return (
                 <div
@@ -578,11 +771,12 @@ export function Datafonstret({ accentHex }: DatafonstretProps) {
             </h5>
             <p className="m-0 text-base leading-relaxed text-stone-800">
               AI är ingen tänkare. AI är en{" "}
-              <strong>spegel av sin träningsdata</strong>. Om datan bara visar
-              en typ av människa, en typ av liv, en typ av plats — så blir det
-              AI:ns hela värld. Och här är det viktiga:{" "}
-              <strong>ingen datakälla är &ldquo;neutral&rdquo;</strong>. Inte
-              ens Wikipedia. Det finns alltid något datan missade.
+              <strong>spegel av sin träningsdata</strong>. Varje gång AI:n
+              skulle välja nästa ord — använde den sannolikheterna från sin
+              data. Om datan bara visar en typ av människa, en typ av liv, en
+              typ av plats — så blir det AI:ns hela värld. Och här är det
+              viktiga: <strong>ingen datakälla är &ldquo;neutral&rdquo;</strong>.
+              Inte ens Wikipedia. Det finns alltid något datan missade.
             </p>
             <p className="m-0 mt-3 text-base leading-relaxed text-stone-800">
               När du använder AI — fråga dig: <em>vad lärde den sig från?</em>{" "}
@@ -606,8 +800,65 @@ export function Datafonstret({ accentHex }: DatafonstretProps) {
   );
 }
 
-/* Subkomponent: visualiserar vad AI:n "lärt sig" efter träning på en källa.
- * Visar top-5 ord med vikt-bars + pronomenfördelning + AI:ns slutliga svar. */
+/* Strömmen av text-fragment som syns under träning. Duplicerar listan
+ * och scrollar oändligt med en CSS-keyframe-animation. Skapar känslan
+ * att AI:n "läser" texten i realtid. */
+function ReadingStream({
+  fragments,
+  accent,
+}: {
+  fragments: string[];
+  accent: string;
+}) {
+  const doubled = [...fragments, ...fragments];
+  return (
+    <div
+      className="relative overflow-hidden rounded-lg"
+      style={{
+        background: `${accent}08`,
+        border: `1px solid ${accent}30`,
+        height: 168,
+      }}
+    >
+      <div className="ds-stream-track absolute inset-x-0 top-0">
+        {doubled.map((f: string, i: number) => (
+          <div
+            key={i}
+            className="px-3 py-1.5 text-xs italic leading-snug text-stone-700"
+          >
+            &ldquo;{f}&rdquo;
+          </div>
+        ))}
+      </div>
+      {/* Fade-out top + bottom för att inramma strömmen */}
+      <div
+        className="pointer-events-none absolute inset-x-0 top-0 h-6"
+        style={{
+          background: `linear-gradient(to bottom, ${accent}1a, transparent)`,
+        }}
+      />
+      <div
+        className="pointer-events-none absolute inset-x-0 bottom-0 h-6"
+        style={{
+          background: `linear-gradient(to top, ${accent}1a, transparent)`,
+        }}
+      />
+      {/* Indikator */}
+      <div className="absolute inset-x-0 bottom-0 flex items-center justify-between px-2 py-1.5">
+        <div
+          className="ms-mono inline-flex items-center gap-1.5 rounded-md px-2 py-0.5 text-[10px] font-bold text-white shadow-sm"
+          style={{ background: accent }}
+        >
+          <span className="inline-block h-1.5 w-1.5 animate-pulse rounded-full bg-white" />
+          LÄSER DATA
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/* Visar vad AI:n "lärt sig" efter träning — utan AI:ns svar (det kommer
+ * separat när användaren klickat "Ställ frågan"). */
 function TrainedView({
   answer,
   sourceAccent,
@@ -621,13 +872,12 @@ function TrainedView({
 
   return (
     <div className="flex flex-col gap-4">
-      {/* Top-5 ord */}
       <div>
         <div className="ms-mono mb-2 text-stone-500">
           ORD AI:N ASSOCIERAR MED FRÅGAN
         </div>
         <ul className="m-0 space-y-1.5 p-0">
-          {answer.topWords.map((w) => (
+          {answer.topWords.map((w: { word: string; weight: number }) => (
             <li
               key={w.word}
               className="flex items-center gap-2 text-sm"
@@ -653,7 +903,6 @@ function TrainedView({
         </ul>
       </div>
 
-      {/* Pronomenfördelning */}
       <div>
         <div className="ms-mono mb-2 text-stone-500">
           PRONOMENFÖRDELNING I DATAN
@@ -691,19 +940,184 @@ function TrainedView({
           </div>
         </div>
       </div>
+    </div>
+  );
+}
 
-      {/* AI:ns svar */}
-      <div
-        className="rounded-lg border-l-4 p-3"
-        style={{
-          borderColor: sourceAccent,
-          background: `${sourceAccent}08`,
-        }}
+/* AI:ns svar — animeras ord-för-ord. wordIndex är globalt och stiger
+ * 1 per 90ms när "Ställ frågan" är aktiv. Card visar de ord vars
+ * position är mindre än wordIndex. När hela svaret är klart försvinner
+ * markören. */
+function AnswerView({
+  answer,
+  sourceAccent,
+  wordIndex,
+}: {
+  answer: Answer;
+  sourceAccent: string;
+  wordIndex: number;
+}) {
+  const words = answer.svar.split(" ");
+  const visible = words.slice(0, wordIndex).join(" ");
+  const isDone = wordIndex >= words.length;
+
+  return (
+    <div
+      className="rounded-lg border-l-4 p-3"
+      style={{
+        borderColor: sourceAccent,
+        background: `${sourceAccent}08`,
+      }}
+    >
+      <div className="ms-mono mb-1 text-stone-500">AI:N SVARAR</div>
+      <p
+        className="m-0 min-h-[3em] text-sm leading-relaxed text-stone-800"
+        style={{ color: undefined }}
       >
-        <div className="ms-mono mb-1 text-stone-500">AI:N SVARAR</div>
-        <p className="m-0 text-sm leading-relaxed text-stone-800">
-          {answer.svar}
-        </p>
+        {visible}
+        {!isDone && (
+          <span className="ds-cursor" style={{ color: sourceAccent }} />
+        )}
+      </p>
+    </div>
+  );
+}
+
+/* Nästa ord-jämförelsen — den RIKTIGA mekanismen bakom språkmodeller.
+ * Visar prefix-meningen och tre kolumner med sannolikhetsbalkar.
+ * Kolumner som hör till otränade källor blir gråa/utfallna. */
+function NextWordCompare({
+  question,
+  trained,
+  accentHex,
+}: {
+  question: Question;
+  trained: Record<SourceId, boolean>;
+  accentHex: string;
+}) {
+  const anyTrained = SOURCES.some((s: Source) => trained[s.id]);
+  if (!anyTrained) return null;
+
+  return (
+    <div className="mt-6">
+      <div className="ms-mono mb-2 text-stone-500">
+        STEG 3 · MEKANISMEN BAKOM AI · vad gissar AI:n som nästa ord?
+      </div>
+      <div
+        className="overflow-hidden rounded-2xl border-2 bg-white"
+        style={{ borderColor: `${accentHex}40` }}
+      >
+        <div
+          className="px-5 py-4"
+          style={{ background: `${accentHex}10`, borderBottom: `1px solid ${accentHex}25` }}
+        >
+          <p className="m-0 text-sm text-stone-700">
+            En språkmodell{" "}
+            <strong>förutspår nästa ord</strong> — och varje gissning är en{" "}
+            <strong>sannolikhet</strong>. Här är samma mening, samma lucka.
+            Vilket ord väljer varje AI?
+          </p>
+          <div
+            className="ms-mono mt-3 inline-block rounded-md bg-white px-3 py-2 text-base font-semibold text-stone-900 shadow-sm"
+            style={{ border: `1px solid ${accentHex}30` }}
+          >
+            &ldquo;{question.nextWord.prefix}{" "}
+            <span
+              className="inline-block min-w-[3em] rounded px-2 py-0.5 text-center"
+              style={{
+                background: `${accentHex}25`,
+                color: accentHex,
+                fontWeight: 700,
+              }}
+            >
+              ___
+            </span>
+            &rdquo;
+          </div>
+        </div>
+
+        <div className="grid gap-4 p-5 lg:grid-cols-3">
+          {SOURCES.map((source: Source) => {
+            const isTrained = trained[source.id];
+            const preds = question.nextWord.predictions[source.id];
+            const maxWeight = Math.max(...preds.map((p) => p.weight));
+            return (
+              <div
+                key={source.id}
+                className="flex flex-col rounded-xl border bg-stone-50 p-4 transition-opacity"
+                style={{
+                  borderColor: isTrained ? source.accent : "#d6d3d1",
+                  opacity: isTrained ? 1 : 0.35,
+                }}
+              >
+                <div className="ms-mono mb-3 flex items-center gap-2 text-stone-600">
+                  <span
+                    className="inline-block h-2 w-2 rounded-full"
+                    style={{ background: source.accent }}
+                  />
+                  {source.short.toUpperCase()}
+                </div>
+                {!isTrained && (
+                  <div className="ms-mono mt-4 text-stone-400">
+                    träna AI:n först…
+                  </div>
+                )}
+                {isTrained && (
+                  <ul className="m-0 space-y-2 p-0">
+                    {preds.map((p, i) => (
+                      <li
+                        key={p.word}
+                        className="flex items-center gap-2 text-sm"
+                        style={{ listStyle: "none" }}
+                      >
+                        <span
+                          className="w-32 flex-none truncate font-mono"
+                          style={{
+                            color: i === 0 ? source.accent : "#57534e",
+                            fontWeight: i === 0 ? 700 : 400,
+                          }}
+                        >
+                          {p.word}
+                        </span>
+                        <div className="h-2.5 flex-1 overflow-hidden rounded-full bg-white">
+                          <div
+                            className="h-full rounded-full"
+                            style={{
+                              width: `${(p.weight / maxWeight) * 100}%`,
+                              background: source.accent,
+                              opacity: i === 0 ? 1 : 0.55,
+                            }}
+                          />
+                        </div>
+                        <span
+                          className="ms-mono w-10 flex-none text-right font-bold"
+                          style={{ color: i === 0 ? source.accent : "#78716c" }}
+                        >
+                          {p.weight}%
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </div>
+            );
+          })}
+        </div>
+
+        {SOURCES.every((s: Source) => trained[s.id]) && (
+          <div
+            className="border-t px-5 py-4 text-sm leading-relaxed text-stone-700"
+            style={{
+              background: `${accentHex}08`,
+              borderColor: `${accentHex}25`,
+            }}
+          >
+            <strong>Det här är där bias föds.</strong> AI:n &ldquo;tänker&rdquo;
+            inte. Den räknar — utifrån vilka ord som följde efter liknande
+            meningar i datan. Olika data → olika sannolikheter → olika svar.
+            Hela tiden, för varje ord.
+          </div>
+        )}
       </div>
     </div>
   );
