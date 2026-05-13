@@ -40,7 +40,7 @@ export default function GrundskolaHub() {
 
                         {/* Åk 4-6 Card */}
                         <Link
-                            href="/grundskola/ak-4-6"
+                            href="/mellanstadiet"
                             className="group relative overflow-hidden rounded-3xl bg-white p-8 shadow-xl transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl border-2 border-transparent hover:border-indigo-200"
                         >
                             <div className="absolute inset-0 bg-gradient-to-br from-indigo-50 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
