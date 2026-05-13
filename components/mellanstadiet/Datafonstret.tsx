@@ -33,7 +33,7 @@ interface Source {
   id: SourceId;
   label: string;
   era: string;
-  icon: ComponentType<{ className?: string }>;
+  icon: ComponentType<{ className?: string; style?: { color?: string } }>;
   short: string;
   accent: string;
   texture: string;
