@@ -790,4 +790,310 @@ Pausa. Säg: ”Tänk er nu att jag är 13 år och faktiskt mår dåligt. Vad ha
     ],
     chainsWellWith: ["granska-ditt-flode", "testa-sykofantiskt-ai"],
   },
+
+  {
+    id: "phishing-jakten",
+    number: "4.4",
+    title: "Hitta phishing-knepen",
+    chapter: "vannen",
+    level: "workshop-byggsten",
+    blurb:
+      "Phishing är inte längre dålig grammatik och ”NIGERIAN PRINCE”. AI har gjort lurendrejerierna perfekta.",
+    purpose:
+      "Eleverna ska lära sig se vad ett phishing-meddelande FÖRSÖKER få dem att göra — och att det numera är OMÖJLIGT att avslöja det på språk eller stavfel. Det är ett av få områden där eleverna riskerar att förlora konton, pengar eller ID i mycket konkreta termer.",
+    trains: [
+      "manipulationsmedvetenhet",
+      "designkritik",
+      "kallkritik",
+      "verktygsstrategi",
+    ],
+    ageRanges: ["vuxen-workshop", "ak4-6", "ak7-9"],
+    duration: "30 min (workshop) / 45 min (klassrum)",
+    durationMinutes: 45,
+    digitalTools: true,
+    materials:
+      "Skärmdumpar eller mock-ups av phishing-meddelanden (e-post, sms, Discord, Roblox) + AI-tjänst för att GENERERA fler exempel.",
+
+    workshopExperience: [
+      {
+        type: "callout",
+        tone: "info",
+        title: "Vad du ska göra och varför",
+        body: "Du ska få träna ögat på modern phishing — och själv generera några exempel med AI. Phishing brukade vara lätt att avslöja på dålig svenska. Idag genererar AI perfekta, personliga, övertygande lurendrejerier på sekunder. Vad eleverna behöver lära sig är inte ”se efter stavfel” — det är att SE INTENTIONEN bakom meddelandet.",
+      },
+      { type: "h", text: "Så gör du steg för steg" },
+      {
+        type: "steps",
+        steps: [
+          {
+            title: "Studera tre mock-ups",
+            body: "Workshopledaren visar tre typer av phishing: e-post (”ditt Apple-ID är låst”), sms (”paket väntar — klicka här”), spel-meddelande (”någon vill skicka dig Robux”).",
+          },
+          {
+            title: "Identifiera vad varje meddelande VILL",
+            body: "Varje phishing försöker FÅ DIG ATT GÖRA något: klicka på länk, ge inloggning, ladda ner fil, swisha. INTENTIONEN är det centrala — inte språket.",
+          },
+          {
+            title: "Generera fler med AI",
+            body: "Skriv prompten i SkolUp AI: ”Skriv ett trovärdigt phishing-mejl som låtsas komma från [Spotify/Roblox/skolans IT]. Personalisera så det känns äkta.” Notera hur snabbt och övertygande det blir.",
+          },
+          {
+            title: "Lär dig pekarna",
+            body: "Det som AVSLÖJAR phishing är OFTAST: ovanlig URL (kolla domännamnet noga), krav på snabb handling, hot om att förlora något, oväntad inkommande kontakt.",
+          },
+          {
+            title: "Reflektera",
+            body: "Vilka phishing-typer möter eleverna mest? Vilka kanaler är värst? Vad gör de när de är osäkra?",
+          },
+        ],
+      },
+      { type: "h", text: "Tänk på" },
+      {
+        type: "list",
+        items: [
+          "Phishing är inte teoretiskt — det händer dagligen. Statens svenska medier rapporterar regelbundet om barn som förlorat Robux, Spotify-konton, eller (värre) gett ut föräldrars kortuppgifter.",
+          "AI gör inte BARA phishing bättre. AI kan också HJÄLPA till att avslöja phishing — vi kan be AI granska ett misstänkt meddelande åt oss.",
+          "Den viktigaste vanan att lära ut: ”vid tvekan, fråga en vuxen”. Tröskeln att fråga måste vara LÅG.",
+        ],
+      },
+    ],
+
+    teacherGuide: [
+      { type: "h", text: "Förberedelser" },
+      {
+        type: "list",
+        items: [
+          "Förbered 3–5 mock-ups av phishing-meddelanden som passar eleverna. Skapa själv via AI — t.ex. ”Skriv ett phishing-sms som låtsas vara från Postnord”. Inga riktiga företagslogor.",
+          "Sätt upp ett demo-konto i en AI-tjänst för att kunna generera fler exempel live.",
+          "Förbered en lista över de typer av phishing eleverna sannolikt möter: e-post, sms, Discord, Roblox, Snap, Spotify-mejl.",
+          "Säkerställ att eleverna INTE testar att klicka på riktiga phishing-länkar — bara analyserar mock-ups.",
+        ],
+      },
+      { type: "h", text: "Så här kör du" },
+      {
+        type: "steps",
+        steps: [
+          {
+            title: "Inramning",
+            body: "”AI har förändrat phishing. Idag finns det inte längre stavfel att fästa sig vid. Vi behöver lära oss något annat.”",
+            time: "5 min",
+          },
+          {
+            title: "Visa mock-ups",
+            body: "Tre exempel på storskärm. För varje: vad VILL meddelandet att vi gör? Vilka knep används?",
+            time: "15 min",
+          },
+          {
+            title: "Generera tillsammans",
+            body: "Live demo: be AI:n skriva ytterligare ett phishing-meddelande. Visa hur snabbt och övertygande det blir.",
+            time: "10 min",
+          },
+          {
+            title: "Verktygsdemo",
+            body: "Visa hur man kontrollerar en URL (kolla domännamnet, inte vad som står på länken). Visa hur man kan be AI:n granska ett misstänkt meddelande.",
+            time: "10 min",
+          },
+          {
+            title: "Stort samtal",
+            body: "Vilka phishing möter ni mest? Vad gör ni när ni är osäkra? Vem frågar ni?",
+            time: "5 min",
+          },
+        ],
+      },
+    ],
+
+    studentInstructions: [
+      {
+        type: "p",
+        text: "Idag ska du träna ögat på phishing — meddelanden som försöker LURA dig att ge bort konton, pengar eller information.",
+      },
+      { type: "h", text: "Steg för steg" },
+      {
+        type: "list",
+        ordered: true,
+        items: [
+          "Titta på mock-upparna läraren visar. För varje: vad VILL meddelandet att du ska göra? Klicka? Ge inloggning? Swisha?",
+          "Markera knepen: krav på snabbhet, hot om att förlora något, oväntad inkommande kontakt, konstig URL.",
+          "Generera själv med AI — be SkolUp AI skriva ett phishing-meddelande. Notera hur snabbt och övertygande det blir.",
+          "Lär dig kolla URL:er: domännamnet (det före .se eller .com) är det viktiga. ”apple-support-login.xyz” är inte Apple.",
+          "Skriv ner: vid tvekan på ett verkligt meddelande hemma — vem ska du fråga?",
+        ],
+      },
+      {
+        type: "callout",
+        tone: "warning",
+        title: "Aldrig",
+        body: "Klicka aldrig på en riktig phishing-länk för att ”testa” — du kan ofrivilligt lämna ut information. Vi tränar BARA på mock-ups här.",
+      },
+      { type: "h", text: "Att fundera på" },
+      {
+        type: "list",
+        items: [
+          "Vilka platser har DU sett phishing? E-post? Sms? Spel? Discord?",
+          "Vad gör du om du är osäker på ett meddelande?",
+          "Vem är det enklast för dig att fråga?",
+        ],
+      },
+    ],
+
+    discussion: [
+      "Vad är skillnaden mellan en ÄKTA notis från Spotify och en falsk?",
+      "Varför fungerar phishing? Vad är det vi reagerar på?",
+      "Vad gör vi om någon i klassen råkar klicka? Vem ska de berätta för?",
+      "Vad bör skolan göra för att vara mer tillgänglig när vi är osäkra på ett meddelande?",
+    ],
+    pitfalls: [
+      "Använd ALDRIG riktiga phishing-länkar i klassrummet. Bara mock-ups eller AI-genererade exempel utan riktiga företagslogor.",
+      "Undvik att skrämma — många elever har redan klickat på sådant. Tonen är ”det här händer, så här gör vi”, inte ”ni borde skämmas”.",
+      "Var beredd på att någon elev faktiskt råkat ut för phishing och kanske inte berättat hemma. Ha en plan för att fånga upp det.",
+    ],
+    variations: [
+      "Klassrum mot klassrum: en klass skriver phishing-mock-ups som en annan klass ska försöka avslöja.",
+      "Granska AI-genererat innehåll med AI: ge SkolUp AI ett misstänkt meddelande och be den granska det. Vad noterar AI:n?",
+    ],
+    evidenceStrength: "moderate",
+    evidenceSources: [
+      {
+        ref: "lewandowsky-2017",
+        relevance:
+          "Prebunking-principen tillämpad på phishing: att exponera eleverna för försvagade versioner av lurendrejerier i klassrum gör dem mer motståndskraftiga utanför skolan.",
+      },
+      {
+        ref: "cook-2017",
+        relevance:
+          "Inoculation mot manipulationstekniker — phishing använder samma fundamentala retoriska tekniker (urgency, falsk auktoritet, hot) som annan desinformation.",
+      },
+      {
+        ref: "mathur-2019",
+        relevance:
+          "Dark patterns-taxonomin täcker många av phishing-teknikerna (urgency, social proof, sneaking). Att se phishing som en variant av dark patterns ger eleverna ett sammanhållet språk.",
+      },
+    ],
+    chainsWellWith: [
+      "fanga-dark-patterns",
+      "skriv-fejkad-nyhetsartikel",
+      "push-back-testet",
+    ],
+    externalTools: [
+      {
+        name: "Civai.org — Email Phishing",
+        url: "https://civai.org/p/email-phishing",
+        description:
+          "Amerikansk pedagogisk resurs om phishing kopplad till AI. Bra som inspirationskälla för hur övningen kan utvecklas vidare.",
+        kind: "inspiration",
+      },
+      {
+        name: "Polisen — Råd om bedrägeri online",
+        url: "https://polisen.se/utsatt-for-brott/skydda-dig-mot-brott/bedrageri/",
+        description:
+          "Polisens egen sida om vanliga bedrägeri-typer online, inklusive phishing. Konkreta råd att dela med elever och föräldrar.",
+        kind: "inspiration",
+      },
+    ],
+
+    deepDive: {
+      intro:
+        "AI har förändrat phishing radikalt. Här förklarar vi vad som hänt, varför det är farligare än någonsin, och vad eleverna behöver kunna.",
+      sections: [
+        {
+          question: "Vad är phishing — och varför är det skolans problem?",
+          answer: [
+            {
+              type: "p",
+              text: "Phishing är när någon låtsas vara en betrodd avsändare för att lura dig att klicka på en länk, ge bort lösenord, eller överföra pengar. Ordet kommer från ”fishing” — man slänger ut beten och ser vem som nappar.",
+            },
+            {
+              type: "p",
+              text: "Varför skolan? Två skäl. För det första: mellanstadieelever har idag egna konton, ofta kopplade till föräldrars kort (Roblox, Spotify, Discord, Snap, Steam). De är konkreta måltavlor.",
+            },
+            {
+              type: "p",
+              text: "För det andra: phishing är BÅDE en kunskapsfråga (vad ska jag se efter?) OCH en relationsfråga (vem frågar jag när jag är osäker?). Skolan kan jobba med båda — om föräldrar inte hinner.",
+            },
+          ],
+        },
+        {
+          question: "Hur har AI förändrat phishing?",
+          answer: [
+            {
+              type: "p",
+              text: "Phishing var länge enkelt att avslöja: dålig svenska, ”NIGERIAN PRINCE”, uppenbart konstiga URL:er. Den eran är slut.",
+            },
+            {
+              type: "p",
+              text: "Tre saker AI har förändrat:",
+            },
+            {
+              type: "list",
+              items: [
+                "PERFEKT SPRÅK: AI skriver felfri svenska direkt. Den största röda flaggan är borta.",
+                "PERSONLIGT: AI kan generera meddelanden som refererar till ditt namn, din skola, dina vänner — om angriparen har skrapat data från Facebook eller läckor. ”Hej Joel, jag såg på din LinkedIn att…”",
+                "SKALA: tusentals unika meddelanden på minuter. Inte mass-mejl längre — individuella attacker mot tusen personer parallellt.",
+              ],
+            },
+            {
+              type: "p",
+              text: "Resultatet: traditionella tips fungerar inte längre. Vi behöver lära ut INTENTIONEN bakom meddelandet snarare än ytligheter i texten.",
+            },
+          ],
+        },
+        {
+          question: "Vad är de vanligaste phishing-typerna eleverna möter?",
+          answer: [
+            {
+              type: "list",
+              items: [
+                "GAMING: ”Klicka här för gratis Robux/Vbucks/skin” — riktade mot Roblox, Fortnite, Minecraft.",
+                "SOCIAL MEDIA: ”Någon har kommenterat din video — klicka för att se” via Instagram/TikTok/Snap.",
+                "FAKTUROR/PAKET: sms från ”Postnord” eller ”DHL” om att ett paket väntar — riktade mot familjen.",
+                "STREAMING: ”Ditt Spotify/Netflix-konto är låst — bekräfta uppgifter” via e-post.",
+                "AUKTORITET: ”Skolans IT-avdelning ber dig logga in på nytt” — riktade mot elev-konton.",
+              ],
+            },
+            {
+              type: "p",
+              text: "Notera att VÄGEN in är ofta inte e-post (som många vuxna antar) utan SMS, gamingappar och sociala medier. Eleverna ser sällan e-post.",
+            },
+          ],
+        },
+        {
+          question: "Hur lär jag eleverna att avslöja phishing?",
+          answer: [
+            {
+              type: "p",
+              text: "Fyra principer som fungerar:",
+            },
+            {
+              type: "list",
+              items: [
+                "FRÅGA: VAD VILL MEDDELANDET FÅ MIG ATT GÖRA? Klicka? Ge inloggning? Swisha? Om svaret är något viktigt och du inte INITIERADE kontakten — varning.",
+                "KOLLA URL:EN: det som står FÖRE .se / .com är det viktiga. ”apple-support.xyz” är inte Apple. På mobil: tryck-och-håll på länken (utan att klicka) för att se den riktiga adressen.",
+                "STANNA: phishing förlitar sig på STRESS. ”Klicka nu eller ditt konto stängs”. Pausa. Det går nästan alltid att vänta.",
+                "DUBBELKOLLA: gå till tjänstens hemsida MANUELLT i webbläsaren och logga in där. Om du har en notis i appen visas den där också.",
+              ],
+            },
+            {
+              type: "p",
+              text: "Viktigast av allt: ge eleverna någon att fråga. Tröskeln att fråga måste vara LÅG. ”Det här såg konstigt ut, kan du kolla?” ska vara en helt normal mening.",
+            },
+          ],
+        },
+        {
+          question: "Vad behöver eleverna kunna ta med sig?",
+          answer: [
+            {
+              type: "list",
+              items: [
+                "Phishing är inte slarviga mejl längre. Det är perfekta, personliga lurendrejerier.",
+                "Det jag ser efter är INTE stavfel — det är vad meddelandet vill att jag GÖR.",
+                "URL:en är det viktigaste. Vad står före .se eller .com?",
+                "Stress är ett tecken. ”Klicka nu” är en röd flagga.",
+                "Vid tvekan: FRÅGA. Det är aldrig dumt att fråga. Det är dumt att klicka och inte fråga.",
+              ],
+            },
+          ],
+        },
+      ],
+    },
+  },
 ];

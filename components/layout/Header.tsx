@@ -13,6 +13,7 @@ const NAV_LINKS = [
   { href: "/didaktiska-modeller", label: "Didaktiska modeller" },
   { href: "/amnen", label: "Ämnen" },
   { href: "/aktiviteter", label: "Aktiviteter" },
+  { href: "/verktygslada", label: "Verktygslåda" },
   { href: "/bookmarks", label: "Sparat" },
   { href: "/om", label: "Om" },
 ];

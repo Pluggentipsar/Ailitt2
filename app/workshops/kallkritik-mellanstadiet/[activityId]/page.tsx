@@ -32,6 +32,7 @@ import { DeepDiveAccordion } from "@/components/workshops/kallkritik/DeepDiveAcc
 import { GameLauncher } from "@/components/workshops/kallkritik/GameLauncher";
 import { IllustrationCarousel } from "@/components/workshops/kallkritik/IllustrationCarousel";
 import { DarkPatternsExercise } from "@/components/workshops/kallkritik/DarkPatternsExercise";
+import { ExternalToolsList } from "@/components/workshops/kallkritik/ExternalToolsList";
 
 type Params = { activityId: string };
 
@@ -192,6 +193,15 @@ export default async function ActivityPage({
           </p>
         </div>
       </div>
+
+      {/* EXTERNA VERKTYG/TJÄNSTER */}
+      {activity.externalTools && activity.externalTools.length > 0 && (
+        <div className="container mx-auto px-4 pb-8">
+          <div className="max-w-4xl">
+            <ExternalToolsList tools={activity.externalTools} />
+          </div>
+        </div>
+      )}
 
       {/* SPEL — bara för aktivitet 4.3 Fånga dark patterns */}
       {activity.id === "fanga-dark-patterns" && (

@@ -225,56 +225,65 @@ export const flodet: Activity[] = [
       },
     ],
     chainsWellWith: ["vilken-ar-riktig", "granska-ditt-flode"],
+    externalTools: [
+      {
+        name: "Sightengine — AI or Not",
+        url: "https://sightengine.com/ai-or-not",
+        description:
+          "Färdigt webbtest där du laddar upp eller länkar bilder och tjänsten gissar om de är AI-genererade. Bra som komplement: gör övningen först med magkänslan, kör sen samma klipp/bilder genom Sightengine och jämför.",
+        kind: "exercise",
+      },
+    ],
   },
 
   {
     id: "vilken-ar-riktig",
     number: "1.2",
-    title: "Vilken är riktig?",
+    title: "Manipulera en nyhetsbild",
     chapter: "flodet",
     level: "workshop-byggsten",
     blurb:
-      "Två-bild-jämförelse. Visar att den som ser perfekt ut ofta är fejket.",
+      "Ta en riktig nyhetsbild — låt AI byta miljö, årstid eller stämning. Går det att se skillnad?",
     purpose:
-      "Träna detaljgranskning och språk för att beskriva vilka signaler som blev fel.",
-    trains: ["detaljgranskning", "kallkritik"],
+      "Visa hur LÄTT det är att manipulera en äkta bild så att betydelsen förändras — utan att den ”ser fejkad ut”. Det är inte bara helt påhittade AI-bilder vi måste se upp med — det är också riktiga foton som blivit subtilt omgjorda.",
+    trains: ["detaljgranskning", "kallkritik", "teknisk-forstaelse"],
     ageRanges: ["vuxen-workshop", "ak4-6", "ak7-9"],
-    duration: "10 min (workshop) / 25 min (klassrum)",
-    durationMinutes: 25,
+    duration: "20 min (workshop) / 35 min (klassrum)",
+    durationMinutes: 35,
     digitalTools: true,
     materials:
-      "Två bilder bredvid varandra — en foto, en AI. Helst samma motiv/scenario.",
+      "En nyhetsbild från en seriös källa + AI-bildgenerator (Copilot, ChatGPT eller Google Gemini/Nano Banana).",
 
     workshopExperience: [
       {
         type: "callout",
         tone: "info",
         title: "Vad du ska göra och varför",
-        body: "Du ska jämföra två bilder — ett pressfoto och en AI-genererad bild — och avgöra vilken som är vilken. Övningen tränar något specifikt: att sätta ORD på vilka signaler du litar på. Det är när du kan beskriva signalerna som du kan lära ut dem.",
+        body: "Du ska ta en RIKTIG nyhetsbild — och låta en AI manipulera den. Byt miljö, byt årstid, byt stämning. Syftet är att uppleva hur lite som krävs för att en äkta bild ska säga något helt annat än den ursprungligen sagt. Resultatet beror på vilken AI du använder — testa flera och se.",
       },
       { type: "h", text: "Så gör du steg för steg" },
       {
         type: "steps",
         steps: [
           {
-            title: "Tyst tittande i 30 sekunder",
-            body: "Workshopledaren visar Bild A och Bild B bredvid varandra. Säg inget. Bara titta.",
+            title: "Hitta en nyhetsbild",
+            body: "Gå till en svensk nyhetssajt (Aftonbladet, SVT, DN, lokaltidningen). Plocka en bild från en aktuell nyhet. Spara den eller kopiera dess länk.",
           },
           {
-            title: "Skriv ner din gissning",
-            body: "Vilken bild är riktig? Och VARFÖR tror du det? Skriv ner minst en konkret signal du litade på.",
+            title: "Öppna en AI-bildgenerator",
+            body: "Copilot (gratis i Edge), ChatGPT-bildgenerering, Google Gemini eller Nano Banana. Olika tjänster ger olika resultat — det är hela poängen.",
           },
           {
-            title: "Diskutera med bordsgrannen",
-            body: "Jämför signaler. Tittade ni på samma saker? Tittade någon på något du missade?",
+            title: "Ladda upp bilden och be om omredigering",
+            body: "”Byt vädret till regn.” ”Gör om till vinter.” ”Lägg till en folksamling i bakgrunden.” ”Byt platsen till en storstad.” En enkel beskrivning räcker.",
           },
           {
-            title: "Hör avslöjandet",
-            body: "Workshopledaren visar facit. Räkna upp dina egna signaler igen. Vilka var rätt indikatorer? Vilka ledde dig fel?",
+            title: "Jämför originalet med resultatet",
+            body: "Hur övertygande är manipulationen? Vad har bevarats? Vad har ändrats? Skulle någon som INTE SER originalet kunna avslöja det?",
           },
           {
-            title: "Studera AI-bilden förstorad",
-            body: "Var FINNS spåren? Ofta händer, text, småskyltar i bakgrunden, ljussättning. Träna ögat på de specifika tecken som faktiskt avslöjar.",
+            title: "Testa flera tjänster",
+            body: "Samma prompt i Copilot vs ChatGPT vs Gemini. Vilken är bäst på att manipulera utan att avslöja sig? Vilken vägrar?",
           },
         ],
       },
@@ -282,67 +291,74 @@ export const flodet: Activity[] = [
       {
         type: "list",
         items: [
-          "Det är OFTA den bild som ser mest ”perfekt” ut som är AI. Verkligheten är skitig, AI-bilder är polerade.",
-          "Lateralt läsande spelar roll: hade du sökt på bilden i Google Lens hade du fått ett svar på 5 sekunder. Det är det här eleverna ska lära sig.",
-          "Den här övningen är en signal-vokabulärsövning. När du har orden kan du lära ut dem.",
+          "Det är stor skillnad på AI-tjänsterna. Vissa lyckas behålla detaljer (ansiktsdrag, kläder, komposition) — andra ”retoucherar” för mycket och avslöjar sig.",
+          "Lateralt läsande är räddningen: hade du sökt på originalbilden i Google Lens hade du sett ”denna bild finns från ett annat sammanhang”. Det är det här eleverna ska lära sig.",
+          "Det handlar inte om att framställa AI som fienden. Det handlar om att tekniken EXISTERAR och att vi behöver hantera den.",
         ],
       },
     ],
 
     deepDive: {
       intro:
-        "Att jämföra två bilder lär oss något om hur vi tänker — och hur vi bör tänka. Här är teorin bakom övningen.",
+        "Den här övningen handlar inte bara om HELT AI-genererade bilder — utan om något mer subtilt: riktiga bilder som blivit ändrade. Det är ofta värre, för att de är svårare att avslöja.",
       sections: [
         {
-          question: "Varför ser AI-bilder så ofta ”för perfekta” ut?",
+          question: "Vad är ”image-to-image”-redigering?",
           answer: [
             {
               type: "p",
-              text: "AI-bilder genereras genom att modellen producerar det STATISTISKT VANLIGASTE för varje pixel. Allt som är ovanligt, asymmetriskt eller ”störande” jämnas ut till medelvärden.",
+              text: "Image-to-image (ibland kallat ”inpainting” eller ”photo editing”) är AI-funktioner där modellen utgår från en BEFINTLIG bild och förändrar den enligt en textinstruktion.",
             },
             {
               type: "p",
-              text: "Det betyder att ett AI-ansikte har för slät hud, för symmetriska ögon, för ”neutral” min. Bakgrunden har för få random objekt. Ljuset är för jämnt fördelat. Allt sitter ”lite för rätt”.",
+              text: "Skillnaden mot ren bildgenerering: modellen försöker BEHÅLLA så mycket som möjligt av originalet. Ansiktet, kompositionen, ljussättningen. Bara det du ber om ändras.",
             },
             {
               type: "p",
-              text: "Verkliga foton är fulla av imperfektioner: skuggor på fel ställen, oskärpa där den inte borde vara, skitiga småskyltar i bakgrunden, ojämn hud. Det är dessa imperfektioner som är signaler om äkthet — och det är dem AI har svårast att efterlikna.",
+              text: "Det är en av de svåraste sakerna att upptäcka. Ögat söker efter ”ser bilden påhittad ut?” — men en image-to-image-bild ÄR till stora delar ett riktigt foto. Bara delar är manipulerade.",
             },
           ],
         },
         {
-          question: "Vilka konkreta saker ska man titta på?",
+          question: "Varför är detta värre än helt påhittade bilder?",
           answer: [
+            {
+              type: "p",
+              text: "Tre anledningar:",
+            },
             {
               type: "list",
               items: [
-                "HÄNDER. AI är ökänd för att ha svårt med händer — för många fingrar, konstiga fingerleder, händer som smälter samman.",
-                "TEXT. Skyltar, böcker, t-shirt-tryck — AI producerar ofta ”klotter” som ser ut som text men inte är riktiga ord.",
-                "ÖGON. Pupillerna kan se ut åt olika håll. Reflexer i ögonen kan saknas eller vara fel.",
-                "BAKGRUND. Småobjekt i bakgrunden kan vara ”smetade”, halv-genererade eller logiskt omöjliga.",
-                "LJUS. Skuggor kan falla åt fel håll, vara för mjuka, eller saknas där de borde finnas.",
+                "TROVÄRDIGHET: en bild som är 90 % äkta och 10 % manipulerad är mer trovärdig än en helt fabricerad. Verkligheten ger den autentiska känslan, manipulationen ger ändringen av betydelsen.",
+                "DETEKTERBARHET: traditionella verktyg för AI-detektion fungerar sämre på image-to-image. De är tränade på helt syntetiska bilder och missar lokala manipulationer.",
+                "RAMNING: en redan publicerad nyhetsbild har en KÄLLA. När bilden manipuleras men presenteras under samma källas namn, ärver den trovärdigheten — utan att källan vet om det.",
               ],
             },
             {
               type: "p",
-              text: "Men: dessa tips är färskvara. AI-modellerna förbättras snabbt. Det som var en signal förra året kanske inte är det nästa år.",
+              text: "Detta är hur modern visuell desinformation ofta ser ut: inte helt påhittat, utan ett äkta foto med subtila tillägg som ändrar historien.",
             },
           ],
         },
         {
-          question: "Vad är ”lateralt läsande” och varför funkar det?",
+          question: "Hur skiljer sig olika AI-tjänster åt?",
           answer: [
             {
               type: "p",
-              text: "Wineburg & McGrew (2017) genomförde en banbrytande studie där de jämförde tre grupper: studenter, professorer, och professionella faktagranskare. Alla tre fick utvärdera oklara onlinekällor.",
+              text: "Per 2025 är det stora skillnader mellan tjänsterna:",
+            },
+            {
+              type: "list",
+              items: [
+                "GOOGLE GEMINI / NANO BANANA: bland de bästa på att bevara originalbilden vid lokal manipulation. Kan vara svår att avslöja.",
+                "CHATGPT BILDGENERERING: kraftfull men tenderar att ”stilisera” hela bilden — vilket gör manipulationen mer synlig.",
+                "MICROSOFT COPILOT: gratis i Edge, bra basnivå, försiktig med vissa motiv.",
+                "MIDJOURNEY / STABLE DIFFUSION: kraftfulla för rena bildgenereringar, mindre för exakt manipulation av ett original.",
+              ],
             },
             {
               type: "p",
-              text: "Studenter och professorer LÄSTE källan vertikalt — försökte hitta ledtrådar i designen, språket, källistan. Faktagranskarna gjorde tvärtom: de LÄMNADE källan direkt och öppnade nya flikar för att se vad andra sa om den.",
-            },
-            {
-              type: "p",
-              text: "Resultatet: faktagranskarna var dramatiskt bättre — för att de använde EXTERN information som verifieringspunkt. Detta är lateralt läsande. För AI-bilder betyder det: lägg bilden i Google Lens, sök efter originalet. På 5 sekunder vet du om bilden finns någon annanstans, och i så fall vad den verkliga kontexten är.",
+              text: "Tjänsterna förbättras månadsvis. Det är därför vi pedagogiskt fokuserar på LATERALT LÄSANDE (Google Lens) snarare än ”lär dig se signalerna” — signalerna försvinner, källkollen kvarstår.",
             },
           ],
         },
@@ -352,10 +368,11 @@ export const flodet: Activity[] = [
             {
               type: "list",
               items: [
-                "GÖR DET MED BILDER ELEVERNA KÄNNER IGEN. Ta en bild ni jobbat med i SO:n och låt AI skapa en variant. Då blir kontrasten konkret.",
-                "VISA HUR MAN ANVÄNDER GOOGLE LENS. Tryck-och-håll på en bild i mobilen, välj ”sök med bild”. Det är ett vardagsverktyg eleverna kan börja använda.",
-                "PRATA OM TILLIT TILL KÄLLAN, INTE TILL BILDEN. Frågan är inte ”ser bilden äkta ut?” — frågan är ”vem visar mig den här bilden och varför?”.",
-                "TRÄNA REGELBUNDET. Det räcker inte med en lektion. Visa en bild då och då på morgonsamlingen och fråga ”äkta eller AI?”.",
+                "BÖRJA MED EN BEKANT BILD. En bild från lokaltidningen om något i kommunen — något eleverna känner igen. Då blir manipulationen tydlig.",
+                "VISA GOOGLE LENS LIVE. Tryck-och-håll på en bild i mobilen, välj ”sök med bild”. Eleverna kan börja använda det samma dag.",
+                "PRATA OM TILLIT TILL KÄLLAN, INTE BILDEN. Frågan är inte ”ser bilden äkta ut?” — frågan är ”vem visar mig bilden, och var kom den ifrån?”",
+                "TRÄNA REGELBUNDET. Det räcker inte med en lektion. Visa en bild då och då på morgonsamlingen och fråga ”vad behöver vi kolla?”.",
+                "RAMA IN MED RESPEKT. AI-bildgeneration är inte bara dåligt — det är ett kraftfullt kreativt verktyg. Vi lär oss att hantera baksidan, inte att frukta tekniken.",
               ],
             },
           ],
@@ -366,10 +383,10 @@ export const flodet: Activity[] = [
             {
               type: "list",
               items: [
-                "Den ”perfektaste” bilden är ofta AI.",
-                "Mina ögon räcker inte — jag måste KOLLA.",
-                "Google Lens är min vän. Andra bildsökverktyg också.",
-                "Tonen i appen jag ser bilden i säger mig något. Är det en seriös källa?",
+                "En riktig bild kan vara manipulerad — bara delar av den.",
+                "Mina ögon räcker inte. Jag måste KOLLA källan.",
+                "Google Lens är mitt främsta verktyg. Tryck-och-håll på en bild för att söka.",
+                "”Var kom bilden ifrån?” är viktigare än ”ser bilden äkta ut?”.",
                 "Det är OK att inte veta. Det är inte OK att dela utan att veta.",
               ],
             },
@@ -383,9 +400,10 @@ export const flodet: Activity[] = [
       {
         type: "list",
         items: [
-          "Plocka ett pressfoto från t.ex. Aftonbladet, SVT eller en nyhetsbyrå.",
-          "Generera en AI-bild av samma scenario i Midjourney eller ChatGPT-bildgenerering.",
-          "Skriv ut eller projicera bredvid varandra. Säkerställ att den ”riktiga” bilden inte är beskuren/redigerad.",
+          "Välj 1–2 nyhetsbilder som passar elevernas värld — gärna något lokalt (kommunens nya skola, en sportarena, ett välkänt torg).",
+          "Testa själv manipulationen i en AI-tjänst INNAN lektionen. Vissa tjänster fungerar bättre än andra och resultatet varierar mycket.",
+          "Ha Google Lens (eller liknande omvänd bildsökning) som backup-demo — så eleverna lär sig verktyget de behöver.",
+          "Använd helst skolans AI-tjänst (Copilot/SkolUp/motsvarande) — inte privata konton.",
         ],
       },
       { type: "h", text: "Så här kör du" },
@@ -393,25 +411,24 @@ export const flodet: Activity[] = [
         type: "steps",
         steps: [
           {
-            title: "Tystläge",
-            body: "Eleverna tittar i 30 sekunder. Ingen får säga något.",
-            time: "30 sek",
+            title: "Demo",
+            body: "Visa hur DU laddar upp en nyhetsbild i AI-tjänsten och ber den manipuleras. Tänk högt om resultatet.",
+            time: "10 min",
           },
           {
-            title: "Individuellt",
-            body: "Varje elev antecknar vilken som är riktig — och en motivering.",
+            title: "Pararbete",
+            body: "Eleverna i par tar en av de godkända nyhetsbilderna och ber AI:n manipulera den. Spara båda (original + manipulation).",
+            time: "15 min",
           },
           {
-            title: "Parvis",
-            body: "Jämför motiveringar. Var det samma signaler de tittade på?",
+            title: "Galleri",
+            body: "Eleverna visar original + manipulerad bild för klassen. Klassen försöker gissa vad som ändrats. Hur långt kommer man bara med ögat?",
+            time: "10 min",
           },
           {
-            title: "Avslöja",
-            body: "Vad gav magkänslan fel?",
-          },
-          {
-            title: "Nästa nivå",
-            body: "Visa AI-bilden förstorad. Var finns spåren? Ofta händer, text, småbakgrunder, ljussättning.",
+            title: "Verifieringsdemo",
+            body: "Visa Google Lens på en av bilderna. Lär eleverna att den här kontrollen finns. Det är ett vardagsverktyg.",
+            time: "5 min",
           },
         ],
       },
@@ -420,50 +437,105 @@ export const flodet: Activity[] = [
     studentInstructions: [
       {
         type: "p",
-        text: "Du ska titta på två bilder och bestämma vilken som är riktig och vilken som är AI-genererad.",
+        text: "Du ska ta en riktig nyhetsbild — och låta en AI ändra den. Mål: se hur enkelt det är att förändra betydelsen av en bild.",
       },
       { type: "h", text: "Steg för steg" },
       {
         type: "list",
         ordered: true,
         items: [
-          "Tyst tittande i 30 sekunder. Säg inget.",
-          "Skriv ner vilken bild du tror är riktig (A eller B).",
-          "Skriv DIN motivering: vad såg du som gav dig den känslan?",
-          "Vänd dig till din kompis. Berätta för varandra. Tittade ni på samma sak?",
-          "Vänta på lärarens facit.",
+          "Tillsammans med din kompis: välj en nyhetsbild som läraren har godkänt.",
+          "Öppna AI-bildgeneratorn som läraren har visat.",
+          "Ladda upp eller länka bilden.",
+          "Skriv en prompt som ÄNDRAR något: ”Byt vädret till regn”, ”Gör om till vinter”, ”Lägg till fler personer i bakgrunden”.",
+          "Vänta. Spara båda bilderna (originalet OCH AI-versionen).",
+          "Jämför. Vad har ändrats? Vad har bevarats?",
+          "Visa för klassen — kan de gissa vad du ändrade?",
         ],
       },
-      { type: "h", text: "Efter avslöjandet" },
+      {
+        type: "callout",
+        tone: "warning",
+        title: "Viktigt",
+        body: "Manipulera inte bilder på riktiga personer ni känner — varken klasskamrater, lärare eller kändisar. Använd bilder där personerna inte är centrala. Sprid inte de manipulerade bilderna utanför klassen.",
+      },
+      { type: "h", text: "Verifieringsknep att ta med hem" },
       {
         type: "p",
-        text: "Studera den AI-bild läraren förstorar. Var hittar du spåren? Tips: titta på händer, text, småskyltar i bakgrunden, hur ljuset faller.",
+        text: "Google Lens: tryck-och-håll på en bild i mobilen, välj ”sök med bild”. Visar var bilden kommer från — och om den finns från ett annat sammanhang. Det här är ett av de viktigaste verktygen du kan lära dig.",
       },
     ],
 
     discussion: [
-      "Om vi inte kan se skillnad — vad gör vi då?",
-      "När är det viktigt att veta vilken som är riktig? Lek? Reklam? Nyhet?",
-      "Vem har ansvar för att tala om vad som är fejk på nätet?",
+      "Om en AI kan göra om en riktig bild så här — vad litar vi på framöver?",
+      "Vilken AI-tjänst lyckades bäst med manipulationen? Vad säger det?",
+      "Vem har ansvar när en manipulerad bild sprids — den som gjorde den, eller den som delade vidare?",
+      "Hur skulle vi kunna känna igen en manipulerad bild på TikTok eller Instagram?",
     ],
     pitfalls: [
-      "Använd inte AI-bilder av barn — etiskt problem och dåligt exempel.",
-      "Säkerställ att den ”riktiga” bilden inte är beskuren/redigerad — då blir avslöjandet förvirrande.",
+      "Manipulera inte AI-bilder av barn eller identifierbara personer — etiskt problem och dåligt exempel.",
+      "Be eleverna INTE sprida de manipulerade bilderna utanför klassrummet.",
+      "Var beredd på att vissa AI-tjänster nekar att manipulera nyhetsbilder direkt — pröva andra eller använd en mer neutral bild.",
+    ],
+    variations: [
+      "Vänd på det — låt eleverna ge varandra en manipulerad bild och försöka avslöja den via Google Lens.",
+      "Jämför olika AI-tjänster för samma prompt. Vilken är bäst? Vilken nekar?",
     ],
     evidenceStrength: "strong",
     evidenceSources: [
       {
         ref: "wineburg-mcgrew-2017",
         relevance:
-          "Lateralt läsande — det är inte detaljerna i bilden som avslöjar fejket, utan jämförelsen mellan källor. Övningen introducerar detta steg-för-steg.",
+          "Lateralt läsande — eleverna behöver lära sig att lämna bilden och kolla källan. Google Lens är vardagsverktyget för detta.",
       },
       {
         ref: "hobbs-2010",
         relevance:
-          "Medielitteracitet som kompetens att analysera och dekonstruera. Övningen är dekonstruktion i sin enklaste form.",
+          "Medielitteracitet som dekonstruktion. Att MANIPULERA en bild själv tränar samma muskel som att identifiera när någon annan har manipulerat.",
+      },
+      {
+        ref: "breakstone-2021",
+        relevance:
+          "Visar att elever förlitar sig på ytliga signaler. Övningen ger dem ett konkret verktyg (Google Lens) som ersätter ytlig granskning.",
       },
     ],
     chainsWellWith: ["ai-eller-riktig", "skriv-fejkad-nyhetsartikel"],
+    externalTools: [
+      {
+        name: "Microsoft Copilot",
+        url: "https://copilot.microsoft.com/",
+        description:
+          "Gratis i Edge-webbläsaren. Bra på bildgenerering och redigering. Tillgängligt på de flesta skolor.",
+        kind: "service",
+        requiresAccount: true,
+        notes: "Logga in med Microsoft-konto. Kolla skolans riktlinjer.",
+      },
+      {
+        name: "ChatGPT (bildgenerering)",
+        url: "https://chatgpt.com/",
+        description:
+          "OpenAI:s bildgenerering. Kan både skapa nya bilder och redigera uppladdade. Tydliga säkerhetsspärrar — vägrar manipulera vissa typer av material.",
+        kind: "service",
+        requiresAccount: true,
+        notes: "Kräver konto. Kolla skolans riktlinjer.",
+      },
+      {
+        name: "Google Gemini (Nano Banana)",
+        url: "https://gemini.google.com/",
+        description:
+          "Googles AI med kraftfull bildredigering — kodnamn Nano Banana. Bra på att behålla detaljer i ursprungsbilden vid manipulation. Ofta svårast att avslöja.",
+        kind: "service",
+        requiresAccount: true,
+        notes: "Kräver Google-konto. Kolla skolans riktlinjer.",
+      },
+      {
+        name: "Google Lens — omvänd bildsökning",
+        url: "https://lens.google.com/",
+        description:
+          "Sök efter var en bild förekommer på internet. Ovärderligt verktyg när du undrar om en bild är manipulerad eller tagen ur sitt sammanhang.",
+        kind: "service",
+      },
+    ],
   },
 
   {

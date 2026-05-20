@@ -156,6 +156,20 @@ export type Resource = {
   tone: ResourceTone;
 };
 
+// Extern tjänst eller övning som hör till aktiviteten — t.ex. en redan
+// fungerande webb-baserad övning, en AI-tjänst som ska användas, eller en
+// resurs på en annan sajt. Lyfts fram tydligt i en egen UI-sektion.
+export type ExternalTool = {
+  name: string;
+  url: string;
+  description: string;
+  // Etikett som visas tydligt — "AI-tjänst", "Färdig övning", "Inspirationskälla"
+  kind?: "service" | "exercise" | "inspiration";
+  // Flaggor för praktiska saker eleverna/läraren behöver veta
+  requiresAccount?: boolean;
+  notes?: string; // t.ex. "Kolla riktlinjer i din kommun"
+};
+
 // Evidens-anknytning per aktivitet — pekar mot evidence-library.ts.
 // 'relevance' förklarar VAD just denna studie säger om just denna aktivitet
 // (så läsaren slipper läsa hela rapporten för att förstå kopplingen).
@@ -197,4 +211,6 @@ export type ActivityEnrichment = {
   // Fördjupande text om fenomenet. Bygger upp lärarens kunskap så att hen
   // kan möta elevernas följdfrågor och förklara varför vi gör övningen.
   deepDive?: DeepDive;
+  // Externa tjänster/övningar som hör till aktiviteten.
+  externalTools?: ExternalTool[];
 };

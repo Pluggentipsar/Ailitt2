@@ -1,0 +1,1132 @@
+import type { Tool } from "./types";
+
+// Verktygsbiblioteket. Lägger till verktyg löpande — håll listan sorterad efter
+// kategori för läsbarhet i koden. Sökbarhet/sortering sker i UI.
+
+export const tools: Tool[] = [
+  // === KÄLLKRITIKRESURSER ===
+  {
+    id: "digitala-lektioner-kallkritik",
+    name: "Digitala lektioner — Digital källkritik",
+    url: "https://digitalalektioner.se/amnesomrade/digital-kallkritik/",
+    description:
+      "Internetstiftelsens öppna lärarresurs med färdiga lektioner i digital källkritik för åk F–3, 4–6 och 7–9. Nivåindelat och kopplat till läroplanen.",
+    category: "larresurs-skola",
+    kind: "exercise",
+    price: "free",
+    requiresAccount: false,
+    language: "sv",
+    notes: "Sveriges mest använda lektionsbank för digital kompetens.",
+  },
+  {
+    id: "pedagog-jonkoping-ai",
+    name: "Pedagog Jönköping — AI",
+    url: "https://pedagog.jonkoping.se/ai/",
+    description:
+      "Resurser och konkreta exempel på hur AI kan användas i undervisningen.",
+    category: "kallkritik-resurser",
+    kind: "research",
+    price: "free",
+    requiresAccount: false,
+    language: "sv",
+  },
+  {
+    id: "kallkritikbyran",
+    name: "Källkritikbyrån",
+    url: "https://kallkritikbyran.se/",
+    description:
+      "Oberoende svenskt initiativ för att granska och utbilda om källkritik.",
+    category: "kallkritik-resurser",
+    kind: "research",
+    price: "free",
+    requiresAccount: false,
+    language: "sv",
+  },
+  {
+    id: "nyhetsvarderaren",
+    name: "Nyhetsvärderaren",
+    url: "https://nyhetsvarderaren.se/",
+    description:
+      "Lektioner där elever tränar på att analysera nyhetskällor kritiskt.",
+    category: "kallkritik-resurser",
+    kind: "exercise",
+    price: "free",
+    requiresAccount: false,
+    language: "sv",
+  },
+  {
+    id: "google-prebunking",
+    name: "Google Prebunking",
+    url: "https://prebunking.withgoogle.com/",
+    description:
+      "Resurser om hur man identifierar och motverkar desinformation genom prebunking-strategier.",
+    category: "kallkritik-resurser",
+    kind: "research",
+    price: "free",
+    requiresAccount: false,
+    language: "en",
+  },
+  {
+    id: "leon-furze-deepfake",
+    name: "Leon Furze — Deepfake Game",
+    url: "https://leonfurze.com/",
+    description:
+      "Ett spel och utbildningsmaterial där du övar på att identifiera deepfakes och manipulativa tekniker.",
+    category: "larresurs-skola",
+    kind: "game",
+    price: "free",
+    requiresAccount: false,
+    language: "en",
+  },
+  {
+    id: "allsides-bias",
+    name: "AllSides — Media Bias Chart",
+    url: "https://www.allsides.com/media-bias/media-bias-chart",
+    description:
+      "Översikt över politisk bias i nyhetsmedier från olika perspektiv. Bra som verktyg för diskussion om vinkling.",
+    category: "kallkritik-resurser",
+    kind: "research",
+    price: "free",
+    requiresAccount: false,
+    language: "en",
+  },
+
+  // === FAKTAGRANSKNING & VERIFIERING ===
+  {
+    id: "snopes",
+    name: "Snopes",
+    url: "https://www.snopes.com/",
+    description:
+      "En av världens största faktagranskningsplattformar för att avslöja falska nyheter och rykten.",
+    category: "verifiering",
+    kind: "verification",
+    price: "free",
+    requiresAccount: false,
+    language: "en",
+  },
+  {
+    id: "svt-verifierar",
+    name: "SVT Nyheter Verifierar",
+    url: "https://www.svt.se/special/verifierar/",
+    description:
+      "SVT:s redaktion som granskar och verifierar virala nyheter och rykten i svenska sammanhang.",
+    category: "verifiering",
+    kind: "verification",
+    price: "free",
+    requiresAccount: false,
+    language: "sv",
+  },
+  {
+    id: "factcheck-org",
+    name: "FactCheck.org",
+    url: "https://www.factcheck.org/",
+    description:
+      "Icke-partisk ideell webbplats som syftar till att minska vilseledning genom originalforskning om desinformation och bluffar.",
+    category: "verifiering",
+    kind: "verification",
+    price: "free",
+    requiresAccount: false,
+    language: "en",
+  },
+  {
+    id: "invid",
+    name: "InVID Verification Plugin",
+    url: "https://www.invid-project.eu/tools-and-services/invid-verification-plugin/",
+    description:
+      "Webbläsartillägg för att analysera och verifiera bilder och videoklipp — bra för journalister och avancerade lärare.",
+    category: "verifiering",
+    kind: "browser-extension",
+    price: "free",
+    requiresAccount: false,
+    language: "en",
+    notes: "Chrome/Firefox-extension",
+  },
+
+  // === AI-DETEKTION ===
+  {
+    id: "sightengine-ai-or-not",
+    name: "Sightengine — AI or Not",
+    url: "https://sightengine.com/ai-or-not",
+    description:
+      "Färdigt webbtest där du laddar upp eller länkar bilder och tjänsten gissar om de är AI-genererade.",
+    category: "ai-detektion",
+    kind: "verification",
+    price: "freemium",
+    requiresAccount: false,
+    language: "en",
+    linkedActivityIds: ["ai-eller-riktig"],
+  },
+
+  // === AI-ASSISTENTER FÖR KÄLLKRITIK ===
+  {
+    id: "kallkritiksassistenten-gpt",
+    name: "Källkritiksassistenten (GPT)",
+    url: "https://chatgpt.com/",
+    description:
+      "Specialanpassad GPT som hjälper dig analysera och granska information ur källkritisk synvinkel.",
+    category: "ai-assistent-kallkritik",
+    kind: "service",
+    price: "freemium",
+    requiresAccount: true,
+    language: "sv",
+    notes: "Kräver ChatGPT-konto. Sök efter ”Källkritiksassistenten” i GPT-store.",
+  },
+  {
+    id: "vidga-vyer-gpt",
+    name: "Vidga vyer — Utforska olika perspektiv (GPT)",
+    url: "https://chatgpt.com/",
+    description:
+      "En GPT för att bredda perspektiv och förstå olika synsätt på samma fråga.",
+    category: "ai-assistent-kallkritik",
+    kind: "service",
+    price: "freemium",
+    requiresAccount: true,
+    language: "sv",
+    notes: "Kräver ChatGPT-konto. Sök efter ”Vidga vyer” i GPT-store.",
+  },
+
+  // === PREBUNKING-SPEL ===
+  {
+    id: "bad-news",
+    name: "Bad News",
+    url: "https://www.getbadnews.com/",
+    description:
+      "Spel där du tar rollen som en falsk nyhetsproducent — evidensbaserad metod att förstå och motverka desinformation.",
+    category: "prebunking-spel",
+    kind: "game",
+    price: "free",
+    requiresAccount: false,
+    language: "multi",
+    linkedActivityIds: ["bad-news-game"],
+  },
+  {
+    id: "cranky-uncle",
+    name: "Cranky Uncle",
+    url: "https://crankyuncle.com/game/",
+    description:
+      "Använder humor och kritiskt tänkande för att lära ut tekniker för att känna igen och motstå desinformation. Funkar i åk 4 och uppåt.",
+    category: "prebunking-spel",
+    kind: "game",
+    price: "free",
+    requiresAccount: false,
+    language: "en",
+    linkedActivityIds: ["cranky-uncle"],
+  },
+  {
+    id: "go-viral",
+    name: "Go Viral!",
+    url: "https://www.goviralgame.com/",
+    description:
+      "Kort spel (5–10 min) som lär dig identifiera och motstå felaktig information relaterad till hälsa och pandemier.",
+    category: "prebunking-spel",
+    kind: "game",
+    price: "free",
+    requiresAccount: false,
+    language: "multi",
+    linkedActivityIds: ["go-viral"],
+  },
+  {
+    id: "fakey",
+    name: "Fakey",
+    url: "https://fakey.iuni.iu.edu/",
+    description:
+      "Simulerar ett sociala medier-flöde där du övar på att identifiera och faktagranska tveksamma nyheter.",
+    category: "prebunking-spel",
+    kind: "game",
+    price: "free",
+    requiresAccount: false,
+    language: "en",
+  },
+  {
+    id: "harmony-square",
+    name: "Harmony Square",
+    url: "https://harmonysquare.game/",
+    description:
+      "Spel där du använder desinformationstaktiker för att så split i en fiktiv by — ökar medvetenheten om manipulationstekniker.",
+    category: "prebunking-spel",
+    kind: "game",
+    price: "free",
+    requiresAccount: false,
+    language: "en",
+  },
+  {
+    id: "newsfeed-defenders",
+    name: "NewsFeed Defenders",
+    url: "https://www.icivics.org/games/newsfeed-defenders",
+    description:
+      "Granska och avfärda desinformation genom att bedöma trovärdigheten i inlägg på ett fiktivt forum.",
+    category: "prebunking-spel",
+    kind: "game",
+    price: "free",
+    requiresAccount: false,
+    language: "en",
+  },
+  {
+    id: "fake-it-to-make-it",
+    name: "Fake It To Make It",
+    url: "https://www.fakeittomakeitgame.com/",
+    description:
+      "Skapa fejkade nyheter och försök få viral spridning för ekonomisk vinning — ger insikt i desinformationsspridarnas metoder.",
+    category: "prebunking-spel",
+    kind: "game",
+    price: "free",
+    requiresAccount: false,
+    language: "en",
+  },
+
+  // === SÖK & LATERAL LÄSNING ===
+  {
+    id: "perplexity",
+    name: "Perplexity AI",
+    url: "https://www.perplexity.ai/",
+    description:
+      "AI-driven sökmotor som ger direkta svar med källhänvisningar — bra för verifiering och lateral läsning.",
+    category: "sok-och-lateral-lasning",
+    kind: "service",
+    price: "freemium",
+    requiresAccount: false,
+    language: "multi",
+  },
+  {
+    id: "stanford-storm",
+    name: "STORM (Stanford)",
+    url: "https://storm.genie.stanford.edu/",
+    description:
+      "Forskningsprototyp som använder AI för att skapa Wikipedia-liknande rapporter om valda ämnen. Bra för översiktlig research.",
+    category: "sok-och-lateral-lasning",
+    kind: "service",
+    price: "free",
+    requiresAccount: false,
+    language: "en",
+  },
+  {
+    id: "chathub",
+    name: "ChatHub.gg",
+    url: "https://chathub.gg/",
+    description:
+      "Plattform som låter dig använda flera AI-chattbotar samtidigt (GPT-4o, Claude, Gemini) och jämföra svaren sida vid sida.",
+    category: "sok-och-lateral-lasning",
+    kind: "service",
+    price: "freemium",
+    requiresAccount: false,
+    language: "multi",
+    linkedActivityIds: ["faktagranska-ai-med-ai"],
+  },
+  {
+    id: "google-lens",
+    name: "Google Lens — omvänd bildsökning",
+    url: "https://lens.google.com/",
+    description:
+      "Sök efter var en bild förekommer på internet. Avgörande verktyg för att avslöja manipulerade eller felkontextualiserade bilder.",
+    category: "sok-och-lateral-lasning",
+    kind: "verification",
+    price: "free",
+    requiresAccount: false,
+    language: "multi",
+    linkedActivityIds: ["vilken-ar-riktig"],
+  },
+  {
+    id: "google-bilder",
+    name: "Google Bilder",
+    url: "https://images.google.com/",
+    description:
+      "Sök efter bilder baserat på nyckelord eller omvänd bildsökning (ladda upp en bild för att hitta dess ursprung).",
+    category: "sok-och-lateral-lasning",
+    kind: "verification",
+    price: "free",
+    requiresAccount: false,
+    language: "multi",
+  },
+
+  // === CHATTBOTAR ===
+  {
+    id: "chatgpt",
+    name: "ChatGPT",
+    url: "https://chatgpt.com/",
+    description:
+      "OpenAI:s avancerade språkmodell — generera text, svara på frågor, redigera bilder. Standardvalet för många.",
+    category: "chattbot",
+    kind: "service",
+    price: "freemium",
+    requiresAccount: true,
+    language: "multi",
+  },
+  {
+    id: "claude",
+    name: "Claude.ai",
+    url: "https://claude.ai/",
+    description:
+      "Anthropics AI-assistent — tränad för att vara säker, exakt och pålitlig. Mer återhållsam än vissa konkurrenter.",
+    category: "chattbot",
+    kind: "service",
+    price: "freemium",
+    requiresAccount: true,
+    language: "multi",
+  },
+  {
+    id: "gemini",
+    name: "Google Gemini",
+    url: "https://gemini.google.com/",
+    description:
+      "Googles AI-assistent som integrerar realtidssök, bildgenerering (Nano Banana) och videogenerering (Veo).",
+    category: "chattbot",
+    kind: "service",
+    price: "freemium",
+    requiresAccount: true,
+    language: "multi",
+  },
+  {
+    id: "grok",
+    name: "Grok (xAI)",
+    url: "https://x.ai/",
+    description:
+      "xAI:s assistent med realtidssökning, bild- och videogenerering. Mindre spärrar än konkurrenterna — bra för diskussion om designval.",
+    category: "chattbot",
+    kind: "service",
+    price: "freemium",
+    requiresAccount: true,
+    language: "multi",
+    notes: "Kräver X Premium-prenumeration",
+  },
+  {
+    id: "venice",
+    name: "Venice.ai",
+    url: "https://venice.ai/",
+    description:
+      "Integritetsfokuserad chattbot och bildgenerator utan krav på kontoregistrering eller datalagring.",
+    category: "chattbot",
+    kind: "service",
+    price: "freemium",
+    requiresAccount: false,
+    language: "en",
+  },
+  {
+    id: "duckduckgo-ai",
+    name: "DuckDuckGo AI Chat",
+    url: "https://duck.ai/",
+    description:
+      "Anonym chattbot integrerad i DuckDuckGo:s privata webbläsare — låter dig prata med flera AI-modeller utan att kompromettera integriteten.",
+    category: "chattbot",
+    kind: "service",
+    price: "free",
+    requiresAccount: false,
+    language: "multi",
+  },
+
+  // === BILDGENERERING ===
+  {
+    id: "ideogram",
+    name: "Ideogram",
+    url: "https://ideogram.ai/",
+    description:
+      "AI-modell som genererar bilder från textbeskrivningar — utmärker sig genom förmågan att skapa läsbar text inuti bilderna.",
+    category: "bildgenerering",
+    kind: "service",
+    price: "freemium",
+    requiresAccount: true,
+    language: "en",
+  },
+  {
+    id: "artguru",
+    name: "Artguru.ai",
+    url: "https://www.artguru.ai/",
+    description:
+      "Text-till-bild-generator med olika stilar — illustrationer, porträtt, 3D-modeller. Kräver inte konto.",
+    category: "bildgenerering",
+    kind: "service",
+    price: "freemium",
+    requiresAccount: false,
+    language: "en",
+  },
+  {
+    id: "magicstudio",
+    name: "MagicStudio AI Art",
+    url: "https://magicstudio.com/ai-art-generator/",
+    description:
+      "AI-konstgenerator som snabbt skapar konstverk baserat på textbeskrivningar. Tillgänglig utan inloggning.",
+    category: "bildgenerering",
+    kind: "service",
+    price: "freemium",
+    requiresAccount: false,
+    language: "en",
+  },
+  {
+    id: "copilot-images",
+    name: "Microsoft Copilot",
+    url: "https://copilot.microsoft.com/",
+    description:
+      "Gratis i Edge-webbläsaren. Bra på bildgenerering och redigering. Tillgängligt på de flesta skolor.",
+    category: "bildgenerering",
+    kind: "service",
+    price: "free",
+    requiresAccount: true,
+    language: "multi",
+    linkedActivityIds: ["vilken-ar-riktig"],
+  },
+
+  // === VIDEOGENERERING ===
+  {
+    id: "google-veo",
+    name: "Google Veo (i Gemini)",
+    url: "https://gemini.google.com/",
+    description:
+      "Googles flaggskeppsmodell för text-till-video. Bra på kontinuitet i rörelser. Tillgänglig via Gemini-prenumeration.",
+    category: "videogenerering",
+    kind: "service",
+    price: "paid",
+    requiresAccount: true,
+    language: "multi",
+    linkedActivityIds: ["videogenerering-tjanster"],
+  },
+  {
+    id: "openai-sora",
+    name: "OpenAI Sora",
+    url: "https://sora.com/",
+    description:
+      "OpenAI:s videogenerator. Lång klipplängd och fotorealistiska resultat. Kräver ChatGPT Plus eller högre.",
+    category: "videogenerering",
+    kind: "service",
+    price: "paid",
+    requiresAccount: true,
+    language: "multi",
+    linkedActivityIds: ["videogenerering-tjanster"],
+  },
+  {
+    id: "runway",
+    name: "Runway",
+    url: "https://runwayml.com/",
+    description:
+      "Designad för filmskapare och kreatörer. Många kontrollverktyg utöver text-prompt. Gratis nivå finns men begränsad.",
+    category: "videogenerering",
+    kind: "service",
+    price: "freemium",
+    requiresAccount: true,
+    language: "en",
+    linkedActivityIds: ["videogenerering-tjanster"],
+  },
+  {
+    id: "kling-ai",
+    name: "Kling AI",
+    url: "https://kling.ai/",
+    description:
+      "AI-driven plattform som omvandlar textbeskrivningar till högkvalitativa videor — känd för snabb bearbetning och realistiska rörelser.",
+    category: "videogenerering",
+    kind: "service",
+    price: "freemium",
+    requiresAccount: true,
+    language: "en",
+  },
+  {
+    id: "minimax",
+    name: "MiniMax / Hailuo AI",
+    url: "https://www.minimaxi.com/en",
+    description:
+      "Kinesiskt AI-företag som erbjuder text-till-video (Video-01, 6-sekunders klipp) samt multimodal text- och musikgenerering.",
+    category: "videogenerering",
+    kind: "service",
+    price: "freemium",
+    requiresAccount: true,
+    language: "en",
+  },
+  {
+    id: "invideo",
+    name: "InVideo.ai",
+    url: "https://invideo.io/ai/",
+    description:
+      "AI-driven videoredigeringsplattform med mallar och automatiserade funktioner — bra för snabb produktion av professionella videor.",
+    category: "videogenerering",
+    kind: "service",
+    price: "freemium",
+    requiresAccount: true,
+    language: "en",
+  },
+  {
+    id: "luma-dream-machine",
+    name: "Luma Labs Dream Machine",
+    url: "https://lumalabs.ai/dream-machine",
+    description:
+      "Text-till-video-modell känd för cinematisk kvalitet och realistiska rörelser. Kan utgå från stillbilder eller prompter.",
+    category: "videogenerering",
+    kind: "service",
+    price: "freemium",
+    requiresAccount: true,
+    language: "en",
+  },
+
+  // === LJUD & RÖST ===
+  {
+    id: "suno",
+    name: "Suno",
+    url: "https://suno.com/",
+    description:
+      "AI-musikgenerator där du skapar låtar från text eller uppladdat ljud. Får separata ljudspår för full kreativ kontroll.",
+    category: "ljud-och-rost",
+    kind: "service",
+    price: "freemium",
+    requiresAccount: true,
+    language: "en",
+  },
+  {
+    id: "udio",
+    name: "Udio",
+    url: "https://www.udio.com/",
+    description:
+      "AI-musikgenerator för att skapa, dela och upptäcka musik på sekunder.",
+    category: "ljud-och-rost",
+    kind: "service",
+    price: "freemium",
+    requiresAccount: true,
+    language: "en",
+  },
+  {
+    id: "elevenlabs",
+    name: "ElevenLabs",
+    url: "https://elevenlabs.io/",
+    description:
+      "AI-plattform för text-till-tal och röstkloning. Människoliknande tal på 32 språk. Perfekt för ljudböcker och voiceover.",
+    category: "ljud-och-rost",
+    kind: "service",
+    price: "freemium",
+    requiresAccount: true,
+    language: "multi",
+  },
+  {
+    id: "play-ht",
+    name: "Play.ht",
+    url: "https://play.ht/",
+    description:
+      "Över 900 AI-röster på fler än 100 språk och accenter — för voiceovers, podcaster och presentationer.",
+    category: "ljud-och-rost",
+    kind: "service",
+    price: "freemium",
+    requiresAccount: true,
+    language: "multi",
+  },
+
+  // === DEEPFAKE-SKAPANDE ===
+  {
+    id: "deepfake-civai",
+    name: "deepfake.civai.org",
+    url: "https://deepfake.civai.org/",
+    description:
+      "Webbkamerabaserad realtids-deepfake. Inga uppladdningar — bara live-effekter på dig själv. Den enklaste vägen in i deepfake-tekniken med inbyggda säkerhetsspärrar.",
+    category: "deepfake-skapande",
+    kind: "exercise",
+    price: "free",
+    requiresAccount: false,
+    language: "en",
+    linkedActivityIds: ["deepfake-civai"],
+  },
+  {
+    id: "lucy-decart",
+    name: "Lucy.decart.ai",
+    url: "https://lucy.decart.ai/",
+    description:
+      "Webbkamerabaserad realtids face-swap där du själv ändras enligt en prompt — ”Gör mig till en gammal gubbe” och så händer det.",
+    category: "deepfake-skapande",
+    kind: "exercise",
+    price: "free",
+    requiresAccount: false,
+    language: "en",
+    linkedActivityIds: ["lucy-realtid-faceswap"],
+  },
+  {
+    id: "heygen",
+    name: "HeyGen",
+    url: "https://www.heygen.com/",
+    description:
+      "AI-videoplattform för att skapa högkvalitativa videor med AI-avatarer. Översätt innehåll och skapa avatarvideor utan kamera eller team.",
+    category: "deepfake-skapande",
+    kind: "service",
+    price: "freemium",
+    requiresAccount: true,
+    language: "multi",
+  },
+  {
+    id: "d-id",
+    name: "Studio D-ID",
+    url: "https://www.d-id.com/",
+    description:
+      "AI-plattform som låter användare skapa videor med digitala personer från en enda bild — talande avatarer på sekunder.",
+    category: "deepfake-skapande",
+    kind: "service",
+    price: "freemium",
+    requiresAccount: true,
+    language: "multi",
+  },
+  {
+    id: "live-portrait-ai",
+    name: "Live Portrait AI",
+    url: "https://liveportrait.ai/",
+    description:
+      "Förvandlar statiska bilder till animerade videor med realistiska ansiktsuttryck och rörelser.",
+    category: "deepfake-skapande",
+    kind: "service",
+    price: "freemium",
+    requiresAccount: true,
+    language: "en",
+  },
+  {
+    id: "deepfake-sandbox",
+    name: "Deepfake Sandbox",
+    url: "https://www.deepfakesandbox.com/",
+    description:
+      "Interaktiv demo där du skapar en deepfake av dig själv på sekunder. Undersöker samhälleliga implikationer av deepfakes och AI-teknik.",
+    category: "deepfake-skapande",
+    kind: "exercise",
+    price: "free",
+    requiresAccount: false,
+    language: "en",
+  },
+
+  // === SVENSKA LÄRRESURSER (utöver Digitala lektioner) ===
+  {
+    id: "lajka",
+    name: "Lajka",
+    url: "https://lajka.prinsparetsstiftelse.se/",
+    description:
+      "Gratis plattform om trygghet på nätet med material från förskola till gymnasium. Stark mellanstadie-fokus, ny AI-modul och rikligt med källkritiklektioner.",
+    category: "larresurs-skola",
+    kind: "exercise",
+    price: "free",
+    requiresAccount: false,
+    language: "sv",
+    notes: "Prinsparets Stiftelse, kvalitetssäkrad av RISE.",
+  },
+  {
+    id: "mik-for-mig",
+    name: "MIK för mig — Mediemyndigheten",
+    url: "https://mediemyndigheten.se/barn-och-unga/for-vuxna/medieanvandning/mik-for-mig---digital-lektionsbank/",
+    description:
+      "Mediemyndighetens digitala lektionsbank med färdiga lektionspaket om källkritik, vinklade budskap och relationer online för låg-, mellan- och högstadiet.",
+    category: "larresurs-skola",
+    kind: "exercise",
+    price: "free",
+    requiresAccount: false,
+    language: "sv",
+    notes: "Officiell myndighetsresurs (tidigare Statens medieråd).",
+  },
+  {
+    id: "mediekompass",
+    name: "Mediekompass",
+    url: "https://mediekompass.se/lektionstips/kallkritik/",
+    description:
+      "Lektionstips och övningar om källkritik med fokus på journalistik, pressfrihet och faktagranskning. Erbjuder kostnadsfria klassrumsbesök av mediepedagoger.",
+    category: "larresurs-skola",
+    kind: "exercise",
+    price: "free",
+    requiresAccount: false,
+    language: "sv",
+    notes: "Drivs av TU — Medier i Sverige.",
+  },
+  {
+    id: "surfa-lugnt-skola",
+    name: "Surfa Lugnt — skola",
+    url: "https://surfalugnt.se/fakta-och-material/skola/",
+    description:
+      "Lärarmaterial om nätsäkerhet, källkritik och cyberbullying. Färdiga PowerPoints och diskussionsguider att ladda ner gratis.",
+    category: "larresurs-skola",
+    kind: "exercise",
+    price: "free",
+    requiresAccount: false,
+    language: "sv",
+  },
+  {
+    id: "ur-ar-det-sant",
+    name: "UR Play — Är det sant?",
+    url: "https://urplay.se/program/177414-ar-det-sant-kallkritik",
+    description:
+      "Nyhetssatir för mellanstadiet som lär ut källkritik genom underhållande program. Lärarhandledning med diskussionsfrågor och färdiga lektionsförslag.",
+    category: "larresurs-skola",
+    kind: "exercise",
+    price: "free",
+    requiresAccount: false,
+    language: "sv",
+    notes: "Riktad till åk 4–6.",
+  },
+  {
+    id: "lilla-aktuellt-skola",
+    name: "Lilla Aktuellt skola",
+    url: "https://urplay.se/serie/240068-lilla-aktuellt-skola",
+    description:
+      "Veckonyheter för mellanstadiet med extra fokus på källkritik. Arbetsblad, quiz och lärarhandledningar från SVT/UR.",
+    category: "larresurs-skola",
+    kind: "exercise",
+    price: "free",
+    requiresAccount: false,
+    language: "sv",
+    notes: "Färska nyhetsexempel för åk 4–6 varje vecka.",
+  },
+  {
+    id: "mediesnacket-ur",
+    name: "Mediesnacket (UR)",
+    url: "https://urplay.se/serie/240179-mediesnacket",
+    description:
+      "Programserie för mellanstadiet om medie- och informationskunnighet, källkritik och hur medier fungerar.",
+    category: "larresurs-skola",
+    kind: "exercise",
+    price: "free",
+    requiresAccount: false,
+    language: "sv",
+    notes: "Del av Lilla Aktuellt skola.",
+  },
+  {
+    id: "pedagog-stockholm-ai-bilder",
+    name: "Pedagog Stockholm — Äkta bilder?",
+    url: "https://pedagog.stockholm/kompetensutveckling/kurser-forelasningar/akta-bilder-om-ai-bilder-och-kallkritik/",
+    description:
+      "Kurs om AI-bilder och källkritik för lärare. Behandlar promptografi och kritisk granskning av AI-genererade bilder.",
+    category: "larresurs-skola",
+    kind: "guide",
+    price: "free",
+    requiresAccount: false,
+    language: "sv",
+    linkedActivityIds: ["vilken-ar-riktig", "ai-eller-riktig"],
+  },
+  {
+    id: "checkology",
+    name: "Checkology (News Literacy Project)",
+    url: "https://get.checkology.org/",
+    description:
+      "Virtuellt klassrum för åk 5–12 med hundratals gratis lektioner, quizzar och slides om nyhetsfärdighet och källkritik.",
+    category: "larresurs-skola",
+    kind: "exercise",
+    price: "free",
+    requiresAccount: true,
+    language: "en",
+    notes: "Lärarregistrering krävs. Drivs av News Literacy Project (USA).",
+  },
+
+  // === SVENSKA & NORDISKA KÄLLKRITIKRESURSER ===
+  {
+    id: "mik-sverige-kunskapsbank",
+    name: "MIK Sveriges kunskapsbank",
+    url: "https://www.kunskapsbank-miksverige.se/",
+    description:
+      "Samlad kunskapsbank med över 1500 artiklar från Digiteket, Internetstiftelsen, Mediemyndigheten och UR om medie- och informationskunnighet.",
+    category: "kallkritik-resurser",
+    kind: "research",
+    price: "free",
+    requiresAccount: false,
+    language: "sv",
+    notes: "Samverkan mellan svenska MIK-aktörer.",
+  },
+  {
+    id: "digiteket-prebunking",
+    name: "Digiteket — Prebunking-tema",
+    url: "https://digiteket.se/tema/prebunkning/",
+    description:
+      "Kungliga bibliotekets fortbildningsplattform med samlade resurser om prebunking, källkritik och MIK för bibliotekarier och pedagoger.",
+    category: "kallkritik-resurser",
+    kind: "research",
+    price: "free",
+    requiresAccount: false,
+    language: "sv",
+  },
+  {
+    id: "faktajouren-fojo",
+    name: "Faktajouren — Fojo Mediainstitut",
+    url: "https://fojo.se/faktajouren/",
+    description:
+      "Linnéuniversitetets resurssamling om faktagranskning med svenska och internationella exempel, lärarmaterial och guider om desinformation.",
+    category: "kallkritik-resurser",
+    kind: "research",
+    price: "free",
+    requiresAccount: false,
+    language: "sv",
+  },
+  {
+    id: "faktabaari",
+    name: "Faktabaari (FactBar EDU)",
+    url: "https://faktabaari.fi/in-english/",
+    description:
+      "Finlands ledande faktagranskningstjänst med utbildningsmaterial om medie- och informationskunnighet. Finland rankas högst i Europa på MIL.",
+    category: "kallkritik-resurser",
+    kind: "verification",
+    price: "free",
+    requiresAccount: false,
+    language: "multi",
+    notes: "Har EDU-program för skolor.",
+  },
+
+  // === SÖK & LATERAL LÄSNING (curriculum) ===
+  {
+    id: "civic-online-reasoning",
+    name: "Civic Online Reasoning (Stanford)",
+    url: "https://cor.inquirygroup.org/",
+    description:
+      "Stanfords forskningsbaserade läroplan för lateral läsning och digital källkritik. Forskningen visar effekt redan efter korta interventioner.",
+    category: "sok-och-lateral-lasning",
+    kind: "exercise",
+    price: "free",
+    requiresAccount: false,
+    language: "en",
+    notes: "Evidensbaserad metod använd internationellt.",
+  },
+
+  // === PREBUNKING-SPEL (för yngre) ===
+  {
+    id: "bad-news-junior",
+    name: "Bad News Junior",
+    url: "https://www.getbadnews.com/junior",
+    description:
+      "Specialversion av Bad News för barn 8–11 år. Spelaren skapar fake news för skolwebbplatsen istället för sociala medier — lär ut förklädnad, känslomanipulation och andra tekniker.",
+    category: "prebunking-spel",
+    kind: "game",
+    price: "free",
+    requiresAccount: false,
+    language: "multi",
+    notes: "Designad specifikt för mellanstadiet (åk 3–5).",
+    linkedActivityIds: ["bad-news-game"],
+  },
+
+  // === VERIFIERINGSVERKTYG (bild- och bevisforensik) ===
+  {
+    id: "tineye",
+    name: "TinEye",
+    url: "https://tineye.com/",
+    description:
+      "Världens första omvända bildsökmotor som söker över 70 miljarder bilder. Hittar originalkälla och redigerade versioner.",
+    category: "verifiering",
+    kind: "verification",
+    price: "freemium",
+    requiresAccount: false,
+    language: "en",
+    notes: "Kompletterar Google Bilder med annan indexering.",
+  },
+  {
+    id: "yandex-bildsok",
+    name: "Yandex Bildsök",
+    url: "https://yandex.com/images/",
+    description:
+      "Sökmotor känd för överlägsen ansiktsigenkänning och förmåga att hitta redigerade bilder. Standardverktyg för OSINT och bildverifiering.",
+    category: "verifiering",
+    kind: "verification",
+    price: "free",
+    requiresAccount: false,
+    language: "multi",
+    notes: "Hittar ofta bilder som Google/TinEye missar.",
+  },
+  {
+    id: "fotoforensics",
+    name: "FotoForensics",
+    url: "https://fotoforensics.com/",
+    description:
+      "Bildforensik-tjänst som använder Error Level Analysis (ELA) för att avslöja manipulerade bilder. Visar inkonsekvenser i kompression som tyder på redigering.",
+    category: "verifiering",
+    kind: "verification",
+    price: "free",
+    requiresAccount: false,
+    language: "en",
+    notes: "Klassiskt verktyg för att hitta photoshop-spår.",
+  },
+  {
+    id: "content-credentials",
+    name: "Content Credentials (C2PA)",
+    url: "https://contentcredentials.org/verify",
+    description:
+      "Adobe/Microsofts officiella verifieringsverktyg för C2PA-metadata. Visar bildens ursprung, redigeringshistorik och om AI använts.",
+    category: "verifiering",
+    kind: "verification",
+    price: "free",
+    requiresAccount: false,
+    language: "en",
+    notes: "Branschstandard för innehållsautencitet.",
+  },
+  {
+    id: "bellingcat-toolkit",
+    name: "Bellingcat's Online Investigation Toolkit",
+    url: "https://bellingcat.gitbook.io/toolkit",
+    description:
+      "Samlad verktygslåda för OSINT-undersökningar — bild- och videoverifiering, sociala medier, satellitbilder, arkivering. De flesta verktygen är gratis.",
+    category: "verifiering",
+    kind: "research",
+    price: "free",
+    requiresAccount: false,
+    language: "en",
+    notes: "Branschstandard för digitala undersökningar.",
+  },
+
+  // === AI-DETEKTION (text + bild) ===
+  {
+    id: "gptzero",
+    name: "GPTZero",
+    url: "https://gptzero.me/",
+    description:
+      "AI-textdetektor som upptäcker innehåll från ChatGPT, GPT-5, Claude och Gemini. Används av 100+ utbildningsinstitutioner.",
+    category: "ai-detektion",
+    kind: "verification",
+    price: "freemium",
+    requiresAccount: false,
+    language: "en",
+    notes: "Branschledande för utbildning.",
+  },
+  {
+    id: "grammarly-ai-detector",
+    name: "Grammarly AI Detector",
+    url: "https://www.grammarly.com/ai-detector",
+    description:
+      "Gratis AI-textdetektor som rankas #1 på RAID:s oberoende benchmark för att skilja människo- och AI-genererad text.",
+    category: "ai-detektion",
+    kind: "verification",
+    price: "free",
+    requiresAccount: false,
+    language: "en",
+  },
+  {
+    id: "hive-moderation",
+    name: "Hive Moderation AI Detector",
+    url: "https://hivemoderation.com/ai-generated-content-detection",
+    description:
+      "Erkänd som mest träffsäker AI-bilddetektor (94 % noggrannhet i tester). Identifierar bilder från Midjourney, DALL-E, Stable Diffusion m.fl.",
+    category: "ai-detektion",
+    kind: "verification",
+    price: "freemium",
+    requiresAccount: false,
+    language: "en",
+    notes: "Demo gratis, företagsversion kostar.",
+  },
+  {
+    id: "illuminarty",
+    name: "Illuminarty",
+    url: "https://app.illuminarty.ai/",
+    description:
+      "AI-detektor med heatmaps som visar vilka delar av en bild som troligen är AI-genererade. Kan identifiera vilken AI-modell som använts.",
+    category: "ai-detektion",
+    kind: "verification",
+    price: "freemium",
+    requiresAccount: false,
+    language: "en",
+    notes: "Detaljerad heatmap-visualisering. 5 gratis scanner per dag.",
+  },
+  {
+    id: "ai-or-not",
+    name: "AI or Not",
+    url: "https://www.aiornot.com/",
+    description:
+      "Snabb AI-detektor för bilder, video och ljud utan registreringskrav. 10 gratis scanner per månad utan konto.",
+    category: "ai-detektion",
+    kind: "verification",
+    price: "freemium",
+    requiresAccount: false,
+    language: "en",
+    notes: "Snabbast utan registrering.",
+  },
+  {
+    id: "is-it-ai",
+    name: "Is It AI?",
+    url: "https://isitai.com/",
+    description:
+      "AI-bilddetektor med 95 %+ noggrannhet över 10+ generatorer. Identifierar specifik AI-modell. 5 gratis detekteringar per månad.",
+    category: "ai-detektion",
+    kind: "verification",
+    price: "freemium",
+    requiresAccount: false,
+    language: "en",
+  },
+  {
+    id: "huggingface-ai-detector",
+    name: "Hugging Face AI Image Detector",
+    url: "https://huggingface.co/spaces/umm-maybe/AI-image-detector",
+    description:
+      "Open source AI-bilddetektor utan registrering eller paywall. Ladda upp bild, få procentuell bedömning på 5 sekunder.",
+    category: "ai-detektion",
+    kind: "verification",
+    price: "free",
+    requiresAccount: false,
+    language: "en",
+    notes: "Helt friktionsfri — perfekt för demos i klassrum.",
+  },
+
+  // === DEEPFAKE-DETEKTION ===
+  {
+    id: "deepware-scanner",
+    name: "Deepware Scanner",
+    url: "https://scanner.deepware.ai/",
+    description:
+      "Specialiserad deepfake-detektor för video. Klistra in YouTube-länk eller ladda upp video för analys.",
+    category: "deepfake-detektion",
+    kind: "verification",
+    price: "free",
+    requiresAccount: false,
+    language: "en",
+    notes: "Beta-stadium men gratis.",
+  },
+  {
+    id: "hive-detect",
+    name: "Hive Detect",
+    url: "https://hivedetect.ai/",
+    description:
+      "Webbverktyg för att upptäcka AI-genererat och deepfake-innehåll i bilder, video och ljud. Bilduppladdning ger ramvis analys med konfidenspoäng.",
+    category: "deepfake-detektion",
+    kind: "verification",
+    price: "freemium",
+    requiresAccount: false,
+    language: "en",
+  },
+  {
+    id: "hiya-voice-detector",
+    name: "Hiya Deepfake Voice Detector",
+    url: "https://chromewebstore.google.com/detail/hiya-deepfake-voice-detec/akmieeldmgcllmokbpaibfelofjiilpc",
+    description:
+      "Chrome-tillägg för realtidsdetektion av AI-klonade röster på vilken som helst webbplats. 99 % noggrannhet, 20 frågor per dag.",
+    category: "deepfake-detektion",
+    kind: "browser-extension",
+    price: "free",
+    requiresAccount: false,
+    language: "en",
+    notes: "Endast röstdetektion — komplement till video/bild.",
+  },
+
+  // === BROWSER-EXTENSIONS ===
+  {
+    id: "invid-weverify",
+    name: "InVID-WeVerify Plugin",
+    url: "https://chromewebstore.google.com/detail/fake-news-debunker-by-inv/mhccpoafgdgbhnjfhkcmgknndkeenfhe",
+    description:
+      "Verifierings-Schweizerkniv som webbläsartillägg med omvänd bildsökning, video-fragmentering, EXIF-läsning och AI-detektorer från vera.ai.",
+    category: "browser-extension",
+    kind: "browser-extension",
+    price: "free",
+    requiresAccount: false,
+    language: "en",
+    notes: "Branschstandard. Pristagare för bästa verifieringsverktyg.",
+  },
+  {
+    id: "newsguard",
+    name: "NewsGuard",
+    url: "https://www.newsguardtech.com/",
+    description:
+      "Webbläsartillägg som visar trovärdighetspoäng (0–100) för nyhetssajter baserat på nio journalistiska kriterier. Granskas av riktiga journalister.",
+    category: "browser-extension",
+    kind: "browser-extension",
+    price: "freemium",
+    requiresAccount: true,
+    language: "en",
+    notes: "Inbyggt i Microsoft Edge gratis.",
+  },
+  {
+    id: "media-bias-extension",
+    name: "Media Bias/Fact Check Extension",
+    url: "https://chrome.google.com/webstore/detail/media-bias-fact-check/ganicjnkcddicfioohdaegodjodcbkkh",
+    description:
+      "Webbläsartillägg som visar politisk slagsida och faktatrovärdighet för nyhetssajter direkt i webbläsaren. Komplement till AllSides Media Bias Chart.",
+    category: "browser-extension",
+    kind: "browser-extension",
+    price: "free",
+    requiresAccount: false,
+    language: "en",
+  },
+];
+
+// Snabb lookup för UI och evt djuplänkar
+export const toolsById = Object.fromEntries(
+  tools.map((t) => [t.id, t])
+) as Record<string, Tool>;
+
+// Bygg sökbar sträng per verktyg för Fuse.js
+export function toolSearchString(tool: Tool): string {
+  return [tool.name, tool.description, tool.notes, tool.tags?.join(" ")]
+    .filter(Boolean)
+    .join(" ");
+}

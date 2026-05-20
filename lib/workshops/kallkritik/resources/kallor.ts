@@ -105,6 +105,49 @@ export const kallor = {
         },
       ],
     },
+    {
+      id: "pedagogiska-resurser",
+      title: "Pedagogiska resurser & övningar att utforska",
+      description:
+        "Externa sajter med färdiga övningar och resurser om AI, källkritik och säkerhet — bra som inspiration för egen anpassning.",
+      sources: [
+        {
+          title: "Civai.org — Email Phishing",
+          publisher: "Civai (Center for Innovation, Values and AI)",
+          description:
+            "Pedagogiskt material om phishing kopplat till AI. Inspirationskälla för aktivitet 4.4 Hitta phishing-knepen.",
+          url: "https://civai.org/p/email-phishing",
+        },
+        {
+          title: "Civai.org — AI Values",
+          publisher: "Civai",
+          description:
+            "Diskussionsmaterial om AI:s värderingar — hur AI gör val, vems värderingar bakas in, vad vi ska tänka på.",
+          url: "https://civai.org/p/ai-values",
+        },
+        {
+          title: "Civai.org — Harmful Instructions",
+          publisher: "Civai",
+          description:
+            "Material om hur AI kan ge skadliga eller felaktiga instruktioner — relevant för aktivitet 3.1 Hallucinationsjakten och 4.2 Push back-testet.",
+          url: "https://civai.org/p/harmful-instructions",
+        },
+        {
+          title: "Civai.org — Parenting AI",
+          publisher: "Civai",
+          description:
+            "Guide för föräldrar om AI och barn — komplement till vår Föräldraguide-resurs.",
+          url: "https://civai.org/p/parenting-ai",
+        },
+        {
+          title: "Sightengine — AI or Not",
+          publisher: "Sightengine",
+          description:
+            "Färdigt webbtest där du laddar upp bilder och tjänsten gissar om de är AI-genererade. Bra komplement till aktivitet 1.1 AI eller riktig.",
+          url: "https://sightengine.com/ai-or-not",
+        },
+      ],
+    },
   ] satisfies SourceCategory[],
 };
 
