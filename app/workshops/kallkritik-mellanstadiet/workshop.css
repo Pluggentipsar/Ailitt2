@@ -1,0 +1,381 @@
+/* Workshop-sandlådans formspråk — håller sig till denna route.
+   Lekfullt "workshop-laboratorium": post-it, washi-tape, papper-textur,
+   handskriven display-font + ren sans-serif. */
+
+.workshop-root {
+  --workshop-canvas: #fbf5ea; /* krita-vit */
+  --workshop-canvas-deep: #f3eada; /* lite varmare */
+  --workshop-senap: #e0a82e; /* senapsgul */
+  --workshop-senap-soft: #f5d27a;
+  --workshop-terrakotta: #c4623e;
+  --workshop-terrakotta-soft: #e8a586;
+  --workshop-havsblå: #4a7c8f;
+  --workshop-havsblå-soft: #a8c5d1;
+  --workshop-skog: #5b7553;
+  --workshop-skog-soft: #b3c5a8;
+  --workshop-lila: #7a5b8e;
+  --workshop-lila-soft: #c8b5d4;
+  --workshop-kol: #2c2c2c;
+
+  --workshop-paper-grain:
+    radial-gradient(
+      ellipse at top left,
+      rgba(224, 168, 46, 0.04),
+      transparent 60%
+    ),
+    radial-gradient(
+      ellipse at bottom right,
+      rgba(196, 98, 62, 0.04),
+      transparent 60%
+    );
+
+  font-family: var(--font-workshop-body), system-ui, -apple-system, sans-serif;
+  color: #292524;
+}
+
+/* Tailwind-färg-helpers exponeras via klassnamn så slipper jag ändra
+   tailwind.config.ts (workshopen är ett eget rum). */
+.workshop-root .bg-workshop-canvas {
+  background-color: var(--workshop-canvas);
+}
+.workshop-root .bg-workshop-canvas\/80 {
+  background-color: rgb(251 245 234 / 0.8);
+}
+.workshop-root .bg-workshop-senap {
+  background-color: var(--workshop-senap);
+}
+.workshop-root .bg-workshop-senap-soft {
+  background-color: var(--workshop-senap-soft);
+}
+.workshop-root .bg-workshop-terrakotta {
+  background-color: var(--workshop-terrakotta);
+}
+.workshop-root .bg-workshop-terrakotta-soft {
+  background-color: var(--workshop-terrakotta-soft);
+}
+.workshop-root .bg-workshop-havsbla {
+  background-color: var(--workshop-havsblå);
+}
+.workshop-root .bg-workshop-havsbla-soft {
+  background-color: var(--workshop-havsblå-soft);
+}
+.workshop-root .bg-workshop-skog {
+  background-color: var(--workshop-skog);
+}
+.workshop-root .bg-workshop-skog-soft {
+  background-color: var(--workshop-skog-soft);
+}
+.workshop-root .bg-workshop-lila {
+  background-color: var(--workshop-lila);
+}
+.workshop-root .bg-workshop-lila-soft {
+  background-color: var(--workshop-lila-soft);
+}
+.workshop-root .text-workshop-senap {
+  color: var(--workshop-senap);
+}
+.workshop-root .text-workshop-terrakotta {
+  color: var(--workshop-terrakotta);
+}
+.workshop-root .text-workshop-canvas {
+  color: var(--workshop-canvas);
+}
+.workshop-root .text-workshop-havsbla {
+  color: var(--workshop-havsblå);
+}
+.workshop-root .text-workshop-skog {
+  color: var(--workshop-skog);
+}
+.workshop-root .text-workshop-lila {
+  color: var(--workshop-lila);
+}
+.workshop-root .border-workshop-senap {
+  border-color: var(--workshop-senap);
+}
+.workshop-root .border-workshop-terrakotta {
+  border-color: var(--workshop-terrakotta);
+}
+
+/* Papper-textur-bakgrund — subtila gula/röda glow:s + grov noise.
+   Noise är inline SVG så slipper jag ladda en separat fil. */
+.workshop-paper {
+  background-color: var(--workshop-canvas);
+  background-image: var(--workshop-paper-grain),
+    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.3 0 0 0 0 0.25 0 0 0 0 0.2 0 0 0 0.18 0'/></filter><rect width='100%' height='100%' filter='url(%23n)' opacity='0.4'/></svg>");
+  background-size: 100% 100%, 220px 220px;
+}
+
+/* Tape-bar — randig list överst för "klistrad upp"-känsla */
+.workshop-tape-bar {
+  height: 6px;
+  background: repeating-linear-gradient(
+    90deg,
+    var(--workshop-senap) 0 16px,
+    var(--workshop-terrakotta) 16px 32px,
+    var(--workshop-havsblå) 32px 48px,
+    var(--workshop-skog) 48px 64px,
+    var(--workshop-lila) 64px 80px
+  );
+  opacity: 0.9;
+}
+
+/* Display-font för rubriker */
+.workshop-root .font-display {
+  font-family: var(--font-caveat), "Patrick Hand", cursive;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+.workshop-root .font-hand {
+  font-family: var(--font-patrick), "Patrick Hand", cursive;
+  letter-spacing: 0;
+}
+
+/* Post-it-kort */
+.workshop-root .post-it {
+  position: relative;
+  padding: 1.5rem;
+  background: var(--workshop-senap-soft);
+  box-shadow:
+    0 6px 14px rgba(0, 0, 0, 0.08),
+    0 1px 2px rgba(0, 0, 0, 0.05);
+  border-radius: 2px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.workshop-root .post-it:hover {
+  transform: translateY(-2px) rotate(0deg);
+  box-shadow:
+    0 12px 24px rgba(0, 0, 0, 0.12),
+    0 2px 4px rgba(0, 0, 0, 0.06);
+}
+.workshop-root .post-it::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%) rotate(-3deg);
+  width: 56px;
+  height: 18px;
+  background: rgba(255, 255, 255, 0.55);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
+}
+
+/* Färgvariationer */
+.workshop-root .post-it--senap {
+  background: var(--workshop-senap-soft);
+}
+.workshop-root .post-it--terrakotta {
+  background: var(--workshop-terrakotta-soft);
+}
+.workshop-root .post-it--havsbla {
+  background: var(--workshop-havsblå-soft);
+}
+.workshop-root .post-it--skog {
+  background: var(--workshop-skog-soft);
+}
+.workshop-root .post-it--lila {
+  background: var(--workshop-lila-soft);
+}
+.workshop-root .post-it--kol {
+  background: #d6d3d1;
+}
+
+/* Roterade post-its för listor */
+.workshop-root .post-it-rotated:nth-child(3n + 1) {
+  transform: rotate(-1.2deg);
+}
+.workshop-root .post-it-rotated:nth-child(3n + 2) {
+  transform: rotate(0.8deg);
+}
+.workshop-root .post-it-rotated:nth-child(3n + 3) {
+  transform: rotate(-0.4deg);
+}
+
+/* Washi tape */
+.workshop-root .washi {
+  position: relative;
+}
+.workshop-root .washi::after {
+  content: "";
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  width: 70px;
+  height: 22px;
+  background: repeating-linear-gradient(
+    45deg,
+    var(--workshop-terrakotta) 0 6px,
+    transparent 6px 12px
+  );
+  background-color: rgba(196, 98, 62, 0.5);
+  transform: rotate(12deg);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* "Häftstift"-prick */
+.workshop-root .pin::after {
+  content: "";
+  position: absolute;
+  top: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 10px;
+  height: 10px;
+  background: radial-gradient(
+    circle at 30% 30%,
+    #ff8a5e,
+    var(--workshop-terrakotta) 70%
+  );
+  border-radius: 999px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+}
+
+/* Prose anpassad till workshop */
+.workshop-root .workshop-prose {
+  font-size: 1.0625rem;
+  line-height: 1.7;
+  color: #292524;
+}
+.workshop-root .workshop-prose h2 {
+  font-family: var(--font-caveat), cursive;
+  font-size: 2rem;
+  margin: 1.5rem 0 0.75rem;
+  color: var(--workshop-kol);
+}
+.workshop-root .workshop-prose h3 {
+  font-family: var(--font-patrick), cursive;
+  font-size: 1.375rem;
+  margin: 1.25rem 0 0.5rem;
+  color: var(--workshop-kol);
+}
+.workshop-root .workshop-prose p {
+  margin-bottom: 0.875rem;
+}
+.workshop-root .workshop-prose ul,
+.workshop-root .workshop-prose ol {
+  margin-bottom: 1rem;
+  padding-left: 1.25rem;
+}
+.workshop-root .workshop-prose li {
+  margin-bottom: 0.375rem;
+}
+
+/* Callout-rutor */
+.workshop-root .callout {
+  border-left: 4px solid var(--workshop-senap);
+  background: rgba(245, 210, 122, 0.18);
+  padding: 1rem 1.25rem;
+  margin: 1rem 0;
+  border-radius: 0 8px 8px 0;
+}
+.workshop-root .callout--warning {
+  border-color: var(--workshop-terrakotta);
+  background: rgba(232, 165, 134, 0.22);
+}
+.workshop-root .callout--info {
+  border-color: var(--workshop-havsblå);
+  background: rgba(168, 197, 209, 0.25);
+}
+.workshop-root .callout--tip {
+  border-color: var(--workshop-skog);
+  background: rgba(179, 197, 168, 0.25);
+}
+
+/* Filter-piller */
+.workshop-root .filter-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.375rem 0.875rem;
+  border-radius: 999px;
+  border: 1.5px solid #d6d3d1;
+  background: rgba(255, 255, 255, 0.6);
+  color: #292524;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  transition: all 0.15s ease;
+  cursor: pointer;
+}
+.workshop-root .filter-pill:hover {
+  border-color: #44403c;
+}
+.workshop-root .filter-pill--active {
+  background: var(--workshop-kol);
+  color: var(--workshop-canvas);
+  border-color: var(--workshop-kol);
+}
+
+/* Chapter-färgaccenter */
+.workshop-root [data-chapter-tone="senap"] {
+  --tone: var(--workshop-senap);
+  --tone-soft: var(--workshop-senap-soft);
+}
+.workshop-root [data-chapter-tone="terrakotta"] {
+  --tone: var(--workshop-terrakotta);
+  --tone-soft: var(--workshop-terrakotta-soft);
+}
+.workshop-root [data-chapter-tone="havsblå"] {
+  --tone: var(--workshop-havsblå);
+  --tone-soft: var(--workshop-havsblå-soft);
+}
+.workshop-root [data-chapter-tone="skog"] {
+  --tone: var(--workshop-skog);
+  --tone-soft: var(--workshop-skog-soft);
+}
+.workshop-root [data-chapter-tone="lila"] {
+  --tone: var(--workshop-lila);
+  --tone-soft: var(--workshop-lila-soft);
+}
+.workshop-root [data-chapter-tone="kol"] {
+  --tone: var(--workshop-kol);
+  --tone-soft: #d6d3d1;
+}
+
+/* --- Print --- */
+@media print {
+  .workshop-root {
+    background: white !important;
+  }
+  .workshop-paper {
+    background: white !important;
+  }
+  .workshop-root .post-it,
+  .workshop-root .post-it--senap,
+  .workshop-root .post-it--terrakotta,
+  .workshop-root .post-it--havsbla,
+  .workshop-root .post-it--skog,
+  .workshop-root .post-it--lila,
+  .workshop-root .post-it--kol {
+    background: white !important;
+    box-shadow: none !important;
+    border: 1px solid #aaa;
+    transform: none !important;
+  }
+  .workshop-root .post-it::before,
+  .workshop-root .washi::after,
+  .workshop-root .pin::after {
+    display: none !important;
+  }
+  .workshop-root .filter-pill,
+  .workshop-tape-bar {
+    display: none !important;
+  }
+  .workshop-root .workshop-prose {
+    font-size: 11pt;
+    line-height: 1.45;
+  }
+  .workshop-root .workshop-prose h2,
+  .workshop-root .workshop-prose h3 {
+    font-family: Georgia, serif !important;
+  }
+  .workshop-root a {
+    color: black !important;
+    text-decoration: underline;
+  }
+  /* Sidbrytning vänlig */
+  .print-page-break {
+    page-break-after: always;
+  }
+  .print-avoid-break {
+    page-break-inside: avoid;
+  }
+}

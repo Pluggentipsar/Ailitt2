@@ -1,6 +1,16 @@
+"use client";
+
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 export function Footer() {
+  const pathname = usePathname();
+
+  // Workshop-rutter har egen layout-shell — göm sajt-footern där.
+  if (pathname?.startsWith("/workshops/")) {
+    return null;
+  }
+
   return (
     <footer className="border-t border-gray-200 bg-gray-50">
       <div className="container mx-auto px-4 py-12">

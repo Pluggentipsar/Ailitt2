@@ -2,7 +2,18 @@
   "permissions": {
     "allow": [
       "Bash(npm run dev:*)",
-      "Bash(npm install:*)"
+      "Bash(npm install:*)",
+      "Bash(ls:*)",
+      "Bash(du:*)",
+      "Bash(git:*)",
+      "Bash(node:*)",
+      "Bash(rm:*)",
+      "Bash(npm uninstall:*)",
+      "Bash(xargs:*)",
+      "Bash(grep:*)",
+      "Bash(find:*)",
+      "Bash(python3:*)",
+      "Bash(npm run:*)"
     ],
     "deny": [],
     "ask": []

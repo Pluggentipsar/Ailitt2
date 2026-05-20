@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
 const NAV_LINKS = [
@@ -17,7 +18,13 @@ const NAV_LINKS = [
 ];
 
 export function Header() {
+  const pathname = usePathname();
   const [open, setOpen] = useState(false);
+
+  // Workshop-rutter har egen layout-shell — göm sajt-headern där.
+  if (pathname?.startsWith("/workshops/")) {
+    return null;
+  }
 
   useEffect(() => {
     if (!open) {
