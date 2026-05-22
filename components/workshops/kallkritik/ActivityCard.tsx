@@ -40,7 +40,11 @@ export function ActivityCard({ activity }: { activity: Activity }) {
                   ? "var(--workshop-skog-soft)"
                   : chapter.tone === "lila"
                     ? "var(--workshop-lila-soft)"
-                    : "#d6d3d1",
+                    : chapter.tone === "plommon"
+                      ? "var(--workshop-plommon-soft)"
+                      : chapter.tone === "rost"
+                        ? "var(--workshop-rost-soft)"
+                        : "#d6d3d1",
       }}
     >
       <div className="flex items-start justify-between gap-2 mb-2">

@@ -7,8 +7,10 @@ export type ChapterId =
   | "bygg-sjalv"
   | "hallucinationer"
   | "vannen"
+  | "retoriska-knep"
   | "relationskritik"
-  | "vaccinet";
+  | "vaccinet"
+  | "bias";
 
 export type ActivityLevel =
   | "workshop-byggsten" // lärar-workshop-fokuserad, ofta med klassrumsversion
@@ -35,7 +37,9 @@ export type Skill =
   | "kroppslig-forstaelse"
   | "verktygsstrategi"
   | "sjalvreflektion"
-  | "samtalskonst";
+  | "samtalskonst"
+  | "bias-medvetenhet"
+  | "retorisk-medvetenhet";
 
 export const skillLabels: Record<Skill, string> = {
   observation: "Observation",
@@ -55,6 +59,8 @@ export const skillLabels: Record<Skill, string> = {
   verktygsstrategi: "Verktygsstrategi",
   sjalvreflektion: "Självreflektion",
   samtalskonst: "Samtalskonst",
+  "bias-medvetenhet": "Bias-medvetenhet",
+  "retorisk-medvetenhet": "Retorisk medvetenhet",
 };
 
 export const levelLabels: Record<ActivityLevel, string> = {
@@ -108,7 +114,9 @@ export type Chapter = {
     | "havsblå"
     | "skog"
     | "lila"
-    | "kol";
+    | "kol"
+    | "plommon"
+    | "rost";
   // Lucide-ikonnamn (string så datafilen är ren data, ikonen matchas i renderern)
   icon: string;
 };

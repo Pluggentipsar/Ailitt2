@@ -4,16 +4,20 @@ import { flodet } from "./flodet";
 import { byggSjalv } from "./bygg-sjalv";
 import { hallucinationer } from "./hallucinationer";
 import { vannen } from "./vannen";
+import { retoriskaKnep } from "./retoriska-knep";
 import { relationskritik } from "./relationskritik";
 import { vaccinet } from "./vaccinet";
+import { bias } from "./bias";
 
 export const activities: Activity[] = [
   ...flodet,
   ...byggSjalv,
   ...hallucinationer,
   ...vannen,
+  ...retoriskaKnep,
   ...relationskritik,
   ...vaccinet,
+  ...bias,
 ];
 
 export const activitiesById = Object.fromEntries(

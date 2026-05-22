@@ -3,7 +3,7 @@ import type { Activity } from "../types";
 export const vaccinet: Activity[] = [
   {
     id: "bad-news-game",
-    number: "6.1",
+    number: "7.1",
     title: "Bad News Game",
     chapter: "vaccinet",
     level: "workshop-byggsten",
@@ -245,7 +245,7 @@ export const vaccinet: Activity[] = [
 
   {
     id: "cranky-uncle",
-    number: "6.2",
+    number: "7.2",
     title: "Cranky Uncle",
     chapter: "vaccinet",
     level: "workshop-byggsten",
@@ -486,7 +486,7 @@ export const vaccinet: Activity[] = [
 
   {
     id: "go-viral",
-    number: "6.3",
+    number: "7.3",
     title: "Go Viral!",
     chapter: "vaccinet",
     level: "prova-pa",

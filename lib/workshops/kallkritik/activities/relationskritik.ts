@@ -3,7 +3,7 @@ import type { Activity } from "../types";
 export const relationskritik: Activity[] = [
   {
     id: "vem-skulle-du-fraga",
-    number: "5.1",
+    number: "6.1",
     title: "Vem skulle du fråga?",
     chapter: "relationskritik",
     level: "startovning",
@@ -285,7 +285,7 @@ export const relationskritik: Activity[] = [
 
   {
     id: "relationskritik-tre-steg",
-    number: "5.2",
+    number: "6.2",
     title: "Relationskritik i tre steg",
     chapter: "relationskritik",
     level: "startovning",
@@ -591,7 +591,7 @@ Pausa: ”Det är inte ett dåligt svar. Det är ett svar som ser hjälpsamt ut.
 
   {
     id: "sykofant-testet",
-    number: "5.3",
+    number: "6.3",
     title: "Sykofant-testet",
     chapter: "relationskritik",
     level: "fordjupande",
@@ -872,7 +872,7 @@ Pausa: ”Det är inte ett dåligt svar. Det är ett svar som ser hjälpsamt ut.
 
   {
     id: "samma-fraga-tre-kallor",
-    number: "5.4",
+    number: "6.4",
     title: "Samma fråga, tre källor",
     chapter: "relationskritik",
     level: "fordjupande",
@@ -1127,7 +1127,7 @@ Pausa: ”Det är inte ett dåligt svar. Det är ett svar som ser hjälpsamt ut.
 
   {
     id: "vad-ai-inte-ser",
-    number: "5.5",
+    number: "6.5",
     title: "Vad AI:n inte ser",
     chapter: "relationskritik",
     level: "fordjupande",
@@ -1369,7 +1369,7 @@ Pausa: ”Det är inte ett dåligt svar. Det är ett svar som ser hjälpsamt ut.
 
   {
     id: "spela-ai-tva-minuter",
-    number: "5.6",
+    number: "6.6",
     title: "Spela AI i två minuter",
     chapter: "relationskritik",
     level: "prova-pa",
@@ -1633,7 +1633,7 @@ Pausa: ”Det är inte ett dåligt svar. Det är ett svar som ser hjälpsamt ut.
 
   {
     id: "be-om-motstandet",
-    number: "5.7",
+    number: "6.7",
     title: "Be om motståndet uttryckligen",
     chapter: "relationskritik",
     level: "prova-pa",

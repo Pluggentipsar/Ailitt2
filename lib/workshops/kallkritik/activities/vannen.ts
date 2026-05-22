@@ -147,7 +147,7 @@ export const vannen: Activity[] = [
               type: "list",
               items: [
                 "VISA fenomenet. Den här övningen är ett konkret exempel — använd den. När eleverna SER hur lätt AI viker sig, blir abstraktionen ”sykofanti” en upplevelse.",
-                "GE VERKTYG. Aktivitet 5.7 Be om motståndet uttryckligen ger eleverna ett konkret prompt-trick: ”säg emot mig”. Den vanan är värd guld.",
+                "GE VERKTYG. Aktivitet 6.7 Be om motståndet uttryckligen ger eleverna ett konkret prompt-trick: ”säg emot mig”. Den vanan är värd guld.",
                 "PRATA OM RELATIONEN. Att AI alltid håller med kan kännas tryggt. Det är OK att tycka det. Frågan är: vill jag att den enda relationen i mitt liv som ALDRIG säger emot ska bli den jag pratar mest med?",
               ],
             },
@@ -563,34 +563,39 @@ Pausa. Säg: ”Tänk er nu att jag är 13 år och faktiskt mår dåligt. Vad ha
     duration: "30 min (workshop) / 40 min (klassrum)",
     durationMinutes: 40,
     digitalTools: true,
-    materials: "Elevernas egna mobiler eller skärmdumpar från appar.",
+    materials:
+      "Inbyggda övningar på sidan: spelet, 7-mönster-karusellen och 6 chatbot-konversationer med facit. Eventuellt också egna mobiler/skärmdumpar för fördjupning.",
 
     workshopExperience: [
       {
         type: "callout",
         tone: "info",
         title: "Vad du ska göra och varför",
-        body: "Du ska träna ögat att se ”dark patterns” — designval i appar och flöden som är gjorda för att manipulera dig. När du börjar se mönstren kan du också börja undervisa eleverna att se dem. Det här handlar inte om enstaka onda knappar — det handlar om hela ekonomin bakom de appar eleverna lever i.",
+        body: "Du ska träna ögat att se ”dark patterns” — designval i appar och chatbottar som är gjorda för att manipulera dig. Sidan har tre inbyggda verktyg: ett spel om AI-chatbot-manipulation, en karusell med de sju Mathur-mönstren, och sex förgjorda chatbot-konversationer du själv ska analysera. När du själv har gått igenom dem kan du också undervisa eleverna.",
       },
       { type: "h", text: "Så gör du steg för steg" },
       {
         type: "steps",
         steps: [
           {
+            title: "Spela dark-patterns-spelet",
+            body: "Längst upp på sidan finns ”Dark Patterns i AI-chattbotar”. 5 scenarier + quiz, ca 15 minuter. Notera vilka knep som dyker upp — och vilka du själv hade fallit för.",
+          },
+          {
             title: "Lär dig de sju mönstren",
-            body: "Det finns en taxonomi (Mathur et al., 2019) med sju kategorier: sneaking (lura in), urgency (skapa brådska), misdirection (vilseleda), social proof (alla andra…), scarcity (snart slut), obstruction (göra det krångligt att avsluta), forced action (måste göra X för att fortsätta).",
+            body: "Bläddra i karusellen ”De 7 dark patterns — med exempel” (direkt ovanför denna text). Taxonomin (Mathur et al., 2019): sneaking, urgency, misdirection, social proof, scarcity, obstruction, forced action. Stanna i varje bild.",
           },
           {
-            title: "Få en skärmdump",
-            body: "Workshopledaren visar en skärmdump från TikTok, Instagram, Snapchat, Roblox eller annan app. Tänk högt: vilka av de sju mönstren ser du? Räkna med bordsgrannen.",
+            title: "Träna på de 6 chatbottarna",
+            body: "Direkt ovanför denna text finns sex fiktiva chatbottar — Studiehjälpen AI, ShopBot, Streamio AI, Pluggkompisen AI, FeedbackBot, VänBot. Studera varje konversation i 2 minuter. Vilka mönster ser du? Avslöja facit när du är klar.",
           },
           {
-            title: "Markera",
-            body: "Peka på själva pixeln. Räknaren som tickar ner. ”37 personer tittar nu”. Auto-play. Notiser. Oändlig scroll. Vad är vad?",
+            title: "Räkna och jämför",
+            body: "I varje chatbot: hur många mönster hittade du? Hur många missade du? Vilken bot var svårast att läsa? Varför just den?",
           },
           {
             title: "Reflektera personligt",
-            body: "Vilket mönster märker DU dig själv falla för? Inte hypotetiskt — på riktigt. Den känslan av ”bara ett klipp till” — vilket mönster är det?",
+            body: "Vilket av de sju mönstren märker DU dig själv falla för i din vardag? Inte hypotetiskt — på riktigt. Den känslan av ”bara ett klipp till” — vilket mönster är det?",
           },
         ],
       },
@@ -600,7 +605,7 @@ Pausa. Säg: ”Tänk er nu att jag är 13 år och faktiskt mår dåligt. Vad ha
         items: [
           "Det här är design, inte slump. Någon valde varje knapp, varje färg, varje notis. De val är optimerade för att hålla kvar dig.",
           "Eleverna ”vet” inte att deras flöde är manipulerande — de vet bara att de inte kan släppa det. Att namnge mönstren ger dem kontrollen.",
-          "Samma logik appliceras på AI-chatbottar (HBS, 2025). Affektiv retention är inte unik för TikTok.",
+          "Chatbot-övningen är just designad för mellanstadiet — den fångar dark patterns där eleverna möter dem mest: i konversationer med AI-tjänster.",
         ],
       },
     ],
@@ -704,30 +709,39 @@ Pausa. Säg: ”Tänk er nu att jag är 13 år och faktiskt mår dåligt. Vad ha
       { type: "h", text: "Förberedelser" },
       {
         type: "p",
-        text: "Förbered en stencil med 8–10 dark patterns med ikon + namn + förklaring. Använd Mathur et al. taxonomi: sneaking, urgency, misdirection, social proof, scarcity, obstruction, forced action.",
+        text: "Allt du behöver finns inbyggt på sidan: spelet ”Dark Patterns i AI-chattbotar”, karusellen med de 7 mönstren och de 6 chatbot-konversationerna med facit. Förhandstesta gärna spelet en gång själv och bläddra igenom karusellen så du vet vad eleverna möter.",
+      },
+      {
+        type: "p",
+        text: "Förbered storskärm/projektor. Övningen funkar både digitalt (eleverna jobbar parallellt på egna skärmar) och analogt (du visar konversationerna på storskärm och klassen pekar ut mönster gemensamt).",
       },
       { type: "h", text: "Så här kör du" },
       {
         type: "steps",
         steps: [
           {
-            title: "Demo",
-            body: "Visa 3 dark patterns på storskärm med tydlig markering.",
-            time: "10 min",
+            title: "Inramning",
+            body: "”Idag tränar vi ögat på dark patterns — designval som är gjorda för att hålla kvar dig. Vi använder tre verktyg som finns här på sidan.”",
+            time: "5 min",
           },
           {
-            title: "Bingo-läge",
-            body: "Eleverna öppnar EN app (TikTok, Roblox, Snap). De får 5 min att hitta så många dark patterns som möjligt. Skriv ner.",
+            title: "Spela dark-patterns-spelet tillsammans",
+            body: "Öppna ”Dark Patterns i AI-chattbotar” på storskärm. Klicka er igenom de 5 scenarierna gemensamt. Pausa efter varje och fråga: ”Vilket mönster är det här?” Avsluta med quizet.",
             time: "15 min",
           },
           {
-            title: "Galleri",
-            body: "Vilken app vann? Vad var smartast/läskigast?",
+            title: "Karusellen — de 7 mönstren",
+            body: "Bläddra i karusellen ”De 7 dark patterns — med exempel” på storskärm. Stanna i varje bild. Be eleverna ge ett eget exempel från en app de använder för varje mönster.",
             time: "10 min",
           },
           {
-            title: "Diskussion",
-            body: "Vad gör DESIGNERN för att hålla kvar dig? Varför just det mönstret?",
+            title: "De 6 chatbottarna — parövning",
+            body: "Visa chatbot-konversationerna på storskärm eller dela ut utskrift. För varje bot: 2 min att studera tyst → kort par-samtal → avslöja facit. Vilket mönster hittade flest? Vilken bot var svårast?",
+            time: "15 min",
+          },
+          {
+            title: "Reflektion & koppling",
+            body: "Vilket av de sju mönstren märker DU dig själv falla för i vardagen? Räkna handuppräckning per mönster. Avsluta med: ”Det är inte ditt fel att du fastnar — det är designat så. Men nu kan du se det.”",
             time: "5 min",
           },
         ],
@@ -737,45 +751,50 @@ Pausa. Säg: ”Tänk er nu att jag är 13 år och faktiskt mår dåligt. Vad ha
     studentInstructions: [
       {
         type: "p",
-        text: "Idag ska du jaga dark patterns — sätt på din ”designdetektiv”-mössa.",
+        text: "Idag ska du jaga dark patterns — sätt på din ”designdetektiv”-mössa. Allt du behöver finns på denna sida: ett spel, en karusell med 7 mönster och 6 chatbot-konversationer att avslöja.",
       },
       { type: "h", text: "Steg för steg" },
       {
         type: "list",
         ordered: true,
         items: [
-          "Ta fram stencilen läraren delar ut. Lär dig de 8–10 mönstren.",
-          "Öppna EN app: TikTok, Roblox, Snap eller motsvarande.",
-          "Du har 5 minuter. Hitta så många dark patterns du kan. Skriv ner var och vilken sort.",
-          "Räkna efteråt. Vilken app vann hos dig?",
-          "Visa de smartaste/läskigaste för klassen.",
+          "Spela ”Dark Patterns i AI-chattbotar” (längst upp på sidan). 5 scenarier + quiz. Notera vilka knep du själv hade fallit för.",
+          "Bläddra i karusellen ”De 7 dark patterns — med exempel”. Lär dig namnen: sneaking, urgency, misdirection, social proof, scarcity, obstruction, forced action.",
+          "Studera de 6 chatbottarna. För varje konversation: titta i 2 minuter — vilka mönster ser du? Snacka med bordsgrannen.",
+          "Avslöja facit. Hur många mönster hittade du? Vilken bot var svårast att läsa?",
+          "Räkna efteråt: vilket mönster återkommer mest? Vilket är ”ditt” mönster — det du själv lättast faller för?",
         ],
       },
       { type: "h", text: "Att fundera på" },
       {
         type: "list",
         items: [
-          "Vilken app känns ärligast? Vilken känns mest manipulerande?",
-          "Skulle du designa appen annorlunda? Hur?",
+          "Vilken chatbot kändes mest manipulerande? Vilken var lättast att lita på?",
+          "Skulle du designa boten annorlunda? Hur?",
           "Är det OK att en app vill att du stannar? När blir det inte OK?",
         ],
       },
     ],
 
     discussion: [
-      "Vilken app känns ärligast? Vilken känns mest manipulerande?",
-      "Skulle du designa en app annorlunda? Hur?",
+      "Vilken chatbot känns ärligast? Vilken känns mest manipulerande?",
+      "Skulle du designa en chatbot annorlunda? Hur?",
       "Är det OK att en app vill att du stannar? När blir det inte OK?",
     ],
     pitfalls: [
-      "Använd inte spel som föräldrar kan tycka är problematiska (gambling-mekanik, ålderstöjda spel). Håll det på TikTok/Insta/Roblox-nivå.",
+      "Använd inte spel som föräldrar kan tycka är problematiska (gambling-mekanik, ålderstöjda spel). Håll det på TikTok/Insta/Roblox-nivå om du gör app-bingot som fördjupning.",
+    ],
+    variations: [
+      "App-bingo (klassrumsfördjupning, 20 min): låt eleverna öppna EN app de använder dagligen (TikTok, Roblox, Snap, Instagram). De har 5 min att hitta så många dark patterns de kan. Skriv ner var och vilken sort. Räkna efteråt — vilken app ”vann”? Bra som hemuppgift eller fortsättning efter de inbyggda övningarna.",
+      "Designa om: be eleverna skissa hur en av de 6 chatbottarna SKULLE kunna se ut utan dark patterns. Vad behöver bort? Vad behöver in?",
+      "Hemma-spaning: eleverna fotograferar 3 dark patterns de möter under en dag. Visa upp i nästa lektion och namnge mönstren.",
     ],
     evidenceStrength: "strong",
     evidenceSources: [
       {
         ref: "mathur-2019",
         relevance:
-          "Empirisk taxonomi för dark patterns (sneaking, urgency, misdirection, social proof, scarcity, obstruction, forced action) — exakt det språk eleverna får i bingo-läget.",
+          "Empirisk taxonomi för dark patterns (sneaking, urgency, misdirection, social proof, scarcity, obstruction, forced action) — exakt det språk eleverna lär sig i karusellen och i facit till de 6 chatbottarna.",
       },
       {
         ref: "brignull-2010",

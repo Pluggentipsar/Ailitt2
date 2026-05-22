@@ -42,8 +42,18 @@ export const chapters: Chapter[] = [
     icon: "ThumbsUp",
   },
   {
-    id: "relationskritik",
+    id: "retoriska-knep",
     number: 5,
+    title: "Retoriska knep",
+    subtitle: "När språket försöker övertala — inte informera",
+    description:
+      "Cherry-picking, halmgubbar, känsloladdat språk, falska motsatspar. Träna ögat att se de språkliga manipulationerna — i politik, i sociala medier, och i AI:ns egna svar.",
+    tone: "rost",
+    icon: "Megaphone",
+  },
+  {
+    id: "relationskritik",
+    number: 6,
     title: "Relationskritik",
     subtitle: "AI som samtalspartner, inte bara verktyg",
     description:
@@ -53,13 +63,23 @@ export const chapters: Chapter[] = [
   },
   {
     id: "vaccinet",
-    number: 6,
+    number: 7,
     title: "Vaccinet",
     subtitle: "Prebunking-spel som motståndskraft",
     description:
       "Färdiga spel som tränar motståndskraft mot desinformation. Använd som tillägg, inte som hela workshopen.",
     tone: "kol",
     icon: "Shield",
+  },
+  {
+    id: "bias",
+    number: 8,
+    title: "Bias",
+    subtitle: "Vems perspektiv bär AI med sig?",
+    description:
+      "AI:s svar är aldrig neutrala — de speglar träningsdata och designval. Här tränar vi ögat på de mönster AI ärver: hur den beskriver olika kön, kulturer, kroppar och ”det vanliga”.",
+    tone: "plommon",
+    icon: "Glasses",
   },
 ];
 

@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { ArrowLeft, FlaskConical, Menu, X } from "lucide-react";
+import { ArrowLeft, FlaskConical, Menu, Wrench, X } from "lucide-react";
 import { useState } from "react";
 
 const NAV = [
@@ -31,6 +31,12 @@ const NAV = [
     href: "/workshops/kallkritik-mellanstadiet/resurser/kallor",
     label: "Källor",
   },
+];
+
+// Verktygslådan ligger utanför workshopen — egen länk så användaren förstår
+// att hen lämnar sandlåde-shellet när hen klickar.
+const EXTERNAL_NAV = [
+  { href: "/verktygslada", label: "Verktygslåda", icon: Wrench },
 ];
 
 export function WorkshopShell({
@@ -91,6 +97,22 @@ export function WorkshopShell({
                   </Link>
                 );
               })}
+              <span className="mx-1 text-stone-300" aria-hidden>
+                |
+              </span>
+              {EXTERNAL_NAV.map((item) => {
+                const Icon = item.icon;
+                return (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-sm border border-stone-300 text-stone-700 hover:bg-stone-200/60 transition-colors"
+                  >
+                    <Icon className="h-3.5 w-3.5" />
+                    {item.label}
+                  </Link>
+                );
+              })}
             </nav>
 
             <div className="flex items-center gap-2">
@@ -123,6 +145,20 @@ export function WorkshopShell({
                   {item.label}
                 </Link>
               ))}
+              {EXTERNAL_NAV.map((item) => {
+                const Icon = item.icon;
+                return (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    onClick={() => setOpen(false)}
+                    className="col-span-2 px-3 py-2 rounded-lg border border-stone-300 text-sm text-stone-700 flex items-center gap-2"
+                  >
+                    <Icon className="h-4 w-4" />
+                    {item.label}
+                  </Link>
+                );
+              })}
               <Link
                 href="/"
                 onClick={() => setOpen(false)}

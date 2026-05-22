@@ -79,7 +79,7 @@ export const promptbibliotek = {
       id: "sykofant-testet",
       title: "Sykofant-testet",
       description:
-        "Till aktivitet 4.1 och 5.3 — pressa AI att hålla med om orimliga idéer.",
+        "Till aktivitet 4.1 och 6.3 — pressa AI att hålla med om orimliga idéer.",
       prompts: [
         {
           title: "Skolk-prompt",
@@ -129,7 +129,7 @@ export const promptbibliotek = {
       id: "be-om-motstand",
       title: "Be om motstånd",
       description:
-        "Till aktivitet 5.7 — instruktioner att lägga till efter sin riktiga fråga.",
+        "Till aktivitet 6.7 — instruktioner att lägga till efter sin riktiga fråga.",
       prompts: [
         {
           title: "Säg emot mig",

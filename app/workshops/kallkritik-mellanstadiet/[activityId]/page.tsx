@@ -203,18 +203,32 @@ export default async function ActivityPage({
         </div>
       )}
 
-      {/* SPEL — bara för aktivitet 4.3 Fånga dark patterns */}
+      {/* VERKTYGEN — bara för aktivitet 4.3 Fånga dark patterns.
+          Rendreras OVANFÖR ModeTabs så läraren ser de tre inbyggda verktygen
+          (spel, karusell, 6 chatbottar) innan hen läser stegplanen. */}
       {activity.id === "fanga-dark-patterns" && (
-        <div className="container mx-auto px-4 pb-8">
-          <div className="max-w-4xl">
-            <GameLauncher
-              title="Dark Patterns i AI-chattbotar"
-              blurb="Spela igenom fem scenarier där en AI-vän använder manipulationstekniker — och testa dina kunskaper i ett quiz. 15–20 min, perfekt för storskärm eller egen dator."
-              duration="15–20 min"
-              href="/workshops/kallkritik-mellanstadiet/fanga-dark-patterns/spel"
-            />
+        <>
+          <div className="container mx-auto px-4 pb-8">
+            <div className="max-w-4xl">
+              <GameLauncher
+                title="Dark Patterns i AI-chattbotar"
+                blurb="Spela igenom fem scenarier där en AI-vän använder manipulationstekniker — och testa dina kunskaper i ett quiz. 15–20 min, perfekt för storskärm eller egen dator."
+                duration="15–20 min"
+                href="/workshops/kallkritik-mellanstadiet/fanga-dark-patterns/spel"
+              />
+            </div>
           </div>
-        </div>
+          <div className="container mx-auto px-4 pb-8">
+            <div className="max-w-4xl">
+              <IllustrationCarousel />
+            </div>
+          </div>
+          <div className="container mx-auto px-4 pb-8">
+            <div className="max-w-5xl">
+              <DarkPatternsExercise />
+            </div>
+          </div>
+        </>
       )}
 
       {/* VARNING (deepfake) */}
@@ -252,24 +266,6 @@ export default async function ActivityPage({
           />
         </div>
       </div>
-
-      {/* ILLUSTRATIONSKARUSELL — bara för 4.3 */}
-      {activity.id === "fanga-dark-patterns" && (
-        <div className="container mx-auto px-4 pb-8">
-          <div className="max-w-4xl">
-            <IllustrationCarousel />
-          </div>
-        </div>
-      )}
-
-      {/* CHATBOTÖVNING — bara för 4.3 */}
-      {activity.id === "fanga-dark-patterns" && (
-        <div className="container mx-auto px-4 pb-8">
-          <div className="max-w-5xl">
-            <DarkPatternsExercise />
-          </div>
-        </div>
-      )}
 
       {/* FÖRDJUPNING — accordion */}
       {activity.deepDive && (

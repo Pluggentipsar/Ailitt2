@@ -96,7 +96,7 @@ export const evidenceLibrary = {
       "Inoculating the Public Against Misinformation About Climate Change",
     publisher: "Global Challenges",
     summary:
-      "Visar att att förvarna människor om manipulationstekniker (”vaccinet”) skyddar dem från att övertygas senare. Teoretisk grund för Kapitel 6 — Vaccinet.",
+      "Visar att att förvarna människor om manipulationstekniker (”vaccinet”) skyddar dem från att övertygas senare. Teoretisk grund för Kapitel 7 — Vaccinet.",
   },
   "lewandowsky-2017": {
     id: "lewandowsky-2017",
@@ -251,6 +251,78 @@ export const evidenceLibrary = {
     publisher: "Jossey-Bass",
     summary:
       "Vuxenpedagogikens grundverk. Vuxna lär bäst när lärandet utgår från deras erfarenhet, är problemcentrerat och har omedelbar tillämpning — direkt grund för workshopens lärar/klassrum-tudelning.",
+  },
+
+  // === Bias och representation i AI ===
+  "buolamwini-gebru-2018": {
+    id: "buolamwini-gebru-2018",
+    authors: "Buolamwini & Gebru",
+    year: "2018",
+    title:
+      "Gender Shades: Intersectional Accuracy Disparities in Commercial Gender Classification",
+    publisher: "Proceedings of Machine Learning Research",
+    url: "https://proceedings.mlr.press/v81/buolamwini18a.html",
+    summary:
+      "Banbrytande studie som visade att kommersiella AI-system för ansiktsanalys hade upp till 34 procentenheter sämre träffsäkerhet för mörkhyade kvinnor jämfört med ljushyade män. Avslöjade systemisk bias i tekniken som branschen ansåg ”neutral”.",
+  },
+  "bolukbasi-2016": {
+    id: "bolukbasi-2016",
+    authors: "Bolukbasi et al.",
+    year: "2016",
+    title:
+      "Man is to Computer Programmer as Woman is to Homemaker? Debiasing Word Embeddings",
+    publisher: "NeurIPS",
+    url: "https://arxiv.org/abs/1607.06520",
+    summary:
+      "Visade att språkmodeller (word embeddings) hade kodat genusstereotyper på en mätbar geometrisk nivå — orden ”programmerare” låg närmare ”man” än ”kvinna”, medan ”hemmafru” låg närmare ”kvinna”. Lade grunden för forskningen om språkmodeller och bias.",
+  },
+  "caliskan-2017": {
+    id: "caliskan-2017",
+    authors: "Caliskan, Bryson & Narayanan",
+    year: "2017",
+    title:
+      "Semantics derived automatically from language corpora contain human-like biases",
+    publisher: "Science",
+    summary:
+      "Visade kvantitativt att AI-system som tränats på vardagligt språk automatiskt absorberar samma bias som finns i mänskligt språk — kön, etnicitet, ålder. Bias kommer inte från fientlighet, utan från data.",
+  },
+  "bender-2021": {
+    id: "bender-2021",
+    authors: "Bender, Gebru, McMillan-Major & Mitchell",
+    year: "2021",
+    title:
+      "On the Dangers of Stochastic Parrots: Can Language Models Be Too Big?",
+    publisher: "FAccT",
+    url: "https://dl.acm.org/doi/10.1145/3442188.3445922",
+    summary:
+      "Inflytelserik kritisk genomgång av storskaliga språkmodeller. Argumenterar för att modellerna förstärker dominanta gruppers perspektiv eftersom deras träningsdata dominerar — och att alternativa röster osynliggörs.",
+  },
+  "noble-2018": {
+    id: "noble-2018",
+    authors: "Noble",
+    year: "2018",
+    title: "Algorithms of Oppression: How Search Engines Reinforce Racism",
+    publisher: "NYU Press",
+    summary:
+      "Bok som dokumenterar hur sökmotorer och AI-system reproducerar och förstärker rasism och andra fördomar. Påvisar att ”neutrala” algoritmer ofta cementerar ojämlikheter.",
+  },
+  "crawford-2021": {
+    id: "crawford-2021",
+    authors: "Crawford",
+    year: "2021",
+    title: "Atlas of AI: Power, Politics, and the Planetary Costs of AI",
+    publisher: "Yale University Press",
+    summary:
+      "Bok som blottlägger AI:s materiella, politiska och epistemiska kostnader. Visar att AI inte är abstrakt — den är inbäddad i geografiska, sociala och politiska maktstrukturer.",
+  },
+  "birhane-2021": {
+    id: "birhane-2021",
+    authors: "Birhane",
+    year: "2021",
+    title: "Algorithmic injustice: a relational ethics approach",
+    publisher: "Patterns (Cell Press)",
+    summary:
+      "Argumenterar för en relationell etik kring AI: bias är inte ett tekniskt problem som kan ”fixas”, utan reflekterar maktrelationer som behöver synliggöras och adresseras politiskt.",
   },
 
   // === Kritiskt tänkande som ramverk ===

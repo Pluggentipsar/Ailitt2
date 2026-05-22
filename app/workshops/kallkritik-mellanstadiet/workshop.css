@@ -16,6 +16,10 @@
   --workshop-lila: #7a5b8e;
   --workshop-lila-soft: #c8b5d4;
   --workshop-kol: #2c2c2c;
+  --workshop-plommon: #6b3a4e;
+  --workshop-plommon-soft: #c8a8b5;
+  --workshop-rost: #a85c2e; /* jordnära orange-brun, distinkt från terrakotta */
+  --workshop-rost-soft: #e0b298;
 
   --workshop-paper-grain:
     radial-gradient(
@@ -71,6 +75,18 @@
 .workshop-root .bg-workshop-lila-soft {
   background-color: var(--workshop-lila-soft);
 }
+.workshop-root .bg-workshop-plommon {
+  background-color: var(--workshop-plommon);
+}
+.workshop-root .bg-workshop-plommon-soft {
+  background-color: var(--workshop-plommon-soft);
+}
+.workshop-root .bg-workshop-rost {
+  background-color: var(--workshop-rost);
+}
+.workshop-root .bg-workshop-rost-soft {
+  background-color: var(--workshop-rost-soft);
+}
 .workshop-root .text-workshop-senap {
   color: var(--workshop-senap);
 }
@@ -88,6 +104,12 @@
 }
 .workshop-root .text-workshop-lila {
   color: var(--workshop-lila);
+}
+.workshop-root .text-workshop-plommon {
+  color: var(--workshop-plommon);
+}
+.workshop-root .text-workshop-rost {
+  color: var(--workshop-rost);
 }
 .workshop-root .border-workshop-senap {
   border-color: var(--workshop-senap);
@@ -177,6 +199,12 @@
 }
 .workshop-root .post-it--kol {
   background: #d6d3d1;
+}
+.workshop-root .post-it--plommon {
+  background: var(--workshop-plommon-soft);
+}
+.workshop-root .post-it--rost {
+  background: var(--workshop-rost-soft);
 }
 
 /* Roterade post-its för listor */
@@ -328,6 +356,14 @@
 .workshop-root [data-chapter-tone="kol"] {
   --tone: var(--workshop-kol);
   --tone-soft: #d6d3d1;
+}
+.workshop-root [data-chapter-tone="plommon"] {
+  --tone: var(--workshop-plommon);
+  --tone-soft: var(--workshop-plommon-soft);
+}
+.workshop-root [data-chapter-tone="rost"] {
+  --tone: var(--workshop-rost);
+  --tone-soft: var(--workshop-rost-soft);
 }
 
 /* --- Print --- */
