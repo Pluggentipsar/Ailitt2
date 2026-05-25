@@ -55,12 +55,13 @@ export default function WorkshopHub() {
             </h1>
             <p className="text-lg sm:text-xl text-stone-700 leading-relaxed max-w-3xl mb-6">
               Det här är inte en linjär workshop. Det är ett bibliotek av
-              aktiviteter att plocka från. Varje aktivitet finns i två
-              versioner: en{" "}
-              <span className="font-semibold">Workshop-läge</span> där lärarna
-              själva får uppleva det — och ett{" "}
-              <span className="font-semibold">Klassrums-läge</span> att ta med
-              hem.
+              aktiviteter att plocka från. Varje aktivitet finns i tre lägen:{" "}
+              <span className="font-semibold">Prova själv</span> där du som
+              lärare testar övningen,{" "}
+              <span className="font-semibold">Lärarhandledning</span> med
+              tidsplan och förberedelser för klassrummet, och{" "}
+              <span className="font-semibold">Elevinstruktion</span> redo att
+              kopiera in i Teams eller Vklass.
             </p>
             <div className="flex flex-wrap gap-3">
               <a
@@ -96,26 +97,36 @@ export default function WorkshopHub() {
 
       {/* SÅ HÄR ANVÄNDS SANDLÅDAN */}
       <section className="container mx-auto px-4 pb-10">
-        <div className="grid md:grid-cols-2 gap-6 max-w-5xl">
+        <div className="grid md:grid-cols-3 gap-6 max-w-6xl">
           <div className="post-it post-it--senap relative">
             <div className="font-display text-3xl mb-2 text-stone-900">
-              Workshop-läge
+              Prova själv
             </div>
             <p className="text-stone-800 leading-relaxed">
-              Vad lärarna gör tillsammans i workshopen — för att{" "}
-              <em>själva uppleva</em>. Korta steg, fokus på ”aha”-känslan.
-              Workshop-formatet är 2–4 timmar. Plocka 4–6 aktiviteter beroende
-              på tid och grupp.
+              Den körbara versionen — du testar övningen själv för att förstå
+              hur den funkar. Inbyggda spel, karuseller och exempel ligger
+              direkt på sidan. Funkar både hemma vid köksbordet och som
+              lärar-deltagare i en workshop.
             </p>
           </div>
           <div className="post-it post-it--havsbla relative">
             <div className="font-display text-3xl mb-2 text-stone-900">
-              Klassrums-läge
+              Lärarhandledning
             </div>
             <p className="text-stone-800 leading-relaxed">
-              Vad läraren tar med sig hem och kan göra <em>med sina elever</em>.
-              Förberedelser, lektionsplan, fallgropar, diskussionsfrågor — och
-              variationer för olika åldrar.
+              När du ska köra övningen med elever. Förberedelser, tidsplan per
+              moment, ledarroll, samtalsöppningar — plus fallgropar och
+              varningar att hålla koll på.
+            </p>
+          </div>
+          <div className="post-it post-it--skog relative">
+            <div className="font-display text-3xl mb-2 text-stone-900">
+              Elevinstruktion
+            </div>
+            <p className="text-stone-800 leading-relaxed">
+              Skriven direkt till eleven, med du-tilltal. Visa på storskärm,
+              kopiera till Teams/Vklass eller skriv ut. En kopiera-knapp ger
+              ren text utan formattering.
             </p>
           </div>
         </div>

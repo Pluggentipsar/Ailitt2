@@ -1,5 +1,13 @@
 import Link from "next/link";
-import { ArrowLeft, Terminal, ArrowRight, AlertCircle } from "lucide-react";
+import {
+  ArrowLeft,
+  Terminal,
+  ArrowRight,
+  AlertCircle,
+  Info,
+  Sparkles,
+  Minus,
+} from "lucide-react";
 import { promptbibliotek } from "@/lib/workshops/kallkritik/resources/promptbibliotek";
 import { activitiesById } from "@/lib/workshops/kallkritik";
 import { CopyButton } from "@/components/workshops/kallkritik/CopyButton";
@@ -39,6 +47,28 @@ export default function PromptbibliotekPage() {
             <PrintButton />
           </div>
         </div>
+
+        {/* Intro-callout som förklarar minimal vs demo */}
+        <div className="max-w-4xl mt-6 bg-white/70 border border-stone-200 rounded-2xl p-5 print-avoid-break">
+          <div className="flex items-start gap-3">
+            <Info className="h-5 w-5 text-workshop-havsbla shrink-0 mt-0.5" />
+            <div className="flex-1">
+              <p className="text-sm text-stone-700 leading-relaxed mb-3">
+                {promptbibliotek.intro}
+              </p>
+              <div className="flex flex-wrap gap-3 text-xs">
+                <span className="inline-flex items-center gap-1.5">
+                  <KindBadge kind="demo" />
+                  Färdig att kopiera och köra — ger bra resultat direkt
+                </span>
+                <span className="inline-flex items-center gap-1.5">
+                  <KindBadge kind="minimal" />
+                  Avsiktligt kort — testar vad AI defaultar till
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
       </header>
 
       <div className="container mx-auto px-4">
@@ -64,6 +94,9 @@ export default function PromptbibliotekPage() {
                     >
                       <div className="flex items-start justify-between gap-3 mb-3 flex-wrap">
                         <div>
+                          <div className="flex items-start gap-2 flex-wrap mb-1">
+                            <KindBadge kind={p.kind} />
+                          </div>
                           <div className="font-display text-2xl text-stone-900 leading-tight">
                             {p.title}
                           </div>
@@ -98,5 +131,24 @@ export default function PromptbibliotekPage() {
         </div>
       </div>
     </article>
+  );
+}
+
+// Liten badge som visar om prompten är utförlig ("demo") eller medvetet kort
+// ("minimal"). Färgkodningen följer workshop-paletten.
+function KindBadge({ kind }: { kind: "minimal" | "demo" }) {
+  if (kind === "demo") {
+    return (
+      <span className="inline-flex items-center gap-1 text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full bg-workshop-skog/20 text-workshop-skog border border-workshop-skog/30">
+        <Sparkles className="h-3 w-3" />
+        Utförlig
+      </span>
+    );
+  }
+  return (
+    <span className="inline-flex items-center gap-1 text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full bg-workshop-senap/20 text-stone-800 border border-workshop-senap/40">
+      <Minus className="h-3 w-3" />
+      Minimal
+    </span>
   );
 }

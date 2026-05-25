@@ -1,4 +1,11 @@
-import { ExternalLink, Wrench, Lightbulb, BookOpen, UserCheck } from "lucide-react";
+import {
+  ExternalLink,
+  Wrench,
+  Lightbulb,
+  BookOpen,
+  UserCheck,
+  Gamepad2,
+} from "lucide-react";
 import type { ExternalTool } from "@/lib/workshops/kallkritik";
 
 const KIND_META: Record<
@@ -7,6 +14,7 @@ const KIND_META: Record<
 > = {
   service: { label: "AI-tjänst", icon: Wrench },
   exercise: { label: "Färdig övning", icon: Lightbulb },
+  game: { label: "Spel", icon: Gamepad2 },
   inspiration: { label: "Inspirationskälla", icon: BookOpen },
 };
 

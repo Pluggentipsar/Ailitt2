@@ -12,26 +12,27 @@ export const vaccinet: Activity[] = [
     purpose:
       "Träna motståndskraft mot desinformation genom att spela rollen som producent.",
     trains: ["prebunking", "manipulationsmedvetenhet"],
-    ageRanges: ["ak7-9", "gymnasium", "vuxen-workshop"],
+    ageRanges: ["ak4-6", "ak7-9", "gymnasium", "vuxen-workshop"],
     duration: "30–45 min",
     durationMinutes: 45,
     digitalTools: true,
-    materials: "getbadnews.com",
+    materials:
+      "Bad News finns på svenska på getbadnews.com/se/ (länk längst upp på sidan) — fungerar i webbläsaren utan konto. Engelska originalet finns på getbadnews.com.",
 
     workshopExperience: [
       {
         type: "callout",
         tone: "info",
         title: "Vad du ska göra och varför",
-        body: "Du ska spela Bad News — ett evidensbaserat spel där du driver ett falskt-nyhetsbolag och försöker samla följare. Det låter ironiskt men det är seriös prebunking-forskning (Roozenbeek & van der Linden, 2019). När du själv har använt teknikerna känner du igen dem när någon annan använder dem mot dig.",
+        body: "Du ska spela Bad News — ett evidensbaserat spel där du driver ett falskt-nyhetsbolag och försöker samla följare. Det låter ironiskt men det är seriös prebunking-forskning (Roozenbeek & van der Linden, 2019). När du själv har använt teknikerna känner du igen dem när någon annan använder dem mot dig. Spelet finns på svenska — en stor fördel för åk 4–6.",
       },
       { type: "h", text: "Så gör du steg för steg" },
       {
         type: "steps",
         steps: [
           {
-            title: "Öppna getbadnews.com",
-            body: "Spelet är gratis och tar 15–20 minuter. Det finns på engelska och delvis andra språk — kolla aktuell status.",
+            title: "Öppna spelet (svensk version)",
+            body: "Klicka på ”Bad News (svensk version)” längst upp på den här sidan, eller gå till getbadnews.com/se/. Spelet är gratis, tar 15–20 minuter och fungerar direkt i webbläsaren utan konto.",
           },
           {
             title: "Spela igenom",
@@ -51,10 +52,27 @@ export const vaccinet: Activity[] = [
       {
         type: "list",
         items: [
-          "Spelet är på engelska. För svaga engelsktalare i åk 7: kör tillsammans i par eller med läraren som tolk.",
+          "Den svenska versionen (getbadnews.com/se/) är nytillkommen och gör spelet tillgängligt även för åk 4–6 — tidigare var språket ett hinder.",
           "Effekten av spelet är mätbart varaktig (Roozenbeek & van der Linden, 2019) — men bara om du REFLEKTERAR efteråt. Spelet utan reflektion blir bara underhållning.",
           "Det är inte att eleverna ska bli desinformations-producenter. Det är att de ska SE strukturen utifrån.",
         ],
+      },
+    ],
+
+    externalTools: [
+      {
+        name: "Bad News (svensk version)",
+        url: "https://www.getbadnews.com/se/",
+        description:
+          "Spela Bad News direkt på svenska. Gratis, ingen inloggning, fungerar i webbläsaren. Rekommenderas för alla från åk 4 och uppåt.",
+        kind: "game",
+      },
+      {
+        name: "Bad News (engelska originalet)",
+        url: "https://www.getbadnews.com/",
+        description:
+          "Den engelska versionen där forskningen ursprungligen gjordes. Något mer polerad. Bra för gymnasiet eller engelska språkträningen.",
+        kind: "game",
       },
     ],
 
@@ -166,8 +184,10 @@ export const vaccinet: Activity[] = [
       },
       {
         type: "callout",
-        tone: "note",
-        body: "Spelet är på engelska. Det finns översatt på vissa språk men inte alltid svenska. Kolla aktuell status. För svaga engelsktalare i åk 7: kör i par eller med läraren som tolk.",
+        tone: "tip",
+        title: "Spelet finns på svenska",
+        body:
+          "Använd getbadnews.com/se/ för svensk version — fungerar utmärkt från åk 4. Engelska originalet (getbadnews.com) går också bra för gymnasiet eller som engelska-träning. Båda är gratis och kräver inget konto.",
       },
       { type: "h", text: "Så här kör du" },
       {
@@ -207,10 +227,10 @@ export const vaccinet: Activity[] = [
         type: "list",
         ordered: true,
         items: [
-          "Gå till getbadnews.com",
-          "Spela igenom hela spelet (ca 30 minuter).",
-          "Spelet är på engelska — fråga läraren om du fastnar på ord.",
-          "Skriv ner de knep spelet lär dig: anonyma källor, ad hominem, polarisering, falsk balans, troll, falskt expertis.",
+          "Klicka på ”Bad News (svensk version)” längst upp på sidan, eller gå till getbadnews.com/se/.",
+          "Spela igenom hela spelet (ca 15–30 minuter).",
+          "Du behöver inget konto. Du kan pausa när du vill.",
+          "Skriv ner de knep spelet lär dig: anonyma källor, ad hominem (personangrepp), polarisering, falsk balans, troll, falsk expertis.",
         ],
       },
       { type: "h", text: "Att fundera på" },
@@ -258,22 +278,23 @@ export const vaccinet: Activity[] = [
     duration: "20–30 min",
     durationMinutes: 30,
     digitalTools: true,
-    materials: "crankyuncle.com/game",
+    materials:
+      "Cranky Uncle finns på svenska — välj språk på app.crankyuncle.info/language (länk längst upp på sidan). Fungerar i webbläsaren utan konto.",
 
     workshopExperience: [
       {
         type: "callout",
         tone: "info",
         title: "Vad du ska göra och varför",
-        body: "Du ska spela Cranky Uncle — ett tecknat prebunking-spel som lär ut retoriska manipulationstekniker. Mer tillgängligt än Bad News (visuellt, lättare engelska, kan spelas tillsammans). Bygger på Cook, Lewandowsky & Eckers forskning om inoculation mot manipulationsretorik. Syftet är att se hur eleverna kommer att möta spelet — och hur du kan rama in det.",
+        body: "Du ska spela Cranky Uncle — ett tecknat prebunking-spel som lär ut retoriska manipulationstekniker. Mer tillgängligt än Bad News (visuellt, kan spelas tillsammans). Bygger på Cook, Lewandowsky & Eckers forskning om inoculation mot manipulationsretorik. Spelet finns på svenska men du måste välja språk innan du startar — annars kör det engelska som standard.",
       },
       { type: "h", text: "Så gör du steg för steg" },
       {
         type: "steps",
         steps: [
           {
-            title: "Öppna crankyuncle.com/game",
-            body: "Gratis. Spelet är på engelska men mer visuellt än Bad News.",
+            title: "Öppna spelet och välj språk",
+            body: "Klicka på ”Cranky Uncle (välj svenska)” längst upp på den här sidan, eller gå direkt till app.crankyuncle.info/language. Välj SWEDISH/Svenska först — annars kör spelet engelska som standard.",
           },
           {
             title: "Spela 10 frågor",
@@ -293,10 +314,21 @@ export const vaccinet: Activity[] = [
       {
         type: "list",
         items: [
-          "Spelet är tillgängligt ned i åk 4 — visuellt enkelt, tydliga val.",
+          "Glöm inte språkvalet — många missar det och tror sedan att spelet bara finns på engelska. Med svenska språkvalet är spelet tillgängligt ned i åk 4.",
           "Cranky Uncle använder klimat-desinformation som genomgående tema. Det är inte slump — det är där originalforskningen var.",
           "Skillnaden mot Bad News: här lär man känna IGEN tekniker, snarare än att tillämpa dem själv.",
         ],
+      },
+    ],
+
+    externalTools: [
+      {
+        name: "Cranky Uncle (välj svenska)",
+        url: "https://app.crankyuncle.info/language",
+        description:
+          "Öppnar språkväljaren — välj SWEDISH/Svenska först, annars kör spelet engelska som standard. Sedan klickar du dig vidare in i spelet.",
+        kind: "game",
+        notes: "Viktigt: välj svenska INNAN du börjar spela.",
       },
     ],
 
@@ -418,18 +450,25 @@ export const vaccinet: Activity[] = [
         type: "p",
         text: "Cranky Uncle är ett visuellt prebunking-spel baserat på Cook et al. forskning om inoculation-teori. Funkar väl för yngre åldrar (åk 4 och uppåt).",
       },
+      {
+        type: "callout",
+        tone: "tip",
+        title: "Välj svenska INNAN ni börjar",
+        body:
+          "Spelet finns på svenska men kör engelska som standard. Gå till app.crankyuncle.info/language och välj SWEDISH/Svenska först. Visa det på storskärm för klassen så alla startar med samma språk — annars sitter halva klassen och kämpar med engelska i onödan.",
+      },
       { type: "h", text: "Så här kör du" },
       {
         type: "steps",
         steps: [
           {
             title: "Klassrum",
-            body: "”Cranky Uncle är jobbig — vi ska träna på att INTE bli övertygade.”",
+            body: "”Cranky Uncle är jobbig — vi ska träna på att INTE bli övertygade.” Visa språkvalet på storskärm.",
             time: "5 min",
           },
           {
             title: "Spela",
-            body: "Individuellt eller i par.",
+            body: "Individuellt eller i par. Gå runt och hjälp dem som missade språkvalet.",
             time: "20 min",
           },
           {
@@ -451,7 +490,8 @@ export const vaccinet: Activity[] = [
         type: "list",
         ordered: true,
         items: [
-          "Gå till crankyuncle.com/game",
+          "Klicka på ”Cranky Uncle (välj svenska)” längst upp på sidan, eller gå till app.crankyuncle.info/language.",
+          "Välj SWEDISH/Svenska FÖRST — annars kör spelet engelska.",
           "Spela 10 frågor. Det räcker.",
           "När du fastnar — läs ledtråden noga. Det är ofta då ett nytt knep introduceras.",
           "Skriv ner de knep du upptäcker.",
@@ -481,191 +521,6 @@ export const vaccinet: Activity[] = [
           "Bekräftar att prebunking via tekniker fungerar bättre än debunking efter att man trott på något.",
       },
     ],
-    chainsWellWith: ["bad-news-game", "go-viral"],
-  },
-
-  {
-    id: "go-viral",
-    number: "7.3",
-    title: "Go Viral!",
-    chapter: "vaccinet",
-    level: "prova-pa",
-    blurb:
-      "Kort spel (5–10 min) om hur desinformation sprids.",
-    purpose:
-      "Snabbinkörsport för yngre elever eller som värmeövning innan en större workshop.",
-    trains: ["prebunking"],
-    ageRanges: ["ak4-6", "ak7-9", "gymnasium", "vuxen-workshop"],
-    duration: "10 min",
-    durationMinutes: 10,
-    digitalTools: true,
-    materials: "goviralgame.com",
-
-    workshopExperience: [
-      {
-        type: "callout",
-        tone: "info",
-        title: "Vad du ska göra och varför",
-        body: "Du ska spela Go Viral! — ett kort prebunking-spel (5–10 minuter) från samma forskargrupp som Bad News. Det är kompakt och kraftfullt. Perfekt som värmeövning innan ett tyngre samtal — eller som snabbinkörsport för åk 4. När du själv har spelat kan du bedöma var det passar in i din egen undervisning.",
-      },
-      { type: "h", text: "Så gör du steg för steg" },
-      {
-        type: "steps",
-        steps: [
-          {
-            title: "Öppna goviralgame.com",
-            body: "Gratis. På engelska (men kortare och enklare än Bad News).",
-          },
-          {
-            title: "Spela igenom",
-            body: "Du försöker få lögner att sprida sig. Det tar 5–10 minuter. Notera vilka tekniker som introduceras.",
-          },
-          {
-            title: "Tänk över format",
-            body: "Hur kan du använda detta? Som öppningsövning på en lektion? Som en uppgift i hemmet? Som värmeövning innan Bad News?",
-          },
-        ],
-      },
-      { type: "h", text: "Tänk på" },
-      {
-        type: "list",
-        items: [
-          "Det är kort och bör inte vara ENDA prebunking-aktivitet — använd som komplement.",
-          "I åk 4: spela tillsammans på storskärm.",
-          "I åk 6: individuellt — kan vara en bra ”fast finish”-uppgift.",
-        ],
-      },
-    ],
-
-    deepDive: {
-      intro:
-        "Go Viral! är den minsta — men inte oviktigaste — av prebunking-spelen. Här förklarar vi varför korta interventioner också ger effekt, och hur du kan väva in spelet i din undervisning.",
-      sections: [
-        {
-          question: "Fungerar verkligen 10-minuters-spel?",
-          answer: [
-            {
-              type: "p",
-              text: "Det fungerar förvånansvärt bra. Studier från van der Linden-gruppen (samma som Bad News) visar att till och med korta prebunking-interventioner ger mätbar effekt — om de följs upp med reflektion.",
-            },
-            {
-              type: "p",
-              text: "Tre anledningar:",
-            },
-            {
-              type: "list",
-              items: [
-                "Inoculation kräver inte långa interventioner — vaccin är inte 10 sprutor, det är 1 spruta.",
-                "Spelet PEKAR ut tekniker som eleven sedan ser i sin egen vardag. Effekten kommer från senare igenkännande, inte från spelet i sig.",
-                "Att spelet är kort gör det MER TROLIGT att läraren faktiskt använder det. Något är bättre än perfekt.",
-              ],
-            },
-          ],
-        },
-        {
-          question: "När passar Go Viral! bäst?",
-          answer: [
-            {
-              type: "p",
-              text: "Eftersom det är så kort fungerar det i många kontexter:",
-            },
-            {
-              type: "list",
-              items: [
-                "VÄRMEÖVNING — innan en längre källkritik-lektion. Eleverna kommer in i mindset.",
-                "AVSLUTNINGSAKTIVITET — när alla är klara och 10 minuter är kvar.",
-                "HEMUPPGIFT — föräldrar kan spela med, vilket öppnar familjesamtal.",
-                "BRYGGA — mellan en lektion om vanlig källkritik och en lektion om AI och hallucinationer.",
-              ],
-            },
-          ],
-        },
-        {
-          question: "Vad är skillnaden mellan de tre prebunking-spelen?",
-          answer: [
-            {
-              type: "list",
-              items: [
-                "GO VIRAL! — Kort (10 min). Fokus: hur desinformation SPRIDS. Bäst för åk 4–6 som introduktion.",
-                "CRANKY UNCLE — Medellång (20–30 min). Fokus: KÄNNA IGEN retoriska tekniker. Bäst för åk 4–6 som fördjupning, eller åk 7 som intro.",
-                "BAD NEWS — Lång (30–45 min). Fokus: TILLÄMPA tekniker själv. Bäst för åk 7+ som huvudaktivitet.",
-              ],
-            },
-            {
-              type: "p",
-              text: "En idé för åk 6: spela Go Viral! i september, Cranky Uncle i november, Bad News i mars. Tre olika perspektiv genom året — med tilltagande djup.",
-            },
-          ],
-        },
-        {
-          question: "Vad behöver eleverna kunna ta med sig?",
-          answer: [
-            {
-              type: "list",
-              items: [
-                "Desinformation sprids — den uppstår inte av sig själv.",
-                "Det är människor (eller botar) som BESTÄMMER att dela vidare. Jag är en av dem.",
-                "När jag delar något jag inte kollat — är jag en del av spridningen.",
-                "Att INTE dela är ett aktivt val. Det är inte passivt.",
-                "Mitt klick spelar roll. För algoritmen, för spridningen, för mina vänner.",
-              ],
-            },
-          ],
-        },
-      ],
-    },
-
-    teacherGuide: [
-      { type: "h", text: "Övningens upplägg" },
-      {
-        type: "p",
-        text: "Det här är en värmeövning eller snabbinkörsport — inte en huvudaktivitet. Använd som inledning eller som komplement till en längre lektion.",
-      },
-      { type: "h", text: "Så här kör du" },
-      {
-        type: "list",
-        items: [
-          "I åk 4: spela tillsammans på storskärm. Diskutera vid varje val.",
-          "I åk 6: individuellt eller i par.",
-          "Avsluta med en gemensam reflektion på 5 minuter: vilka knep mötte vi?",
-        ],
-      },
-    ],
-
-    studentInstructions: [
-      {
-        type: "p",
-        text: "Spela Go Viral! — ett kort spel om hur desinformation sprids på nätet.",
-      },
-      { type: "h", text: "Steg för steg" },
-      {
-        type: "list",
-        ordered: true,
-        items: [
-          "Gå till goviralgame.com",
-          "Spela igenom — det tar 5–10 minuter.",
-          "Notera vilka knep spelet visar för dig.",
-        ],
-      },
-      { type: "h", text: "Att fundera på" },
-      {
-        type: "list",
-        items: [
-          "Vilket knep var enklast att upptäcka?",
-          "Vilket var svårast?",
-          "Har du sett något liknande i ditt eget flöde?",
-        ],
-      },
-    ],
-
-    evidenceStrength: "moderate",
-    evidenceSources: [
-      {
-        ref: "roozenbeek-vanderlinden-2019",
-        relevance:
-          "Kort prebunking-spel från samma forskargrupp som Bad News. Visar att även korta interventioner ger mätbar effekt.",
-      },
-    ],
-    chainsWellWith: ["bad-news-game", "cranky-uncle"],
+    chainsWellWith: ["bad-news-game"],
   },
 ];

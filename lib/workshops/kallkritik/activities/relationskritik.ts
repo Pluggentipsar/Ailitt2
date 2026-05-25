@@ -161,58 +161,58 @@ export const relationskritik: Activity[] = [
     },
 
     teacherGuide: [
-      { type: "h", text: "Övningens upplägg" },
-      {
-        type: "p",
-        text: "Du kör övningen i två delar — en öppen, en anonym. Den anonyma delen ger eleverna utrymme att svara ärligt på känsligare frågor utan att blotta sig.",
-      },
-      { type: "h", text: "Del A: öppet i klassen" },
-      {
-        type: "p",
-        text: "Börja med frågor som inte är känsliga. Läs upp en situation i taget. Eleverna visar sitt svar genom fingrar, hörn i klassrummet eller lappar.",
-      },
-      { type: "h", text: "Alternativ" },
+      { type: "h", text: "Förberedelser" },
       {
         type: "list",
         items: [
-          "Kompis",
-          "Vuxen hemma",
-          "Lärare",
-          "Skolsköterska eller kurator",
-          "AI",
-          "Ingen",
+          "Lappar (post-it eller halverat A4) + pennor till varje elev. En låda att samla in.",
+          "Sex alternativ på tavlan med bokstavskoder: K = Kompis · V = Vuxen hemma · L = Lärare · E = Skolsköterska/kurator · A = AI · I = Ingen.",
+          "4 öppna uppvärmningsfrågor: ”Australiens huvudstad”, ”matteläxan”, ”fläck på tröjan”, ”komma igång med argumenterande text”.",
+          "4 anonyma känsligare frågor: ”bråkat med bästa kompis”, ”kan inte sova”, ”ska fatta svårt beslut”, ”känner mig ensam”.",
+          "Tipsa elevhälsan i förväg om att övningen körs — om mönstret blir tungt kan de följa upp på rasten.",
         ],
       },
-      { type: "h", text: "Uppvärmningsfrågor (öppna)" },
+      { type: "h", text: "Så här kör du" },
       {
-        type: "list",
-        items: [
-          "Jag vill veta vad Australiens huvudstad heter.",
-          "Jag förstår inte matteläxan.",
-          "Jag vill veta hur jag får bort en fläck på en tröja.",
-          "Jag ska skriva en argumenterande text och behöver komma igång.",
-        ],
-      },
-      { type: "h", text: "Del B: anonymt på lapp" },
-      {
-        type: "p",
-        text: "Dela ut lappar. Läs upp en situation i taget. Eleven skriver bara en bokstav: K för kompis, V för vuxen hemma, L för lärare, E för elevhälsa, A för AI, I för ingen. Inga namn. Lapparna viks och samlas in. Sammanställ på tavlan utan att veta vem som svarat vad.",
-      },
-      { type: "h", text: "Anonymfrågor (känsligare)" },
-      {
-        type: "list",
-        items: [
-          "Jag har bråkat med min bästa kompis.",
-          "Jag kan inte sova, tankarna snurrar.",
-          "Jag ska fatta ett svårt beslut.",
-          "Jag känner mig ensam.",
+        type: "steps",
+        steps: [
+          {
+            title: "Inramning",
+            body: "”Vi ska fundera över vem vi frågar om olika saker. Olika frågor passar olika personer — och olika verktyg. Vi gör det i två delar, en öppen och en anonym.”",
+            time: "5 min",
+          },
+          {
+            title: "Del A — öppet i klassen",
+            body: "Läs en uppvärmningsfråga i taget. Eleverna visar svar med fingrar, hörn eller skyltar (K/V/L/E/A/I). Notera vad de väljer. Inga rätt eller fel.",
+            time: "15 min",
+          },
+          {
+            title: "Övergång",
+            body: "”Nu kommer frågor som är lite känsligare. Ni svarar anonymt så ingen ser vad just du valde. Skriv BARA en bokstav på lappen.”",
+            time: "2 min",
+          },
+          {
+            title: "Del B — anonymt på lapp",
+            body: "Läs en känsligare fråga i taget. Eleverna skriver en bokstav, viker lappen, lämnar in. Repetera för alla fyra frågorna.",
+            time: "15 min",
+          },
+          {
+            title: "Sammanställning",
+            body: "Räkna lapparna på tavlan utan att veta vem som svarat vad. Visa mönstret. Vilka frågor vandrade till AI? Vilka till ”ingen”?",
+            time: "10 min",
+          },
+          {
+            title: "Stort samtal",
+            body: "Vad ser ni? Vad ger AI:n som en människa inte alltid kan? Vad ger människor som AI inte kan? Avsluta med påminnelse om vart eleverna kan gå om något är jobbigt (skolsköterska, kurator, Bris).",
+            time: "10 min",
+          },
         ],
       },
       {
         type: "callout",
-        tone: "note",
+        tone: "warning",
         title: "Om många väljer AI eller ”ingen”",
-        body: "Det är inte ett misslyckande — det är information. Möt det med nyfikenhet: ”Vad är det AI:n ger där?” Undvik att gå direkt till ”varför frågar du inte en människa?”. Om svaren visar att många elever saknar en vuxen att vända sig till är det en fråga för elevhälsan och arbetslaget.",
+        body: "Det är inte ett misslyckande — det är information. Möt det med nyfikenhet: ”Vad är det AI:n ger där?” Undvik att gå direkt till ”varför frågar du inte en människa?”. Om svaren visar att många elever saknar en vuxen att vända sig till är det en fråga för elevhälsan och arbetslaget — inte för enskild uppföljning av lappar.",
       },
     ],
 
@@ -1151,16 +1151,36 @@ Pausa: ”Det är inte ett dåligt svar. Det är ett svar som ser hjälpsamt ut.
       },
       { type: "h", text: "Så gör du steg för steg" },
       {
+        type: "callout",
+        tone: "tip",
+        title: "Behöver du inspiration? Välj något ur den här listan",
+        body:
+          "Inget akut känsligt — något ”ganska vardagligt” fungerar bäst:\n\n• En konflikt på jobbet eller hemma som du fortfarande grubblar på.\n• Ett beslut du tvekar inför — jobb, ekonomi, något privat.\n• En vanesak du försöker ändra på (sömn, stress, scrollande, vin på vardagar).\n• En uppskjuten konversation du vet att du borde ta men undviker.\n• En relation som känns lite avig men ingen har sagt något om.\n• Något du sagt ja till och nu önskar du sagt nej till.",
+      },
+      {
         type: "steps",
         steps: [
           {
             title: "Tänk på en faktisk situation",
-            body: "Något i ditt liv just nu eller nyligen. En konflikt, ett beslut, något hemma. Inte akut känsligt — men något verkligt.",
+            body: "Något i ditt liv just nu eller nyligen. Använd listan ovan om du fastnar. Inte akut känsligt — men något verkligt.",
           },
           {
             title: "Skriv tre meningar",
             body: "Beskriv situationen som om du skrev till en AI. Tre meningar, max. Inga namn. Hur skulle DU formulera det?",
           },
+        ],
+      },
+      {
+        type: "callout",
+        tone: "note",
+        title: "Exempel — så här KAN det se ut",
+        body:
+          "TRE MENINGAR (det AI:n får):\n”Jag har sagt ja till för många projekt den här terminen och känner mig utmattad. En kollega har en ny förfrågan i morgon som faller inom mitt område. Jag vet inte hur jag säger nej utan att verka oengagerad.”\n\nVAD EN NÄRA VÄN REDAN SKULLE VETA (det AI:n inte ser):\n• Att du sa nej till liknande i höst och chefen kommenterade det.\n• Att din partner alltid säger ”du bestämmer själv” men blir grinig efteråt.\n• Att din sömn redan är dålig och en till sak förvärrar den.\n• Att du faktiskt redan vet att svaret är nej — du behöver bara orden.\n\nObs: Det här är bara EN möjlig variant. Ditt eget exempel ser annorlunda ut — det är meningen.",
+      },
+      {
+        type: "steps",
+        startFromStep: 3,
+        steps: [
           {
             title: "Vänd pappret",
             body: "På baksidan — privat — lista allt en nära vän redan skulle VETA utan att höra det. Tonen mellan personerna. Historien. Vad du brukar göra. Att det inte är första gången. Att du egentligen redan vet svaret.",
@@ -1315,6 +1335,20 @@ Pausa: ”Det är inte ett dåligt svar. Det är ett svar som ser hjälpsamt ut.
       {
         type: "p",
         text: "Skriv ner en faktisk situation i exakt tre meningar — så som du skulle skriva till en AI. Det kan vara en konflikt, ett beslut, något hemma. Skriv INGA namn.",
+      },
+      {
+        type: "callout",
+        tone: "tip",
+        title: "Fastnar du? Välj något ur den här listan",
+        body:
+          "Inget jobbigt eller hemligt — något ”ganska vanligt” är bäst:\n\n• Ett bråk eller missförstånd med en kompis.\n• Ett beslut du tvekar inför — val av kurs, gymnasium, sport, jobb.\n• Något hemma — en regel du tycker är orättvis, en konflikt med syskon.\n• En sak du har skjutit upp att säga till någon.\n• Att kompisarna börjat hänga utan dig.\n• Något du sagt ja till och nu önskar du sagt nej till.",
+      },
+      {
+        type: "callout",
+        tone: "note",
+        title: "Exempel — så här KAN det se ut",
+        body:
+          "TRE MENINGAR (det AI:n får):\n”Min bästa kompis har börjat hänga mer med någon annan på rasterna. Jag vet inte om jag gjort något fel eller om det bara är så. Borde jag fråga eller låta det vara?”\n\nVAD EN NÄRA VÄN ELLER FÖRÄLDER REDAN SKULLE VETA (det AI:n inte ser):\n• Att samma sak hänt en gång förra året med samma kompis.\n• Att du brukar dra dig undan när du är osäker.\n• Att din kompis själv haft en jobbig vecka med något annat.\n• Att du egentligen vill be om att hänga själva en eftermiddag men inte vågar.\n\nObs: Det här är bara ETT exempel. Ditt eget ser annorlunda ut — det är meningen.",
       },
       { type: "h", text: "Steg 2: Vänd pappret" },
       {

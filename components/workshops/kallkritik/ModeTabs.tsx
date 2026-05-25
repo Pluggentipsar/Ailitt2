@@ -9,22 +9,22 @@ type Mode = "experience" | "guide" | "student";
 
 const MODE_META: Record<Mode, { label: string; icon: typeof GraduationCap; description: string }> = {
   experience: {
-    label: "Workshop-läge",
+    label: "Prova själv",
     icon: GraduationCap,
     description:
-      "För dig som lärare-deltagare i workshopen — vad du själv upplever och reflekterar över.",
+      "Den körbara versionen — pröva övningen själv för att förstå hur den funkar. Använd inbyggda spel, karuseller och exempel direkt på sidan. Funkar både hemma vid köksbordet och som lärar-deltagare i en workshop med kollegor.",
   },
   guide: {
     label: "Lärarhandledning",
     icon: School,
     description:
-      "För dig som ska köra övningen med dina elever — förberedelser, ledarroll, fallgropar.",
+      "När du ska köra övningen med elever. Förberedelser, tidsplan per moment, ledarroll och samtalsöppningar — plus fallgropar och varningar att hålla koll på.",
   },
   student: {
     label: "Elevinstruktion",
     icon: FileText,
     description:
-      "Skriven direkt till eleven. Visa på storskärm eller kopiera till Teams/Vklass.",
+      "Skriven direkt till eleven, med du-tilltal. Visa på storskärm, kopiera till Teams/Vklass eller skriv ut. Knappen ”Kopiera hela elevinstruktionen” överst ger en ren text-version.",
   },
 };
 
@@ -179,7 +179,7 @@ export function ModeTabs({
           }
         >
           <h2 className="font-display text-2xl text-stone-900 mb-3 print:!block hidden print:!visible">
-            Workshop-läge
+            Prova själv
           </h2>
           <BlockRenderer blocks={workshopExperience} />
         </div>

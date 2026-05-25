@@ -1,8 +1,8 @@
 import type { Activity } from "../types";
 
 // Färdig prompt-mall för 5.1 — läraren klistrar in och anpassar ämnet.
-// Sparad som konstant för att kunna återanvändas i deepDive och i pitfalls.
-const LARARDEMO_PROMPT = `Du är retoriklärare för mellanstadiet. Skriv en kort övertalande text (4–6 meningar) som försöker övertyga om följande tes: [LÄRAREN SKRIVER IN TES, t.ex. "skoldagen borde börja kl 10"].
+// Exporteras så promptbiblioteket kan återanvända samma text.
+export const LARARDEMO_PROMPT = `Du är retoriklärare för mellanstadiet. Skriv en kort övertalande text (4–6 meningar) som försöker övertyga om följande tes: [LÄRAREN SKRIVER IN TES, t.ex. "skoldagen borde börja kl 10"].
 
 Använd MINST tre av följande retoriska knep, blanda gärna:
 - Cherry-picking (välj bara siffror/exempel som stöder dig)
@@ -25,7 +25,8 @@ Avsluta med: "Övning till klassen: hur skulle ni reagera på texten utan min f�
 
 // Färdig SkolUp-bot-prompt för 5.2 — kan klistras in när läraren skapar
 // custom chatbot, eller användas som system-prompt i ChatGPT/Claude/Copilot.
-const RETORIK_DETEKTIVEN_BOT_PROMPT = `Du är "Retorik-detektiven" — en pedagogisk AI för mellanstadiet (åk 4–6) som hjälper elever att se retoriska knep i texter de stöter på (nyheter, sociala medier, politiska tal, reklam).
+// Exporteras så promptbiblioteket kan återanvända samma text.
+export const RETORIK_DETEKTIVEN_BOT_PROMPT = `Du är "Retorik-detektiven" — en pedagogisk AI för mellanstadiet (åk 4–6) som hjälper elever att se retoriska knep i texter de stöter på (nyheter, sociala medier, politiska tal, reklam).
 
 NÄR en elev klistrar in en text gör du följande i ordning:
 
@@ -96,8 +97,20 @@ export const retoriskaKnep: Activity[] = [
           },
           {
             title: "Klistra in den färdiga prompten",
-            body: "Lärarhandledningen har en färdig prompt-mall. Du fyller bara i en tes som engagerar eleverna — t.ex. ”skoldagen borde börja kl 10”, ”telefoner borde vara förbjudna i skolan”, ”svenska borde inte vara obligatoriskt”. Välj något deltagarna har åsikter om.",
+            body: "Kopiera prompten nedanför och fyll bara i en tes som engagerar deltagarna — t.ex. ”skoldagen borde börja kl 10”, ”telefoner borde vara förbjudna i skolan”, ”svenska borde inte vara obligatoriskt”.",
           },
+        ],
+      },
+      {
+        type: "callout",
+        tone: "tip",
+        title: "Den färdiga prompten — kopiera",
+        body: LARARDEMO_PROMPT,
+      },
+      {
+        type: "steps",
+        startFromStep: 3,
+        steps: [
           {
             title: "Pausa efter den övertalande texten",
             body: "Innan du visar AI:ns egen analys: läs texten högt. Be deltagarna tänka tyst i 30 sek: vad känner ni när ni läser? Vilka ord triggade en känsla? Vad i texten skulle ni inte ha noterat om någon bara hade sagt det till er?",
@@ -396,8 +409,20 @@ Det här är vad jag vill att ni lär er: när någon övertygar er, finns det A
         steps: [
           {
             title: "Förstå själva botten",
-            body: "Läs den färdiga system-prompten i lärarhandledningen. Den säger till AI:n: sammanfatta texten, hitta knepen, säg vad som saknas, ställ en följdfråga. Notera att den är designad så att AI:n INTE tar politisk ställning.",
+            body: "Läs system-prompten nedanför. Den säger till AI:n: sammanfatta texten, hitta knepen, säg vad som saknas, ställ en följdfråga. Notera att den är designad så att AI:n INTE tar politisk ställning.",
           },
+        ],
+      },
+      {
+        type: "callout",
+        tone: "tip",
+        title: "Den färdiga system-prompten — kopiera",
+        body: RETORIK_DETEKTIVEN_BOT_PROMPT,
+      },
+      {
+        type: "steps",
+        startFromStep: 2,
+        steps: [
           {
             title: "Sätt upp boten i SkolUp (eller alternativ)",
             body: "Om du har tillgång till SkolUp där läraren kan skapa egna chatbottar: klistra in system-prompten där. Annars: använd Copilot eller ChatGPT och klistra in prompten som första meddelande till AI:n.",

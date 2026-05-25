@@ -102,7 +102,7 @@ export function PresentationView({ activity }: { activity: Activity }) {
   const modes = useMemo(() => {
     const list: { label: string; blocks: Block[] }[] = [];
     if (activity.workshopExperience) {
-      list.push({ label: "Workshop-läge", blocks: activity.workshopExperience });
+      list.push({ label: "Prova själv", blocks: activity.workshopExperience });
     }
     if (activity.teacherGuide) {
       list.push({ label: "Lärarhandledning", blocks: activity.teacherGuide });

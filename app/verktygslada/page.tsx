@@ -1,5 +1,6 @@
-import { Wrench, Search } from "lucide-react";
+import { Wrench } from "lucide-react";
 import { ToolboxExplorer } from "@/components/verktygslada/ToolboxExplorer";
+import { VerktygNavTabs } from "@/components/verktygslada/VerktygNavTabs";
 import { tools } from "@/lib/verktygslada/tools";
 
 export const metadata = {
@@ -11,6 +12,9 @@ export const metadata = {
 export default function VerktygsladaPage() {
   return (
     <div className="min-h-screen bg-gray-50">
+      {/* Flikar — delade med /aktiviteter */}
+      <VerktygNavTabs active="verktyg" />
+
       {/* HERO */}
       <section className="relative overflow-hidden bg-gradient-to-br from-gray-900 to-gray-800 text-white">
         <div className="container mx-auto px-4 py-16 sm:py-20">

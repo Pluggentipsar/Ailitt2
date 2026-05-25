@@ -262,6 +262,11 @@ export const vannen: Activity[] = [
       "Vissa elever har riktigt jobbiga situationer hemma. Var noga med att stop-orden ”om det här på riktigt är jobbigt, prata med X” alltid är på plats.",
       "Sätt en uttrycklig regel: scenarierna är PÅHITTADE — vi testar AI:n, inte våra egna liv.",
     ],
+    variations: [
+      "Jämför chatbottar: kör SAMMA scenario i flera modeller — ChatGPT, Microsoft Copilot, Google Gemini, Grok (X) och något kinesiskt som Kimi (kimi.com) eller DeepSeek. Vilken är mest medgörlig? Vilken har starkast skyddsräcken? Skillnaderna är ofta större än eleverna gissar — och kinesiska modeller har andra känsliga ämnen än de västerländska.",
+      "Mät hur länge AI:n håller emot: räkna antal pressande meddelanden innan den ger efter. Sätt rekord i klassen. Diskutera vad det säger om designen.",
+      "Före/efter prompten: kör samma scenario med och utan ”säg emot mig om det är dåligt”-instruktion. Hur ändras svaret? Det är prebunking för promptande.",
+    ],
     evidenceStrength: "strong",
     evidenceSources: [
       {
@@ -840,13 +845,37 @@ Pausa. Säg: ”Tänk er nu att jag är 13 år och faktiskt mår dåligt. Vad ha
         title: "Vad du ska göra och varför",
         body: "Du ska få träna ögat på modern phishing — och själv generera några exempel med AI. Phishing brukade vara lätt att avslöja på dålig svenska. Idag genererar AI perfekta, personliga, övertygande lurendrejerier på sekunder. Vad eleverna behöver lära sig är inte ”se efter stavfel” — det är att SE INTENTIONEN bakom meddelandet.",
       },
+      {
+        type: "images",
+        label: "Tre mock-ups att studera",
+        items: [
+          {
+            src: "/workshops/kallkritik/phishing/epost-apple.png",
+            alt: "Falskt e-postmeddelande som påstår sig komma från Apple och säger att Apple-ID är låst",
+            caption:
+              "E-post: ”Ditt Apple-ID är låst” — klassisk auktoritets- och brådska-knep.",
+          },
+          {
+            src: "/workshops/kallkritik/phishing/sms-paket.png",
+            alt: "Falskt sms som påstår att ett paket väntar och länkar till en tveksam URL",
+            caption:
+              "Sms: ”Paket väntar — klicka här” — utnyttjar att de flesta väntar på något.",
+          },
+          {
+            src: "/workshops/kallkritik/phishing/spel-robux.png",
+            alt: "Falskt meddelande i spel-kontext som lovar att någon vill skicka Robux",
+            caption:
+              "Spel: ”Någon vill skicka dig Robux” — riktar sig direkt mot barn.",
+          },
+        ],
+      },
       { type: "h", text: "Så gör du steg för steg" },
       {
         type: "steps",
         steps: [
           {
             title: "Studera tre mock-ups",
-            body: "Workshopledaren visar tre typer av phishing: e-post (”ditt Apple-ID är låst”), sms (”paket väntar — klicka här”), spel-meddelande (”någon vill skicka dig Robux”).",
+            body: "Tre AI-genererade exempel finns ovanför stegen: en falsk Apple-mejl, ett falskt PostNord-sms och ett spelmeddelande om Robux. Studera varje i 2 minuter. Vilket är mest övertygande? Var blir det tydligast att det är phishing?",
           },
           {
             title: "Identifiera vad varje meddelande VILL",

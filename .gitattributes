@@ -1,0 +1,6 @@
+# Tvinga LF-radslut för innehållsfiler där YAML-frontmatter-parsing är känslig
+# (contentlayer2 + dess YAML-parser kraschar på CRLF i frontmatter).
+*.mdx text eol=lf
+*.md  text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf

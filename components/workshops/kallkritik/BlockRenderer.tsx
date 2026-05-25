@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import type { Block } from "@/lib/workshops/kallkritik";
 import {
   AlertTriangle,
@@ -9,6 +10,8 @@ import {
   MessageCircle,
   Copy,
   Check,
+  Maximize2,
+  X,
 } from "lucide-react";
 
 function SmallCopyButton({ text, label = "Kopiera" }: { text: string; label?: string }) {
@@ -150,7 +153,8 @@ export function BlockRenderer({
               </ul>
             );
 
-          case "steps":
+          case "steps": {
+            const startNum = block.startFromStep ?? 1;
             return (
               <ol key={i} className="!list-none !pl-0 space-y-3 my-4">
                 {block.steps.map((step, j) => (
@@ -159,7 +163,7 @@ export function BlockRenderer({
                     className="flex gap-4 p-4 bg-white/60 rounded-xl border border-stone-200 print-avoid-break"
                   >
                     <div className="grid h-9 w-9 place-items-center rounded-full bg-stone-900 text-workshop-canvas font-bold shrink-0 font-display text-xl leading-none">
-                      {j + 1}
+                      {startNum + j}
                     </div>
                     <div className="flex-1 min-w-0">
                       <div className="flex items-baseline gap-2 flex-wrap mb-1">
@@ -184,6 +188,7 @@ export function BlockRenderer({
                 ))}
               </ol>
             );
+          }
 
           case "example": {
             return (
@@ -257,6 +262,10 @@ export function BlockRenderer({
 
           case "callout": {
             const Icon = CALLOUT_ICONS[block.tone];
+            // Innehåller body radbrytningar är det troligen en prompt eller
+            // kod-snutt — bevara whitespace och erbjud kopiera-knapp så
+            // läraren slipper handgrepps-markera 50 rader text.
+            const isMultiline = block.body.includes("\n");
             return (
               <div
                 key={i}
@@ -265,22 +274,120 @@ export function BlockRenderer({
                 <div className="flex items-start gap-3">
                   <Icon className="h-5 w-5 shrink-0 mt-0.5" />
                   <div className="flex-1 min-w-0">
-                    <div className="font-semibold text-stone-900 mb-1">
-                      {block.title ?? CALLOUT_LABELS[block.tone]}
+                    <div className="flex items-center justify-between gap-3 mb-1">
+                      <div className="font-semibold text-stone-900">
+                        {block.title ?? CALLOUT_LABELS[block.tone]}
+                      </div>
+                      {isMultiline && (
+                        <SmallCopyButton text={block.body} />
+                      )}
                     </div>
-                    <p className="!mb-0 text-stone-800 leading-relaxed">
-                      {block.body}
-                    </p>
+                    {isMultiline ? (
+                      <div className="!mb-0 text-stone-800 leading-relaxed whitespace-pre-wrap text-sm bg-white/40 rounded-lg p-3 border border-stone-200/60">
+                        {block.body}
+                      </div>
+                    ) : (
+                      <p className="!mb-0 text-stone-800 leading-relaxed">
+                        {block.body}
+                      </p>
+                    )}
                   </div>
                 </div>
               </div>
             );
           }
 
+          case "images":
+            return <ImagesBlock key={i} block={block} />;
+
           default:
             return null;
         }
       })}
+    </div>
+  );
+}
+
+function ImagesBlock({
+  block,
+}: {
+  block: Extract<Block, { type: "images" }>;
+}) {
+  const [zoomed, setZoomed] = useState<string | null>(null);
+  const count = block.items.length;
+  // Responsiv grid: 1 → full, 2 → 2 kolumner från sm, 3+ → 3 kolumner från md.
+  const gridClass =
+    count === 1
+      ? "grid grid-cols-1"
+      : count === 2
+        ? "grid grid-cols-1 sm:grid-cols-2"
+        : "grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3";
+
+  return (
+    <div className="my-4 print-avoid-break">
+      {block.label && (
+        <div className="text-xs uppercase tracking-wider text-stone-500 font-semibold mb-2">
+          {block.label}
+        </div>
+      )}
+      <div className={`${gridClass} gap-3`}>
+        {block.items.map((item, idx) => (
+          <figure
+            key={idx}
+            className="relative bg-stone-100 rounded-xl overflow-hidden border border-stone-200 group"
+          >
+            <div className="relative aspect-[4/3]">
+              <Image
+                src={item.src}
+                alt={item.alt}
+                fill
+                sizes="(max-width: 768px) 100vw, 33vw"
+                className="object-contain"
+              />
+              <button
+                type="button"
+                onClick={() => setZoomed(item.src)}
+                className="absolute top-2 right-2 grid h-9 w-9 place-items-center rounded-full bg-stone-900/80 text-white hover:bg-stone-900 backdrop-blur-sm transition-opacity opacity-0 group-hover:opacity-100 print:hidden"
+                aria-label={`Förstora ${item.alt}`}
+              >
+                <Maximize2 className="h-4 w-4" />
+              </button>
+            </div>
+            {item.caption && (
+              <figcaption className="px-3 py-2 text-xs text-stone-700 leading-snug bg-white border-t border-stone-200">
+                {item.caption}
+              </figcaption>
+            )}
+          </figure>
+        ))}
+      </div>
+
+      {zoomed && (
+        <div
+          className="fixed inset-0 z-50 bg-stone-900/85 backdrop-blur-sm grid place-items-center p-4 print:hidden"
+          onClick={() => setZoomed(null)}
+        >
+          <div className="relative max-w-4xl w-full">
+            <button
+              type="button"
+              onClick={() => setZoomed(null)}
+              className="absolute -top-12 right-0 grid h-10 w-10 place-items-center rounded-full bg-white text-stone-900 hover:bg-stone-100"
+              aria-label="Stäng"
+            >
+              <X className="h-5 w-5" />
+            </button>
+            <div className="relative w-full aspect-[4/3] sm:aspect-[16/10]">
+              <Image
+                src={zoomed}
+                alt=""
+                fill
+                sizes="(max-width: 1024px) 100vw, 1024px"
+                className="object-contain"
+              />
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

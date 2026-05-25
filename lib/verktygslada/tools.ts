@@ -142,19 +142,20 @@ export const tools: Tool[] = [
     notes: "Chrome/Firefox-extension",
   },
 
-  // === AI-DETEKTION ===
+  // === AI-DETEKTION (pedagogisk gissningslek) ===
   {
     id: "sightengine-ai-or-not",
     name: "Sightengine — AI or Not",
     url: "https://sightengine.com/ai-or-not",
     description:
-      "Färdigt webbtest där du laddar upp eller länkar bilder och tjänsten gissar om de är AI-genererade.",
+      "Pedagogisk gissningslek där du laddar upp eller länkar bilder, video, ljud eller musik — först får DU gissa om innehållet är AI-genererat, sedan ser du tjänstens bedömning. Bra som komplement: kör övningen först med magkänslan, kör sedan samma material genom Sightengine och jämför. Notera när tjänsten själv tvekar — det är ofta där eleverna också missar.",
     category: "ai-detektion",
-    kind: "verification",
+    kind: "exercise",
     price: "freemium",
     requiresAccount: false,
     language: "en",
     linkedActivityIds: ["ai-eller-riktig"],
+    notes: "Täcker bild, video, ljud OCH musik — alla i samma gränssnitt.",
   },
 
   // === AI-ASSISTENTER FÖR KÄLLKRITIK ===
@@ -211,19 +212,6 @@ export const tools: Tool[] = [
     requiresAccount: false,
     language: "en",
     linkedActivityIds: ["cranky-uncle"],
-  },
-  {
-    id: "go-viral",
-    name: "Go Viral!",
-    url: "https://www.goviralgame.com/",
-    description:
-      "Kort spel (5–10 min) som lär dig identifiera och motstå felaktig information relaterad till hälsa och pandemier.",
-    category: "prebunking-spel",
-    kind: "game",
-    price: "free",
-    requiresAccount: false,
-    language: "multi",
-    linkedActivityIds: ["go-viral"],
   },
   {
     id: "fakey",
@@ -945,137 +933,6 @@ export const tools: Tool[] = [
     requiresAccount: false,
     language: "en",
     notes: "Branschstandard för digitala undersökningar.",
-  },
-
-  // === AI-DETEKTION (text + bild) ===
-  {
-    id: "gptzero",
-    name: "GPTZero",
-    url: "https://gptzero.me/",
-    description:
-      "AI-textdetektor som upptäcker innehåll från ChatGPT, GPT-5, Claude och Gemini. Används av 100+ utbildningsinstitutioner.",
-    category: "ai-detektion",
-    kind: "verification",
-    price: "freemium",
-    requiresAccount: false,
-    language: "en",
-    notes: "Branschledande för utbildning.",
-  },
-  {
-    id: "grammarly-ai-detector",
-    name: "Grammarly AI Detector",
-    url: "https://www.grammarly.com/ai-detector",
-    description:
-      "Gratis AI-textdetektor som rankas #1 på RAID:s oberoende benchmark för att skilja människo- och AI-genererad text.",
-    category: "ai-detektion",
-    kind: "verification",
-    price: "free",
-    requiresAccount: false,
-    language: "en",
-  },
-  {
-    id: "hive-moderation",
-    name: "Hive Moderation AI Detector",
-    url: "https://hivemoderation.com/ai-generated-content-detection",
-    description:
-      "Erkänd som mest träffsäker AI-bilddetektor (94 % noggrannhet i tester). Identifierar bilder från Midjourney, DALL-E, Stable Diffusion m.fl.",
-    category: "ai-detektion",
-    kind: "verification",
-    price: "freemium",
-    requiresAccount: false,
-    language: "en",
-    notes: "Demo gratis, företagsversion kostar.",
-  },
-  {
-    id: "illuminarty",
-    name: "Illuminarty",
-    url: "https://app.illuminarty.ai/",
-    description:
-      "AI-detektor med heatmaps som visar vilka delar av en bild som troligen är AI-genererade. Kan identifiera vilken AI-modell som använts.",
-    category: "ai-detektion",
-    kind: "verification",
-    price: "freemium",
-    requiresAccount: false,
-    language: "en",
-    notes: "Detaljerad heatmap-visualisering. 5 gratis scanner per dag.",
-  },
-  {
-    id: "ai-or-not",
-    name: "AI or Not",
-    url: "https://www.aiornot.com/",
-    description:
-      "Snabb AI-detektor för bilder, video och ljud utan registreringskrav. 10 gratis scanner per månad utan konto.",
-    category: "ai-detektion",
-    kind: "verification",
-    price: "freemium",
-    requiresAccount: false,
-    language: "en",
-    notes: "Snabbast utan registrering.",
-  },
-  {
-    id: "is-it-ai",
-    name: "Is It AI?",
-    url: "https://isitai.com/",
-    description:
-      "AI-bilddetektor med 95 %+ noggrannhet över 10+ generatorer. Identifierar specifik AI-modell. 5 gratis detekteringar per månad.",
-    category: "ai-detektion",
-    kind: "verification",
-    price: "freemium",
-    requiresAccount: false,
-    language: "en",
-  },
-  {
-    id: "huggingface-ai-detector",
-    name: "Hugging Face AI Image Detector",
-    url: "https://huggingface.co/spaces/umm-maybe/AI-image-detector",
-    description:
-      "Open source AI-bilddetektor utan registrering eller paywall. Ladda upp bild, få procentuell bedömning på 5 sekunder.",
-    category: "ai-detektion",
-    kind: "verification",
-    price: "free",
-    requiresAccount: false,
-    language: "en",
-    notes: "Helt friktionsfri — perfekt för demos i klassrum.",
-  },
-
-  // === DEEPFAKE-DETEKTION ===
-  {
-    id: "deepware-scanner",
-    name: "Deepware Scanner",
-    url: "https://scanner.deepware.ai/",
-    description:
-      "Specialiserad deepfake-detektor för video. Klistra in YouTube-länk eller ladda upp video för analys.",
-    category: "deepfake-detektion",
-    kind: "verification",
-    price: "free",
-    requiresAccount: false,
-    language: "en",
-    notes: "Beta-stadium men gratis.",
-  },
-  {
-    id: "hive-detect",
-    name: "Hive Detect",
-    url: "https://hivedetect.ai/",
-    description:
-      "Webbverktyg för att upptäcka AI-genererat och deepfake-innehåll i bilder, video och ljud. Bilduppladdning ger ramvis analys med konfidenspoäng.",
-    category: "deepfake-detektion",
-    kind: "verification",
-    price: "freemium",
-    requiresAccount: false,
-    language: "en",
-  },
-  {
-    id: "hiya-voice-detector",
-    name: "Hiya Deepfake Voice Detector",
-    url: "https://chromewebstore.google.com/detail/hiya-deepfake-voice-detec/akmieeldmgcllmokbpaibfelofjiilpc",
-    description:
-      "Chrome-tillägg för realtidsdetektion av AI-klonade röster på vilken som helst webbplats. 99 % noggrannhet, 20 frågor per dag.",
-    category: "deepfake-detektion",
-    kind: "browser-extension",
-    price: "free",
-    requiresAccount: false,
-    language: "en",
-    notes: "Endast röstdetektion — komplement till video/bild.",
   },
 
   // === BROWSER-EXTENSIONS ===

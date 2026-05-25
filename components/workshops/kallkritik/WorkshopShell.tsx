@@ -12,6 +12,10 @@ const NAV = [
     label: "Dramaturgi",
   },
   {
+    href: "/workshops/kallkritik-mellanstadiet/resurser/verktyg",
+    label: "Verktyg",
+  },
+  {
     href: "/workshops/kallkritik-mellanstadiet/resurser/promptbibliotek",
     label: "Prompter",
   },
@@ -33,11 +37,10 @@ const NAV = [
   },
 ];
 
-// Verktygslådan ligger utanför workshopen — egen länk så användaren förstår
-// att hen lämnar sandlåde-shellet när hen klickar.
-const EXTERNAL_NAV = [
-  { href: "/verktygslada", label: "Verktygslåda", icon: Wrench },
-];
+// Externa länkar har egen meny-rad så användaren förstår att hen lämnar
+// sandlåde-shellet när hen klickar. Just nu tom — Verktygslådan ligger
+// numera även internt på /resurser/verktyg.
+const EXTERNAL_NAV: { href: string; label: string; icon: typeof Wrench }[] = [];
 
 export function WorkshopShell({
   children,
@@ -97,22 +100,26 @@ export function WorkshopShell({
                   </Link>
                 );
               })}
-              <span className="mx-1 text-stone-300" aria-hidden>
-                |
-              </span>
-              {EXTERNAL_NAV.map((item) => {
-                const Icon = item.icon;
-                return (
-                  <Link
-                    key={item.href}
-                    href={item.href}
-                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-sm border border-stone-300 text-stone-700 hover:bg-stone-200/60 transition-colors"
-                  >
-                    <Icon className="h-3.5 w-3.5" />
-                    {item.label}
-                  </Link>
-                );
-              })}
+              {EXTERNAL_NAV.length > 0 && (
+                <>
+                  <span className="mx-1 text-stone-300" aria-hidden>
+                    |
+                  </span>
+                  {EXTERNAL_NAV.map((item) => {
+                    const Icon = item.icon;
+                    return (
+                      <Link
+                        key={item.href}
+                        href={item.href}
+                        className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-sm border border-stone-300 text-stone-700 hover:bg-stone-200/60 transition-colors"
+                      >
+                        <Icon className="h-3.5 w-3.5" />
+                        {item.label}
+                      </Link>
+                    );
+                  })}
+                </>
+              )}
             </nav>
 
             <div className="flex items-center gap-2">

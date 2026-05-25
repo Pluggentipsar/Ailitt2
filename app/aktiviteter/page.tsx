@@ -17,6 +17,7 @@ import {
   aiLiteracyConfig,
   type AiLiteracyAspect,
 } from "@/lib/aiLiteracyConfig";
+import { VerktygNavTabs } from "@/components/verktygslada/VerktygNavTabs";
 import { cn } from "@/lib/utils";
 
 const levelFilters = ["Svenska 1", "Svenska 2"] as const;
@@ -224,6 +225,9 @@ export default function ActivitiesPage() {
 
   return (
     <div className="min-h-screen bg-gray-50">
+      {/* Flikar — delade med /verktygslada */}
+      <VerktygNavTabs active="aktiviteter" />
+
       <section className="relative overflow-hidden pb-32 pt-28">
         <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-blue-900/80 to-sky-800/70" />
         <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-20" />

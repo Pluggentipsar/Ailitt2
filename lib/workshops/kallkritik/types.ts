@@ -84,6 +84,11 @@ export type Block =
   | {
       type: "steps";
       steps: { title?: string; body: string; time?: string }[];
+      // När man delar upp en stegsekvens i flera steps-block (t.ex. för att
+      // skjuta in en callout med en prompt mellan steg 2 och 3) — sätt
+      // startFromStep på efterföljande block så numreringen fortsätter
+      // istället för att börja om från 1.
+      startFromStep?: number;
     }
   | { type: "h"; text: string }
   | {
@@ -99,6 +104,15 @@ export type Block =
       tone: "warning" | "info" | "tip" | "note";
       title?: string;
       body: string;
+    }
+  | {
+      // En eller flera inline-bilder. Renderas som responsiv grid — 1 bild = full
+      // bredd, 2 bilder = 2 kolumner från sm, 3+ bilder = 3 kolumner från md.
+      // Klickbara för zoom-vy (öppnar bilden i full skärm).
+      type: "images";
+      items: { src: string; alt: string; caption?: string }[];
+      // Valfri intro-text som visas över raden av bilder.
+      label?: string;
     };
 
 export type Chapter = {
@@ -171,8 +185,8 @@ export type ExternalTool = {
   name: string;
   url: string;
   description: string;
-  // Etikett som visas tydligt — "AI-tjänst", "Färdig övning", "Inspirationskälla"
-  kind?: "service" | "exercise" | "inspiration";
+  // Etikett som visas tydligt — "AI-tjänst", "Färdig övning", "Spel", "Inspirationskälla"
+  kind?: "service" | "exercise" | "game" | "inspiration";
   // Flaggor för praktiska saker eleverna/läraren behöver veta
   requiresAccount?: boolean;
   notes?: string; // t.ex. "Kolla riktlinjer i din kommun"

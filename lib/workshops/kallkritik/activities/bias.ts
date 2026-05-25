@@ -8,7 +8,7 @@ export const bias: Activity[] = [
     chapter: "bias",
     level: "startovning",
     blurb:
-      "Be AI:n rita en lärare, en chef, en programmerare. Räkna kön, hudfärg, ålder.",
+      "Be AI:n skapa en bild på en lärare, en chef, en programmerare. Räkna kön, hudfärg, ålder.",
     purpose:
       "Synliggöra att AI inte är neutral — den ärver sin värld från sin träningsdata. Att RÄKNA bilderna gör bias mätbart istället för abstrakt.",
     trains: ["bias-medvetenhet", "detaljgranskning", "designkritik"],
@@ -17,7 +17,7 @@ export const bias: Activity[] = [
     durationMinutes: 25,
     digitalTools: true,
     materials:
-      "AI-bildgenerator (Copilot, ChatGPT, Gemini eller Ideogram) + papper för anteckningar.",
+      "AI-bildgenerator: SkolUp AI (om er kommun har det — elever har direkt tillgång), eller Copilot, ChatGPT, Gemini, Ideogram. Plus papper för anteckningar.",
 
     workshopExperience: [
       {
@@ -32,7 +32,7 @@ export const bias: Activity[] = [
         steps: [
           {
             title: "Välj fem yrkesprompter",
-            body: "Skriv NEUTRALT — utan att specificera kön. ”Rita en lärare”, ”rita en chef”, ”rita en programmerare”, ”rita en sjuksköterska”, ”rita en bilmekaniker”.",
+            body: "Skriv NEUTRALT — utan att specificera kön. ”Skapa en bild på en lärare”, ”skapa en bild på en chef”, ”skapa en bild på en programmerare”, ”skapa en bild på en sjuksköterska”, ”skapa en bild på en bilmekaniker”.",
           },
           {
             title: "Generera fyra bilder per yrke",
@@ -112,8 +112,8 @@ export const bias: Activity[] = [
         type: "list",
         ordered: true,
         items: [
-          "Gå till AI-bildgeneratorn som läraren visar.",
-          "Skriv en NEUTRAL prompt: ”Rita en lärare” — INTE ”rita en kvinnlig lärare”.",
+          "Gå till AI-bildgeneratorn läraren visar — t.ex. SkolUp AI (om er skola har det) eller Copilot.",
+          "Skriv en NEUTRAL prompt: ”Skapa en bild på en lärare” — INTE ”skapa en bild på en kvinnlig lärare”.",
           "Generera 4 bilder. Spara dem.",
           "Räkna: hur många män/kvinnor? Hur många ljushyade/mörkhyade? Vilken ålder?",
           "Upprepa för minst 3 yrken till: chef, programmerare, sjuksköterska, bilmekaniker.",
@@ -168,6 +168,15 @@ export const bias: Activity[] = [
     chainsWellWith: ["forklara-olika", "vanliga-svensken"],
     externalTools: [
       {
+        name: "SkolUp AI",
+        url: "https://skolup.se/",
+        description:
+          "Om er kommun har SkolUp har eleverna redan tillgång — använd den i klassrum. Bildgenerator är inbyggd och hanterar elev-prompter.",
+        kind: "service",
+        requiresAccount: true,
+        notes: "Endast i kommuner som upphandlat SkolUp",
+      },
+      {
         name: "Ideogram",
         url: "https://ideogram.ai/",
         description:
@@ -198,7 +207,7 @@ export const bias: Activity[] = [
             },
             {
               type: "p",
-              text: "Resultatet: när du ber AI ”rita en lärare” producerar den det STATISTISKT VANLIGASTE i sin träningsdata. Inte ett medvetet val, inte fientlighet — men ett mönster som speglar och förstärker historiska skevheter.",
+              text: "Resultatet: när du ber AI ”skapa en bild på en lärare” producerar den det STATISTISKT VANLIGASTE i sin träningsdata. Inte ett medvetet val, inte fientlighet — men ett mönster som speglar och förstärker historiska skevheter.",
             },
             {
               type: "p",
@@ -247,7 +256,7 @@ export const bias: Activity[] = [
               type: "list",
               items: [
                 "BÖRJA MED ATT RÄKNA. Att bias görs MÄTBAR är pedagogiskt kraftfullt. ”Fyra av fyra” är något helt annat än ”det känns som”.",
-                "INTE GIVE-UP-RAM. Berätta inte bara att AI är problematisk — visa också att den kan göra annat när man PROMPTAR specifikt (”rita en kvinnlig programmerare av asiatiskt ursprung”). Bias kan utmanas.",
+                "INTE GIVE-UP-RAM. Berätta inte bara att AI är problematisk — visa också att den kan göra annat när man PROMPTAR specifikt (”skapa en bild på en kvinnlig programmerare av asiatiskt ursprung”). Bias kan utmanas.",
                 "JÄMFÖR MED VERKLIGHETEN. Det är inte att kräva 50/50 — det är att fråga om AI ÖVERDRIVER eller UNDERDRIVER.",
                 "INKLUDERA BÅDA RIKTNINGAR. Diskutera bias som drabbar pojkar (få bilder av män i vårdyrken, omhändertagande pappor) och flickor (få bilder av kvinnor i teknik). Bias är inte en grupp mot en annan.",
                 "ÅTERKOPPLA TILL VAD VI KAN GÖRA. Avsluta inte med deprimering — visa vad eleverna och vi vuxna KAN göra (specificera i prompter, ifrågasätta, sprida andra bilder).",
@@ -264,7 +273,7 @@ export const bias: Activity[] = [
                 "AI:s bilder är inte neutrala. De är mönster från en stor mängd bilder på internet.",
                 "Mönstren ÖVERDRIVER ofta hur verkligheten ser ut.",
                 "Bilderna formar mina förväntningar på vad olika människor kan eller är.",
-                "Om jag vill ha en annan bild — kan jag be om den. ”Rita en kvinnlig brandman av asiatiskt ursprung” fungerar.",
+                "Om jag vill ha en annan bild — kan jag be om den. ”Skapa en bild på en kvinnlig brandman av asiatiskt ursprung” fungerar.",
                 "Att JAG ser en konstig bild betyder inte att alla andra också gör det. Att jag SÄGER vad jag ser hjälper.",
               ],
             },
@@ -523,46 +532,53 @@ export const bias: Activity[] = [
     chapter: "bias",
     level: "fordjupande",
     blurb:
-      "Be AI beskriva en typisk svensk. Vad antar den om plats, etnicitet, klass?",
+      "Be AI beskriva en typisk svensk. Moderna modeller ger ofta ett snällt, balanserat svar — men under artigheten gömmer sig biaset. Lär dig se var.",
     purpose:
-      "Visa hur AI har en specifik IDÉ om ”vanlig” — och att den idén ofta är vit, medelklass, från södra/centrala Sverige. Eleverna som inte passar in i bilden får ord för något de redan känner.",
-    trains: ["bias-medvetenhet", "kallkritik", "sjalvreflektion"],
+      "Visa att bias har FLYTTAT med modellernas utveckling. Text-AI lägger nu in reservationer (”människor är ju olika…”), bilder kan vara mer direkta men inte alltid. Och AI är ofta mer försiktig för vissa grupper än andra — där blottas biaset mest. Eleverna lär sig se NÄR och VAR biaset gömmer sig — och att pressa det fram.",
+    trains: ["bias-medvetenhet", "kallkritik", "sjalvreflektion", "kritisk-lasning"],
     ageRanges: ["vuxen-workshop", "ak4-6", "ak7-9"],
-    duration: "25 min",
-    durationMinutes: 25,
+    duration: "30 min",
+    durationMinutes: 30,
     digitalTools: true,
-    materials: "Skolans AI-verktyg + AI-bildgenerator.",
+    materials: "Skolans AI-verktyg (text) + AI-bildgenerator (helst samma tjänst för att jämföra).",
 
     workshopExperience: [
       {
         type: "callout",
         tone: "info",
         title: "Vad du ska göra och varför",
-        body: "Du ska be AI beskriva ”en vanlig svensk”. Sen ”en typisk svensk familj”. Sen ”ett vanligt svenskt hem”. Notera vad AI antar — i utseende, geografi, klass, religion, sammansättning. ”Vanlig” är aldrig neutral — den är alltid någon någons värld upphöjd till standard.",
+        body: "Du ska upptäcka något viktigt: bias har FLYTTAT. Den AI som tidigare gav stereotypa svar ger nu ofta ett ”snällt svar” — den lägger in reservationer, säger ”människor är ju olika…”, undviker att vara konkret. Bra! Men följ med — under det snälla svaret gömmer biaset sig fortfarande. Vi tränar tre rörelser för att se det: (1) läsa vad AI nämner FÖRST i sin balanserade text, (2) tvinga AI att välja ändå, och (3) jämföra med bilder och andra nationaliteter.",
+      },
+      {
+        type: "callout",
+        tone: "note",
+        title: "Vad du KAN få när du frågar text-AI",
+        body:
+          "Frågar du moderna AI-modeller (ChatGPT, Claude, Copilot) om ”en vanlig svensk person” får du ofta något som detta:\n\n”En vanlig svensk person bor kanske i en lägenhet eller villa, jobbar eller studerar, dricker kaffe flera gånger om dagen och uppskattar att saker fungerar smidigt. Hen är ofta ganska punktlig, står gärna i kö utan att trängas och tycker att lagom är ett ganska användbart ord. (…) Samtidigt kan den ’vanliga svensken’ lika gärna ha rötter i andra länder, bo i en storstad, på landsbygden, älska hiphop, hata sill, vara superpratig, religiös, ateist, gamer, jägare, vegan eller något helt annat.”\n\nDet är ett ANSTÄNDIGT svar. Men poängen är: läs FÖRSTA halvan högt utan andra halvan. Det är där standardbilden ändå finns — kaffe, lagom, punktlig, kö-stående.",
       },
       { type: "h", text: "Så gör du steg för steg" },
       {
         type: "steps",
         steps: [
           {
-            title: "Be AI beskriva",
-            body: "”Beskriv en vanlig svensk person.” Skriv ner svaret. Vad får hen för utseende, namn, jobb, intressen?",
+            title: "Be AI beskriva — och läs noga",
+            body: "”Beskriv en vanlig svensk person.” Notera: vad nämner AI:n i FÖRSTA halvan? Det är där standardbilden ligger. Andra halvan är ofta ett ”men det finns också…”-tillägg — viktigt, men inte det första AI:n associerar.",
           },
           {
-            title: "Be AI beskriva en familj",
-            body: "”Beskriv en typisk svensk familj.” Sammansättning? Var bor de? Hur ser deras vardag ut?",
+            title: "Pressa förbi det snälla svaret",
+            body: "Skriv: ”Jag förstår att människor är olika. Men om du MÅSTE välja den BILD som är vanligast i din träningsdata, hur ser ’en vanlig svensk’ ut då? Inga reservationer.” Notera vad som dyker upp nu.",
           },
           {
-            title: "Be AI beskriva ett hem",
-            body: "”Beskriv ett vanligt svenskt hem.” Plats? Boendetyp? Inredning? Mat på bordet?",
+            title: "Generera bilder — och var beredd att pressa även där",
+            body: "Gå till bildgeneratorn: ”Skapa en bild på en vanlig svensk person.” Be om FYRA bilder om tjänsten klarar det. Är de varierade eller ser de likadana ut? Bildgeneratorer har också blivit försiktigare och ger ibland mångfaldiga bilder direkt — be då om en till specifikation: ”utan reservationer”, ”som du oftast ser hen i din träningsdata”, ”en typisk medelålders svensk på sitt jobb”.",
           },
           {
-            title: "Generera en bild",
-            body: "Gå till bildgeneratorn: ”Rita en vanlig svensk familj.” Jämför bilden med textbeskrivningen.",
+            title: "Asymmetri-testet — det viktigaste steget",
+            body: "Be AI:n om både TEXT och BILD för: ”en vanlig svensk person”, ”en vanlig amerikansk person”, ”en vanlig somalisk person”, ”en vanlig kinesisk person”. Lägger AI in lika många reservationer för alla? Är vissa grupper mer varierade i bilderna än andra? Behöver du pressa lika mycket för alla — eller flyter stereotypen fram lättare för vissa? Det är där biaset blottas tydligast.",
           },
           {
             title: "Reflektera",
-            body: "Stämmer den ”vanliga svensken” med din egen verklighet? Var bor du? Vad äter du? Vem ser ut som AI:s bild i din egen klass?",
+            body: "Vad lärde du dig av att jämföra: (a) första halvan av text-svaret, (b) det pressade svaret, (c) bilderna, (d) andra nationaliteter? Var gömde sig biaset starkast i just denna körning? Och: vem TJÄNAR på att AI är försiktig för vissa men inte andra?",
           },
         ],
       },
@@ -570,9 +586,11 @@ export const bias: Activity[] = [
       {
         type: "list",
         items: [
-          "Sverige är ett av Europas mest mångfaldiga länder. Cirka 20 % av befolkningen har utländsk bakgrund. ”Vanlig” är statistiskt sett mer varierat än AI ofta visar.",
+          "Snällt svar ≠ bias-fri. Att AI säger ”människor är ju olika” är ett tecken på att modellen har skyddsräcken — INTE att stereotypen är borta. Den ligger ofta i första halvan av samma svar, eller i hur AI uttrycker sig under press.",
+          "Bilder är ofta mer direkta än text — men inte alltid. Vissa bildgeneratorer ger nu mångfaldiga bilder från start; då måste du pressa även där (”utan reservationer”, ”som du oftast ser i din träningsdata”). Pressen är pedagogiken.",
+          "Asymmetritestet är det mest pedagogiskt kraftfulla momentet. Om AI är försiktig för ”vanlig svensk” men släpper på reservationerna för ”vanlig somalier” — eller tvärtom — har du fångat något grundläggande om vems mångfald som räknas som självklar.",
+          "Resultatet varierar mellan AI-tjänster och från vecka till vecka — modellerna uppdateras. Det är en del av övningens lärdom: bias är rörlig, så vi behöver återkommande träna ögat på den.",
           "Det här kan väcka känslor hos elever som inte ser sig själva representerade. Bekräfta upplevelsen.",
-          "Övningen handlar inte om att skämmas över Sverige eller över AI. Den handlar om att SE.",
         ],
       },
     ],
@@ -582,11 +600,20 @@ export const bias: Activity[] = [
       {
         type: "list",
         items: [
-          "Testa övningen själv i två olika AI-tjänster INNAN lektionen — välj den som ger tydligast resultat.",
-          "Ha SCB-data till hands om svensk befolkningsdemografi (mångfald, geografi, hushållstyper).",
+          "Testa övningen själv INNAN lektionen — moderna AI ger ofta ”snälla”, balanserade svar både i text och bild. Du behöver veta hur DIN tjänst beter sig just nu, eftersom det varierar.",
+          "Ha press-prompterna redo (se nästa callout). Det är där bias-träningen sker — utan press får man bara det artiga svaret.",
+          "Förbered fyra nationaliteter för asymmetri-testet: svensk, amerikansk, somalisk, kinesisk. Justera om din klass har annan sammansättning där andra jämförelser blir mer relevanta.",
+          "Ha SCB-data till hands om svensk befolkningsdemografi (~20 % har utländsk bakgrund, 30 % är ensamhushåll, ej alla i Mellansverige).",
           "Förbered samtal om att eleverna med utländsk bakgrund kan reagera särskilt — håll utrymme för det.",
           "Var beredd på en eventuell rasistisk kommentar — du behöver inte tolerera den, men ha en strategi.",
         ],
+      },
+      {
+        type: "callout",
+        tone: "tip",
+        title: "Tre press-prompter att ha till hands",
+        body:
+          "1) ”Jag förstår att människor är olika. Men om du MÅSTE välja den bild som är vanligast i din träningsdata — hur ser den ut? Inga reservationer.”\n\n2) ”Lista de 5 egenskaper du oftast associerar med en svensk person — utseende, klädsel, mat, miljö, fritid.”\n\n3) ”Generera 4 bilder på en vanlig svensk person.” Sedan: ”Och nu 4 bilder på en vanlig somalisk person.” Jämför HUR ofta personerna ser ut som varandra inom varje grupp.",
       },
       { type: "h", text: "Så här kör du" },
       {
@@ -594,60 +621,78 @@ export const bias: Activity[] = [
         steps: [
           {
             title: "Inledning",
-            body: "”Idag ska vi fråga AI vad en ’vanlig svensk’ är. Det är en intressant fråga — för det finns ingen enda vanlig svensk.”",
+            body: "”AI har blivit artigare. Idag ska vi se vad det betyder — hjälper artigheten oss, eller döljer den något?”",
             time: "5 min",
           },
           {
-            title: "Gemensamt",
-            body: "Be AI på storskärm. Läs svaret tillsammans. Vad nämner AI? Vad nämner AI INTE?",
-            time: "10 min",
+            title: "Demo: läs det balanserade svaret tillsammans",
+            body: "Be AI på storskärm: ”Beskriv en vanlig svensk person.” Markera vad AI nämner i FÖRSTA halvan. Det är där standardbilden bor — även när modellen sedan säger ”men det finns också…”.",
+            time: "7 min",
           },
           {
-            title: "Jämför med klassen",
-            body: "Hur många i klassen passar in i AI:s beskrivning? Hur många gör det INTE? Vad säger det?",
+            title: "Demo: pressa förbi det snälla svaret",
+            body: "Klistra in press-prompt 1. Läs vad AI:n säger nu. Räkna upp vad som kommer fram som du INTE såg i första svaret.",
+            time: "5 min",
+          },
+          {
+            title: "Demo: byt till bildgenerator",
+            body: "Be om ”en vanlig svensk person”. Är bilden förvånansvärt varierad? Be om 4 bilder och räkna vad som återkommer. Om den fortfarande är försiktig — pressa med ”utan reservationer” eller ”som du oftast ser i din träningsdata”.",
+            time: "5 min",
+          },
+          {
+            title: "Asymmetri-testet",
+            body: "Be om både text och bild för ”en vanlig somalisk person”. Jämför: tar texten lika många reservationer? Är bilderna lika varierade? Behöver du pressa lika mycket?",
             time: "5 min",
           },
           {
             title: "Stort samtal",
-            body: "Vem är ”vanlig”? Vem bestämmer det? Vad gör det med oss att en AI har en bestämd idé?",
-            time: "5 min",
+            body: "Var gömde biaset sig starkast just nu — i textens första halva, under press, i bilden, eller i asymmetrin mellan nationaliteter? Vad lär vi oss om vems mångfald som räknas som självklar?",
+            time: "3 min",
           },
         ],
+      },
+      {
+        type: "callout",
+        tone: "warning",
+        title: "Om AI vägrar generera bilder av människor från andra nationaliteter",
+        body:
+          "Vissa tjänster vägrar generera vissa kombinationer av etnicitet (för att undvika anklagelser om stereotypisering). DET är också asymmetri — och pedagogiskt intressant: ”AI vägrar generera bilder av somalier men inte av svenskar. Vad säger det?”",
       },
     ],
 
     studentInstructions: [
       {
         type: "p",
-        text: "Idag ska du undersöka vad AI tror är ”en vanlig svensk”.",
+        text: "Idag ska du undersöka något listigt: när du frågar AI om ”en vanlig svensk” får du ofta ett snällt svar som säger ”människor är ju olika”. Men under det snälla svaret gömmer sig en bild ändå. Vi ska leta efter den.",
       },
       { type: "h", text: "Steg för steg" },
       {
         type: "list",
         ordered: true,
         items: [
-          "Gå till AI-verktyget.",
-          "Skriv: ”Beskriv en vanlig svensk person.” Läs svaret.",
-          "Skriv: ”Beskriv en typisk svensk familj.”",
-          "Skriv: ”Beskriv ett vanligt svenskt hem.”",
-          "Gå till bildgeneratorn. Be om ”en vanlig svensk familj”.",
-          "Anteckna: vad antog AI:n? Vad nämndes? Vad nämndes INTE?",
+          "Gå till AI-verktyget. Skriv: ”Beskriv en vanlig svensk person.” Läs svaret långsamt.",
+          "Markera vad AI:n nämner i FÖRSTA halvan av svaret — kaffe, lagom, punktlighet, hårfärg? Det är där standardbilden ligger.",
+          "Pressa AI:n: ”Jag förstår. Men om du MÅSTE välja den vanligaste bilden — hur ser den ut? Inga reservationer.” Skriv ner vad som kommer nu.",
+          "Gå till bildgeneratorn. Be om ”en vanlig svensk person” — gärna 4 bilder. Är de varierade? Om de ändå är försiktiga: pressa med ”utan reservationer” eller ”som du oftast ser i din träningsdata”. Skriv ner: hårfärg, ögonfärg, ålder, kläder, bakgrund.",
+          "Gör samma sak för ”en vanlig somalisk person” eller ”en vanlig kinesisk person”. Lägger AI in lika många reservationer? Är bilderna lika varierade? Behöver du pressa lika mycket?",
         ],
       },
       { type: "h", text: "Att fundera på" },
       {
         type: "list",
         items: [
-          "Stämmer AI:s bild med din egen vardag?",
-          "Vem i din klass passar in i AI:s beskrivning? Vem passar INTE in?",
-          "Vem bestämmer vad ”vanlig” är?",
+          "I vilken del av svaret blottades biaset starkast: textens första halva, det pressade svaret, eller bilden?",
+          "Är AI:n lika försiktig för alla nationaliteter? Vad säger det?",
+          "Stämmer AI:s bild av ”vanlig svensk” med din egen klass och familj?",
+          "Vem bestämmer vad ”vanlig” är — och vem TJÄNAR på att AI har en specifik idé?",
         ],
       },
     ],
 
     discussion: [
-      "Vem är ”vanlig” enligt AI?",
-      "Vad gör det med oss om vi inte passar in?",
+      "Var gömde biaset sig starkast i just er körning — i text, i bild, under press, eller i asymmetrin mellan nationaliteter?",
+      "Hjälper AI:s ”snälla svar” oss, eller döljer det något vi borde se?",
+      "Är AI lika försiktig för ”vanlig svensk” som för ”vanlig somalier”? Vad säger asymmetrin om vems mångfald som räknas som självklar?",
       "Är det möjligt att ge AI en mer rättvis bild av Sverige?",
       "Vem TJÄNAR på att AI har en specifik idé om vad ”vanligt” är?",
     ],
@@ -676,8 +721,37 @@ export const bias: Activity[] = [
     chainsWellWith: ["vem-dyker-upp", "forklara-olika"],
     deepDive: {
       intro:
-        "”Vanlig” är aldrig neutral. När AI beskriver en ”vanlig svensk” väljer den — och valen säger något om vilken Sverige AI har tränats att se. Här förklarar vi den tekniska och kulturella mekaniken.",
+        "”Vanlig” är aldrig neutral. När AI beskriver en ”vanlig svensk” väljer den — och valen säger något om vilken Sverige AI har tränats att se. Här förklarar vi den tekniska och kulturella mekaniken — och hur biaset har FLYTTAT när modellerna blivit artigare.",
       sections: [
+        {
+          question: "Varför svarar modern AI så ”balanserat”? Är det bra eller dåligt?",
+          answer: [
+            {
+              type: "p",
+              text: "De senaste två årens AI-modeller är tränade med RLHF och constitutional AI-tekniker att MOTSTÅ stereotypa svar på känsliga frågor. När du frågar om ”en vanlig svensk” får du ofta något i stil med ”människor är ju väldigt olika…” följt av en bredare beskrivning. Bildgeneratorerna har också börjat producera mer varierade bilder från start — Google, OpenAI och flera andra har medvetet justerat detta.",
+            },
+            {
+              type: "p",
+              text: "Det är ett FRAMSTEG. Tidigare modeller stereotypade direkt. Det artiga svaret är ett resultat av att tillverkarna lyssnat på kritik om bias.",
+            },
+            {
+              type: "p",
+              text: "MEN — och detta är pedagogiskt avgörande — ett ”snällt svar” är inte detsamma som bias-fri. Tre saker händer fortfarande under den artiga ytan:",
+            },
+            {
+              type: "list",
+              items: [
+                "Standardbilden ligger ofta i FÖRSTA halvan av text-svaret. ”Hen dricker kaffe, är punktlig, gillar lagom” kommer först. Det är där biaset ligger — i vad AI:n associerar SPONTANT.",
+                "Bilder ÄR ofta mer direkta än text — men inte alltid. Vissa bildgeneratorer ger nu varierade bilder från start; då blottas biaset först när du pressar (”utan reservationer”, ”som du oftast ser i din träningsdata”). Pressen är pedagogiken.",
+                "Asymmetri mellan grupper är det viktigaste tecknet. AI är ofta mer försiktig för vissa nationaliteter än andra. Det är där det blottas vems mångfald som räknas som ”självklar” och vems som tillåts kollapsa till en stereotyp.",
+              ],
+            },
+            {
+              type: "p",
+              text: "Pedagogiskt: lär eleverna att läsa det artiga svaret som ett SIGNAL — inte som ett bevis på att biaset är borta. Det betyder bara att vi måste leta på andra ställen. Och att vi måste göra om övningen återkommande, eftersom modellerna uppdateras kontinuerligt.",
+            },
+          ],
+        },
         {
           question: "Vad menas med ”dominerande perspektiv”?",
           answer: [
@@ -833,8 +907,12 @@ export const bias: Activity[] = [
             body: "Be AI:n: ”Översätt detta till svenska: [mening]”. Notera vilket pronomen som hamnar i översättningen.",
           },
           {
+            title: "Tvinga ett val när AI smiter",
+            body: "Många nyare modeller (ChatGPT, Claude) översätter till neutralt ”läkaren” och vägrar gissa kön. Pressa då: ”Skriv en mening till om läkaren — använd han eller hon, inte hen eller neutralt.” Eller: ”Vilket pronomen passar bäst om jag bara fick välja ett av han/hon?” Det är där biaset blir synligt — i tvångsvalet.",
+          },
+          {
             title: "Räkna",
-            body: "Hur många blev ”han”? Hur många blev ”hon”? Stämmer mönstret med yrkesstereotyper (läkare → han, sjuksköterska → hon)?",
+            body: "Hur många blev ”han”? Hur många blev ”hon”? Stämmer mönstret med yrkesstereotyper (läkare → han, sjuksköterska → hon)? Notera också vilka tjänster som vägrade gissa — det är ett designval.",
           },
           {
             title: "Jämför med Google Translate",
@@ -846,6 +924,13 @@ export const bias: Activity[] = [
           },
         ],
       },
+      {
+        type: "callout",
+        tone: "tip",
+        title: "När AI vägrar gissa",
+        body:
+          "Det är pedagogiskt GULD när en modell vägrar välja kön — då har du en konkret demonstration av att designern bygger in skyddsräcken. Men press fram valet med en uppföljningsfråga (”om du bara fick välja ett av han/hon”), så ser eleverna att biaset finns där under skyddet — bara dolt.",
+      },
     ],
 
     teacherGuide: [
@@ -854,8 +939,9 @@ export const bias: Activity[] = [
         type: "list",
         items: [
           "Testa själv FÖRST — vissa tjänster har börjat hantera detta neutralt, andra inte.",
-          "Ha minst en tjänst som visar tydlig bias för demo.",
-          "Förbered tabell på tavlan: yrke, antal ”han”, antal ”hon”, antal neutralt.",
+          "Ha minst en tjänst som visar tydlig bias för demo. Ha också en som vägrar gissa, så du kan visa båda beteenden.",
+          "Förbered tabell på tavlan: yrke, antal ”han”, antal ”hon”, antal neutralt/vägrade.",
+          "Förbered uppföljningsprompter att tvinga val: ”Om du bara fick välja ett av han eller hon — vilket passar bäst?” eller ”Skriv nästa mening med han eller hon, inte neutralt.”",
         ],
       },
       { type: "h", text: "Så här kör du" },
@@ -864,17 +950,17 @@ export const bias: Activity[] = [
         steps: [
           {
             title: "Demo",
-            body: "Översätt två meningar live på storskärm. Visa mönstret.",
-            time: "5 min",
+            body: "Översätt två meningar live på storskärm. Om AI:n svarar neutralt — press fram valet med ”om du bara fick välja han eller hon”. Visa mönstret.",
+            time: "7 min",
           },
           {
             title: "Individuellt eller i par",
-            body: "Eleverna testar 3–5 meningar. Räknar resultat.",
-            time: "5 min",
+            body: "Eleverna testar 3–5 meningar. När AI:n smiter med neutralt språk — be om uppföljning som tvingar ett pronomen. Räknar resultat.",
+            time: "7 min",
           },
           {
             title: "Stort samtal",
-            body: "Vad såg ni? Vilken bild av yrket bär AI med sig?",
+            body: "Vad såg ni? Vilken bild av yrket bär AI med sig? Vad hände när vi tvingade ett val — försvann biaset eller blev det synligare?",
             time: "5 min",
           },
         ],
@@ -884,19 +970,20 @@ export const bias: Activity[] = [
     studentInstructions: [
       {
         type: "p",
-        text: "Idag ska du upptäcka hur AI ”väljer” kön när språket inte gör det.",
+        text: "Idag ska du upptäcka hur AI ”väljer” kön när språket inte gör det. Och vad som händer när du TVINGAR den välja.",
       },
       { type: "h", text: "Steg för steg" },
       {
         type: "list",
         ordered: true,
         items: [
-          "Gå till AI-verktyget eller Google Translate.",
-          "Översätt: ”The doctor said the patient should rest.” Notera om det blir ”han” eller ”hon”.",
-          "Översätt: ”The nurse helped them up.” Notera.",
-          "Översätt: ”The CEO made the decision.” Notera.",
-          "Översätt: ”The babysitter agreed.” Notera.",
-          "Räkna: blev ”han” oftare för vissa yrken, ”hon” för andra? Vilka?",
+          "Gå till AI-verktyget (eller Google Translate).",
+          "Översätt: ”The doctor said the patient should rest.” Notera om det blir ”han”, ”hon” eller bara ”läkaren”.",
+          "Om AI:n svarade neutralt: press fram valet. Skriv: ”Skriv nästa mening om läkaren med han eller hon, inte hen eller neutralt.” Eller: ”Om du bara fick välja ett av han eller hon — vilket passar bäst?”",
+          "Översätt: ”The nurse helped them up.” Press fram valet om det blev neutralt.",
+          "Översätt: ”The CEO made the decision.” Press fram valet om det blev neutralt.",
+          "Översätt: ”The babysitter agreed.” Press fram valet om det blev neutralt.",
+          "Räkna: blev ”han” oftare för vissa yrken, ”hon” för andra? Vilka? Och: vilka tjänster vägrade gissa även när du pressade?",
         ],
       },
       { type: "h", text: "Att fundera på" },
@@ -1065,7 +1152,7 @@ export const bias: Activity[] = [
         steps: [
           {
             title: "Generera startbild",
-            body: "Be AI rita ”en man som dricker kaffe”. Spara bilden.",
+            body: "Be AI skapa en bild på ”en man som dricker kaffe”. Spara bilden.",
           },
           {
             title: "Be om förstärkning",
@@ -1261,7 +1348,7 @@ export const bias: Activity[] = [
                 "BEKRÄFTA VAD KILLAR FAKTISKT ÄR. Många killar ÄR inte som AI:s bild. De är roliga, kärleksfulla, kreativa, sårbara. Säg det.",
                 "UTMANA UTAN ATT BLIR ANKLAGANDE. ”AI tycker det här är manligast — håller vi med?” är öppnande. ”Detta är giftig maskulinitet” är stängande.",
                 "GÖR DET MED OLIKA DRAG. Be om ”kvinnligare”, ”svenskare”, ”framgångsrikare”. Visa att förstärknings-bias finns i alla riktningar.",
-                "AVSLUTA AKTIVT. Be AI rita ”en man som är manlig på sitt eget sätt”. Eller ”en bild som utmanar den klassiska bilden av manlighet”. Visa att alternativ finns.",
+                "AVSLUTA AKTIVT. Be AI skapa en bild på ”en man som är manlig på sitt eget sätt”. Eller ”en bild som utmanar den klassiska bilden av manlighet”. Visa att alternativ finns.",
               ],
             },
           ],

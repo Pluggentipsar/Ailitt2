@@ -13,7 +13,6 @@ export type ToolCategory =
   | "videogenerering"
   | "ljud-och-rost"
   | "deepfake-skapande"
-  | "deepfake-detektion"
   | "larresurs-skola"
   | "browser-extension";
 
@@ -29,7 +28,6 @@ export const toolCategoryLabels: Record<ToolCategory, string> = {
   videogenerering: "Videogenerering",
   "ljud-och-rost": "Ljud & röst",
   "deepfake-skapande": "Deepfake-skapande",
-  "deepfake-detektion": "Deepfake-detektion",
   "larresurs-skola": "Lärresurser för skolan",
   "browser-extension": "Webbläsartillägg",
 };

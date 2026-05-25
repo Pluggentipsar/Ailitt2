@@ -230,7 +230,7 @@ export const flodet: Activity[] = [
         name: "Sightengine — AI or Not",
         url: "https://sightengine.com/ai-or-not",
         description:
-          "Färdigt webbtest där du laddar upp eller länkar bilder och tjänsten gissar om de är AI-genererade. Bra som komplement: gör övningen först med magkänslan, kör sen samma klipp/bilder genom Sightengine och jämför.",
+          "Färdigt webbtest som täcker bilder, video, ljud OCH musik — ladda upp eller länka in och tjänsten gissar om innehållet är AI-genererat. Bra som komplement: gör övningen först med magkänslan, kör sen samma material genom Sightengine och jämför. Notera när tjänsten själv tvekar — det är ofta där eleverna också missar.",
         kind: "exercise",
       },
     ],
@@ -261,6 +261,24 @@ export const flodet: Activity[] = [
         title: "Vad du ska göra och varför",
         body: "Du ska ta en RIKTIG nyhetsbild — och låta en AI manipulera den. Byt miljö, byt årstid, byt stämning. Syftet är att uppleva hur lite som krävs för att en äkta bild ska säga något helt annat än den ursprungligen sagt. Resultatet beror på vilken AI du använder — testa flera och se.",
       },
+      {
+        type: "images",
+        label: "Exempel — prompt och resultat",
+        items: [
+          {
+            src: "/workshops/kallkritik/nyhetsbild/prompt-chatgpt.png",
+            alt: "Skärmdump av prompt i ChatGPT där en nyhetsbild laddas upp och AI:n får i uppgift att manipulera den",
+            caption:
+              "Steg 1: Ladda upp en riktig nyhetsbild och be ChatGPT manipulera den.",
+          },
+          {
+            src: "/workshops/kallkritik/nyhetsbild/resultat.png",
+            alt: "Den manipulerade nyhetsbilden — AI har bytt miljö och stämning samtidigt som bildens grundkomposition behållits",
+            caption:
+              "Steg 2: Resultatet — bilden ser fortfarande äkta ut, men berättar något annat.",
+          },
+        ],
+      },
       { type: "h", text: "Så gör du steg för steg" },
       {
         type: "steps",
@@ -275,7 +293,7 @@ export const flodet: Activity[] = [
           },
           {
             title: "Ladda upp bilden och be om omredigering",
-            body: "”Byt vädret till regn.” ”Gör om till vinter.” ”Lägg till en folksamling i bakgrunden.” ”Byt platsen till en storstad.” En enkel beskrivning räcker.",
+            body: "”Byt vädret till regn.” ”Gör om till vinter.” ”Lägg till en folksamling i bakgrunden.” ”Byt platsen till en storstad.” En enkel beskrivning räcker. Se exempelbilderna ovan för hur prompten och resultatet kan se ut.",
           },
           {
             title: "Jämför originalet med resultatet",

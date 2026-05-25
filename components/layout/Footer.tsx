@@ -14,66 +14,99 @@ export function Footer() {
   return (
     <footer className="border-t border-gray-200 bg-gray-50">
       <div className="container mx-auto px-4 py-12">
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-4">
-          <div className="space-y-3">
+        <div className="grid grid-cols-2 gap-8 md:grid-cols-4">
+          <div className="col-span-2 md:col-span-1 space-y-3">
             <h3 className="text-sm font-semibold text-gray-900">AI-litt</h3>
-            <p className="text-sm text-gray-600">
-              Didaktik för AI-litteracitet i gymnasiet
+            <p className="text-sm text-gray-600 leading-relaxed">
+              Färdiga lektioner, workshops och verktyg för AI-undervisning i hela skolan.
             </p>
           </div>
 
           <div className="space-y-3">
-            <h3 className="text-sm font-semibold text-gray-900">Resurser</h3>
+            <h3 className="text-sm font-semibold text-gray-900">Stadier</h3>
             <ul className="space-y-2 text-sm">
               <li>
                 <Link
-                  href="/amnen"
-                  className="text-gray-600 hover:text-blue-600"
+                  href="/grundskola"
+                  className="text-gray-600 hover:text-primary-600"
                 >
-                  Ämnen
+                  Grundskola F-6
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/mellanstadiet"
+                  className="text-gray-600 hover:text-primary-600"
+                >
+                  Mellanstadiet 4-6
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/workshops/kallkritik-mellanstadiet"
+                  className="text-gray-600 hover:text-primary-600"
+                >
+                  Workshop: Källkritik
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/amnen"
+                  className="text-gray-600 hover:text-primary-600"
+                >
+                  Gymnasiet — ämnen
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          <div className="space-y-3">
+            <h3 className="text-sm font-semibold text-gray-900">Ramverk</h3>
+            <ul className="space-y-2 text-sm">
+              <li>
+                <Link
+                  href="/ai-litteracitet"
+                  className="text-gray-600 hover:text-primary-600"
+                >
+                  AI-litteracitet
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/didaktiska-modeller"
+                  className="text-gray-600 hover:text-primary-600"
+                >
+                  Didaktiska modeller
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          <div className="space-y-3">
+            <h3 className="text-sm font-semibold text-gray-900">Verktyg</h3>
+            <ul className="space-y-2 text-sm">
+              <li>
+                <Link
+                  href="/verktygslada"
+                  className="text-gray-600 hover:text-primary-600"
+                >
+                  Verktygslådan
                 </Link>
               </li>
               <li>
                 <Link
                   href="/aktiviteter"
-                  className="text-gray-600 hover:text-blue-600"
+                  className="text-gray-600 hover:text-primary-600"
                 >
                   Aktiviteter
                 </Link>
               </li>
-            </ul>
-          </div>
-
-          <div className="space-y-3">
-            <h3 className="text-sm font-semibold text-gray-900">Information</h3>
-            <ul className="space-y-2 text-sm">
-              <li>
-                <Link href="/om" className="text-gray-600 hover:text-blue-600">
-                  Om AI-litt
-                </Link>
-              </li>
               <li>
                 <Link
-                  href="/kontakt"
-                  className="text-gray-600 hover:text-blue-600"
+                  href="/bookmarks"
+                  className="text-gray-600 hover:text-primary-600"
                 >
-                  Kontakt
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          <div className="space-y-3">
-            <h3 className="text-sm font-semibold text-gray-900">
-              Bidra
-            </h3>
-            <ul className="space-y-2 text-sm">
-              <li>
-                <Link
-                  href="/aktiviteter/skicka-in"
-                  className="text-gray-600 hover:text-blue-600"
-                >
-                  Skicka in aktivitet
+                  Mina sparade
                 </Link>
               </li>
             </ul>
