@@ -8,6 +8,10 @@ import { useState } from "react";
 const NAV = [
   { href: "/workshops/kallkritik-mellanstadiet", label: "Sandlådan" },
   {
+    href: "/workshops/kallkritik-mellanstadiet/forelasningen",
+    label: "Föreläsningen",
+  },
+  {
     href: "/workshops/kallkritik-mellanstadiet/resurser/dramaturgi",
     label: "Dramaturgi",
   },

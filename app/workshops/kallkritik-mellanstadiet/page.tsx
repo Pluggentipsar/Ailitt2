@@ -64,12 +64,18 @@ export default function WorkshopHub() {
               kopiera in i Teams eller Vklass.
             </p>
             <div className="flex flex-wrap gap-3">
-              <a
-                href="#sandladan"
+              <Link
+                href="/workshops/kallkritik-mellanstadiet/forelasningen"
                 className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-stone-900 text-workshop-canvas font-medium hover:bg-stone-800 transition-colors"
               >
-                Utforska sandlådan
+                Börja med föreläsningen
                 <ArrowRight className="h-4 w-4" />
+              </Link>
+              <a
+                href="#sandladan"
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white border-2 border-stone-900 text-stone-900 font-medium hover:bg-stone-100 transition-colors"
+              >
+                Hoppa till sandlådan
               </a>
               <Link
                 href="/workshops/kallkritik-mellanstadiet/resurser/dramaturgi"
