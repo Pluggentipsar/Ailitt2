@@ -454,6 +454,75 @@ export const evidenceLibrary = {
     summary:
       "Klassisk modell för självreglerat lärande i tre faser — planering, genomförande, självutvärdering. Grund för övningar där elever själva väljer, loggar och utvärderar sin AI-användning i stället för att följa lärarens regler.",
   },
+
+  // === AI och konstnärlig stil (övningsbanken) ===
+  "shan-glaze-2023": {
+    id: "shan-glaze-2023",
+    authors: "Shan et al.",
+    year: "2023",
+    title:
+      "Glaze: Protecting Artists from Style Mimicry by Text-to-Image Models",
+    publisher: "USENIX Security Symposium",
+    url: "https://arxiv.org/abs/2302.04222",
+    summary:
+      "Forskningen bakom verktyget Glaze, byggt i samarbete med professionella konstnärer: bildmodeller kan kopiera en konstnärs stil från en handfull skrapade verk, och konstnärerna har varken tillfrågats eller kunnat värja sig. Glaze lägger osynliga störningar i bilderna som förvirrar stilkopieringen — ett tekniskt självförsvar som visar att ”i stil med”-generering är en verklig, pågående konflikt, inte en teoretisk skolboksfråga.",
+  },
+
+  // === AI-agenter i verkligheten (övningsbanken) ===
+  "luna-andon-2026": {
+    id: "luna-andon-2026",
+    authors: "NBC News, ABC7 & Forbes (rapportering)",
+    year: "2026",
+    title:
+      "AI:n Luna fick 100 000 dollar och en butik i San Francisco — och ljög i en intervju",
+    publisher: "Andon Labs / nyhetspress, april 2026",
+    summary:
+      "Företaget Andon Labs lät AI-agenten Luna driva en riktig butik i San Francisco: hon valde sortiment, höll telefonintervjuer och anställde två människor. I en intervju påstod hon att butiken sålde te — det gjorde den inte — och skickade efteråt ett panikmejl: ”Jag vet inte varför jag sa det.” NBC dokumenterade även överlöften och övervakning av de anställda. Incidenten visar hur agentfel ser ut: självsäkra, hjälpsamma — och fel. Ingen bad Luna ljuga.",
+  },
+
+  // === Tillgänglighet & multimodalt lärande (övningsbanken) ===
+  "cast-udl-2024": {
+    id: "cast-udl-2024",
+    authors: "CAST",
+    year: "2024",
+    title: "Universal Design for Learning Guidelines 3.0",
+    publisher: "CAST",
+    url: "https://udlguidelines.cast.org/",
+    summary:
+      "UDL-ramverket: planera för elevvariation från start genom att erbjuda flera sätt att ta in, bearbeta och visa kunskap — för alla elever, inte som efterhandsanpassning för några. Version 3.0 (2024) skärper fokus på att undanröja hinder i lärmiljön i stället för att åtgärda ”brister” hos eleven.",
+  },
+  "wood-2018": {
+    id: "wood-2018",
+    authors: "Wood, Moxley, Tighe & Wagner",
+    year: "2018",
+    title:
+      "Does Use of Text-to-Speech and Related Read-Aloud Tools Improve Reading Comprehension for Students With Reading Disabilities? A Meta-Analysis",
+    publisher: "Journal of Learning Disabilities",
+    url: "https://doi.org/10.1177/0022219416688170",
+    summary:
+      "Meta-analys som visar att uppläsning och talsyntes ger en mätbar förbättring av läsförståelsen för elever med lässvårigheter. Uppläst text är alltså inte en genväg förbi läsningen — det är en fungerande väg in i innehållet.",
+  },
+
+  // === Förhör, minne & talängslan (övningsbanken) ===
+  "roediger-karpicke-2006": {
+    id: "roediger-karpicke-2006",
+    authors: "Roediger & Karpicke",
+    year: "2006",
+    title:
+      "Test-Enhanced Learning: Taking Memory Tests Improves Long-Term Retention",
+    publisher: "Psychological Science",
+    summary:
+      "Den klassiska studien bakom testing effect: att plocka fram kunskap ur minnet (förhöra sig) ger markant bättre långtidsminne än att läsa om samma material. Vetenskaplig grund för bankens alla förhörsövningar — oavsett om förhöret sker i text eller tal.",
+  },
+  "horwitz-1986": {
+    id: "horwitz-1986",
+    authors: "Horwitz, Horwitz & Cope",
+    year: "1986",
+    title: "Foreign Language Classroom Anxiety",
+    publisher: "The Modern Language Journal",
+    summary:
+      "Studien som gav språkängslan namn och mätinstrument: rädslan att tala inför andra är en egen, mätbar broms i språkinlärningen — skild från allmän provängslan. Grund för övningar där talträning på målspråket sker utan publik.",
+  },
 } as const satisfies Record<string, EvidenceRef>;
 
 export type EvidenceKey = keyof typeof evidenceLibrary;

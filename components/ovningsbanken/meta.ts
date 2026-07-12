@@ -54,17 +54,19 @@ export function matcharTid(minuter: number, bucket: TidBucket): boolean {
   return minuter > 30;
 }
 
-export type Arskursband = "ak4-6" | "ak7-9" | "gym";
+export type Arskursband = "f-3" | "ak4-6" | "ak7-9" | "gym";
 
 export const ARSKURSBAND_LABELS: Record<Arskursband, string> = {
+  "f-3": "F–3",
   "ak4-6": "Åk 4–6",
   "ak7-9": "Åk 7–9",
   gym: "Gymnasiet+",
 };
 
 /**
- * Matchar en fritext-årskurssträng ("Åk 4–6", "Åk 7–9 och gymnasiet" …)
- * mot ett band. Siffrorna i strängen tolkas som ett spann.
+ * Matchar en fritext-årskurssträng ("Åk 4–6", "Åk 7–9 och gymnasiet",
+ * "F–3 (funkar t.o.m. åk 6)" …) mot ett band. Siffrorna i strängen
+ * tolkas som ett spann; F/förskoleklass räknas som årskurs 0.
  */
 export function matcharArskursband(
   arskurser: string,
@@ -74,10 +76,16 @@ export function matcharArskursband(
   if (band === "gym") {
     return s.includes("gym") || s.includes("vux");
   }
+  // "F–3"/"F-3" (båda strecken) och "förskoleklass" skrivs ofta utan
+  // användbara siffror — fånga dem textuellt innan spann-tolkningen.
+  const namnerF3 =
+    s.includes("f–3") || s.includes("f-3") || s.includes("förskoleklass");
+  if (band === "f-3" && namnerF3) return true;
   const tal = (s.match(/\d+/g) ?? []).map(Number).filter((n) => n <= 12);
   if (tal.length === 0) return false;
   const min = Math.min(...tal);
   const max = Math.max(...tal);
+  if (band === "f-3") return min <= 3;
   if (band === "ak4-6") return min <= 6 && max >= 4;
   return min <= 9 && max >= 7;
 }

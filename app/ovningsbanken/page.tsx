@@ -54,9 +54,7 @@ export default function OvningsbankenPage() {
               (sum, id) => sum + (ovningarById[id]?.tidMinuter ?? 0),
               0
             );
-            const href = `/ovningsbanken/spellista?steps=${spellista.steg.join(
-              ","
-            )}&namn=${encodeURIComponent(spellista.namn)}`;
+            const href = `/ovningsbanken/spellista/${spellista.id}`;
             return (
               <article
                 key={spellista.id}

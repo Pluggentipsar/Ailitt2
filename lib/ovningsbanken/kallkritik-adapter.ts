@@ -48,8 +48,19 @@ const ARSKURS_ORDNING: AgeRange[] = [
   "vuxen-workshop",
 ];
 
+// Högstadieövningarna bär uppåt: en aktivitet som funkar för åk 7–9 funkar
+// i praktiken även på gymnasiet. Vi taggar det HÄR i adaptern — bankens
+// presentationslager — i stället för i källdatan, så att källkritik-
+// workshopens egna vyer och åldersfilter inte påverkas.
+function medGymnasium(ranges: AgeRange[]): AgeRange[] {
+  if (ranges.includes("ak7-9") && !ranges.includes("gymnasium")) {
+    return [...ranges, "gymnasium"];
+  }
+  return ranges;
+}
+
 function formateraArskurser(ranges: AgeRange[]): string {
-  return [...ranges]
+  return [...medGymnasium(ranges)]
     .sort((a, b) => ARSKURS_ORDNING.indexOf(a) - ARSKURS_ORDNING.indexOf(b))
     .map((r) => ageRangeLabels[r])
     .join(" · ");

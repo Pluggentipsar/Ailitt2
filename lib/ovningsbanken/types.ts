@@ -103,3 +103,27 @@ export interface KureradSpellista {
   /** Ordnade bank-id:n — blir ?steps=… i delningslänken. */
   steg: string[];
 }
+
+/**
+ * Det utsnitt av BankOvning som spellista-översikten behöver. Hålls slimmat
+ * så att kurerade (server-renderade) sidor inte serialiserar hela
+ * övningsinnehållet ner till klienten — bara kortdatan.
+ * Ligger i lib (inte i "use client"-filen) så att server-komponenter kan
+ * anropa mapparen.
+ */
+export type SpellistaOversiktOvning = Pick<
+  BankOvning,
+  "id" | "titel" | "blurb" | "tid" | "tidMinuter" | "domaner" | "kalla"
+>;
+
+export function tillOversiktsOvning(o: BankOvning): SpellistaOversiktOvning {
+  return {
+    id: o.id,
+    titel: o.titel,
+    blurb: o.blurb,
+    tid: o.tid,
+    tidMinuter: o.tidMinuter,
+    domaner: o.domaner,
+    kalla: o.kalla,
+  };
+}

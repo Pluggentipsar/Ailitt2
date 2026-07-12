@@ -23,6 +23,18 @@ import { ovning as uppgiftsdekompositionen } from "./ovningar/uppgiftsdekomposit
 import { ovning as tranaKlassensAi } from "./ovningar/trana-klassens-ai";
 import { ovning as namnbytet } from "./ovningar/namnbytet";
 import { ovning as modelCardForSkolansAi } from "./ovningar/model-card-for-skolans-ai";
+import { ovning as slappAgenten } from "./ovningar/slapp-agenten";
+import { ovning as vadVetChattenOmDig } from "./ovningar/vad-vet-chatten-om-dig";
+import { ovning as aiFriaKontrollpunkter } from "./ovningar/ai-fria-kontrollpunkter";
+import { ovning as aiRaknarFelMedSjalvfortroende } from "./ovningar/ai-raknar-fel-med-sjalvfortroende";
+import { ovning as treSattAttLasa } from "./ovningar/tre-satt-att-lasa";
+import { ovning as prataDigTillKunskap } from "./ovningar/prata-dig-till-kunskap";
+import { ovning as aiSomFemteGruppmedlem } from "./ovningar/ai-som-femte-gruppmedlem";
+import { ovning as trafikljusSkrivprocessen } from "./ovningar/trafikljus-skrivprocessen";
+import { ovning as robotEllerManniska } from "./ovningar/robot-eller-manniska";
+import { ovning as stilstolden } from "./ovningar/stilstolden";
+import { ovning as turistguiden } from "./ovningar/turistguiden";
+import { ovning as klassensAiPolicy } from "./ovningar/klassens-ai-policy";
 
 export const nyaOvningar: BankOvning[] = [
   aiLasteAldrigKallan,
@@ -37,6 +49,18 @@ export const nyaOvningar: BankOvning[] = [
   tranaKlassensAi,
   namnbytet,
   modelCardForSkolansAi,
+  slappAgenten,
+  vadVetChattenOmDig,
+  aiFriaKontrollpunkter,
+  aiRaknarFelMedSjalvfortroende,
+  treSattAttLasa,
+  prataDigTillKunskap,
+  aiSomFemteGruppmedlem,
+  trafikljusSkrivprocessen,
+  robotEllerManniska,
+  stilstolden,
+  turistguiden,
+  klassensAiPolicy,
 ];
 
 export const ovningar: BankOvning[] = [
@@ -96,6 +120,24 @@ export const KURERADE_SPELLISTOR: KureradSpellista[] = [
       "chatt-safarin",
       "testa-sykofantiskt-ai",
       "be-om-motstandet",
+    ],
+  },
+  {
+    id: "lagstadiet-forsta-motet",
+    namn: "Lågstadiets första möte med AI",
+    beskrivning: "Skärmfritt och lekfullt — för F–3 och mellanstadiet.",
+    steg: ["robot-eller-manniska", "trana-klassens-ai", "hemligt-losenord"],
+  },
+  {
+    id: "amnesrummet",
+    namn: "Ämnesrummet",
+    beskrivning:
+      "Övningar som är byggda för ditt ämne — matte, svenska, språk, bild.",
+    steg: [
+      "ai-raknar-fel-med-sjalvfortroende",
+      "trafikljus-skrivprocessen",
+      "prata-dig-till-kunskap",
+      "stilstolden",
     ],
   },
 ];

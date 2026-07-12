@@ -1,8 +1,8 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useMemo } from "react";
 import Link from "next/link";
-import { useSearchParams } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import {
   ArrowLeft,
   ArrowRight,
@@ -15,30 +15,51 @@ import {
   Sparkles,
   Monitor,
 } from "lucide-react";
-import { ovningarById, type BankOvning } from "@/lib/ovningsbanken";
+import {
+  ovningarById,
+  tillOversiktsOvning,
+  type BankOvning,
+} from "@/lib/ovningsbanken";
 import { ModeTabs } from "@/components/workshops/kallkritik/ModeTabs";
 import { DomanBadge } from "@/components/eleverna-om-ai/DomanBadge";
 import { KALLA_META } from "./meta";
+import { SpellistaOversikt } from "./SpellistaOversikt";
 
 const BASE = "/ovningsbanken";
 
 // Samma mönster som källkritik-workshopens PlaylistRunner, men mot
 // bankens BankOvning-data: ?steps=id1,id2 + valfri &namn=Rubrik.
+//
+// Utan &steg=… visas en ÖVERSIKT av spellistan; &steg=1 (1-baserat stegnummer)
+// går in i själva runnern. Steget lever i URL:en så att fram/tillbaka i
+// webbläsaren fungerar och enskilda steg går att dela.
 export function BankSpellistaRunner() {
+  const router = useRouter();
   const params = useSearchParams();
   const stepsParam = params.get("steps") ?? "";
   const namn = params.get("namn");
+  const stegParam = params.get("steg");
   const allIds = stepsParam.split(",").filter(Boolean);
   const giltiga = allIds
     .map((id) => ovningarById[id])
     .filter((o): o is BankOvning => Boolean(o));
 
-  const [stepIdx, setStepIdx] = useState(0);
+  // &steg=1 är första övningen. Saknad/ogiltig param → översiktsläget.
+  const stegNummer = stegParam ? Number.parseInt(stegParam, 10) : NaN;
+  const iRunner = Number.isFinite(stegNummer) && stegNummer >= 1;
 
   const totalMinutes = useMemo(
     () => giltiga.reduce((sum, o) => sum + o.tidMinuter, 0),
     [giltiga]
   );
+
+  // Bygger länkar som bevarar steps + namn; utan steg-argument → översikten.
+  const hrefFor = (steg?: number) => {
+    const q = new URLSearchParams({ steps: stepsParam });
+    if (namn) q.set("namn", namn);
+    if (steg !== undefined) q.set("steg", String(steg));
+    return `${BASE}/spellista?${q.toString()}`;
+  };
 
   const rubrik = namn && namn.trim().length > 0 ? namn : "Spellista";
 
@@ -64,12 +85,26 @@ export function BankSpellistaRunner() {
     );
   }
 
-  const current = giltiga[stepIdx];
+  // Översiktsläget — landningsvy i stället för att kasta in besökaren i steg 1.
+  if (!iRunner) {
+    return (
+      <SpellistaOversikt
+        namn={namn && namn.trim().length > 0 ? namn : "Delad spellista"}
+        ovningar={giltiga.map(tillOversiktsOvning)}
+        startHref={hrefFor(1)}
+        delningsPath={hrefFor()}
+      />
+    );
+  }
+
   const total = giltiga.length;
+  const stepIdx = Math.min(stegNummer, total) - 1;
+  const current = giltiga[stepIdx];
   const kalla = KALLA_META[current.kalla];
 
-  const next = () => setStepIdx((i) => Math.min(i + 1, total - 1));
-  const prev = () => setStepIdx((i) => Math.max(i - 1, 0));
+  const gaTill = (idx: number) => router.push(hrefFor(idx + 1));
+  const next = () => gaTill(Math.min(stepIdx + 1, total - 1));
+  const prev = () => gaTill(Math.max(stepIdx - 1, 0));
 
   return (
     <div className="workshop-paper min-h-screen pb-20">
@@ -90,11 +125,11 @@ export function BankSpellistaRunner() {
               </span>
             </div>
             <Link
-              href={BASE}
+              href={hrefFor()}
               className="inline-flex items-center gap-1 text-sm text-stone-600 hover:text-stone-900"
             >
               <ArrowLeft className="h-3.5 w-3.5" />
-              Tillbaka
+              Till översikten
             </Link>
           </div>
 
@@ -103,7 +138,7 @@ export function BankSpellistaRunner() {
             {giltiga.map((o, i) => (
               <button
                 key={`${o.id}-${i}`}
-                onClick={() => setStepIdx(i)}
+                onClick={() => gaTill(i)}
                 className={`h-2 flex-1 rounded-full transition-all ${
                   i === stepIdx
                     ? "bg-stone-900"
