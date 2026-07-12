@@ -9,8 +9,6 @@ import {
   useState,
 } from "react";
 
-const STORAGE_KEY = "kallkritik-playlist-v1";
-
 type PlaylistContextValue = {
   ids: string[];
   has: (id: string) => boolean;
@@ -21,19 +19,37 @@ type PlaylistContextValue = {
   moveUp: (id: string) => void;
   moveDown: (id: string) => void;
   clear: () => void;
-  buildUrl: (base: string) => string;
+  /** Absolut delningslänk. Utan argument används providerns basePath. */
+  buildUrl: (base?: string) => string;
+  /** Providerns bas-sökväg — så konsumenter slipper hårdkoda den. */
+  basePath: string;
+  /** Relativ länk till spellista-sidan med aktuella steps — för <Link>. */
+  playlistHref: string;
 };
 
 const PlaylistContext = createContext<PlaylistContextValue | null>(null);
 
-export function PlaylistProvider({ children }: { children: React.ReactNode }) {
+export function PlaylistProvider({
+  children,
+  storageKey = "kallkritik-playlist-v1",
+  basePath = "/workshops/kallkritik-mellanstadiet",
+  playlistSegment = "playlist",
+}: {
+  children: React.ReactNode;
+  /** localStorage-nyckel — ge varje bank/workshop sin egen. */
+  storageKey?: string;
+  /** Bas-sökväg som delningslänkar byggs mot. */
+  basePath?: string;
+  /** Sista url-segmentet för spellista-sidan (t.ex. "playlist" eller "spellista"). */
+  playlistSegment?: string;
+}) {
   const [ids, setIds] = useState<string[]>([]);
   const [hydrated, setHydrated] = useState(false);
 
   // Läs från localStorage en gång efter mount (SSR-säkert).
   useEffect(() => {
     try {
-      const raw = localStorage.getItem(STORAGE_KEY);
+      const raw = localStorage.getItem(storageKey);
       if (raw) {
         const parsed = JSON.parse(raw);
         if (Array.isArray(parsed)) {
@@ -44,17 +60,17 @@ export function PlaylistProvider({ children }: { children: React.ReactNode }) {
       // korrupt JSON — ignorera
     }
     setHydrated(true);
-  }, []);
+  }, [storageKey]);
 
   // Skriv tillbaka när ids ändras (efter hydrering).
   useEffect(() => {
     if (!hydrated) return;
     try {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(ids));
+      localStorage.setItem(storageKey, JSON.stringify(ids));
     } catch {
       // quota / private mode — ignorera
     }
-  }, [ids, hydrated]);
+  }, [ids, hydrated, storageKey]);
 
   const has = useCallback((id: string) => ids.includes(id), [ids]);
   const add = useCallback(
@@ -105,23 +121,42 @@ export function PlaylistProvider({ children }: { children: React.ReactNode }) {
   const clear = useCallback(() => setIds([]), []);
 
   const buildUrl = useCallback(
-    (base: string) => {
+    (base?: string) => {
+      const b = base ?? basePath;
       const params = new URLSearchParams({ steps: ids.join(",") });
-      const baseWithSlash = base.endsWith("/") ? base : base + "/";
+      const baseWithSlash = b.endsWith("/") ? b : b + "/";
       const full = new URL(
-        `${baseWithSlash}playlist?${params}`,
+        `${baseWithSlash}${playlistSegment}?${params}`,
         typeof window !== "undefined"
           ? window.location.origin
           : "http://localhost"
       );
       return full.toString();
     },
-    [ids]
+    [ids, basePath, playlistSegment]
   );
 
+  const playlistHref = useMemo(() => {
+    const baseWithSlash = basePath.endsWith("/") ? basePath : basePath + "/";
+    return `${baseWithSlash}${playlistSegment}?steps=${ids.join(",")}`;
+  }, [ids, basePath, playlistSegment]);
+
   const value = useMemo<PlaylistContextValue>(
-    () => ({ ids, has, add, remove, toggle, reorder, moveUp, moveDown, clear, buildUrl }),
-    [ids, has, add, remove, toggle, reorder, moveUp, moveDown, clear, buildUrl]
+    () => ({
+      ids,
+      has,
+      add,
+      remove,
+      toggle,
+      reorder,
+      moveUp,
+      moveDown,
+      clear,
+      buildUrl,
+      basePath,
+      playlistHref,
+    }),
+    [ids, has, add, remove, toggle, reorder, moveUp, moveDown, clear, buildUrl, basePath, playlistHref]
   );
 
   return (

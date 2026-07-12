@@ -3,7 +3,17 @@
 import { ListPlus, Check } from "lucide-react";
 import { usePlaylist } from "./PlaylistProvider";
 
-export function AddToPlaylistButton({ activityId }: { activityId: string }) {
+export function AddToPlaylistButton({
+  activityId,
+  addLabel = "Lägg till i min workshop",
+  activeLabel = "I min workshop",
+}: {
+  activityId: string;
+  /** Text när övningen INTE ligger i spellistan. */
+  addLabel?: string;
+  /** Text när övningen ligger i spellistan. */
+  activeLabel?: string;
+}) {
   const { has, toggle } = usePlaylist();
   const active = has(activityId);
 
@@ -19,12 +29,12 @@ export function AddToPlaylistButton({ activityId }: { activityId: string }) {
       {active ? (
         <>
           <Check className="h-4 w-4" />
-          I min workshop
+          {activeLabel}
         </>
       ) : (
         <>
           <ListPlus className="h-4 w-4" />
-          Lägg till i min workshop
+          {addLabel}
         </>
       )}
     </button>

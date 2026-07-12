@@ -335,6 +335,125 @@ export const evidenceLibrary = {
     summary:
       "Sex kärnstandarder för kritiskt tänkande: tydlighet, relevans, logisk konsistens, evidens, alternativ, perspektiv. Användbart ramverk för AI-output-granskning.",
   },
+
+  // === AI-genererade källor, detektorer & sykofanti (övningsbanken) ===
+  "wkna-rabies-2026": {
+    id: "wkna-rabies-2026",
+    authors: "Futurism, Gizmodo & Tom's Guide (rapportering)",
+    year: "2026",
+    title:
+      "DuckDuckGos AI rapporterade att presidenten dött av rabies — källan var en AI-genererad fejksajt",
+    publisher: "Teknikpress, juni 2026",
+    summary:
+      "Ett Reddit-skämt (r/poisonai) skrevs upp av den AI-genererade ”nyhetssajten” WKNA News — som DuckDuckGos AI sedan citerade som källa för att presidenten dött av rabies. Kedjan skämt → fejksajt → AI-svar med källhänvisning visar att en källhänvisning i sig inte garanterar någonting: AI:n märker inte skillnaden mellan en riktig redaktion och en innehållsfarm.",
+  },
+  "cheng-2026": {
+    id: "cheng-2026",
+    authors: "Cheng et al.",
+    year: "2026",
+    title:
+      "Sycophantic AI Decreases Prosocial Intentions and Promotes Dependence",
+    publisher: "Science (mars 2026)",
+    summary:
+      "Studien bakom siffran: AI-modeller bekräftar användarens handlingar 49 procent oftare än människor gör — även när handlingarna är tveksamma. Bekräftelsen minskar dessutom användarens vilja att reparera konflikter och ökar beroendet av AI:n som rådgivare.",
+  },
+  "openai-classifier-2023": {
+    id: "openai-classifier-2023",
+    authors: "OpenAI",
+    year: "2023",
+    title: "AI Classifier for Indicating AI-Written Text (nedlagd juli 2023)",
+    publisher: "OpenAI",
+    url: "https://openai.com/index/new-ai-classifier-for-indicating-ai-written-text/",
+    summary:
+      "OpenAI:s egen AI-textdetektor lanserades i januari 2023 och lades ner i tysthet ett halvår senare ”på grund av låg träffsäkerhet”: den hittade bara 26 procent av AI-texterna och pekade samtidigt ut 9 procent av människoskrivna texter som AI. Om inte ens företaget bakom ChatGPT kan detektera sin egen text är detektorjakt en kapprustning utan stabil seger.",
+  },
+  "weber-wulff-2023": {
+    id: "weber-wulff-2023",
+    authors: "Weber-Wulff et al.",
+    year: "2023",
+    title: "Testing of Detection Tools for AI-Generated Text",
+    publisher: "International Journal for Educational Integrity",
+    url: "https://doi.org/10.1007/s40979-023-00146-z",
+    summary:
+      "Oberoende test av 14 AI-textdetektorer: inget verktyg var tillförlitligt, träffsäkerheten sjönk drastiskt vid enkel omskrivning, och falska anklagelser förekom systematiskt. Slutsatsen: detektorer duger inte som grund för fuskanklagelser.",
+  },
+
+  // === Lärande & produktiv kamp ===
+  "kapur-2016": {
+    id: "kapur-2016",
+    authors: "Kapur",
+    year: "2016",
+    title:
+      "Examining Productive Failure, Productive Success, Unproductive Failure, and Unproductive Success in Learning",
+    publisher: "Educational Psychologist",
+    summary:
+      "Forskningen om produktiv kamp: lärande gynnas när eleven själv får kämpa med uppgiften — stöd ska sänka tröskeln in i arbetet, inte ta över själva ansträngningen där lärandet sker. Central för att designa AI-stöd som startar processer i stället för att ersätta dem.",
+  },
+
+  // === Prompting, självreglering & AI-litteracitetsramverk (övningsbanken) ===
+  "zamfirescu-pereira-2023": {
+    id: "zamfirescu-pereira-2023",
+    authors: "Zamfirescu-Pereira, Wong, Hartmann & Yang",
+    year: "2023",
+    title:
+      "Why Johnny Can't Prompt: How Non-AI Experts Try (and Fail to) Design LLM Prompts",
+    publisher: "ACM CHI",
+    url: "https://dl.acm.org/doi/10.1145/3544548.3581388",
+    summary:
+      "Visar att personer utan AI-expertis promptar ad hoc, övergeneraliserar från enstaka utfall och saknar systematiska strategier för att förbättra sina prompter. Grund för övningar som gör promptförbättring explicit och jämförbar.",
+  },
+  "zheng-2024-personas": {
+    id: "zheng-2024-personas",
+    authors: "Zheng et al.",
+    year: "2024",
+    title:
+      "When ”A Helpful Assistant” Is Not Really Helpful: Personas in System Prompts Do Not Improve Performances of Large Language Models",
+    publisher: "Findings of EMNLP",
+    url: "https://arxiv.org/abs/2311.10054",
+    summary:
+      "Systematisk test av 162 personas över flera modeller: rollprompter (”du är expert…”) förbättrar inte svarens korrekthet. Punkterar myten att roller gör AI:n smartare — de ändrar tonen, inte kunskapen.",
+  },
+  "rosenshine-1996": {
+    id: "rosenshine-1996",
+    authors: "Rosenshine, Meister & Chapman",
+    year: "1996",
+    title:
+      "Teaching Students to Generate Questions: A Review of the Intervention Studies",
+    publisher: "Review of Educational Research",
+    summary:
+      "Meta-analys av interventionsstudier: att lära elever generera och värdera frågor är en av de mest robusta lärstrategierna i forskningen. Grunden för övningar där elever konstruerar och granskar frågor i stället för att bara besvara dem.",
+  },
+  "oecd-ailit-2026": {
+    id: "oecd-ailit-2026",
+    authors: "OECD & Europeiska kommissionen",
+    year: "2026",
+    title:
+      "Empowering Learners for the Age of AI: An AI Literacy Framework for Primary and Secondary Education",
+    publisher: "OECD",
+    url: "https://ailiteracyframework.org/",
+    summary:
+      "AILit-ramverket med fyra domäner — Engage with AI, Create with AI, Manage AI, Design AI — som utgör övningsbankens huvudtaxonomi. Innehåller konkreta klassrumsexempel per domän, bl.a. om att avgöra när och om AI ska användas (Manage AI).",
+  },
+  "lee-2025": {
+    id: "lee-2025",
+    authors: "Lee et al.",
+    year: "2025",
+    title:
+      "The Impact of Generative AI on Critical Thinking: Self-Reported Reductions in Cognitive Effort and Confidence Effects From a Survey of Knowledge Workers",
+    publisher: "ACM CHI / Microsoft Research",
+    url: "https://dl.acm.org/doi/10.1145/3706598.3713778",
+    summary:
+      "Enkätstudie med 319 kunskapsarbetare: ju högre tillit till AI:n, desto mindre kritiskt tänkande — men ju högre tillit till det egna omdömet, desto mer. Självtillit, inte AI-skepsis, driver kritisk granskning av AI-utfall.",
+  },
+  "zimmerman-2002": {
+    id: "zimmerman-2002",
+    authors: "Zimmerman",
+    year: "2002",
+    title: "Becoming a Self-Regulated Learner: An Overview",
+    publisher: "Theory Into Practice",
+    summary:
+      "Klassisk modell för självreglerat lärande i tre faser — planering, genomförande, självutvärdering. Grund för övningar där elever själva väljer, loggar och utvärderar sin AI-användning i stället för att följa lärarens regler.",
+  },
 } as const satisfies Record<string, EvidenceRef>;
 
 export type EvidenceKey = keyof typeof evidenceLibrary;

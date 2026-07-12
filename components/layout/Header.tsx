@@ -16,6 +16,7 @@ type NavItem =
 
 const NAV: NavItem[] = [
   { kind: "flat", href: "/", label: "Hem" },
+  { kind: "flat", href: "/ovningsbanken", label: "Övningsbanken" },
   {
     kind: "group",
     label: "Stadier",
@@ -55,6 +56,11 @@ const NAV: NavItem[] = [
         href: "/didaktiska-modeller",
         label: "Didaktiska modeller",
         description: "TPACK-AI, lärarens roll, perspektiv",
+      },
+      {
+        href: "/eleverna-om-ai",
+        label: "Eleverna & AI — metodbank",
+        description: "Sju klassrumsmetoder + två lektioner från föreläsningen",
       },
     ],
   },

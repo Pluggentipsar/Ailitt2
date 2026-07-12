@@ -87,6 +87,14 @@ export function Footer() {
             <ul className="space-y-2 text-sm">
               <li>
                 <Link
+                  href="/ovningsbanken"
+                  className="text-gray-600 hover:text-primary-600"
+                >
+                  Övningsbanken
+                </Link>
+              </li>
+              <li>
+                <Link
                   href="/verktygslada"
                   className="text-gray-600 hover:text-primary-600"
                 >

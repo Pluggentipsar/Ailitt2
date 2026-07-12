@@ -10,6 +10,7 @@ import {
   Minimize,
   GraduationCap,
   School,
+  ArrowRight,
 } from "lucide-react";
 import type { Activity, Block } from "@/lib/workshops/kallkritik";
 import { chaptersById } from "@/lib/workshops/kallkritik";
@@ -22,7 +23,8 @@ type Slide = {
     | "discussion"
     | "section"
     | "callout"
-    | "example";
+    | "example"
+    | "cta";
   title?: string;
   body?: string;
   items?: string[];
@@ -93,34 +95,49 @@ function blocksToSlides(blocks: Block[], modeLabel: string): Slide[] {
   return slides;
 }
 
-export function PresentationView({ activity }: { activity: Activity }) {
-  const chapter = chaptersById[activity.chapter];
+export type PresentationMode = { label: string; blocks: Block[] };
+
+export type PresentationEngineProps = {
+  /** Länk för X-knappen — tillbaka till innehållssidan. */
+  closeHref: string;
+  /** Färg-nyckel som matchar --workshop-<tone>-variablerna. */
+  tone?: string;
+  /** Liten kicker + titel i toolbaren. */
+  toolbar: { kicker: string; title: string };
+  /** Innehåll för första sliden. */
+  titleSlide: { kicker: string; title: string; blurb?: string };
+  /** Ett eller flera lägen (Prova själv / Lärarhandledning / Elevinstruktion). */
+  modes: PresentationMode[];
+  /** Valfri avslutande slide med länk-knapp (t.ex. interaktivt klassrumsläge). */
+  finalCta?: { label: string; href: string };
+};
+
+/**
+ * Generisk storskärmsmotor — renderar Block[]-lägen som slides.
+ * Används av källkritik-workshopen (via PresentationView) och AI-övningsbanken.
+ * Kräver en .workshop-root-förfader för färger och typografi.
+ */
+export function PresentationEngine({
+  closeHref,
+  tone = "havsblå",
+  toolbar,
+  titleSlide,
+  modes,
+  finalCta,
+}: PresentationEngineProps) {
   const [modeIdx, setModeIdx] = useState(0);
   const [slideIdx, setSlideIdx] = useState(0);
   const [fullscreen, setFullscreen] = useState(false);
 
-  const modes = useMemo(() => {
-    const list: { label: string; blocks: Block[] }[] = [];
-    if (activity.workshopExperience) {
-      list.push({ label: "Prova själv", blocks: activity.workshopExperience });
-    }
-    if (activity.teacherGuide) {
-      list.push({ label: "Lärarhandledning", blocks: activity.teacherGuide });
-    }
-    if (activity.studentInstructions) {
-      list.push({
-        label: "Elevinstruktion",
-        blocks: activity.studentInstructions,
-      });
-    }
-    return list;
-  }, [activity]);
-
   const slides = useMemo(() => {
     if (modes.length === 0) return [];
     const m = modes[modeIdx];
-    return blocksToSlides(m.blocks, m.label);
-  }, [modes, modeIdx]);
+    const list = blocksToSlides(m.blocks, m.label);
+    if (finalCta) {
+      list.push({ kind: "cta", title: finalCta.label });
+    }
+    return list;
+  }, [modes, modeIdx, finalCta]);
 
   const slide = slides[slideIdx];
   const total = slides.length;
@@ -143,6 +160,7 @@ export function PresentationView({ activity }: { activity: Activity }) {
     };
     window.addEventListener("keydown", handler);
     return () => window.removeEventListener("keydown", handler);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [total, fullscreen]);
 
   useEffect(() => {
@@ -170,13 +188,13 @@ export function PresentationView({ activity }: { activity: Activity }) {
   return (
     <div
       className="fixed inset-0 z-50 flex flex-col workshop-paper"
-      data-chapter-tone={chapter.tone}
+      data-chapter-tone={tone}
     >
       {/* TOOLBAR */}
       <div className="flex items-center justify-between px-6 py-3 border-b border-stone-300 bg-workshop-canvas/90 backdrop-blur">
         <div className="flex items-center gap-3 min-w-0">
           <Link
-            href={`/workshops/kallkritik-mellanstadiet/${activity.id}`}
+            href={closeHref}
             className="grid h-9 w-9 place-items-center rounded-full bg-stone-200 hover:bg-stone-300"
             aria-label="Stäng presentation"
           >
@@ -184,10 +202,10 @@ export function PresentationView({ activity }: { activity: Activity }) {
           </Link>
           <div className="min-w-0">
             <div className="text-[11px] uppercase tracking-wider text-stone-500">
-              Kap {chapter.number} · {chapter.title}
+              {toolbar.kicker}
             </div>
             <div className="font-display text-xl text-stone-900 truncate">
-              {activity.number} {activity.title}
+              {toolbar.title}
             </div>
           </div>
         </div>
@@ -252,14 +270,16 @@ export function PresentationView({ activity }: { activity: Activity }) {
           {slide?.kind === "title" && (
             <div>
               <div className="text-2xl text-stone-500 uppercase tracking-widest mb-4">
-                {chapter.title}
+                {titleSlide.kicker}
               </div>
               <div className="font-display text-7xl lg:text-8xl text-stone-900 mb-6 leading-[0.95]">
-                {activity.title}
+                {titleSlide.title}
               </div>
-              <p className="text-2xl text-stone-700 leading-snug max-w-3xl mx-auto">
-                {activity.blurb}
-              </p>
+              {titleSlide.blurb && (
+                <p className="text-2xl text-stone-700 leading-snug max-w-3xl mx-auto">
+                  {titleSlide.blurb}
+                </p>
+              )}
               <div className="mt-8 inline-flex items-center gap-2 px-5 py-2 rounded-full bg-stone-900 text-workshop-canvas text-lg">
                 {slide.title}
               </div>
@@ -281,7 +301,7 @@ export function PresentationView({ activity }: { activity: Activity }) {
                 <div
                   className="font-display text-[12rem] lg:text-[16rem] leading-none mb-2"
                   style={{
-                    color: `var(--workshop-${chapter.tone === "havsblå" ? "havsblå" : chapter.tone})`,
+                    color: `var(--workshop-${tone})`,
                   }}
                 >
                   {slide.stepNumber}
@@ -312,7 +332,7 @@ export function PresentationView({ activity }: { activity: Activity }) {
                     <span
                       className="font-display text-5xl shrink-0 leading-none mt-1"
                       style={{
-                        color: `var(--workshop-${chapter.tone === "havsblå" ? "havsblå" : chapter.tone})`,
+                        color: `var(--workshop-${tone})`,
                       }}
                     >
                       •
@@ -383,6 +403,23 @@ export function PresentationView({ activity }: { activity: Activity }) {
               )}
             </div>
           )}
+          {slide?.kind === "cta" && finalCta && (
+            <div>
+              <div className="text-xl lg:text-2xl text-stone-500 uppercase tracking-widest mb-6">
+                Nästa steg
+              </div>
+              <div className="font-display text-6xl lg:text-7xl text-stone-900 mb-10 leading-[0.95]">
+                Kör det interaktiva läget
+              </div>
+              <Link
+                href={finalCta.href}
+                className="inline-flex items-center gap-3 px-10 py-5 rounded-full bg-teal-600 text-white text-2xl lg:text-3xl font-semibold hover:bg-teal-700 transition-colors shadow-lg"
+              >
+                {finalCta.label}
+                <ArrowRight className="h-7 w-7" />
+              </Link>
+            </div>
+          )}
         </div>
       </div>
 
@@ -402,5 +439,41 @@ export function PresentationView({ activity }: { activity: Activity }) {
         </div>
       </div>
     </div>
+  );
+}
+
+/** Källkritik-workshopens storskärmsvy — tunn adapter ovanpå PresentationEngine. */
+export function PresentationView({ activity }: { activity: Activity }) {
+  const chapter = chaptersById[activity.chapter];
+
+  const modes: PresentationMode[] = [];
+  if (activity.workshopExperience) {
+    modes.push({ label: "Prova själv", blocks: activity.workshopExperience });
+  }
+  if (activity.teacherGuide) {
+    modes.push({ label: "Lärarhandledning", blocks: activity.teacherGuide });
+  }
+  if (activity.studentInstructions) {
+    modes.push({
+      label: "Elevinstruktion",
+      blocks: activity.studentInstructions,
+    });
+  }
+
+  return (
+    <PresentationEngine
+      closeHref={`/workshops/kallkritik-mellanstadiet/${activity.id}`}
+      tone={chapter.tone}
+      toolbar={{
+        kicker: `Kap ${chapter.number} · ${chapter.title}`,
+        title: `${activity.number} ${activity.title}`,
+      }}
+      titleSlide={{
+        kicker: chapter.title,
+        title: activity.title,
+        blurb: activity.blurb,
+      }}
+      modes={modes}
+    />
   );
 }

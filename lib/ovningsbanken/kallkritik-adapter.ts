@@ -1,0 +1,92 @@
+// Adapter: källkritik-workshopens aktiviteter → bankens BankOvning.
+// Källkritik-övningarna ägs och underhålls i lib/workshops/kallkritik/ —
+// banken läser dem via den här adaptern så att innehållet bara finns på
+// ETT ställe. Id:n behålls oförändrade så att spellistor och kedjarMed
+// kan peka rakt in i källkritik-materialet.
+
+import type {
+  Activity,
+  AgeRange,
+  ChapterId,
+} from "@/lib/workshops/kallkritik/types";
+import { ageRangeLabels } from "@/lib/workshops/kallkritik/types";
+import { activities } from "@/lib/workshops/kallkritik/activities";
+import type { BankOvning, OvningDoman } from "./types";
+
+// OECD-domäner per workshop-kapitel. Kapitlen är tematiska, så mappningen
+// ligger här (en gång) i stället för på varje enskild aktivitet.
+const DOMANER_PER_KAPITEL: Record<ChapterId, OvningDoman[]> = {
+  flodet: ["mota"],
+  "bygg-sjalv": ["skapa", "mota"],
+  hallucinationer: ["mota"],
+  vannen: ["mota", "styra"],
+  "retoriska-knep": ["mota"],
+  relationskritik: ["mota", "styra"],
+  vaccinet: ["mota"],
+  bias: ["mota", "forma"],
+};
+
+// Sajtens sju AI-litteracitetsdimensioner (0–6) per kapitel — driver
+// AiLiteracyBadge och korskopplingen mot dimensionssidorna.
+const AILIT_PER_KAPITEL: Record<ChapterId, number[]> = {
+  flodet: [4],
+  bias: [3, 4],
+  vannen: [4, 5],
+  relationskritik: [4, 5],
+  hallucinationer: [1, 4],
+  "bygg-sjalv": [2, 4],
+  vaccinet: [4],
+  "retoriska-knep": [4],
+};
+
+// Kanonisk ordning så att "Åk 4–6 · Åk 7–9 · Vuxenworkshop" alltid läses
+// stigande, oavsett i vilken ordning källdatat råkar lista målgrupperna.
+const ARSKURS_ORDNING: AgeRange[] = [
+  "ak4-6",
+  "ak7-9",
+  "gymnasium",
+  "vuxen-workshop",
+];
+
+function formateraArskurser(ranges: AgeRange[]): string {
+  return [...ranges]
+    .sort((a, b) => ARSKURS_ORDNING.indexOf(a) - ARSKURS_ORDNING.indexOf(b))
+    .map((r) => ageRangeLabels[r])
+    .join(" · ");
+}
+
+export function tillBankOvning(a: Activity): BankOvning {
+  return {
+    id: a.id,
+    titel: a.title,
+    blurb: a.blurb,
+    syfte: a.purpose,
+
+    domaner: DOMANER_PER_KAPITEL[a.chapter],
+    aiLiteracyIds: AILIT_PER_KAPITEL[a.chapter],
+
+    tid: a.duration,
+    tidMinuter: a.durationMinutes,
+    arskurser: formateraArskurser(a.ageRanges),
+    digitalaVerktyg: a.digitalTools,
+    material: a.materials,
+    varning: a.warning,
+
+    provaSjalv: a.workshopExperience,
+    lararhandledning: a.teacherGuide,
+    elevinstruktion: a.studentInstructions,
+
+    diskussion: a.discussion,
+    fallgropar: a.pitfalls,
+    variationer: a.variations,
+    deepDive: a.deepDive,
+    evidens: a.evidenceSources,
+    externaVerktyg: a.externalTools,
+    kedjarMed: a.chainsWellWith,
+
+    kalla: "kallkritik",
+    kredit: "Ur källkritik-workshopen",
+  };
+}
+
+export const kallkritikOvningar: BankOvning[] = activities.map(tillBankOvning);
