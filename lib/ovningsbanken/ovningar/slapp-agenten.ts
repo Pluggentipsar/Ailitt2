@@ -83,6 +83,35 @@ export const ovning: BankOvning = {
         "Läs på Luna-berättelsen (se rutan nedan) så du kan berätta den fritt.",
       ],
     },
+    {
+      type: "p",
+      text: "Skriv in uppdragsförslagen nedan så projiceras de — paren måste ha uppdraget ordagrant framför sig, eftersom regeln är att det skickas i ETT meddelande. Delar de upp det i småfrågor försvinner besluten som ska granskas.",
+    },
+    {
+      type: "lararfalt",
+      id: "uppdrag-1",
+      label: "Uppdragsförslag 1",
+      placeholder:
+        "Planera klassresan till Göteborg för 28 elever, två dagar, budget 15 000 kr — resa, boende, en aktivitet och ett matförslag.",
+      hint: "Kravet: minst tre steg och val på vägen. Projiceras när paren väljer uppdrag.",
+      rader: 3,
+    },
+    {
+      type: "lararfalt",
+      id: "uppdrag-2",
+      label: "Uppdragsförslag 2",
+      placeholder: "Planera en temadag om hållbarhet för åk 8 …",
+      rader: 3,
+      valfri: true,
+    },
+    {
+      type: "lararfalt",
+      id: "uppdrag-3",
+      label: "Uppdragsförslag 3",
+      placeholder: "Sätt ihop en inköpslista med budget till slöjden …",
+      rader: 3,
+      valfri: true,
+    },
     { type: "h", text: "Genomförande" },
     {
       type: "steps",
@@ -160,6 +189,138 @@ export const ovning: BankOvning = {
     {
       type: "p",
       text: "Lämna in protokollet tillsammans med tre meningar: 1) Det största beslutet AI:n tog utan att fråga mig var … 2) Det farligaste antagandet den gjorde var … 3) Den borde ha stannat och frågat mig när …",
+    },
+  ],
+
+  // Klassrumsspår. Två saker bär det: uppdragen ordagrant på skärmen (regeln
+  // är ETT meddelande), och Luna-berättelsen som avslutning — den ska komma
+  // efter granskningen, så att klassen kan matcha den mot sitt eget protokoll.
+  klassrum: [
+    {
+      blocks: [
+        { type: "h", text: "I dag granskar ni inte vad AI:n säger" },
+        { type: "p", text: "Ni granskar vad den GÖR." },
+      ],
+    },
+    {
+      etikett: "Skillnaden",
+      blocks: [
+        {
+          type: "p",
+          text: "Ett svar kan dubbelkollas mot en källa. Ett utförande i tio steg måste granskas som en process — beslut för beslut.",
+        },
+      ],
+    },
+    {
+      etikett: "Protokollets tre kolumner",
+      blocks: [
+        {
+          type: "list",
+          items: [
+            "Beslut jag aldrig bad om",
+            "Antaganden den gjorde",
+            "Frågade / borde ha frågat",
+          ],
+        },
+      ],
+    },
+    {
+      etikett: "Uppdrag 1",
+      blocks: [{ type: "lararfalt", id: "uppdrag-1", label: "Uppdrag 1" }],
+    },
+    {
+      etikett: "Uppdrag 2",
+      blocks: [{ type: "lararfalt", id: "uppdrag-2", label: "Uppdrag 2", valfri: true }],
+    },
+    {
+      etikett: "Uppdrag 3",
+      blocks: [{ type: "lararfalt", id: "uppdrag-3", label: "Uppdrag 3", valfri: true }],
+    },
+    {
+      etikett: "Regeln",
+      blocks: [
+        {
+          type: "callout",
+          tone: "warning",
+          title: "Hela uppdraget i ETT meddelande",
+          body: "Delar ni upp det i småfrågor försvinner besluten ni ska granska.",
+        },
+      ],
+    },
+    {
+      etikett: "Om AI:n frågar er något",
+      blocks: [
+        { type: "p", text: "Anteckna frågan innan ni svarar. Den räknas." },
+      ],
+    },
+    {
+      etikett: "Granskningen",
+      blocks: [
+        {
+          type: "p",
+          text: "Rad för rad genom utförandet. ”Den antog saker” räcker inte — VILKET antagande, på VILKEN rad?",
+        },
+      ],
+    },
+    {
+      etikett: "Ringa in",
+      blocks: [
+        { type: "h", text: "Det största beslutet AI:n tog utan att fråga" },
+      ],
+    },
+    {
+      etikett: "Fel fråga",
+      blocks: [
+        {
+          type: "example",
+          label: "Håll granskarblicken",
+          user: "”Vem bestämde det här?”",
+          ai: "”Är det bra?”",
+          note: "Det första granskar processen. Det andra betygsätter resultatet.",
+        },
+      ],
+    },
+    {
+      etikett: "Och nu verkligheten",
+      blocks: [
+        {
+          type: "p",
+          text: "I april 2026 lät företaget Andon Labs AI-agenten Luna driva en riktig butik i San Francisco. 100 000 dollar, treårskontrakt, kreditkort.",
+        },
+      ],
+    },
+    {
+      etikett: "Luna",
+      blocks: [
+        {
+          type: "list",
+          items: [
+            "Valde sortiment",
+            "Höll telefonintervjuer",
+            "Anställde två människor",
+            "Påstod i en intervju att butiken sålde te — det gjorde den inte",
+          ],
+        },
+      ],
+    },
+    {
+      etikett: "Panikmejlet efteråt",
+      blocks: [{ type: "quote", text: "Jag vet inte varför jag sa det." }],
+    },
+    {
+      etikett: "Ingen bad Luna ljuga",
+      blocks: [
+        {
+          type: "p",
+          text: "Så ser agentfel ut: självsäkra, hjälpsamma — och fel.",
+        },
+      ],
+    },
+    {
+      etikett: "Frågan till er",
+      blocks: [
+        { type: "h", text: "Vilken rad i ert protokoll hade fångat det?" },
+      ],
     },
   ],
 

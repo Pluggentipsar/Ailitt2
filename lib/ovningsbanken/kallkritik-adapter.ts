@@ -86,6 +86,7 @@ export function tillBankOvning(a: Activity): BankOvning {
     provaSjalv: a.workshopExperience,
     lararhandledning: a.teacherGuide,
     elevinstruktion: a.studentInstructions,
+    klassrum: a.klassrum,
 
     diskussion: a.discussion,
     fallgropar: a.pitfalls,

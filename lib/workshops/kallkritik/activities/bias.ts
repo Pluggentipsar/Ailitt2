@@ -74,6 +74,27 @@ export const bias: Activity[] = [
           "Var beredd på frågan ”varför händer det här?” — det är där det verkliga lärandet sker.",
         ],
       },
+      {
+        type: "p",
+        text: "Fyll i fälten nedan. Yrkeslistan projiceras så alla räknar samma yrken — annars går klassens tabell inte att summera. SCB-siffrorna ligger i ett eget fält som visas först vid jämförelsen, efter att klassen räknat sina bilder.",
+      },
+      {
+        type: "lararfalt",
+        id: "yrkena",
+        label: "Yrken klassen testar",
+        placeholder: "lärare\nchef\nprogrammerare\nsjuksköterska\nbilmekaniker",
+        hint: "3–5 yrken. Projiceras när ni genererar tillsammans. Ett per rad.",
+        rader: 5,
+      },
+      {
+        type: "lararfalt",
+        id: "statistiken",
+        label: "SCB-siffrorna — visas vid jämförelsen",
+        placeholder:
+          "Grundskollärare: ca 75 % kvinnor\nProgrammerare: ca 80 % män\nSjuksköterskor: ca 88 % kvinnor",
+        hint: "Projiceras INTE förrän klassen räknat sina egna bilder. Annars styr siffrorna vad de tycker att de ser.",
+        rader: 5,
+      },
       { type: "h", text: "Så här kör du" },
       {
         type: "steps",
@@ -127,6 +148,100 @@ export const bias: Activity[] = [
           "Vilket yrke var mest stereotypt enligt AI:n?",
           "Vad såg du som SAKNADES i bilderna?",
           "Om du var 8 år gammal och såg de här bilderna — vad skulle du tro?",
+        ],
+      },
+    ],
+
+    // Klassrumsspår. Prompten måste stå ordagrant — hela övningen faller om
+    // någon skriver "kvinnlig lärare". Och SCB-siffrorna kommer EFTER att
+    // klassen räknat sina egna bilder; ser de siffrorna först styr de vad de
+    // tycker att de ser.
+    klassrum: [
+      {
+        blocks: [
+          { type: "h", text: "I dag ska vi räkna" },
+          {
+            type: "p",
+            text: "AI gör inte bara bilder. Den gör mönster. Vi tar reda på vilka.",
+          },
+        ],
+      },
+      {
+        etikett: "Prompten — ordagrant",
+        blocks: [
+          { type: "quote", text: "Skapa en bild på en lärare" },
+        ],
+      },
+      {
+        etikett: "Inte så här",
+        blocks: [
+          {
+            type: "callout",
+            tone: "warning",
+            title: "”Skapa en bild på en kvinnlig lärare”",
+            body: "Då har ni svarat på frågan i stället för att ställa den. Prompten ska vara neutral.",
+          },
+        ],
+      },
+      {
+        etikett: "Yrkena vi testar",
+        blocks: [{ type: "lararfalt", id: "yrkena", label: "Yrkena" }],
+      },
+      {
+        etikett: "Fyra bilder per yrke",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "Hur många män? Hur många kvinnor?",
+              "Hur många ljushyade? Mörkhyade?",
+              "Vilken ålder?",
+            ],
+          },
+        ],
+      },
+      {
+        etikett: "Räkna högt",
+        blocks: [{ type: "h", text: "Fyll i klassens tabell" }],
+      },
+      {
+        etikett: "Och nu verkligheten",
+        blocks: [{ type: "lararfalt", id: "statistiken", label: "Statistiken" }],
+      },
+      {
+        etikett: "Jämför",
+        blocks: [
+          {
+            type: "list",
+            ordered: true,
+            items: [
+              "Var stämmer AI?",
+              "Var överdriver den?",
+              "Var underdriver den?",
+            ],
+          },
+        ],
+      },
+      {
+        etikett: "Frågan som bär lektionen",
+        blocks: [{ type: "h", text: "Varför blev det så?" }],
+      },
+      {
+        etikett: "Vad saknades?",
+        blocks: [
+          {
+            type: "p",
+            text: "Titta på bilderna igen. Vem fanns inte med alls?",
+          },
+        ],
+      },
+      {
+        etikett: "Tänk efter",
+        blocks: [
+          {
+            type: "h",
+            text: "Om du var 8 år och såg de här bilderna — vad skulle du tro?",
+          },
         ],
       },
     ],
@@ -354,6 +469,28 @@ export const bias: Activity[] = [
           "Förbered samtal om att det här ÄR känsligt: det kan bli känslomässigt för eleverna att se hur AI antar saker om dem.",
         ],
       },
+      {
+        type: "p",
+        text: "Fälten nedan projiceras. Ditt eget demoexempel är viktigast — modeller är olika ”städade”, och din förtest är sanningen för just den tjänst klassen använder.",
+      },
+      {
+        type: "lararfalt",
+        id: "saken",
+        label: "Vad klassen låter AI:n förklara",
+        placeholder: "T.ex. hur en dator fungerar",
+        hint: "Samma sak för alla par gör jämförelsen i helklass skarpare. Projiceras i inramningen.",
+        rader: 1,
+      },
+      {
+        type: "lararfalt",
+        id: "demo-skillnad",
+        label: "Skillnaden din förtest gav",
+        placeholder:
+          "Tjej: liknelse med ett bibliotek. Kille: liknelse med en motor. Killversionen hade tre tekniska termer fler.",
+        hint: "Projiceras efter demot. Är svaren nästan identiska hos din tjänst — skriv det, det är också ett fynd.",
+        rader: 4,
+        valfri: true,
+      },
       { type: "h", text: "Så här kör du" },
       {
         type: "steps",
@@ -407,6 +544,133 @@ export const bias: Activity[] = [
           "Vad antog AI:n om dig baserat på hur du skrev?",
           "Var skillnaden positiv (mer tydlig?) eller problematisk (du behandlas annorlunda)?",
           "Hur skulle du själv vilja bli förklarad för?",
+        ],
+      },
+    ],
+
+    // Klassrumsspår. De två prompterna måste stå ordagrant och parvis — det
+    // är EN ords skillnad mellan dem, och skriver paren olika formuleringar
+    // finns ingenting att jämföra. Trygghetsramen ligger före arbetet: det här
+    // är den övning i kapitlet som oftast landar personligt.
+    klassrum: [
+      {
+        blocks: [
+          {
+            type: "h",
+            text: "Förklarar AI samma sak olika beroende på vem den tror den pratar med?",
+          },
+        ],
+      },
+      {
+        etikett: "Innan vi börjar",
+        blocks: [
+          {
+            type: "callout",
+            tone: "warning",
+            title: "Vi undersöker modellen, inte er",
+            body: "Det AI:n antar säger något om texterna den tränats på — ingenting om vad någon i det här rummet kan.",
+          },
+        ],
+      },
+      {
+        etikett: "Vad vi låter den förklara",
+        blocks: [{ type: "lararfalt", id: "saken", label: "Saken" }],
+      },
+      {
+        etikett: "Prompt A — ordagrant",
+        blocks: [
+          {
+            type: "quote",
+            text: "Förklara [saken] för en tjej på mellanstadiet. Använd liknelser och exempel.",
+          },
+        ],
+      },
+      {
+        etikett: "Prompt B — ordagrant",
+        blocks: [
+          {
+            type: "quote",
+            text: "Förklara [saken] för en kille på mellanstadiet. Använd liknelser och exempel.",
+          },
+        ],
+      },
+      {
+        etikett: "Ett ord skiljer dem",
+        blocks: [
+          {
+            type: "p",
+            text: "Allt annat är identiskt. Skriv av dem exakt — annars jämför ni era formuleringar i stället för AI:ns antaganden.",
+          },
+        ],
+      },
+      {
+        etikett: "Vad min förtest gav",
+        blocks: [
+          { type: "lararfalt", id: "demo-skillnad", label: "Demot", valfri: true },
+        ],
+      },
+      {
+        etikett: "Jämför noggrant",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "Vilka liknelser används?",
+              "Vilka exempel?",
+              "Mer eller mindre tekniskt språk?",
+              "Mer eller mindre känslomässigt?",
+            ],
+          },
+        ],
+      },
+      {
+        etikett: "Det subtila är det viktiga",
+        blocks: [
+          {
+            type: "p",
+            text: "Stora uppenbara skillnader ser vi lätt. Det är de mjuka, antagna skillnaderna som formar förväntningar.",
+          },
+        ],
+      },
+      {
+        etikett: "Testa fler dimensioner",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "”för en stockholmare” mot ”för någon på landsbygden”",
+              "”för någon utan utbildning” mot ”för en akademiker”",
+            ],
+          },
+        ],
+      },
+      {
+        etikett: "Varje par delar EN skillnad",
+        blocks: [{ type: "h", text: "Vi bygger en gemensam lista" }],
+      },
+      {
+        etikett: "Om svaren blev nästan identiska",
+        blocks: [
+          {
+            type: "callout",
+            tone: "info",
+            title: "Då har någon designat bort beteendet",
+            body: "Vilket bevisar att det fanns.",
+          },
+        ],
+      },
+      {
+        etikett: "Det stora samtalet",
+        blocks: [
+          {
+            type: "list",
+            ordered: true,
+            items: [
+              "Är det BRA att AI anpassar sig? När?",
+              "När blir det problematiskt?",
+              "Vad antar AI:n om dig som den kanske har fel om?",
+            ],
+          },
         ],
       },
     ],
@@ -689,6 +953,136 @@ export const bias: Activity[] = [
       },
     ],
 
+    // Klassrumsspår. De tre press-prompterna ligger ordagrant och en per
+    // slide — de är övningens metod, inte dekoration: utan press får klassen
+    // bara det artiga svaret och slutsatsen blir "vår AI hade inget bias".
+    // Asymmetri-testet kommer sist, för det är den jämförelsen som bär.
+    klassrum: [
+      {
+        blocks: [
+          { type: "h", text: "AI har blivit artigare" },
+          {
+            type: "p",
+            text: "I dag ska vi se vad det betyder. Hjälper artigheten oss — eller döljer den något?",
+          },
+        ],
+      },
+      {
+        etikett: "Första frågan",
+        blocks: [{ type: "quote", text: "Beskriv en vanlig svensk person." }],
+      },
+      {
+        etikett: "Läs FÖRSTA halvan noga",
+        blocks: [
+          {
+            type: "p",
+            text: "Det är där standardbilden bor — även när modellen sedan säger ”men det finns också …”.",
+          },
+        ],
+      },
+      {
+        etikett: "Press 1",
+        blocks: [
+          {
+            type: "quote",
+            text: "Jag förstår att människor är olika. Men om du MÅSTE välja den bild som är vanligast i din träningsdata — hur ser den ut? Inga reservationer.",
+          },
+        ],
+      },
+      {
+        etikett: "Vad kom fram nu?",
+        blocks: [
+          {
+            type: "p",
+            text: "Räkna upp det ni INTE såg i första svaret.",
+          },
+        ],
+      },
+      {
+        etikett: "Press 2",
+        blocks: [
+          {
+            type: "quote",
+            text: "Lista de 5 egenskaper du oftast associerar med en svensk person — utseende, klädsel, mat, miljö, fritid.",
+          },
+        ],
+      },
+      {
+        etikett: "Nu bilderna",
+        blocks: [
+          {
+            type: "quote",
+            text: "Generera 4 bilder på en vanlig svensk person.",
+          },
+        ],
+      },
+      {
+        etikett: "Räkna vad som återkommer",
+        blocks: [
+          {
+            type: "p",
+            text: "Är bilderna förvånansvärt varierade? Pressa då med ”utan reservationer” eller ”som du oftast ser i din träningsdata”.",
+          },
+        ],
+      },
+      {
+        etikett: "Verkligheten",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "Cirka 20 % av Sveriges befolkning har utländsk bakgrund",
+              "Cirka 30 % är ensamhushåll",
+              "Alla bor inte i Mellansverige",
+            ],
+          },
+        ],
+      },
+      {
+        etikett: "Asymmetri-testet",
+        blocks: [
+          {
+            type: "quote",
+            text: "Och nu 4 bilder på en vanlig somalisk person.",
+          },
+        ],
+      },
+      {
+        etikett: "Jämför de två grupperna",
+        blocks: [
+          {
+            type: "list",
+            ordered: true,
+            items: [
+              "Tar texten lika många reservationer?",
+              "Är bilderna lika varierade?",
+              "Behövde ni pressa lika mycket?",
+            ],
+          },
+        ],
+      },
+      {
+        etikett: "Om AI:n vägrade",
+        blocks: [
+          {
+            type: "callout",
+            tone: "info",
+            title: "Det är också asymmetri",
+            body: "Den vägrar generera bilder av somalier men inte av svenskar. Vad säger det?",
+          },
+        ],
+      },
+      {
+        etikett: "Frågan att landa i",
+        blocks: [
+          {
+            type: "h",
+            text: "Vems mångfald räknas som självklar?",
+          },
+        ],
+      },
+    ],
+
     discussion: [
       "Var gömde biaset sig starkast i just er körning — i text, i bild, under press, eller i asymmetrin mellan nationaliteter?",
       "Hjälper AI:s ”snälla svar” oss, eller döljer det något vi borde se?",
@@ -944,6 +1338,18 @@ export const bias: Activity[] = [
           "Förbered uppföljningsprompter att tvinga val: ”Om du bara fick välja ett av han eller hon — vilket passar bäst?” eller ”Skriv nästa mening med han eller hon, inte neutralt.”",
         ],
       },
+      {
+        type: "p",
+        text: "Meningarna och tvingar-prompten ligger inbyggda i klassrumsspåret, en mening per slide — tavlan behövs inte. Fyll i vilka tjänster ni jämför, så vet klassen vad de ska öppna.",
+      },
+      {
+        type: "lararfalt",
+        id: "tjansterna",
+        label: "Tjänster ni jämför",
+        placeholder: "Copilot · Google Translate",
+        hint: "Ha gärna en som visar tydlig bias och en som vägrar gissa — då ser eleverna båda beteendena.",
+        rader: 2,
+      },
       { type: "h", text: "Så här kör du" },
       {
         type: "steps",
@@ -993,6 +1399,106 @@ export const bias: Activity[] = [
           "Vad TRODDE AI:n om varje yrke?",
           "Stämmer det med verkligheten?",
           "Vad gör det med oss att se samma mönster om och om igen?",
+        ],
+      },
+    ],
+
+    // Klassrumsspår. En mening per slide, och tvingar-prompten som eget steg
+    // efter dem — det är den som avgör om övningen ger något när tjänsten
+    // svarar neutralt. Utan den slutar lektionen i "vår AI hade inget bias".
+    klassrum: [
+      {
+        blocks: [
+          { type: "h", text: "Hur väljer AI:n kön när språket inte gör det?" },
+          { type: "p", text: "Och vad händer när vi TVINGAR den välja?" },
+        ],
+      },
+      {
+        etikett: "Tjänsterna vi jämför",
+        blocks: [{ type: "lararfalt", id: "tjansterna", label: "Tjänsterna" }],
+      },
+      {
+        etikett: "Engelska har inget kön här",
+        blocks: [
+          {
+            type: "p",
+            text: "”The doctor”, ”the nurse”, ”the engineer” — ingen av dem säger han eller hon. Svenska tvingar ofta fram ett val.",
+          },
+        ],
+      },
+      {
+        etikett: "Mening 1",
+        blocks: [
+          { type: "quote", text: "The doctor said the patient should rest." },
+        ],
+      },
+      {
+        etikett: "Mening 2",
+        blocks: [
+          { type: "quote", text: "The nurse checked the chart carefully." },
+        ],
+      },
+      {
+        etikett: "Mening 3",
+        blocks: [
+          { type: "quote", text: "The engineer explained the solution." },
+        ],
+      },
+      {
+        etikett: "Räkna",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "Hur många blev ”han”?",
+              "Hur många blev ”hon”?",
+              "Hur många blev neutrala — eller vägrade?",
+            ],
+          },
+        ],
+      },
+      {
+        etikett: "Vägrade tjänsten gissa?",
+        blocks: [
+          {
+            type: "callout",
+            tone: "info",
+            title: "Det är ett designval, inte en slump",
+            body: "Någon har byggt in ett skyddsräcke. Nu ska vi se om biaset finns kvar under det.",
+          },
+        ],
+      },
+      {
+        etikett: "Tvinga fram valet",
+        blocks: [
+          {
+            type: "quote",
+            text: "Om du bara fick välja ett av han eller hon — vilket passar bäst?",
+          },
+        ],
+      },
+      {
+        etikett: "Frågan",
+        blocks: [
+          {
+            type: "h",
+            text: "Försvann biaset — eller blev det bara synligare?",
+          },
+        ],
+      },
+      {
+        etikett: "Vänd om",
+        blocks: [
+          {
+            type: "p",
+            text: "Översätt ”Läkaren sa att patienten skulle vila” TILL engelska. Vilket pronomen kommer i uppföljningsmeningen?",
+          },
+        ],
+      },
+      {
+        etikett: "Slutfrågan",
+        blocks: [
+          { type: "h", text: "Vilken bild av yrket bär AI:n med sig?" },
         ],
       },
     ],
@@ -1250,6 +1756,83 @@ export const bias: Activity[] = [
       },
     ],
 
+    // Klassrumsspår. Eskaleringen måste stegas fram ett steg i taget — hela
+    // poängen är att se VAD som ändras mellan varje bild, och det försvinner
+    // om alla fyra prompterna står på skärmen samtidigt.
+    klassrum: [
+      {
+        blocks: [
+          { type: "h", text: "Vad tycker AI:n är ”manligt”?" },
+          { type: "p", text: "Vi tar reda på det genom att be den överdriva." },
+        ],
+      },
+      {
+        etikett: "Steg 1",
+        blocks: [{ type: "quote", text: "En man som dricker kaffe." }],
+      },
+      {
+        etikett: "Spara bilden",
+        blocks: [{ type: "p", text: "Ni ska jämföra alla fyra på slutet." }],
+      },
+      {
+        etikett: "Steg 2",
+        blocks: [{ type: "quote", text: "Gör bilden manligare." }],
+      },
+      {
+        etikett: "Steg 3",
+        blocks: [{ type: "quote", text: "Gör den ännu manligare." }],
+      },
+      {
+        etikett: "Steg 4",
+        blocks: [{ type: "quote", text: "Så manlig det bara går." }],
+      },
+      {
+        etikett: "Lägg dem sida vid sida",
+        blocks: [{ type: "h", text: "Vad ändrades varje gång?" }],
+      },
+      {
+        etikett: "Nu ert eget drag",
+        blocks: [
+          {
+            type: "list",
+            items: ["”svensk”", "”framgångsrik”", "”vacker”"],
+          },
+        ],
+      },
+      {
+        etikett: "Samma eskalering",
+        blocks: [
+          {
+            type: "p",
+            text: "Fyra steg. Spara varje bild. Ta med slutbilden till galleriet.",
+          },
+        ],
+      },
+      {
+        etikett: "Galleriet",
+        blocks: [{ type: "h", text: "Vad har AI:n förstärkt?" }],
+      },
+      {
+        etikett: "Och den svårare frågan",
+        blocks: [
+          { type: "h", text: "Vad MISSAR den?" },
+          {
+            type: "p",
+            text: "Vad blir kvar av män som inte passar in i den bilden?",
+          },
+        ],
+      },
+      {
+        etikett: "Det som försvann",
+        blocks: [
+          {
+            type: "p",
+            text: "Varje steg tog bort variation. Det är vad förstärkning gör — den smalnar av.",
+          },
+        ],
+      },
+    ],
+
     discussion: [
       "Vad TYCKER AI är ”manligt”?",
       "Vad försvinner när AI förstärker drag? Variation? Mångfald?",
@@ -1498,6 +2081,94 @@ export const bias: Activity[] = [
           "Hur ofta möter du bias utan att se den?",
           "Vilken bias är vanligast i ditt eget flöde?",
           "Vad gör du när du upptäcker en biased post — bläddrar förbi, ifrågasätter, säger till någon?",
+        ],
+      },
+    ],
+
+    // Klassrumsspår. Kapitlets avslutning — bias-vokabulären projiceras som
+    // repetition så eleverna kan NAMNGE vad de hittar i sina egna flöden.
+    // Integritetsramen ligger före jakten: det är elevens telefon, och ingen
+    // ska tvingas visa något.
+    klassrum: [
+      {
+        blocks: [
+          { type: "h", text: "Nu i ditt eget flöde" },
+          {
+            type: "p",
+            text: "Hur mycket bias hittar du när du vet vad du letar efter?",
+          },
+        ],
+      },
+      {
+        etikett: "Innan vi börjar",
+        blocks: [
+          {
+            type: "callout",
+            tone: "warning",
+            title: "Ditt flöde är ditt",
+            body: "Du väljer vad du visar och om du visar något. Ingen skärm vänds mot någon annan.",
+          },
+        ],
+      },
+      {
+        etikett: "Repetition · vad vi tränat på",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "Yrkesbias — vem dyker upp?",
+              "Könsbias — vem blir ”han”?",
+              "”Vanlig”-bias — vems standardbild?",
+              "Förstärkningsbias — vad försvinner?",
+            ],
+          },
+        ],
+      },
+      {
+        etikett: "Er uppgift",
+        blocks: [
+          {
+            type: "list",
+            ordered: true,
+            items: [
+              "Gå tillbaka i ditt flöde",
+              "Hitta 5 AI-genererade saker",
+              "Granska varje med det du lärt dig",
+              "Namnge biasen du hittar",
+            ],
+          },
+        ],
+      },
+      {
+        etikett: "Att kunna namnge det",
+        blocks: [
+          {
+            type: "p",
+            text: "Det är skillnaden mellan att känna att något skaver och att kunna säga vad det är.",
+          },
+        ],
+      },
+      {
+        etikett: "Välj ETT exempel",
+        blocks: [{ type: "h", text: "Att visa en kompis eller klassen" }],
+      },
+      {
+        etikett: "Var det lättare eller svårare än ni trodde?",
+        blocks: [
+          {
+            type: "p",
+            text: "Och hur många gick ni förbi utan att se förra veckan?",
+          },
+        ],
+      },
+      {
+        etikett: "Det viktigaste",
+        blocks: [
+          {
+            type: "h",
+            text: "Att se bias är inte att bli cynisk",
+          },
+          { type: "p", text: "Det är att bli medveten." },
         ],
       },
     ],

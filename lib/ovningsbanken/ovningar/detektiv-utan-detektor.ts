@@ -75,6 +75,47 @@ export const ovning: BankOvning = {
         "Ha siffrorna redo till avslöjandet: OpenAI:s egen detektor, nedlagd juli 2023, hittade 26 procent av AI-texterna och pekade ut 9 procent oskyldiga.",
       ],
     },
+    {
+      type: "p",
+      text: "Klistra in båda texterna nedan. Två saker händer då: de får en slide var i klassrumsläget, så klassen kan granska en enskild passage tillsammans under avslöjandet — och PDF-exporten blir din utskrift, med en text per liggande sida. Då behöver du inte förbereda utskriften separat.",
+    },
+    {
+      type: "lararfalt",
+      id: "text-a",
+      label: "Text A",
+      placeholder:
+        "Klistra in hela texten, 150–250 ord. Märk den inte med vem som skrivit den.",
+      hint: "Kör du flera klasser: växla vilken text som är A respektive B mellan dem, annars läcker facit i korridoren.",
+      rader: 10,
+    },
+    {
+      type: "lararfalt",
+      id: "text-b",
+      label: "Text B",
+      placeholder: "Den andra texten, ungefär lika lång.",
+      rader: 10,
+    },
+    {
+      type: "p",
+      text: "Facit och prompten nedan projiceras först i avslöjandet, när du klickar dit. De ligger alltså aldrig framme innan omröstningen.",
+    },
+    {
+      type: "lararfalt",
+      id: "facit",
+      label: "Facit — vilken text är AI:ns?",
+      placeholder: "B är AI-texten",
+      hint: "Projiceras först på avslöjande-sliden, efter omröstningen. Kör du flera klasser: kom ihåg att du växlar A och B mellan dem.",
+      rader: 1,
+    },
+    {
+      type: "lararfalt",
+      id: "prompten",
+      label: "Prompten du använde till AI-texten",
+      placeholder: "Skriv en text om … som en elev i åk 9, med någon liten skavank",
+      hint: "Projiceras efter facit. Att se prompten gör det konkret varför texten var svår att avslöja.",
+      rader: 3,
+      valfri: true,
+    },
     { type: "h", text: "Genomförande" },
     {
       type: "steps",
@@ -143,6 +184,111 @@ export const ovning: BankOvning = {
         "Er markörlista med understrykningar eller citat ur texterna.",
         "Er gissning: A eller B.",
         "Er motivering i 2–3 meningar.",
+      ],
+    },
+  ],
+
+  // Klassrumsspår. Hela övningen bygger på att facit kommer SIST — därför är
+  // det ett eget spår och inte elevinstruktionen projicerad: den senare
+  // avslutas med "läraren har facit", medan projektionen faktiskt måste stega
+  // fram omröstning, facit, siffrorna och tvisten i rätt ordning.
+  klassrum: [
+    {
+      blocks: [
+        { type: "h", text: "Ni är detektiver" },
+        {
+          type: "p",
+          text: "En av texterna är skriven av en elev. En av AI. Ni får inga verktyg — bara era ögon.",
+        },
+      ],
+    },
+    {
+      etikett: "Text A",
+      blocks: [{ type: "lararfalt", id: "text-a", label: "Text A" }],
+    },
+    {
+      etikett: "Text B",
+      blocks: [{ type: "lararfalt", id: "text-b", label: "Text B" }],
+    },
+    {
+      etikett: "Så gör ni",
+      blocks: [
+        {
+          type: "list",
+          ordered: true,
+          items: [
+            "Läs båda en gång rakt igenom, utan penna",
+            "Läs igen med penna — stryk under allt som avslöjar",
+            "Gör en markörlista i paret",
+            "Bestäm er: A eller B?",
+          ],
+        },
+      ],
+    },
+    {
+      etikett: "Viktigast",
+      blocks: [
+        {
+          type: "callout",
+          tone: "info",
+          title: "Motiveringen väger tyngre än gissningen",
+          body: "En bra motivering med fel gissning slår en tom rätt gissning.",
+        },
+      ],
+    },
+    {
+      etikett: "Omröstning",
+      blocks: [{ type: "h", text: "Handuppräckning: vilken är AI:ns?" }],
+    },
+    {
+      etikett: "Facit",
+      blocks: [{ type: "lararfalt", id: "facit", label: "Facit" }],
+    },
+    {
+      etikett: "Så här bad jag om den",
+      blocks: [{ type: "lararfalt", id: "prompten", label: "Prompten", valfri: true }],
+    },
+    {
+      etikett: "En sak till",
+      blocks: [
+        {
+          type: "p",
+          text: "OpenAI — företaget bakom ChatGPT — byggde en egen AI-detektor.",
+        },
+      ],
+    },
+    {
+      etikett: "De lade ner den efter ett halvår",
+      blocks: [
+        {
+          type: "list",
+          items: [
+            "26 % av AI-texterna hittades",
+            "9 % oskyldiga pekades ut",
+          ],
+        },
+      ],
+    },
+    {
+      etikett: "Frågan",
+      blocks: [{ type: "h", text: "Om inte ens de kan — vem kan?" }],
+    },
+    {
+      etikett: "Vad betyder det för skolan?",
+      blocks: [
+        {
+          type: "p",
+          text: "Om AI-text inte kan avslöjas i efterhand måste uppgifterna designas annorlunda från början.",
+        },
+      ],
+    },
+    {
+      etikett: "Er uppgift nu",
+      blocks: [
+        {
+          type: "p",
+          text: "Hur skulle en skrivuppgift se ut där AI-fusk inte ens är frestande?",
+        },
       ],
     },
   ],

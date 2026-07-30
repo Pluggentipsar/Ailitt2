@@ -113,7 +113,53 @@ export type Block =
       items: { src: string; alt: string; caption?: string }[];
       // Valfri intro-text som visas över raden av bilder.
       label?: string;
+    }
+  | {
+      // Fält som läraren fyller i FÖRE lektionen — en egen formulering, ett
+      // exempel ur den egna klassen, en länk till en bild att visa. Samma
+      // block renderas i två skepnader:
+      //   · i lärarhandledningen som ett redigerbart fält
+      //   · i klassrumsläget som det ifyllda värdet, i slide-grad
+      // Värdet sparas per övning i localStorage (se hooks/useLararfalt.ts).
+      // Placeras där det hör hemma i handledningen, inte i en separat lista.
+      type: "lararfalt";
+      // Stabilt id inom övningen — nyckel i localStorage. Byt aldrig i efterhand.
+      id: string;
+      label: string;
+      placeholder?: string;
+      // Kort förklaring under fältet om vad som är en bra ifyllning.
+      hint?: string;
+      // Antal rader i textrutan. 1 = enkelrad (t.ex. en URL). Default 3.
+      rader?: number;
+      // Valfritt fält. Ett tomt obligatoriskt fält visar en uppmaning på
+      // sliden ("… är inte ifyllt"); ett tomt valfritt fält tar bort sliden
+      // helt. Använd för upprepade platser — t.ex. exempel 5 och 6 när
+      // läraren bara förberett fyra.
+      valfri?: boolean;
     };
+
+/**
+ * En FÖRFATTAD klassrumsslide — blocken renderas TILLSAMMANS på en slide,
+ * till skillnad från de autogenererade där varje block blir en egen.
+ * Författaren sätter slidegränserna själv, vilket gör sekvenser möjliga som
+ * autogenereringen inte kan uttrycka: en chattkonversation och frågan om den
+ * på samma slide, eller ett facit som kommer först när läraren klickar dit.
+ *
+ * Kanonisk definition — bankens KlassrumSlide och presentationsmotorns
+ * AuthoredSlide är alias till den här. Ligger i types.ts (inte slides.ts)
+ * eftersom Activity nedan behöver den, och slides.ts importerar härifrån.
+ */
+export type KlassrumSlide = {
+  /** Liten versal etikett över innehållet, t.ex. "Diskutera" eller "Titta". */
+  etikett?: string;
+  blocks: Block[];
+  /**
+   * Reservslide: visa BARA om lärarfältet med det id:t är tomt. Låter en
+   * övning ha ett inbyggt exempel som gäller när läraren inte lagt in eget —
+   * utan att båda visas. Skrivs som två slides där den valfria kommer först.
+   */
+  visaOm?: { faltTomt: string };
+};
 
 export type Chapter = {
   id: ChapterId;
@@ -235,4 +281,10 @@ export type ActivityEnrichment = {
   deepDive?: DeepDive;
   // Externa tjänster/övningar som hör till aktiviteten.
   externalTools?: ExternalTool[];
+  // Läge 4 (valfritt) — författade slides för projektorn. Sätts bara när
+  // projektionen behöver vara något annat än elevinstruktionen renderad som
+  // slides: en stegad sekvens där facit hålls tillbaka, lärarens egna
+  // ifyllningar visas, eller slidegränserna behöver sättas för hand.
+  // Saknas den faller storskärmen tillbaka på de tre vanliga lägena.
+  klassrum?: KlassrumSlide[];
 };

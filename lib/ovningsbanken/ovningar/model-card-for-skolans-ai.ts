@@ -75,6 +75,37 @@ export const ovning: BankOvning = {
         "Bestäm redovisningsform i förväg: poster-vernissage (alla kort uppsatta, klassen vandrar) eller 90-sekunderspitch per grupp.",
       ],
     },
+    {
+      type: "p",
+      text: "Fyll i nedan. Länkfältet visar förebilden direkt på skärmen om du klistrar in en bildlänk — annars öppnar du sidan i en flik som förut. Verktygslistan och de sex fälten projiceras, så du slipper dela ut mallen muntligt.",
+    },
+    {
+      type: "lararfalt",
+      id: "forebilden",
+      label: "Förebilden — länk eller bild",
+      placeholder: "https://huggingface.co/… eller en bildlänk till kortets rubriksida",
+      hint: "Slutar länken på .png eller .jpg visas den som bild på sliden. Du ska visa STRUKTUREN, inte läsa innehållet.",
+      rader: 1,
+      valfri: true,
+    },
+    {
+      type: "lararfalt",
+      id: "verktygslistan",
+      label: "Verktyg grupperna väljer bland",
+      placeholder:
+        "Copilot\nChatGPT\nGemini\nSnap AI\nTikTok-flödet\nYouTube-rekommendationer\nSpotify",
+      hint: "Regeln: gruppen måste själv använda verktyget. Projiceras när de ska välja.",
+      rader: 5,
+    },
+    {
+      type: "lararfalt",
+      id: "redovisningsform",
+      label: "Redovisningsform",
+      placeholder: "Poster-vernissage — korten uppsatta, klassen vandrar",
+      hint: "Projiceras före redovisningen.",
+      rader: 1,
+      valfri: true,
+    },
     { type: "h", text: "Genomförande" },
     {
       type: "steps",
@@ -153,6 +184,134 @@ export const ovning: BankOvning = {
     {
       type: "p",
       text: "Det färdiga model cardet (poster eller dokument) med alla sex fält ifyllda — inklusive ärliga ”vet inte”-rutor — plus er pitch eller poster-presentation. Extra stark blir inlämningen om ni avslutar med en mening: ”Det här borde tillverkaren tvingas berätta.”",
+    },
+  ],
+
+  // Klassrumsspår. De sex fälten projiceras som mall, och de två fält där
+  // granskningen skiljer sig från en recension får en egen slide var —
+  // annars fylls de i slentrianmässigt. "Vet inte" som tillåtet svar också:
+  // det är den regeln som avgör om korten blir ärliga.
+  klassrum: [
+    {
+      blocks: [
+        { type: "h", text: "AI-labben skriver produktblad om sina egna brister" },
+        { type: "p", text: "I dag gör ni samma sak." },
+      ],
+    },
+    {
+      etikett: "Förebilden",
+      blocks: [{ type: "lararfalt", id: "forebilden", label: "Förebilden", valfri: true }],
+    },
+    {
+      etikett: "Den centrala poängen",
+      blocks: [
+        {
+          type: "h",
+          text: "Det här är inte kritikernas dokument — det är labbets eget",
+        },
+      ],
+    },
+    {
+      etikett: "Frågan",
+      blocks: [{ type: "p", text: "Varför gör de det, tror ni?" }],
+    },
+    {
+      etikett: "Välj ett verktyg",
+      blocks: [
+        { type: "lararfalt", id: "verktygslistan", label: "Verktygslistan" },
+      ],
+    },
+    {
+      etikett: "Regeln",
+      blocks: [
+        {
+          type: "callout",
+          tone: "warning",
+          title: "Gruppen måste själv använda verktyget",
+          body: "Ni granskar något ni faktiskt har i fickan.",
+        },
+      ],
+    },
+    {
+      etikett: "Kortets sex fält",
+      blocks: [
+        {
+          type: "list",
+          ordered: true,
+          items: [
+            "Tränad på",
+            "Byggd av vem — och varför",
+            "Bra på",
+            "Brister",
+            "Använd INTE till",
+            "Skolregler",
+          ],
+        },
+      ],
+    },
+    {
+      etikett: "Pressa på fält 2",
+      blocks: [
+        { type: "h", text: "Vad tjänar de på att du använder den?" },
+      ],
+    },
+    {
+      etikett: "Och på fält 5",
+      blocks: [
+        { type: "h", text: "När ska man INTE använda den?" },
+        {
+          type: "p",
+          text: "Det är där granskning skiljer sig från en recension.",
+        },
+      ],
+    },
+    {
+      etikett: "Viktigast av allt",
+      blocks: [
+        {
+          type: "callout",
+          tone: "info",
+          title: "”Vet inte” skrivs in i kortet",
+          body: "Det hittas inte på. Ett kort med välmotiverade tomrum slår ett kort med påhittad fullständighet.",
+        },
+      ],
+    },
+    {
+      etikett: "Redovisning",
+      blocks: [
+        { type: "lararfalt", id: "redovisningsform", label: "Form", valfri: true },
+      ],
+    },
+    {
+      etikett: "Jämför korten",
+      blocks: [
+        {
+          type: "list",
+          items: [
+            "Vilka fält kunde grupperna fylla?",
+            "Vilka gapar tomma?",
+            "Är det samma tomrum hos alla verktyg?",
+          ],
+        },
+      ],
+    },
+    {
+      etikett: "Allt i korten är designval",
+      blocks: [
+        {
+          type: "p",
+          text: "Träningsdata, syfte, brister, gränser — val som människor gjort. Och designval kan ifrågasättas och göras om.",
+        },
+      ],
+    },
+    {
+      etikett: "Sista frågan",
+      blocks: [
+        {
+          type: "p",
+          text: "Model cardet finns för att någon krävde det. Vad skulle ni kräva?",
+        },
+      ],
     },
   ],
 

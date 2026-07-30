@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Caveat, Patrick_Hand, Inter } from "next/font/google";
+import { Caveat, Patrick_Hand, Nunito_Sans } from "next/font/google";
 import { WorkshopShell } from "@/components/workshops/kallkritik/WorkshopShell";
 import { PlaylistProvider } from "@/components/workshops/kallkritik/PlaylistProvider";
 import { PlaylistDock } from "@/components/workshops/kallkritik/PlaylistDock";
@@ -18,7 +18,9 @@ const patrick = Patrick_Hand({
   display: "swap",
 });
 
-const inter = Inter({
+// Humanistisk sans som parar med Caveat — se kommentar i
+// app/ovningsbanken/layout.tsx. Måste hållas i synk med den.
+const nunitoSans = Nunito_Sans({
   subsets: ["latin"],
   variable: "--font-workshop-body",
   display: "swap",
@@ -37,7 +39,7 @@ export default function WorkshopLayout({
 }) {
   return (
     <div
-      className={`${caveat.variable} ${patrick.variable} ${inter.variable} workshop-root`}
+      className={`${caveat.variable} ${patrick.variable} ${nunitoSans.variable} workshop-root`}
     >
       <PlaylistProvider>
         <WorkshopShell>{children}</WorkshopShell>

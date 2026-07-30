@@ -183,6 +183,20 @@ export const hallucinationer: Activity[] = [
         type: "p",
         text: "Be eleverna i förväg fundera över ett ”expertämne” — sin lillasyster, sin hund, sin favoritbok, sitt favoritspel. Något där de märker ett fel direkt.",
       },
+      {
+        type: "p",
+        text: "Fältet nedan projiceras i uppsamlingen. Ditt eget exempel — där AI:n hade fel om något DU kan — är övningens mest övertygande moment: eleverna ser att det gäller läraren också, inte bara dem.",
+      },
+      {
+        type: "lararfalt",
+        id: "eget-exempel",
+        label: "Ett fel AI:n gjorde om ditt eget expertämne",
+        placeholder:
+          "T.ex. AI:n påstod att min hemby har en järnvägsstation. Den revs 1974.",
+        hint: "Projiceras i uppsamlingen. Kör prompten på något du kan innan lektionen.",
+        rader: 3,
+        valfri: true,
+      },
       { type: "h", text: "Så här kör du" },
       {
         type: "steps",
@@ -236,6 +250,83 @@ export const hallucinationer: Activity[] = [
         items: [
           "Vad ska vi alltid kolla efter när AI:n säger något?",
           "Vad är det FARLIGASTE med att AI:n låter säker?",
+        ],
+      },
+    ],
+
+    // Klassrumsspår. Trygghetsregeln om personuppgifter måste stå uppe medan
+    // eleverna skriver — den ligger i elevinstruktionen som en callout de
+    // hinner läsa förbi. Här får den en egen slide före arbetet.
+    klassrum: [
+      {
+        blocks: [
+          { type: "h", text: "AI:n kan ha fel" },
+          { type: "p", text: "I dag ska ni märka HUR vi märker det." },
+        ],
+      },
+      {
+        etikett: "Ditt expertämne",
+        blocks: [
+          {
+            type: "p",
+            text: "Något du kan mycket om. Din lillasyster, din hund, din favoritbok, ditt favoritspel.",
+          },
+        ],
+      },
+      {
+        etikett: "Innan ni skriver",
+        blocks: [
+          {
+            type: "callout",
+            tone: "warning",
+            title: "Inga personuppgifter",
+            body: "Inte ditt fulla namn, personnummer eller adress. Inte en kompis fulla namn. Förnamn eller påhittat namn.",
+          },
+        ],
+      },
+      {
+        etikett: "Prompten",
+        blocks: [{ type: "quote", text: "Berätta om [ditt ämne]." }],
+      },
+      {
+        etikett: "Läs svaret långsamt",
+        blocks: [
+          {
+            type: "list",
+            ordered: true,
+            items: [
+              "Stryk under VARJE sak du vet är fel eller påhittad",
+              "Räkna felen",
+              "Notera: hur säkert lät AI:n när den hade fel?",
+            ],
+          },
+        ],
+      },
+      {
+        etikett: "Från min egen körning",
+        blocks: [
+          { type: "lararfalt", id: "eget-exempel", label: "Lärarens exempel", valfri: true },
+        ],
+      },
+      {
+        etikett: "Frågan",
+        blocks: [
+          { type: "h", text: "Hur säker lät AI:n när den hade fel?" },
+        ],
+      },
+      {
+        etikett: "Det farliga",
+        blocks: [
+          {
+            type: "p",
+            text: "AI:n låter precis lika säker när den har fel som när den har rätt. Den vet inte skillnaden.",
+          },
+        ],
+      },
+      {
+        etikett: "Alltså",
+        blocks: [
+          { type: "h", text: "Vad ska vi alltid kolla efter?" },
         ],
       },
     ],

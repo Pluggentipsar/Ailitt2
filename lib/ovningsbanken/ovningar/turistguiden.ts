@@ -72,6 +72,28 @@ export const ovning: BankOvning = {
         "Om programmet råkar bli helt korrekt när du genererar: kör igen med högre detaljkrav, eller byt till en mindre del av orten. Du behöver minst en handfull fel för att övningen ska bära.",
       ],
     },
+    {
+      type: "p",
+      text: "Klistra in dagsprogrammet nedan. Grupperna jobbar på papper, men programmet projiceras också — då kan klassen granska en enskild rad tillsammans när någon hittar något, och du slipper läsa upp den högt.",
+    },
+    {
+      type: "lararfalt",
+      id: "dagsprogrammet",
+      label: "AI:ns dagsprogram för er ort",
+      placeholder:
+        "09.00 Frukost på Café Torget, Storgatan 4\n10.30 Guidad tur i hembygdsgården\n12.30 Lunch på Pizzeria Napoli …",
+      hint: "Projiceras när ni granskar tillsammans. Rätta ingenting — felen är övningen.",
+      rader: 8,
+    },
+    {
+      type: "lararfalt",
+      id: "orten",
+      label: "Ortens namn",
+      placeholder: "T.ex. Hedemora",
+      hint: "Används i inramningen på skärmen.",
+      rader: 1,
+      valfri: true,
+    },
     { type: "h", text: "Genomförande" },
     {
       type: "steps",
@@ -138,6 +160,127 @@ export const ovning: BankOvning = {
     {
       type: "p",
       text: "Det rättade dagsprogrammet med ändringsloggen bredvid, och gruppens bästa avslöjande som ni presenterar för klassen till listan ”Så avslöjade vi AI:n”.",
+    },
+  ],
+
+  // Klassrumsspår. Programmet måste projiceras — annars går det inte att
+  // granska en enskild rad i helklass när någon hittar ett fel. Slutfrågan
+  // ligger sist och för sig: den ska hänga kvar i rummet.
+  klassrum: [
+    {
+      blocks: [
+        { type: "h", text: "Rädda turisten" },
+        {
+          type: "p",
+          text: "En AI har skrivit ett dagsprogram för en turist som besöker vår ort. Den har aldrig varit här. Det har ni.",
+        },
+      ],
+    },
+    {
+      etikett: "Orten",
+      blocks: [{ type: "lararfalt", id: "orten", label: "Orten", valfri: true }],
+    },
+    {
+      etikett: "Reglerna",
+      blocks: [
+        {
+          type: "list",
+          items: [
+            "Inga mobiler. Ingen sökning.",
+            "Bara det ni VET tillsammans.",
+          ],
+        },
+      ],
+    },
+    {
+      etikett: "Märk varje rad",
+      blocks: [
+        {
+          type: "list",
+          items: [
+            "STÄMMER",
+            "STÄMMER INTE",
+            "VET INTE",
+          ],
+        },
+      ],
+    },
+    {
+      etikett: "Programmet",
+      blocks: [
+        { type: "lararfalt", id: "dagsprogrammet", label: "Dagsprogrammet" },
+      ],
+    },
+    {
+      etikett: "Ändringsloggen",
+      blocks: [
+        {
+          type: "list",
+          items: [
+            "Vad AI:n påstod",
+            "Vad som faktiskt gäller",
+            "Hur ni visste det",
+          ],
+        },
+      ],
+    },
+    {
+      etikett: "Det räknas som bevis",
+      blocks: [
+        {
+          type: "quote",
+          text: "Min kusin jobbade där tills det stängde.",
+        },
+      ],
+    },
+    {
+      etikett: "Låt frågetecknen stå",
+      blocks: [
+        {
+          type: "callout",
+          tone: "tip",
+          title: "Att veta vad man inte vet är också källkritik",
+          body: "Rader ni är osäkra på gissar ni inte bort.",
+        },
+      ],
+    },
+    {
+      etikett: "Läs den felaktigaste raden igen",
+      blocks: [
+        {
+          type: "p",
+          text: "Låter den osäker? Nej. Den låter precis lika självsäker som raderna som stämmer.",
+        },
+      ],
+    },
+    {
+      etikett: "Det viktigaste i dag",
+      blocks: [
+        { type: "h", text: "AI:n vet inte skillnaden mellan sina rätta och fel svar" },
+      ],
+    },
+    {
+      etikett: "Så avslöjade vi AI:n",
+      blocks: [
+        {
+          type: "list",
+          items: [
+            "Påhittat",
+            "Nedlagt eller föråldrat",
+            "Fel plats",
+            "Halvrätt",
+          ],
+        },
+      ],
+    },
+    {
+      etikett: "Och nu vänder vi på steken",
+      blocks: [
+        {
+          type: "p",
+          text: "I dag var NI facit — det handlade om er ort. Nästa vecka frågar någon av er AI:n om en ort, eller ett ämne, där ni inte är facit. Vad gör ni då?",
+        },
+      ],
     },
   ],
 

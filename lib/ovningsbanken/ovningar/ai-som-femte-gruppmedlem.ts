@@ -77,6 +77,28 @@ export const ovning: BankOvning = {
         "Bestäm loggformatet: tre kolumner — HJÄLPTE / STJÄLPTE / IGNORERADE VI MED RÄTTA — med datum och en mening per rad. Papper vid bordet eller delat dokument, huvudsaken är att den fylls i under arbetet.",
       ],
     },
+    {
+      type: "p",
+      text: "Skriv in projektet nedan. De fyra rollerna med promptmallar ligger redan i klassrumsspåret, en roll per slide — då kan grupperna läsa dem i lugn och ro innan de väljer, i stället för att välja på en muntlig uppräkning.",
+    },
+    {
+      type: "lararfalt",
+      id: "projektet",
+      label: "Grupparbetet det gäller",
+      placeholder:
+        "T.ex. fördjupningsarbetet om hållbara städer — redovisning v. 48, fyra lektioner",
+      hint: "Ett riktigt projekt. Ett låtsasprojekt ger en låtsaslogg. Projiceras vid inramningen.",
+      rader: 2,
+    },
+    {
+      type: "lararfalt",
+      id: "omforhandling",
+      label: "När sker omförhandlingen?",
+      placeholder: "Sista passet, 5 dec — behåll, byt eller sparka",
+      hint: "Projiceras i slutet. Utan datum blir rollen permanent av slentrian.",
+      rader: 1,
+      valfri: true,
+    },
     { type: "h", text: "Genomförande" },
     {
       type: "steps",
@@ -153,6 +175,141 @@ export const ovning: BankOvning = {
     {
       type: "p",
       text: "Lämna in gruppkontraktets AI-rad, er logg och ert slutbeslut med motivering: behöll ni, bytte ni eller sparkade ni — och vilka rader i loggen avgjorde?",
+    },
+  ],
+
+  // Klassrumsspår. En roll per slide med sin promptmall — grupperna ska kunna
+  // läsa och jämföra innan de väljer, inte välja på en muntlig uppräkning.
+  // Faktakollarens specialregel får en egen slide: den är inte förhandlingsbar.
+  klassrum: [
+    {
+      blocks: [
+        { type: "h", text: "Er grupp får en femte medlem" },
+        { type: "p", text: "Den får EN roll. Och den kan sparkas." },
+      ],
+    },
+    {
+      etikett: "Projektet",
+      blocks: [{ type: "lararfalt", id: "projektet", label: "Projektet" }],
+    },
+    {
+      etikett: "Poängen",
+      blocks: [
+        {
+          type: "callout",
+          tone: "info",
+          title: "Rollen är en BEGRÄNSNING",
+          body: "En AI som gör allt är en sjätte hjärna som tar över. En AI med en roll är ett verktyg ni styr.",
+        },
+      ],
+    },
+    {
+      etikett: "Roll 1 · Sekreteraren",
+      blocks: [
+        { type: "p", text: "Antecknar och sammanfattar." },
+        {
+          type: "quote",
+          text: "Du är vår sekreterare. Vi klistrar in anteckningar och beslut — du sammanfattar, listar beslut och öppna frågor. Lägg inte till egna idéer.",
+        },
+      ],
+    },
+    {
+      etikett: "Roll 2 · Djävulens advokat",
+      blocks: [
+        { type: "p", text: "Utmanar era idéer." },
+        {
+          type: "quote",
+          text: "Du är vår djävulens advokat. Vi presenterar en idé — du ger de tre starkaste invändningarna, rangordnade. Inga lösningar, inget beröm.",
+        },
+      ],
+    },
+    {
+      etikett: "Roll 3 · Faktakollaren",
+      blocks: [
+        { type: "p", text: "Granskar påståenden ni vill använda." },
+        {
+          type: "quote",
+          text: "Här är ett påstående vi vill använda: […]. Vad talar för, vad talar emot, och vad bör vi dubbelkolla i en annan källa?",
+        },
+      ],
+    },
+    {
+      etikett: "Om ni väljer faktakollaren",
+      blocks: [
+        {
+          type: "callout",
+          tone: "warning",
+          title: "Specialregeln är inte förhandlingsbar",
+          body: "Faktakollarens egna svar dubbelkollas alltid mot en annan källa. Den kan ha fel.",
+        },
+      ],
+    },
+    {
+      etikett: "Roll 4 · Strukturören",
+      blocks: [
+        { type: "p", text: "Håller ordning på tid och delmål." },
+        {
+          type: "quote",
+          text: "Vi har [antal] lektioner på oss och ska leverera [vad]. Föreslå en tidsplan med delmål. Ställ frågor om det du behöver veta först.",
+        },
+      ],
+    },
+    {
+      etikett: "Skriv in i gruppkontraktet",
+      blocks: [
+        {
+          type: "list",
+          ordered: true,
+          items: [
+            "Vilken roll",
+            "När den får användas",
+            "Vem som skriver till den — rotera!",
+            "Hur ni fattar beslut när AI:n föreslår något",
+          ],
+        },
+      ],
+    },
+    {
+      etikett: "Loggen",
+      blocks: [
+        {
+          type: "list",
+          items: ["HJÄLPTE", "STJÄLPTE", "IGNORERADE VI MED RÄTTA"],
+        },
+      ],
+    },
+    {
+      etikett: "Minst en rad per arbetspass",
+      blocks: [
+        {
+          type: "p",
+          text: "En tom logg betyder antingen att ni glömt AI:n eller att ni smyganvänder den.",
+        },
+      ],
+    },
+    {
+      etikett: "Omförhandlingen",
+      blocks: [
+        { type: "lararfalt", id: "omforhandling", label: "Omförhandling", valfri: true },
+      ],
+    },
+    {
+      etikett: "Tre val",
+      blocks: [
+        {
+          type: "list",
+          items: ["Behåll rollen", "Byt roll", "Sparka AI:n helt"],
+        },
+      ],
+    },
+    {
+      etikett: "Ett krav på beslutet",
+      blocks: [
+        {
+          type: "h",
+          text: "Motivera med loggens rader — inte med magkänsla",
+        },
+      ],
     },
   ],
 

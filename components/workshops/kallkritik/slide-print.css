@@ -1,0 +1,132 @@
+/* Storskärmsläget som PDF — en slide per sida, liggande.
+ *
+ * Importeras av PrintDeck.tsx och därmed bara på storskärmsrutterna. Det är
+ * avsiktligt: @page-regeln nedan kan inte scopas i CSS, så låge den i
+ * workshop.css skulle den tvinga liggande format på övningssidornas stående
+ * arbetsblad också.
+ *
+ * Till skillnad från övriga utskrifter behåller den här bakgrunds- och
+ * tonfärgerna. Det är en presentation, inte ett arbetsblad — hela poängen med
+ * PDF-vägen är att utseendet följer med precis som på skärmen.
+ */
+
+/* NAMNGIVEN sida, inte den globala @page. Next avlastar inte stilmallar vid
+   klientnavigering, så ett globalt @page skulle göra även övningssidornas
+   stående arbetsblad liggande efter att man en gång besökt storskärmen.
+   Med namngiven sida gäller regeln bara element som pekar ut den.
+   I motorer utan stöd för `page:` blir sliderna stående — sämre, men det
+   påverkar inget annat. */
+@page slideLandskap {
+  size: A4 landscape;
+  margin: 0;
+}
+
+/* Utskriftsdecket finns inte på skärmen. */
+.slide-print-deck {
+  display: none;
+}
+
+@media print {
+  .slide-print-deck {
+    display: block;
+  }
+
+  /* Skärmvyns fixed-overlay skulle annars lägga sig över varje sida. */
+  .slide-skarmvy {
+    display: none !important;
+  }
+
+  .slide-print-sida {
+    page: slideLandskap;
+    background: var(--workshop-canvas);
+    color: #292524;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+    break-after: page;
+    page-break-after: always;
+    break-inside: avoid;
+    page-break-inside: avoid;
+    /* Sidan ÄR sliden. 1 mm marginal i höjd för att undvika en tom extrasida
+       när skrivarens sidbox avrundas uppåt. */
+    width: 297mm;
+    height: 209mm;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 14mm 20mm;
+    box-sizing: border-box;
+    overflow: hidden;
+  }
+
+  .slide-print-sida:last-child {
+    break-after: auto;
+    page-break-after: auto;
+  }
+
+  /* Grader i pt — vh är opålitligt i utskriftskontext. */
+  .slide-print-etikett {
+    font-size: 10pt;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #78716c;
+    margin-bottom: 6mm;
+  }
+  .slide-print-display {
+    font-size: 40pt;
+    line-height: 1.05;
+    font-weight: 700;
+  }
+  .slide-print-rubrik {
+    font-size: 26pt;
+    line-height: 1.15;
+    font-weight: 700;
+  }
+  .slide-print-brod-stor {
+    font-size: 24pt;
+    line-height: 1.25;
+    font-weight: 500;
+  }
+  .slide-print-brod {
+    font-size: 18pt;
+    line-height: 1.35;
+    font-weight: 500;
+  }
+  .slide-print-brod-liten {
+    font-size: 14pt;
+    line-height: 1.4;
+    font-weight: 500;
+  }
+  .slide-print-siffra {
+    font-size: 54pt;
+    line-height: 1;
+    font-weight: 700;
+  }
+  .slide-print-not {
+    font-size: 11pt;
+    font-style: italic;
+    color: #57534e;
+  }
+
+  .slide-print-bubbla {
+    border-radius: 6mm;
+    padding: 5mm 7mm;
+    font-size: 15pt;
+    line-height: 1.35;
+  }
+
+  .slide-print-sida img {
+    max-height: 110mm;
+    max-width: 100%;
+    object-fit: contain;
+    margin: 0 auto;
+  }
+
+  /* Sidfot med sidnummer — hjälper läraren hålla ordning på pappersutskrift. */
+  .slide-print-fot {
+    position: absolute;
+    bottom: 6mm;
+    right: 20mm;
+    font-size: 9pt;
+    color: #a8a29e;
+  }
+}

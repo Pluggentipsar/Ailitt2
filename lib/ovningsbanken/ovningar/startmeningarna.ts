@@ -74,6 +74,18 @@ export const ovning: BankOvning = {
         "Testa mallen själv på uppgiftens ämne så du vet ungefär vilken kvalitet och ton eleverna kommer att få.",
       ],
     },
+    {
+      type: "p",
+      text: "Skriv in skrivuppgiften nedan. Promptmallen finns redan i klassrumsläget, ordagrant — den måste stå på skärmen eftersom formuleringen ”bara meningarna, ingen fortsättning” är hela skillnaden mellan den här övningen och att låta AI:n skriva inledningen.",
+    },
+    {
+      type: "lararfalt",
+      id: "skrivuppgiften",
+      label: "Skrivuppgiften ni jobbar med",
+      placeholder: "T.ex. den argumenterande texten om skolmat, inlämning fredag",
+      hint: "Övningen är en igångsättare inuti ett riktigt skrivmoment, inte ett fristående moment. Projiceras i inramningen.",
+      rader: 2,
+    },
     { type: "h", text: "Genomförande" },
     {
       type: "steps",
@@ -158,6 +170,79 @@ export const ovning: BankOvning = {
         "Din startmening — och om den var AI:ns eller din egen.",
         "Din text från de tio minuterna.",
         "Den sak din text har som AI:ns fortsättning saknar, i en mening.",
+      ],
+    },
+  ],
+
+  // Klassrumsspår. Kort, för övningen är kort — och de tio skrivminuterna är
+  // det som ska hända, inte skärmen. Promptmallen ligger ordagrant: hela
+  // poängen sitter i ”bara meningarna, ingen fortsättning”.
+  klassrum: [
+    {
+      blocks: [
+        { type: "h", text: "Det svåraste med att skriva är första meningen" },
+        { type: "p", text: "I dag outsourcar vi den. Bara den." },
+      ],
+    },
+    {
+      etikett: "Skrivuppgiften",
+      blocks: [{ type: "lararfalt", id: "skrivuppgiften", label: "Uppgiften" }],
+    },
+    {
+      etikett: "Promptmallen",
+      blocks: [
+        {
+          type: "quote",
+          text: "Jag ska skriva en text om [ämne]. Ge mig tre olika startmeningar med helt olika ingångar — en rak, en överraskande och en som börjar med en fråga. Bara meningarna, ingen fortsättning.",
+        },
+      ],
+    },
+    {
+      etikett: "Tre är tre",
+      blocks: [
+        {
+          type: "callout",
+          tone: "warning",
+          title: "Inte ”tre till, och tre till”",
+          body: "Då har du bytt övning — från att skriva till att shoppa.",
+        },
+      ],
+    },
+    {
+      etikett: "Välj en",
+      blocks: [
+        {
+          type: "p",
+          text: "Eller skriv en egen som är bättre. Det är det finaste utfallet i dag.",
+        },
+      ],
+    },
+    {
+      etikett: "Och nu",
+      blocks: [{ type: "h", text: "AI:n är stängd i tio minuter" }],
+    },
+    {
+      etikett: "Skriv utan stopp",
+      blocks: [
+        {
+          type: "p",
+          text: "Det är här övningen händer. Allt före var tändningsnyckeln.",
+        },
+      ],
+    },
+    {
+      etikett: "Sista steget",
+      blocks: [
+        {
+          type: "p",
+          text: "Be AI:n fortsätta från samma startmening. Läs dess version bredvid din.",
+        },
+      ],
+    },
+    {
+      etikett: "Notera en sak",
+      blocks: [
+        { type: "h", text: "Vad har din text som AI:ns saknar?" },
       ],
     },
   ],

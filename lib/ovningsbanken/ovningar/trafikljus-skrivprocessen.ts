@@ -91,6 +91,28 @@ export const ovning: BankOvning = {
         "Bestäm hur klassbilden byggs: tavla med tre fält där paren markerar sina placeringar, eller snabb handuppräckning kort för kort.",
       ],
     },
+    {
+      type: "p",
+      text: "Skriv in din egen sortering nedan. Den projiceras först på avslöjande-sliden, efter klassbilden — alltså aldrig innan, hur nyfikna de än är. Skriv den moment för moment med färg, så kan du gå direkt på gapen.",
+    },
+    {
+      type: "lararfalt",
+      id: "min-sortering",
+      label: "Din sortering — avslöjas sist",
+      placeholder:
+        "GRÖNT: rätta stavning, formulera om meningar som hakar\nGULT: hitta belägg (vi kontrollerar varje), hitta motargument\nRÖTT: formulera tes, disposition, skriva utkastet",
+      hint: "Projiceras INTE förrän du klickar dit. Motivera varje rött med vad momentet lär ut — det är där avslöjandet blir en lektion i stället för en regel.",
+      rader: 6,
+    },
+    {
+      type: "lararfalt",
+      id: "skrivuppgiften",
+      label: "Vilken skrivuppgift gäller det?",
+      placeholder: "T.ex. den utredande texten om källkritik, inlämning v. 45",
+      hint: "Projiceras i inramningen så eleverna vet att reglerna gäller på riktigt.",
+      rader: 1,
+      valfri: true,
+    },
     { type: "h", text: "Genomförande" },
     {
       type: "steps",
@@ -162,6 +184,106 @@ export const ovning: BankOvning = {
     {
       type: "p",
       text: "Er parsortering (fotografera korten eller lista dem per färg) med villkoren för alla gula kort — plus en mening om det kort där ni var som mest oense med klassen eller läraren, och vad ni tycker nu.",
+    },
+  ],
+
+  // Klassrumsspår. Dramaturgin är hela övningen: klassbilden byggs FÖRE
+  // lärarens sortering, och den senare får inte finnas på skärmen innan dess.
+  // Elevinstruktionen kan inte bära det — den nämner avslöjandet i förväg.
+  klassrum: [
+    {
+      blocks: [
+        { type: "h", text: "Var i skrivprocessen hör AI hemma?" },
+        {
+          type: "p",
+          text: "Vi ska inte rösta om AI är fusk. Vi ska bestämma moment för moment.",
+        },
+      ],
+    },
+    {
+      etikett: "Tre färger",
+      blocks: [
+        {
+          type: "list",
+          items: [
+            "GRÖNT — självklart okej",
+            "GULT — okej med villkor, och villkoret ska formuleras",
+            "RÖTT — måste vara mitt",
+          ],
+        },
+      ],
+    },
+    {
+      etikett: "Det här gäller",
+      blocks: [
+        { type: "lararfalt", id: "skrivuppgiften", label: "Skrivuppgiften", valfri: true },
+      ],
+    },
+    {
+      etikett: "Två regler för paren",
+      blocks: [
+        {
+          type: "list",
+          ordered: true,
+          items: [
+            "Inget gult kort utan ett villkor ni kan säga högt",
+            "Ni måste vara överens. Oense? Prata tills någon övertygar.",
+          ],
+        },
+      ],
+    },
+    {
+      etikett: "Villkor eller inte?",
+      blocks: [
+        {
+          type: "example",
+          label: "Så skiljer du dem",
+          user: "”AI får föreslå, men vi väljer och kan förklara varför”",
+          ai: "”Lite grann”",
+          note: "Det första är ett villkor. Det andra är det inte.",
+        },
+      ],
+    },
+    {
+      etikett: "Nu bygger vi klassens bild",
+      blocks: [
+        {
+          type: "list",
+          items: [
+            "Var är vi eniga?",
+            "Vilka kort spretar?",
+            "Ni satte grönt, ni satte rött — vad ser du som hon inte ser?",
+          ],
+        },
+      ],
+    },
+    {
+      etikett: "Och nu",
+      blocks: [{ type: "h", text: "Lärarens sortering" }],
+    },
+    {
+      etikett: "Min sortering",
+      blocks: [{ type: "lararfalt", id: "min-sortering", label: "Lärarens sortering" }],
+    },
+    {
+      etikett: "Tryck tillbaka",
+      blocks: [
+        {
+          type: "callout",
+          tone: "tip",
+          title: "Skillnaderna är inte fel",
+          body: "Argumenterar ni ner ett av mina gula till grönt har ni gjort exakt det övningen tränar.",
+        },
+      ],
+    },
+    {
+      etikett: "Sista steget",
+      blocks: [
+        {
+          type: "p",
+          text: "Vi beslutar en gemensam sortering för nästa skrivuppgift. Där vi inte enas avgör jag — men gapet skrivs upp och tas upp igen efteråt.",
+        },
+      ],
     },
   ],
 

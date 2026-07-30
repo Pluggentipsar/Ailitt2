@@ -83,6 +83,27 @@ export const ovning: BankOvning = {
         "Para ihop medvetet: två som räknar i ungefär samma takt granskar tillsammans; ett par där en drar hela lasset rättar inte, det diktera.",
       ],
     },
+    {
+      type: "p",
+      text: "Lösningarna delas ut på papper. Facitfältet nedan projiceras först på avslöjande-sliden — alltså efter redovisningen, aldrig innan. Ha det där så du inte behöver leta i din egen utskrift medan tre par argumenterar samtidigt.",
+    },
+    {
+      type: "lararfalt",
+      id: "facit",
+      label: "Ditt facit — vilken rad går snett?",
+      placeholder: "C: rad 4, teckenfel när parentesen löses ut. B: rad 2, tappat led.",
+      hint: "Projiceras INTE förrän du klickar till avslöjandet. Säg aldrig hur många fel som finns innan dess.",
+      rader: 3,
+    },
+    {
+      type: "lararfalt",
+      id: "momentet",
+      label: "Vilket moment gäller det?",
+      placeholder: "T.ex. ekvationer med parenteser, åk 8",
+      hint: "Projiceras i inramningen.",
+      rader: 1,
+      valfri: true,
+    },
     { type: "h", text: "Genomförande" },
     {
       type: "steps",
@@ -149,6 +170,115 @@ export const ovning: BankOvning = {
     {
       type: "p",
       text: "Lämna in era rättade lösningar med bockar och kryss — och för varje kryss: vilken rad, vad som går snett, och varför det var lätt att missa. Var beredda att visa er räkning för klassen om ni hittade felet.",
+    },
+  ],
+
+  // Klassrumsspår. Facit kommer sist och får inte finnas på skärmen innan
+  // redovisningen — precis som antalet fel inte får avslöjas. Den hårda
+  // rättarregeln får en egen slide eftersom det är den som gör övningen till
+  // granskning i stället för gissning.
+  klassrum: [
+    {
+      blocks: [
+        { type: "h", text: "I dag är ni lärarna" },
+        { type: "p", text: "AI:n har lämnat in sina lösningar." },
+      ],
+    },
+    {
+      etikett: "Momentet",
+      blocks: [{ type: "lararfalt", id: "momentet", label: "Moment", valfri: true }],
+    },
+    {
+      etikett: "Det ni behöver veta",
+      blocks: [
+        {
+          type: "p",
+          text: "Minst en av lösningarna har fel. Den kommer inte se osäker ut.",
+        },
+      ],
+    },
+    {
+      etikett: "Varför ni inte kan leta efter tvekan",
+      blocks: [
+        {
+          type: "h",
+          text: "AI:n skriver fel med samma självförtroende som den skriver rätt",
+        },
+      ],
+    },
+    {
+      etikett: "Alltså",
+      blocks: [{ type: "h", text: "Ni måste räkna" }],
+    },
+    {
+      etikett: "Rättarregeln",
+      blocks: [
+        {
+          type: "callout",
+          tone: "warning",
+          title: "Ingen underkänner en lösning utan att peka på raden",
+          body: "Exakt vilken rad det går snett på — och räkningen som bevisar det. ”Det känns fel” räcker inte.",
+        },
+      ],
+    },
+    {
+      etikett: "Skriv också",
+      blocks: [
+        { type: "p", text: "En mening om varför felet var lätt att missa." },
+      ],
+    },
+    {
+      etikett: "Oense om en rad?",
+      blocks: [
+        {
+          type: "p",
+          text: "Räkna om den tillsammans. Börja från raden innan och räkna framåt.",
+        },
+      ],
+    },
+    {
+      etikett: "Redovisning",
+      blocks: [
+        {
+          type: "p",
+          text: "Visa raden — och förklara varför den var lätt att missa.",
+        },
+      ],
+    },
+    {
+      etikett: "Facit",
+      blocks: [{ type: "lararfalt", id: "facit", label: "Facit" }],
+    },
+    {
+      etikett: "Två frågor",
+      blocks: [
+        {
+          type: "list",
+          ordered: true,
+          items: [
+            "Hur såg felraden ut jämfört med raderna runt omkring?",
+            "Vad var det enda som kunde avslöja den?",
+          ],
+        },
+      ],
+    },
+    {
+      etikett: "Svaren",
+      blocks: [
+        {
+          type: "list",
+          items: ["Likadan.", "Att ni kan matten."],
+        },
+      ],
+    },
+    {
+      etikett: "Poängen",
+      blocks: [
+        {
+          type: "p",
+          text: "AI:n är en användbar räknekompis bara för den som kan kontrollera den.",
+        },
+      ],
     },
   ],
 

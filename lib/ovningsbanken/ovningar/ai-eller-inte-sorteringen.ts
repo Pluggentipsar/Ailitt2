@@ -86,6 +86,26 @@ export const ovning: BankOvning = {
         "Bestäm och berätta regeln: man får byta hörn mitt i ett samtal om någon övertygar en — och det räknas som styrka, inte förlust.",
       ],
     },
+    {
+      type: "p",
+      text: "Klassrumsläget har åtta kort inbyggda i stigande laddning, så det går att köra utan förberedelse. Vill du ha kort som ligger närmare just din klass skriver du in dem nedan — de dyker upp mitt i sekvensen, efter de neutrala korten och före de laddade. Lämnar du dem tomma hoppas de över.",
+    },
+    {
+      type: "lararfalt",
+      id: "eget-kort-1",
+      label: "Eget kort 1 (valfritt)",
+      placeholder: "En uppgift ur just din klass vardag",
+      rader: 2,
+      valfri: true,
+    },
+    {
+      type: "lararfalt",
+      id: "eget-kort-2",
+      label: "Eget kort 2 (valfritt)",
+      placeholder: "",
+      rader: 2,
+      valfri: true,
+    },
     { type: "h", text: "Genomförande" },
     {
       type: "steps",
@@ -153,6 +173,96 @@ export const ovning: BankOvning = {
     {
       type: "p",
       text: "När övningen är klar: skriv ner tre av uppgifterna — en där du var helt säker, en där du tvekade och en där du bytte hörn (eller ville byta). Skriv en mening per uppgift om varför. Lämna till läraren eller ta med till nästa lektion.",
+    },
+  ],
+
+  // Klassrumsspår. Ett kort per slide är hela poängen: eleverna ska hinna
+  // tänka, gå till sitt hörn och argumentera innan nästa kort syns.
+  // Korten ligger i stigande laddning — lekfullt först, kondoleansen sist —
+  // så att samtalet är varmt när de svåra kommer. Lärarens egna kort landar
+  // mitt i, efter de neutrala.
+  klassrum: [
+    {
+      etikett: "Fyra hörn",
+      blocks: [
+        {
+          type: "list",
+          items: [
+            "Endast AI",
+            "AI som stöd",
+            "Endast människa",
+            "Osäker",
+          ],
+        },
+      ],
+    },
+    {
+      etikett: "Reglerna",
+      blocks: [
+        {
+          type: "list",
+          ordered: true,
+          items: [
+            "Tänk själv först — gå inte dit kompisarna går",
+            "Var beredd att säga: ”Jag står här för att …”",
+            "Byt hörn om någon övertygar dig. Det är styrka, inte förlust.",
+          ],
+        },
+      ],
+    },
+    {
+      etikett: "Inget facit",
+      blocks: [
+        {
+          type: "callout",
+          tone: "info",
+          title: "Osäker är ett riktigt hörn",
+          body: "Men även där krävs ett skäl.",
+        },
+      ],
+    },
+    { etikett: "Kort 1", blocks: [{ type: "h", text: "Träna glosor inför läxförhöret" }] },
+    { etikett: "Kort 2", blocks: [{ type: "h", text: "Designa klassens tröja" }] },
+    { etikett: "Kort 3", blocks: [{ type: "h", text: "Sammanfatta en lång artikel" }] },
+    { etikett: "Kort 4", blocks: [{ type: "h", text: "Räkna ut medelvärdet av klassens resultat" }] },
+    { etikett: "Kort 5", blocks: [{ type: "h", text: "Kolla om en nyhet stämmer" }] },
+    {
+      etikett: "Eget kort",
+      blocks: [{ type: "lararfalt", id: "eget-kort-1", label: "Eget kort 1", valfri: true }],
+    },
+    {
+      etikett: "Eget kort",
+      blocks: [{ type: "lararfalt", id: "eget-kort-2", label: "Eget kort 2", valfri: true }],
+    },
+    { etikett: "Kort 6", blocks: [{ type: "h", text: "Välja present till en kompis" }] },
+    { etikett: "Kort 7", blocks: [{ type: "h", text: "Välja gymnasieprogram" }] },
+    { etikett: "Kort 8", blocks: [{ type: "h", text: "Avgöra vem som började bråket på rasten" }] },
+    {
+      etikett: "Sista kortet",
+      blocks: [
+        { type: "h", text: "Skriva en kondoleans till någon som mist en anhörig" },
+      ],
+    },
+    {
+      etikett: "Avrunda",
+      blocks: [
+        {
+          type: "list",
+          items: [
+            "Vilket kort splittrade oss mest?",
+            "Vad säger det — om uppgiften, eller om oss?",
+          ],
+        },
+      ],
+    },
+    {
+      etikett: "Landa",
+      blocks: [
+        {
+          type: "p",
+          text: "Att välja när AI ska användas är något man blir bättre på genom att träna. Precis som ni gjorde nu.",
+        },
+      ],
     },
   ],
 

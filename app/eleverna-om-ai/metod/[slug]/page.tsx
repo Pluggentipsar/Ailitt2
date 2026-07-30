@@ -10,27 +10,26 @@ import {
   Clock,
   GraduationCap,
   ListChecks,
+  MonitorPlay,
 } from "lucide-react";
 import { METODER } from "@/lib/eleverna-om-ai/data";
 import { DomanBadge } from "@/components/eleverna-om-ai/DomanBadge";
 import { AiLiteracyBadge } from "@/components/ui/AiLiteracyBadge";
-import { GoblinReveal } from "@/components/eleverna-om-ai/klassrum/GoblinReveal";
 import { ChattSafari } from "@/components/eleverna-om-ai/klassrum/ChattSafari";
-import { PromptDuell } from "@/components/eleverna-om-ai/klassrum/PromptDuell";
 import { FyraGrepp } from "@/components/eleverna-om-ai/klassrum/FyraGrepp";
-import { LosenordScenario } from "@/components/eleverna-om-ai/klassrum/LosenordScenario";
-import { VemsSiffror } from "@/components/eleverna-om-ai/klassrum/VemsSiffror";
 import { FramtidsRoster } from "@/components/eleverna-om-ai/klassrum/FramtidsRoster";
 
-// Varje metod har sitt eget klassrumsläge — interaktivt innehåll
-// byggt för att projiceras och köras direkt med klassen.
+// Tre metoder har verkligt interaktiva klassrumslägen som inte går att
+// uttrycka som slides: klickbara markeringar, icke-linjära flikar och live
+// rösträkning. De renderas här på metodsidan.
+//
+// De fyra övriga — goblin-glitch, forhors-ai, hemligt-losenord och
+// vems-siffror — hade komponenter som i praktiken bara stegade fram innehåll.
+// De är nu författade klassrumsspår i storskärmsläget, med workshopens
+// typografi, lärarfält och export. Metodsidan länkar dit i stället.
 const KLASSRUM_KOMPONENTER: Record<string, ComponentType> = {
-  "goblin-glitch": GoblinReveal,
   "chatt-safarin": ChattSafari,
-  "forhors-ai": PromptDuell,
   "fyra-grepp": FyraGrepp,
-  "hemligt-losenord": LosenordScenario,
-  "vems-siffror": VemsSiffror,
   framtidssamtalet: FramtidsRoster,
 };
 
@@ -196,9 +195,31 @@ export default async function MetodPage({
           <p className="mt-3 max-w-3xl text-lg leading-relaxed text-gray-700">
             {metod.klassrumIntro}
           </p>
-          <div className="mt-8 rounded-2xl border border-teal-100 bg-white p-4 shadow-sm sm:p-8">
-            {Klassrum ? <Klassrum /> : null}
-          </div>
+          {Klassrum ? (
+            <div className="mt-8 rounded-2xl border border-teal-100 bg-white p-4 shadow-sm sm:p-8">
+              <Klassrum />
+            </div>
+          ) : (
+            <Link
+              href={`/ovningsbanken/${metod.slug}/presentation`}
+              className="group mt-8 flex items-center gap-4 rounded-2xl bg-gradient-to-r from-teal-600 to-cyan-600 p-5 text-white shadow-lg transition-shadow hover:shadow-xl"
+            >
+              <span className="grid h-12 w-12 shrink-0 place-items-center rounded-xl bg-white/15">
+                <MonitorPlay className="h-6 w-6" />
+              </span>
+              <span className="flex-1">
+                <span className="block text-lg font-semibold">
+                  Öppna storskärmsläget
+                </span>
+                <span className="block text-sm text-white/85">
+                  Stegas fram med piltangenterna. Går att spara som PDF eller
+                  PowerPoint — och du kan förbereda egna fält i
+                  lärarhandledningen.
+                </span>
+              </span>
+              <ArrowRight className="h-5 w-5 shrink-0 transition-transform group-hover:translate-x-1" />
+            </Link>
+          )}
         </div>
       </section>
 

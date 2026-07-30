@@ -75,6 +75,36 @@ export const ovning: BankOvning = {
         "Planera gruppbytena i förväg: vilken grupp testar vems quiz. Grupper om 2–3 funkar bäst.",
       ],
     },
+    {
+      type: "p",
+      text: "Fyll i fälten nedan. Modelleringsfrågan är den viktigaste: eleverna behöver se HUR granskning låter innan de gör den själva, och då måste frågan stå på skärmen medan du granskar den högt. Ta gärna en riktigt dålig fråga ur din egen förtest.",
+    },
+    {
+      type: "lararfalt",
+      id: "avsnittet",
+      label: "Vilket avsnitt gäller det?",
+      placeholder: "T.ex. Cellens delar, biologi s. 44–52",
+      hint: "Projiceras i inramningen — och läromedlet måste ligga framme.",
+      rader: 1,
+    },
+    {
+      type: "lararfalt",
+      id: "modellfraga",
+      label: "Frågan du granskar högt inför klassen",
+      placeholder:
+        "Klistra in en AI-genererad fråga ur din förtest — gärna en tvetydig eller felaktig.",
+      hint: "Projiceras när du modellerar granskningen. En dålig fråga är bättre undervisning än en bra.",
+      rader: 4,
+    },
+    {
+      type: "lararfalt",
+      id: "quizprompten",
+      label: "Prompten grupperna använder",
+      placeholder:
+        "Skriv tio quizfrågor med svar och förklaringar på avsnittet … Ange var i texten svaret finns.",
+      hint: "Projiceras så alla grupper genererar likvärdigt — annars jämför ni promptar i stället för granskning.",
+      rader: 3,
+    },
     { type: "h", text: "Genomförande" },
     {
       type: "steps",
@@ -157,6 +187,110 @@ export const ovning: BankOvning = {
         "Quizet i slutversion (de frågor som överlevde granskningen).",
         "Granskningsprotokollet — alla tio frågorna med behåll/ändra/släng och en motivering per fråga.",
         "Er bästa felfråga, om ni hittade någon — med en mening om varför den inte höll.",
+      ],
+    },
+  ],
+
+  // Klassrumsspår. Modelleringen är det som inte går att lägga i en
+  // elevinstruktion: frågan måste stå på skärmen medan läraren granskar den
+  // högt, så att eleverna hör hur granskning låter innan de gör den själva.
+  klassrum: [
+    {
+      blocks: [
+        { type: "h", text: "AI:n skriver frågorna. Ni avgör vad som håller." },
+      ],
+    },
+    {
+      etikett: "Avsnittet",
+      blocks: [{ type: "lararfalt", id: "avsnittet", label: "Avsnittet" }],
+    },
+    {
+      etikett: "Regeln",
+      blocks: [
+        {
+          type: "callout",
+          tone: "warning",
+          title: "Ingen fråga släpps vidare ogranskad",
+          body: "Granskad mot läromedlet. Inte mot magkänslan.",
+        },
+      ],
+    },
+    {
+      etikett: "Först: så låter granskning",
+      blocks: [{ type: "lararfalt", id: "modellfraga", label: "Modellfrågan" }],
+    },
+    {
+      etikett: "Tre frågor till varje fråga",
+      blocks: [
+        {
+          type: "list",
+          ordered: true,
+          items: [
+            "Stämmer det här? Var i boken står det?",
+            "Kan frågan tolkas på två sätt?",
+            "Är den lagom svår?",
+          ],
+        },
+      ],
+    },
+    {
+      etikett: "Nu er tur — prompten",
+      blocks: [{ type: "lararfalt", id: "quizprompten", label: "Prompten" }],
+    },
+    {
+      etikett: "Genereringen är den minst viktiga delen",
+      blocks: [{ type: "p", text: "Håll det snabbt. Fem minuter." },
+      ],
+    },
+    {
+      etikett: "Protokollet",
+      blocks: [
+        {
+          type: "list",
+          items: [
+            "Korrekt?",
+            "Entydig?",
+            "Lagom svår?",
+            "Behåll · ändra · släng",
+            "Motivering",
+          ],
+        },
+      ],
+    },
+    {
+      etikett: "Räcker inte som motivering",
+      blocks: [
+        { type: "quote", text: "Det känns rätt." },
+      ],
+    },
+    {
+      etikett: "Frågan jag kommer ställa",
+      blocks: [{ type: "h", text: "Var i läromedlet kollade ni det?" }],
+    },
+    {
+      etikett: "Quizbyte",
+      blocks: [
+        { type: "p", text: "Kör varandras granskade quiz. Gruppen som byggde rättar." },
+      ],
+    },
+    {
+      etikett: "Visa upp era fynd",
+      blocks: [
+        {
+          type: "callout",
+          tone: "tip",
+          title: "Felaktiga AI-frågor är guld",
+          body: "Gruppen som hittar en felaktig fråga har gjort lektionens svåraste jobb.",
+        },
+      ],
+    },
+    {
+      etikett: "Poängen",
+      blocks: [
+        {
+          type: "h",
+          text: "Att granska frågor kräver mer förståelse än att svara på dem",
+        },
       ],
     },
   ],

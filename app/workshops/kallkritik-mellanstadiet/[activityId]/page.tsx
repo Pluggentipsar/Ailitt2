@@ -263,6 +263,7 @@ export default async function ActivityPage({
             teacherGuide={activity.teacherGuide}
             studentInstructions={activity.studentInstructions}
             activityTitle={`${activity.number} ${activity.title}`}
+            faltScope={activity.id}
           />
         </div>
       </div>

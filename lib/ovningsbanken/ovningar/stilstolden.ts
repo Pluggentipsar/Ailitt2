@@ -77,6 +77,43 @@ export const ovning: BankOvning = {
         "Bestäm din linje i kreditfrågan i förväg: du har ingen. Övningen ska inte landa i ditt svar utan i elevernas kriterier. Skriv gärna upp de tre analysfrågorna synligt: Vilka val gjorde en människa? Vilka val gjorde ingen alls? Vem ska krediteras?",
       ],
     },
+    {
+      type: "p",
+      text: "Klistra in en bildlänk per verk nedan — de visas då som bilder i klassrumsläget, ett verk per slide och utan etiketter. Facit ligger i ett eget fält som projiceras först efter gissningen. Ligger bilderna lokalt får du visa dem som du gjort tidigare och hoppa över fälten.",
+    },
+    {
+      type: "lararfalt",
+      id: "verk-a",
+      label: "Verk A — bildlänk",
+      placeholder: "https://…/verk-a.jpg",
+      hint: "En URL som slutar på .jpg, .png eller .webp visas som bild. Avslöja inte ursprunget här.",
+      rader: 1,
+      valfri: true,
+    },
+    {
+      type: "lararfalt",
+      id: "verk-b",
+      label: "Verk B — bildlänk",
+      placeholder: "https://…/verk-b.jpg",
+      rader: 1,
+      valfri: true,
+    },
+    {
+      type: "lararfalt",
+      id: "verk-c",
+      label: "Verk C — bildlänk",
+      placeholder: "https://…/verk-c.jpg",
+      rader: 1,
+      valfri: true,
+    },
+    {
+      type: "lararfalt",
+      id: "facit-verken",
+      label: "Facit — vilket är vilket?",
+      placeholder: "A = människa · B = AI ”i stil med” Hilma af Klint · C = hybrid",
+      hint: "Projiceras först efter att paren gissat.",
+      rader: 2,
+    },
     { type: "h", text: "Genomförande" },
     {
       type: "steps",
@@ -144,6 +181,156 @@ export const ovning: BankOvning = {
     {
       type: "p",
       text: "Din jämförelse (AI-bilden bredvid originalet), dina anteckningar om vad som fångades och förlorades, och ditt svar på slutfrågan i 3–4 meningar: förändrar AI vad ordet ”konstnär” betyder? Använd minst ett av dagens verk som exempel.",
+    },
+  ],
+
+  // Klassrumsspår. Övningen ÄR en bildvisning, så den kan inte bäras av
+  // elevinstruktionen: verken måste upp ett i taget, utan etiketter, och
+  // facit först efter gissningen. Läraren lägger in bildlänkarna.
+  klassrum: [
+    {
+      blocks: [
+        { type: "h", text: "Tre verk" },
+        {
+          type: "p",
+          text: "Ett har en människa gjort. Ett har en AI gjort ”i stil med”. Ett är både och.",
+        },
+      ],
+    },
+    {
+      etikett: "Er uppgift",
+      blocks: [
+        {
+          type: "p",
+          text: "Inte att gissa rätt. Att lista ut vem som egentligen gjort jobbet.",
+        },
+      ],
+    },
+    { etikett: "Verk A", blocks: [{ type: "lararfalt", id: "verk-a", label: "Verk A", valfri: true }] },
+    { etikett: "Verk B", blocks: [{ type: "lararfalt", id: "verk-b", label: "Verk B", valfri: true }] },
+    { etikett: "Verk C", blocks: [{ type: "lararfalt", id: "verk-c", label: "Verk C", valfri: true }] },
+    {
+      etikett: "Gissa i par",
+      blocks: [
+        {
+          type: "list",
+          items: ["Vilket är människa?", "Vilket är AI?", "Vilket är både och?"],
+        },
+      ],
+    },
+    {
+      etikett: "Facit",
+      blocks: [{ type: "lararfalt", id: "facit-verken", label: "Facit" }],
+    },
+    {
+      etikett: "Den viktigare frågan",
+      blocks: [
+        { type: "h", text: "Spelar det roll?" },
+        { type: "p", text: "Varför kändes det angeläget att gissa rätt?" },
+      ],
+    },
+    {
+      etikett: "Val-analysen",
+      blocks: [
+        {
+          type: "list",
+          items: [
+            "Vilka val gjorde en människa i varje verk?",
+            "Motiv · komposition · urval · prompt · efterarbete",
+          ],
+        },
+      ],
+    },
+    {
+      etikett: "Delfrågan",
+      blocks: [
+        {
+          type: "p",
+          text: "Är prompten och urvalet — ”jag förkastade tre, behöll en” — skapande val?",
+        },
+      ],
+    },
+    {
+      etikett: "Vem ska krediteras för B?",
+      blocks: [
+        {
+          type: "list",
+          items: [
+            "Promptskrivaren",
+            "Konstnären vars stil lånats",
+            "Företaget bakom modellen",
+            "Alla tre",
+          ],
+        },
+      ],
+    },
+    {
+      etikett: "Nu skapar ni själva",
+      blocks: [
+        {
+          type: "list",
+          ordered: true,
+          items: [
+            "Välj en konstnär",
+            "Generera ”i stil med”",
+            "Lägg bilden bredvid ett riktigt verk",
+          ],
+        },
+      ],
+    },
+    {
+      etikett: "Anteckna",
+      blocks: [
+        {
+          type: "list",
+          items: [
+            "Två saker AI:n fångade av stilen",
+            "Två saker som gick förlorade",
+          ],
+        },
+      ],
+    },
+    {
+      etikett: "Hur kan modellen härma er konstnär?",
+      blocks: [
+        {
+          type: "p",
+          text: "Verken har skrapats från nätet som träningsdata. I regel utan att någon frågade.",
+        },
+      ],
+    },
+    {
+      etikett: "Konstnärerna försvarar sig",
+      blocks: [
+        {
+          type: "list",
+          items: [
+            "Verktyg som ”förgiftar” stilkopiering — t.ex. Glaze",
+            "Stämningar i domstol",
+          ],
+        },
+      ],
+    },
+    {
+      etikett: "Bilderna stannar här",
+      blocks: [
+        {
+          type: "callout",
+          tone: "warning",
+          title: "Vi postar dem inte",
+          body: "Att generera i stil med en levande konstnär är juridiskt omstritt och för många djupt känsligt. Varför vi kan öva med det men inte publicera det är en lektion i sig.",
+        },
+      ],
+    },
+    {
+      etikett: "Ta ställning",
+      blocks: [
+        {
+          type: "h",
+          text: "Förändrar AI vad ordet ”konstnär” betyder?",
+        },
+        { type: "p", text: "Motivera med ett av dagens verk." },
+      ],
     },
   ],
 

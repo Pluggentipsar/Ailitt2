@@ -78,6 +78,59 @@ export const ovning: BankOvning = {
         "Dela klassen i fyra grupper som STARTAR på olika stationer. Annars mäter ni ordningseffekten — fjärde mötet med samma text känns alltid lättast — i stället för formaten.",
       ],
     },
+    {
+      type: "p",
+      text: "Fyll i nedan så projiceras texten och gruppindelningen — stationsrotation är den övning där flest minuter går åt till att förklara vem som ska vart, och en slide med indelningen sparar dem.",
+    },
+    {
+      type: "lararfalt",
+      id: "texten",
+      label: "Vilken text gäller det?",
+      placeholder: "T.ex. ”Fotosyntesen” ur läroboken s. 84–85",
+      hint: "Projiceras i inramningen.",
+      rader: 1,
+    },
+    {
+      type: "p",
+      text: "Klistrar du in versionerna nedan får varje station en egen slide — och PDF-exporten blir stationsmaterialet, en version per liggande sida. Då slipper du bygga fyra utskrifter separat. Uppläsningsstationen behöver förstås ljud ändå; där räcker originaltexten på sliden som stöd.",
+    },
+    {
+      type: "lararfalt",
+      id: "version-original",
+      label: "Originaltexten",
+      placeholder: "Klistra in texten som den står i läromedlet.",
+      hint: "Projiceras på originalstationens slide och blir dess sida i PDF:en.",
+      rader: 8,
+      valfri: true,
+    },
+    {
+      type: "lararfalt",
+      id: "version-forenklad",
+      label: "Den AI-förenklade versionen",
+      placeholder: "Klistra in AI-versionen — faktakollad mot originalet.",
+      hint: "Faktakolla innan lektionen. En förenkling som glidit är sämre än ingen.",
+      rader: 8,
+      valfri: true,
+    },
+    {
+      type: "lararfalt",
+      id: "version-tankekarta",
+      label: "Tankekartan",
+      placeholder:
+        "Klistra in bildlänk till kartan, eller skriv den som punktlista.",
+      hint: "En bildlänk som slutar på .png eller .jpg visas som bild.",
+      rader: 5,
+      valfri: true,
+    },
+    {
+      type: "lararfalt",
+      id: "gruppindelning",
+      label: "Vem börjar var?",
+      placeholder:
+        "Grupp 1 → Original\nGrupp 2 → Uppläst\nGrupp 3 → Förenklad\nGrupp 4 → Tankekarta",
+      hint: "Projiceras vid start. Olika startstationer är nödvändigt — annars mäter ni ordningseffekten.",
+      rader: 5,
+    },
     { type: "h", text: "Genomförande" },
     {
       type: "steps",
@@ -144,6 +197,144 @@ export const ovning: BankOvning = {
     {
       type: "p",
       text: "Lämna in ditt utvärderingskort med alla fyra rader ifyllda plus meningen ”Det här formatet passar mig bäst när …”. Kortet är din formatprofil — ta gärna en bild av det innan du lämnar in. Du kommer ha nytta av den nästa gång en text känns omöjlig.",
+    },
+  ],
+
+  // Klassrumsspår. Stationsrotation kräver att indelning och signaler står på
+  // skärmen — det är den övningen där flest minuter går åt till logistik.
+  // Ledarrollens språkregel ligger medvetet INTE här: den är till läraren, och
+  // formuleringen "bra för dig som har svårt att läsa" är just det som inte
+  // ska sägas i rummet.
+  klassrum: [
+    {
+      blocks: [
+        { type: "h", text: "Samma text. Fyra vägar in." },
+        {
+          type: "p",
+          text: "Vi testar inte hur bra ni läser. Vi testar hur texten funkar.",
+        },
+      ],
+    },
+    {
+      etikett: "Texten",
+      blocks: [{ type: "lararfalt", id: "texten", label: "Texten" }],
+    },
+    {
+      etikett: "Fyra stationer",
+      blocks: [
+        {
+          type: "list",
+          items: ["Original", "Uppläst", "Förenklad av AI", "Tankekarta"],
+        },
+      ],
+    },
+    {
+      etikett: "Vem börjar var",
+      blocks: [
+        { type: "lararfalt", id: "gruppindelning", label: "Gruppindelning" },
+      ],
+    },
+    {
+      etikett: "Station · Original",
+      blocks: [
+        { type: "lararfalt", id: "version-original", label: "Originalet", valfri: true },
+      ],
+    },
+    {
+      etikett: "Station · Förenklad av AI",
+      blocks: [
+        { type: "lararfalt", id: "version-forenklad", label: "Förenklad", valfri: true },
+      ],
+    },
+    {
+      etikett: "Station · Tankekarta",
+      blocks: [
+        { type: "lararfalt", id: "version-tankekarta", label: "Tankekarta", valfri: true },
+      ],
+    },
+    {
+      etikett: "Efter varje station",
+      blocks: [
+        {
+          type: "list",
+          items: [
+            "Hur mycket fastnade? 1–5",
+            "Hur kändes det? 1–5",
+          ],
+        },
+      ],
+    },
+    {
+      etikett: "Inget rätt svar",
+      blocks: [
+        {
+          type: "callout",
+          tone: "info",
+          title: "Kortet är en formatprofil",
+          body: "Inte ett prov.",
+        },
+      ],
+    },
+    {
+      etikett: "Texten är densamma hela tiden",
+      blocks: [
+        {
+          type: "p",
+          text: "Det är meningen. Bedöm formatet, inte innehållet.",
+        },
+      ],
+    },
+    {
+      etikett: "Sista raden på kortet",
+      blocks: [
+        { type: "h", text: "Det här formatet passar mig bäst när …" },
+      ],
+    },
+    {
+      etikett: "Klassbilden",
+      blocks: [
+        {
+          type: "p",
+          text: "Sätt ett streck vid ditt toppformat.",
+        },
+      ],
+    },
+    {
+      etikett: "Titta på strecken",
+      blocks: [
+        {
+          type: "h",
+          text: "Inget format vann för alla",
+        },
+        { type: "p", text: "Det är inte ett problem. Det är resultatet." },
+      ],
+    },
+    {
+      etikett: "Och nu det användbara",
+      blocks: [
+        {
+          type: "p",
+          text: "AI kan bygga alla fyra versionerna av vilken text som helst på några minuter.",
+        },
+      ],
+    },
+    {
+      etikett: "Alltså",
+      blocks: [
+        {
+          type: "h",
+          text: "Formatet är inte längre något man ber om — det är något man väljer",
+        },
+      ],
+    },
+    {
+      etikett: "En sista sak",
+      blocks: [
+        {
+          type: "p",
+          text: "Ditt toppformat idag är inte ditt toppformat alltid. Plugga detaljer, få överblick och förstå på djupet är olika uppgifter.",
+        },
+      ],
     },
   ],
 

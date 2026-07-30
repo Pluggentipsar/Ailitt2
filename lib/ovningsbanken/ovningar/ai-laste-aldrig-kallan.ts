@@ -79,6 +79,29 @@ export const ovning: BankOvning = {
         "Rita trekolumnstabellen på tavlan: Finns källan? / Är den äkta? / Har AI:n läst den?",
       ],
     },
+    {
+      type: "p",
+      text: "Skriv in frågeområdet nedan så projiceras det. Tabellens tre frågor och WKNA-kedjan ligger redan i klassrumsläget — du behöver inte tavlan.",
+    },
+    {
+      type: "lararfalt",
+      id: "frageomrade",
+      label: "Frågeområde eller frågelista",
+      placeholder:
+        "Vad säger forskningen om skärmtid och sömn?\nVad hände egentligen under Ådalen 1931?\nHur mycket har havsnivån stigit sedan 1900?",
+      hint: "Koppla till ditt ämne. Projiceras när paren ska välja fråga. En per rad.",
+      rader: 4,
+    },
+    {
+      type: "lararfalt",
+      id: "eget-halvfel",
+      label: "Ett halvfel du hittade i din förtest (valfritt)",
+      placeholder:
+        "AI:n påstod att studien visade X — källan säger egentligen ”kan möjligen tyda på X”.",
+      hint: "Projiceras i uppsamlingen. Halvfelen är svårare att upptäcka än rena påhitt, och därför de mest lärorika.",
+      rader: 3,
+      valfri: true,
+    },
     { type: "h", text: "Genomförande" },
     {
       type: "steps",
@@ -160,6 +183,125 @@ export const ovning: BankOvning = {
         "Frågan du ställde till AI:n.",
         "Tabellen: för varje granskad källa — Finns den? Är den äkta? Har AI:n läst den? — med en kort motivering per svar.",
         "Ditt slutbetyg på AI-svaret: håller det, håller det delvis, eller håller det inte? En mening om varför.",
+      ],
+    },
+  ],
+
+  // Klassrumsspår. WKNA-kedjan stegas fram ett led i taget — den poängen dör
+  // om hela kedjan syns på en gång. Modelleringen av lateral läsning har en
+  // egen slide eftersom "lämna sidan" är det eleverna inte gör av sig själva.
+  klassrum: [
+    {
+      blocks: [
+        {
+          type: "h",
+          text: "I juni 2026 rapporterade en AI att USA:s president dött av rabies",
+        },
+      ],
+    },
+    {
+      etikett: "Det var inte sant",
+      blocks: [{ type: "p", text: "Så här gick det till." }],
+    },
+    {
+      etikett: "Led 1",
+      blocks: [{ type: "h", text: "Ett skämt på Reddit" }],
+    },
+    {
+      etikett: "Led 2",
+      blocks: [
+        {
+          type: "h",
+          text: "En AI-genererad ”nyhetssajt” skrev upp skämtet som en nyhet",
+        },
+      ],
+    },
+    {
+      etikett: "Led 3",
+      blocks: [
+        { type: "h", text: "En AI citerade sajten som källa" },
+        { type: "p", text: "Källhänvisningen såg helt äkta ut." },
+      ],
+    },
+    {
+      etikett: "Frågan",
+      blocks: [{ type: "h", text: "Var i kedjan gick det fel?" }],
+    },
+    {
+      etikett: "Det obekväma svaret",
+      blocks: [
+        {
+          type: "p",
+          text: "Ingenstans och överallt. Varje led gjorde bara det den var byggd för.",
+        },
+      ],
+    },
+    {
+      etikett: "Tre frågor till varje källa",
+      blocks: [
+        {
+          type: "list",
+          ordered: true,
+          items: ["Finns källan?", "Är den äkta?", "Har AI:n läst den?"],
+        },
+      ],
+    },
+    {
+      etikett: "Så granskar man — lateral läsning",
+      blocks: [
+        {
+          type: "h",
+          text: "Du LÄMNAR sidan",
+        },
+        {
+          type: "p",
+          text: "Ny flik. Sök på källan utifrån. Bedöm den aldrig på hur den ser ut inifrån — det är precis vad fejksajter är byggda för.",
+        },
+      ],
+    },
+    {
+      etikett: "Er fråga",
+      blocks: [{ type: "lararfalt", id: "frageomrade", label: "Frågeområde" }],
+    },
+    {
+      etikett: "Minst två källor",
+      blocks: [
+        { type: "p", text: "Granskade. Tabellen ifylld för var och en." },
+      ],
+    },
+    {
+      etikett: "Frågan jag kommer ställa",
+      blocks: [
+        {
+          type: "quote",
+          text: "Har du lämnat sidan än, eller sitter du och tittar på den?",
+        },
+      ],
+    },
+    {
+      etikett: "Från min förtest",
+      blocks: [
+        { type: "lararfalt", id: "eget-halvfel", label: "Ett halvfel", valfri: true },
+      ],
+    },
+    {
+      etikett: "Uppsamling",
+      blocks: [
+        {
+          type: "list",
+          items: [
+            "Vem hittade en källa som inte fanns?",
+            "Som fanns men sa något annat än AI:n påstod?",
+            "Hur lång tid tog kollen per källa?",
+          ],
+        },
+      ],
+    },
+    {
+      etikett: "Regeln",
+      blocks: [
+        { type: "h", text: "Källhänvisningen är en ADRESS, inte ett bevis" },
+        { type: "p", text: "Du måste åka dit." },
       ],
     },
   ],

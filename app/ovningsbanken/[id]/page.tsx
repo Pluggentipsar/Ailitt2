@@ -225,6 +225,7 @@ export default async function OvningPage({
             teacherGuide={ovning.lararhandledning}
             studentInstructions={ovning.elevinstruktion}
             activityTitle={ovning.titel}
+            faltScope={ovning.id}
           />
         </div>
       </div>

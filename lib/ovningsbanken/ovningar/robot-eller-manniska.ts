@@ -73,6 +73,63 @@ export const ovning: BankOvning = {
         "Lägg fram papper och kritor till ritmomentet så att övergången går snabbt.",
       ],
     },
+    {
+      type: "p",
+      text: "Skriv in dina exempel nedan så visas de ett i taget i klassrumsläget — då slipper du hålla ordning på lappar samtidigt som du leder leken. Du läser ändå högt för de yngsta; texten på skärmen är stöd för dem som börjat läsa. Lämna de sista tomma om du bara förberett fyra, då hoppas de över.",
+    },
+    {
+      type: "lararfalt",
+      id: "exempel-1",
+      label: "Exempel 1 (lättast)",
+      placeholder: "Meningen du läser högt — eller ”Bild 1” om du visar papper",
+      hint: "Börja lätt: tydligt datorspråk eller tydligt barnspråk.",
+      rader: 2,
+    },
+    {
+      type: "lararfalt",
+      id: "exempel-2",
+      label: "Exempel 2",
+      placeholder: "Nästa mening eller bildhänvisning",
+      rader: 2,
+    },
+    {
+      type: "lararfalt",
+      id: "exempel-3",
+      label: "Exempel 3",
+      placeholder: "Nu får det bli klurigare",
+      rader: 2,
+    },
+    {
+      type: "lararfalt",
+      id: "exempel-4",
+      label: "Exempel 4",
+      placeholder: "",
+      rader: 2,
+    },
+    {
+      type: "lararfalt",
+      id: "exempel-5",
+      label: "Exempel 5 (valfritt)",
+      placeholder: "Lämna tomt om du kör fyra exempel",
+      rader: 2,
+      valfri: true,
+    },
+    {
+      type: "lararfalt",
+      id: "exempel-6",
+      label: "Exempel 6 (valfritt)",
+      placeholder: "Lämna tomt om du kör fyra exempel",
+      rader: 2,
+      valfri: true,
+    },
+    {
+      type: "lararfalt",
+      id: "facit",
+      label: "Ditt facit — bara för dig",
+      placeholder: "1 = dator · 2 = människa · 3 = dator · 4 = människa …",
+      hint: "Visas INTE i klassrumsläget. Ligger här så du har det i handen.",
+      rader: 2,
+    },
     { type: "h", text: "Genomförande" },
     {
       type: "steps",
@@ -139,6 +196,68 @@ export const ovning: BankOvning = {
     {
       type: "p",
       text: "Vik ett papper på mitten. Rita en sak en dator kan göra på ena sidan. Rita en sak som bara människor kan på andra sidan. Visa din teckning för läraren och berätta vad du ritat!",
+    },
+  ],
+
+  // Klassrumsspår för F–3. Medvetet nästan ordlöst: barnen kan inte läsa
+  // slides, läraren läser högt. Skärmen bär rörelserna, ett exempel i taget
+  // och kärnmeningen — allt annat är i vägen.
+  klassrum: [
+    {
+      blocks: [{ type: "h", text: "Robot eller människa?" }],
+    },
+    {
+      etikett: "Så röstar vi",
+      blocks: [
+        {
+          type: "list",
+          items: [
+            "Robotarmar = en dator har gjort det",
+            "Vinka = en människa har gjort det",
+          ],
+        },
+      ],
+    },
+    {
+      etikett: "Kom ihåg",
+      blocks: [
+        {
+          type: "callout",
+          tone: "note",
+          title: "Det finns inga dumma gissningar",
+          body: "Det här är svårt. Även för vuxna.",
+        },
+      ],
+    },
+    { etikett: "Exempel 1", blocks: [{ type: "lararfalt", id: "exempel-1", label: "Exempel 1" }] },
+    { etikett: "Varför tror du det?", blocks: [{ type: "h", text: "Prata med kompisen" }] },
+    { etikett: "Exempel 2", blocks: [{ type: "lararfalt", id: "exempel-2", label: "Exempel 2" }] },
+    { etikett: "Exempel 3", blocks: [{ type: "lararfalt", id: "exempel-3", label: "Exempel 3" }] },
+    { etikett: "Exempel 4", blocks: [{ type: "lararfalt", id: "exempel-4", label: "Exempel 4" }] },
+    {
+      etikett: "Exempel 5",
+      blocks: [{ type: "lararfalt", id: "exempel-5", label: "Exempel 5", valfri: true }],
+    },
+    {
+      etikett: "Exempel 6",
+      blocks: [{ type: "lararfalt", id: "exempel-6", label: "Exempel 6", valfri: true }],
+    },
+    {
+      etikett: "Meningen vi tar med oss",
+      blocks: [{ type: "h", text: "Datorer härmar. Människor menar." }],
+    },
+    {
+      etikett: "Nu ritar vi",
+      blocks: [
+        {
+          type: "list",
+          items: [
+            "Vik papperet på mitten",
+            "En sak en dator KAN göra",
+            "En sak BARA människor kan",
+          ],
+        },
+      ],
     },
   ],
 

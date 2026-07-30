@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Caveat, Patrick_Hand, Inter } from "next/font/google";
+import { Caveat, Patrick_Hand, Nunito_Sans } from "next/font/google";
 import { PlaylistProvider } from "@/components/workshops/kallkritik/PlaylistProvider";
 import { BankPlaylistDock } from "@/components/ovningsbanken/BankPlaylistDock";
 // Banken återanvänder källkritik-workshopens renderare (BlockRenderer,
@@ -19,7 +19,10 @@ const patrick = Patrick_Hand({
   display: "swap",
 });
 
-const inter = Inter({
+// Humanistisk sans som parar med Caveat — delar kalligrafisk härkomst och
+// rundade proportioner, där Inter var en neo-grotesk utan släktskap.
+// Systerfamilj till Nunito som sajtens root-layout redan laddar.
+const nunitoSans = Nunito_Sans({
   subsets: ["latin"],
   variable: "--font-workshop-body",
   display: "swap",
@@ -38,7 +41,7 @@ export default function OvningsbankenLayout({
 }) {
   return (
     <div
-      className={`${caveat.variable} ${patrick.variable} ${inter.variable} workshop-root`}
+      className={`${caveat.variable} ${patrick.variable} ${nunitoSans.variable} workshop-root`}
     >
       <PlaylistProvider
         storageKey="ovningsbanken-playlist-v1"

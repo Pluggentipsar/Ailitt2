@@ -79,6 +79,40 @@ export const ovning: BankOvning = {
         "Bestäm policyformatet i förväg och håll det hårt: max EN sida, varje regel som konkret handling + motivering. Begränsningen är pedagogiken — en sida tvingar fram prioriteringar.",
       ],
     },
+    {
+      type: "lararfalt",
+      id: "mottagare",
+      label: "Mottagare och datum",
+      placeholder: "T.ex. Rektor Anna Lind, tisdag 14 okt kl 13.00",
+      hint: "Visas för klassen i klassrumsläget — att mottagaren har namn och tid är projektets motor.",
+      rader: 1,
+    },
+    {
+      type: "lararfalt",
+      id: "befintliga-regler",
+      label: "Vad gäller på vår skola i dag?",
+      placeholder:
+        "Skriv av eller sammanfatta befintliga regler. Finns inga — skriv det, det är också ett fynd.",
+      hint: "Projiceras i lektion 1 när klassen granskar nuläget.",
+      rader: 4,
+    },
+    {
+      type: "lararfalt",
+      id: "enkatlank",
+      label: "Länk till den anonyma enkäten",
+      placeholder: "https://forms.office.com/…  (eller: lappar i låda)",
+      hint: "Visas stor på skärmen så eleverna kan gå dit direkt.",
+      rader: 1,
+    },
+    {
+      type: "lararfalt",
+      id: "fordjupningsomraden",
+      label: "Gruppernas fördjupningsområden",
+      placeholder:
+        "Grupp 1: fusk och bedömning\nGrupp 2: integritet\nGrupp 3: tillgänglighet\nGrupp 4: miljö",
+      hint: "Projiceras i lektion 2 när grupperna ska fördelas.",
+      rader: 4,
+    },
     { type: "h", text: "Genomförande — lektionsindelning" },
     {
       type: "steps",
@@ -144,6 +178,140 @@ export const ovning: BankOvning = {
     {
       type: "p",
       text: "Gruppens tre punkter med belägg (efter lektion 2), klassens gemensamma policysida med regler och motiveringar (efter lektion 3), och presentationen för mottagaren (lektion 4). Efteråt skriver du kort själv: vilken regel var svårast att enas om — och var stod du?",
+    },
+  ],
+
+  // Författat klassrumsspår — det som faktiskt projiceras, stegat genom
+  // projektets fyra lektioner. Skiljer sig från elevinstruktionen: här ligger
+  // en slide per moment i den ordning läraren klickar fram dem, och lärarens
+  // egna ifyllningar (mottagare, enkätlänk, skolans regler) visas i storlek.
+  klassrum: [
+    {
+      etikett: "Projektet",
+      blocks: [
+        { type: "h", text: "Vem bestämmer om AI i skolan?" },
+        {
+          type: "p",
+          text: "Oftast: någon annan än de som använder den mest. Nu skriver ni förslaget.",
+        },
+      ],
+    },
+    {
+      etikett: "Ni skriver till",
+      blocks: [{ type: "lararfalt", id: "mottagare", label: "Mottagare" }],
+    },
+    {
+      etikett: "Lektion 1 · Först enkäten",
+      blocks: [
+        {
+          type: "p",
+          text: "Svara ärligt. Anonymt på riktigt — ingen kan se vem som svarat vad.",
+        },
+        { type: "lararfalt", id: "enkatlank", label: "Enkäten" },
+      ],
+    },
+    {
+      etikett: "Därför anonymt",
+      blocks: [
+        {
+          type: "callout",
+          tone: "info",
+          title: "Policyn måste bygga på hur det ÄR",
+          body: "Inte på hur det borde vara. Taktiska svar ger en policy som inte träffar något.",
+        },
+      ],
+    },
+    {
+      etikett: "Vad gäller i dag?",
+      blocks: [
+        {
+          type: "lararfalt",
+          id: "befintliga-regler",
+          label: "Skolans nuvarande regler",
+        },
+      ],
+    },
+    {
+      etikett: "Er uppgift nu",
+      blocks: [
+        {
+          type: "p",
+          text: "Lista 3–5 knäckfrågor som vår policy måste svara på.",
+        },
+      ],
+    },
+    {
+      etikett: "Lektion 2 · Grupperna",
+      blocks: [
+        {
+          type: "lararfalt",
+          id: "fordjupningsomraden",
+          label: "Fördjupningsområden",
+        },
+      ],
+    },
+    {
+      etikett: "Gruppens leverans",
+      blocks: [
+        {
+          type: "list",
+          items: [
+            "De tre viktigaste sakerna policyn måste säga om ert område",
+            "Belägg: vad säger enkäten? Vad säger en källa utanför klassrummet?",
+          ],
+        },
+      ],
+    },
+    {
+      etikett: "Lektion 3 · Formkravet",
+      blocks: [
+        { type: "h", text: "Max en sida" },
+        {
+          type: "list",
+          items: [
+            "Varje regel: konkret handling + motivering",
+            "”Använd AI ansvarsfullt” räknas inte — det är en floskel",
+            "Testfråga: skulle två elever tolka regeln likadant?",
+          ],
+        },
+      ],
+    },
+    {
+      etikett: "Lektion 3 · AI-remissen",
+      blocks: [
+        {
+          type: "quote",
+          text: "Här är vårt policyförslag. Vad har vi missat? Vilka situationer täcks inte? Var är vi otydliga eller orättvisa?",
+        },
+        {
+          type: "p",
+          text: "Ni bestämmer vad som tas in och vad som avvisas — med skäl.",
+        },
+      ],
+    },
+    {
+      etikett: "Frågan att ställa er",
+      blocks: [
+        {
+          type: "p",
+          text: "Vi använder AI för att granska våra egna AI-regler. Är det tillåtet enligt vår policy?",
+        },
+      ],
+    },
+    {
+      etikett: "Lektion 4 · Försvara den",
+      blocks: [
+        {
+          type: "p",
+          text: "Var beredda på varje regel: varför just den här gränsen? Vad bygger den på?",
+        },
+        {
+          type: "callout",
+          tone: "tip",
+          title: "Kräv något tillbaka",
+          body: "Vad händer med vårt förslag nu? Boka en uppföljning.",
+        },
+      ],
     },
   ],
 

@@ -83,6 +83,28 @@ export const ovning: BankOvning = {
         "Klargör spelregeln från start: alla nivåer är tillåtna hela veckan. Det finns ingen hemlig facit-nivå som ger pluspoäng.",
       ],
     },
+    {
+      type: "p",
+      text: "Klassrumsspåret är introt — fem minuter, en nivå per slide. Menyn ska sedan sitta på väggen hela veckan, så skriv gärna ut spåret som PDF och sätt upp nivåsliderna. Exempeluppgiften nedan är den viktigaste ifyllningen: samma uppgift på extra mild och extra het är vad som gör menyn begriplig.",
+    },
+    {
+      type: "lararfalt",
+      id: "exempeluppgift",
+      label: "Exempeluppgiften du visar menyn på",
+      placeholder: "T.ex. plugga inför NO-provet på fredag",
+      hint: "Projiceras när du jämför extra mild mot extra het på SAMMA uppgift. Utan ett konkret exempel blir menyn abstrakt.",
+      rader: 1,
+    },
+    {
+      type: "lararfalt",
+      id: "veckans-uppgifter",
+      label: "Veckans hemuppgifter",
+      placeholder:
+        "NO: läs kap 7 · Sv: läslogg · Ma: uppgift 12–20 · En: skriv ett brev",
+      hint: "Projiceras så eleverna ser vilka val veckan faktiskt erbjuder. Minst tre av olika karaktär.",
+      rader: 3,
+      valfri: true,
+    },
     { type: "h", text: "Genomförande" },
     {
       type: "steps",
@@ -164,6 +186,116 @@ export const ovning: BankOvning = {
     {
       type: "p",
       text: "Din logg med minst tre uppgifter — nivå och en mening varför per uppgift. Loggen är det du visar upp och pratar utifrån i parsamtalet efter veckan: när valde du för svagt? När valde du för starkt?",
+    },
+  ],
+
+  // Klassrumsspår = introt, fem minuter. En nivå per slide så menyn hinner
+  // landa, och samma uppgift visad på extra mild kontra extra het — det är
+  // jämförelsen som gör menyn begriplig. Skrivs spåret ut som PDF blir
+  // nivåsliderna affischen som ska sitta uppe hela veckan.
+  klassrum: [
+    {
+      blocks: [
+        { type: "h", text: "Den här veckan bestämmer du" },
+        { type: "p", text: "Hur mycket AI-hjälp varje hemuppgift tål." },
+      ],
+    },
+    {
+      etikett: "Som på en restaurang",
+      blocks: [{ type: "h", text: "Nando-menyn" }],
+    },
+    {
+      etikett: "Extra mild",
+      blocks: [
+        { type: "h", text: "AI:n sammanfattar, du läser" },
+        { type: "p", text: "Minst egen hetta. AI:n gör tankejobbet." },
+      ],
+    },
+    {
+      etikett: "Mild",
+      blocks: [
+        {
+          type: "h",
+          text: "Du förklarar först med egna ord — sen jämför AI:n",
+        },
+      ],
+    },
+    {
+      etikett: "Het",
+      blocks: [{ type: "h", text: "Du visar dina idéer. AI:n utmanar dem." }],
+    },
+    {
+      etikett: "Extra het",
+      blocks: [
+        { type: "h", text: "AI:n är kritisk expert och ger allt den har" },
+        { type: "p", text: "Du avgör själv vad som håller." },
+      ],
+    },
+    {
+      etikett: "Samma uppgift, två nivåer",
+      blocks: [{ type: "lararfalt", id: "exempeluppgift", label: "Uppgiften" }],
+    },
+    {
+      etikett: "Jämför",
+      blocks: [
+        {
+          type: "example",
+          label: "Extra mild kontra extra het",
+          user: "AI:n sammanfattar kapitlet. Du läser.",
+          ai: "AI:n förhör dig och attackerar dina förklaringar. Du avgör vad som stämmer.",
+          note: "Samma uppgift. Helt olika arbete.",
+        },
+      ],
+    },
+    {
+      etikett: "Tre regler",
+      blocks: [
+        {
+          type: "list",
+          ordered: true,
+          items: [
+            "Välj nivå INNAN du öppnar AI:n",
+            "Logga nivå + EN mening om varför",
+            "Testa minst två olika nivåer under veckan",
+          ],
+        },
+      ],
+    },
+    {
+      etikett: "Varför ordningen spelar roll",
+      blocks: [
+        {
+          type: "p",
+          text: "Väljer du efter att du sett AI:ns svar har bekvämligheten redan valt åt dig.",
+        },
+      ],
+    },
+    {
+      etikett: "På het och extra het",
+      blocks: [
+        { type: "p", text: "Måste du säga till. Hettan måste beställas." },
+        {
+          type: "quote",
+          text: "Var en kritisk expert. Jag avgör själv vad jag håller med om.",
+        },
+      ],
+    },
+    {
+      etikett: "Veckans uppgifter",
+      blocks: [
+        { type: "lararfalt", id: "veckans-uppgifter", label: "Uppgifterna", valfri: true },
+      ],
+    },
+    {
+      etikett: "Spelregeln",
+      blocks: [
+        {
+          type: "callout",
+          tone: "info",
+          title: "Alla nivåer är tillåtna hela veckan",
+          body: "Det finns ingen hemlig facit-nivå som ger pluspoäng. Loggen betygsätts inte — ärligt slår fint.",
+        },
+      ],
     },
   ],
 

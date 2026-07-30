@@ -77,6 +77,31 @@ export const ovning: BankOvning = {
         "Bestäm hur modellen isoleras medan klassen får regeln: gå ut i korridoren en halv minut, eller hörlurar på.",
       ],
     },
+    {
+      type: "lararfalt",
+      id: "hemlig-regel",
+      label: "Din hemliga regel",
+      placeholder: "T.ex. belöna bara svar som innehåller ett djur",
+      hint: "Visas INTE i klassrumsläget — regeln skulle läcka till modellen på projektorn. Den finns här så du har den i handen medan du leder leken.",
+      rader: 2,
+    },
+    {
+      type: "lararfalt",
+      id: "regel-tva",
+      label: "Regel till runda två (valfritt)",
+      placeholder: "T.ex. belöna bara svar som börjar med ”jag”",
+      rader: 2,
+      valfri: true,
+    },
+    {
+      type: "lararfalt",
+      id: "fragelista",
+      label: "Frågorna klassen väljer ur",
+      placeholder:
+        "Vad ska vi äta till middag?\nVad är det bästa med helgen?\nVilken superkraft vore bäst?\nVad gör du helst på rasten?",
+      hint: "Projiceras under rundan så du slipper skriva dem på tavlan. En fråga per rad.",
+      rader: 5,
+    },
     { type: "h", text: "Genomförande" },
     {
       type: "steps",
@@ -149,6 +174,113 @@ export const ovning: BankOvning = {
     {
       type: "p",
       text: "Skriv tre meningar: 1) Vad lärde sig modellen? 2) HUR lärde den sig det — utan att någon sa regeln? 3) Riktiga AI-modeller tränas på samma sätt av miljontals användares tummar — vad kan de lära sig då som kanske inte är bra?",
+    },
+  ],
+
+  // Klassrumsspår. Två saker skiljer det från elevinstruktionen: modellen är
+  // i rummet och läser skärmen, så den hemliga regeln får ALDRIG projiceras —
+  // den ligger bara i lärarhandledningen. Och avslöjandet är en egen sekvens
+  // som stegas fram efter leken, inte något eleverna läser i förväg.
+  klassrum: [
+    {
+      blocks: [
+        { type: "h", text: "Idag tränar vi en AI" },
+        { type: "p", text: "AI:n är en av er." },
+      ],
+    },
+    {
+      etikett: "Rollerna",
+      blocks: [
+        {
+          type: "list",
+          items: [
+            "En frivillig blir MODELLEN",
+            "Alla andra blir BELÖNINGSSIGNALEN",
+          ],
+        },
+      ],
+    },
+    {
+      etikett: "Två regler för klassen",
+      blocks: [
+        {
+          type: "list",
+          ordered: true,
+          items: [
+            "Tumme upp eller ner efter VARJE svar — strikt enligt regeln ni fått",
+            "Pokeransikte. Ingen säger, viskar eller mimar regeln.",
+          ],
+        },
+      ],
+    },
+    {
+      etikett: "Modellen",
+      blocks: [
+        { type: "p", text: "Svara hur du vill. Testa något och se vad som händer." },
+      ],
+    },
+    {
+      etikett: "Frågor att välja ur",
+      blocks: [{ type: "lararfalt", id: "fragelista", label: "Frågorna" }],
+    },
+    {
+      etikett: "Titta noga",
+      blocks: [
+        {
+          type: "p",
+          text: "Vad händer med svaren efter fem, sex frågor?",
+        },
+      ],
+    },
+    {
+      etikett: "Stopp",
+      blocks: [{ type: "h", text: "Modellen får gissa regeln" }],
+    },
+    {
+      etikett: "Frågan till modellen",
+      blocks: [
+        {
+          type: "p",
+          text: "Visste du VARFÖR du fick tummar — eller bara att du fick dem?",
+        },
+      ],
+    },
+    {
+      etikett: "Så tränas riktig AI",
+      blocks: [
+        {
+          type: "p",
+          text: "Exakt så här. Fast med miljontals tummar från miljontals användare.",
+        },
+      ],
+    },
+    {
+      etikett: "Poängen",
+      blocks: [
+        {
+          type: "callout",
+          tone: "info",
+          title: "Modellen förstår inte reglerna",
+          body: "Den känner vad som funkar.",
+        },
+      ],
+    },
+    {
+      etikett: "Och vad ger användare tumme upp till?",
+      blocks: [
+        {
+          type: "list",
+          items: [
+            "Svar som håller med dem",
+            "Svar som smickrar dem",
+            "Svar som låter säkra",
+          ],
+        },
+      ],
+    },
+    {
+      etikett: "Därför",
+      blocks: [{ type: "h", text: "Därför blir AI inställsam" }],
     },
   ],
 

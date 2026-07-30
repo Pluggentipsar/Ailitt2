@@ -78,6 +78,27 @@ export const ovning: BankOvning = {
         "Repetera trygghetsregeln för dig själv: kategorier på tavlan, aldrig innehåll — och ingen skärm vänds mot någon annan.",
       ],
     },
+    {
+      type: "p",
+      text: "Klassrumsspåret är kort och medvetet magert — kärnan i den här övningen är enskild och privat, och skärmen ska inte konkurrera med den. Det den gör är att hålla trygghetsregeln uppe i rummet under hela lektionen och lotsa till inställningarna. Kategoriorden ligger inbyggda, så tavlan behövs inte.",
+    },
+    {
+      type: "lararfalt",
+      id: "tjansterna",
+      label: "Tjänster klassen använder",
+      placeholder: "ChatGPT · Snap AI · Copilot",
+      hint: "Ta reda på det med en handuppräckning dagen innan. Projiceras när eleverna ska hitta sin historik.",
+      rader: 2,
+    },
+    {
+      type: "lararfalt",
+      id: "vagen-till-inställningar",
+      label: "Vägen till minnesinställningarna",
+      placeholder:
+        "ChatGPT: Inställningar → Anpassning → Minne\nSnap AI: tryck på My AI → kugghjul → Rensa data",
+      hint: "Projiceras vid lotsningen. En rad per tjänst — det är den mest praktiska minuten i lektionen.",
+      rader: 4,
+    },
     { type: "h", text: "Genomförande" },
     {
       type: "steps",
@@ -149,6 +170,126 @@ export const ovning: BankOvning = {
     {
       type: "p",
       text: "Lämna in dina TRE delningsregler — kategorilistan behåller du själv. Skriv också en mening som börjar: ”En sak som förvånade mig var …” — utan att avslöja något innehåll ur dina chattar.",
+    },
+  ],
+
+  // Klassrumsspår, medvetet magert. Övningens kärna är enskild och privat —
+  // skärmen ska inte konkurrera med den. Det den gör: håller trygghetsregeln
+  // uppe under hela lektionen, ger kategoriorden så ingen behöver formulera
+  // något avslöjande själv, och lotsar till inställningarna.
+  klassrum: [
+    {
+      etikett: "Innan någon öppnar en skärm",
+      blocks: [{ type: "h", text: "Det ni ska titta på är ert" }],
+    },
+    {
+      etikett: "Regeln",
+      blocks: [
+        {
+          type: "list",
+          items: [
+            "Ingen visar",
+            "Ingen läser upp",
+            "Ingen fotar",
+          ],
+        },
+      ],
+    },
+    {
+      etikett: "Det enda vi delar",
+      blocks: [
+        { type: "h", text: "Kategorier" },
+        { type: "p", text: "Sorter av saker. Aldrig vad som faktiskt står." },
+      ],
+    },
+    {
+      etikett: "Varför vi gör det här",
+      blocks: [
+        {
+          type: "p",
+          text: "Er chatt har ett minne. I dag tar ni reda på vad som ligger i det.",
+        },
+      ],
+    },
+    {
+      etikett: "Er historik finns här",
+      blocks: [{ type: "lararfalt", id: "tjansterna", label: "Tjänsterna" }],
+    },
+    {
+      etikett: "Kategorierna",
+      blocks: [
+        {
+          type: "list",
+          items: [
+            "skola",
+            "hälsa",
+            "känslor",
+            "familj",
+            "kompisar",
+            "plats",
+            "ekonomi",
+            "framtidsplaner",
+          ],
+        },
+      ],
+    },
+    {
+      etikett: "Enskilt och tyst",
+      blocks: [
+        {
+          type: "p",
+          text: "Skrolla bakåt. Skriv din kategorilista på papper. Den är din — den lämnas inte in.",
+        },
+      ],
+    },
+    {
+      etikett: "Tre platser i appen",
+      blocks: [
+        {
+          type: "list",
+          ordered: true,
+          items: [
+            "Minnesfunktionen — vad har den sparat om mig?",
+            "Radera-knappen — enskilda minnen och konversationer",
+            "Stäng av-läget",
+          ],
+        },
+      ],
+    },
+    {
+      etikett: "Så hittar ni dem",
+      blocks: [
+        { type: "lararfalt", id: "vagen-till-inställningar", label: "Vägen dit" },
+      ],
+    },
+    {
+      etikett: "Ingen måste radera något",
+      blocks: [
+        { type: "h", text: "Målet är att veta var knapparna sitter" },
+      ],
+    },
+    {
+      etikett: "Det här lämnar du in",
+      blocks: [
+        {
+          type: "list",
+          ordered: true,
+          items: [
+            "Något jag fortsätter dela",
+            "Något jag slutar dela",
+            "Vad som avgör skillnaden",
+          ],
+        },
+      ],
+    },
+    {
+      etikett: "Poängen",
+      blocks: [
+        {
+          type: "p",
+          text: "Det AI:n vet om dig formar vad den säger till dig. Nu vet du vad den vet — och var knapparna sitter.",
+        },
+      ],
     },
   ],
 

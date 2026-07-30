@@ -79,6 +79,28 @@ export const ovning: BankOvning = {
         "Kolla att eleverna kan öppna flera separata chattar i skolans AI-verktyg — och att de vet skillnaden mellan ny chatt och nytt meddelande.",
       ],
     },
+    {
+      type: "p",
+      text: "Skriv in ämnet nedan. Observera att klassrumsspåret INTE visar något exempel på en bra prompt — leden avslöjas ett i taget, för ett exempel i förväg gör att grupperna kopierar i stället för att tänka. Ditt eget utfall ligger i ett fält som visas allra sist, efter att grupperna landat sina upptäckter.",
+    },
+    {
+      type: "lararfalt",
+      id: "amnet",
+      label: "Gemensamt ämne",
+      placeholder: "T.ex. industriella revolutionen — en text till en niondeklassare",
+      hint: "Samma ämne för alla grupper gör jämförelsen mellan grupper intressant också. Projiceras vid inramningen.",
+      rader: 2,
+    },
+    {
+      type: "lararfalt",
+      id: "myt-utfall",
+      label: "Ditt myt-test: vad gav rollpåklistringen?",
+      placeholder:
+        "Led 2 + ”du är världens främsta historiker” gav samma innehåll, bara mer självsäker ton.",
+      hint: "Projiceras i avslutet när du punkterar rollmyten. Ditt eget utfall är mer övertygande än ett påstående.",
+      rader: 3,
+      valfri: true,
+    },
     { type: "h", text: "Genomförande" },
     {
       type: "steps",
@@ -175,6 +197,125 @@ export const ovning: BankOvning = {
         "Alla tre prompterna (led 1, 2 och 3).",
         "De tre svaren (kopiera eller skärmdumpa).",
         "Tre meningar: största skillnaden mellan svar 1 och svar 3 — och vilken del av er prompt ni tror gjorde jobbet.",
+      ],
+    },
+  ],
+
+  // Klassrumsspår. Leden avslöjas ett i taget — hela övningen faller om
+  // grupperna ser vad led 2 och 3 innehåller innan de skrivit led 1. Därför
+  // kan elevinstruktionen inte projiceras: den listar alla tre på en gång.
+  klassrum: [
+    {
+      blocks: [
+        { type: "h", text: "Tre led. Ett uppdrag." },
+        { type: "p", text: "Göra samma prompt bättre, steg för steg." },
+      ],
+    },
+    {
+      etikett: "Ämnet",
+      blocks: [{ type: "lararfalt", id: "amnet", label: "Ämnet" }],
+    },
+    {
+      etikett: "Rollerna i gruppen",
+      blocks: [
+        {
+          type: "p",
+          text: "Tre personer. En äger varje led. Ni får inte se nästa led förrän ert är klart.",
+        },
+      ],
+    },
+    {
+      etikett: "Led 1",
+      blocks: [
+        { type: "h", text: "Kortast möjliga prompt" },
+        { type: "p", text: "Max en mening. Det ska kännas nästan fånigt." },
+      ],
+    },
+    {
+      etikett: "Led 2",
+      blocks: [
+        { type: "h", text: "Lägg till kontext" },
+        {
+          type: "list",
+          items: ["Vem vi är", "Vad målet är", "Vem mottagaren är"],
+        },
+      ],
+    },
+    {
+      etikett: "Frågan jag kommer ställa",
+      blocks: [
+        {
+          type: "quote",
+          text: "Vet AI:n det här — eller antar ni att den vet?",
+        },
+      ],
+    },
+    {
+      etikett: "Led 3",
+      blocks: [
+        { type: "h", text: "Roll, format, begränsning" },
+        {
+          type: "list",
+          items: [
+            "En roll för AI:n",
+            "Ett format på svaret",
+            "Minst en begränsning — längd, ordval, vad som INTE ska vara med",
+          ],
+        },
+      ],
+    },
+    {
+      etikett: "Nu kör ni alla tre",
+      blocks: [
+        {
+          type: "callout",
+          tone: "warning",
+          title: "Ny chatt per prompt",
+          body: "AI:n har inget minne mellan chattar. Samma chatt = kontexten smittar och jämförelsen blir ogiltig.",
+        },
+      ],
+    },
+    {
+      etikett: "Jämför i gruppen",
+      blocks: [
+        {
+          type: "list",
+          items: [
+            "Vilket led gjorde störst skillnad?",
+            "Vilken MENING i prompten gjorde jobbet?",
+          ],
+        },
+      ],
+    },
+    {
+      etikett: "Principen",
+      blocks: [
+        { type: "h", text: "AI:n vaknar nollställd" },
+        { type: "p", text: "Den vet bara det du berättar." },
+      ],
+    },
+    {
+      etikett: "Och en myt att punktera",
+      blocks: [
+        {
+          type: "p",
+          text: "Många tror att rollen i led 3 var magin. Jämför led 1 och led 2 igen — där hände innehållslyftet, och det var ren kontext.",
+        },
+      ],
+    },
+    {
+      etikett: "Mitt eget test",
+      blocks: [
+        { type: "lararfalt", id: "myt-utfall", label: "Myt-testet", valfri: true },
+      ],
+    },
+    {
+      etikett: "Slutsatsen",
+      blocks: [
+        {
+          type: "p",
+          text: "Kontext lyfter innehållet. Roll och format lyfter tonen. Båda är värda något — men de gör olika jobb.",
+        },
       ],
     },
   ],

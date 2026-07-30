@@ -152,6 +152,48 @@ export const flodet: Activity[] = [
           "Kontrollera att klippen kan visas på skolnätet i förväg.",
         ],
       },
+      {
+        type: "p",
+        text: "Skriv in klippen nedan så projiceras de ett i taget i klassrumsläget — då slipper du hålla ordning på fem flikar samtidigt som du leder omröstningen. Sliden visar vilket klipp som är uppe; själva klippet spelar du som förut. Avslöjandet ligger sist i sekvensen och kommer inte fram förrän du klickar dit.",
+      },
+      {
+        type: "lararfalt",
+        id: "klipp-1",
+        label: "Klipp 1",
+        placeholder: "Kort beskrivning eller länk — t.ex. ”Dansande hund, TikTok-stil”",
+        hint: "Åldersanpassat. Inga kända personer, inget obehagligt.",
+        rader: 1,
+      },
+      {
+        type: "lararfalt",
+        id: "klipp-2",
+        label: "Klipp 2",
+        placeholder: "",
+        rader: 1,
+      },
+      {
+        type: "lararfalt",
+        id: "klipp-3",
+        label: "Klipp 3",
+        placeholder: "",
+        rader: 1,
+      },
+      {
+        type: "lararfalt",
+        id: "klipp-4",
+        label: "Klipp 4 (valfritt)",
+        placeholder: "Lämna tomt om du kör tre klipp",
+        rader: 1,
+        valfri: true,
+      },
+      {
+        type: "lararfalt",
+        id: "klipp-5",
+        label: "Klipp 5 (valfritt)",
+        placeholder: "Lämna tomt om du kör tre klipp",
+        rader: 1,
+        valfri: true,
+      },
       { type: "h", text: "Så här kör du" },
       {
         type: "steps",
@@ -195,6 +237,89 @@ export const flodet: Activity[] = [
           "Hur kan vi tänka när något vi ser i mobilen kan vara AI?",
           "Vad gör vi när vi inte är säkra på en bild eller film?",
           "Vem skulle tjäna på att vi inte vet?",
+        ],
+      },
+    ],
+
+    // Klassrumsspår. Avslöjandet — att ALLA klipp var AI — är hela övningen,
+    // och det får inte stå någonstans innan omröstningen är klar.
+    // Elevinstruktionen kan inte bära projektionen av det skälet.
+    klassrum: [
+      {
+        blocks: [
+          { type: "h", text: "AI eller riktig?" },
+          { type: "p", text: "Använd magkänslan. Sen ska vi prata om den." },
+        ],
+      },
+      {
+        etikett: "Så röstar vi",
+        blocks: [
+          {
+            type: "list",
+            items: ["AI", "RIKTIG"],
+          },
+        ],
+      },
+      { etikett: "Klipp 1", blocks: [{ type: "lararfalt", id: "klipp-1", label: "Klipp 1" }] },
+      {
+        etikett: "Vad såg du?",
+        blocks: [
+          {
+            type: "p",
+            text: "Ögonen? Händerna? Ljuset? Rörelsen? Ljudet?",
+          },
+        ],
+      },
+      { etikett: "Klipp 2", blocks: [{ type: "lararfalt", id: "klipp-2", label: "Klipp 2" }] },
+      { etikett: "Klipp 3", blocks: [{ type: "lararfalt", id: "klipp-3", label: "Klipp 3" }] },
+      {
+        etikett: "Klipp 4",
+        blocks: [{ type: "lararfalt", id: "klipp-4", label: "Klipp 4", valfri: true }],
+      },
+      {
+        etikett: "Klipp 5",
+        blocks: [{ type: "lararfalt", id: "klipp-5", label: "Klipp 5", valfri: true }],
+      },
+      {
+        etikett: "Räkna ihop",
+        blocks: [{ type: "h", text: "Hur många fick du rätt?" }],
+      },
+      {
+        etikett: "Avslöjandet",
+        blocks: [{ type: "h", text: "Alla var AI" }],
+      },
+      {
+        etikett: "Vad betyder det?",
+        blocks: [
+          {
+            type: "p",
+            text: "Din magkänsla för ”det här är riktigt” fungerar inte längre.",
+          },
+        ],
+      },
+      {
+        etikett: "Men",
+        blocks: [
+          {
+            type: "callout",
+            tone: "info",
+            title: "Det är inte att du är dum",
+            body: "Tekniken är byggd för att träffa precis de signaler vi använder för att bedöma äkthet.",
+          },
+        ],
+      },
+      {
+        etikett: "Frågan som återstår",
+        blocks: [
+          { type: "h", text: "Vad gör vi när vi inte vet?" },
+          {
+            type: "list",
+            items: [
+              "Frågar någon",
+              "Söker källan",
+              "Väntar med att dela",
+            ],
+          },
         ],
       },
     ],

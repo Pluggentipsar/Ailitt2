@@ -74,6 +74,29 @@ export const ovning: BankOvning = {
         "Dela in i grupper om 3–4. Blandade grupper ger bättre kartor — eleverna som använder AI mest och minst ser olika saker.",
       ],
     },
+    {
+      type: "p",
+      text: "Klistra in uppgiften nedan. Den projiceras som en egen slide — hela övningen hänger på att alla har SAMMA uppgift framför sig, och att den är en riktig uppgift eleverna faktiskt ska göra. Din egen nedbrytning ligger i ett fält som visas först vid jämförelsen.",
+    },
+    {
+      type: "lararfalt",
+      id: "uppgiften",
+      label: "Uppgiften ni bryter ner",
+      placeholder:
+        "Klistra in uppgiftsformuleringen som eleverna faktiskt fått — inklusive deadline.",
+      hint: "Projiceras i inramningen. En riktig, aktuell uppgift är skillnaden mellan ett tankeexperiment och ett beslut som gäller dem.",
+      rader: 6,
+    },
+    {
+      type: "lararfalt",
+      id: "min-nedbrytning",
+      label: "Din egen nedbrytning — visas vid jämförelsen",
+      placeholder:
+        "Förstå frågan: AI med villkor\nSamla stoff: AI\nDisponera: inte AI ← här bor lärandet\nSkriva utkast: inte AI\nBearbeta: AI med villkor\nKontrollera: AI",
+      hint: "Projiceras INTE förrän grupperna gjort sina kartor. Markera var du tror lärandet bor — det är den punkten du ska utmanas på.",
+      rader: 7,
+      valfri: true,
+    },
     { type: "h", text: "Genomförande" },
     {
       type: "steps",
@@ -140,6 +163,109 @@ export const ovning: BankOvning = {
     {
       type: "p",
       text: "Er karta med alla delsteg, beslut och motiveringar — plus en mening om vilket steg ni ringat in som uppgiftens kärna och en mening om den största skillnaden mot gruppen ni jämförde med.",
+    },
+  ],
+
+  // Klassrumsspår. Uppgiften måste projiceras — allt hänger på att grupperna
+  // bryter ner SAMMA uppgift. Lärarens egen nedbrytning kommer efter
+  // jämförelsen, av samma skäl som i trafikljuset: den ska utmanas, inte styra.
+  klassrum: [
+    {
+      blocks: [
+        { type: "h", text: "Var hör AI hemma i den här uppgiften?" },
+        {
+          type: "p",
+          text: "Inte ett ja eller nej. Steg för steg.",
+        },
+      ],
+    },
+    {
+      etikett: "Beslutet är uppgiftens",
+      blocks: [
+        {
+          type: "callout",
+          tone: "info",
+          title: "Inte terminens",
+          body: "Vi bestämmer inte om AI är tillåtet i kursen. Vi bestämmer var i DEN HÄR uppgiften den hör hemma.",
+        },
+      ],
+    },
+    {
+      etikett: "Uppgiften",
+      blocks: [{ type: "lararfalt", id: "uppgiften", label: "Uppgiften" }],
+    },
+    {
+      etikett: "Bryt ner i 5–6 delsteg",
+      blocks: [
+        {
+          type: "list",
+          ordered: true,
+          items: [
+            "Förstå frågan",
+            "Samla stoff",
+            "Disponera",
+            "Skriva utkast",
+            "Bearbeta",
+            "Kontrollera",
+          ],
+        },
+      ],
+    },
+    {
+      etikett: "Justera stegen",
+      blocks: [
+        { type: "p", text: "Kedjan ovan är ett startförslag. Ändra så den passar er uppgift." },
+      ],
+    },
+    {
+      etikett: "Tre etiketter per steg",
+      blocks: [
+        {
+          type: "list",
+          items: ["HÄR ANVÄNDS AI", "HÄR INTE", "HÄR MED VILLKOR"],
+        },
+      ],
+    },
+    {
+      etikett: "Motiveringen är tänkandet",
+      blocks: [
+        {
+          type: "example",
+          label: "En mening per beslut",
+          user: "”AI får ställa frågor om vårt utkast, men inte skriva om det”",
+          ai: "”För att det är lättare”",
+          note: "Motiveringen ska handla om vad ni lär er, inte om vad som är bekvämt.",
+        },
+      ],
+    },
+    {
+      etikett: "Ringa in ett steg",
+      blocks: [
+        { type: "h", text: "Var bor lärandet i den här uppgiften?" },
+        { type: "p", text: "Skriv en mening om varför just det steget." },
+      ],
+    },
+    {
+      etikett: "Jämför kartorna",
+      blocks: [
+        {
+          type: "p",
+          text: "Hitta minst ett steg där ni bestämt olika — och ta reda på varför.",
+        },
+      ],
+    },
+    {
+      etikett: "Min nedbrytning",
+      blocks: [
+        { type: "lararfalt", id: "min-nedbrytning", label: "Lärarens nedbrytning", valfri: true },
+      ],
+    },
+    {
+      etikett: "Tumregeln",
+      blocks: [
+        { type: "h", text: "Hjärnan ska äga de steg där lärandet bor" },
+        { type: "p", text: "Allt annat är förhandlingsbart." },
+      ],
     },
   ],
 

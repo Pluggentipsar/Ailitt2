@@ -59,8 +59,12 @@ export function WorkshopShell({
     return <>{children}</>;
   }
 
+  // Medvetet inget font-sans på wrappern nedan: den utilityn pekar på sajtens
+  // --font-inter och skulle skugga workshopens brödtextsnitt
+  // (--font-workshop-body) för allt innehåll under sig. Ärv från
+  // .workshop-root istället.
   return (
-    <div className="min-h-screen workshop-paper text-stone-900 font-sans">
+    <div className="min-h-screen workshop-paper text-stone-900">
       {/* Hashtape överst */}
       <div className="workshop-tape-bar" aria-hidden />
 

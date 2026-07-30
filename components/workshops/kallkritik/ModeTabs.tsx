@@ -4,6 +4,7 @@ import { useState } from "react";
 import type { Block } from "@/lib/workshops/kallkritik";
 import { BlockRenderer } from "./BlockRenderer";
 import { GraduationCap, School, FileText, Copy, Check } from "lucide-react";
+import { useLararfalt } from "@/hooks/useLararfalt";
 
 type Mode = "experience" | "guide" | "student";
 
@@ -29,10 +30,20 @@ const MODE_META: Record<Mode, { label: string; icon: typeof GraduationCap; descr
 };
 
 // Konverterar blocks till klistrings-vänlig plaintext för Teams/Vklass.
-function blocksToPlainText(blocks: Block[]): string {
+// `faltVarden` är lärarens egna ifyllningar — utan dem skulle kopian tappa
+// texten läraren själv skrivit in.
+function blocksToPlainText(
+  blocks: Block[],
+  faltVarden: Record<string, string> = {}
+): string {
   const lines: string[] = [];
   for (const block of blocks) {
     switch (block.type) {
+      case "lararfalt": {
+        const varde = (faltVarden[block.id] ?? "").trim();
+        if (varde) lines.push(`${block.label.toUpperCase()}:`, varde, "");
+        break;
+      }
       case "p":
         lines.push(block.text, "");
         break;
@@ -75,15 +86,18 @@ function blocksToPlainText(blocks: Block[]): string {
 function CopyAllButton({
   blocks,
   activityTitle,
+  faltScope,
 }: {
   blocks: Block[];
   activityTitle: string;
+  faltScope?: string;
 }) {
   const [copied, setCopied] = useState(false);
+  const { varden } = useLararfalt(faltScope ?? "__utan-scope");
 
   const copy = async () => {
     const header = `Elevinstruktion: ${activityTitle}\n${"=".repeat(40)}\n\n`;
-    const text = header + blocksToPlainText(blocks);
+    const text = header + blocksToPlainText(blocks, varden);
     try {
       await navigator.clipboard.writeText(text);
       setCopied(true);
@@ -118,11 +132,15 @@ export function ModeTabs({
   teacherGuide,
   studentInstructions,
   activityTitle,
+  faltScope,
 }: {
   workshopExperience?: Block[];
   teacherGuide?: Block[];
   studentInstructions?: Block[];
   activityTitle: string;
+  // Övningens id — gör lararfalt-block redigerbara. Utan den visas de som
+  // upplysning (källkritik-aktiviteterna har inga sådana block än).
+  faltScope?: string;
 }) {
   const available: Mode[] = [];
   if (workshopExperience) available.push("experience");
@@ -197,7 +215,7 @@ export function ModeTabs({
           <h2 className="font-display text-2xl text-stone-900 mb-3 print:!block hidden print:!visible">
             Lärarhandledning
           </h2>
-          <BlockRenderer blocks={teacherGuide} />
+          <BlockRenderer blocks={teacherGuide} faltScope={faltScope} />
         </div>
       )}
 
@@ -224,10 +242,15 @@ export function ModeTabs({
               <CopyAllButton
                 blocks={studentInstructions}
                 activityTitle={activityTitle}
+                faltScope={faltScope}
               />
             </div>
           </div>
-          <BlockRenderer blocks={studentInstructions} studentMode />
+          <BlockRenderer
+            blocks={studentInstructions}
+            studentMode
+            faltScope={faltScope}
+          />
         </div>
       )}
     </div>

@@ -75,6 +75,35 @@ export const ovning: BankOvning = {
         "Planera in uppföljningen NU: när uppgiften lämnas in ska bevisformerna genomföras. Utan det datumet i kalendern blir korten symboliska.",
       ],
     },
+    {
+      type: "p",
+      text: "Fyll i fälten nedan. Uppgiften och uppföljningsdatumet projiceras — det senare är inte pynt: utan datum på skärmen blir korten symboliska, precis som förberedelsen varnar för. Bevisformerna projiceras också, så du slipper skriva dem på tavlan.",
+    },
+    {
+      type: "lararfalt",
+      id: "uppgiften",
+      label: "Den kommande uppgiften",
+      placeholder: "Klistra in uppgiften eleverna faktiskt ska göra",
+      hint: "En påhittad uppgift dödar övningen. Projiceras i inramningen.",
+      rader: 5,
+    },
+    {
+      type: "lararfalt",
+      id: "bevisformer",
+      label: "Menyn av bevisformer",
+      placeholder:
+        "Muntligt miniförsvar, 90 sekunder\nSnabbskiss utan stöd\nFörklara för en kompis som antecknar",
+      hint: "Eleverna väljer form — men formen ska gå att genomföra på riktigt. En per rad.",
+      rader: 4,
+    },
+    {
+      type: "lararfalt",
+      id: "uppfoljning",
+      label: "När genomförs bevisformerna?",
+      placeholder: "Vid inlämning torsdag 21 nov — stationer, 15 min",
+      hint: "Projiceras vid utcheckningen. Det är datumet som gör kontraktet verkligt.",
+      rader: 1,
+    },
     { type: "h", text: "Genomförande" },
     {
       type: "steps",
@@ -152,6 +181,94 @@ export const ovning: BankOvning = {
     {
       type: "p",
       text: "När uppgiften lämnas in genomför du din bevisform vid varje kontrollpunkt — försvaret, skissen eller förklaringen. Lämna också in ditt kort med en rad tillagd: höll din gräns? Om inte — vad hände, och var sätter du punkten nästa gång?",
+    },
+  ],
+
+  // Klassrumsspår. Öppningsfrågan får en egen slide och ska stå kvar hela
+  // lektionen — den är övningens motor. Uppföljningsdatumet projiceras vid
+  // utcheckningen: utan det blir korten symboliska.
+  klassrum: [
+    {
+      blocks: [
+        { type: "h", text: "Jag bestämmer inte var ni inte får använda AI" },
+        { type: "p", text: "Det gör ni." },
+      ],
+    },
+    {
+      etikett: "Frågan som gäller hela lektionen",
+      blocks: [
+        {
+          type: "h",
+          text: "Vilket steg måste vara MITT för att jag ska kunna stå för resultatet?",
+        },
+      ],
+    },
+    {
+      etikett: "Och klara följdfrågor",
+      blocks: [{ type: "p", text: "Utan stöd." }],
+    },
+    {
+      etikett: "Uppgiften",
+      blocks: [{ type: "lararfalt", id: "uppgiften", label: "Uppgiften" }],
+    },
+    {
+      etikett: "Steg 1",
+      blocks: [{ type: "h", text: "Bryt uppgiften i 4–6 steg" }],
+    },
+    {
+      etikett: "Steg 2",
+      blocks: [
+        {
+          type: "p",
+          text: "Välj 1–2 steg som dina AI-fria kontrollpunkter.",
+        },
+      ],
+    },
+    {
+      etikett: "Kortet",
+      blocks: [
+        {
+          type: "list",
+          items: ["Vilket steg", "Därför", "Så visar jag det"],
+        },
+      ],
+    },
+    {
+      etikett: "Välj bevisform",
+      blocks: [{ type: "lararfalt", id: "bevisformer", label: "Bevisformer" }],
+    },
+    {
+      etikett: "Sen kvitterar jag",
+      blocks: [
+        {
+          type: "callout",
+          tone: "info",
+          title: "Godkänt kort = kontrakt mellan oss",
+          body: "Jag kommer utmana ditt val. Varför just det steget?",
+        },
+      ],
+    },
+    {
+      etikett: "I de andra stegen",
+      blocks: [
+        {
+          type: "p",
+          text: "Använder du AI som vi kommit överens om. Vid dina kontrollpunkter är det bara du.",
+        },
+      ],
+    },
+    {
+      etikett: "Bevisformerna genomförs",
+      blocks: [{ type: "lararfalt", id: "uppfoljning", label: "Uppföljning" }],
+    },
+    {
+      etikett: "Utcheckning",
+      blocks: [
+        {
+          type: "p",
+          text: "Säg ditt steg och ditt varför. En mening.",
+        },
+      ],
     },
   ],
 

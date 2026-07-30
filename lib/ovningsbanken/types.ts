@@ -11,9 +11,19 @@ import type {
   EvidenceAnchor,
   ExternalTool,
   AgeRange,
+  KlassrumSlide,
 } from "@/lib/workshops/kallkritik/types";
 
-export type { Block, DeepDive, EvidenceAnchor, ExternalTool, AgeRange };
+// KlassrumSlide definieras i källkritik-typerna eftersom Activity där också
+// behöver den. Banken återexporterar den — en definition, två konsumenter.
+export type {
+  Block,
+  DeepDive,
+  EvidenceAnchor,
+  ExternalTool,
+  AgeRange,
+  KlassrumSlide,
+};
 
 /** OECD:s fyra AILit-domäner (slutversion 2026) — bankens huvudtaxonomi. */
 export type OvningDoman = "mota" | "skapa" | "styra" | "forma";
@@ -75,6 +85,14 @@ export interface BankOvning {
   lararhandledning?: Block[];
   /** Läge 3 — du-form direkt till elev; kopieras till Teams/Vklass med en knapp. */
   elevinstruktion?: Block[];
+
+  /**
+   * Läge 4 (valfritt) — författade slides för projektorn. Sätts bara när
+   * projektionen behöver vara något annat än elevinstruktionen renderad som
+   * slides: en stegad sekvens med exempel, frågor och egna mellanslides.
+   * Saknas den faller storskärmen tillbaka på elevinstruktionen.
+   */
+  klassrum?: KlassrumSlide[];
 
   diskussion?: string[];
   fallgropar?: string[];

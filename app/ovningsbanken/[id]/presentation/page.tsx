@@ -34,12 +34,32 @@ export default async function OvningPresentationPage({
   const ovning = ovningarById[id];
   if (!ovning) notFound();
 
-  // Prova själv-blocken i första hand, annars elevinstruktionen.
+  // Storskärmen används framför allt av läraren som står i klassrummet och
+  // instruerar eleverna — därför ligger elevinstruktionen först och blir
+  // default. De andra två lägena finns kvar i växlaren: prova själv för
+  // workshop med kollegor, lärarhandledningen som stöd på skärmen.
   const modes: PresentationMode[] = [];
+  // Finns ett författat klassrumsspår har det företräde — det är gjort för
+  // just projektorn, med egna slidegränser och lärarens ifyllningar.
+  if (ovning.klassrum) {
+    modes.push({
+      label: "Klassrum",
+      slides: ovning.klassrum,
+      audience: "elev",
+    });
+  }
+  if (ovning.elevinstruktion) {
+    modes.push({
+      label: "Elevinstruktion",
+      blocks: ovning.elevinstruktion,
+      audience: "elev",
+    });
+  }
   if (ovning.provaSjalv) {
     modes.push({ label: "Prova själv", blocks: ovning.provaSjalv });
-  } else if (ovning.elevinstruktion) {
-    modes.push({ label: "Elevinstruktion", blocks: ovning.elevinstruktion });
+  }
+  if (ovning.lararhandledning) {
+    modes.push({ label: "Lärarhandledning", blocks: ovning.lararhandledning });
   }
 
   const forstaDoman = ovning.domaner[0];
@@ -58,6 +78,7 @@ export default async function OvningPresentationPage({
         blurb: ovning.blurb,
       }}
       modes={modes}
+      faltScope={ovning.id}
       finalCta={
         ovning.klassrumHref
           ? { label: "Öppna interaktivt läge", href: ovning.klassrumHref }

@@ -172,6 +172,28 @@ export const relationskritik: Activity[] = [
           "Tipsa elevhälsan i förväg om att övningen körs — om mönstret blir tungt kan de följa upp på rasten.",
         ],
       },
+      {
+        type: "p",
+        text: "Klassrumsläget har både frågeuppsättningarna inbyggda, en fråga per slide, och bokstavskoderna som egen slide — tavlan behövs inte. Vill du byta ut frågor mot sådana som ligger närmare din klass skriver du in dem nedan; de läggs till efter de inbyggda i respektive del.",
+      },
+      {
+        type: "lararfalt",
+        id: "egen-fraga-oppen",
+        label: "Egen öppen fråga (valfritt)",
+        placeholder: "En vardagssituation ur just din klass",
+        hint: "Läggs till sist i del A. Lämna tomt för att köra de fyra inbyggda.",
+        rader: 2,
+        valfri: true,
+      },
+      {
+        type: "lararfalt",
+        id: "egen-fraga-anonym",
+        label: "Egen anonym fråga (valfritt)",
+        placeholder: "En känsligare situation",
+        hint: "Läggs till sist i del B. Väg noga — en fråga som träffar en enskild elev hör inte hit.",
+        rader: 2,
+        valfri: true,
+      },
       { type: "h", text: "Så här kör du" },
       {
         type: "steps",
@@ -255,6 +277,145 @@ export const relationskritik: Activity[] = [
           "Vad kan en AI ge som en kompis inte alltid kan?",
           "Vad kan en kompis ge som AI aldrig kan?",
           "Vad händer om alla mina frågor börjar gå till samma ställe?",
+        ],
+      },
+    ],
+
+    // Klassrumsspår. En fråga per slide är hela mekaniken — eleverna ska
+    // svara på EN situation i taget, inte läsa en lista. Övergången mellan
+    // del A och del B får en egen slide: det är där anonymiteten etableras,
+    // och den måste sägas tydligt innan de känsligare frågorna kommer.
+    klassrum: [
+      {
+        blocks: [
+          { type: "h", text: "Vem skulle du fråga?" },
+          {
+            type: "p",
+            text: "Olika frågor passar olika personer — och olika verktyg.",
+          },
+        ],
+      },
+      {
+        etikett: "Svarskoderna",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "K = Kompis",
+              "V = Vuxen hemma",
+              "L = Lärare",
+              "E = Skolsköterska eller kurator",
+              "A = AI",
+              "I = Ingen",
+            ],
+          },
+        ],
+      },
+      {
+        etikett: "Del A · öppet i klassen",
+        blocks: [
+          {
+            type: "p",
+            text: "Jag läser en situation. Du visar ditt svar. Inga rätt eller fel.",
+          },
+        ],
+      },
+      { etikett: "Fråga 1", blocks: [{ type: "h", text: "Australiens huvudstad" }] },
+      { etikett: "Fråga 2", blocks: [{ type: "h", text: "Matteläxan" }] },
+      { etikett: "Fråga 3", blocks: [{ type: "h", text: "Fläck på tröjan" }] },
+      {
+        etikett: "Fråga 4",
+        blocks: [{ type: "h", text: "Komma igång med en argumenterande text" }],
+      },
+      {
+        etikett: "Fråga 5",
+        blocks: [
+          { type: "lararfalt", id: "egen-fraga-oppen", label: "Egen fråga", valfri: true },
+        ],
+      },
+      {
+        etikett: "Nu byter vi",
+        blocks: [
+          { type: "h", text: "Nu kommer frågor som är känsligare" },
+          {
+            type: "p",
+            text: "Ni svarar anonymt. Ingen ser vad just du valde.",
+          },
+        ],
+      },
+      {
+        etikett: "Del B · så gör ni",
+        blocks: [
+          {
+            type: "list",
+            ordered: true,
+            items: [
+              "Du får en lapp",
+              "Skriv BARA en bokstav — K, V, L, E, A eller I",
+              "Inget namn",
+              "Vik lappen, lämna in",
+            ],
+          },
+        ],
+      },
+      {
+        etikett: "Koderna igen",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "K = Kompis",
+              "V = Vuxen hemma",
+              "L = Lärare",
+              "E = Skolsköterska eller kurator",
+              "A = AI",
+              "I = Ingen",
+            ],
+          },
+        ],
+      },
+      { etikett: "Fråga 1", blocks: [{ type: "h", text: "Bråkat med bästa kompisen" }] },
+      { etikett: "Fråga 2", blocks: [{ type: "h", text: "Kan inte sova" }] },
+      { etikett: "Fråga 3", blocks: [{ type: "h", text: "Ska fatta ett svårt beslut" }] },
+      { etikett: "Fråga 4", blocks: [{ type: "h", text: "Känner mig ensam" }] },
+      {
+        etikett: "Fråga 5",
+        blocks: [
+          { type: "lararfalt", id: "egen-fraga-anonym", label: "Egen fråga", valfri: true },
+        ],
+      },
+      {
+        etikett: "Nu räknar vi",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "Vilka frågor vandrade till AI?",
+              "Vilka till ”ingen”?",
+            ],
+          },
+        ],
+      },
+      {
+        etikett: "De två frågorna",
+        blocks: [
+          {
+            type: "list",
+            ordered: true,
+            items: [
+              "Vad kan en AI ge som en kompis inte alltid kan?",
+              "Vad kan en kompis ge som AI aldrig kan?",
+            ],
+          },
+        ],
+      },
+      {
+        etikett: "Och den viktigaste",
+        blocks: [
+          {
+            type: "h",
+            text: "Vad händer om alla mina frågor börjar gå till samma ställe?",
+          },
         ],
       },
     ],

@@ -76,6 +76,35 @@ export const ovning: BankOvning = {
         "Välj ett område eleverna redan mött. Förhör funkar på det man börjat lära sig — inte på det man aldrig sett.",
       ],
     },
+    {
+      type: "p",
+      text: "Fyll i nedan. Förhörsprompten ligger redan ordagrant i klassrumsläget — den måste stå på skärmen eftersom raden ”ge mig aldrig svaret innan jag försökt själv” är skillnaden mellan förhör och föreläsning. Halvindelningen projiceras också: börjar alla i samma kanal mäter ni ordningen i stället för kanalerna.",
+    },
+    {
+      type: "lararfalt",
+      id: "omradet",
+      label: "Vilket område förhörs?",
+      placeholder: "T.ex. cellens delar · andra världskrigets orsaker · oregelbundna verb",
+      hint: "Ett område eleverna redan mött. Projiceras i inramningen.",
+      rader: 1,
+    },
+    {
+      type: "lararfalt",
+      id: "halvindelning",
+      label: "Vem börjar med vilken kanal?",
+      placeholder: "Börjar med RÖST: rad 1–3\nBörjar med TEXT: rad 4–6",
+      hint: "Projiceras vid start. Olika startkanal är nödvändigt — annars avgör ordningen jämförelsen.",
+      rader: 3,
+    },
+    {
+      type: "lararfalt",
+      id: "malsprak",
+      label: "Målspråk (bara språkämnen)",
+      placeholder: "spanska",
+      hint: "Fylls det i visas målspråksraden som ska läggas till i prompten. Lämna tomt i andra ämnen.",
+      rader: 1,
+      valfri: true,
+    },
     { type: "h", text: "Genomförande" },
     {
       type: "steps",
@@ -142,6 +171,101 @@ export const ovning: BankOvning = {
     {
       type: "p",
       text: "Lämna in din kanalregel plus två saker till: en fråga du klarade i båda kanalerna, och en lucka du hittade — och vilken kanal som hittade den.",
+    },
+  ],
+
+  // Klassrumsspår. Prompten ordagrant på skärmen, för hela skillnaden mellan
+  // förhör och föreläsning sitter i sista raden. Halvindelningen projiceras
+  // också — det är det logistiska momentet som annars äter minuter.
+  klassrum: [
+    {
+      blocks: [
+        { type: "h", text: "Att plocka fram ur minnet ÄR inlärningen" },
+        { type: "p", text: "Förhör är plugg, inte prov." },
+      ],
+    },
+    {
+      etikett: "Området",
+      blocks: [{ type: "lararfalt", id: "omradet", label: "Området" }],
+    },
+    {
+      etikett: "Två kanaler, samma kunskap",
+      blocks: [
+        {
+          type: "list",
+          items: ["Röst — du pratar dina svar", "Text — du skriver dina svar"],
+        },
+      ],
+    },
+    {
+      etikett: "Vem börjar var",
+      blocks: [
+        { type: "lararfalt", id: "halvindelning", label: "Halvindelning" },
+      ],
+    },
+    {
+      etikett: "Förhörsprompten",
+      blocks: [
+        {
+          type: "quote",
+          text: "Förhör mig på [område]. En fråga i taget, vänta på mitt svar, säg om jag har rätt och ställ en följdfråga som går djupare. Ge mig aldrig svaret innan jag försökt själv.",
+        },
+      ],
+    },
+    {
+      etikett: "Lägg till om ni läser språk",
+      blocks: [
+        { type: "lararfalt", id: "malsprak", label: "Målspråk", valfri: true },
+        {
+          type: "quote",
+          text: "Håll hela samtalet på [språket]. Rätta mina fel vänligt efteråt, inte mitt i.",
+        },
+      ],
+    },
+    {
+      etikett: "En regel",
+      blocks: [
+        {
+          type: "callout",
+          tone: "warning",
+          title: "Inga anteckningar framme",
+          body: "I någon av kanalerna. Det är hela poängen med att plocka fram ur minnet.",
+        },
+      ],
+    },
+    {
+      etikett: "Byt kanal",
+      blocks: [
+        {
+          type: "p",
+          text: "Samma område igen. Det känns som repetition — det är det, och andra varvet avslöjar vad första varvet faktiskt satte.",
+        },
+      ],
+    },
+    {
+      etikett: "Din kanalregel",
+      blocks: [{ type: "h", text: "Jag väljer röst när … och text när …" }],
+    },
+    {
+      etikett: "Ingen kanal vinner",
+      blocks: [
+        {
+          type: "list",
+          items: [
+            "Text vinner vid översikt, stavning, formler, tid att tänka",
+            "Röst vinner vid uttal, flyt, tänka högt — och när skärmtröttheten slagit till",
+          ],
+        },
+      ],
+    },
+    {
+      etikett: "Landa",
+      blocks: [
+        {
+          type: "p",
+          text: "Kanalvalet är ditt. Men det ska vara ett val, inte en slump.",
+        },
+      ],
     },
   ],
 

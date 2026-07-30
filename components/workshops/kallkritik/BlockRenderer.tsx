@@ -12,7 +12,9 @@ import {
   Check,
   Maximize2,
   X,
+  PencilLine,
 } from "lucide-react";
+import { useLararfalt } from "@/hooks/useLararfalt";
 
 function SmallCopyButton({ text, label = "Kopiera" }: { text: string; label?: string }) {
   const [copied, setCopied] = useState(false);
@@ -61,16 +63,31 @@ const CALLOUT_LABELS = {
 export function BlockRenderer({
   blocks,
   studentMode = false,
+  faltScope,
 }: {
   blocks: Block[];
   // I student-mode visas små kopiera-knappar bredvid prompter (quote) och
   // example-block. Resten är samma rendering.
   studentMode?: boolean;
+  // Övningens id. Krävs för att lararfalt-block ska bli redigerbara — utan
+  // scope vet vi inte var värdet ska sparas, så fältet visas som en
+  // upplysning i stället för en textruta.
+  faltScope?: string;
 }) {
   return (
     <div className="workshop-prose">
       {blocks.map((block, i) => {
         switch (block.type) {
+          case "lararfalt":
+            return (
+              <LararfaltBlock
+                key={block.id}
+                block={block}
+                scope={faltScope}
+                studentMode={studentMode}
+              />
+            );
+
           case "p":
             return (
               <p
@@ -304,6 +321,94 @@ export function BlockRenderer({
             return null;
         }
       })}
+    </div>
+  );
+}
+
+/**
+ * Lärarens eget fält. Redigeras här i lärarhandledningen och visas sedan i
+ * klassrumsläget. Sparas direkt vid inskrivning — ingen spara-knapp, för att
+ * en lärare som stänger fliken mitt i förberedelsen inte ska tappa texten.
+ */
+function LararfaltBlock({
+  block,
+  scope,
+  studentMode,
+}: {
+  block: Extract<Block, { type: "lararfalt" }>;
+  scope?: string;
+  studentMode: boolean;
+}) {
+  // Kroken måste anropas villkorslöst, så scope faller tillbaka på en
+  // slasktratt när fältet inte är redigerbart.
+  const { varden, satt } = useLararfalt(scope ?? "__utan-scope");
+  const varde = varden[block.id] ?? "";
+  const rader = block.rader ?? 3;
+
+  // I elevinstruktionen ska lärarens förberedelsefält inte dyka upp som en
+  // tom textruta — visa bara det ifyllda värdet, eller ingenting.
+  if (studentMode) {
+    if (!varde.trim()) return null;
+    return (
+      <div className="my-4 rounded-xl border border-stone-200 bg-white/70 p-4">
+        <div className="mb-1 text-xs font-semibold uppercase tracking-wider text-stone-500">
+          {block.label}
+        </div>
+        <p className="whitespace-pre-line leading-relaxed text-stone-800">
+          {varde}
+        </p>
+      </div>
+    );
+  }
+
+  if (!scope) {
+    return (
+      <div className="my-4 rounded-xl border border-dashed border-stone-300 bg-white/50 p-4 text-sm text-stone-600">
+        <span className="font-semibold">{block.label}</span> — fylls i på
+        övningens egen sida.
+      </div>
+    );
+  }
+
+  return (
+    <div
+      className="my-5 rounded-xl border-2 border-workshop-senap/50 bg-white/70 p-4 print:border-stone-400"
+      style={{ borderStyle: varde.trim() ? "solid" : "dashed" }}
+    >
+      <label
+        htmlFor={`lararfalt-${block.id}`}
+        className="mb-1 flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-stone-600"
+      >
+        <PencilLine className="h-3.5 w-3.5" />
+        {block.label}
+      </label>
+      {block.hint && (
+        <p className="mb-2 !text-sm leading-snug text-stone-500">{block.hint}</p>
+      )}
+      {rader === 1 ? (
+        <input
+          id={`lararfalt-${block.id}`}
+          type="text"
+          value={varde}
+          onChange={(e) => satt(block.id, e.target.value)}
+          placeholder={block.placeholder}
+          className="w-full rounded-lg border border-stone-300 bg-white px-3 py-2 text-base text-stone-900 placeholder:text-stone-400 focus:border-stone-500 focus:outline-none"
+        />
+      ) : (
+        <textarea
+          id={`lararfalt-${block.id}`}
+          rows={rader}
+          value={varde}
+          onChange={(e) => satt(block.id, e.target.value)}
+          placeholder={block.placeholder}
+          className="w-full resize-y rounded-lg border border-stone-300 bg-white px-3 py-2 text-base leading-relaxed text-stone-900 placeholder:text-stone-400 focus:border-stone-500 focus:outline-none"
+        />
+      )}
+      <p className="mt-1.5 !mb-0 !text-xs text-stone-500">
+        {varde.trim()
+          ? "Sparat i den här webbläsaren — visas i klassrumsläget."
+          : "Fyll i före lektionen. Visas i klassrumsläget."}
+      </p>
     </div>
   );
 }

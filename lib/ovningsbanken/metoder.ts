@@ -5,7 +5,7 @@
 // Metodsidornas interaktiva klassrumslägen nås via klassrumHref.
 
 import { METODER, type Metod } from "@/lib/eleverna-om-ai/data";
-import type { BankOvning, Block } from "./types";
+import type { BankOvning, Block, KlassrumSlide } from "./types";
 
 // Uppskattad tid i minuter för filter/sortering — ur metodens tid-sträng.
 // Intervall ("30–40 min") avrundas uppåt, precis som källkritik-övningarna gör.
@@ -304,6 +304,295 @@ const PROVA_SJALV: Record<string, Block[]> = {
 // === Läge 3: Elevinstruktion — du-form direkt till eleven ===
 // För lärarledda metoder (t.ex. Goblin Glitch) är detta uppgiften eleven
 // gör UNDER lektionen, inte en instruktion för att köra övningen själv.
+// === Läge 4: Klassrum — författade slides för projektorn ===
+// Ersätter de tidigare fristående React-komponenterna för de fyra metoder
+// vars "interaktiva" läge i praktiken bara stegade fram innehåll: GoblinReveal,
+// LosenordScenario, PromptDuell och VemsSiffror. Innehållet är detsamma,
+// ordagrant — men nu i motorn, så de får lägesväxlare, tangentnavigering,
+// lärarfält, PDF, PowerPoint och workshopens typografi som allt annat.
+//
+// De tre som har verklig interaktivitet — ChattSafari (klickbara markeringar),
+// FyraGrepp (icke-linjära flikar) och FramtidsRoster (live rösträkning) —
+// behåller sina komponenter och sin klassrumHref.
+const KLASSRUM: Record<string, KlassrumSlide[]> = {
+  "goblin-glitch": [
+    {
+      blocks: [
+        { type: "h", text: "Våren 2026 började ChatGPT prata om gobliner" },
+        { type: "p", text: "I seriösa svar. Till betalande kunder." },
+      ],
+    },
+    {
+      etikett: "Utbyte 1",
+      blocks: [
+        {
+          type: "example",
+          user: "Varför kör min kod så långsamt?",
+          ai: "Din loop skapar en ny lista varje varv. Lämna inte den här prestandagoblinen obevakad — den växer.",
+        },
+      ],
+    },
+    {
+      etikett: "Utbyte 2",
+      blocks: [
+        {
+          type: "example",
+          user: "Vilka kamerainställningar funkar för mörkerfoto?",
+          ai: "Höj ISO till 3200 och öppna bländaren. Eller testa att aktivera smutsigt neon-gremlinläge för stämningen.",
+        },
+      ],
+    },
+    {
+      etikett: "Utbyte 3",
+      blocks: [
+        {
+          type: "example",
+          user: "Kan du sammanfatta den här artikeln?",
+          ai: "Absolut. Vill du ha en ännu kortare goblinversion?",
+        },
+      ],
+    },
+    {
+      etikett: "Varför då?",
+      blocks: [{ type: "h", text: "AI:n suger åt sig konstigheterna i det den tränats på" }],
+    },
+    {
+      etikett: "OpenAI:s egen utredning",
+      blocks: [
+        {
+          type: "list",
+          items: [
+            "Ett nördigt personlighetsläge stod för 2,5 % av svaren",
+            "Men två tredjedelar av goblinerna",
+          ],
+        },
+      ],
+    },
+    {
+      etikett: "Poängen",
+      blocks: [
+        {
+          type: "p",
+          text: "Ingen bad om gobliner. Belöningssignalen hade lärt sig älska fantasyord.",
+        },
+      ],
+    },
+  ],
+
+  "hemligt-losenord": [
+    {
+      blocks: [
+        { type: "h", text: "Tre sekunder röst räcker" },
+        { type: "p", text: "Så mycket behöver en AI för att klona någons röst." },
+      ],
+    },
+    {
+      etikett: "Telefonen ringer",
+      blocks: [
+        {
+          type: "quote",
+          text: "Hej älskling, det är mamma. Jag har råkat ut för en grej och behöver att du swishar 2 000 kr. Snabbt, snälla.",
+        },
+      ],
+    },
+    {
+      etikett: "Du svarar",
+      blocks: [{ type: "h", text: "Okej — men först: vad är vårt ord?" }],
+    },
+    {
+      etikett: "Rösten",
+      blocks: [
+        {
+          type: "quote",
+          text: "… Vad menar du? Skynda dig nu, det är bråttom.",
+        },
+      ],
+    },
+    {
+      etikett: "Du",
+      blocks: [{ type: "h", text: "[lägger på]" }],
+    },
+    {
+      etikett: "Försvaret",
+      blocks: [{ type: "h", text: "Ett hemligt familjeord" }],
+    },
+    {
+      etikett: "Tre regler för ordet",
+      blocks: [
+        {
+          type: "list",
+          items: [
+            "Lätt att minnas",
+            "Omöjligt att gissa från sociala medier",
+            "Inte husdjurets namn",
+          ],
+        },
+      ],
+    },
+    {
+      etikett: "Hemuppgiften",
+      blocks: [
+        {
+          type: "p",
+          text: "Bestäm ert ord hemma i kväll. Skriv det inte någonstans.",
+        },
+      ],
+    },
+  ],
+
+  "forhors-ai": [
+    {
+      blocks: [
+        { type: "h", text: "Samma AI. Två roller." },
+        { type: "p", text: "Skillnaden sitter i prompten." },
+      ],
+    },
+    {
+      etikett: "Roll 1 · ”Gör åt mig”",
+      blocks: [
+        {
+          type: "example",
+          user: "Skriv klart min inlämning om franska revolutionen. 600 ord.",
+          ai: "Självklart! Här kommer en färdig text …",
+          note: "600 ord du aldrig tänkt.",
+        },
+      ],
+    },
+    {
+      etikett: "Roll 2 · ”Lär mig”",
+      blocks: [
+        {
+          type: "example",
+          user: "Jag går i nian och har prov om franska revolutionen nästa vecka. Förhör mig steg för steg — ge inte svaren, låt mig försöka först.",
+          ai: "Vi kör. Första frågan: varför var statskassan tom 1789? Försök själv — jag fyller i om du fastnar.",
+        },
+      ],
+    },
+    {
+      etikett: "Skillnaden",
+      blocks: [
+        {
+          type: "p",
+          text: "Den första gör jobbet. Den andra får dig att göra det.",
+        },
+      ],
+    },
+    {
+      etikett: "Förhörs-prompten",
+      blocks: [
+        {
+          type: "quote",
+          text: "Jag går i [årskurs] och har prov om [ämne] [när]. Förhör mig steg för steg — ge inte svaren, låt mig försöka först.",
+        },
+      ],
+    },
+    {
+      etikett: "Förklara tillbaka-varianten",
+      blocks: [
+        {
+          type: "quote",
+          text: "Förklara [begrepp] för någon i [årskurs]. Fråga sedan om jag hängde med — och be mig förklara tillbaka.",
+        },
+      ],
+    },
+    {
+      etikett: "Ert prov",
+      blocks: [
+        { type: "lararfalt", id: "provet", label: "Provet", valfri: true },
+      ],
+    },
+    {
+      etikett: "Studievanan",
+      blocks: [
+        {
+          type: "p",
+          text: "Den som blir förhörd lär sig. Den som får texten lämnar in den.",
+        },
+      ],
+    },
+  ],
+
+  "vems-siffror": [
+    {
+      blocks: [
+        { type: "h", text: "Vad kostar en AI-fråga i miljö?" },
+        { type: "p", text: "Svaret beror på vem du frågar." },
+      ],
+    },
+    {
+      etikett: "Elmixen",
+      blocks: [
+        {
+          type: "example",
+          label: "Samma fråga, två antaganden",
+          user: "Optimisten: svensk elmix, 60 g CO₂ per kWh",
+          ai: "Skeptikern: uppmätta amerikanska datacenter, 548 g per kWh",
+        },
+      ],
+    },
+    {
+      etikett: "Källan",
+      blocks: [
+        {
+          type: "example",
+          user: "Optimisten: bolagens officiella siffror",
+          ai: "Skeptikern: bolagen redovisar inte — vi får gissa",
+        },
+      ],
+    },
+    {
+      etikett: "Enheten",
+      blocks: [
+        {
+          type: "example",
+          user: "Optimisten: per fråga — en mikrovågsugn i sekunder",
+          ai: "Skeptikern: per betalande användare — 0,5–1,5 ton per år",
+        },
+      ],
+    },
+    {
+      etikett: "Nio gångers skillnad",
+      blocks: [
+        {
+          type: "p",
+          text: "Bara i elmixen. Ingen av dem ljuger — de har valt olika antaganden.",
+        },
+      ],
+    },
+    {
+      etikett: "Två kalkylatorer att jämföra",
+      blocks: [
+        {
+          type: "list",
+          items: [
+            "Resurskollen — svensk. Kolla käll- och metodavsnittet längst ner.",
+            "EcoLogits — fransk open source, transparent metodik.",
+          ],
+        },
+      ],
+    },
+    {
+      etikett: "Er uppgift",
+      blocks: [
+        {
+          type: "list",
+          ordered: true,
+          items: [
+            "Mata in samma AI-användning i båda kalkylatorerna",
+            "Anteckna skillnaden",
+            "Hitta minst två antaganden som förklarar den",
+            "Skriv slutsatsen",
+          ],
+        },
+      ],
+    },
+    {
+      etikett: "Slutsatsen börjar så",
+      blocks: [{ type: "h", text: "Siffran beror på …" }],
+    },
+  ],
+};
+
 const ELEVINSTRUKTION: Record<string, Block[]> = {
   "goblin-glitch": [
     {
@@ -509,6 +798,33 @@ const ELEVINSTRUKTION: Record<string, Block[]> = {
   ],
 };
 
+// Metodspecifika tillägg till lärarhandledningen — sådant som inte finns i
+// metoddatan. Brevet hem räddades ur den borttagna LosenordScenario-komponenten:
+// det är ett lärarartefakt, inte en slide, och hör därför hemma här.
+const HANDLEDNING_EXTRA: Record<string, Block[]> = {
+  "hemligt-losenord": [
+    { type: "h", text: "Brev hem till föräldrarna" },
+    {
+      type: "p",
+      text: "Övningen landar först när ordet faktiskt bestäms hemma. Skicka det här i veckobrevet eller Vklass — kopiera texten med knappen.",
+    },
+    {
+      type: "quote",
+      text: "Hej! I veckan har vi pratat om AI och röstkloning i klassen. Tre sekunder inspelad röst räcker i dag för att skapa en övertygande kopia av någons röst — därför övar vi ett enkelt försvar: ett hemligt familjeord. Bestäm ett ord tillsammans hemma som ni frågar efter om någon ringer och ber om pengar eller känslig information. Ordet ska vara lätt att minnas men omöjligt att gissa från era sociala medier. /Klassläraren",
+    },
+  ],
+  "vems-siffror": [
+    { type: "h", text: "Kalkylatorerna" },
+    {
+      type: "list",
+      items: [
+        "Resurskollen — svensk kalkylator, resurskollen.jardenberg.se. Kolla käll- och metodavsnittet längst ner tillsammans med eleverna.",
+        "EcoLogits — fransk open source med transparent metodik, huggingface.co/spaces/genai-impact/ecologits-calculator",
+      ],
+    },
+  ],
+};
+
 // === Läge 2: Lärarhandledning — genereras ur metodens befintliga innehåll ===
 function lararhandledning(m: Metod): Block[] {
   const block: Block[] = [
@@ -541,8 +857,11 @@ function lararhandledning(m: Metod): Block[] {
       type: "callout",
       tone: "tip",
       title: "Klassrumsläget",
-      body: `${m.klassrumIntro} Du hittar det projicerbara klassrumsläget på metodsidan — knappen ”Öppna i klassrummet” ovanför.`,
+      body: KLASSRUM[m.slug]
+        ? `${m.klassrumIntro} Det ligger i storskärmsläget — knappen ”Storskärmsläge” överst på sidan. Stega med piltangenterna, och spara som PDF eller PowerPoint om du vill ha det offline.`
+        : `${m.klassrumIntro} Den här metoden har ett interaktivt klassrumsläge på metodsidan — knappen ”Öppna i klassrummet” ovanför.`,
     },
+    ...(HANDLEDNING_EXTRA[m.slug] ?? []),
   ];
   return block;
 }
@@ -567,11 +886,18 @@ function tillBankOvning(m: Metod): BankOvning {
     provaSjalv: PROVA_SJALV[m.slug],
     lararhandledning: lararhandledning(m),
     elevinstruktion: ELEVINSTRUKTION[m.slug],
+    klassrum: KLASSRUM[m.slug],
 
     fallgropar: m.fallgropar,
     kedjarMed: KEDJAR_MED[m.slug],
 
-    klassrumHref: `/eleverna-om-ai/metod/${m.slug}`,
+    // Bara de tre metoder som har verkligt interaktiva komponenter pekar
+    // vidare till metodsidan. De fyra med författat klassrumsspår har sin
+    // projektion i storskärmsläget — en CTA som leder bort därifrån skulle
+    // konkurrera med den.
+    klassrumHref: KLASSRUM[m.slug]
+      ? undefined
+      : `/eleverna-om-ai/metod/${m.slug}`,
     kalla: "eleverna-om-ai",
     kredit: m.kallkredit,
   };
