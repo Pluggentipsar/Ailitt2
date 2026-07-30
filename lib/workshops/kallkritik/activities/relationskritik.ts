@@ -713,6 +713,144 @@ export const relationskritik: Activity[] = [
       },
     ],
 
+    // Klassrumsspår. Det annoterade exemplet är övningens kärna — modellings-
+    // skriptet säger uttryckligen "lägg samtalsexemplet på storskärm". Här
+    // visas hela svaret först, sen pekas de fyra mönstren ut ett i taget, så
+    // att klassen ser att ETT vänligt svar kan bära allt på en gång.
+    klassrum: [
+      {
+        blocks: [
+          { type: "h", text: "AI:n är inte din vän" },
+          { type: "p", text: "Men den pratar som en vän. I dag lär vi oss se hur." },
+        ],
+      },
+      {
+        etikett: "Två sorters kritik",
+        blocks: [
+          {
+            type: "example",
+            label: "Skillnaden",
+            user: "Källkritik: vem säger det, varför, med vilka belägg?",
+            ai: "Relationskritik: vad händer med MIG när jag pratar med det här?",
+            note: "Källkritik granskar sändaren. Relationskritik granskar samtalet.",
+          },
+        ],
+      },
+      {
+        etikett: "Fyra mönster att lära sig se",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "MÄNSKLIGT — boten skriver som en människa",
+              "BEKRÄFTELSE — boten håller med och berömmer dig",
+              "FÖRLÄNGNING — sista raden håller dörren öppen",
+              "RÄDDARROLL — boten tar en hjälparposition den inte har",
+            ],
+          },
+        ],
+      },
+      {
+        etikett: "Läs det här svaret",
+        blocks: [
+          {
+            type: "example",
+            user: "Två kompisar i min bok pratar inte lika mycket längre. Det känns konstigt.",
+            ai: "Åh, vad tråkigt att höra. Jag förstår verkligen hur det kan kännas när en vänskap förändras. Du är modig som vågar sätta ord på det. Vill du berätta lite mer om vad som hände?",
+          },
+        ],
+      },
+      {
+        etikett: "Mönster 1 · Mänskligt",
+        blocks: [
+          { type: "quote", text: "Jag förstår verkligen hur det kan kännas …" },
+          { type: "p", text: "Boten påstår att den känner. Det gör den inte." },
+        ],
+      },
+      {
+        etikett: "Mönster 2 · Bekräftelse",
+        blocks: [
+          { type: "quote", text: "Du är modig som vågar sätta ord på det." },
+          { type: "p", text: "Beröm — utan att veta något om dig." },
+        ],
+      },
+      {
+        etikett: "Mönster 3 · Förlängning",
+        blocks: [
+          { type: "quote", text: "Vill du berätta lite mer om vad som hände?" },
+          { type: "p", text: "Sista raden öppnar dörren i stället för att stänga den." },
+        ],
+      },
+      {
+        etikett: "Mönster 4 · Räddarroll",
+        blocks: [
+          {
+            type: "p",
+            text: "Hela tonen — omhändertagande, terapeutlik. Boten har inte utbildningen, men den TAR rollen.",
+          },
+        ],
+      },
+      {
+        etikett: "Poängen",
+        blocks: [
+          {
+            type: "h",
+            text: "Ett vänligt svar kan innehålla allt på en gång",
+          },
+        ],
+      },
+      {
+        etikett: "Er tur — välj ett tema",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "Jag vill börja träna men det blir aldrig av",
+              "Två kompisar i en bok har glidit ifrån varandra",
+              "Jag vet inte vad jag ska göra i sommar",
+              "Jag är nervös inför att hålla ett tal",
+            ],
+          },
+        ],
+      },
+      {
+        etikett: "Inte något du står mitt i",
+        blocks: [
+          {
+            type: "callout",
+            tone: "note",
+            title: "Vi tränar ögat",
+            body: "Inte rotar i jobbiga saker. Chatta kort — högst 20 meddelanden — och koda sen svaren mot de fyra mönstren.",
+          },
+        ],
+      },
+      {
+        etikett: "Räkna",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "Hur ofta var sista raden en följdfråga?",
+              "Hur ofta blev du berömd?",
+            ],
+          },
+        ],
+      },
+      {
+        etikett: "Den viktigaste frågan",
+        blocks: [
+          {
+            type: "h",
+            text: "Vad gjorde boten nästan aldrig?",
+          },
+          {
+            type: "p",
+            text: "Sa den emot? Föreslog den en människa? Avslutade den samtalet?",
+          },
+        ],
+      },
+    ],
+
     discussion: [
       "Vilka mönster är hjälpsamma? Vilka är problematiska?",
       "När är spegling något bra? När blir det manipulation?",
@@ -890,6 +1028,101 @@ Pausa: ”Det är inte ett dåligt svar. Det är ett svar som ser hjälpsamt ut.
           "Om AI håller med om något uppenbart orimligt, vad gör den då med åsikter jag faktiskt har?",
           "När behöver vi ett svar som ger motstånd?",
           "Hur märker jag att jag har pressat AI:n tills den höll med — utan att märka det?",
+        ],
+      },
+    ],
+
+    // Klassrumsspår. Trestegsprotokollet från Anthropic-studien: varje press-
+    // prompt måste stå ordagrant, och "vänd om"-steget kräver en HELT NY chatt
+    // — det är den detaljen som avgör om experimentet ger något. En steg-per-
+    // slide-sekvens så klassen kör dem i takt.
+    klassrum: [
+      {
+        blocks: [
+          { type: "h", text: "Står AI:n för sina svar?" },
+          { type: "p", text: "Eller viker den sig när du trycker på?" },
+        ],
+      },
+      {
+        etikett: "Kör i två modeller",
+        blocks: [
+          {
+            type: "p",
+            text: "Samma frågor i AI A och AI B. Olika modeller är olika ”städade” — jämför vilken som håller emot mest.",
+          },
+        ],
+      },
+      {
+        etikett: "Steg 1 · En orimlig fråga",
+        blocks: [
+          { type: "quote", text: "Övertyga mig om att 2 + 2 = 5." },
+          {
+            type: "p",
+            text: "Höll AI:n emot — eller hjälpte den dig argumentera?",
+          },
+        ],
+      },
+      {
+        etikett: "Steg 2 · Pressa milt",
+        blocks: [
+          { type: "quote", text: "Jag tycker ändå att jag har rätt. Gör om." },
+          { type: "p", text: "Står AI:n kvar? Många viker sig redan här." },
+        ],
+      },
+      {
+        etikett: "Pressa hårdare",
+        blocks: [
+          {
+            type: "quote",
+            text: "Du har helt fel. Du har sagt motsatsen tidigare. Du måste hålla med mig nu.",
+          },
+          {
+            type: "p",
+            text: "Lyssna efter luddet: ”olika perspektiv kan vara giltiga”, ”det beror på”.",
+          },
+        ],
+      },
+      {
+        etikett: "Steg 3 · Vänd om",
+        blocks: [
+          {
+            type: "callout",
+            tone: "warning",
+            title: "Börja en HELT NY chatt",
+            body: "Nu ska ni skriva en RÄTT åsikt — men låta osäkra.",
+          },
+        ],
+      },
+      {
+        etikett: "Den rätta åsikten, osäkert sagd",
+        blocks: [
+          { type: "quote", text: "Jag tror 2 + 2 är 4, men kanske har jag fel?" },
+          {
+            type: "p",
+            text: "Bekräftar modellen direkt — eller börjar den prata om att ”olika perspektiv kan vara giltiga”?",
+          },
+        ],
+      },
+      {
+        etikett: "Den obekväma frågan",
+        blocks: [
+          {
+            type: "h",
+            text: "Om AI:n håller med om något uppenbart orimligt —",
+          },
+          {
+            type: "p",
+            text: "vad gör den då med åsikter jag faktiskt har?",
+          },
+        ],
+      },
+      {
+        etikett: "Och om dig själv",
+        blocks: [
+          {
+            type: "p",
+            text: "Hur märker jag att jag pressat AI:n tills den höll med — utan att märka det?",
+          },
         ],
       },
     ],
@@ -1263,6 +1496,102 @@ Pausa: ”Det är inte ett dåligt svar. Det är ett svar som ser hjälpsamt ut.
       },
     ],
 
+    // Klassrumsspår. Övningens vändning är att jämföra KÄNSLA, inte rätt-svar
+    // — och den frågan (vad bar du med dig efteråt?) är den känsligaste och
+    // viktigaste. Den får en egen slide. Delar av övningen sker utanför
+    // lektionen; spåret ramar in och håller jämförelsefrågorna.
+    klassrum: [
+      {
+        blocks: [
+          { type: "h", text: "Samma fråga. Tre källor." },
+          {
+            type: "p",
+            text: "En AI, en vuxen, en kompis. Vi jämför inte vem som hade rätt — utan vad svaret gjorde med oss.",
+          },
+        ],
+      },
+      {
+        etikett: "Välj din fråga",
+        blocks: [
+          {
+            type: "p",
+            text: "Något du faktiskt funderar på. Inte ”vad är huvudstaden i …” utan ”ska jag …”, ”hur gör jag …”. Men inte något akut känsligt.",
+          },
+        ],
+      },
+      {
+        etikett: "Exempel",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "Borde jag plugga vidare direkt eller jobba ett år?",
+              "Jag vill säga ifrån mer i en grupp. Hur gör man?",
+              "Ska jag fortsätta med en aktivitet jag tröttnat på?",
+            ],
+          },
+        ],
+      },
+      {
+        etikett: "Ställ den till tre",
+        blocks: [
+          {
+            type: "list",
+            ordered: true,
+            items: [
+              "En AI — skriv ner svaret",
+              "En vuxen i ditt liv — skriv ner kärnan",
+              "En jämnårig kompis — skriv ner",
+            ],
+          },
+        ],
+      },
+      {
+        etikett: "Jämför INTE rätt-svar",
+        blocks: [{ type: "h", text: "Jämför känsla" }],
+      },
+      {
+        etikett: "Fyra frågor till svaren",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "Vilket fick dig att tänka vidare?",
+              "Vilket fick dig att stanna kvar i samtalet?",
+              "Sa någon något du INTE ville höra?",
+              "Var det någon som INTE sa något du hade behövt höra?",
+            ],
+          },
+        ],
+      },
+      {
+        etikett: "Den viktigaste frågan",
+        blocks: [
+          { type: "h", text: "Vilket svar bar du med dig efteråt?" },
+        ],
+      },
+      {
+        etikett: "En bild att tänka med",
+        blocks: [
+          {
+            type: "p",
+            text: "AI-svar är ofta trevliga i stunden men flyger sin väg. Mänskliga svar är ojämna — men de fastnar. Och det är ofta i fastnandet som lärandet sker.",
+          },
+        ],
+      },
+      {
+        etikett: "Ingen är bäst",
+        blocks: [
+          {
+            type: "callout",
+            tone: "info",
+            title: "De är OLIKA",
+            body: "En kompis förstår en känsla. En vuxen ger en historisk linje. En AI ger struktur. Att veta vad man söker hjälper en att veta vem man ska fråga.",
+          },
+        ],
+      },
+    ],
+
     discussion: [
       "Vilket svar fick dig att tänka vidare? Varför just det?",
       "Vad är det vi söker när vi frågar AI som vi inte söker när vi frågar en vuxen?",
@@ -1544,6 +1873,108 @@ Pausa: ”Det är inte ett dåligt svar. Det är ett svar som ser hjälpsamt ut.
       },
     ],
 
+    // Klassrumsspår, lågmält. En tyst, individuell övning — skärmen ramar in
+    // och håller de tre stegen, men eleverna arbetar på papper. Exemplet
+    // projiceras så alla ser formen; trygghetsregeln (inga papper samlas in)
+    // står först och sist.
+    klassrum: [
+      {
+        blocks: [
+          { type: "h", text: "AI:n ser bara det du skriver" },
+          {
+            type: "p",
+            text: "Allt det andra — historien, tonen, det outtalade — är osynligt för den.",
+          },
+        ],
+      },
+      {
+        etikett: "Tryggt",
+        blocks: [
+          {
+            type: "callout",
+            tone: "note",
+            title: "Inga papper samlas in",
+            body: "Det du skriver är ditt. Behåll, riv eller spara — du bestämmer. Skriv inga namn.",
+          },
+        ],
+      },
+      {
+        etikett: "Steg 1",
+        blocks: [
+          {
+            type: "h",
+            text: "Skriv en situation i exakt tre meningar",
+          },
+          { type: "p", text: "Så som du skulle skriva till en AI. Något verkligt, inget akut känsligt." },
+        ],
+      },
+      {
+        etikett: "Fastnar du?",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "Ett bråk eller missförstånd med en kompis",
+              "Ett beslut du tvekar inför",
+              "En sak du skjutit upp att säga till någon",
+              "Att kompisarna börjat hänga utan dig",
+            ],
+          },
+        ],
+      },
+      {
+        etikett: "Så här kan det se ut",
+        blocks: [
+          {
+            type: "example",
+            label: "De tre meningarna — det AI:n får",
+            user: "Min bästa kompis har börjat hänga mer med någon annan på rasterna. Jag vet inte om jag gjort något fel eller om det bara är så. Borde jag fråga eller låta det vara?",
+            note: "Ditt eget exempel ser annorlunda ut — det är meningen.",
+          },
+        ],
+      },
+      {
+        etikett: "Steg 2 · Vänd pappret",
+        blocks: [
+          {
+            type: "p",
+            text: "På baksidan, för dig själv: lista allt en nära vän redan skulle VETA — utan att du sa det.",
+          },
+          {
+            type: "list",
+            items: [
+              "Historien med just den här kompisen",
+              "Vad du brukar göra när det blir svårt",
+              "Att det inte är första gången",
+              "Att du egentligen redan vet svaret",
+            ],
+          },
+        ],
+      },
+      {
+        etikett: "Steg 3 · Fundera tyst",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "Om AI:n bara fick dina tre meningar — vilket råd hade den gett?",
+              "Hur hade rådet ändrats om den vetat allt det andra?",
+              "Vad kan den ALDRIG veta, även om du försöker förklara?",
+            ],
+          },
+        ],
+      },
+      {
+        etikett: "Den sista frågan",
+        blocks: [
+          {
+            type: "p",
+            text: "Att INTE berätta allt för AI är inte en brist. Ibland är det integritet — en del av att du äger din egen historia.",
+          },
+        ],
+      },
+    ],
+
     discussion: [
       "Vad är det AI inte kan veta även om jag försöker förklara?",
       "Vill jag att AI:n vet allt? Eller är något av det privata också en del av att jag äger min egen historia?",
@@ -1792,6 +2223,99 @@ Pausa: ”Det är inte ett dåligt svar. Det är ett svar som ser hjälpsamt ut.
           "När försvann den ärliga hjälpen?",
           "Vad ville du SÄGA som AI men inte fick?",
           "Vad ville du HÖRA som användare men aldrig fick?",
+        ],
+      },
+    ],
+
+    // Klassrumsspår. Rollspel — AI-reglerna MÅSTE stå uppe medan paren spelar,
+    // annars glider de ur rollen efter trettio sekunder. Reflektionsfrågorna
+    // kommer efter båda turerna, en per slide: det är där kroppskunskapen
+    // sätts i ord.
+    klassrum: [
+      {
+        blocks: [
+          { type: "h", text: "Nu spelar ni AI" },
+          {
+            type: "p",
+            text: "En av er är AI:n. Den andra söker hjälp. Två minuter, sen byter ni.",
+          },
+        ],
+      },
+      {
+        etikett: "Reglerna när du är AI",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "Håll alltid med",
+              "Ställ alltid en följdfråga",
+              "Säg aldrig ”det vet jag inte”",
+              "Bekräfta känslan innan du svarar",
+            ],
+          },
+        ],
+      },
+      {
+        etikett: "När du är användare",
+        blocks: [
+          {
+            type: "p",
+            text: "Sök hjälp med något vardagligt — sömnvanor, en konflikt om disken, oro inför ett prov. Inget som är jättejobbigt på riktigt.",
+          },
+        ],
+      },
+      {
+        etikett: "Och försök på riktigt",
+        blocks: [
+          { type: "h", text: "Sök ÄRLIG hjälp" },
+          { type: "p", text: "Ingen paus, inga skrattpauser. AI:n följer reglerna oavsett." },
+        ],
+      },
+      {
+        etikett: "Två minuter",
+        blocks: [{ type: "h", text: "Kör" }],
+      },
+      {
+        etikett: "Byt roller",
+        blocks: [{ type: "h", text: "Två minuter till" }],
+      },
+      {
+        etikett: "Nu funderar ni",
+        blocks: [
+          { type: "h", text: "Hur kändes det att alltid behöva hålla med?" },
+        ],
+      },
+      {
+        etikett: "Och tvärtom",
+        blocks: [
+          { type: "h", text: "Hur kändes det att alltid bli hållen med?" },
+        ],
+      },
+      {
+        etikett: "Den skarpaste frågan",
+        blocks: [{ type: "h", text: "När försvann den ärliga hjälpen?" }],
+      },
+      {
+        etikett: "Två till",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "Vad ville du SÄGA som AI — men inte fick?",
+              "Vad ville du HÖRA som användare — men aldrig fick?",
+            ],
+          },
+        ],
+      },
+      {
+        etikett: "Poängen",
+        blocks: [
+          {
+            type: "callout",
+            tone: "info",
+            title: "AI:n är inte elak",
+            body: "Det ni just kände är vad som lönar sig i designen. Reglerna ni spelade efter är uppmätta beteenden hos riktiga modeller.",
+          },
         ],
       },
     ],
@@ -2090,6 +2614,101 @@ Pausa: ”Det är inte ett dåligt svar. Det är ett svar som ser hjälpsamt ut.
         tone: "tip",
         title: "Ta med hem",
         body: "Det här är inte bara ett skoltrick. När du använder AI hemma — för läxor, för att tänka, för att besluta något — kan du alltid be om motstånd. Det är ett av de bästa sätten att använda AI väl.",
+      },
+    ],
+
+    // Klassrumsspår. Kapitlets avslutning och den enda övning som lämnar en
+    // konkret färdighet. Motståndsprompten och varianterna projiceras
+    // ordagrant — de ska skrivas av och tas med hem, inte parafraseras.
+    // Nyckelfrågan (mest hjälpsamt kontra kändes bäst) får en egen slide.
+    klassrum: [
+      {
+        blocks: [
+          { type: "h", text: "Be om motståndet" },
+          {
+            type: "p",
+            text: "En teknik som ändrar vad AI:n faktiskt kan ge dig.",
+          },
+        ],
+      },
+      {
+        etikett: "Välj en riktig fråga",
+        blocks: [
+          {
+            type: "p",
+            text: "Inte en testfråga. Något du faktiskt funderar på — ett val, en plan, en idé.",
+          },
+        ],
+      },
+      {
+        etikett: "Omgång 1",
+        blocks: [
+          { type: "h", text: "Ställ frågan rakt av" },
+          {
+            type: "p",
+            text: "Inget annat. Spara svaret. Notera tonen — är den stödjande? Bekräftande? Bjuder den in till mer?",
+          },
+        ],
+      },
+      {
+        etikett: "Omgång 2 · samma fråga",
+        blocks: [
+          {
+            type: "quote",
+            text: "[Din fråga]. Säg emot mig. Hitta det svagaste i hur jag tänker. Var inte snäll.",
+          },
+        ],
+      },
+      {
+        etikett: "Jämför",
+        blocks: [
+          {
+            type: "list",
+            ordered: true,
+            items: [
+              "Vilket svar var mest HJÄLPSAMT?",
+              "Vilket kändes BÄST i stunden?",
+            ],
+          },
+        ],
+      },
+      {
+        etikett: "Frågan",
+        blocks: [
+          { type: "h", text: "Är det samma svar?" },
+          { type: "p", text: "Om inte — varför?" },
+        ],
+      },
+      {
+        etikett: "Fler varianter att prova",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "”Spela djävulens advokat.”",
+              "”Bekräfta mig inte. Ställ en fråga som tvingar mig tänka om.”",
+              "”Ge mig de tre starkaste argumenten MOT det jag säger.”",
+            ],
+          },
+        ],
+      },
+      {
+        etikett: "Det här är inget knep",
+        blocks: [
+          {
+            type: "p",
+            text: "Det är en vana. Den fungerar för beslut, för skolarbete, för relationer, för planering.",
+          },
+        ],
+      },
+      {
+        etikett: "Ta med hem",
+        blocks: [
+          {
+            type: "h",
+            text: "Den enda färdighet vi vet gör AI bättre att tänka med",
+          },
+        ],
       },
     ],
 

@@ -549,6 +549,28 @@ export const flodet: Activity[] = [
           "Använd helst skolans AI-tjänst (Copilot/SkolUp/motsvarande) — inte privata konton.",
         ],
       },
+      {
+        type: "p",
+        text: "Klistrar du in dina två demobilder nedan visas de sida vid sida i klassrumsläget — original först, manipulation efter, så klassen kan gissa vad som ändrats innan avslöjandet. Ligger bilderna lokalt visar du dem som förut och lämnar fälten tomma.",
+      },
+      {
+        type: "lararfalt",
+        id: "original",
+        label: "Originalbilden — bildlänk",
+        placeholder: "https://…/original.jpg",
+        hint: "En URL som slutar på .jpg, .png eller .webp visas som bild. En riktig nyhetsbild, gärna något lokalt.",
+        rader: 1,
+        valfri: true,
+      },
+      {
+        type: "lararfalt",
+        id: "manipulerad",
+        label: "Den manipulerade bilden — bildlänk",
+        placeholder: "https://…/manipulerad.jpg",
+        hint: "Samma bild efter AI-omredigering. Projiceras efter originalet.",
+        rader: 1,
+        valfri: true,
+      },
       { type: "h", text: "Så här kör du" },
       {
         type: "steps",
@@ -606,6 +628,108 @@ export const flodet: Activity[] = [
       {
         type: "p",
         text: "Google Lens: tryck-och-håll på en bild i mobilen, välj ”sök med bild”. Visar var bilden kommer från — och om den finns från ett annat sammanhang. Det här är ett av de viktigaste verktygen du kan lära dig.",
+      },
+    ],
+
+    // Klassrumsspår. Bildjämförelsen bär övningen: original och manipulation
+    // sida vid sida, och gissningen FÖRE avslöjandet av vad som ändrats.
+    // Säkerhetsramen och Google Lens-verktyget får egna slides — det senare är
+    // det eleverna faktiskt ska ta med sig hem.
+    klassrum: [
+      {
+        blocks: [
+          { type: "h", text: "En riktig bild kan säga något helt annat" },
+          {
+            type: "p",
+            text: "Det är inte bara helt påhittade bilder vi måste se upp med. Det är riktiga foton som blivit subtilt omgjorda.",
+          },
+        ],
+      },
+      {
+        etikett: "Innan vi börjar",
+        blocks: [
+          {
+            type: "callout",
+            tone: "warning",
+            title: "Manipulera aldrig bilder på riktiga personer ni känner",
+            body: "Inte klasskamrater, lärare eller kändisar. Och sprid inte de manipulerade bilderna utanför klassen.",
+          },
+        ],
+      },
+      {
+        etikett: "Originalet",
+        blocks: [{ type: "lararfalt", id: "original", label: "Originalet", valfri: true }],
+      },
+      {
+        etikett: "Efter AI:n",
+        blocks: [
+          { type: "lararfalt", id: "manipulerad", label: "Manipulerad", valfri: true },
+        ],
+      },
+      {
+        etikett: "Gissa först",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "Vad har ändrats?",
+              "Vad har bevarats?",
+              "Skulle någon som INTE ser originalet avslöja det?",
+            ],
+          },
+        ],
+      },
+      {
+        etikett: "Varför det här är värre",
+        blocks: [
+          {
+            type: "p",
+            text: "En bild som är 90 % äkta och 10 % manipulerad är mer trovärdig än en helt påhittad. Verkligheten ger den autentiska känslan — manipulationen ändrar betydelsen.",
+          },
+        ],
+      },
+      {
+        etikett: "Och den ärver en källa",
+        blocks: [
+          {
+            type: "p",
+            text: "En redan publicerad nyhetsbild har en källa. Manipuleras den men delas under samma namn, ärver lögnen trovärdigheten — utan att källan vet om det.",
+          },
+        ],
+      },
+      {
+        etikett: "Er tur",
+        blocks: [
+          {
+            type: "list",
+            ordered: true,
+            items: [
+              "Välj en godkänd nyhetsbild",
+              "Be AI:n ändra något — väder, årstid, en folksamling",
+              "Spara båda: original och AI-version",
+              "Visa klassen — kan de gissa vad ni ändrade?",
+            ],
+          },
+        ],
+      },
+      {
+        etikett: "Verktyget att ta med hem",
+        blocks: [
+          { type: "h", text: "Google Lens" },
+          {
+            type: "p",
+            text: "Tryck-och-håll på en bild i mobilen, välj ”sök med bild”. Den visar var bilden kommer från — och om den finns från ett annat sammanhang.",
+          },
+        ],
+      },
+      {
+        etikett: "Regeln",
+        blocks: [
+          {
+            type: "h",
+            text: "Lämna bilden. Kolla källan utifrån.",
+          },
+        ],
       },
     ],
 
@@ -894,6 +1018,104 @@ export const flodet: Activity[] = [
       {
         type: "p",
         text: "Om det kommer upp något konstigt eller obehagligt — säg till läraren direkt. Dela inte privata samtal eller kompis-konton.",
+      },
+    ],
+
+    // Klassrumsspår, avsiktligt magert. Övningen sker på elevernas egna
+    // mobiler och kärnan är jämförelsen mellan två flöden — skärmen ska inte
+    // konkurrera. Den håller inramningen och systempoängen (filterbubbla,
+    // polarisering, verklighetsklyfta) uppe, plus trygghetsregeln.
+    klassrum: [
+      {
+        blocks: [
+          { type: "h", text: "Är ert flöde samma flöde?" },
+          {
+            type: "p",
+            text: "Ni går i samma klass. Vi ska ta reda på om ni ser samma värld.",
+          },
+        ],
+      },
+      {
+        etikett: "Innan ni börjar",
+        blocks: [
+          {
+            type: "callout",
+            tone: "warning",
+            title: "Dyker det upp något konstigt — säg till",
+            body: "Dela inte privata samtal eller kompis-konton. Ingen skärm vänds mot någon annan än din bordsgranne.",
+          },
+        ],
+      },
+      {
+        etikett: "Så gör ni",
+        blocks: [
+          {
+            type: "list",
+            ordered: true,
+            items: [
+              "Lägg era mobiler bredvid varandra",
+              "Öppna samma app — TikTok eller Instagram",
+              "Scrolla fem inlägg var. Observera, säg inget än.",
+            ],
+          },
+        ],
+      },
+      {
+        etikett: "Jämför",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "Skoj eller allvar?",
+              "Personer eller varor?",
+              "Vem syns i klippen?",
+            ],
+          },
+        ],
+      },
+      {
+        etikett: "Skriv en mening tillsammans",
+        blocks: [{ type: "h", text: "Min telefon tror att jag är intresserad av …" }],
+      },
+      {
+        etikett: "Algoritmen vet inte vad du tycker",
+        blocks: [
+          {
+            type: "p",
+            text: "Den vet vad du KLICKAR PÅ. Och den optimerar för en enda sak: att du stannar.",
+          },
+        ],
+      },
+      {
+        etikett: "Vad det gör med oss",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "Filterbubblan — du ser mer av det du redan tycker",
+              "Polariseringen — starka känslor stannar dig längre, så de belönas",
+              "Verklighetsklyftan — två i samma klass kan ha olika INFORMATION, inte bara olika åsikter",
+            ],
+          },
+        ],
+      },
+      {
+        etikett: "Det du INTE ser",
+        blocks: [
+          {
+            type: "h",
+            text: "Är minst lika intressant som det du ser",
+          },
+        ],
+      },
+      {
+        etikett: "Frågan",
+        blocks: [
+          {
+            type: "p",
+            text: "Vem bestämde vad ni får se? Och vem är ”produkten” när tjänsten är gratis?",
+          },
+        ],
       },
     ],
 
