@@ -29,10 +29,10 @@ Hem  |  Stadier ▾  |  Ramverk ▾  |  Verktyg  |  Sparat
 Dropdown vs mega-meny: börja med enkla dropdowns (mindre att bygga). Mega-meny om vi senare hittar att det behövs.
 
 ### Tasks
-- [ ] Header.tsx: NAV_LINKS byts ut mot ny struktur med dropdowns
-- [ ] Mobilmenyn (drawer) anpassas — kategorier som expanderar
+- [x] Header.tsx: NAV_LINKS byts ut mot ny struktur med dropdowns
+- [x] Mobilmenyn (drawer) anpassas — kategorier som expanderar
 - [ ] Footer.tsx: lägg in /om-länk (samt copyright/credits om de saknas)
-- [ ] Workshop-shellets nav uppdateras inte — den är intern till workshop-rummet
+- [x] Workshop-shellets nav uppdateras inte — den är intern till workshop-rummet
 
 ## Lager 2 — Landningssida
 
@@ -79,11 +79,11 @@ Två steg, båda chip-rader:
 Luckor är värdefulla — de blir prioriteringslista för framtida innehåll.
 
 ### Tasks
-- [ ] Ny komponent `components/landing/SubjectFinderWizard.tsx` — håller state för stadie + behov, mappar till resultat
-- [ ] Datastruktur `lib/landing/subject-finder-map.ts` — matrisen ovan, så vi kan ändra utan att röra UI
-- [ ] Hero rewrite i `app/page.tsx`
+- [x] Ny komponent `components/landing/SubjectFinderWizard.tsx` — håller state för stadie + behov, mappar till resultat
+- [x] Datastruktur `lib/landing/subject-finder-map.ts` — matrisen ovan, så vi kan ändra utan att röra UI
+- [x] Hero rewrite i `app/page.tsx`
 - [ ] Highlight-banner-komponent (kan flagga workshopen + eventuellt senaste tillägg)
-- [ ] Behåll befintlig sökmotor + ramverkskort, men flytta ner i hierarkin
+- [x] Behåll befintlig sökmotor + ramverkskort, men flytta ner i hierarkin
 
 ## Lager 3 — Copy
 
@@ -109,15 +109,137 @@ Listigt minimum (inte total om-text):
 - [ ] `/om` flyttas från header till footer
 - [ ] (Sidan finns inte ännu — kolla om det behöver skapas)
 
+## Lager 5 — Taxonomi (tillagt aug 2026)
+
+Det som Lager 1–4 inte löste. Menyn och landningssidan blev bättre, men
+**klassifikationen** är fortfarande spretig — och det är den som gör att
+startsidan och övningsbanken känns som två olika sajter.
+
+### Kartläggning: sex system i bruk
+
+| System | Antal | Var |
+|---|---|---|
+| AI-litteracitetsdimensioner | 7 | Startsidans filter, ramverkssektionen, badge på övningar, sökindexet |
+| OECD-domäner | 4 | **Bara** övningsbanken — filter + badge |
+| Innehållstyper (`UnifiedItemType`) | 10 | Startsidans typfilter |
+| Stadier | 3 | Navigationen, wizarden |
+| Källkritikens egna | 8 kapitel + 19 färdigheter + 4 nivåer | Workshoppen |
+| Bankens facetter | domän, tid, årskurs, källa | BankExplorer |
+
+Två av dem svarar på **samma fråga** — "vilken sorts AI-kunnande tränar det
+här?". Symptomet syns på varje övningssida: den renderar både `DomanBadge`
+och `AiLiteracyBadgeList`, två parallella etiketter utan förklarad relation.
+
+### Beslutat kontrakt
+
+- **De 4 domänerna (Möta · Skapa · Styra · Forma) är navigationsfiltret.**
+  Fyra facetter går att skanna. De beskriver vad eleven GÖR, vilket är hur
+  man väljer material till en specifik lektion.
+- **De 7 dimensionerna är täckningslagret.** De svarar på "vad har jag gjort
+  i termin och vad saknas?" — hör hemma på ramverkssidorna och som badge,
+  inte som primärt filter.
+
+### Två mätningar som styr genomförandet
+
+**1. Automatisk härledning går inte.** Testade mot befintligt data i banken:
+`styra` mappar till `[2]`, `[2,4]`, `[2,5]` och `[2,3]` beroende på övning;
+`mota` till `[1,4]`, `[4]` och `[0,1]`. Många-till-många åt båda håll — en
+människa gjorde en redaktionell bedömning varje gång. En mekanisk mappning
+vore en efterhandskonstruktion. **Domäntaggar måste sättas för hand.**
+
+**2. Domäner finns bara i banken.** Dimensionerna är redan trädda genom hela
+sajten. Kontraktet ovan kostar därför omtaggning av allt utanför banken:
+
+| Innehåll | Antal | Kommentar |
+|---|---|---|
+| Moduler (contentlayer) | 24 | Frontmatter-fält |
+| Verktyg | 75 | Ofta självklart: skapa eller möta |
+| Mellanstadielektioner | 7 | |
+| Grundskola-delar + aktiviteter | ~15 | |
+
+Cirka 120 bedömningar. Var och en snabb, men det är redaktionellt arbete —
+inte mekaniskt.
+
+### Tasks
+- [ ] `lib/taxonomi.ts` — ett ställe som definierar båda systemen, deras
+      jobb, och att de INTE är härledbara ur varandra. Ersätter att
+      `DOMAN_META` bor i banken och `aiLiteracyConfig` bor för sig.
+- [ ] Domänfält på `UnifiedItem` i sökindexet
+- [ ] Tagga moduler (frontmatter `domaner`)
+- [ ] Tagga verktyg
+- [ ] Tagga mellanstadiet + grundskola + aktiviteter
+- [ ] Startsidan: typfiltret byts mot domän + stadium + tid
+- [ ] `UnifiedItemType` blir kvar som liten etikett på kortet, inte filter
+- [ ] Ramverkssidorna: bygg täckningsvyn — "dina 7 dimensioner, så här
+      mycket material finns per dimension"
+
+### Öppen fråga
+Källkritikens 19 färdigheter (`Skill`) används bara internt i workshoppen och
+exponeras inte som filter. Lämnas orörda tills vidare — men de är en sjunde
+taxonomi, och om workshoppen någon gång ska filtreras utåt bör de mappas mot
+domänerna först.
+
+## Lager 6 — Kort och visuella primitiver (tillagt aug 2026)
+
+### Vad som finns
+
+Sju separata kortkomponenter, plus inline-kortmarkup på minst tre ställen till
+(bankens hubb, spellisteöversikten, workshopsidorna):
+
+`eleverna-om-ai/MetodKort` · `grundskola/ActivityCard` · `grundskola/ModuleCard`
+`mellanstadiet/labb/CategoryCard` · `search/ModuleCard` · `search/SearchResultCard`
+`search/UnifiedResultCard`
+
+Ingen av dem är fel. De uppstod för att det aldrig fanns en gemensam.
+
+### Avgränsning — viktigt
+
+Detta handlar om att minska antalet KOMPONENTER, inte antalet FORMSPRÅK.
+Sajtspråk (rent, sans, ljus) för att hitta och välja; workshopspråk
+(gräddpapper, Caveat, Nunito Sans) för materialet man faktiskt kör. Den
+gränsen är ett medvetet val — se "Sektionsidentiteter" under Beslutad
+riktning — och ska bevaras. Ett kort i workshoppen ska fortfarande se ut som
+workshoppen.
+
+### Tasks
+- [ ] Inventera vad korten faktiskt skiljer sig i: bara ikon/badge/metarad,
+      eller struktur? (Hypotes: mest metarad.)
+- [ ] En `<Kort>`-primitiv med varianter (`sajt` | `workshop`) och slots för
+      ikon, badges, metarad, CTA
+- [ ] Migrera ett kort i taget, börja med `search/*` (tre komponenter, samma
+      användning)
+- [ ] Ta bort inline-kortmarkupen i bankens hubb och spellisteöversikten
+
+### Görs EFTER Lager 5
+Korten visar taxonomibadges. Bygger vi kortet först får vi göra om det när
+taxonomin ändrar vad som ska stå på det.
+
 ## Bygg-ordning (förslag)
 
-1. **Wizard-widget + data-mapping** (huvudvärde, lätt att testa). Lägger den standalone på en /tmp-route först om vi vill, eller direkt i page.tsx.
-2. **Ny hero + copy**.
-3. **Ny meny** (Header.tsx + footer).
-4. **Slå ihop /aktiviteter med /verktygslada som flikar**.
-5. **Copy-genomgång på resten av landningssidan**.
+**Lager 1–4 (gjort våren 2026):**
 
-Varje steg är ett naturligt commit-tillfälle. Inget av detta påverkar workshop-shellet (den har egen layout) eller existerande aktivitets-sidor — bara navigation och framsida.
+1. ~~Wizard-widget + data-mapping~~ ✅
+2. ~~Ny hero + copy~~ ✅
+3. ~~Ny meny~~ ✅ (footer-länken till /om återstår)
+4. Slå ihop /aktiviteter med /verktygslada som flikar — **ej gjord**
+5. Copy-genomgång på resten av landningssidan — delvis
+
+**Lager 5–6 (nästa):**
+
+6. **Taxonomikontraktet i kod** — `lib/taxonomi.ts`. Ingen synlig ändring,
+   men allt annat vilar på det.
+7. **Tagga om innehållet.** Störst arbete, helt redaktionellt. Kan delas i
+   batchar per innehållstyp och committas var för sig.
+8. **Startsidans filter byts** — typ ut, domän + stadium + tid in. Först här
+   syns förändringen för besökaren.
+9. **Täckningsvyn på ramverkssidorna** — dimensionerna får sitt eget jobb.
+10. **Kortkonsolidering** — sist, när det är klart vad korten ska visa.
+
+Varje steg är ett naturligt commit-tillfälle. Steg 6–7 lämnar sajten
+oförändrad utåt; steg 8 är det som faktiskt löser "rörigheten".
+
+Inget av detta påverkar workshop-shellet (den har egen layout) eller
+existerande aktivitets-sidor — bara navigation, framsida och taggning.
 
 ## Saker som inte är beslutade ännu
 
