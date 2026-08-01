@@ -12,6 +12,7 @@ export const tools: Tool[] = [
     description:
       "Internetstiftelsens öppna lärarresurs med färdiga lektioner i digital källkritik för åk F–3, 4–6 och 7–9. Nivåindelat och kopplat till läroplanen.",
     category: "larresurs-skola",
+    domaner: ["mota"],
     kind: "exercise",
     price: "free",
     requiresAccount: false,
@@ -25,6 +26,7 @@ export const tools: Tool[] = [
     description:
       "Resurser och konkreta exempel på hur AI kan användas i undervisningen.",
     category: "kallkritik-resurser",
+    domaner: ["skapa", "styra"],
     kind: "research",
     price: "free",
     requiresAccount: false,
@@ -37,6 +39,7 @@ export const tools: Tool[] = [
     description:
       "Oberoende svenskt initiativ för att granska och utbilda om källkritik.",
     category: "kallkritik-resurser",
+    domaner: ["mota"],
     kind: "research",
     price: "free",
     requiresAccount: false,
@@ -49,6 +52,7 @@ export const tools: Tool[] = [
     description:
       "Lektioner där elever tränar på att analysera nyhetskällor kritiskt.",
     category: "kallkritik-resurser",
+    domaner: ["mota"],
     kind: "exercise",
     price: "free",
     requiresAccount: false,
@@ -61,6 +65,7 @@ export const tools: Tool[] = [
     description:
       "Resurser om hur man identifierar och motverkar desinformation genom prebunking-strategier.",
     category: "kallkritik-resurser",
+    domaner: ["mota"],
     kind: "research",
     price: "free",
     requiresAccount: false,
@@ -73,6 +78,7 @@ export const tools: Tool[] = [
     description:
       "Ett spel och utbildningsmaterial där du övar på att identifiera deepfakes och manipulativa tekniker.",
     category: "larresurs-skola",
+    domaner: ["mota"],
     kind: "game",
     price: "free",
     requiresAccount: false,
@@ -85,6 +91,7 @@ export const tools: Tool[] = [
     description:
       "Översikt över politisk bias i nyhetsmedier från olika perspektiv. Bra som verktyg för diskussion om vinkling.",
     category: "kallkritik-resurser",
+    domaner: ["mota"],
     kind: "research",
     price: "free",
     requiresAccount: false,
@@ -99,6 +106,7 @@ export const tools: Tool[] = [
     description:
       "En av världens största faktagranskningsplattformar för att avslöja falska nyheter och rykten.",
     category: "verifiering",
+    domaner: ["mota"],
     kind: "verification",
     price: "free",
     requiresAccount: false,
@@ -111,6 +119,7 @@ export const tools: Tool[] = [
     description:
       "SVT:s redaktion som granskar och verifierar virala nyheter och rykten i svenska sammanhang.",
     category: "verifiering",
+    domaner: ["mota"],
     kind: "verification",
     price: "free",
     requiresAccount: false,
@@ -123,6 +132,7 @@ export const tools: Tool[] = [
     description:
       "Icke-partisk ideell webbplats som syftar till att minska vilseledning genom originalforskning om desinformation och bluffar.",
     category: "verifiering",
+    domaner: ["mota"],
     kind: "verification",
     price: "free",
     requiresAccount: false,
@@ -135,6 +145,7 @@ export const tools: Tool[] = [
     description:
       "Webbläsartillägg för att analysera och verifiera bilder och videoklipp — bra för journalister och avancerade lärare.",
     category: "verifiering",
+    domaner: ["mota"],
     kind: "browser-extension",
     price: "free",
     requiresAccount: false,
@@ -150,6 +161,7 @@ export const tools: Tool[] = [
     description:
       "Pedagogisk gissningslek där du laddar upp eller länkar bilder, video, ljud eller musik — först får DU gissa om innehållet är AI-genererat, sedan ser du tjänstens bedömning. Bra som komplement: kör övningen först med magkänslan, kör sedan samma material genom Sightengine och jämför. Notera när tjänsten själv tvekar — det är ofta där eleverna också missar.",
     category: "ai-detektion",
+    domaner: ["mota"],
     kind: "exercise",
     price: "freemium",
     requiresAccount: false,
@@ -166,6 +178,7 @@ export const tools: Tool[] = [
     description:
       "Specialanpassad GPT som hjälper dig analysera och granska information ur källkritisk synvinkel.",
     category: "ai-assistent-kallkritik",
+    domaner: ["mota"],
     kind: "service",
     price: "freemium",
     requiresAccount: true,
@@ -179,6 +192,7 @@ export const tools: Tool[] = [
     description:
       "En GPT för att bredda perspektiv och förstå olika synsätt på samma fråga.",
     category: "ai-assistent-kallkritik",
+    domaner: ["mota"],
     kind: "service",
     price: "freemium",
     requiresAccount: true,
@@ -194,6 +208,7 @@ export const tools: Tool[] = [
     description:
       "Spel där du tar rollen som en falsk nyhetsproducent — evidensbaserad metod att förstå och motverka desinformation.",
     category: "prebunking-spel",
+    domaner: ["mota"],
     kind: "game",
     price: "free",
     requiresAccount: false,
@@ -207,6 +222,7 @@ export const tools: Tool[] = [
     description:
       "Använder humor och kritiskt tänkande för att lära ut tekniker för att känna igen och motstå desinformation. Funkar i åk 4 och uppåt.",
     category: "prebunking-spel",
+    domaner: ["mota"],
     kind: "game",
     price: "free",
     requiresAccount: false,
@@ -220,6 +236,7 @@ export const tools: Tool[] = [
     description:
       "Simulerar ett sociala medier-flöde där du övar på att identifiera och faktagranska tveksamma nyheter.",
     category: "prebunking-spel",
+    domaner: ["mota"],
     kind: "game",
     price: "free",
     requiresAccount: false,
@@ -232,6 +249,7 @@ export const tools: Tool[] = [
     description:
       "Spel där du använder desinformationstaktiker för att så split i en fiktiv by — ökar medvetenheten om manipulationstekniker.",
     category: "prebunking-spel",
+    domaner: ["mota"],
     kind: "game",
     price: "free",
     requiresAccount: false,
@@ -244,6 +262,7 @@ export const tools: Tool[] = [
     description:
       "Granska och avfärda desinformation genom att bedöma trovärdigheten i inlägg på ett fiktivt forum.",
     category: "prebunking-spel",
+    domaner: ["mota"],
     kind: "game",
     price: "free",
     requiresAccount: false,
@@ -256,6 +275,7 @@ export const tools: Tool[] = [
     description:
       "Skapa fejkade nyheter och försök få viral spridning för ekonomisk vinning — ger insikt i desinformationsspridarnas metoder.",
     category: "prebunking-spel",
+    domaner: ["mota"],
     kind: "game",
     price: "free",
     requiresAccount: false,
@@ -270,6 +290,7 @@ export const tools: Tool[] = [
     description:
       "AI-driven sökmotor som ger direkta svar med källhänvisningar — bra för verifiering och lateral läsning.",
     category: "sok-och-lateral-lasning",
+    domaner: ["mota"],
     kind: "service",
     price: "freemium",
     requiresAccount: false,
@@ -282,6 +303,7 @@ export const tools: Tool[] = [
     description:
       "Forskningsprototyp som använder AI för att skapa Wikipedia-liknande rapporter om valda ämnen. Bra för översiktlig research.",
     category: "sok-och-lateral-lasning",
+    domaner: ["mota", "skapa"],
     kind: "service",
     price: "free",
     requiresAccount: false,
@@ -294,6 +316,7 @@ export const tools: Tool[] = [
     description:
       "Plattform som låter dig använda flera AI-chattbotar samtidigt (GPT-4o, Claude, Gemini) och jämföra svaren sida vid sida.",
     category: "sok-och-lateral-lasning",
+    domaner: ["mota", "styra"],
     kind: "service",
     price: "freemium",
     requiresAccount: false,
@@ -307,6 +330,7 @@ export const tools: Tool[] = [
     description:
       "Sök efter var en bild förekommer på internet. Avgörande verktyg för att avslöja manipulerade eller felkontextualiserade bilder.",
     category: "sok-och-lateral-lasning",
+    domaner: ["mota"],
     kind: "verification",
     price: "free",
     requiresAccount: false,
@@ -320,6 +344,7 @@ export const tools: Tool[] = [
     description:
       "Sök efter bilder baserat på nyckelord eller omvänd bildsökning (ladda upp en bild för att hitta dess ursprung).",
     category: "sok-och-lateral-lasning",
+    domaner: ["mota"],
     kind: "verification",
     price: "free",
     requiresAccount: false,
@@ -334,6 +359,7 @@ export const tools: Tool[] = [
     description:
       "OpenAI:s avancerade språkmodell — generera text, svara på frågor, redigera bilder. Standardvalet för många.",
     category: "chattbot",
+    domaner: ["skapa", "styra"],
     kind: "service",
     price: "freemium",
     requiresAccount: true,
@@ -346,6 +372,7 @@ export const tools: Tool[] = [
     description:
       "Anthropics AI-assistent — tränad för att vara säker, exakt och pålitlig. Mer återhållsam än vissa konkurrenter.",
     category: "chattbot",
+    domaner: ["skapa", "styra"],
     kind: "service",
     price: "freemium",
     requiresAccount: true,
@@ -358,6 +385,7 @@ export const tools: Tool[] = [
     description:
       "Googles AI-assistent som integrerar realtidssök, bildgenerering (Nano Banana) och videogenerering (Veo).",
     category: "chattbot",
+    domaner: ["skapa", "styra"],
     kind: "service",
     price: "freemium",
     requiresAccount: true,
@@ -370,6 +398,7 @@ export const tools: Tool[] = [
     description:
       "xAI:s assistent med realtidssökning, bild- och videogenerering. Mindre spärrar än konkurrenterna — bra för diskussion om designval.",
     category: "chattbot",
+    domaner: ["skapa", "forma"],
     kind: "service",
     price: "freemium",
     requiresAccount: true,
@@ -383,6 +412,7 @@ export const tools: Tool[] = [
     description:
       "Integritetsfokuserad chattbot och bildgenerator utan krav på kontoregistrering eller datalagring.",
     category: "chattbot",
+    domaner: ["skapa", "styra"],
     kind: "service",
     price: "freemium",
     requiresAccount: false,
@@ -395,6 +425,7 @@ export const tools: Tool[] = [
     description:
       "Anonym chattbot integrerad i DuckDuckGo:s privata webbläsare — låter dig prata med flera AI-modeller utan att kompromettera integriteten.",
     category: "chattbot",
+    domaner: ["skapa", "styra"],
     kind: "service",
     price: "free",
     requiresAccount: false,
@@ -409,6 +440,7 @@ export const tools: Tool[] = [
     description:
       "AI-modell som genererar bilder från textbeskrivningar — utmärker sig genom förmågan att skapa läsbar text inuti bilderna.",
     category: "bildgenerering",
+    domaner: ["skapa"],
     kind: "service",
     price: "freemium",
     requiresAccount: true,
@@ -421,6 +453,7 @@ export const tools: Tool[] = [
     description:
       "Text-till-bild-generator med olika stilar — illustrationer, porträtt, 3D-modeller. Kräver inte konto.",
     category: "bildgenerering",
+    domaner: ["skapa"],
     kind: "service",
     price: "freemium",
     requiresAccount: false,
@@ -433,6 +466,7 @@ export const tools: Tool[] = [
     description:
       "AI-konstgenerator som snabbt skapar konstverk baserat på textbeskrivningar. Tillgänglig utan inloggning.",
     category: "bildgenerering",
+    domaner: ["skapa"],
     kind: "service",
     price: "freemium",
     requiresAccount: false,
@@ -445,6 +479,7 @@ export const tools: Tool[] = [
     description:
       "Gratis i Edge-webbläsaren. Bra på bildgenerering och redigering. Tillgängligt på de flesta skolor.",
     category: "bildgenerering",
+    domaner: ["skapa"],
     kind: "service",
     price: "free",
     requiresAccount: true,
@@ -460,6 +495,7 @@ export const tools: Tool[] = [
     description:
       "Googles flaggskeppsmodell för text-till-video. Bra på kontinuitet i rörelser. Tillgänglig via Gemini-prenumeration.",
     category: "videogenerering",
+    domaner: ["skapa"],
     kind: "service",
     price: "paid",
     requiresAccount: true,
@@ -473,6 +509,7 @@ export const tools: Tool[] = [
     description:
       "OpenAI:s videogenerator. Lång klipplängd och fotorealistiska resultat. Kräver ChatGPT Plus eller högre.",
     category: "videogenerering",
+    domaner: ["skapa"],
     kind: "service",
     price: "paid",
     requiresAccount: true,
@@ -486,6 +523,7 @@ export const tools: Tool[] = [
     description:
       "Designad för filmskapare och kreatörer. Många kontrollverktyg utöver text-prompt. Gratis nivå finns men begränsad.",
     category: "videogenerering",
+    domaner: ["skapa"],
     kind: "service",
     price: "freemium",
     requiresAccount: true,
@@ -499,6 +537,7 @@ export const tools: Tool[] = [
     description:
       "AI-driven plattform som omvandlar textbeskrivningar till högkvalitativa videor — känd för snabb bearbetning och realistiska rörelser.",
     category: "videogenerering",
+    domaner: ["skapa"],
     kind: "service",
     price: "freemium",
     requiresAccount: true,
@@ -511,6 +550,7 @@ export const tools: Tool[] = [
     description:
       "Kinesiskt AI-företag som erbjuder text-till-video (Video-01, 6-sekunders klipp) samt multimodal text- och musikgenerering.",
     category: "videogenerering",
+    domaner: ["skapa"],
     kind: "service",
     price: "freemium",
     requiresAccount: true,
@@ -523,6 +563,7 @@ export const tools: Tool[] = [
     description:
       "AI-driven videoredigeringsplattform med mallar och automatiserade funktioner — bra för snabb produktion av professionella videor.",
     category: "videogenerering",
+    domaner: ["skapa"],
     kind: "service",
     price: "freemium",
     requiresAccount: true,
@@ -535,6 +576,7 @@ export const tools: Tool[] = [
     description:
       "Text-till-video-modell känd för cinematisk kvalitet och realistiska rörelser. Kan utgå från stillbilder eller prompter.",
     category: "videogenerering",
+    domaner: ["skapa"],
     kind: "service",
     price: "freemium",
     requiresAccount: true,
@@ -549,6 +591,7 @@ export const tools: Tool[] = [
     description:
       "AI-musikgenerator där du skapar låtar från text eller uppladdat ljud. Får separata ljudspår för full kreativ kontroll.",
     category: "ljud-och-rost",
+    domaner: ["skapa"],
     kind: "service",
     price: "freemium",
     requiresAccount: true,
@@ -561,6 +604,7 @@ export const tools: Tool[] = [
     description:
       "AI-musikgenerator för att skapa, dela och upptäcka musik på sekunder.",
     category: "ljud-och-rost",
+    domaner: ["skapa"],
     kind: "service",
     price: "freemium",
     requiresAccount: true,
@@ -573,6 +617,7 @@ export const tools: Tool[] = [
     description:
       "AI-plattform för text-till-tal och röstkloning. Människoliknande tal på 32 språk. Perfekt för ljudböcker och voiceover.",
     category: "ljud-och-rost",
+    domaner: ["mota", "skapa"],
     kind: "service",
     price: "freemium",
     requiresAccount: true,
@@ -585,6 +630,7 @@ export const tools: Tool[] = [
     description:
       "Över 900 AI-röster på fler än 100 språk och accenter — för voiceovers, podcaster och presentationer.",
     category: "ljud-och-rost",
+    domaner: ["skapa"],
     kind: "service",
     price: "freemium",
     requiresAccount: true,
@@ -599,6 +645,7 @@ export const tools: Tool[] = [
     description:
       "Webbkamerabaserad realtids-deepfake. Inga uppladdningar — bara live-effekter på dig själv. Den enklaste vägen in i deepfake-tekniken med inbyggda säkerhetsspärrar.",
     category: "deepfake-skapande",
+    domaner: ["mota", "skapa"],
     kind: "exercise",
     price: "free",
     requiresAccount: false,
@@ -612,6 +659,7 @@ export const tools: Tool[] = [
     description:
       "Webbkamerabaserad realtids face-swap där du själv ändras enligt en prompt — ”Gör mig till en gammal gubbe” och så händer det.",
     category: "deepfake-skapande",
+    domaner: ["mota", "skapa"],
     kind: "exercise",
     price: "free",
     requiresAccount: false,
@@ -625,6 +673,7 @@ export const tools: Tool[] = [
     description:
       "AI-videoplattform för att skapa högkvalitativa videor med AI-avatarer. Översätt innehåll och skapa avatarvideor utan kamera eller team.",
     category: "deepfake-skapande",
+    domaner: ["mota", "skapa"],
     kind: "service",
     price: "freemium",
     requiresAccount: true,
@@ -637,6 +686,7 @@ export const tools: Tool[] = [
     description:
       "AI-plattform som låter användare skapa videor med digitala personer från en enda bild — talande avatarer på sekunder.",
     category: "deepfake-skapande",
+    domaner: ["mota", "skapa"],
     kind: "service",
     price: "freemium",
     requiresAccount: true,
@@ -649,6 +699,7 @@ export const tools: Tool[] = [
     description:
       "Förvandlar statiska bilder till animerade videor med realistiska ansiktsuttryck och rörelser.",
     category: "deepfake-skapande",
+    domaner: ["mota", "skapa"],
     kind: "service",
     price: "freemium",
     requiresAccount: true,
@@ -661,6 +712,7 @@ export const tools: Tool[] = [
     description:
       "Interaktiv demo där du skapar en deepfake av dig själv på sekunder. Undersöker samhälleliga implikationer av deepfakes och AI-teknik.",
     category: "deepfake-skapande",
+    domaner: ["mota", "skapa"],
     kind: "exercise",
     price: "free",
     requiresAccount: false,
@@ -675,6 +727,7 @@ export const tools: Tool[] = [
     description:
       "Gratis plattform om trygghet på nätet med material från förskola till gymnasium. Stark mellanstadie-fokus, ny AI-modul och rikligt med källkritiklektioner.",
     category: "larresurs-skola",
+    domaner: ["mota"],
     kind: "exercise",
     price: "free",
     requiresAccount: false,
@@ -688,6 +741,7 @@ export const tools: Tool[] = [
     description:
       "Mediemyndighetens digitala lektionsbank med färdiga lektionspaket om källkritik, vinklade budskap och relationer online för låg-, mellan- och högstadiet.",
     category: "larresurs-skola",
+    domaner: ["mota"],
     kind: "exercise",
     price: "free",
     requiresAccount: false,
@@ -701,6 +755,7 @@ export const tools: Tool[] = [
     description:
       "Lektionstips och övningar om källkritik med fokus på journalistik, pressfrihet och faktagranskning. Erbjuder kostnadsfria klassrumsbesök av mediepedagoger.",
     category: "larresurs-skola",
+    domaner: ["mota"],
     kind: "exercise",
     price: "free",
     requiresAccount: false,
@@ -714,6 +769,7 @@ export const tools: Tool[] = [
     description:
       "Lärarmaterial om nätsäkerhet, källkritik och cyberbullying. Färdiga PowerPoints och diskussionsguider att ladda ner gratis.",
     category: "larresurs-skola",
+    domaner: ["mota"],
     kind: "exercise",
     price: "free",
     requiresAccount: false,
@@ -726,6 +782,7 @@ export const tools: Tool[] = [
     description:
       "Nyhetssatir för mellanstadiet som lär ut källkritik genom underhållande program. Lärarhandledning med diskussionsfrågor och färdiga lektionsförslag.",
     category: "larresurs-skola",
+    domaner: ["mota"],
     kind: "exercise",
     price: "free",
     requiresAccount: false,
@@ -739,6 +796,7 @@ export const tools: Tool[] = [
     description:
       "Veckonyheter för mellanstadiet med extra fokus på källkritik. Arbetsblad, quiz och lärarhandledningar från SVT/UR.",
     category: "larresurs-skola",
+    domaner: ["mota"],
     kind: "exercise",
     price: "free",
     requiresAccount: false,
@@ -752,6 +810,7 @@ export const tools: Tool[] = [
     description:
       "Programserie för mellanstadiet om medie- och informationskunnighet, källkritik och hur medier fungerar.",
     category: "larresurs-skola",
+    domaner: ["mota"],
     kind: "exercise",
     price: "free",
     requiresAccount: false,
@@ -765,6 +824,7 @@ export const tools: Tool[] = [
     description:
       "Kurs om AI-bilder och källkritik för lärare. Behandlar promptografi och kritisk granskning av AI-genererade bilder.",
     category: "larresurs-skola",
+    domaner: ["mota", "skapa"],
     kind: "guide",
     price: "free",
     requiresAccount: false,
@@ -778,6 +838,7 @@ export const tools: Tool[] = [
     description:
       "Virtuellt klassrum för åk 5–12 med hundratals gratis lektioner, quizzar och slides om nyhetsfärdighet och källkritik.",
     category: "larresurs-skola",
+    domaner: ["mota"],
     kind: "exercise",
     price: "free",
     requiresAccount: true,
@@ -793,6 +854,7 @@ export const tools: Tool[] = [
     description:
       "Samlad kunskapsbank med över 1500 artiklar från Digiteket, Internetstiftelsen, Mediemyndigheten och UR om medie- och informationskunnighet.",
     category: "kallkritik-resurser",
+    domaner: ["mota"],
     kind: "research",
     price: "free",
     requiresAccount: false,
@@ -806,6 +868,7 @@ export const tools: Tool[] = [
     description:
       "Kungliga bibliotekets fortbildningsplattform med samlade resurser om prebunking, källkritik och MIK för bibliotekarier och pedagoger.",
     category: "kallkritik-resurser",
+    domaner: ["mota"],
     kind: "research",
     price: "free",
     requiresAccount: false,
@@ -818,6 +881,7 @@ export const tools: Tool[] = [
     description:
       "Linnéuniversitetets resurssamling om faktagranskning med svenska och internationella exempel, lärarmaterial och guider om desinformation.",
     category: "kallkritik-resurser",
+    domaner: ["mota"],
     kind: "research",
     price: "free",
     requiresAccount: false,
@@ -830,6 +894,7 @@ export const tools: Tool[] = [
     description:
       "Finlands ledande faktagranskningstjänst med utbildningsmaterial om medie- och informationskunnighet. Finland rankas högst i Europa på MIL.",
     category: "kallkritik-resurser",
+    domaner: ["mota"],
     kind: "verification",
     price: "free",
     requiresAccount: false,
@@ -845,6 +910,7 @@ export const tools: Tool[] = [
     description:
       "Stanfords forskningsbaserade läroplan för lateral läsning och digital källkritik. Forskningen visar effekt redan efter korta interventioner.",
     category: "sok-och-lateral-lasning",
+    domaner: ["mota"],
     kind: "exercise",
     price: "free",
     requiresAccount: false,
@@ -860,6 +926,7 @@ export const tools: Tool[] = [
     description:
       "Specialversion av Bad News för barn 8–11 år. Spelaren skapar fake news för skolwebbplatsen istället för sociala medier — lär ut förklädnad, känslomanipulation och andra tekniker.",
     category: "prebunking-spel",
+    domaner: ["mota"],
     kind: "game",
     price: "free",
     requiresAccount: false,
@@ -876,6 +943,7 @@ export const tools: Tool[] = [
     description:
       "Världens första omvända bildsökmotor som söker över 70 miljarder bilder. Hittar originalkälla och redigerade versioner.",
     category: "verifiering",
+    domaner: ["mota"],
     kind: "verification",
     price: "freemium",
     requiresAccount: false,
@@ -889,6 +957,7 @@ export const tools: Tool[] = [
     description:
       "Sökmotor känd för överlägsen ansiktsigenkänning och förmåga att hitta redigerade bilder. Standardverktyg för OSINT och bildverifiering.",
     category: "verifiering",
+    domaner: ["mota"],
     kind: "verification",
     price: "free",
     requiresAccount: false,
@@ -902,6 +971,7 @@ export const tools: Tool[] = [
     description:
       "Bildforensik-tjänst som använder Error Level Analysis (ELA) för att avslöja manipulerade bilder. Visar inkonsekvenser i kompression som tyder på redigering.",
     category: "verifiering",
+    domaner: ["mota"],
     kind: "verification",
     price: "free",
     requiresAccount: false,
@@ -915,6 +985,7 @@ export const tools: Tool[] = [
     description:
       "Adobe/Microsofts officiella verifieringsverktyg för C2PA-metadata. Visar bildens ursprung, redigeringshistorik och om AI använts.",
     category: "verifiering",
+    domaner: ["mota"],
     kind: "verification",
     price: "free",
     requiresAccount: false,
@@ -928,6 +999,7 @@ export const tools: Tool[] = [
     description:
       "Samlad verktygslåda för OSINT-undersökningar — bild- och videoverifiering, sociala medier, satellitbilder, arkivering. De flesta verktygen är gratis.",
     category: "verifiering",
+    domaner: ["mota"],
     kind: "research",
     price: "free",
     requiresAccount: false,
@@ -943,6 +1015,7 @@ export const tools: Tool[] = [
     description:
       "Verifierings-Schweizerkniv som webbläsartillägg med omvänd bildsökning, video-fragmentering, EXIF-läsning och AI-detektorer från vera.ai.",
     category: "browser-extension",
+    domaner: ["mota"],
     kind: "browser-extension",
     price: "free",
     requiresAccount: false,
@@ -956,6 +1029,7 @@ export const tools: Tool[] = [
     description:
       "Webbläsartillägg som visar trovärdighetspoäng (0–100) för nyhetssajter baserat på nio journalistiska kriterier. Granskas av riktiga journalister.",
     category: "browser-extension",
+    domaner: ["mota"],
     kind: "browser-extension",
     price: "freemium",
     requiresAccount: true,
@@ -969,6 +1043,7 @@ export const tools: Tool[] = [
     description:
       "Webbläsartillägg som visar politisk slagsida och faktatrovärdighet för nyhetssajter direkt i webbläsaren. Komplement till AllSides Media Bias Chart.",
     category: "browser-extension",
+    domaner: ["mota"],
     kind: "browser-extension",
     price: "free",
     requiresAccount: false,

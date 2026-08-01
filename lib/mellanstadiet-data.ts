@@ -3,6 +3,8 @@
  * Källa: /mellanstadiet/master-plan.md + lektion-1..7/*.md
  */
 
+import type { Doman } from "@/lib/taxonomi";
+
 export type LessonStatus = "draft" | "ready" | "live";
 
 export interface MellanstadietLesson {
@@ -10,8 +12,14 @@ export interface MellanstadietLesson {
   number: number;
   slug: string;
   title: string;
+  /**
+   * Kursen är byggd som en lektion per dimension — därav det enskilda
+   * talet här. Dimensionerna är täckningslagret; se lib/taxonomi.ts.
+   */
   dimension: number;
   dimensionLabel: string;
+  /** OECD-domäner — sajtens navigationsfilter. Vad eleven GÖR i lektionen. */
+  domaner: Doman[];
   kernfraga: string;
   kernpastaende: string;
   tagline: string;
@@ -31,6 +39,7 @@ export const MELLANSTADIET_LESSONS: MellanstadietLesson[] = [
     title: "Berättelsen om AI",
     dimension: 0,
     dimensionLabel: "Berättelsen om AI",
+    domaner: ["mota"],
     kernfraga: "Hur kom vi hit, och vilka berättelser bär vi med oss?",
     kernpastaende:
       "AI är inte en sak. Det är många. Det vi sett på film i 70 år har börjat hända — men inte alls som filmen gissade.",
@@ -48,6 +57,7 @@ export const MELLANSTADIET_LESSONS: MellanstadietLesson[] = [
     title: "Vad är AI egentligen?",
     dimension: 1,
     dimensionLabel: "Vad är AI?",
+    domaner: ["mota"],
     kernfraga: "Hur kan något som inte tänker ändå verka så smart?",
     kernpastaende:
       "AI tänker inte. AI gissar. Den känner igen mönster i enorma mängder data — och svarar med det som troligen kommer härnäst.",
@@ -65,6 +75,7 @@ export const MELLANSTADIET_LESSONS: MellanstadietLesson[] = [
     title: "Använda AI som verktyg",
     dimension: 2,
     dimensionLabel: "Använda AI",
+    domaner: ["skapa", "styra"],
     kernfraga: "Hur blir jag chefen över verktyget — inte tvärtom?",
     kernpastaende:
       "AI är ett verktyg. Du är chefen. Tydliga instruktioner ger användbara resultat.",
@@ -82,6 +93,7 @@ export const MELLANSTADIET_LESSONS: MellanstadietLesson[] = [
     title: "Kritiskt granska AI",
     dimension: 4,
     dimensionLabel: "Kritiskt granska",
+    domaner: ["mota"],
     kernfraga: "Hur ser jag när AI hittar på? Hur ser jag när bilden är fejkad?",
     kernpastaende:
       "AI är en väldigt övertygande gissningsmaskin. Aldrig en sanningsmaskin. Granskning är vår superkraft.",
@@ -99,6 +111,7 @@ export const MELLANSTADIET_LESSONS: MellanstadietLesson[] = [
     title: "Etik och ansvar",
     dimension: 3,
     dimensionLabel: "Etik",
+    domaner: ["styra", "forma"],
     kernfraga: "Vem bestämmer över AI? Vem tar ansvar när det blir fel?",
     kernpastaende:
       "AI är inte ond. Men den är inte heller god. Den är ett verktyg som människor designat med vissa mål. Du har agens — du bestämmer.",
@@ -116,6 +129,7 @@ export const MELLANSTADIET_LESSONS: MellanstadietLesson[] = [
     title: "Människa och maskin",
     dimension: 5,
     dimensionLabel: "Människa & maskin",
+    domaner: ["mota", "styra"],
     kernfraga: "Vad kan jag som AI aldrig kan? Och varför är AI inte en kompis?",
     kernpastaende:
       "AI kan låta snäll. Men en kompis är snäll — också när det är obekvämt. AI är ett verktyg. Använd det. Bli inte vän med det.",
@@ -133,6 +147,7 @@ export const MELLANSTADIET_LESSONS: MellanstadietLesson[] = [
     title: "Framtid och samhälle",
     dimension: 6,
     dimensionLabel: "Framtid & samhälle",
+    domaner: ["forma"],
     kernfraga: "Hur vill DU att framtiden med AI ska se ut?",
     kernpastaende:
       "AI är inte en framtid som händer. Det är en framtid som byggs — av val som människor gör. Just nu. Och snart är det DU som gör de valen.",

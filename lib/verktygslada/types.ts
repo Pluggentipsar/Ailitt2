@@ -1,6 +1,8 @@
 // Verktygslådan — en sökbar/filtrerbar samling av AI-tjänster, källkritik-
 // verktyg, prebunking-spel och pedagogiska resurser för lärare.
 
+import type { Doman } from "@/lib/taxonomi";
+
 export type ToolCategory =
   | "kallkritik-resurser"
   | "verifiering"
@@ -73,6 +75,13 @@ export type Tool = {
   url: string;
   description: string;
   category: ToolCategory;
+  /**
+   * OECD-domäner — sajtens navigationsfilter, se lib/taxonomi.ts.
+   * Frågan är vad ELEVEN gör med verktyget, inte vad verktyget är.
+   * Obligatoriskt med flit: ett otaggat verktyg blir osynligt i filtret, och
+   * ett kompileringsfel är en bättre påminnelse än en tom träfflista.
+   */
+  domaner: Doman[];
   kind: ToolKind;
   price: ToolPrice;
   requiresAccount: boolean;

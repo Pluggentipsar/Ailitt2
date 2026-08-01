@@ -17,7 +17,7 @@ import type { BankOvning, OvningDoman } from "./types";
 // ligger här (en gång) i stället för på varje enskild aktivitet.
 const DOMANER_PER_KAPITEL: Record<ChapterId, OvningDoman[]> = {
   flodet: ["mota"],
-  "bygg-sjalv": ["skapa", "mota"],
+  "bygg-sjalv": ["mota", "skapa"],
   hallucinationer: ["mota"],
   vannen: ["mota", "styra"],
   "retoriska-knep": ["mota"],

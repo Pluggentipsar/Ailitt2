@@ -1,3 +1,5 @@
+import type { Doman } from '@/lib/taxonomi';
+
 export type GradeLevel = '1-3' | '4-6';
 
 export interface DialogueLine {
@@ -60,6 +62,8 @@ export interface ModulePart {
   id: string;
   title: string;
   description: string;
+  /** OECD-domäner — sajtens navigationsfilter, se lib/taxonomi.ts. */
+  domaner: Doman[];
   icon?: string;
   cardImage?: string;
   story?: StoryChapter;
@@ -81,6 +85,7 @@ export const grundskolaModules: ModulePart[] = [
     title: 'Berättelsen om AI',
     cardImage: '/del1.png',
     description: 'Hur började allt? Vi följer med Maja när hon upptäcker en gammal dator på vinden.',
+    domaner: ['mota'],
     learningMaterial: {
       title: "Kapitel 1 – Berättelsen om AI: “Maja möter Gnista”",
       content: `
@@ -301,6 +306,7 @@ AI är bara ett hjälpverktyg — lite som en miniräknare eller en smart app.
     title: 'Vad är AI?',
     cardImage: '/del2.png',
     description: 'Teknisk förståelse av hur AI-system fungerar',
+    domaner: ['mota'],
     learningMaterial: {
       title: "Kapitel 2 – Vad är AI?: “Gnista inuti burken”",
       content: `
@@ -523,6 +529,7 @@ Därför är dina egna tankar viktiga — du ser mer än AI gör.
     title: 'Skapande AI',
     cardImage: '/del3.png',
     description: 'Praktisk användning av AI-verktyg och strategier',
+    domaner: ['skapa', 'styra'],
     learningMaterial: {
       title: "Kapitel 3 – Skapande AI",
       content: `
@@ -902,6 +909,7 @@ Så allt blir rättvist.
     title: 'Fejkbilder och fejkfilmer',
     cardImage: '/ny_kap4.webp',
     description: 'När AI lurar ögat - om deepfakes och källkritik',
+    domaner: ['mota'],
     story: {
       title: 'Kapitel 4 – Låtsasbilder & låtsasfilmer: “Filmen om rektorn”',
       dialogue: [
@@ -1051,6 +1059,7 @@ Precis som vi inte vill att någon ska sprida låtsasbilder på oss, ska vi vara
     title: 'Kritiskt granska',
     cardImage: '/del4.png',
     description: 'Källkritik, utvärdering och faktakontroll av AI-genererat innehåll',
+    domaner: ['mota'],
     story: {
       title: 'Kapitel 5 – Varför ritade AI fel?',
       audio: '/saga4.wav',
@@ -1242,6 +1251,7 @@ Glöm inte: AI behöver inte veta privata saker. Du ska inte skriva hemligheter 
     title: 'Etik',
     cardImage: '/del5.png',
     description: 'Etiska överväganden och ansvarsfrågor kring AI',
+    domaner: ['styra', 'forma'],
     story: {
       title: 'Kapitel 6 – Den orättvisa tävlingen',
       audio: '/saga5.wav',
@@ -1521,6 +1531,7 @@ Om du kan svara bra på alla tre frågorna – då använder du AI på ett bra s
     title: 'Människa & maskin',
     cardImage: '/del6.png',
     description: 'Relationen mellan människor och AI, autenticitet och kreativitet',
+    domaner: ['mota', 'styra'],
     story: {
       title: 'Kapitel 7 – Vad Gnista inte kunde',
       audio: '/saga6.wav',
@@ -1729,6 +1740,7 @@ AI är smart på sitt sätt. Men du lever på riktigt. Det är skillnaden.
     title: 'AI är inte en kompis',
     cardImage: '/aifriend.webp',
     description: 'Om skillnaden mellan mänsklig vänskap och AI:s simulering av känslor',
+    domaner: ['mota', 'styra'],
     story: {
       title: 'Kapitel 7 – AI är inte en kompis: ”Gnista menar det inte”',
       audio: '/saga_ai_kompis.wav',
@@ -1958,6 +1970,7 @@ Men människor är dina riktiga vänner.
     title: 'Framtid & samhälle',
     cardImage: '/del7.png',
     description: 'AI:s samhällspåverkan, demokrati och framtidsperspektiv',
+    domaner: ['forma'],
     story: {
       title: 'Kapitel 9 – Brevet från framtiden',
       audio: '/saga7.wav',
@@ -2177,6 +2190,7 @@ Ni är de som ska skapa den.
     title: 'Min Tänkar-trappa',
     cardImage: '/del8.png',
     description: 'Epistemisk medvetenhet: Jag–AI–Jag',
+    domaner: ['skapa', 'styra'],
     story: {
       title: 'Kapitel 10 – Majas tänkartrappa',
       audio: '/saga8.wav',
