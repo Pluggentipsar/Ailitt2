@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import {
   type UnifiedItem,
@@ -10,6 +9,7 @@ import {
 import { AiLiteracyBadgeList } from "@/components/ui/AiLiteracyBadge";
 import { extractSnippet, highlightText } from "@/lib/search-utils";
 import { cn } from "@/lib/utils";
+import { Kort } from "@/components/ui/Kort";
 
 // Färgkodning per item-typ — visuellt en chip ovanför titeln.
 // Ljus bakgrund + mörk text för att hålla det lugnt i en lista.
@@ -95,13 +95,7 @@ export function UnifiedResultCard({
     : null;
 
   return (
-    <Link
-      href={item.url}
-      className={cn(
-        "group block rounded-2xl bg-white border border-gray-200 p-5 transition-all duration-200 hover:shadow-md hover:-translate-y-0.5",
-        style.ring
-      )}
-    >
+    <Kort href={item.url} className={style.ring}>
       {/* Type-badge + context */}
       <div className="flex items-center gap-2 mb-3 flex-wrap text-xs">
         <span
@@ -151,7 +145,7 @@ export function UnifiedResultCard({
         Öppna
         <ArrowRight className="h-3.5 w-3.5" />
       </div>
-    </Link>
+    </Kort>
   );
 }
 

@@ -1,4 +1,3 @@
-import Link from "next/link";
 import {
   Clock,
   Users,
@@ -12,6 +11,8 @@ import type { Activity } from "@/lib/workshops/kallkritik";
 import { ageRangeLabels, levelLabels } from "@/lib/workshops/kallkritik";
 import { chaptersById } from "@/lib/workshops/kallkritik/chapters";
 import { PlaylistToggleButton } from "./PlaylistToggleButton";
+import { Kort } from "@/components/ui/Kort";
+import { TON_BAKGRUND } from "./toner";
 
 const LEVEL_TONE: Record<string, string> = {
   "workshop-byggsten": "bg-stone-900 text-workshop-canvas",
@@ -24,28 +25,14 @@ export function ActivityCard({ activity }: { activity: Activity }) {
   const chapter = chaptersById[activity.chapter];
 
   return (
-    <Link
+    <Kort
+      variant="workshop"
       href={`/workshops/kallkritik-mellanstadiet/${activity.id}`}
-      className="post-it post-it-rotated post-it--senap block group relative no-underline print-avoid-break"
+      padding="ingen"
+      fyllHojd={false}
+      className="post-it--senap"
       data-chapter-tone={chapter.tone}
-      style={{
-        background:
-          chapter.tone === "senap"
-            ? "var(--workshop-senap-soft)"
-            : chapter.tone === "terrakotta"
-              ? "var(--workshop-terrakotta-soft)"
-              : chapter.tone === "havsblå"
-                ? "var(--workshop-havsblå-soft)"
-                : chapter.tone === "skog"
-                  ? "var(--workshop-skog-soft)"
-                  : chapter.tone === "lila"
-                    ? "var(--workshop-lila-soft)"
-                    : chapter.tone === "plommon"
-                      ? "var(--workshop-plommon-soft)"
-                      : chapter.tone === "rost"
-                        ? "var(--workshop-rost-soft)"
-                        : "#d6d3d1",
-      }}
+      style={{ background: TON_BAKGRUND[chapter.tone] }}
     >
       <div className="flex items-start justify-between gap-2 mb-2">
         <div className="flex items-center gap-2">
@@ -117,6 +104,6 @@ export function ActivityCard({ activity }: { activity: Activity }) {
         </div>
         <PlaylistToggleButton activityId={activity.id} />
       </div>
-    </Link>
+    </Kort>
   );
 }

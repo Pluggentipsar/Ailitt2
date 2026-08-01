@@ -1,8 +1,8 @@
 import React from "react";
-import Link from "next/link";
 import { ArrowRight, Clock, GraduationCap } from "lucide-react";
 import type { Metod } from "@/lib/eleverna-om-ai/data";
 import { DomanBadge } from "./DomanBadge";
+import { Kort } from "@/components/ui/Kort";
 
 interface MetodKortProps {
   metod: Metod;
@@ -10,9 +10,11 @@ interface MetodKortProps {
 
 export function MetodKort({ metod }: MetodKortProps) {
   return (
-    <Link
+    <Kort
       href={`/eleverna-om-ai/metod/${metod.slug}`}
-      className="group flex h-full flex-col rounded-2xl border border-gray-200/80 bg-white/90 p-6 shadow-lg backdrop-blur-sm transition duration-200 hover:-translate-y-1 hover:border-teal-200 hover:shadow-2xl"
+      padding="luftig"
+      accent="hover:border-teal-300"
+      className="flex flex-col"
     >
       <div className="flex items-start gap-4">
         <span className="font-mono text-4xl font-bold leading-none text-teal-600/80 transition-colors group-hover:text-teal-600">
@@ -46,6 +48,6 @@ export function MetodKort({ metod }: MetodKortProps) {
         </span>
         <ArrowRight className="ml-auto h-4 w-4 text-teal-600 transition-transform group-hover:translate-x-1" />
       </div>
-    </Link>
+    </Kort>
   );
 }

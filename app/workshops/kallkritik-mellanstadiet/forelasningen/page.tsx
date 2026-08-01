@@ -11,6 +11,7 @@ import {
 } from "lucide-react";
 import { forelasningen, type Slide } from "@/lib/workshops/kallkritik/forelasningen";
 import { ForelasningTOC } from "@/components/workshops/kallkritik/ForelasningTOC";
+import { TON_KLASS } from "@/components/workshops/kallkritik/toner";
 
 export const metadata = {
   title: `Föreläsning · ${forelasningen.title} · Källkritik-sandlådan`,
@@ -18,17 +19,6 @@ export const metadata = {
     "Läsversion av föreläsningen som föregår workshopen. Slide-för-slide-genomgång med talmanus och kontextualiserande text.",
 };
 
-// Akterna har var sin färgton från workshop-paletten — matchar workshop-CSS.
-const TONE_CLASS: Record<string, string> = {
-  senap: "bg-workshop-senap-soft",
-  havsblå: "bg-workshop-havsblå-soft",
-  lila: "bg-workshop-lila-soft",
-  skog: "bg-workshop-skog-soft",
-  kol: "bg-stone-300",
-  rost: "bg-workshop-rost-soft",
-  plommon: "bg-workshop-plommon-soft",
-  terrakotta: "bg-workshop-terrakotta-soft",
-};
 
 export default function ForelasningenPage() {
   return (
@@ -122,7 +112,7 @@ export default function ForelasningenPage() {
           {forelasningen.acts.map((act) => (
             <section key={act.id} id={act.id} className="scroll-mt-24">
               {/* Akt-divider */}
-              <div className={`rounded-3xl p-8 mb-8 ${TONE_CLASS[act.tone] ?? "bg-stone-200"} print-avoid-break`}>
+              <div className={`rounded-3xl p-8 mb-8 ${TON_KLASS[act.tone] ?? "bg-stone-200"} print-avoid-break`}>
                 <div className="text-xs uppercase tracking-wider font-bold text-stone-700 mb-1">
                   Akt {act.number}
                 </div>

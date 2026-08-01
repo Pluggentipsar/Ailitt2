@@ -1,8 +1,8 @@
-import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { AiLiteracyBadgeList } from "@/components/ui/AiLiteracyBadge";
 import { MetaBadge } from "@/components/ui/MetaBadge";
 import { cn } from "@/lib/utils";
+import { Kort } from "@/components/ui/Kort";
 
 interface ModuleCardProps {
   title: string;
@@ -34,13 +34,12 @@ export function ModuleCard({
   const hasFeaturedMedia = Boolean(featuredMedia);
 
   return (
-    <Link href={url} className="block h-full">
-      <div
-        className={cn(
-          "group h-full rounded-2xl border border-gray-200 bg-white shadow-sm transition-all hover:-translate-y-0.5 hover:border-blue-200 hover:shadow-lg",
-          hasFeaturedMedia && "overflow-hidden border-transparent bg-white shadow-md"
-        )}
-      >
+    <Kort
+      href={url}
+      accent="hover:border-blue-300"
+      padding="ingen"
+      className={cn(hasFeaturedMedia && "overflow-hidden border-transparent")}
+    >
         {hasFeaturedMedia && featuredMedia ? (
           <>
             <div className="relative h-44">
@@ -111,7 +110,6 @@ export function ModuleCard({
             </div>
           </div>
         )}
-      </div>
-    </Link>
+    </Kort>
   );
 }
