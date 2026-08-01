@@ -244,6 +244,89 @@ export const vaccinet: Activity[] = [
       },
     ],
 
+    // Klassrumsspår. Kort med flit: 30 av lektionens 60 minuter är spelet
+    // självt, och det bor på getbadnews.com — inte här. Spåret ramar in före
+    // och bär efterarbetet, där de sex teknikerna listas som referens så
+    // eleverna kan NAMNGE det de mötte. Det är där prebunkingen fastnar.
+    klassrum: [
+      {
+        blocks: [
+          { type: "h", text: "I dag jobbar ni på en fejk-nyhetsfabrik" },
+          { type: "p", text: "För att lära er hur de fungerar." },
+        ],
+      },
+      {
+        etikett: "Varför vi gör det så här",
+        blocks: [
+          {
+            type: "p",
+            text: "Att möta ett knep i försvagad form — i ett spel — gör dig motståndskraftig mot den fulla versionen senare. Som ett vaccin.",
+          },
+        ],
+      },
+      {
+        etikett: "Spelet",
+        blocks: [
+          { type: "h", text: "getbadnews.com/se" },
+          {
+            type: "p",
+            text: "Inget konto behövs. Du kan pausa när du vill. 15–30 minuter.",
+          },
+        ],
+      },
+      {
+        etikett: "Medan ni spelar",
+        blocks: [
+          {
+            type: "p",
+            text: "Skriv ner varje knep spelet lär er. Ni ska kunna namnge dem efteråt.",
+          },
+        ],
+      },
+      {
+        etikett: "De sex knepen",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "Anonyma källor",
+              "Ad hominem — personangrepp",
+              "Polarisering",
+              "Falsk balans",
+              "Troll",
+              "Falsk expertis",
+            ],
+          },
+        ],
+      },
+      {
+        etikett: "Efter spelet",
+        blocks: [
+          { type: "h", text: "Vilka knep mötte ni?" },
+          { type: "p", text: "Och var det smartare än ni trodde?" },
+        ],
+      },
+      {
+        etikett: "Den viktiga frågan",
+        blocks: [
+          {
+            type: "h",
+            text: "Var har ni SETT de här knepen på riktigt?",
+          },
+          { type: "p", text: "I nyheter. På TikTok. I en YouTube-rekommendation." },
+        ],
+      },
+      {
+        etikett: "Och framåt",
+        blocks: [
+          {
+            type: "p",
+            text: "Hur kommer ni att läsa nyheter annorlunda nästa vecka?",
+          },
+        ],
+      },
+    ],
+
     variations: [
       "Låt eleverna byta ut huvudpersonen i spelet mot en ”AI” — vad skulle förändras?",
     ],
@@ -504,6 +587,96 @@ export const vaccinet: Activity[] = [
           "Var fastnade du?",
           "Vilka knep var smartast?",
           "Vad är skillnaden mellan en åsikt och en manipulation?",
+        ],
+      },
+    ],
+
+    // Klassrumsspår. Kort — spelet är 20 av 30 minuter och bor på
+    // crankyuncle.info. Men språkvalet får en egen slide: det är övningens
+    // vanligaste praktiska haveri, och handledningen säger uttryckligen att
+    // det ska visas på storskärm. FLICC-teknikerna ligger som referens till
+    // efterarbetet så eleverna kan namnge det de mötte.
+    klassrum: [
+      {
+        blocks: [
+          { type: "h", text: "Möt Cranky Uncle" },
+          {
+            type: "p",
+            text: "Han försöker övertyga er om konstiga saker. Er uppgift: bli inte övertygade.",
+          },
+        ],
+      },
+      {
+        etikett: "Först — och detta är viktigt",
+        blocks: [
+          {
+            type: "callout",
+            tone: "warning",
+            title: "Välj SVENSKA innan ni börjar",
+            body: "Spelet kör engelska som standard. app.crankyuncle.info/language → välj Swedish. Missar ni det sitter ni och kämpar med engelska i onödan.",
+          },
+        ],
+      },
+      {
+        etikett: "Sen spelar ni",
+        blocks: [
+          { type: "h", text: "Tio frågor räcker" },
+          {
+            type: "p",
+            text: "Cranky Uncle lägger fram ett argument. Ni avgör vilken manipulationsteknik han använder.",
+          },
+        ],
+      },
+      {
+        etikett: "När ni fastnar",
+        blocks: [
+          {
+            type: "p",
+            text: "Läs ledtråden noga. Det är ofta då en ny teknik introduceras — och spelet bygger på sig självt, varje teknik kommer tillbaka.",
+          },
+        ],
+      },
+      {
+        etikett: "Teknikerna att känna igen",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "Falska experter",
+              "Logiska felslut",
+              "Omöjliga förväntningar",
+              "Cherry-picking",
+              "Konspirationsteorier",
+            ],
+          },
+        ],
+      },
+      {
+        etikett: "Efteråt",
+        blocks: [
+          {
+            type: "list",
+            ordered: true,
+            items: ["Var fastnade du?", "Vilka knep var smartast?"],
+          },
+        ],
+      },
+      {
+        etikett: "Den svåra frågan",
+        blocks: [
+          {
+            type: "h",
+            text: "Vad är skillnaden mellan en åsikt och en manipulation?",
+          },
+        ],
+      },
+      {
+        etikett: "Varför vi tränar tekniker",
+        blocks: [
+          {
+            type: "p",
+            text: "Inte fakta. Tekniker känner ni igen även i ämnen ni inte kan något om — fakta gäller bara det ämne de handlar om.",
+          },
         ],
       },
     ],

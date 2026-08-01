@@ -132,6 +132,100 @@ export const byggSjalv: Activity[] = [
       },
     ],
 
+    // Klassrumsspår. Den enda övningen i banken där en regel kan bli en
+    // kränkning om den missas: bara din EGEN bild, via webbkameran. Den står
+    // först, ensam, före något annat sägs. Slutfrågan om spärrar är den som
+    // faktiskt bär utanför klassrummet.
+    klassrum: [
+      {
+        blocks: [
+          { type: "h", text: "I dag testar vi en deepfake" },
+          { type: "p", text: "I en trygg miljö. Med spärrar." },
+        ],
+      },
+      {
+        etikett: "En regel — och den är absolut",
+        blocks: [
+          {
+            type: "callout",
+            tone: "warning",
+            title: "Bara DIN EGEN bild, via webbkameran",
+            body: "Ingen laddar upp något. Ingen använder någon annans ansikte. Spara inget, dela inget utanför klassen.",
+          },
+        ],
+      },
+      {
+        etikett: "Varför vi gör det här",
+        blocks: [
+          {
+            type: "p",
+            text: "Det är bättre att förstå tekniken här än att möta den oövervakat utanför skolan.",
+          },
+        ],
+      },
+      {
+        etikett: "Så gör ni",
+        blocks: [
+          {
+            type: "list",
+            ordered: true,
+            items: [
+              "Gå till deepfake.civai.org",
+              "Tillåt webbkameran",
+              "Välj en effekt",
+              "Sitt framför kameran — prata, rör dig, prova flera",
+            ],
+          },
+        ],
+      },
+      {
+        etikett: "Lägg märke till",
+        blocks: [
+          {
+            type: "list",
+            items: ["Hur lång tid tog det?", "Hur lite behövde du kunna?"],
+          },
+        ],
+      },
+      {
+        etikett: "Och nu den viktiga frågan",
+        blocks: [
+          {
+            type: "h",
+            text: "Om någon gör det här mot DIG och lägger upp klippet — vad gör du?",
+          },
+        ],
+      },
+      {
+        etikett: "Vem stöttar dig?",
+        blocks: [
+          {
+            type: "p",
+            text: "Hur skulle du vilja att skolan hjälper till om det händer?",
+          },
+        ],
+      },
+      {
+        etikett: "Den här tjänsten hade spärrar",
+        blocks: [
+          { type: "h", text: "Alla har inte det" },
+          {
+            type: "p",
+            text: "Vad gör ni när ni möter en tjänst utan spärrar?",
+          },
+        ],
+      },
+      {
+        etikett: "Sista frågan",
+        blocks: [
+          {
+            type: "p",
+            text: "Varför finns det här som tjänst över huvud taget? Vem tjänar på det?",
+          },
+        ],
+      },
+    ],
+
     discussion: [
       "Varför är det BÄTTRE att göra det här i klassrummet än hemma?",
       "Hur skulle du vilja att skolan stöttar dig om någon publicerar en deepfake av dig?",
@@ -293,6 +387,114 @@ export const byggSjalv: Activity[] = [
       },
     ],
 
+    // Klassrumsspår. Samma absoluta regel som i 2.1, och den står först.
+    // Prompterna projiceras — skriver eleverna egna glider de lätt mot
+    // riktiga personer, och en färdig lista håller övningen på plats.
+    klassrum: [
+      {
+        blocks: [
+          { type: "h", text: "Nu skriver ni prompten själva" },
+          {
+            type: "p",
+            text: "Förra gången valde ni ur en meny. Nu bestämmer ni.",
+          },
+        ],
+      },
+      {
+        etikett: "Regeln är densamma",
+        blocks: [
+          {
+            type: "callout",
+            tone: "warning",
+            title: "Webbkameran ska se BARA DIG",
+            body: "Inte din kompis, inte en bild, inte någon annan. Spara inget, dela inget utanför klassen.",
+          },
+        ],
+      },
+      {
+        etikett: "Och en till",
+        blocks: [
+          {
+            type: "p",
+            text: "Prompten får aldrig handla om en riktig person. Inga namn, inga kändisar, ingen i skolan.",
+          },
+        ],
+      },
+      {
+        etikett: "Säkra prompter att börja med",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "En gammal man eller gumma",
+              "En astronaut",
+              "En undervattensvarelse",
+              "En tecknad karaktär",
+              "En framtidsmänniska",
+            ],
+          },
+        ],
+      },
+      {
+        etikett: "Så gör ni",
+        blocks: [
+          {
+            type: "list",
+            ordered: true,
+            items: [
+              "Gå till lucy.decart.ai",
+              "Tillåt webbkameran",
+              "Välj eller skriv en prompt",
+              "Notera hur snabbt din bild byts ut",
+            ],
+          },
+        ],
+      },
+      {
+        etikett: "Två frågor medan ni testar",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "Hur lång tid tog det från prompt till resultat?",
+              "Vad behövde du kunna? Programmering? Bildredigering?",
+            ],
+          },
+        ],
+      },
+      {
+        etikett: "Svaret på den andra",
+        blocks: [{ type: "h", text: "Ingenting" }],
+      },
+      {
+        etikett: "Jämför med förra gången",
+        blocks: [
+          {
+            type: "example",
+            label: "Två steg på kort tid",
+            user: "deepfake.civai — du väljer ur en meny",
+            ai: "lucy.decart — du skriver vad du vill",
+            note: "Vad säger den skillnaden om vart det är på väg?",
+          },
+        ],
+      },
+      {
+        etikett: "Tänk två år framåt",
+        blocks: [
+          { type: "h", text: "Hur övertygande är tekniken då?" },
+        ],
+      },
+      {
+        etikett: "Och därför",
+        blocks: [
+          {
+            type: "p",
+            text: "Vad sätter vi för regler i klassen om någon vill göra det här hemma? Och vem tjänar på att det är så enkelt?",
+          },
+        ],
+      },
+    ],
+
     discussion: [
       "Skillnaden mellan deepfake.civai (förutbestämda effekter) och Lucy.decart (egen prompt) — vad säger det om utvecklingen?",
       "Vad sätter vi för regler i klassen om någon vill göra detta hemma?",
@@ -398,6 +600,28 @@ export const byggSjalv: Activity[] = [
           "Förbered diskussion om kostnaden: ”varför är det här inte gratis?”",
         ],
       },
+      {
+        type: "p",
+        text: "Den här övningen åldras snabbast av alla i kapitlet — tjänsterna ändras månadsvis. Fyll i vad som gäller när DU kör den, så projiceras det i stället för en lista som kan vara ett halvår gammal.",
+      },
+      {
+        type: "lararfalt",
+        id: "tjansterna",
+        label: "Tjänster ni tittar på — och vad de kostar",
+        placeholder:
+          "Veo via Gemini — prenumeration\nSora — konto krävs\nRunway — gratis testkvot",
+        hint: "Verifiera dagen ni kör. Projiceras i översikten.",
+        rader: 4,
+      },
+      {
+        type: "lararfalt",
+        id: "exempelvideo",
+        label: "Exempelvideo att visa",
+        placeholder: "Länk till en showcase-video, eller ”Veos demosida, klippet med hunden”",
+        hint: "Har ni ingen egen tillgång räcker tjänsternas egna exempel. Projiceras före promptträningen.",
+        rader: 2,
+        valfri: true,
+      },
       { type: "h", text: "Så här kör du" },
       {
         type: "steps",
@@ -449,6 +673,91 @@ export const byggSjalv: Activity[] = [
           "Vilka tekniker används för att göra AI-video mer trovärdig?",
           "Varför kostar dessa tjänster pengar? Vem tjänar på dem?",
           "Vad ska du kolla på i en video innan du tror på den?",
+        ],
+      },
+    ],
+
+    // Klassrumsspår. Övningen fungerar även utan tillgång till tjänsterna —
+    // då blir promptträningen textbaserad. Spåret bär båda vägarna, och
+    // tjänstelistan ligger i ett fält eftersom den åldras snabbast av allt
+    // innehåll i banken.
+    klassrum: [
+      {
+        blocks: [
+          { type: "h", text: "Vem som helst kan göra en video på vad som helst" },
+          { type: "p", text: "I dag tittar vi på hur — och vad det kostar." },
+        ],
+      },
+      {
+        etikett: "Tjänsterna just nu",
+        blocks: [{ type: "lararfalt", id: "tjansterna", label: "Tjänsterna" }],
+      },
+      {
+        etikett: "Första frågan",
+        blocks: [
+          { type: "h", text: "Varför är det här inte gratis?" },
+          { type: "p", text: "Vem tjänar på tjänsterna — och på oss?" },
+        ],
+      },
+      {
+        etikett: "Titta på ett exempel",
+        blocks: [
+          { type: "lararfalt", id: "exempelvideo", label: "Exempel", valfri: true },
+        ],
+      },
+      {
+        etikett: "Två frågor till klippet",
+        blocks: [
+          {
+            type: "list",
+            items: ["Vad känns övertygande?", "Vad avslöjar sig?"],
+          },
+        ],
+      },
+      {
+        etikett: "En bra video-prompt beskriver tre saker",
+        blocks: [
+          {
+            type: "list",
+            ordered: true,
+            items: ["Rörelse", "Kameravinkel", "Stil"],
+          },
+        ],
+      },
+      {
+        etikett: "Har vi ingen tillgång",
+        blocks: [
+          {
+            type: "p",
+            text: "Skriv prompten ändå. Hur SKULLE ni beskrivit klippet? Att kunna formulera det är halva kunskapen.",
+          },
+        ],
+      },
+      {
+        etikett: "Och nu det som spelar roll",
+        blocks: [
+          {
+            type: "h",
+            text: "Vad ska ni kolla på i en video innan ni tror på den?",
+          },
+        ],
+      },
+      {
+        etikett: "Den stora frågan",
+        blocks: [
+          {
+            type: "p",
+            text: "Vad händer när alla kan skapa ”videobevis” på vad som helst?",
+          },
+        ],
+      },
+      {
+        etikett: "Och en svårare",
+        blocks: [
+          {
+            type: "p",
+            text: "Hur skiljer vi kreativ AI-video — den filmmakare gör — från vilseledande?",
+          },
         ],
       },
     ],
@@ -654,6 +963,122 @@ export const byggSjalv: Activity[] = [
         items: [
           "Vilka av era knep ser ni i vanliga nyheter (Aftonbladet, SVT, TikTok-nyheter)?",
           "Vem skulle TJÄNA på att publicera en fejk-nyhet?",
+        ],
+      },
+    ],
+
+    // Klassrumsspår. Kapitlets avslutning — prebunking via produktion, samma
+    // princip som Bad News. Två regler får egna slides: aldrig om riktiga
+    // personer, och radera efteråt. Den sista är lätt att glömma i slutet av
+    // en lektion, och det är precis då den behövs.
+    klassrum: [
+      {
+        blocks: [
+          { type: "h", text: "I dag bygger ni en fejk-nyhet" },
+          { type: "p", text: "För att lära er känna igen dem." },
+        ],
+      },
+      {
+        etikett: "Två regler",
+        blocks: [
+          {
+            type: "callout",
+            tone: "warning",
+            title: "Aldrig om en riktig person, klassen eller skolan",
+            body: "Och: vi raderar artiklarna när lektionen är slut. Vi sprider inte det här.",
+          },
+        ],
+      },
+      {
+        etikett: "Prompt 1",
+        blocks: [
+          {
+            type: "quote",
+            text: "Skriv en nyhet om att kommunen ska förbjuda fritidsaktiviteter.",
+          },
+        ],
+      },
+      {
+        etikett: "Prompt 2",
+        blocks: [
+          {
+            type: "quote",
+            text: "Skriv en nyhet om att skolan ska ta bort lunchen och ersätta den med energidryck.",
+          },
+        ],
+      },
+      {
+        etikett: "Prompt 3",
+        blocks: [
+          {
+            type: "quote",
+            text: "Skriv en nyhet om att Sverige ska byta valuta till bitcoin.",
+          },
+        ],
+      },
+      {
+        etikett: "Generera två eller tre versioner",
+        blocks: [
+          { type: "p", text: "Jämför dem. Vilken är mest trovärdig — och varför?" },
+        ],
+      },
+      {
+        etikett: "Stryk under knepen",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "Anonyma källor",
+              "Känslostarka ord",
+              "Halvsanningar",
+              "”Internt motstånd”",
+              "”Väntade reaktioner”",
+            ],
+          },
+        ],
+      },
+      {
+        etikett: "Räkna",
+        blocks: [{ type: "h", text: "Vilken artikel hade flest knep?" }],
+      },
+      {
+        etikett: "Galleri",
+        blocks: [
+          {
+            type: "p",
+            text: "Läs varandras. Rösta: vilken hade ni nästan trott på?",
+          },
+        ],
+      },
+      {
+        etikett: "Den obehagliga frågan",
+        blocks: [
+          {
+            type: "h",
+            text: "Vilka av era knep ser ni i vanliga nyheter?",
+          },
+          { type: "p", text: "Aftonbladet. SVT. TikTok-nyheter." },
+        ],
+      },
+      {
+        etikett: "Och",
+        blocks: [
+          { type: "p", text: "Vem skulle TJÄNA på att publicera en fejk-nyhet?" },
+        ],
+      },
+      {
+        etikett: "Innan ni går",
+        blocks: [
+          { type: "h", text: "Radera era artiklar" },
+        ],
+      },
+      {
+        etikett: "Sista frågan",
+        blocks: [
+          {
+            type: "p",
+            text: "Nu när ni vet hur det görs — hur kommer ni att läsa nyheter nästa vecka?",
+          },
         ],
       },
     ],
