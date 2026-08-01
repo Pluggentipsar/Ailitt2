@@ -2,6 +2,8 @@
 // Strukturen är medvetet platt så att aktiviteter blir lätta att söka, filtrera
 // och rendera. Innehållet lagras som typade block i stället för markdown.
 
+import type { Doman } from "@/lib/taxonomi";
+
 export type ChapterId =
   | "flodet"
   | "bygg-sjalv"
@@ -188,6 +190,15 @@ export type Chapter = {
   title: string;
   subtitle: string;
   description: string;
+  /**
+   * OECD-domäner — sajtens navigationsfilter, se lib/taxonomi.ts.
+   *
+   * Sitter på kapitlet, inte på de 31 aktiviteterna: kapitlen ÄR tematiska,
+   * så aktiviteterna i ett kapitel gör samma sorts sak. Låg tidigare i
+   * bankens adapter, men hör hemma här — källkritik-materialet äger sina
+   * egna kapitel, och banken läser dem.
+   */
+  domaner: Doman[];
   // Färgnycklar matchar Tailwind-utilities som workshop-CSS:n definierar.
   tone:
     | "senap"

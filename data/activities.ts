@@ -1,6 +1,14 @@
+import type { Doman } from "@/lib/taxonomi";
+
 export interface Activity {
   id: string;
   title: string;
+  /**
+   * OECD-domäner — sajtens navigationsfilter, se lib/taxonomi.ts.
+   * Gränsdragningen i den här samlingen: att ARGUMENTERA om AI:s roll i
+   * samhället är `forma`, att avgöra sin EGEN användning är `styra`.
+   */
+  domaner: Doman[];
   level: "Svenska 1" | "Svenska 2";
   type: string;
   guidingQuestion?: string;
@@ -30,6 +38,7 @@ type ActivityInput = Omit<Activity, "level"> & { level?: Activity["level"] };
 const svenska2ThemeData: ActivityInput[] = [
   {
     id: "sv2-tema-1",
+    domaner: ["forma"],
     title: "AI i skolan - hot eller hjälp?",
     type: "Utredande PM",
     guidingQuestion: "Hur påverkar generativ AI lärarrollen och elevernas lärande?",
@@ -64,6 +73,7 @@ const svenska2ThemeData: ActivityInput[] = [
   },
   {
     id: "sv2-tema-2",
+    domaner: ["forma"],
     title: "Rättvisa, makt och algoritmer",
     type: "Debattartikel",
     guidingQuestion: "Hur bör AI användas för att stärka rättvisa snarare än undergräva den?",
@@ -94,6 +104,7 @@ const svenska2ThemeData: ActivityInput[] = [
   },
   {
     id: "sv2-tema-3",
+    domaner: ["mota", "forma"],
     title: "AI, desinformation och demokrati",
     type: "Argumenterande tal",
     guidingQuestion: "På vilket sätt förändrar AI vår tillgång till sanning och demokratisk delaktighet?",
@@ -121,6 +132,7 @@ const svenska2ThemeData: ActivityInput[] = [
   },
   {
     id: "sv2-tema-4",
+    domaner: ["forma"],
     title: "Kreativitet, konst och ägande",
     type: "Essä eller krönika",
     guidingQuestion: "Vad återstår för människan när AI kan skapa konst, musik och litteratur?",
@@ -146,6 +158,7 @@ const svenska2ThemeData: ActivityInput[] = [
   },
   {
     id: "sv2-tema-5",
+    domaner: ["forma"],
     title: "AI och framtidens arbetsliv",
     type: "Utredande PM",
     guidingQuestion: "Hur förändrar AI framtidens yrken och vilka förmågor blir viktigast?",
@@ -181,6 +194,7 @@ const svenska2Themes: Activity[] = svenska2ThemeData.map((item) => ({
 const svenska2CardData: ActivityInput[] = [
   {
     id: "sv2-card-1",
+    domaner: ["skapa", "forma"],
     title: "Dialog med AI om moral och makt",
     type: "Reflekterande text",
     guidingQuestion: "Vad avslöjar samtalet med en romanfigur om vår egen syn på övervakning och sanning?",
@@ -209,6 +223,7 @@ const svenska2CardData: ActivityInput[] = [
   },
   {
     id: "sv2-card-2",
+    domaner: ["mota", "skapa"],
     title: "Stiltransformation - Romeo och Julia 2150",
     type: "Litterär stilanalys",
     guidingQuestion: "Hur förändras Romeo och Julias budskap när berättelsen placeras i en futuristisk värld?",
@@ -234,6 +249,7 @@ const svenska2CardData: ActivityInput[] = [
   },
   {
     id: "sv2-card-3",
+    domaner: ["mota", "skapa"],
     title: "AI som litteraturkritiker",
     type: "Kort PM",
     guidingQuestion: "Vad kan AI förstå respektive missa när den analyserar en novell?",
@@ -259,6 +275,7 @@ const svenska2CardData: ActivityInput[] = [
   },
   {
     id: "sv2-card-4",
+    domaner: ["mota"],
     title: "Mitt liv som algoritm",
     type: "Kreativ berättelse",
     guidingQuestion: "Hur skulle världen upplevas om din röst plötsligt blev en algoritm?",
@@ -284,6 +301,7 @@ const svenska2CardData: ActivityInput[] = [
   },
   {
     id: "sv2-card-5",
+    domaner: ["forma"],
     title: "Litteratur mot samtidens etik",
     type: "Syntesuppgift",
     guidingQuestion: "Vilka nya insikter uppstår när ett klassiskt verk möter dagens teknikdebatt?",
@@ -318,6 +336,7 @@ const svenska2Cards: Activity[] = svenska2CardData.map((item) => ({
 const talbankData: ActivityInput[] = [
   {
     id: "sv2-tal-01",
+    domaner: ["mota"],
     title: "Hur tänker en maskin?",
     type: "Informerande tal",
     guidingQuestion: "Hur förklarar du skillnaden mellan maskinellt och mänskligt tänkande?",
@@ -342,6 +361,7 @@ const talbankData: ActivityInput[] = [
   },
   {
     id: "sv2-tal-02",
+    domaner: ["styra", "forma"],
     title: "AI i klassrummet - fusk eller framtid?",
     type: "Argumenterande tal",
     guidingQuestion: "Hur bör AI användas i undervisningen utan att förlora etik och ansvar?",
@@ -369,6 +389,7 @@ const talbankData: ActivityInput[] = [
   },
   {
     id: "sv2-tal-03",
+    domaner: ["styra", "forma"],
     title: "Inför AI-körkort i skolan",
     type: "Argumenterande tal",
     guidingQuestion: "Varför behöver elever ett AI-körkort och hur kan det se ut?",
@@ -393,6 +414,7 @@ const talbankData: ActivityInput[] = [
   },
   {
     id: "sv2-tal-04",
+    domaner: ["mota"],
     title: "Människa eller maskin - vem ska vi lita på?",
     type: "Reflekterande tal",
     guidingQuestion: "Vem litar vi på när både människor och maskiner talar?",
@@ -417,6 +439,7 @@ const talbankData: ActivityInput[] = [
   },
   {
     id: "sv2-tal-05",
+    domaner: ["forma"],
     title: "AI och kreativitet - kan maskiner skapa konst?",
     type: "Reflekterande tal",
     guidingQuestion: "Vad säger AI-genererad konst om vår egen kreativitet?",
@@ -441,6 +464,7 @@ const talbankData: ActivityInput[] = [
   },
   {
     id: "sv2-tal-06",
+    domaner: ["mota"],
     title: "Från Frankenstein till ChatGPT",
     type: "Informerande tal",
     guidingQuestion: "Vad lär oss litteraturens teknikberättelser om dagens AI-drömmar?",
@@ -465,6 +489,7 @@ const talbankData: ActivityInput[] = [
   },
   {
     id: "sv2-tal-07",
+    domaner: ["forma"],
     title: "AI och klimatet - räddare eller resursförbrukare?",
     type: "Utredande tal",
     guidingQuestion: "Är AI en klimatlösning eller ännu en belastning på planeten?",
@@ -492,6 +517,7 @@ const talbankData: ActivityInput[] = [
   },
   {
     id: "sv2-tal-08",
+    domaner: ["forma"],
     title: "När maskiner pratar svenska",
     type: "Informerande tal",
     guidingQuestion: "Hur påverkar AI det svenska språket och dess variation?",
@@ -516,6 +542,7 @@ const talbankData: ActivityInput[] = [
   },
   {
     id: "sv2-tal-09",
+    domaner: ["forma"],
     title: "Algoritmerna styr våra tankar",
     type: "Argumenterande tal",
     guidingQuestion: "Hur styr algoritmer våra tankar och vilka motstrategier behöver vi?",
@@ -540,6 +567,7 @@ const talbankData: ActivityInput[] = [
   },
   {
     id: "sv2-tal-10",
+    domaner: ["mota"],
     title: "Deepfakes och forstroende",
     type: "Informerande tal",
     guidingQuestion: "Hur skyddar vi förtroendet i en tid av deepfakes?",
@@ -564,6 +592,7 @@ const talbankData: ActivityInput[] = [
   },
   {
     id: "sv2-tal-11",
+    domaner: ["forma"],
     title: "AI i journalistiken - slutet för sanningen?",
     type: "Argumenterande tal",
     guidingQuestion: "Kan journalistiken behålla sin trovärdighet när AI producerar nyheter?",
@@ -588,6 +617,7 @@ const talbankData: ActivityInput[] = [
   },
   {
     id: "sv2-tal-12",
+    domaner: ["forma"],
     title: "AI och språket som makt",
     type: "Reflekterande tal",
     guidingQuestion: "Hur formar AI språket som maktmedel och identitetsverktyg?",
@@ -612,6 +642,7 @@ const talbankData: ActivityInput[] = [
   },
   {
     id: "sv2-tal-13",
+    domaner: ["mota"],
     title: "AI och människans unika röst",
     type: "Reflekterande tal",
     guidingQuestion: "Vilken plats här den mänskliga rösten när AI låter som vi?",
@@ -636,6 +667,7 @@ const talbankData: ActivityInput[] = [
   },
   {
     id: "sv2-tal-14",
+    domaner: ["forma"],
     title: "Vem bär ansvaret när AI gör fel?",
     type: "Argumenterande tal",
     guidingQuestion: "Vem bär ansvaret när AI orsakar skada?",
@@ -660,6 +692,7 @@ const talbankData: ActivityInput[] = [
   },
   {
     id: "sv2-tal-15",
+    domaner: ["forma"],
     title: "AI och demokratin - en röst utan medborgarskap",
     type: "Avslutande tal",
     guidingQuestion: "Vilken roll ska AI få i demokratin när den saknar medborgarskap?",
@@ -691,6 +724,7 @@ const talbankActivities: Activity[] = talbankData.map((item) => ({
 const svenska1Data: ActivityInput[] = [
   {
     id: "sv1-01",
+    domaner: ["skapa", "styra"],
     title: "Jag - AI - Jag",
     type: "Personlig reflektion",
     guidingQuestion: "Hur påverkar AI min vardag, mitt skrivande och min syn på kunskap?",
@@ -712,6 +746,7 @@ const svenska1Data: ActivityInput[] = [
   },
   {
     id: "sv1-02",
+    domaner: ["skapa", "styra"],
     title: "AI-retorikern",
     type: "Muntligt tal",
     guidingQuestion: "Hur kan jag använda AI som retorikcoach utan att tappa min egen röst?",
@@ -733,6 +768,7 @@ const svenska1Data: ActivityInput[] = [
   },
   {
     id: "sv1-03",
+    domaner: ["mota"],
     title: "AI-detektiven",
     type: "Källkritisk analys",
     guidingQuestion: "Hur avslöjar jag fel och hallucinationer i AI-genererade texter?",
@@ -754,6 +790,7 @@ const svenska1Data: ActivityInput[] = [
   },
   {
     id: "sv1-04",
+    domaner: ["mota", "forma"],
     title: "Filterbubblan och jag",
     type: "Multimodal analys",
     guidingQuestion: "Vad säger mitt informationsflöde om mig och hur kan jag påverka det?",
@@ -778,6 +815,7 @@ const svenska1Data: ActivityInput[] = [
   },
   {
     id: "sv1-05",
+    domaner: ["skapa", "styra"],
     title: "Skriv med maskinen",
     type: "Processkrivning",
     guidingQuestion: "Hur kan AI stärka min skrivprocess utan att ta över?",
@@ -802,6 +840,7 @@ const svenska1Data: ActivityInput[] = [
   },
   {
     id: "sv1-06",
+    domaner: ["mota"],
     title: "Litteraturens maskiner",
     type: "Analysseminarium",
     guidingQuestion: "Vad säger klassiska AI-berättelser om vårt ansvar idag?",
@@ -823,6 +862,7 @@ const svenska1Data: ActivityInput[] = [
   },
   {
     id: "sv1-07",
+    domaner: ["skapa", "forma"],
     title: "AI och språkmakt",
     type: "Sprakexperiment",
     guidingQuestion: "Vilka språkvarianter premieras när AI ger respons – och varför?",
@@ -844,6 +884,7 @@ const svenska1Data: ActivityInput[] = [
   },
   {
     id: "sv1-08",
+    domaner: ["mota", "skapa"],
     title: "Den mänskliga rösten",
     type: "Högläsningsövning",
     guidingQuestion: "Hur låter en genuin röst jämfört med AI:s ton?",
@@ -865,6 +906,7 @@ const svenska1Data: ActivityInput[] = [
   },
   {
     id: "sv1-09",
+    domaner: ["skapa"],
     title: "Poeten i algoritmen",
     type: "Kreativt skrivande",
     guidingQuestion: "Vad händer med poesin när AI blir medförfattare?",
@@ -886,6 +928,7 @@ const svenska1Data: ActivityInput[] = [
   },
   {
     id: "sv1-10",
+    domaner: ["forma"],
     title: "Framtidens språk",
     type: "Krönika",
     guidingQuestion: "Hur kan svenskan låta år 2075 och vilka krafter driver förändringen?",
@@ -910,6 +953,7 @@ const svenska1Data: ActivityInput[] = [
   },
   {
     id: "sv1-11",
+    domaner: ["skapa", "forma"],
     title: "Etik i algoritmernas tid",
     type: "Debattartikel",
     guidingQuestion: "Varför måste AI stå under mänsklig kontroll?",
@@ -937,6 +981,7 @@ const svenska1Data: ActivityInput[] = [
   },
   {
     id: "sv1-12",
+    domaner: ["styra", "forma"],
     title: "Mitt AI-manifest",
     type: "Avslutande gestaltning",
     guidingQuestion: "Vilka principer vill jag leva efter i en AI-formad vardag?",
@@ -961,6 +1006,7 @@ const svenska1Data: ActivityInput[] = [
   },
   {
     id: "sv1-13",
+    domaner: ["mota", "forma"],
     title: "Jag och min algoritm",
     type: "Personlig essä",
     guidingQuestion: "Vem formar vem – jag eller algoritmen som matar mitt flöde?",
@@ -985,6 +1031,7 @@ const svenska1Data: ActivityInput[] = [
   },
   {
     id: "sv1-14",
+    domaner: ["skapa", "styra"],
     title: "AI-novellen: framtidsrum",
     type: "Skonlitterar text",
     guidingQuestion: "Vilken framtidsbild vill jag gestalta tillsammans med AI?",
@@ -1009,6 +1056,7 @@ const svenska1Data: ActivityInput[] = [
   },
   {
     id: "sv1-15",
+    domaner: ["mota", "skapa"],
     title: "Litteraturens byggklossar",
     type: "Gruppaktivitet",
     guidingQuestion: "Vad lär vi oss om berättelser när AI kombinerar våra byggstenar?",
@@ -1033,6 +1081,7 @@ const svenska1Data: ActivityInput[] = [
   },
   {
     id: "sv1-16",
+    domaner: ["skapa"],
     title: "Karaktären talar tillbaka",
     type: "Analys + kreativt skrivande",
     guidingQuestion: "Vad avslöjar det att intervjua en litterär karaktär via AI?",
@@ -1064,6 +1113,7 @@ const svenska1Activities: Activity[] = svenska1Data.map((item) => ({
 const svenska2InvestigationData: ActivityInput[] = [
   {
     id: "sv2-sykofantism",
+    domaner: ["mota", "forma"],
     title: "AI:s sykofantism - bör chattbottar ta moralisk ställning?",
     type: "PM + egen studie",
     guidingQuestion: "Vilket ansvar här utvecklare när chattbottar undviker att ta ställning i moraliska frågor?",
@@ -1102,6 +1152,7 @@ const svenska2Investigations: Activity[] = svenska2InvestigationData.map(
 const articleActivitiesData: ActivityInput[] = [
   {
     id: "sv2-art-identity-debatt",
+    domaner: ["forma"],
     title: "AI och identitet – ersätter tekniken kreativiteten?",
     type: "Debattartikel",
     guidingQuestion: "Kan AI någonsin ersätta mänsklig kreativitet i skapande yrken?",
@@ -1136,6 +1187,7 @@ const articleActivitiesData: ActivityInput[] = [
   },
   {
     id: "sv2-art-identity-kronika",
+    domaner: ["forma"],
     title: "Krönika: unika mänskliga egenskaper i kreativt arbete",
     type: "Krönika",
     guidingQuestion:
@@ -1168,6 +1220,7 @@ const articleActivitiesData: ActivityInput[] = [
   },
   {
     id: "sv2-art-agi-pm",
+    domaner: ["forma"],
     title: "PM: Alarmism eller realism kring AGI?",
     type: "PM",
     guidingQuestion:
@@ -1203,6 +1256,7 @@ const articleActivitiesData: ActivityInput[] = [
   },
   {
     id: "sv2-art-agi-debatt",
+    domaner: ["forma"],
     title: "Debatt: AGI – mänsklighetens möjlighet eller hot?",
     type: "Debattartikel",
     guidingQuestion:
@@ -1238,6 +1292,7 @@ const articleActivitiesData: ActivityInput[] = [
   },
   {
     id: "sv2-art-jobs-chronicle",
+    domaner: ["forma"],
     title: "Krönika 2030: AI på min arbetsplats",
     type: "Krönika",
     guidingQuestion:
@@ -1273,6 +1328,7 @@ const articleActivitiesData: ActivityInput[] = [
   },
   {
     id: "sv2-art-jobs-pm",
+    domaner: ["forma"],
     title: "PM: Åtgärder för AI och arbetsmarknaden",
     type: "PM",
     guidingQuestion:
@@ -1308,6 +1364,7 @@ const articleActivitiesData: ActivityInput[] = [
   },
   {
     id: "sv2-art-relations-kronika",
+    domaner: ["mota", "forma"],
     title: "Krönika: Relationer med AI – närhet eller risk?",
     type: "Krönika",
     guidingQuestion:
@@ -1343,6 +1400,7 @@ const articleActivitiesData: ActivityInput[] = [
   },
   {
     id: "sv2-art-relations-debatt",
+    domaner: ["forma"],
     title: "Debatt: Hur ska samhället hantera AI-genererad pornografi?",
     type: "Debattartikel",
     guidingQuestion:
@@ -1378,6 +1436,7 @@ const articleActivitiesData: ActivityInput[] = [
   },
   {
     id: "sv2-art-hype-essay",
+    domaner: ["forma"],
     title: "Essä: Nyansera AI-debatten bortom utopi och dystopi",
     type: "Essä",
     guidingQuestion:
@@ -1413,6 +1472,7 @@ const articleActivitiesData: ActivityInput[] = [
   },
   {
     id: "sv2-art-hype-pm",
+    domaner: ["styra", "forma"],
     title: "PM: Nykter analys av en AI-innovation",
     type: "PM",
     guidingQuestion:
@@ -1448,6 +1508,7 @@ const articleActivitiesData: ActivityInput[] = [
   },
   {
     id: "sv2-art-demokrati-pm",
+    domaner: ["mota", "forma"],
     title: "PM: Skydda valet mot AI-manipulation",
     type: "PM",
     guidingQuestion:
@@ -1483,6 +1544,7 @@ const articleActivitiesData: ActivityInput[] = [
   },
   {
     id: "sv2-art-demokrati-debatt",
+    domaner: ["styra", "forma"],
     title: "Debatt: Ska politiker använda AI i beslutsfattande?",
     type: "Debattartikel",
     guidingQuestion:

@@ -3,8 +3,12 @@
  * Varje spel är pedagogiskt kopplat till en lektion + en kärnpoäng från den.
  */
 
+import type { Doman } from "@/lib/taxonomi";
+
 export interface MellanstadietGame {
   id: string;
+  /** OECD-domäner — sajtens navigationsfilter, se lib/taxonomi.ts. */
+  domaner: Doman[];
   slug: string;
   title: string;
   tagline: string;
@@ -26,6 +30,7 @@ export interface MellanstadietGame {
 export const MELLANSTADIET_GAMES: MellanstadietGame[] = [
   {
     id: "monster-fangaren",
+    domaner: ["mota"],
     slug: "monster-fangaren",
     title: "Mönster-fångaren",
     tagline: "Klassisk arkad — du tränar AI:n medan du fångar fallande objekt",
@@ -42,6 +47,7 @@ export const MELLANSTADIET_GAMES: MellanstadietGame[] = [
   },
   {
     id: "nasta-ord",
+    domaner: ["mota"],
     slug: "nasta-ord",
     title: "Nästa ord",
     tagline: "Tävla mot AI om vem som gissar nästa ord rätt",
@@ -58,6 +64,7 @@ export const MELLANSTADIET_GAMES: MellanstadietGame[] = [
   },
   {
     id: "ai-eller-manniska",
+    domaner: ["mota"],
     slug: "ai-eller-manniska",
     title: "AI eller människa?",
     tagline: "Är texten skriven av en människa eller producerad av AI?",
@@ -74,6 +81,7 @@ export const MELLANSTADIET_GAMES: MellanstadietGame[] = [
   },
   {
     id: "sycophancy-detektorn",
+    domaner: ["mota"],
     slug: "sycophancy-detektorn",
     title: "Sycophancy-detektorn",
     tagline: "Smicker eller ärligt? Du bedömer 10 AI-svar.",
@@ -90,6 +98,7 @@ export const MELLANSTADIET_GAMES: MellanstadietGame[] = [
   },
   {
     id: "byg-din-framtid",
+    domaner: ["forma"],
     slug: "byg-din-framtid",
     title: "Bygg din framtid",
     tagline: "7 val × 4 alternativ — vilken framtid bygger DU för 2040?",
@@ -106,6 +115,7 @@ export const MELLANSTADIET_GAMES: MellanstadietGame[] = [
   },
   {
     id: "dilemma-spelet",
+    domaner: ["styra", "forma"],
     slug: "dilemma-spelet",
     title: "Dilemma-spelet",
     tagline: "Åtta etiska val — inga rätta svar, bara konsekvenser",
@@ -122,6 +132,7 @@ export const MELLANSTADIET_GAMES: MellanstadietGame[] = [
   },
   {
     id: "hallucination-rally",
+    domaner: ["mota"],
     slug: "hallucination-rally",
     title: "Hallucination-rally",
     tagline: "90 sek att hitta så många påhittade fakta som möjligt",
@@ -138,6 +149,7 @@ export const MELLANSTADIET_GAMES: MellanstadietGame[] = [
   },
   {
     id: "bias-detektiven",
+    domaner: ["mota", "forma"],
     slug: "bias-detektiven",
     title: "Bias-detektiven",
     tagline: "Varför gjorde AI:n fel? Hitta orsaken i träningsdatat.",

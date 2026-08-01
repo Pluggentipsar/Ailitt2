@@ -11,20 +11,8 @@ import type {
 } from "@/lib/workshops/kallkritik/types";
 import { ageRangeLabels } from "@/lib/workshops/kallkritik/types";
 import { activities } from "@/lib/workshops/kallkritik/activities";
-import type { BankOvning, OvningDoman } from "./types";
-
-// OECD-domäner per workshop-kapitel. Kapitlen är tematiska, så mappningen
-// ligger här (en gång) i stället för på varje enskild aktivitet.
-const DOMANER_PER_KAPITEL: Record<ChapterId, OvningDoman[]> = {
-  flodet: ["mota"],
-  "bygg-sjalv": ["mota", "skapa"],
-  hallucinationer: ["mota"],
-  vannen: ["mota", "styra"],
-  "retoriska-knep": ["mota"],
-  relationskritik: ["mota", "styra"],
-  vaccinet: ["mota"],
-  bias: ["mota", "forma"],
-};
+import { chaptersById } from "@/lib/workshops/kallkritik/chapters";
+import type { BankOvning } from "./types";
 
 // Sajtens sju AI-litteracitetsdimensioner (0–6) per kapitel — driver
 // AiLiteracyBadge och korskopplingen mot dimensionssidorna.
@@ -73,7 +61,7 @@ export function tillBankOvning(a: Activity): BankOvning {
     blurb: a.blurb,
     syfte: a.purpose,
 
-    domaner: DOMANER_PER_KAPITEL[a.chapter],
+    domaner: chaptersById[a.chapter].domaner,
     aiLiteracyIds: AILIT_PER_KAPITEL[a.chapter],
 
     tid: a.duration,

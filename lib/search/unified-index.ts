@@ -13,6 +13,7 @@ import { LABB_EXPERIMENTS, LABB_CATEGORIES } from "@/lib/mellanstadiet-labb";
 import { MELLANSTADIET_GAMES } from "@/lib/mellanstadiet-games";
 import { grundskolaModules } from "@/lib/grundskola-data";
 import { aiLiteracyConfig } from "@/lib/aiLiteracyConfig";
+import { DOMAN_ORDNING, type Doman } from "@/lib/taxonomi";
 import { trainsToAiLiteracyIds } from "./trains-to-ai-literacy";
 import { searchableString } from "@/lib/workshops/kallkritik/activities";
 
@@ -43,6 +44,11 @@ export type UnifiedItem = {
   // AI-litteracitetsaspekter där koppling finns. Items utan visas alltid när
   // filtret är aktivt — vi döljer dem inte (det skulle vara svart-vit logik).
   aiLiteracyIds?: number[];
+  // OECD-domäner — sajtens navigationsfilter, se lib/taxonomi.ts.
+  // Valfritt eftersom två källor saknar domän med flit: ramverksaspekterna ÄR
+  // den andra taxonomin, och de didaktiska modellerna vänder sig till läraren,
+  // inte till eleven. Ingen av dem svarar på frågan "vad gör eleven".
+  domaner?: Doman[];
   // Genererade tags för fuzzy-sök (t.ex. "Svenska 2", "kapitel 4", "vannen").
   tags?: string[];
 };
@@ -78,6 +84,21 @@ export const itemTypeOrder: UnifiedItemType[] = [
 
 // === Loaders per källa ===
 
+/**
+ * Contentlayer kan bara typa `domaner` som string[] — frontmatter är text.
+ * Här är enda stället där domäner kommer från otypad källa, så valideringen
+ * sitter här. En felstavning i MDX ska märkas, inte tyst försvinna ur filtret.
+ */
+function tillDomaner(varde: unknown, kalla: string): Doman[] | undefined {
+  if (!Array.isArray(varde) || varde.length === 0) return undefined;
+  const giltiga: Doman[] = [];
+  for (const x of varde) {
+    if (DOMAN_ORDNING.includes(x as Doman)) giltiga.push(x as Doman);
+    else console.warn(`[taxonomi] okänd domän ${JSON.stringify(x)} i ${kalla}`);
+  }
+  return giltiga.length > 0 ? giltiga : undefined;
+}
+
 function loadModules(): UnifiedItem[] {
   return allModules.map((m) => ({
     id: `modul:${m._id}`,
@@ -88,6 +109,7 @@ function loadModules(): UnifiedItem[] {
     url: m.url,
     context: [m.subject, m.course].filter(Boolean).join(" · "),
     aiLiteracyIds: m.ai_literacy_ids,
+    domaner: tillDomaner(m.domaner, `modul ${m.slug}`),
     tags: [m.subject, m.course].filter(Boolean) as string[],
   }));
 }
@@ -106,6 +128,7 @@ function loadWorkshopActivities(): UnifiedItem[] {
       url: `/workshops/kallkritik-mellanstadiet/${a.id}`,
       context: `Workshop · ${chapter?.title ?? a.chapter} · ${a.number}`,
       aiLiteracyIds: trainsToAiLiteracyIds(a.trains),
+      domaner: chapter?.domaner,
       tags: [
         chapter?.title,
         chapter?.subtitle,
@@ -125,6 +148,7 @@ function loadTools(): UnifiedItem[] {
     content: [t.description, t.notes, ...(t.tags ?? [])].filter(Boolean).join(" "),
     url: `/verktygslada#${t.id}`,
     context: `Verktygslådan · ${t.category}`,
+    domaner: t.domaner,
     tags: [t.category, t.kind, ...(t.tags ?? [])].filter(Boolean) as string[],
   }));
 }
@@ -154,6 +178,7 @@ function loadGymActivities(): UnifiedItem[] {
       url: `/aktiviteter#${a.id}`,
       context: `Aktiviteter · ${a.level}`,
       aiLiteracyIds: a.aiLiteracyIds,
+      domaner: a.domaner,
       tags: [a.level, ...(a.strands ?? []), ...(a.tags ?? [])].filter(
         Boolean
       ) as string[],
@@ -179,6 +204,7 @@ function loadMellanstadietLessons(): UnifiedItem[] {
     url: `/mellanstadiet/${l.slug}`,
     context: `Mellanstadiet · ${l.dimensionLabel}`,
     aiLiteracyIds: [l.dimension],
+    domaner: l.domaner,
     tags: [l.dimensionLabel, l.tagline, l.interaktivt].filter(Boolean) as string[],
   }));
 }
@@ -187,6 +213,10 @@ function loadLabbExperiments(): UnifiedItem[] {
   const categoryLabels = Object.fromEntries(
     LABB_CATEGORIES.map((c) => [c.id, c.label])
   );
+  // Domänen sitter på kategorin — se kommentaren i mellanstadiet-labb.ts.
+  const categoryDomains = Object.fromEntries(
+    LABB_CATEGORIES.map((c) => [c.id, c.domaner])
+  ) as Record<string, Doman[] | undefined>;
   return LABB_EXPERIMENTS.map((e) => ({
     id: `labb:${e.id}`,
     type: "mellanstadiet-labb",
@@ -207,6 +237,7 @@ function loadLabbExperiments(): UnifiedItem[] {
     url: `/mellanstadiet/labb/${e.category}#${e.id}`,
     context: `AI-labbet · ${categoryLabels[e.category] ?? e.category}`,
     aiLiteracyIds: [2], // SAILD-ramverket — alla labb-stationer är "Använda AI"
+    domaner: categoryDomains[e.category],
     tags: [e.category, categoryLabels[e.category]].filter(Boolean) as string[],
   }));
 }
@@ -222,6 +253,7 @@ function loadMellanstadietGames(): UnifiedItem[] {
       .join(" "),
     url: `/mellanstadiet/spel/${g.slug}`,
     context: `Mellanstadiet · Spel · ${g.lesson}`,
+    domaner: g.domaner,
     tags: ["spel", "interaktivt", g.type],
   }));
 }
@@ -250,6 +282,7 @@ function loadGrundskolaModules(): UnifiedItem[] {
       url: `/grundskola/4-6/${m.id}`,
       context: "Grundskola F-6",
       aiLiteracyIds,
+      domaner: m.domaner,
       tags: ["grundskola", "F-6", "läromedel"],
     });
     // Aktiviteter inom modulen — indexeras med koppling tillbaka
@@ -275,6 +308,8 @@ function loadGrundskolaModules(): UnifiedItem[] {
           url: `/grundskola/4-6/${m.id}`,
           context: `Grundskola · ${m.title}`,
           aiLiteracyIds,
+          // Aktiviteten ärver modulens domän — den är en del av samma pass.
+          domaner: m.domaner,
           tags: ["grundskola", a.type, m.title].filter(Boolean) as string[],
         });
       }

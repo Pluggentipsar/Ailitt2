@@ -13,6 +13,8 @@
  * vilken annan chattbot/bild-AI skolan har tillgång till).
  */
 
+import type { Doman } from "@/lib/taxonomi";
+
 export type LabbCategory =
   | "lar-dig"
   | "skriv-och-forbattra"
@@ -28,6 +30,18 @@ export interface LabbCategoryMeta {
   emoji: string;
   description: string;
   accentHex: string;
+  /**
+   * OECD-domäner — sajtens navigationsfilter, se lib/taxonomi.ts.
+   *
+   * Sitter på KATEGORIN, inte på de 49 stationerna: kategorierna är redan
+   * indelade efter vad eleven gör, så en tagg per station hade varit 49
+   * kopior av samma sju beslut.
+   *
+   * Varje station har dessutom ett `granska`-fält (Tänkartrappan steg 3), så
+   * ett moment av `mota` finns överallt. Det taggas ändå bara där granskningen
+   * ÄR stationen — annars slutar taggen betyda något.
+   */
+  domaner: Doman[];
 }
 
 export const LABB_CATEGORIES: LabbCategoryMeta[] = [
@@ -37,6 +51,7 @@ export const LABB_CATEGORIES: LabbCategoryMeta[] = [
     emoji: "📚",
     description: "När du vill förstå, plugga eller förhöras.",
     accentHex: "#6366f1",
+    domaner: ["skapa", "styra"],
   },
   {
     id: "skriv-och-forbattra",
@@ -44,6 +59,7 @@ export const LABB_CATEGORIES: LabbCategoryMeta[] = [
     emoji: "✍️",
     description: "När du fastnar i en text eller vill ha feedback.",
     accentHex: "#10b981",
+    domaner: ["skapa", "styra"],
   },
   {
     id: "skapa",
@@ -51,6 +67,7 @@ export const LABB_CATEGORIES: LabbCategoryMeta[] = [
     emoji: "🎨",
     description: "Bilder, låtar och idéer — du beskriver, AI:n bygger.",
     accentHex: "#f59e0b",
+    domaner: ["skapa"],
   },
   {
     id: "granska",
@@ -58,6 +75,7 @@ export const LABB_CATEGORIES: LabbCategoryMeta[] = [
     emoji: "🔍",
     description: "Testa AI:n — hittar den på? Håller den med om allt?",
     accentHex: "#ef4444",
+    domaner: ["mota"],
   },
   {
     id: "kod",
@@ -66,6 +84,7 @@ export const LABB_CATEGORIES: LabbCategoryMeta[] = [
     description:
       "Be AI:n bygga spel, simuleringar och appar åt dig. En HTML-fil, dubbelklicka — funkar direkt.",
     accentHex: "#06b6d4",
+    domaner: ["skapa"],
   },
   {
     id: "knas",
@@ -74,6 +93,7 @@ export const LABB_CATEGORIES: LabbCategoryMeta[] = [
     description:
       "Be AI göra absurda, ironiska, knäppa saker. Bara för skojs skull — och för att se vad som händer när du går utanför ramarna.",
     accentHex: "#a855f7",
+    domaner: ["mota", "skapa"],
   },
   {
     id: "meta",
@@ -82,6 +102,7 @@ export const LABB_CATEGORIES: LabbCategoryMeta[] = [
     description:
       "Be AI:n hjälpa dig bygga BÄTTRE prompter. Hack-nivå när du fattat grunderna.",
     accentHex: "#ec4899",
+    domaner: ["skapa", "styra"],
   },
 ];
 

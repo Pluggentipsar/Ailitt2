@@ -3,6 +3,7 @@ import type { Chapter } from "./types";
 export const chapters: Chapter[] = [
   {
     id: "flodet",
+    domaner: ["mota"],
     number: 1,
     title: "Flödet",
     subtitle: "Källkritik på det de scrollar förbi",
@@ -13,6 +14,7 @@ export const chapters: Chapter[] = [
   },
   {
     id: "bygg-sjalv",
+    domaner: ["mota", "skapa"],
     number: 2,
     title: "Bygg själv",
     subtitle: "Förstå tekniken genom att göra",
@@ -23,6 +25,7 @@ export const chapters: Chapter[] = [
   },
   {
     id: "hallucinationer",
+    domaner: ["mota"],
     number: 3,
     title: "Hallucinationer & sanning",
     subtitle: "AI:n hittar på, eleverna behöver fånga det",
@@ -33,6 +36,7 @@ export const chapters: Chapter[] = [
   },
   {
     id: "vannen",
+    domaner: ["mota", "styra"],
     number: 4,
     title: "Vännen",
     subtitle: "Sykofanti, dark patterns och fasthållning",
@@ -43,6 +47,7 @@ export const chapters: Chapter[] = [
   },
   {
     id: "retoriska-knep",
+    domaner: ["mota"],
     number: 5,
     title: "Retoriska knep",
     subtitle: "När språket försöker övertala — inte informera",
@@ -53,6 +58,7 @@ export const chapters: Chapter[] = [
   },
   {
     id: "relationskritik",
+    domaner: ["mota", "styra"],
     number: 6,
     title: "Relationskritik",
     subtitle: "AI som samtalspartner, inte bara verktyg",
@@ -63,6 +69,7 @@ export const chapters: Chapter[] = [
   },
   {
     id: "vaccinet",
+    domaner: ["mota"],
     number: 7,
     title: "Vaccinet",
     subtitle: "Prebunking-spel som motståndskraft",
@@ -73,6 +80,7 @@ export const chapters: Chapter[] = [
   },
   {
     id: "bias",
+    domaner: ["mota", "forma"],
     number: 8,
     title: "Bias",
     subtitle: "Vems perspektiv bär AI med sig?",
