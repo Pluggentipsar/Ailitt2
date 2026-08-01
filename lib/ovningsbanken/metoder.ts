@@ -5,7 +5,12 @@
 // Metodsidornas interaktiva klassrumslägen nås via klassrumHref.
 
 import { METODER, type Metod } from "@/lib/eleverna-om-ai/data";
-import type { BankOvning, Block, KlassrumSlide } from "./types";
+import type {
+  BankOvning,
+  Block,
+  ExternalTool,
+  KlassrumSlide,
+} from "./types";
 
 // Uppskattad tid i minuter för filter/sortering — ur metodens tid-sträng.
 // Intervall ("30–40 min") avrundas uppåt, precis som källkritik-övningarna gör.
@@ -990,6 +995,28 @@ const ELEVINSTRUKTION: Record<string, Block[]> = {
   ],
 };
 
+// Externa tjänster per metod. Renderas som klickbara kort på övningssidan
+// via ExternalToolsList — metoddatan har inget motsvarande fält, så det
+// ligger här. Utan detta blev kalkylatorerna i vems-siffror bara löptext.
+const EXTERNA_VERKTYG: Record<string, ExternalTool[]> = {
+  "vems-siffror": [
+    {
+      name: "Resurskollen",
+      url: "https://resurskollen.jardenberg.se",
+      description:
+        "Svensk kalkylator för AI:ns resursanvändning. Läs käll- och metodavsnittet längst ner tillsammans med eleverna — det är där antagandena står, och antagandena är hela övningen.",
+      kind: "exercise",
+    },
+    {
+      name: "EcoLogits",
+      url: "https://huggingface.co/spaces/genai-impact/ecologits-calculator",
+      description:
+        "Fransk open source-kalkylator med transparent metodik. Mata in samma AI-användning som i Resurskollen och jämför — skillnaden är poängen.",
+      kind: "exercise",
+    },
+  ],
+};
+
 // Metodspecifika tillägg till lärarhandledningen — sådant som inte finns i
 // metoddatan. Brevet hem räddades ur den borttagna LosenordScenario-komponenten:
 // det är ett lärarartefakt, inte en slide, och hör därför hemma här.
@@ -1008,11 +1035,8 @@ const HANDLEDNING_EXTRA: Record<string, Block[]> = {
   "vems-siffror": [
     { type: "h", text: "Kalkylatorerna" },
     {
-      type: "list",
-      items: [
-        "Resurskollen — svensk kalkylator, resurskollen.jardenberg.se. Kolla käll- och metodavsnittet längst ner tillsammans med eleverna.",
-        "EcoLogits — fransk open source med transparent metodik, huggingface.co/spaces/genai-impact/ecologits-calculator",
-      ],
+      type: "p",
+      text: "Båda kalkylatorerna ligger som länkade kort under ”Externa verktyg” ovanför. Öppna dem sida vid sida och gå igenom Resurskollens käll- och metodavsnitt högt med klassen — det är där antagandena står, och det är antagandena övningen handlar om.",
     },
   ],
 };
@@ -1082,6 +1106,7 @@ function tillBankOvning(m: Metod): BankOvning {
 
     fallgropar: m.fallgropar,
     kedjarMed: KEDJAR_MED[m.slug],
+    externaVerktyg: EXTERNA_VERKTYG[m.slug],
 
     // Bara de tre metoder som har verkligt interaktiva komponenter pekar
     // vidare till metodsidan. De fyra med författat klassrumsspår har sin
