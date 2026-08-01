@@ -25,34 +25,15 @@ export type {
   KlassrumSlide,
 };
 
-/** OECD:s fyra AILit-domäner (slutversion 2026) — bankens huvudtaxonomi. */
-export type OvningDoman = "mota" | "skapa" | "styra" | "forma";
+/**
+ * Domänerna ägs numera av lib/taxonomi.ts — de är sajtens navigationsfilter,
+ * inte bankens egen taxonomi. Alias behålls så att bankens ~60 filer och
+ * UI-komponenter inte behöver röras.
+ */
+import type { Doman } from "@/lib/taxonomi";
 
-export const DOMAN_META: Record<
-  OvningDoman,
-  { namn: string; engelska: string; beskrivning: string }
-> = {
-  mota: {
-    namn: "Möta AI",
-    engelska: "Engage with AI",
-    beskrivning: "Känna igen, granska och värdera AI.",
-  },
-  skapa: {
-    namn: "Skapa med AI",
-    engelska: "Create with AI",
-    beskrivning: "Använda AI som kreativ partner utan att tappa ägarskapet.",
-  },
-  styra: {
-    namn: "Styra AI",
-    engelska: "Manage AI",
-    beskrivning: "Avgöra när, hur och om AI ska användas.",
-  },
-  forma: {
-    namn: "Forma AI",
-    engelska: "Shape AI",
-    beskrivning: "Förstå att AI är byggd av människor — och kan byggas om.",
-  },
-};
+export type OvningDoman = Doman;
+export { DOMAN_META } from "@/lib/taxonomi";
 
 /** Varifrån övningen kommer — styr kredit och ev. länk tillbaka. */
 export type OvningKalla = "banken" | "eleverna-om-ai" | "kallkritik";

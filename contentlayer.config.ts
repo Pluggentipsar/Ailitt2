@@ -29,8 +29,16 @@ export const Module = defineDocumentType(() => ({
     ai_literacy_ids: {
       type: "list",
       of: { type: "number" },
-      description: "Lista med AI-litteracitetsaspekter som modulen täcker",
+      description:
+        "AI-litteracitetsdimensioner modulen täcker (0–6). TÄCKNINGSLAGRET — se lib/taxonomi.ts. Används för badge och terminsöversikt, inte som filter.",
       required: true,
+    },
+    domaner: {
+      type: "list",
+      of: { type: "string" },
+      description:
+        "OECD-domäner: mota | skapa | styra | forma. NAVIGATIONSFILTRET — se lib/taxonomi.ts. Frågan är vad ELEVEN gör, inte vad innehållet handlar om. En eller två räcker nästan alltid.",
+      required: false,
     },
     time: {
       type: "string",
