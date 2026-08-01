@@ -23,13 +23,12 @@ export const DOMAN_TON: Record<OvningDoman, string> = {
   forma: "rost",
 };
 
-/** Prick-färg per domän (matchar eleverna-om-ai:s accenter). */
-export const DOMAN_DOT: Record<OvningDoman, string> = {
-  mota: "#14b8a6", // teal-500
-  skapa: "#a855f7", // purple-500
-  styra: "#3b82f6", // blue-500
-  forma: "#f97316", // orange-500
-};
+/**
+ * Prick-färg per domän. Definitionen flyttade till lib/taxonomi.ts när
+ * startsidan började använda samma domänfilter — samma färg på samma sak.
+ * Alias behålls så bankens komponenter inte behöver röras.
+ */
+export { DOMAN_FARG as DOMAN_DOT } from "@/lib/taxonomi";
 
 /** Källa-chip: etikett + statiska Tailwind-klasser (purge-säkert). */
 export const KALLA_META: Record<OvningKalla, { label: string; chip: string }> =

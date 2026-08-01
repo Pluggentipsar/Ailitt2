@@ -5,6 +5,7 @@
 
 import { allModules } from "contentlayer/generated";
 import { activities as workshopActivities } from "@/lib/workshops/kallkritik/activities";
+import type { AgeRange } from "@/lib/workshops/kallkritik/types";
 import { chaptersById } from "@/lib/workshops/kallkritik/chapters";
 import { tools } from "@/lib/verktygslada/tools";
 import { activities as gymActivities } from "@/data/activities";
@@ -13,7 +14,11 @@ import { LABB_EXPERIMENTS, LABB_CATEGORIES } from "@/lib/mellanstadiet-labb";
 import { MELLANSTADIET_GAMES } from "@/lib/mellanstadiet-games";
 import { grundskolaModules } from "@/lib/grundskola-data";
 import { aiLiteracyConfig } from "@/lib/aiLiteracyConfig";
-import { DOMAN_ORDNING, type Doman } from "@/lib/taxonomi";
+import {
+  DOMAN_ORDNING,
+  type Doman,
+  type Arskursband,
+} from "@/lib/taxonomi";
 import { trainsToAiLiteracyIds } from "./trains-to-ai-literacy";
 import { searchableString } from "@/lib/workshops/kallkritik/activities";
 
@@ -49,6 +54,11 @@ export type UnifiedItem = {
   // den andra taxonomin, och de didaktiska modellerna vänder sig till läraren,
   // inte till eleven. Ingen av dem svarar på frågan "vad gör eleven".
   domaner?: Doman[];
+  // Vilka stadier innehållet är skrivet för. Härleds ur källan — ett helt
+  // läromedel vet vilken ålder det vänder sig till även när enskilda sidor
+  // inte säger det. Saknas för verktyg (en bildgenerator har ingen årskurs)
+  // och för det lärarvända materialet; de visas alltid när filtret är på.
+  stadier?: Arskursband[];
   // Genererade tags för fuzzy-sök (t.ex. "Svenska 2", "kapitel 4", "vannen").
   tags?: string[];
 };
@@ -99,6 +109,24 @@ function tillDomaner(varde: unknown, kalla: string): Doman[] | undefined {
   return giltiga.length > 0 ? giltiga : undefined;
 }
 
+/**
+ * Källkritikworkshopens åldersspann → sajtens stadieband.
+ * "vuxen-workshop" faller bort med flit: det är lärarfortbildning, inte ett
+ * stadium. En aktivitet som BARA är vuxenworkshop får därför inget stadium
+ * och visas alltid — vilket är rätt, den passar ingen årskurs.
+ */
+const ALDER_TILL_STADIUM: Partial<Record<AgeRange, Arskursband>> = {
+  "ak4-6": "ak4-6",
+  "ak7-9": "ak7-9",
+  gymnasium: "gym",
+};
+
+/** Tom lista → undefined, så "saknar stadium" och "inga kvar" blir samma sak. */
+function dedup(band: Arskursband[]): Arskursband[] | undefined {
+  const unika = [...new Set(band)];
+  return unika.length > 0 ? unika : undefined;
+}
+
 function loadModules(): UnifiedItem[] {
   return allModules.map((m) => ({
     id: `modul:${m._id}`,
@@ -110,6 +138,8 @@ function loadModules(): UnifiedItem[] {
     context: [m.subject, m.course].filter(Boolean).join(" · "),
     aiLiteracyIds: m.ai_literacy_ids,
     domaner: tillDomaner(m.domaner, `modul ${m.slug}`),
+    // Modulerna ligger under kurser (Svenska 1, Svenska 2 …) — gymnasiet.
+    stadier: ["gym"],
     tags: [m.subject, m.course].filter(Boolean) as string[],
   }));
 }
@@ -129,6 +159,11 @@ function loadWorkshopActivities(): UnifiedItem[] {
       context: `Workshop · ${chapter?.title ?? a.chapter} · ${a.number}`,
       aiLiteracyIds: trainsToAiLiteracyIds(a.trains),
       domaner: chapter?.domaner,
+      stadier: dedup(
+        (a.ageRanges ?? [])
+          .map((r) => ALDER_TILL_STADIUM[r])
+          .filter((b): b is Arskursband => Boolean(b))
+      ),
       tags: [
         chapter?.title,
         chapter?.subtitle,
@@ -179,6 +214,8 @@ function loadGymActivities(): UnifiedItem[] {
       context: `Aktiviteter · ${a.level}`,
       aiLiteracyIds: a.aiLiteracyIds,
       domaner: a.domaner,
+      // Svenska 1 och Svenska 2 — gymnasiekurser.
+      stadier: ["gym"],
       tags: [a.level, ...(a.strands ?? []), ...(a.tags ?? [])].filter(
         Boolean
       ) as string[],
@@ -205,6 +242,7 @@ function loadMellanstadietLessons(): UnifiedItem[] {
     context: `Mellanstadiet · ${l.dimensionLabel}`,
     aiLiteracyIds: [l.dimension],
     domaner: l.domaner,
+    stadier: ["ak4-6"],
     tags: [l.dimensionLabel, l.tagline, l.interaktivt].filter(Boolean) as string[],
   }));
 }
@@ -238,6 +276,7 @@ function loadLabbExperiments(): UnifiedItem[] {
     context: `AI-labbet · ${categoryLabels[e.category] ?? e.category}`,
     aiLiteracyIds: [2], // SAILD-ramverket — alla labb-stationer är "Använda AI"
     domaner: categoryDomains[e.category],
+    stadier: ["ak4-6"],
     tags: [e.category, categoryLabels[e.category]].filter(Boolean) as string[],
   }));
 }
@@ -254,9 +293,21 @@ function loadMellanstadietGames(): UnifiedItem[] {
     url: `/mellanstadiet/spel/${g.slug}`,
     context: `Mellanstadiet · Spel · ${g.lesson}`,
     domaner: g.domaner,
+    stadier: ["ak4-6"],
     tags: ["spel", "interaktivt", g.type],
   }));
 }
+
+/**
+ * Grundskolerutten är /grundskola/[grade]/[partId] där generateStaticParams
+ * bara känner till 'ak-1-3' och 'ak-4-6'. Indexet pekade tidigare på '4-6',
+ * som renderade rätt av en slump (sidan gör `grade === 'ak-1-3' ? … : …`) men
+ * låg utanför de förrenderade sidorna.
+ *
+ * Samma läromedel körs i båda stadierna med olika presentation; sökträffen
+ * länkar till mellanstadievarianten och stadiefiltret matchar båda.
+ */
+const GRUNDSKOLA_STANDARDGRADE = "ak-4-6";
 
 function loadGrundskolaModules(): UnifiedItem[] {
   // grundskolaModules-ordningen i datafilen MATCHAR de 7 AI-litteracitets-
@@ -279,10 +330,12 @@ function loadGrundskolaModules(): UnifiedItem[] {
       ]
         .filter(Boolean)
         .join(" "),
-      url: `/grundskola/4-6/${m.id}`,
+      url: `/grundskola/${GRUNDSKOLA_STANDARDGRADE}/${m.id}`,
       context: "Grundskola F-6",
       aiLiteracyIds,
       domaner: m.domaner,
+      // Samma moduler körs i båda stadierna, med olika presentation.
+      stadier: ["f-3", "ak4-6"],
       tags: ["grundskola", "F-6", "läromedel"],
     });
     // Aktiviteter inom modulen — indexeras med koppling tillbaka
@@ -305,11 +358,12 @@ function loadGrundskolaModules(): UnifiedItem[] {
           ]
             .filter(Boolean)
             .join(" "),
-          url: `/grundskola/4-6/${m.id}`,
+          url: `/grundskola/${GRUNDSKOLA_STANDARDGRADE}/${m.id}`,
           context: `Grundskola · ${m.title}`,
           aiLiteracyIds,
-          // Aktiviteten ärver modulens domän — den är en del av samma pass.
+          // Aktiviteten ärver modulens domän och stadium — samma pass.
           domaner: m.domaner,
+          stadier: ["f-3", "ak4-6"],
           tags: ["grundskola", a.type, m.title].filter(Boolean) as string[],
         });
       }

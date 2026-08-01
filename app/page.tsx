@@ -1,25 +1,70 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import { SearchBar } from "@/components/search/SearchBar";
 import { UnifiedResultCard } from "@/components/search/UnifiedResultCard";
 import { AiLiteracyBadge } from "@/components/ui/AiLiteracyBadge";
 import { aiLiteracyConfig } from "@/lib/aiLiteracyConfig";
 import { SubjectFinderWizard } from "@/components/landing/SubjectFinderWizard";
+import { getUnifiedIndex } from "@/lib/search/unified-index";
 import {
-  getUnifiedIndex,
-  itemTypeLabels,
-  itemTypeOrder,
-  type UnifiedItemType,
-} from "@/lib/search/unified-index";
+  DOMAN_ORDNING,
+  DOMAN_META,
+  DOMAN_FARG,
+  ARSKURSBAND_ORDNING,
+  ARSKURSBAND_LABELS,
+  type Doman,
+  type Arskursband,
+} from "@/lib/taxonomi";
 import Fuse from "fuse.js";
 import Image from "next/image";
-import { BookOpen, Target, Sparkles, ArrowRight, Lightbulb } from "lucide-react";
+import {
+  BookOpen,
+  Target,
+  Sparkles,
+  ArrowRight,
+  Lightbulb,
+  ChevronDown,
+} from "lucide-react";
+
+const SIDSTORLEK = 60;
+
+/**
+ * Varvar träffarna mellan innehållstyper (moduler, verktyg, spel, labb …)
+ * i stället för att visa dem i indexordning.
+ *
+ * Utan detta blev de första 60 träffarna alltid moduler och workshop-
+ * aktiviteter, eftersom indexet byggs källa för källa. Verktygslådan låg på
+ * plats 245 och framåt och syntes aldrig på startsidan — tidigare kom man dit
+ * via typfiltret, som nu är borta.
+ *
+ * Gäller bara när man INTE har sökt. Med en sökquery är Fuse-ordningen
+ * relevansordning, och den ska inte kastas om.
+ */
+function varvaPerTyp<T extends { type: string }>(items: T[]): T[] {
+  const koer = new Map<string, T[]>();
+  for (const it of items) {
+    const k = koer.get(it.type);
+    if (k) k.push(it);
+    else koer.set(it.type, [it]);
+  }
+  const listor = [...koer.values()];
+  const ut: T[] = [];
+  for (let i = 0; ut.length < items.length; i++) {
+    for (const lista of listor) {
+      if (i < lista.length) ut.push(lista[i]);
+    }
+  }
+  return ut;
+}
 
 export default function Home() {
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedLiteracyIds, setSelectedLiteracyIds] = useState<number[]>([]);
-  const [selectedTypes, setSelectedTypes] = useState<UnifiedItemType[]>([]);
+  const [selectedDomains, setSelectedDomains] = useState<Doman[]>([]);
+  const [selectedStadier, setSelectedStadier] = useState<Arskursband[]>([]);
+  const [showDimensions, setShowDimensions] = useState(false);
+  const [visasAntal, setVisasAntal] = useState(SIDSTORLEK);
 
   // Unified index — sammanställer ALLT sökbart på sajten en gång.
   const unifiedIndex = useMemo(() => getUnifiedIndex(), []);
@@ -43,56 +88,80 @@ export default function Home() {
     [unifiedIndex]
   );
 
-  // Filtrera index baserat på sök, typ och AI-litteracitet.
-  // Viktigt: items utan aiLiteracyIds-mapping visas ALLTID när litteracitets-
-  // filtret är aktivt — annars osynliggörs hela verktygslådan och spel-
-  // katalogen på första klick, vilket inte är vad användaren vill.
+  // === Filterlogik ===
+  //
+  // De tre filtren är AVSIKTLIGT olika stränga, och skillnaden speglar datan:
+  //
+  //   Domän   — strikt. 344 av 355 objekt är taggade, så ett val betyder
+  //             något. De 11 otaggade (ramverket, didaktiska modeller) är
+  //             lärarvänt material som inte svarar på "vad gör eleven" — de
+  //             ska falla bort när man frågar just det.
+  //   Stadium — släpper igenom otaggat. Ett verktyg har ingen årskurs;
+  //             Google Lens funkar i åk 4 och på gymnasiet. Strikt filter
+  //             hade dolt hela verktygslådan på första klick.
+  //   Dimension — släpper igenom otaggat, av samma skäl (oförändrat).
+  const matcharDoman = (it: { domaner?: Doman[] }) =>
+    selectedDomains.length === 0 ||
+    selectedDomains.some((d) => it.domaner?.includes(d));
+
+  const matcharStadium = (it: { stadier?: Arskursband[] }) =>
+    selectedStadier.length === 0 ||
+    !it.stadier?.length ||
+    selectedStadier.some((s) => it.stadier!.includes(s));
+
+  const matcharDimension = (it: { aiLiteracyIds?: number[] }) =>
+    selectedLiteracyIds.length === 0 ||
+    !it.aiLiteracyIds?.length ||
+    selectedLiteracyIds.every((id) => it.aiLiteracyIds!.includes(id));
+
+  const sokta = useMemo(
+    () =>
+      searchQuery.trim()
+        ? fuse.search(searchQuery).map((r) => r.item)
+        : unifiedIndex,
+    [unifiedIndex, searchQuery, fuse]
+  );
+
   const filteredItems = useMemo(() => {
-    let items = unifiedIndex;
+    const traffar = sokta.filter(
+      (it) => matcharDoman(it) && matcharStadium(it) && matcharDimension(it)
+    );
+    return searchQuery.trim() ? traffar : varvaPerTyp(traffar);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [sokta, searchQuery, selectedDomains, selectedStadier, selectedLiteracyIds]);
 
-    if (searchQuery.trim()) {
-      items = fuse.search(searchQuery).map((r) => r.item);
-    }
+  // Ny filtrering börjar om från första sidan — annars sitter man kvar på
+  // "visar 180" när träffmängden just krympte till 12.
+  useEffect(() => {
+    setVisasAntal(SIDSTORLEK);
+  }, [searchQuery, selectedDomains, selectedStadier, selectedLiteracyIds]);
 
-    if (selectedTypes.length > 0) {
-      items = items.filter((it) => selectedTypes.includes(it.type));
+  // Antalen i chipsen räknas mot ALLA ANDRA filter utom det egna, så siffran
+  // svarar på "hur många får jag om jag klickar här" — inte "hur många ser
+  // jag nu", vilket vore noll för varje ovald chip.
+  const domainCounts = useMemo(() => {
+    const c = {} as Record<Doman, number>;
+    for (const d of DOMAN_ORDNING) c[d] = 0;
+    for (const it of sokta) {
+      if (!matcharStadium(it) || !matcharDimension(it)) continue;
+      for (const d of it.domaner ?? []) c[d]++;
     }
+    return c;
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [sokta, selectedStadier, selectedLiteracyIds]);
 
-    if (selectedLiteracyIds.length > 0) {
-      items = items.filter((it) => {
-        if (!it.aiLiteracyIds || it.aiLiteracyIds.length === 0) return true;
-        return selectedLiteracyIds.every((id) =>
-          it.aiLiteracyIds!.includes(id)
-        );
-      });
+  const stadiumCounts = useMemo(() => {
+    const c = {} as Record<Arskursband, number>;
+    for (const s of ARSKURSBAND_ORDNING) c[s] = 0;
+    for (const it of sokta) {
+      if (!matcharDoman(it) || !matcharDimension(it)) continue;
+      // Otaggat räknas in överallt — samma regel som filtret självt.
+      if (!it.stadier?.length) for (const s of ARSKURSBAND_ORDNING) c[s]++;
+      else for (const s of it.stadier) c[s]++;
     }
-
-    return items;
-  }, [unifiedIndex, searchQuery, selectedLiteracyIds, selectedTypes, fuse]);
-
-  // Räkna träffar per typ — visas i typ-filterchipsen så användaren ser
-  // hur många träffar som finns innan hen klickar.
-  const typeCounts = useMemo(() => {
-    const counts: Partial<Record<UnifiedItemType, number>> = {};
-    // Räknar mot sökning+ai-literacy-filtret (men inte själva typ-filtret),
-    // så chipsen visar "hur mycket skulle jag se om jag valde DENNA typ".
-    let base = unifiedIndex;
-    if (searchQuery.trim()) {
-      base = fuse.search(searchQuery).map((r) => r.item);
-    }
-    if (selectedLiteracyIds.length > 0) {
-      base = base.filter((it) => {
-        if (!it.aiLiteracyIds || it.aiLiteracyIds.length === 0) return true;
-        return selectedLiteracyIds.every((id) =>
-          it.aiLiteracyIds!.includes(id)
-        );
-      });
-    }
-    for (const it of base) {
-      counts[it.type] = (counts[it.type] ?? 0) + 1;
-    }
-    return counts;
-  }, [unifiedIndex, searchQuery, selectedLiteracyIds, fuse]);
+    return c;
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [sokta, selectedDomains, selectedLiteracyIds]);
 
   const toggleLiteracyId = (id: number) => {
     setSelectedLiteracyIds((prev) =>
@@ -100,22 +169,30 @@ export default function Home() {
     );
   };
 
-  const toggleType = (type: UnifiedItemType) => {
-    setSelectedTypes((prev) =>
-      prev.includes(type) ? prev.filter((t) => t !== type) : [...prev, type]
+  const toggleDomain = (d: Doman) => {
+    setSelectedDomains((prev) =>
+      prev.includes(d) ? prev.filter((x) => x !== d) : [...prev, d]
+    );
+  };
+
+  const toggleStadium = (s: Arskursband) => {
+    setSelectedStadier((prev) =>
+      prev.includes(s) ? prev.filter((x) => x !== s) : [...prev, s]
     );
   };
 
   const resetFilters = () => {
     setSearchQuery("");
     setSelectedLiteracyIds([]);
-    setSelectedTypes([]);
+    setSelectedDomains([]);
+    setSelectedStadier([]);
   };
 
   const hasActiveFilters =
     searchQuery.trim().length > 0 ||
     selectedLiteracyIds.length > 0 ||
-    selectedTypes.length > 0;
+    selectedDomains.length > 0 ||
+    selectedStadier.length > 0;
 
   return (
     <div className="min-h-screen">
@@ -366,7 +443,8 @@ export default function Home() {
         <div className="mb-8 text-center">
           <h2 className="text-3xl font-bold text-gray-900 mb-2">Utforska allt innehåll</h2>
           <p className="text-gray-600 max-w-2xl mx-auto">
-            Sök i moduler, workshop-aktiviteter, verktyg, mellanstadie-lektioner och hela ramverket. Filtrera på typ och AI-litteracitetsaspekter.
+            Moduler, workshop-aktiviteter, övningar, verktyg och lektioner — allt
+            på ett ställe. Börja med vad eleverna ska göra.
           </p>
         </div>
 
@@ -379,38 +457,47 @@ export default function Home() {
           />
         </div>
 
-        {/* Type-filter — chips med antal */}
-        <div className="mb-6">
-          <div className="text-sm font-semibold text-gray-700 mb-3">Typ av innehåll</div>
-          <div className="flex flex-wrap gap-2">
-            {itemTypeOrder.map((type) => {
-              const count = typeCounts[type] ?? 0;
-              const active = selectedTypes.includes(type);
-              const disabled = count === 0 && !active;
+        {/* Domänfilter — primärt. Samma fyra facetter som i övningsbanken. */}
+        <div className="mb-5">
+          <div className="text-sm font-semibold text-gray-700 mb-3">
+            Vad ska eleverna göra?
+          </div>
+          <div className="grid gap-2 sm:grid-cols-2 lg:grid-cols-4">
+            {DOMAN_ORDNING.map((d) => {
+              const meta = DOMAN_META[d];
+              const count = domainCounts[d];
+              const active = selectedDomains.includes(d);
               return (
                 <button
-                  key={type}
+                  key={d}
                   type="button"
-                  onClick={() => toggleType(type)}
-                  disabled={disabled}
-                  className={`rounded-full px-3 py-1.5 text-sm font-medium transition-all inline-flex items-center gap-1.5 ${
-                    active
-                      ? "bg-primary-600 text-white shadow-md shadow-primary-500/30"
-                      : disabled
-                        ? "bg-gray-50 text-gray-400 border border-gray-200 cursor-not-allowed"
-                        : "bg-white text-gray-800 border border-gray-300 hover:border-primary-400 hover:bg-primary-50/50"
-                  }`}
+                  onClick={() => toggleDomain(d)}
                   aria-pressed={active}
+                  className={`group rounded-xl border p-3 text-left transition-all ${
+                    active
+                      ? "border-transparent bg-white shadow-md ring-2"
+                      : "border-gray-200 bg-white hover:border-gray-300 hover:shadow-sm"
+                  }`}
+                  style={
+                    active
+                      ? ({ ["--tw-ring-color" as string]: DOMAN_FARG[d] })
+                      : undefined
+                  }
                 >
-                  {itemTypeLabels[type]}
-                  <span
-                    className={`text-[11px] font-semibold rounded-full px-1.5 py-0.5 ${
-                      active
-                        ? "bg-white/25 text-white"
-                        : "bg-gray-100 text-gray-600"
-                    }`}
-                  >
-                    {count}
+                  <span className="flex items-center gap-2">
+                    <span
+                      className="h-2.5 w-2.5 shrink-0 rounded-full"
+                      style={{ backgroundColor: DOMAN_FARG[d] }}
+                    />
+                    <span className="font-semibold text-gray-900">
+                      {meta.namn}
+                    </span>
+                    <span className="ml-auto text-xs font-semibold text-gray-500">
+                      {count}
+                    </span>
+                  </span>
+                  <span className="mt-1 block text-xs leading-snug text-gray-600">
+                    {meta.beskrivning}
                   </span>
                 </button>
               );
@@ -418,24 +505,80 @@ export default function Home() {
           </div>
         </div>
 
-        {/* AI-litteracitetsfilter */}
-        <div className="mb-8">
+        {/* Stadiefilter */}
+        <div className="mb-5">
           <div className="text-sm font-semibold text-gray-700 mb-3">
-            AI-litteracitetsaspekter
-            <span className="ml-2 text-xs text-gray-500 font-normal">
-              (gäller endast innehåll med koppling — övrigt visas alltid)
-            </span>
+            Vilket stadium?
           </div>
           <div className="flex flex-wrap gap-2">
-            {aiLiteracyConfig.map((aspect) => (
-              <AiLiteracyBadge
-                key={aspect.id}
-                id={aspect.id}
-                onClick={() => toggleLiteracyId(aspect.id)}
-                isActive={selectedLiteracyIds.includes(aspect.id)}
-              />
-            ))}
+            {ARSKURSBAND_ORDNING.map((s) => {
+              const active = selectedStadier.includes(s);
+              return (
+                <button
+                  key={s}
+                  type="button"
+                  onClick={() => toggleStadium(s)}
+                  aria-pressed={active}
+                  className={`inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 text-sm font-medium transition-all ${
+                    active
+                      ? "bg-primary-600 text-white shadow-md shadow-primary-500/30"
+                      : "border border-gray-300 bg-white text-gray-800 hover:border-primary-400 hover:bg-primary-50/50"
+                  }`}
+                >
+                  {ARSKURSBAND_LABELS[s]}
+                  <span
+                    className={`rounded-full px-1.5 py-0.5 text-[11px] font-semibold ${
+                      active ? "bg-white/25 text-white" : "bg-gray-100 text-gray-600"
+                    }`}
+                  >
+                    {stadiumCounts[s]}
+                  </span>
+                </button>
+              );
+            })}
           </div>
+        </div>
+
+        {/* Dimensionerna — täckningslagret, därför hopfällt.
+            De svarar på "vad har jag hunnit med i terminen", inte på "vad
+            ska jag göra på torsdag". Se lib/taxonomi.ts. */}
+        <div className="mb-8">
+          <button
+            type="button"
+            onClick={() => setShowDimensions((v) => !v)}
+            aria-expanded={showDimensions}
+            className="inline-flex items-center gap-1.5 text-sm font-medium text-gray-600 hover:text-gray-900"
+          >
+            <ChevronDown
+              className={`h-4 w-4 transition-transform ${
+                showDimensions ? "rotate-180" : ""
+              }`}
+            />
+            Filtrera på de sju AI-litteracitetsdimensionerna
+            {selectedLiteracyIds.length > 0 && (
+              <span className="rounded-full bg-primary-600 px-1.5 py-0.5 text-[11px] font-semibold text-white">
+                {selectedLiteracyIds.length}
+              </span>
+            )}
+          </button>
+          {showDimensions && (
+            <div className="mt-3">
+              <p className="mb-3 text-xs text-gray-500">
+                Dimensionerna beskriver täckning över en termin. Innehåll utan
+                koppling visas alltid.
+              </p>
+              <div className="flex flex-wrap gap-2">
+                {aiLiteracyConfig.map((aspect) => (
+                  <AiLiteracyBadge
+                    key={aspect.id}
+                    id={aspect.id}
+                    onClick={() => toggleLiteracyId(aspect.id)}
+                    isActive={selectedLiteracyIds.includes(aspect.id)}
+                  />
+                ))}
+              </div>
+            </div>
+          )}
         </div>
 
         {/* Resultatrad — antal + nollställ */}
@@ -464,7 +607,7 @@ export default function Home() {
           </div>
         ) : (
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {filteredItems.slice(0, 60).map((item) => (
+            {filteredItems.slice(0, visasAntal).map((item) => (
               <UnifiedResultCard
                 key={item.id}
                 item={item}
@@ -474,10 +617,18 @@ export default function Home() {
           </div>
         )}
 
-        {/* Visa antal dolda om resultatet kapas */}
-        {filteredItems.length > 60 && (
-          <div className="mt-6 text-center text-sm text-gray-500">
-            Visar 60 av {filteredItems.length} träffar. Förfina din sökning eller filtrering för att se fler.
+        {filteredItems.length > visasAntal && (
+          <div className="mt-8 text-center">
+            <button
+              type="button"
+              onClick={() => setVisasAntal((n) => n + SIDSTORLEK)}
+              className="rounded-full border border-gray-300 bg-white px-5 py-2.5 text-sm font-semibold text-gray-800 transition-all hover:border-primary-400 hover:bg-primary-50/50"
+            >
+              Visa fler
+            </button>
+            <p className="mt-3 text-sm text-gray-500">
+              Visar {visasAntal} av {filteredItems.length} träffar
+            </p>
           </div>
         )}
       </div>

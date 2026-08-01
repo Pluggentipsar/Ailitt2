@@ -69,6 +69,18 @@ export const DOMAN_META: Record<
 };
 
 /**
+ * Accentfärg per domän. Bor här, inte i en enskild sektions UI-mapp, eftersom
+ * domänerna nu färgar filter på både startsidan och i övningsbanken — samma
+ * färg på samma sak är halva poängen med att ha ett gemensamt filter.
+ */
+export const DOMAN_FARG: Record<Doman, string> = {
+  mota: "#14b8a6", // teal-500
+  skapa: "#a855f7", // purple-500
+  styra: "#3b82f6", // blue-500
+  forma: "#f97316", // orange-500
+};
+
+/**
  * Vägledning vid taggning. Frågan är vad ELEVEN gör i övningen — inte vad
  * ämnesinnehållet handlar om. En övning om hur AI tränas är `mota` (eleven
  * granskar) om den handlar om att genomskåda, men `forma` om den handlar om
