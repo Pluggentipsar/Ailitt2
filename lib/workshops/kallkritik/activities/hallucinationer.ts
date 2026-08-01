@@ -532,6 +532,28 @@ Avsluta: ”Räkna med mig. På fyra meningar hittade jag tre fel — och jag ä
         type: "p",
         text: "Välj 5 faktafrågor som är intressanta men inte triviala (t.ex. ”Hur många människor bor i Småland?”, ”Vem byggde Vasa-skeppet?”).",
       },
+      {
+        type: "p",
+        text: "Skriv in frågorna nedan så projiceras de — paren ska välja ur samma uppsättning, annars går sammanställningen inte att göra i helklass. Ange också vilka två tjänster ni sätter mot varandra.",
+      },
+      {
+        type: "lararfalt",
+        id: "fragorna",
+        label: "Faktafrågorna",
+        placeholder:
+          "Hur många bor i Småland?\nVem byggde Vasaskeppet?\nNär öppnade Öresundsbron?\nHur djup är Vättern?\nVilket år brann Vasaskeppet?",
+        hint: "Intressanta men inte triviala. En per rad. Projiceras när paren väljer.",
+        rader: 5,
+      },
+      {
+        type: "lararfalt",
+        id: "tjansterna",
+        label: "AI A och AI B",
+        placeholder: "AI A: SkolUp AI · AI B: Perplexity",
+        hint: "AI B bör kunna ge källor — det är hela poängen med granskningssteget.",
+        rader: 1,
+        valfri: true,
+      },
       { type: "h", text: "Så här kör du" },
       {
         type: "steps",
@@ -579,6 +601,81 @@ Avsluta: ”Räkna med mig. På fyra meningar hittade jag tre fel — och jag ä
         items: [
           "Vilken källa är mest pålitlig — den vi använder oftast eller den vi använder för att kolla?",
           "Hur många källor borde man kolla innan man säger något säkert?",
+        ],
+      },
+    ],
+
+    // Klassrumsspår. Kedjan A → B → jämför måste stegas: klistrar eleverna in
+    // svar A i AI B utan att först spara det, tappar de jämförelsen. Och den
+    // obekväma slutfrågan — vem granskar granskaren — får en egen slide, för
+    // det är dit hela övningen pekar.
+    klassrum: [
+      {
+        blocks: [
+          { type: "h", text: "Sätt en AI mot en annan" },
+          { type: "p", text: "Vilken har rätt? Och hur vet ni?" },
+        ],
+      },
+      {
+        etikett: "Tjänsterna",
+        blocks: [{ type: "lararfalt", id: "tjansterna", label: "Tjänsterna", valfri: true }],
+      },
+      {
+        etikett: "Välj en fråga",
+        blocks: [{ type: "lararfalt", id: "fragorna", label: "Frågorna" }],
+      },
+      {
+        etikett: "Steg 1",
+        blocks: [
+          { type: "h", text: "Ställ frågan till AI A" },
+          { type: "p", text: "Spara svaret. Ni behöver det ordagrant i nästa steg." },
+        ],
+      },
+      {
+        etikett: "Steg 2 · öppna AI B",
+        blocks: [
+          {
+            type: "quote",
+            text: "[Klistra in AI A:s svar] Är det här sant? Ge källor.",
+          },
+        ],
+      },
+      {
+        etikett: "Steg 3 · jämför",
+        blocks: [
+          {
+            type: "list",
+            ordered: true,
+            items: [
+              "Är de eniga?",
+              "Om inte — vilket är rätt?",
+              "Hur vet ni det?",
+            ],
+          },
+        ],
+      },
+      {
+        etikett: "Kolla källorna",
+        blocks: [
+          {
+            type: "p",
+            text: "AI B gav källor. Finns de? Säger de det AI:n påstår att de säger?",
+          },
+        ],
+      },
+      {
+        etikett: "Den obekväma frågan",
+        blocks: [
+          { type: "h", text: "Vem granskar granskaren?" },
+        ],
+      },
+      {
+        etikett: "Och den praktiska",
+        blocks: [
+          {
+            type: "p",
+            text: "Vad gör vi när AI:n säger en sak och Google en annan? Hur många källor räcker innan man säger något säkert?",
+          },
         ],
       },
     ],

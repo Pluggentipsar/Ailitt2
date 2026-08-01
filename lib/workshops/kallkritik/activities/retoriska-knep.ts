@@ -155,6 +155,27 @@ export const retoriskaKnep: Activity[] = [
         ],
       },
       {
+        type: "p",
+        text: "Skriv in dina teser nedan så projiceras de. De nio knepen ligger inbyggda i klassrumsspåret som referens — då behöver eleverna inte A4-utskriften för att följa med, bara för att jobba vidare.",
+      },
+      {
+        type: "lararfalt",
+        id: "tes-1",
+        label: "Tes 1",
+        placeholder: "T.ex. skoldagen borde börja klockan 10",
+        hint: "Lokalanpassad är bäst. Undvik migration, religion och kön på den här nivån — skolmaten, läxorna och rasterna funkar bättre.",
+        rader: 1,
+      },
+      {
+        type: "lararfalt",
+        id: "tes-2",
+        label: "Tes 2 — till miniutmaningen",
+        placeholder: "T.ex. läxor borde vara frivilliga",
+        hint: "Projiceras när paren ska gissa vilka tre knep AI:n väljer.",
+        rader: 1,
+        valfri: true,
+      },
+      {
         type: "callout",
         tone: "tip",
         title: "Den färdiga prompten",
@@ -224,6 +245,134 @@ export const retoriskaKnep: Activity[] = [
           "Vilket knep fungerar BÄST på dig själv? Är det samma som på dina kompisar?",
           "Är det fusk att använda retoriska knep när man skriver? Var går gränsen mellan ”övertyga” och ”manipulera”?",
           "Skulle du kunna skriva ett inlägg utan ETT enda knep? Vad skulle det säga i så fall?",
+        ],
+      },
+    ],
+
+    // Klassrumsspår. Övningen ÄR en lärardemo på storskärm — den enda i
+    // kapitlet som redan är skriven för projektion. Spåret ger den en ordnad
+    // sekvens: läsa tyst före analysen, de nio knepen som referens, och
+    // slutpoängen som skyddar mot cynism ("allt är alltså manipulation?").
+    klassrum: [
+      {
+        blocks: [
+          { type: "h", text: "Språk som ska övertyga — inte informera" },
+          {
+            type: "p",
+            text: "AI:n hjälper oss genom att både skriva en sådan text OCH avslöja hur den gjorde.",
+          },
+        ],
+      },
+      {
+        etikett: "Tesen",
+        blocks: [{ type: "lararfalt", id: "tes-1", label: "Tesen" }],
+      },
+      {
+        etikett: "Läs tyst först",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "Vilka ord drog dig in?",
+              "Vilka fick dig att hålla med?",
+              "Vilka fick dig att säga emot?",
+            ],
+          },
+        ],
+      },
+      {
+        etikett: "Lyssna på kroppen",
+        blocks: [
+          {
+            type: "p",
+            text: "Irritation? Starkt medhåll? Tvekan? Det är ofta tecken på att ett knep arbetar.",
+          },
+        ],
+      },
+      {
+        etikett: "De nio knepen",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "Cherry-picking — bara siffrorna som stöder mig",
+              "Falskt motsatspar — antingen X eller katastrof",
+              "Känsloladdat språk — starka, värderande ord",
+              "Halmgubbe — överdriv motståndarens åsikt",
+              "Glidande slutsats — en sak leder till nästa till nästa",
+            ],
+          },
+        ],
+      },
+      {
+        etikett: "Och fyra till",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "Anekdotbevis — en enskild historia som ”bevis”",
+              "Auktoritetsargument — en expert tycker",
+              "Whataboutism — vad sägs om Y då?",
+              "Ad hominem — angrip personen, inte argumentet",
+            ],
+          },
+        ],
+      },
+      {
+        etikett: "Nu avslöjar AI:n",
+        blocks: [
+          {
+            type: "p",
+            text: "Jämför med vad DU märkte. Hittade du knepen utan hjälp? Vilka missade du?",
+          },
+        ],
+      },
+      {
+        etikett: "Om AI:ns analys skaver",
+        blocks: [
+          {
+            type: "callout",
+            tone: "tip",
+            title: "Säg emot den",
+            body: "AI:n markerar ibland fel knep eller missar ett uppenbart. Att ni ifrågasätter analysen är en vinst — det är då ni tränar er egen blick.",
+          },
+        ],
+      },
+      {
+        etikett: "Miniutmaning · gissa först",
+        blocks: [
+          { type: "lararfalt", id: "tes-2", label: "Ny tes", valfri: true },
+          {
+            type: "p",
+            text: "Vilka TRE knep kommer AI:n att välja? Gissa i par innan vi kör.",
+          },
+        ],
+      },
+      {
+        etikett: "Reflektion",
+        blocks: [
+          { type: "h", text: "Vilket knep märker du mest i ditt eget liv?" },
+        ],
+      },
+      {
+        etikett: "Och det viktigaste",
+        blocks: [
+          {
+            type: "p",
+            text: "Poängen är inte att aldrig använda knep. Det är att VETA NÄR någon använder dem på dig.",
+          },
+        ],
+      },
+      {
+        etikett: "Gränsen",
+        blocks: [
+          {
+            type: "example",
+            label: "Skillnaden",
+            user: "Övertyga — öppet, knepen går att se",
+            ai: "Manipulera — dolt, knepen utnyttjas",
+            note: "Allt är alltså inte manipulation. Men det mesta är byggt.",
+          },
         ],
       },
     ],
@@ -471,6 +620,28 @@ Det här är vad jag vill att ni lär er: när någon övertygar er, finns det A
         ],
       },
       {
+        type: "p",
+        text: "Skriv in var boten finns nedan — det är den vanligaste stoppklossen i den här övningen. Din demotext projiceras också, så klassen granskar samma text tillsammans innan de går ut i par.",
+      },
+      {
+        type: "lararfalt",
+        id: "boten",
+        label: "Var hittar eleverna boten?",
+        placeholder: "SkolUp → Mina bottar → Retorik-detektiven",
+        hint: "Eller: klistra in system-prompten först. Projiceras i inramningen.",
+        rader: 2,
+      },
+      {
+        type: "lararfalt",
+        id: "demotext",
+        label: "Demotexten ni granskar tillsammans",
+        placeholder:
+          "Klistra in den text du testat i förväg — debattartikel, social-media-post eller rubrik.",
+        hint: "Offentlig text. Testa den i boten innan lektionen så du vet vad eleverna får.",
+        rader: 6,
+        valfri: true,
+      },
+      {
         type: "callout",
         tone: "tip",
         title: "Den färdiga system-prompten",
@@ -548,6 +719,120 @@ Det här är vad jag vill att ni lär er: när någon övertygar er, finns det A
           "Vilket knep använder DIN egen sociala-medie-tråd mest? Skulle du själv vilja bli analyserad?",
           "AI hittade kanske knep du inte själv såg — eller missade knep du själv såg. Vem hade ”rätt”?",
           "Skulle du lita på AI:n mer om den var en lärare? Mer om den var en kompis? Varför?",
+        ],
+      },
+    ],
+
+    // Klassrumsspår. Två regler avgör om lektionen håller och båda får egna
+    // slides: bara OFFENTLIGA texter, och vi analyserar form — inte sak.
+    // Den senare är svaret på "men vem har rätt då?", som kommer varje gång.
+    klassrum: [
+      {
+        blocks: [
+          { type: "h", text: "Nu får ni ett verktyg" },
+          {
+            type: "p",
+            text: "En detektiv som visar vad en text försöker göra med dig.",
+          },
+        ],
+      },
+      {
+        etikett: "Var den finns",
+        blocks: [{ type: "lararfalt", id: "boten", label: "Boten" }],
+      },
+      {
+        etikett: "Regel 1",
+        blocks: [
+          {
+            type: "callout",
+            tone: "warning",
+            title: "Bara offentliga texter",
+            body: "En artikel, en rubrik, en känd persons konto. Aldrig privata meddelanden från kompisar eller familj.",
+          },
+        ],
+      },
+      {
+        etikett: "Regel 2",
+        blocks: [
+          { type: "h", text: "Vi analyserar SPRÅK — inte sak" },
+          {
+            type: "p",
+            text: "Det är inte AI:ns jobb att säga vem som har rätt. Det är att hjälpa er se hur språket fungerar. Sen tänker ni själva.",
+          },
+        ],
+      },
+      {
+        etikett: "Vi börjar tillsammans",
+        blocks: [{ type: "lararfalt", id: "demotext", label: "Demotexten", valfri: true }],
+      },
+      {
+        etikett: "Boten gör fyra saker",
+        blocks: [
+          {
+            type: "list",
+            ordered: true,
+            items: [
+              "Sammanfattar texten",
+              "Listar vilka knep den använder",
+              "Säger vad som saknas",
+              "Ställer en fråga tillbaka",
+            ],
+          },
+        ],
+      },
+      {
+        etikett: "Men tänk själv först",
+        blocks: [
+          {
+            type: "p",
+            text: "Markerade AI:n samma meningar som du reagerade på? Vad missade den?",
+          },
+        ],
+      },
+      {
+        etikett: "Er tur — parvis",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "Kör två till tre texter i boten",
+              "Skriv ner 2 knep AI:n hittade",
+              "Plus 1 ni tycker att den missade",
+            ],
+          },
+        ],
+      },
+      {
+        etikett: "Klassgenomgång",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "Vilken text använde flest knep?",
+              "Vilket knep var vanligast i sociala medier? I nyheter?",
+              "Vad var AI:n bäst på? Vad var den sämst på?",
+            ],
+          },
+        ],
+      },
+      {
+        etikett: "En varning",
+        blocks: [
+          {
+            type: "callout",
+            tone: "tip",
+            title: "Tänk själv innan du frågar boten",
+            body: "”Jag vet inte vad jag tycker, jag måste fråga boten” är fel väg. Bilda dig en uppfattning först — jämför sen.",
+          },
+        ],
+      },
+      {
+        etikett: "Till nästa gång",
+        blocks: [
+          {
+            type: "p",
+            text: "Hitta EN egen text — en post, en rubrik, ett citat. Kör den i boten. Ta med analysen.",
+          },
         ],
       },
     ],
@@ -787,6 +1072,19 @@ Och nu får ni testa. Klistra in en text ni undrar över. Boten väntar.`,
           "Förbered hur ni skyddar texter från att sprida sig om de är obehagliga (ad hominem-övningar kan bli personliga). Sätt regel: tesen ska INTE handla om personer i klassen, skolan, eller specifika kompisar.",
         ],
       },
+      {
+        type: "p",
+        text: "Klistra in ditt eget modellexempel nedan. Det är övningens viktigaste förberedelse: eleverna behöver SE att överdrift är tillåten, annars blir texterna för försiktiga och knepet syns inte.",
+      },
+      {
+        type: "lararfalt",
+        id: "modelltext",
+        label: "Ditt modellexempel",
+        placeholder:
+          "En kort text du skrivit med ETT tydligt knep. Skriv gärna vilket knep det är på sista raden.",
+        hint: "Projiceras innan eleverna skriver. Ta i ordentligt — det är nivån de kalibrerar mot.",
+        rader: 6,
+      },
       { type: "h", text: "Så här kör du" },
       {
         type: "steps",
@@ -861,6 +1159,125 @@ Och nu får ni testa. Klistra in en text ni undrar över. Boten väntar.`,
           "AI hittade kanske KNEP DU INTE TÄNKT PÅ. Hur kom de in?",
           "Skulle du själv kunna skriva en text om något du bryr dig om UTAN att använda ett enda knep? Vad skulle den säga i så fall?",
           "Vilket knep blev SVÅRAST att se i andras texter när du läste klassens galleri?",
+        ],
+      },
+    ],
+
+    // Klassrumsspår. Prebunking via produktion — eleverna bygger knepet själva.
+    // Två saker måste stå på skärmen: modellexemplet (annars blir texterna för
+    // försiktiga) och ad hominem-regeln (annars blir de personliga). Skrivandet
+    // sker på papper, så spåret är kort och håller ramarna.
+    klassrum: [
+      {
+        blocks: [
+          { type: "h", text: "I dag är NI retoriken" },
+          {
+            type: "p",
+            text: "Inte för att lära er manipulera — för att se manipulationen inifrån.",
+          },
+        ],
+      },
+      {
+        etikett: "Som att lära sig magi",
+        blocks: [
+          {
+            type: "p",
+            text: "När du vet hur tricket görs blir det aldrig samma igen.",
+          },
+        ],
+      },
+      {
+        etikett: "Regeln",
+        blocks: [
+          {
+            type: "callout",
+            tone: "warning",
+            title: "Tesen får inte handla om någon ni känner",
+            body: "Inte klasskamrater, lärare, släkt eller kompisar. Använd påhittade personer eller allmänna roller — ”vissa vuxna tycker”.",
+          },
+        ],
+      },
+      {
+        etikett: "Så här kan det se ut",
+        blocks: [{ type: "lararfalt", id: "modelltext", label: "Modellexemplet" }],
+      },
+      {
+        etikett: "Notera nivån",
+        blocks: [
+          { type: "h", text: "Det är OK att överdriva" },
+          { type: "p", text: "Det är faktiskt poängen. Knepet ska synas." },
+        ],
+      },
+      {
+        etikett: "Steg 1 · välj",
+        blocks: [
+          {
+            type: "list",
+            ordered: true,
+            items: [
+              "Ett knep — gärna ett du själv möter ofta",
+              "En tes du har åsikt om",
+            ],
+          },
+        ],
+      },
+      {
+        etikett: "Steg 2 · skriv",
+        blocks: [
+          { type: "h", text: "3–5 meningar. Papper, inte dator." },
+          { type: "p", text: "Tio minuter. Ni ska tänka själva först." },
+        ],
+      },
+      {
+        etikett: "Steg 3 · läs högt för dig själv",
+        blocks: [
+          {
+            type: "p",
+            text: "Hör du knepet? Skulle du själv köpa argumentet?",
+          },
+        ],
+      },
+      {
+        etikett: "Steg 4 · låt AI:n granska",
+        blocks: [
+          {
+            type: "quote",
+            text: "Vilket eller vilka retoriska knep använder den här texten?",
+          },
+        ],
+      },
+      {
+        etikett: "Två frågor till analysen",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "Hittade AI:n knepet du tänkte?",
+              "Hittade den andra knep du INTE tänkt på?",
+            ],
+          },
+        ],
+      },
+      {
+        etikett: "Om den hittade fler",
+        blocks: [
+          {
+            type: "h",
+            text: "Hur hamnade de där?",
+          },
+          {
+            type: "p",
+            text: "Det är den intressantaste upptäckten i övningen — knep smyger sig in när man argumenterar.",
+          },
+        ],
+      },
+      {
+        etikett: "Galleri",
+        blocks: [
+          {
+            type: "p",
+            text: "Läs varandras texter. Gissa knepet INNAN du läser klart.",
+          },
         ],
       },
     ],
