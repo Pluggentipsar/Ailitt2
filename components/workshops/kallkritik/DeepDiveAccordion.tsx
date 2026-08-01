@@ -1,7 +1,7 @@
 "use client";
 
 import * as Accordion from "@radix-ui/react-accordion";
-import { ChevronDown, BookOpen } from "lucide-react";
+import { ChevronDown, BookOpen, MessageSquareQuote } from "lucide-react";
 import type { DeepDive } from "@/lib/workshops/kallkritik";
 import { BlockRenderer } from "./BlockRenderer";
 
@@ -47,6 +47,21 @@ export function DeepDiveAccordion({ deepDive }: { deepDive: DeepDive }) {
             <Accordion.Content className="overflow-hidden data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down">
               <div className="px-5 pb-5 pt-1">
                 <BlockRenderer blocks={section.answer} />
+
+                {/* Samma sak, sagt till eleverna. Egen visuell behållare med
+                    flit — läraren som har bråttom ska kunna scanna sidan och
+                    hitta bara de här rutorna. */}
+                {section.tillEleverna && (
+                  <div className="mt-5 rounded-xl border-l-4 border-workshop-skog bg-white/70 p-4">
+                    <div className="mb-1.5 flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-workshop-skog">
+                      <MessageSquareQuote className="h-3.5 w-3.5" />
+                      Så säger du det till eleverna
+                    </div>
+                    <p className="text-[15px] leading-relaxed text-stone-800">
+                      {section.tillEleverna}
+                    </p>
+                  </div>
+                )}
               </div>
             </Accordion.Content>
           </Accordion.Item>

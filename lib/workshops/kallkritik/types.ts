@@ -286,6 +286,17 @@ export type EvidenceStrength = "strong" | "moderate" | "emerging";
 export type DeepDiveSection = {
   question: string;
   answer: Block[];
+  /**
+   * Samma sak, sagt till eleverna — två, tre meningar som går att säga rakt
+   * av i klassrummet.
+   *
+   * Finns som eget fält och inte som en callout i `answer`, eftersom det är
+   * en annan sorts text: fördjupningen förklarar för läraren VARFÖR något är
+   * som det är, det här ger hen ord att använda på torsdag. En lärare som
+   * inte är tekniskt bevandrad ska kunna hoppa direkt hit och ändå kunna
+   * hålla i momentet — och den som vill förstå läser stycket ovanför.
+   */
+  tillEleverna?: string;
 };
 
 // deepDive — för dig som lärare som vill läsa mer än vad övningen kräver:
