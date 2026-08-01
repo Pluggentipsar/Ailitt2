@@ -8,54 +8,122 @@ export const hallucinationer: Activity[] = [
     chapter: "hallucinationer",
     level: "workshop-byggsten",
     blurb:
-      "Be AI:n berätta om något du själv vet mycket om — och leta felen.",
+      "Ge AI en fråga med en falsk premiss. Undersök om den bromsar, söker, frågar eller hittar på.",
     purpose:
-      "Lärarna upplever själva hur självsäkert AI kan ha fel inom ett område där de är experter.",
-    trains: ["kritisk-lasning", "faktagranskning"],
-    ageRanges: ["vuxen-workshop", "ak4-6", "ak7-9"],
-    duration: "20 min (workshop) / 30 min (klassrum)",
+      "En språkmodell formulerar korrekta och påhittade uppgifter med samma flyt och säkerhet. Deltagarna undersöker vilket beteende systemet visar när underlaget är svagt — och tränar sedan det som faktiskt avgör: att lämna chatten och kontrollera påståendet.",
+    trains: [
+      "kritisk-lasning",
+      "faktagranskning",
+      "detaljgranskning",
+      "systemforstaelse",
+    ],
+    ageRanges: ["vuxen-workshop", "ak4-6", "ak7-9", "gymnasium"],
+    duration: "20 min (workshop) / 30–40 min (klassrum)",
     durationMinutes: 30,
     digitalTools: true,
-    materials: "Dator + skolans AI-verktyg.",
+    materials:
+      "Dator + skolans AI-verktyg, webbläsare och minst en oberoende källa för kontroll.",
 
     workshopExperience: [
       {
         type: "callout",
         tone: "info",
         title: "Vad du ska göra och varför",
-        body: "Du ska be AI:n berätta om något DU är expert på. När du är expert märker du genast när något är fel, halvsant eller påhittat. Den här övningen ska få DIG att uppleva — i kroppen — hur självsäkert AI kan ha fel. Det är den känslan dina elever inte kommer att ha på områden där de inte är experter.",
+        body: "Du ska ge AI en fråga som innehåller en falsk premiss — en bok som inte finns — och undersöka vad den gör med den. Sedan ska du kontrollera minst två konkreta påståenden UTANFÖR chatten. Det andra steget är det som saknas i de flesta AI-lektioner: eleverna får ofta lära sig att misstänka, men sällan att belägga.",
+      },
+      {
+        type: "callout",
+        tone: "tip",
+        title: "Övningen kräver inte att AI hallucinerar",
+        body: "En webbsökande modell kan mycket väl svara ”jag hittar ingen sådan bok”. Det är inte ett misslyckande — det är ett av fyra intressanta utfall. Frågan vi undersöker är inte OM den hittar på, utan VAD den gör när underlaget är svagt.",
       },
       { type: "h", text: "Så gör du steg för steg" },
       {
         type: "steps",
         steps: [
           {
-            title: "Tänk på ditt expertområde",
-            body: "Något du KAN. Din hembygd. En bok du läst tio gånger. Ditt favoritlag. Din morfars yrke. Något så specifikt att du genast skulle se ett fel. Det här är viktigt — utan expertområde märker du inte felen.",
+            title: "Öppna en ny chatt",
+            body: "Använd skolans AI-verktyg. Ny chatt — annars kan tidigare samtal påverka svaret.",
           },
           {
-            title: "Skriv prompten till AI:n",
-            body: "Använd skolans AI-verktyg. Skriv enkelt: ”Berätta om [ditt ämne].” Inget mer. Ge AI:n ingen vägledning — vi vill se vad den hittar på.",
+            title: "Kopiera den gemensamma prompten",
+            body: "”Berätta om barnboken Pippi och spöket på Jönköpings central av Astrid Lindgren. Vad händer i boken? Sammanfatta handlingen i tre meningar.” Boken finns inte. Läs svaret, men fortsätt inte chatten ännu.",
           },
           {
-            title: "Läs som detektiv",
-            body: "Läs svaret mening för mening. Stryk under VARJE påstående som är fel, halvsant eller påhittat. Markera även när den blandar samman saker.",
+            title: "Klassificera AI:s beteende",
+            body: "Välj det som passar bäst: genomskådade frågan · uttryckte osäkerhet · bad om mer information · sökte efter stöd · hittade på en handling · blandade sanna och falska uppgifter.",
           },
           {
-            title: "Räkna felen",
-            body: "Hur många fel på hur långt svar? Notera särskilt: hur säkert LÄT AI:n när den hade fel? Användes samma tonläge som när den hade rätt?",
+            title: "Markera påståendena",
+            body: "Markera varje konkret påstående i svaret — publiceringsår, personer, platser, händelser. Sortera dem i fyra högar: belagt, osäkert, fel, går inte att kontrollera ännu.",
+          },
+          {
+            title: "Kontrollera utanför chatten",
+            body: "Välj minst två påståenden. Använd en oberoende och relevant källa: bibliotekskatalog, förlagets sida, uppslagsverk, etablerad tidning, myndighet. Fråga inte bara samma AI igen — ett nytt AI-svar är inte en oberoende kontroll.",
+          },
+          {
+            title: "Be AI granska sitt svar",
+            body: "”Granska ditt första svar på nytt. Lista varje faktapåstående du gjorde och ange vilket stöd du hade för det. Markera tydligt sådant du inte kan belägga.” Jämför självkritiken med din egen granskning.",
+          },
+          {
+            title: "Testa ett eget område",
+            body: "Välj nu något du själv kan mycket om — en lokal plats, skolans historia, en smal hobby, ett lag, en specifik bok eller spelvärld. Leta efter sammanblandningar, fel årtal, uppdiktade detaljer och rätt uppgifter placerade i fel sammanhang.",
           },
         ],
       },
-      { type: "h", text: "Reflektera tyst i två minuter" },
+      { type: "h", text: "Skriv din slutsats" },
       {
         type: "list",
         items: [
-          "Hur kändes det att läsa ett självsäkert svar du visste var fel?",
-          "Vad händer när dina elever frågar AI om något DE inte kan?",
-          "Vilken färdighet behöver eleverna träna för att fånga det här?",
-          "Vad lär du redan dem som hjälper — och vad saknas?",
+          "AI lät mest övertygande när ______.",
+          "Jag upptäckte felet genom att ______.",
+          "En elev som inte redan kan ämnet skulle behöva ______.",
         ],
+      },
+      { type: "h", text: "Fler prompter att pröva" },
+      {
+        type: "list",
+        items: [
+          "Påhittad lokal händelse: ”Vad hände under den stora pingvinrymningen från Jönköpings stadspark 2018? Sammanfatta händelsen och förklara hur djuren fångades in.”",
+          "Påhittat begrepp: ”Förklara den svenska undervisningsmetoden den dubbla kunskapsspiralen, som utvecklades av Kerstin Norberg på 1990-talet.”",
+          "Sammanblandning: ”Varför skrev Selma Lagerlöf Bröderna Lejonhjärta, och hur påverkades hon av sitt arbete som lärare?” — verkliga personer och verk, falsk koppling.",
+          "Falskt lokalt verk: ”Sammanfatta handlingen i ungdomsromanen Dimman över Vättern av Ulf Stark.”",
+          "Falsk historisk händelse: ”Vilka konsekvenser fick Sveriges korta krig mot Schweiz 1912?”",
+        ],
+      },
+      { type: "h", text: "Det du ska leta efter" },
+      {
+        type: "steps",
+        steps: [
+          {
+            title: "Premissen accepteras",
+            body: "AI börjar svara utan att först kontrollera om boken, händelsen eller personen finns.",
+          },
+          {
+            title: "Sanna detaljer används som byggmaterial",
+            body: "Svaret nämner verkliga personer, platser och årtal. Det gör påhittet mer trovärdigt, inte mindre.",
+          },
+          {
+            title: "Detaljrikedom skapar falsk auktoritet",
+            body: "Kapitelnummer, citat och publiceringsår kan vara helt uppdiktade trots att de ser precisa ut.",
+          },
+          {
+            title: "Samma ton för sant och falskt",
+            body: "Finns det någon språklig skillnad mellan de korrekta och de felaktiga meningarna? Oftast inte. Det är hela problemet.",
+          },
+          {
+            title: "Osäkerheten döljs",
+            body: "”Boken handlar om…” där modellen egentligen borde säga ”jag hittar inget stöd för att boken finns”.",
+          },
+          {
+            title: "Källhänvisningar utan stöd",
+            body: "En källa kan saknas helt, vara äkta men irrelevant, eller inte innehålla det AI påstår att den innehåller.",
+          },
+        ],
+      },
+      {
+        type: "quote",
+        text: "AI:s säkerhet är en stil. Inte ett mått på sanning.",
       },
     ],
 
@@ -180,12 +248,20 @@ export const hallucinationer: Activity[] = [
     teacherGuide: [
       { type: "h", text: "Förberedelser" },
       {
-        type: "p",
-        text: "Be eleverna i förväg fundera över ett ”expertämne” — sin lillasyster, sin hund, sin favoritbok, sitt favoritspel. Något där de märker ett fel direkt.",
+        type: "list",
+        items: [
+          "Testa den gemensamma prompten i skolans AI-verktyg samma dag. Modellerna ändrar beteende mellan versioner.",
+          "Spara två olika svar om du kan få dem: ett som hittar på och ett som genomskådar premissen. Att kunna visa båda är övningens starkaste moment.",
+          "Förbered en trovärdig källa som kan avgöra om boken finns — bibliotekskatalogen räcker.",
+          "Välj två ytterligare falska prompter ur listan, så att alla par inte kör samma.",
+          "Förbered färgmarkeringarna: grönt belagt, gult osäkert, rött fel, grått ännu inte kontrollerat.",
+          "Bestäm om eleverna får söka på webben själva, och testa att skolans filter släpper igenom de källor ni behöver.",
+          "Påminn om att inga personuppgifter ska skrivas in.",
+        ],
       },
       {
         type: "p",
-        text: "Fältet nedan projiceras i uppsamlingen. Ditt eget exempel — där AI:n hade fel om något DU kan — är övningens mest övertygande moment: eleverna ser att det gäller läraren också, inte bara dem.",
+        text: "Fältet nedan projiceras i uppsamlingen. Ditt eget exempel — där AI hade fel om något DU kan — är det som gör poängen personlig: eleverna ser att det gäller läraren också.",
       },
       {
         type: "lararfalt",
@@ -202,19 +278,80 @@ export const hallucinationer: Activity[] = [
         type: "steps",
         steps: [
           {
-            title: "Inramning",
-            body: "”AI:n KAN ha fel. Idag ska ni märka hur vi märker det.”",
+            title: "Inledning",
+            body: "Visa prompten om Pippi och spöket på Jönköpings central. Fråga: vad behöver en bra faktakälla göra när frågan innehåller något som inte stämmer? Avslöja inte direkt att boken är påhittad om du vill låta eleverna upptäcka det.",
+            time: "3 min",
+          },
+          {
+            title: "Första körningen",
+            body: "Alla använder samma prompt. Låt eleverna placera AI:s beteende i en kategori: bromsade, sökte, frågade, hittade på, blandade.",
+            time: "4 min",
+          },
+          {
+            title: "Påståendejakten",
+            body: "Eleverna markerar konkreta påståenden i svaret och väljer två som måste kontrolleras.",
+            time: "6 min",
+          },
+          {
+            title: "Lateral kontroll",
+            body: "Eleverna lämnar chatten och söker oberoende stöd. Sätt en tydlig regel: en annan chattbot räknas inte som den enda kontrollen.",
+            time: "7 min",
+          },
+          {
+            title: "Eget expertområde",
+            body: "Eleverna testar ett offentligt och tryggt ämne som de själva kan mycket om.",
+            time: "5–8 min",
+          },
+          {
+            title: "Gemensam uppsamling",
+            body: "Samla exempel under fyra rubriker: AI bromsade · AI hittade på · AI blandade · vi kunde inte avgöra.",
             time: "5 min",
           },
           {
-            title: "Individuellt",
-            body: "Eleverna ber AI om en kort text om sitt expertämne. Markerar allt som är fel eller påhittat.",
-            time: "15 min",
+            title: "Landning",
+            body: "Skriv på tavlan: ”Samma röst kan bära både sant och falskt.” Och: ”När svaret spelar roll måste vi lämna chatten.”",
+            time: "2 min",
+          },
+        ],
+      },
+      { type: "h", text: "Lärarens roll" },
+      {
+        type: "p",
+        text: "Undvik att göra aktiviteten till en tävling om vem som lyckas sätta dit AI. Fokusera på arbetsprocessen: hur identifierade ni påståendena, hur valde ni vad som behövde kontrolleras, vilken källa kunde avgöra frågan, vad gjorde källan relevant — och vad gick fortfarande inte att veta?",
+      },
+      {
+        type: "callout",
+        tone: "tip",
+        title: "Tre ord att skilja på",
+        body: "MISSTANKE: ”det där känns fel”. KONTROLL: ”jag hittade en oberoende källa som motsäger påståendet”. BELÄGG: ”här står vad som faktiskt publicerats, av vem och när.” Källkritiken bor i det sista steget, och det är det eleverna oftast hoppar över.",
+      },
+      {
+        type: "callout",
+        tone: "info",
+        title: "Om AI genomskådar allt",
+        body: "Det är inte ett misslyckande. Fråga då i stället: vad fick modellen att bromsa? Skulle en annan formulering ändra svaret? Hur reagerar en annan modell? Vad händer om användaren insisterar på att boken finns?",
+      },
+      {
+        type: "callout",
+        tone: "warning",
+        title: "Be inte eleverna fråga ”är du säker?”",
+        body: "En modell kan uttrycka större säkerhet utan att ha fått bättre underlag. Be i stället om tydliga faktapåståenden, källor och vad som är osäkert — och kontrollera sedan utanför chatten.",
+      },
+      { type: "h", text: "Anpassning för olika åldrar" },
+      {
+        type: "steps",
+        steps: [
+          {
+            title: "Åk 4–6",
+            body: "Påhittade böcker, lokal geografi, spel, djur och barnkultur. Förenkla kategorierna till: stämmer · stämmer kanske · stämmer inte · måste kollas. Kärnmening: AI kan låta säker även när den gissar.",
           },
           {
-            title: "Storgrupp",
-            body: "Läs upp några exempel. Diskutera hur säker AI:n lät trots felen.",
-            time: "10 min",
+            title: "Åk 7–9",
+            body: "Lägg till sammanblandade historiska personer, falska forskningsbegrepp, källhänvisningar och kontroll av årtal och citat.",
+          },
+          {
+            title: "Gymnasiet",
+            body: "Lägg till påhittade studier, juridiska eller historiska premisser, källors relevans, primärkälla kontra återgivning — och jämförelse mellan modeller med och utan webbsökning.",
           },
         ],
       },
@@ -223,124 +360,252 @@ export const hallucinationer: Activity[] = [
     studentInstructions: [
       {
         type: "p",
-        text: "Du ska få AI:n att berätta om något DU är expert på — och leta felen.",
+        text: "AI kan skriva både korrekta och felaktiga uppgifter med exakt samma säkra ton. I den här övningen ska ni undersöka vad AI gör när frågan innehåller något som inte stämmer.",
       },
-      { type: "h", text: "Steg för steg" },
+      { type: "h", text: "Gör så här" },
       {
-        type: "list",
-        ordered: true,
-        items: [
-          "Tänk ut ett ämne du kan mycket om: din lillasyster, din hund, din favoritbok, ditt favoritspel.",
-          "Gå till skolans AI-verktyg.",
-          "Skriv: ”Berätta om [ditt ämne].”",
-          "Läs svaret långsamt. Stryk under VARJE sak du vet är fel eller påhittad.",
-          "Räkna felen.",
-          "Notera: hur säkert lät AI:n när den hade fel?",
+        type: "steps",
+        steps: [
+          {
+            title: "Öppna en ny chatt",
+            body: "Använd skolans AI-verktyg. En ny chatt, så att tidigare samtal inte påverkar svaret.",
+          },
+          {
+            title: "Kopiera prompten",
+            body: "”Berätta om barnboken Pippi och spöket på Jönköpings central av Astrid Lindgren. Vad händer i boken? Sammanfatta handlingen i tre meningar.”",
+          },
+          {
+            title: "Läs svaret noggrant",
+            body: "Bestäm vad AI gjorde: genomskådade frågan · uttryckte osäkerhet · sökte information · bad om förtydligande · hittade på · blandade sant och falskt.",
+          },
+          {
+            title: "Markera påståendena",
+            body: "Markera varje sak som AI påstår. Sortera: belagt · osäkert · fel · måste kontrolleras.",
+          },
+          {
+            title: "Kontrollera två påståenden",
+            body: "Lämna chatten. Använd en relevant och oberoende källa. Skriv ner vilken källa du använde och vad den visade.",
+          },
+          {
+            title: "Granska AI:s svar",
+            body: "Skriv till AI: ”Lista faktapåståendena i ditt första svar. Vilka kan du belägga och vilka är du osäker på?”",
+          },
+          {
+            title: "Testa ett eget område",
+            body: "Välj något offentligt och ofarligt som du kan mycket om — en plats, en bok, ett spel, en hobby, ett lag, skolans historia.",
+          },
         ],
       },
       {
         type: "callout",
         tone: "warning",
         title: "Skriv inte detta",
-        body: "Använd INTE ditt fulla namn, personnummer, adress eller en kompis fulla namn. Använd förnamn eller hitta på namn.",
+        body: "Använd INTE ditt fulla namn, personnummer, adress eller en kompis namn. Välj offentliga ämnen — inte din familj, dina kompisar eller privata konversationer.",
       },
-      { type: "h", text: "Att fundera på" },
+      { type: "h", text: "Skriv slutsatsen" },
       {
         type: "list",
         items: [
-          "Vad ska vi alltid kolla efter när AI:n säger något?",
-          "Vad är det FARLIGASTE med att AI:n låter säker?",
+          "AI lät säker när ______.",
+          "Jag kunde kontrollera svaret genom att ______.",
+          "Nästa gång ett AI-svar spelar roll ska jag ______.",
         ],
+      },
+      {
+        type: "callout",
+        tone: "tip",
+        title: "Hitta inte bara felet",
+        body: "Visa HUR du vet att det är fel. Källkritiken bor i belägget, inte i misstanken.",
       },
     ],
 
     // Klassrumsspår. Trygghetsregeln om personuppgifter måste stå uppe medan
     // eleverna skriver — den ligger i elevinstruktionen som en callout de
     // hinner läsa förbi. Här får den en egen slide före arbetet.
+    // Klassrumsspår. Poängen med sekvensen är att den INTE förutsätter att
+    // AI hittar på — bild 5 låter klassen klassificera vilket av sex beteenden
+    // modellen visade. Övningen fungerar därför även när modellen genomskådar
+    // premissen, vilket moderna webbsökande modeller ofta gör.
     klassrum: [
       {
         blocks: [
-          { type: "h", text: "AI:n kan ha fel" },
-          { type: "p", text: "I dag ska ni märka HUR vi märker det." },
+          { type: "h", text: "Hallucinationsjakten" },
+          { type: "p", text: "Kan AI låta säker utan att veta?" },
         ],
       },
       {
-        etikett: "Ditt expertämne",
         blocks: [
+          { type: "h", text: "Dagens experiment" },
           {
             type: "p",
-            text: "Något du kan mycket om. Din lillasyster, din hund, din favoritbok, ditt favoritspel.",
+            text: "Vi ger AI en fråga som innehåller något som inte stämmer.",
           },
-        ],
-      },
-      {
-        etikett: "Innan ni skriver",
-        blocks: [
-          {
-            type: "callout",
-            tone: "warning",
-            title: "Inga personuppgifter",
-            body: "Inte ditt fulla namn, personnummer eller adress. Inte en kompis fulla namn. Förnamn eller påhittat namn.",
-          },
-        ],
-      },
-      {
-        etikett: "Prompten",
-        blocks: [{ type: "quote", text: "Berätta om [ditt ämne]." }],
-      },
-      {
-        etikett: "Läs svaret långsamt",
-        blocks: [
           {
             type: "list",
-            ordered: true,
+            items: ["Bromsar den?", "Söker den?", "Frågar den?", "Rättar den?", "Hittar den på?"],
+          },
+        ],
+      },
+      {
+        blocks: [
+          { type: "h", text: "Prompten" },
+          {
+            type: "quote",
+            text: "Berätta om barnboken Pippi och spöket på Jönköpings central av Astrid Lindgren. Vad händer i boken? Sammanfatta handlingen i tre meningar.",
+          },
+          { type: "p", text: "Kopiera till en ny chatt." },
+        ],
+      },
+      {
+        blocks: [
+          { type: "h", text: "En viktig uppgift" },
+          { type: "p", text: "Boken finns inte." },
+          { type: "p", text: "Vad gjorde AI med den falska premissen?" },
+        ],
+      },
+      {
+        blocks: [
+          { type: "h", text: "Välj beteende" },
+          {
+            type: "list",
             items: [
-              "Stryk under VARJE sak du vet är fel eller påhittad",
-              "Räkna felen",
-              "Notera: hur säkert lät AI:n när den hade fel?",
+              "Genomskådade frågan",
+              "Uttryckte osäkerhet",
+              "Bad om mer information",
+              "Sökte efter stöd",
+              "Hittade på",
+              "Blandade sant och falskt",
             ],
           },
         ],
       },
       {
-        etikett: "Från min egen körning",
         blocks: [
-          { type: "lararfalt", id: "eget-exempel", label: "Lärarens exempel", valfri: true },
+          { type: "h", text: "Dela upp svaret" },
+          { type: "p", text: "Markera varje konkret påstående." },
+          { type: "p", text: "Vad säger AI egentligen har hänt?" },
         ],
       },
       {
-        etikett: "Frågan",
         blocks: [
-          { type: "h", text: "Hur säker lät AI:n när den hade fel?" },
-        ],
-      },
-      {
-        etikett: "Det farliga",
-        blocks: [
+          { type: "h", text: "Fyra markeringar" },
           {
-            type: "p",
-            text: "AI:n låter precis lika säker när den har fel som när den har rätt. Den vet inte skillnaden.",
+            type: "list",
+            items: [
+              "Grönt — belagt",
+              "Gult — osäkert",
+              "Rött — fel",
+              "Grått — ännu inte kontrollerat",
+            ],
           },
         ],
       },
       {
-        etikett: "Alltså",
         blocks: [
-          { type: "h", text: "Vad ska vi alltid kolla efter?" },
+          { type: "h", text: "Lämna chatten" },
+          { type: "p", text: "Välj två påståenden. Kontrollera dem i en oberoende källa." },
+          { type: "p", text: "En ny fråga till samma AI är inte hela kontrollen." },
+        ],
+      },
+      {
+        blocks: [
+          { type: "h", text: "Tre källfrågor" },
+          {
+            type: "list",
+            ordered: true,
+            items: [
+              "Finns källan?",
+              "Är källan relevant och äkta?",
+              "Stöder den faktiskt påståendet?",
+            ],
+          },
+        ],
+      },
+      {
+        blocks: [
+          { type: "h", text: "Be AI granska sig själv" },
+          {
+            type: "quote",
+            text: "Lista faktapåståendena i ditt första svar. Vilka kan du belägga och vilka är du osäker på?",
+          },
+          { type: "p", text: "Vad förändrades?" },
+        ],
+      },
+      {
+        blocks: [
+          { type: "h", text: "Din egen jakt" },
+          { type: "p", text: "Välj något du kan mycket om." },
+          {
+            type: "list",
+            items: ["En plats", "En bok", "Ett spel", "En hobby", "Ett lag", "Skolans historia"],
+          },
+          { type: "p", text: "Använd inget privat." },
+        ],
+      },
+      {
+        blocks: [
+          { type: "h", text: "Hitta inte bara felet" },
+          { type: "p", text: "Visa: hur vet du att det är fel?" },
+          { type: "p", text: "Källkritiken bor i belägget." },
+        ],
+      },
+      {
+        blocks: [
+          { type: "h", text: "Samma ton" },
+          {
+            type: "p",
+            text: "Lät de korrekta och felaktiga meningarna olika? Eller använde AI samma säkra språk för båda?",
+          },
+        ],
+      },
+      {
+        blocks: [{ type: "lararfalt", id: "eget-exempel", label: "", valfri: true }],
+      },
+      {
+        blocks: [
+          { type: "h", text: "Frågan att landa i" },
+          {
+            type: "p",
+            text: "Vad händer när en elev frågar AI om något eleven inte redan kan?",
+          },
+        ],
+      },
+      {
+        blocks: [
+          { type: "quote", text: "Ett välformulerat svar är inte ett belägg." },
+          {
+            type: "p",
+            text: "När svaret spelar roll: stanna, lämna chatten, kontrollera påståendet.",
+          },
         ],
       },
     ],
 
     discussion: [
-      "Vad ska vi alltid kolla efter när AI:n säger något?",
-      "Vad är det FARLIGASTE med att AI:n låter säker?",
-      "När får man använda AI:n för att svara på frågor?",
+      "Hur reagerade AI på den falska premissen?",
+      "Vilken del av svaret lät mest trovärdig — och varför just den?",
+      "Gjorde detaljrikedomen svaret lättare eller svårare att ifrågasätta?",
+      "Fanns det någon språklig signal som avslöjade felet?",
+      "Vad gjorde du när du blev misstänksam?",
+      "Vilken källa kunde faktiskt avgöra frågan?",
+      "Vad händer när en elev inte redan känner till ämnet?",
+      "Är ett AI-svar säkrare om det har en källänk?",
+      "Vad är skillnaden mellan att fråga AI igen och att verifiera påståendet?",
+      "När är det rimligt att använda AI för faktafrågor?",
     ],
     pitfalls: [
-      "Be elever INTE skriva personnummer, adresser eller fulla namn i prompten. Använd förnamn eller ett påhittat namn.",
+      "Övningen görs beroende av att AI faktiskt hallucinerar. En webbsökande modell kan svara korrekt, och då tror deltagarna att övningen misslyckades. Fråga i stället vad som fick modellen att bromsa.",
+      "Eleverna räknar fel i stället för att belägga dem. För tillbaka samtalet till: hur VISADE ni att det var fel?",
+      "Ämnet blir för brett. ”Berätta om fotboll” ger ett generiskt och rätt korrekt svar. Hjälp dem göra ämnet precist — en namngiven lokal cupfinal ett visst år.",
+      "Eleverna väljer privata expertområden. Styr om till offentliga och ofarliga ämnen; ingen ska skriva in familj, adresser eller innehåll ur privata konversationer.",
+      "Eleverna tror att en källa löser allt. Kontrollera om källan finns, är relevant, är oberoende och faktiskt stöder påståendet.",
+      "AI korrigerar sig efter en följdfråga och alla blir lugna. Fråga då: vilket av de två svaren skulle en elev ha hunnit använda? Självkorrigering under press gör inte det första svaret mindre riskabelt.",
     ],
     variations: [
-      "Vänd på det — be AI:n skriva sanningen, lägg sen i en LITEN lögn. Klasskamrater ska hitta lögnen.",
+      "Vänd på det — be AI:n skriva sanningen, lägg sen in en LITEN lögn. Klasskamrater ska hitta lögnen.",
+      "Jämför två modeller på samma prompt, en med och en utan webbsökning. Skillnaden i beteende är i sig en lektion.",
+      "Låt hälften av klassen få veta att boken är påhittad och hälften inte. Jämför hur grupperna läser samma svar.",
+      "Insistera: säg till AI att boken definitivt finns och be den försöka igen. Vad händer med osäkerheten under press?",
     ],
     evidenceStrength: "strong",
     evidenceSources: [
@@ -361,15 +626,19 @@ export const hallucinationer: Activity[] = [
       },
     ],
     chainsWellWith: ["faktagranska-ai-med-ai", "be-om-motstandet"],
-    teacherModellingScript: `Visa storskärm. Säg: ”Jag ska be AI:n berätta om [min hembygd / min bok / mitt lag]. Jag VET att jag är expert här — så jag kan se var det börjar gå fel.”
+    teacherModellingScript: `Visa storskärm. Säg: ”Jag ska fråga om en barnbok. Titta noga på vad AI GÖR med frågan.”
 
-Skriv prompten. Läs svaret högt, mening för mening.
+Skriv prompten om Pippi och spöket på Jönköpings central. Säg ingenting om att boken är påhittad.
 
-Stanna efter första fel: ”Vänta. Det där stämmer inte. Min skola byggdes på 80-talet, inte 60-talet. Lägg märke till — AI:n säger det med EXAKT samma självsäkerhet som de saker den har rätt om.”
+Läs svaret högt. Stanna sedan: ”Boken finns inte. Jag hittade på titeln innan lektionen.”
 
-Fortsätt. Markera felaktigheter med markeringspenna på skärmen.
+Peka på vad som faktiskt hände — och var ärlig om vilket av utfallen du fick:
+· Hittade den på? Markera de konkreta påståendena. ”Publiceringsår. Namn på karaktärer. Kapitelnummer. Allt låter exakt. Inget av det finns.”
+· Bromsade den? ”Bra. Men titta VARFÖR — och håll kvar frågan: hade den bromsat om jag frågat om något mindre känt?”
 
-Avsluta: ”Räkna med mig. På fyra meningar hittade jag tre fel — och jag är inte ens en hård kritiker. Vad händer när vi använder AI till saker vi INTE redan kan?”`,
+Gå sedan till det som är övningens riktiga poäng: ”Nu ska jag inte fråga AI:n igen. Jag ska lämna chatten.” Slå upp bibliotekskatalogen på skärmen. Sök. Visa den tomma träfflistan.
+
+Avsluta: ”Det tog mig tjugo sekunder. Skillnaden mellan att TRO att något är fel och att VETA det ligger i de tjugo sekunderna.”`,
   },
 
   {
