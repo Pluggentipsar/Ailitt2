@@ -161,17 +161,48 @@ Cirka 120 bedömningar. Var och en snabb, men det är redaktionellt arbete —
 inte mekaniskt.
 
 ### Tasks
-- [ ] `lib/taxonomi.ts` — ett ställe som definierar båda systemen, deras
+- [x] `lib/taxonomi.ts` — ett ställe som definierar båda systemen, deras
       jobb, och att de INTE är härledbara ur varandra. Ersätter att
       `DOMAN_META` bor i banken och `aiLiteracyConfig` bor för sig.
-- [ ] Domänfält på `UnifiedItem` i sökindexet
-- [ ] Tagga moduler (frontmatter `domaner`)
-- [ ] Tagga verktyg
-- [ ] Tagga mellanstadiet + grundskola + aktiviteter
-- [ ] Startsidan: typfiltret byts mot domän + stadium + tid
-- [ ] `UnifiedItemType` blir kvar som liten etikett på kortet, inte filter
-- [ ] Ramverkssidorna: bygg täckningsvyn — "dina 7 dimensioner, så här
+- [x] Domänfält på `UnifiedItem` i sökindexet
+- [x] Tagga moduler (frontmatter `domaner`) — 24
+- [x] Tagga verktyg — 75
+- [x] Tagga mellanstadiet + grundskola + aktiviteter — 7 lektioner, 10
+      grundskoledelar, 54 uppgifter, 42 labbstationer, 8 spel. Källkritikens
+      31 aktiviteter via kapitlen.
+- [x] Startsidan: typfiltret byts mot domän + stadium
+- [x] `UnifiedItemType` blir kvar som liten etikett på kortet, inte filter
+- [x] Ramverkssidorna: bygg täckningsvyn — "dina 7 dimensioner, så här
       mycket material finns per dimension"
+
+### Utfall (aug 2026)
+
+**344 av 355 objekt taggade.** De 11 utan är ramverkets sju dimensioner (de
+ÄR den andra taxonomin) och de fyra didaktiska modellerna (lärarvända).
+Fördelning: mota 194, skapa 129, styra 110, forma 77.
+
+**Tid ströks som facett.** Planen sa domän + stadium + tid, men bara 70 av
+355 objekt har en tidsangivelse — moduler, workshopaktiviteter,
+mellanstadielektioner och spel. Ett filter som täcker 20 % av innehållet
+måste släppa igenom resten, och blir då samma otydliga sak som
+dimensionsfiltret var.
+
+**Filtren är olika stränga, och det speglar datan.** Domän strikt; stadium
+släppande (ett verktyg har ingen årskurs); dimension strikt sedan
+täckningskartan kom, så att kartans siffra och träfflistans är samma siffra.
+
+**Två fynd på vägen:**
+
+1. Resultatlistan visade indexordning och kapade vid 60, så de första 60
+   träffarna var alltid moduler och workshopaktiviteter. Verktygslådan låg
+   på plats 245 och nåddes bara via typfiltret — det som skulle bort.
+   Träffarna varvas nu per innehållstyp när man inte har sökt.
+2. Sökindexet länkade grundskolan till `/grundskola/4-6/`, men rutten heter
+   `ak-4-6`. 103 träffar pekade utanför `generateStaticParams`.
+
+**Vad täckningskartan visar:** åk 7–9 saknar material helt för Berättelsen
+om AI. F–3 har minst totalt (73 kopplingar). Sajten är byggd runt gymnasiet,
+mellanstadiet och F–6 — högstadiet når materialet mest via workshopen.
 
 ### Öppen fråga
 Källkritikens 19 färdigheter (`Skill`) används bara internt i workshoppen och
@@ -202,13 +233,41 @@ riktning — och ska bevaras. Ett kort i workshoppen ska fortfarande se ut som
 workshoppen.
 
 ### Tasks
-- [ ] Inventera vad korten faktiskt skiljer sig i: bara ikon/badge/metarad,
+- [x] Inventera vad korten faktiskt skiljer sig i: bara ikon/badge/metarad,
       eller struktur? (Hypotes: mest metarad.)
-- [ ] En `<Kort>`-primitiv med varianter (`sajt` | `workshop`) och slots för
-      ikon, badges, metarad, CTA
-- [ ] Migrera ett kort i taget, börja med `search/*` (tre komponenter, samma
-      användning)
+- [x] En `<Kort>`-primitiv med varianter (`sajt` | `workshop`)
+- [x] Migrera `search/*`, `MetodKort` och källkritikens `ActivityCard`
 - [ ] Ta bort inline-kortmarkupen i bankens hubb och spellisteöversikten
+
+### Utfall (aug 2026) — hypotesen höll inte
+
+Inventeringen gav ett annat svar än väntat. Korten skiljde sig **inte** mest
+i metaraden, och det fanns inte sju formspråk utan **fyra register**, varav
+tre är medvetna och konsekvent genomförda:
+
+| Register | Var | Status |
+|---|---|---|
+| sajt | startsidan, ämnen, metoderna, banken | **var trasigt** |
+| workshop | källkritikens post-it-lappar | medvetet |
+| mellanstadiet | egna designtokens, 20 variabler i 47 filer | medvetet |
+| grundskola F–6 | stora färgstarka kort för sjuåringar | medvetet |
+
+Skillnaden **mellan** sektioner var alltså inte problemet. Problemet låg
+inom det första registret, och det var inte utseende utan **rörelse**: fyra
+kort var alla `rounded-2xl` med vit bakgrund, men viloskuggan var
+`shadow-lg` / ingen / `shadow-sm` / `shadow-sm`, hover-lyftet 1 / 0,5 / 0,5
+/ 1 och hover-skuggan `2xl` / `md` / `lg` / `md`. Kort som lyfter olika
+mycket när musen passerar läses som olika sajter även när de ser lika ut
+still.
+
+`components/ui/Kort.tsx` äger därför radie, kant, bakgrund, skugga, hover och
+övergång — inte innehållet. Mellanstadiet och grundskolan fick ingen variant:
+en variant med en enda användare flyttar bara koden, och att lyfta ut ett
+kort ur mellanstadiets tokensystem hade gjort just det kortet till avvikaren
+i sin egen sektion.
+
+Dessutom: `search/SearchResultCard.tsx` var död kod, 230 rader utan en enda
+referens.
 
 ### Görs EFTER Lager 5
 Korten visar taxonomibadges. Bygger vi kortet först får vi göra om det när
@@ -224,19 +283,25 @@ taxonomin ändrar vad som ska stå på det.
 4. Slå ihop /aktiviteter med /verktygslada som flikar — **ej gjord**
 5. Copy-genomgång på resten av landningssidan — delvis
 
-**Lager 5–6 (nästa):**
+**Lager 5–6 (gjort aug 2026):**
 
-6. **Taxonomikontraktet i kod** — `lib/taxonomi.ts`. Ingen synlig ändring,
-   men allt annat vilar på det.
-7. **Tagga om innehållet.** Störst arbete, helt redaktionellt. Kan delas i
-   batchar per innehållstyp och committas var för sig.
-8. **Startsidans filter byts** — typ ut, domän + stadium + tid in. Först här
-   syns förändringen för besökaren.
-9. **Täckningsvyn på ramverkssidorna** — dimensionerna får sitt eget jobb.
-10. **Kortkonsolidering** — sist, när det är klart vad korten ska visa.
+6. ~~**Taxonomikontraktet i kod** — `lib/taxonomi.ts`~~ ✅ `b7ffe2d`
+7. ~~**Tagga om innehållet**~~ ✅ `b7ffe2d`, `6dc93dd`, `47dca03`
+8. ~~**Startsidans filter byts** — typ ut, domän + stadium in~~ ✅ `c20af46`
+   (tid ströks, se Utfall under Lager 5)
+9. ~~**Täckningsvyn på ramverkssidorna**~~ ✅ `c8650d9`
+10. ~~**Kortkonsolidering**~~ ✅ `061611c` (blev smalare än planerat, se
+    Utfall under Lager 6)
 
-Varje steg är ett naturligt commit-tillfälle. Steg 6–7 lämnar sajten
-oförändrad utåt; steg 8 är det som faktiskt löser "rörigheten".
+Varje steg blev ett commit-tillfälle. Steg 6–7 lämnade sajten oförändrad
+utåt; steg 8 var det som faktiskt löste "rörigheten".
+
+**Kvar sedan tidigare lager:**
+
+- Footer-länken till `/om` (Lager 1)
+- Slå ihop `/aktiviteter` med `/verktygslada` som flikar (Lager 4)
+- Copy-genomgång på resten av landningssidan (Lager 3)
+- Inline-kortmarkupen i bankens hubb och spellisteöversikten (Lager 6)
 
 Inget av detta påverkar workshop-shellet (den har egen layout) eller
 existerande aktivitets-sidor — bara navigation, framsida och taggning.
