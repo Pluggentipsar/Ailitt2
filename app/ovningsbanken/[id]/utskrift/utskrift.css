@@ -1,0 +1,40 @@
+/* Deltagarblad — ett per A4-sida, stående.
+ *
+ * NAMNGIVEN @page av samma skäl som slide-print.css: Next avlastar inte
+ * stilmallar vid klientnavigering, så en global @page-regel härifrån skulle
+ * följa med till andra sidor efter ett besök. Här råkar formatet vara det
+ * normala (stående A4), men marginalen är det inte — och en sida som ärver
+ * 14 mm marginal från en utskriftsvy man besökte för tre klick sedan är
+ * precis den sortens fel som ingen hittar.
+ */
+
+@page utskriftsBlad {
+  size: A4 portrait;
+  margin: 14mm;
+}
+
+.utskrift-blad {
+  background: #fff;
+  border: 1px solid rgb(229 231 235);
+  border-radius: 1rem;
+  padding: 2rem;
+  margin-top: 1.5rem;
+}
+
+@media print {
+  .utskrift-blad {
+    page: utskriftsBlad;
+    /* Varje blad börjar på en ny sida — utom det första, som annars ger en
+       tom försättssida. */
+    break-before: page;
+    break-inside: avoid;
+    border: 0;
+    border-radius: 0;
+    padding: 0;
+    margin: 0;
+  }
+
+  .utskrift-blad:first-of-type {
+    break-before: auto;
+  }
+}

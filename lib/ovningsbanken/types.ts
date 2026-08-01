@@ -75,6 +75,12 @@ export interface BankOvning {
    */
   klassrum?: KlassrumSlide[];
 
+  /**
+   * Utdelningsmaterial att skriva ut. Sätts bara när övningen kräver papper
+   * för att fungera — inte som ett bekvämt PDF-alternativ till skärmen.
+   */
+  utskrift?: Utskrift;
+
   diskussion?: string[];
   fallgropar?: string[];
   variationer?: string[];
@@ -93,6 +99,34 @@ export interface BankOvning {
 
   kalla: OvningKalla;
   kredit?: string;
+}
+
+/**
+ * Ett blad som delas ut på papper — inte ett arbetsblad eleven fyller i, utan
+ * material som måste vara olika för olika deltagare.
+ *
+ * Finns för att vissa övningar inte GÅR att köra digitalt: i "Träna klassens
+ * AI" bär deltagare A och B varsin hemlig regel, och hela poängen försvinner
+ * om den ena kan se den andras skärm.
+ *
+ * Bladen skrivs ut i den ordning de står. Skriver läraren N kopior av ett
+ * tvåbladigt underlag får hen A, B, A, B … — alltså rätt antal av varje och
+ * redan parvis sorterat. Lägg därför bladen i den ordning ett par ska ha dem.
+ */
+export interface UtskriftsBlad {
+  /** Stabilt id inom övningen. */
+  id: string;
+  rubrik: string;
+  underrubrik?: string;
+  blocks: Block[];
+}
+
+export interface Utskrift {
+  /** Rubrik på utskriftssidan och i webbläsarens PDF-titel. */
+  titel: string;
+  /** Vad läraren behöver veta INNAN utskrift — antal, sortering, klippning. */
+  instruktion: string;
+  blad: UtskriftsBlad[];
 }
 
 export interface KureradSpellista {

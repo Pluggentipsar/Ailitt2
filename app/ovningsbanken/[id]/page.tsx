@@ -15,6 +15,7 @@ import {
   Monitor,
   MonitorPlay,
   Link2,
+  Printer,
 } from "lucide-react";
 import { ovningar, ovningarById } from "@/lib/ovningsbanken";
 import { ModeTabs } from "@/components/workshops/kallkritik/ModeTabs";
@@ -142,6 +143,15 @@ export default async function OvningPage({
               <Monitor className="h-4 w-4" />
               Storskärmsläge
             </Link>
+            {ovning.utskrift && (
+              <Link
+                href={`/ovningsbanken/${ovning.id}/utskrift`}
+                className="inline-flex items-center gap-1.5 rounded-full border-2 border-stone-900 bg-white px-3.5 py-2 text-sm font-semibold text-stone-900 transition-colors hover:bg-stone-100"
+              >
+                <Printer className="h-4 w-4" />
+                {ovning.utskrift.blad.length} deltagarblad
+              </Link>
+            )}
           </div>
         </div>
 
