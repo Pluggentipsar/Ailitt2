@@ -261,7 +261,26 @@ export const workshop = {
   tid: "Halvdag · går att korta till 90 minuter",
   malgrupp: "Lärare åk 7–9, gymnasiet och vuxenutbildning",
   intro:
-    "Workshopen tar vid där föreläsningen slutar. Föreläsningen ger kartan — fyra roller vi ger AI och rätten att välja bort dem. Här görs det undervisningsbart: deltagarna kör övningarna själva, i den ordning som gör att varje moment vilar på det förra. Det är en kurerad väg, inte en katalog. Vill du plocka fritt i stället finns allt i övningsbanken.",
+    "Det här är en färdig workshop som du kan hålla i själv. Den bygger på föreläsningen ”Detta behöver eleverna veta om AI”, men den fungerar utan den — allt du behöver veta står på sidan. Deltagarna kör övningarna själva, i en ordning där varje moment vilar på det förra, och går därifrån med material de kan använda i sitt eget klassrum i nästa vecka.",
+
+  /** Läses av någon som hittat hit utan att någon pekat dem hit. */
+  vadDetAr: {
+    forVem:
+      "Skriven för lärare, arbetslag och kollegier på högstadiet, gymnasiet och i vuxenutbildningen. Deltagarna behöver inga förkunskaper om AI — flera moment fungerar bättre om de inte har några.",
+    duSomLeder:
+      "Du som håller i den behöver inte vara AI-kunnig. Varje övning har en lärarhandledning med förberedelser, tidsplan och vad du säger, och de flesta har ett storskärmsläge du klickar dig igenom. Det som krävs av dig är att hålla tempot och leda samtalen efteråt — inte att kunna svara på tekniska frågor.",
+    utanForelasningen:
+      "Föreläsningen är en bra ingång men inget krav. Har din grupp inte hört den finns den som text att läsa, och sektion 0 nedan gör samma jobb på tio minuter: den gör deltagarnas egna föreställningar om AI synliga innan mekaniken börjar.",
+    detHarBehovsIRummet: [
+      "Dator eller platta till varje par — inte varje person. Flera övningar är byggda för samtal mellan två.",
+      "Skolans godkända chattbot. Vilken som helst fungerar; övningarna är inte knutna till någon leverantör.",
+      "Projektor eller storskärm.",
+      "Utskrivna deltagarblad till sektion 1 — de finns som PDF på övningssidan.",
+      "En vägg eller golvyta att ställa sig längs i sektion 4.",
+    ],
+    korta:
+      "Halvdagen kan kortas till nittio minuter genom att ta sektion 1 och 2, hoppa över sektion 3 och köra fyra av tolv scenariopar i sektion 4. Ordningen ska däremot inte kastas om — se nedan.",
+  },
   sekvensNot:
     "Ordningen är inte godtycklig. Sektion 1 visar HUR ett AI-beteende uppstår, och det gör sektion 2 begriplig i stället för skrämmande: det som ser ut som lögn är samma mekanism som producerar sanningen. Sektion 4 kräver båda — man kan inte avgöra vad ett system BÖR få göra utan att veta vad det gör och varför.",
 

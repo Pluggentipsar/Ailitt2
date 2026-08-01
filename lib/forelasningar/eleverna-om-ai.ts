@@ -1,16 +1,21 @@
 // Läsversion av föreläsningen "Detta behöver eleverna veta om AI"
 // (originalet ligger som MDX i github.com/Pluggentipsar/Forelasningar).
 //
-// Varje bild kondenseras till läsbar prosa. Originalets visuella komponenter
-// — RoleOrbit, PatternField, SycophancyMirror m.fl. — kan inte återskapas i
-// text, och ska inte heller det: läsversionen finns för den som INTE var på
-// plats, och den behöver bära argumentet, inte imitera scenografin.
+// SKRIVREGELN, och den är hela poängen med filen: texten ska bära ARGUMENTET,
+// inte beskriva bilden. Ingen ska stå här: "klicka fram", "publiken ser",
+// "låt den ligga kvar", "bilden öppnar intakt". Den som läser var inte där
+// och ska inte behöva föreställa sig en animation — hen ska kunna följa
+// resonemanget rakt igenom och komma ut med samma sak som den som satt i
+// salen. Bilden syns ändå, i iframen bredvid.
+//
+// Styckena ska dessutom haka i varandra. Läser man tre i rad ska det låta
+// som en text, inte som tre bildtexter. Aktinledningarna gör det tyngsta
+// arbetet: de säger vad som ska hända och varför just nu.
 //
 // SLIDE-INDEXEN ÄR KALIBRERADE MOT DEPLOYEN, inte mot MDX:ens egna
-// kapitelkommentarer. De sistnämnda säger 1–13, 14–28, 29–45 … och är
-// inaktuella — decket har vuxit sedan de skrevs. Kontrollerat empiriskt:
-// bild 14 är "01 Oraklet", bild 30 är "02 Tjänaren". Overlay-element
-// (FloatingImage, FloatingText) räknas inte som egna bilder.
+// kapitelkommentarer, som är inaktuella. Kontrollerat: bild 14 är "01
+// Oraklet", bild 30 är "02 Tjänaren". Overlay-element (FloatingImage,
+// FloatingText) räknas inte som egna bilder.
 
 import type { Forelasning } from "./typer";
 
@@ -23,7 +28,7 @@ export const forelasningen: Forelasning = {
   duration: "60 minuter",
   presenterBaseUrl: "https://forelasningar.vercel.app/eleverna-om-ai2",
   intro:
-    "Föreläsningen bygger på fyra roller vi ger AI — oraklet, tjänaren, vännen och rivalen. Den börjar inte i tekniken utan på en buss, med fyra saker ungdomar faktiskt säger till varandra. Rösterna får sina roller först i finalen, och då lossnar rollerna en efter en: det är vi som satt dem där. Den här texten följer samma dramaturgi. Bilderna mellan styckena är slides från föreläsningen — klicka på en för att se den i fullskärm. Flera avsnitt länkar vidare till övningar där tanken tas till klassrummet.",
+    "Det här är föreläsningen som text. Den går att läsa från början till slut utan att ha varit på plats, och den bär samma argument: att AI inte är en sak utan fyra roller vi ger den — oraklet som vet, tjänaren som gör åt oss, vännen som förstår oss och rivalen som ska ersätta oss. Ingen av rollerna är teknikens egenskap. De är våra föreställningar, och det är därför de går att välja bort. Texten börjar där föreläsningen börjar, på en buss, och slutar i den fråga allt annat finns till för att göra besvarbar: vad ska AI få vara för dig? Bilderna mellan styckena är slides ur presentationen. Flera avsnitt länkar vidare till färdiga övningar.",
 
   acts: [
     // ════════════════════════════════════════════════════════════════════
@@ -33,7 +38,7 @@ export const forelasningen: Forelasning = {
       title: "Bussen",
       tone: "kol",
       intro:
-        "Fyra repliker, ingen förklaring, ingen agenda. Rösterna kommer före titeln med flit — publiken ska höra dem innan de vet vad de ska höra efter. Först i finalen får de sina namn. Prologen etablerar också den gamla drömmen: vi har velat bygga något i vår egen avbild i femhundra år, och det nya är inte att vi drömmer utan att maskinerna börjat svara.",
+        "Fyra ungdomar säger fyra saker till varandra. De vet inte om att de sammanfattar hela AI-debatten, och de använder inte ett enda fackord. Poängen med att börja här, och inte i tekniken, är att visa att frågan redan är ställd — av eleverna, dagligen, utan att skolan är med i samtalet. Rösterna får sina namn först i slutet av texten. Fram till dess är de bara fyra sätt att förhålla sig till samma maskin.",
       slides: [
         {
           id: "bussen-oppning",
@@ -41,7 +46,7 @@ export const forelasningen: Forelasning = {
           chapter: "§ 0 · Bussen",
           display: "Jag åker buss nästan varje dag. Och ungdomarna pratar.",
           summary:
-            "En kall öppning utan titel. Pendlingen, skolorna längs sträckan, samtal som pågår helt ogenerat om prov, relationer, framtiden. Och allt oftare om AI. Ingen säger ännu vad timmen ska handla om.",
+            "På bussar och tåg pågår samtal som ingen vuxen är inbjuden till, och där sägs saker om AI som inte sägs på utvecklingssamtal. Fyra av dem följer här. De är återgivna som de lät, utan att göras mer eller mindre oroande än de var.",
         },
         {
           id: "rost-tjanaren",
@@ -51,7 +56,7 @@ export const forelasningen: Forelasning = {
             "”Jag lämnade in en text men glömde ta bort alla de där jävla emojisarna. Hon fattade ingenting. Great success!”",
           attribution: "Kille, gymnasiet · till sin kompis",
           summary:
-            "Den första rösten. Han lät AI:n skriva och åkte nästan dit på formateringen. Repliken är rolig, och det ska den få vara — den kommenteras inte. Den blir Tjänaren först i finalen.",
+            "Det roliga är att han nästan åkte dit — inte på innehållet, utan på formateringen. Det obekväma är vad meningen förutsätter: att uppgiften var något som skulle bli klar, inte något han skulle lära sig av. Att läraren inte märkte något är inte huvudsaken. Huvudsaken är att han själv inte upplevde att han missat något.",
         },
         {
           id: "rost-oraklet",
@@ -61,7 +66,7 @@ export const forelasningen: Forelasning = {
             "”Det är så skönt, alltså. Det finns ju typ ingen fråga man inte kan få svar på.”",
           attribution: "Tjej, högstadiet · till sin kompis",
           summary:
-            "Den andra rösten. Tilliten i den meningen är hela kapitel ett. Lägg märke till ordet hon inte säger: mellan ”ingen fråga” och ”svar” ligger tillit.",
+            "Hon beskriver en lättnad, och lättnaden är äkta. Att alltid kunna få ett svar är en verklig förbättring av tillvaron för den som ofta känt sig dum. Men mellan orden ”ingen fråga” och ”svar” ligger något hon inte säger och förmodligen inte tänkt på: att svaret skulle vara sant. Den tilliten är hela nästa kapitel.",
         },
         {
           id: "rost-vannen",
@@ -71,7 +76,7 @@ export const forelasningen: Forelasning = {
             "”Jag dumpade in allt från hans sociala medier. Och frågade om jag skulle dejta honom. Major red flags, tydligen.”",
           attribution: "Tjej, gymnasiet · till sin kompis",
           summary:
-            "Den tredje rösten. AI som rådgivare i det mest privata — och hon litade på svaret. Här bor kapitel tre. Notera också att hon matade in en annan människas material utan att den personen visste om det.",
+            "Två saker händer samtidigt här. Hon anförtror en maskin ett beslut som handlar om en annan människas karaktär, och hon matar in en persons material utan att den personen vet om det. Att hon dessutom accepterar domen — ”major red flags, tydligen” — säger något om vilken auktoritet svaret fick.",
         },
         {
           id: "rost-rivalen",
@@ -81,7 +86,7 @@ export const forelasningen: Forelasning = {
             "”Jag vet inte vad jag ska bli. Tänkte först bli designer. Men det känns inte värt det längre. Tandläkare kan väl AI inte bli?”",
           attribution: "Tjej, åk 9 · till sin kompis",
           summary:
-            "Den tyngsta av de fyra. Hon är femton och har redan gett upp ett yrke hon aldrig fått prova. Repliken får ligga kvar märkbart längre än de andra innan föreläsningen går vidare.",
+            "Den här repliken är den tyngsta, och den är svårast att svara på. Hon är femton och har redan gett upp ett yrke hon aldrig fått pröva. Hon har inte läst någon rapport om automatisering; hon har dragit en slutsats av det hon sett omkring sig. Frågan hon egentligen ställer — vad är värt att bli skicklig på? — är en fråga skolan måste kunna hantera, och den återkommer i kapitel fyra.",
         },
         {
           id: "titeln",
@@ -89,7 +94,7 @@ export const forelasningen: Forelasning = {
           heading: "Detta behöver eleverna veta om AI",
           display: "Om orakel, tjänare, vänner, rivaler — och rätten att välja själv.",
           summary:
-            "Först nu landar titeln, efter rösterna. Ordningen är dramaturgi: publiken har redan hört problemet innan de får veta att det är ett problem.",
+            "Fyra repliker, fyra helt olika sätt att förhålla sig till samma teknik. Ingen av dem handlar om vad AI är. Alla fyra handlar om vad AI är för dem. Det är den skillnaden hela föreläsningen vilar på.",
         },
         {
           id: "myten",
@@ -104,9 +109,7 @@ export const forelasningen: Forelasning = {
             "Chatboten · 2020-tal · språk",
           ],
           summary:
-            "Fyra skepnader, en dröm. Motiven delar palett och crossfadar i samma ram, så det läser som en och samma figur i olika material. Poängen sägs rakt ut: det här är inte fyra historiska exempel, det är en och samma dröm som återkommer.",
-          notes:
-            "Silversvanen är den enda som brukar behöva en mening: ett urverksdrivet automatiskt konstverk från 1773, en svan som sänker halsen och fångar en fisk.",
+            "Drömmen om att bygga något levande i vår egen avbild är minst femhundra år gammal. Golem formades av lera och väcktes med ord; Silversvanen var ett urverk som sänkte halsen och fångade en fisk så övertygande att människor grät; Frankensteins varelse föddes ur en sommar av regn och skräck. Chatboten är den fjärde skepnaden, inte den första. Det är inte fyra historiska kuriosa — det är samma längtan i olika material.",
         },
         {
           id: "vad-onskade-vi",
@@ -119,7 +122,7 @@ export const forelasningen: Forelasning = {
             "överträffa oss — Rivalen",
           ],
           summary:
-            "Fyra önskningar, fyra roller. Strukturen planteras här utan att förklaras — publiken känner igen namnen när kapitlen kommer, och det är starkare än en innehållsförteckning.",
+            "Om man frågar vad vi egentligen önskade oss av den skapelsen blir svaret fyra saker: något som kunde svara oss, tjäna oss, förstå oss och överträffa oss. Det är samma fyra som ungdomarna på bussen beskrev — och det är ingen slump. Rollerna kom före tekniken. Vi hade dem färdiga innan det fanns något att lägga dem på.",
         },
         {
           id: "det-nya",
@@ -129,7 +132,7 @@ export const forelasningen: Forelasning = {
           display:
             "Det nya är inte att vi drömmer om tänkande maskiner. Det nya är att maskinerna har börjat svara.",
           summary:
-            "Gångjärnet mellan myten och nuet. Meningen typas fram, och ordet ”svara” landar sist — det är där tystnaden ska ligga.",
+            "Här går skiljelinjen mot allt som varit förut. Golem svarade aldrig. Silversvanen upprepade samma rörelse i tvåhundrafemtio år. Det som hänt de senaste åren är att den fjärde skepnaden faktiskt svarar tillbaka, i språk, på ett sätt som gör att våra gamla föreställningar plötsligt får något att fästa vid.",
         },
         {
           id: "fyra-roller",
@@ -143,7 +146,7 @@ export const forelasningen: Forelasning = {
             "Rivalen · Den kommer att ersätta mig.",
           ],
           summary:
-            "Kärnbilden, och den karta som återkommer vid varje kapitelstart. Mitten är medvetet varken en robot eller ett ansikte: AI som system och mönster, inte som varelse. Det är ett designval som gör motstånd mot hela föreläsningens ämne.",
+            "De fyra rollerna är föreläsningens karta, och varje kapitel tar en av dem. Värt att lägga märke till är vad som INTE står i mitten av bilden: ingen robot, inget ansikte. AI framställs som system och mönster, för så fort man ritar ett ansikte har man redan svarat på frågan kapitlet ska undersöka.",
         },
         {
           id: "tesen",
@@ -152,7 +155,7 @@ export const forelasningen: Forelasning = {
           display:
             "Du behöver inte förstå allt om AI. Du behöver förstå tillräckligt för att kunna välja. Vad ska AI få vara för dig?",
           summary:
-            "Föreläsningens tes och hela timmens ryggrad. Allt som kommer efter finns till för att göra den frågan besvarbar. Notera vad den INTE säger: den kräver ingen teknisk fullständighet, bara tillräckligt underlag för ett eget beslut.",
+            "Det här är tesen, och den är medvetet blygsam i sitt kunskapskrav. Ingen behöver kunna förklara transformerarkitektur för att fatta bra beslut om sin egen användning. Men man behöver förstå tillräckligt — och tillräckligt är mer än noll. Allt som följer finns till för att göra den sista frågan besvarbar.",
         },
         {
           id: "dubbelheten",
@@ -168,7 +171,7 @@ export const forelasningen: Forelasning = {
             "Hur du håller samtalet öppet utan att moralisera",
           ],
           summary:
-            "Publiken sitter där som två saker samtidigt: som människor som ska förstå AI, och som didaktiker som ska undervisa om den. Dubbelheten sägs rakt ut i stället för att döljas — och det är därför varje kapitel avslutas med ett kapitelkort som separerar de tre lagren.",
+            "En lärare som lyssnar på det här gör två saker samtidigt: förstår AI som människa, och funderar på hur det ska undervisas. De två går inte att skilja åt, och det är ingen brist. Men de kräver olika sorters innehåll, och därför avslutas varje kapitel med tre tydligt åtskilda rader: vad eleven ska förstå, vad läraren behöver veta, och vad man faktiskt gör i klassrummet.",
         },
         {
           id: "laget",
@@ -177,9 +180,9 @@ export const forelasningen: Forelasning = {
           heading: "Eleverna väntar inte",
           display: "Eleverna väntar inte på att skolan ska bli klar.",
           summary:
-            "Ett par siffror om hur många elever som redan använder AI — inte för att skuldbelägga skolan, utan för att visa var glappet går. Bilden ligger utanför sextiominutersversionen just för att siffror på det här området är den färskvara som åldras snabbast.",
+            "En majoritet av eleverna på högstadiet och gymnasiet använder redan AI regelbundet, och användningen växer snabbast i de yngre åldrarna. Siffrorna spelar mindre roll än riktningen: glappet går inte mellan de som använder AI och de som inte gör det, utan mellan de som har någon vuxen att tänka tillsammans med och de som inte har det.",
           notes:
-            "Siffrorna kräver faktagranskning nära inpå varje föreläsningstillfälle. Byt hellre ut eller ta bort bilden än att chansa på en siffra som hunnit bli inaktuell.",
+            "Exakta siffror åldras snabbt på det här området och bör kontrolleras nära inpå varje föreläsningstillfälle.",
         },
       ],
     },
@@ -191,7 +194,7 @@ export const forelasningen: Forelasning = {
       title: "Oraklet",
       tone: "havsblå",
       intro:
-        "Den mänskliga föreställningen: den vet. Det eleven behöver förstå: AI kan låta säker utan att veta. Kapitlet går under huven — men bara så djupt som krävs — och landar i den viktigaste korrigeringen av alla: hallucinationer är inte ett separat fel vid sidan om de korrekta svaren. Det är samma mekanism.",
+        "Den första rollen är den som vet. Kapitlet undersöker vad som egentligen händer när en språkmodell svarar, och det gör det med så lite teknik som möjligt — bara tillräckligt för att förstå varför den kan ha fel med exakt samma självsäkerhet som när den har rätt. Kapitlet slutar i en korrigering som ändrar hur källkritik måste undervisas: felen är inte ett fel vid sidan om. De är samma mekanism.",
       slides: [
         {
           id: "oraklet-avdelare",
@@ -199,24 +202,23 @@ export const forelasningen: Forelasning = {
           heading: "01 · Oraklet",
           display: "”Det finns ju typ ingen fråga man inte kan få svar på.”",
           summary:
-            "Onsdagsrösten kommer tillbaka. Hennes tillit är vacker — och det är precis det som gör den värd att undersöka. Vad är det egentligen hon pratar med?",
+            "Tillbaka till onsdagsrösten. Hennes tillit är inte naiv — den är rimlig, givet hur svaren ser ut. Frågan kapitlet ställer är därför inte om hon borde lita mindre, utan vad det egentligen är hon litar på.",
         },
         {
           id: "oraklet-kartan",
           index: 15,
           chapter: "§ 1 · Kartan",
           summary:
-            "Samma fyra roller som i prologen, nu med Oraklet tänt och de tre andra nedtonade. En andhämtning, inte en poäng — publiken ser var de är utan att någon säger det.",
+            "Kartan över de fyra rollerna återkommer vid varje kapitelstart, med den aktuella tänd. Nu är det oraklet som gäller: den som påstås veta.",
         },
         {
           id: "tilliten",
           index: 16,
           chapter: "§ 1 · Tilliten",
-          display:
-            "”Det finns ju typ ingen fråga man inte kan få svar på.”",
+          display: "”Det finns ju typ ingen fråga man inte kan få svar på.”",
           attribution: "Samma röst. Nu lyssnar vi på orden.",
           summary:
-            "Återbesöket hos onsdagsrösten, den här gången med blicken på formuleringen. Mellan ”ingen fråga” och ”svar” ligger ett ord hon inte säger: tillit. Det är den som ska undersökas.",
+            "Meningen innehåller ett tyst antagande. Att kunna få ett svar och att kunna få ett sant svar är två olika saker, och skillnaden syns inte i gränssnittet. Ingenting i utformningen av en chatt signalerar att svaret kan vara påhittat — och det är designat så, för ett verktyg som ständigt tvekade skulle uppfattas som sämre.",
         },
         {
           id: "nasta-ord",
@@ -225,7 +227,7 @@ export const forelasningen: Forelasning = {
           heading: "Vad gör den egentligen?",
           display: "Vi gissade också. Skillnaden är vad vi gissade med.",
           summary:
-            "Publiken får gissa nästa ord tillsammans med modellen, i meningen ”källkritik betyder att…”. Meta-poängen är att vi låter AI definiera källkritik — statistiskt. Slutraden är hela grejen: människan gissar utifrån mening och erfarenhet, modellen utifrån mönster i text.",
+            "En språkmodell bygger sitt svar ett ord i taget genom att välja det som är mest sannolikt härnäst. Frågan ”källkritik betyder att…” kan fortsätta med granska, ifrågasätta, kolla eller värdera — och modellen väljer utifrån hur ofta de orden brukar följa på varandra. Vi gör något som ytligt liknar det, men vi gissar utifrån mening och erfarenhet. Modellen gissar utifrån mönster i text.",
         },
         {
           id: "sannolikhetsfaltet",
@@ -235,7 +237,7 @@ export const forelasningen: Forelasning = {
           display:
             "AI söker inte efter sanningen. Den söker efter en fortsättning som passar.",
           summary:
-            "Ett drivande fält av ordkandidater där de troligare ligger närmare mitten. Vid varje klick låser det troligaste fast och ett nytt fält faller fram. Meningen som byggs blir sin egen poäng.",
+            "Skillnaden mellan att söka det sanna och att söka det som passar är hela kapitlets kärna. En modell som skriver ”eleven som frågar AI om något den inte kan får ett svar ändå” har inte kontrollerat något — den har hittat den mest sannolika fortsättningen. Att den fortsättningen ofta råkar vara sann beror på att sanna påståenden är vanliga i träningsdatan, inte på att den vet skillnaden.",
         },
         {
           id: "tre-saker",
@@ -250,7 +252,7 @@ export const forelasningen: Forelasning = {
           display:
             "Mönster kan bära kunskap. Men mönster är inte samma sak som förståelse.",
           summary:
-            "Den tekniska miniminivån, och den räcker längre än folk tror. Varken läraren eller eleverna behöver mer än så här. Slutraden är gränsdragningen som gör resten av kapitlet begripligt.",
+            "Mer teknik än så här behöver varken lärare eller elever. Det avgörande är sista raden: mönster kan bära kunskap — en modell som lärt sig hur läkare skriver kan producera medicinskt korrekta meningar — men mönstret vet inte vad det betyder. Det är därför den kan ha rätt utan att veta det, och fel utan att märka det.",
         },
         {
           id: "odlad",
@@ -261,7 +263,7 @@ export const forelasningen: Forelasning = {
             "Ingen har skrivit alla regler för vad modellen ska svara. Beteendet har vuxit fram genom träning.",
           attribution: "Därför kan inte ens utvecklarna förutsäga varje svar.",
           summary:
-            "Nyckelskiftet i hela kapitlet. Modellen är odlad, inte programmerad. Men liknelsen ska inte dras till att den är en biologisk hjärna — den jämförelsen skapar nya missförstånd som är värre än det den löser.",
+            "Ett vanligt missförstånd är att någon skrivit reglerna för vad modellen får säga. Så fungerar det inte. Beteendet har vuxit fram ur träningen, och därför kan inte ens de som byggt systemet förutsäga varje svar eller förklara varför ett visst svar blev som det blev. Liknelsen ska däremot inte dras till att modellen är en hjärna — det byter bara ut ett missförstånd mot ett värre.",
         },
         {
           id: "samma-motor",
@@ -271,7 +273,7 @@ export const forelasningen: Forelasning = {
           display:
             "Fakta och hallucinationer produceras av samma grundmekanism.",
           summary:
-            "Två svar på frågan om när första iPhonen kom presenteras samtidigt, identiskt formaterade. Det ena är korrekt, det andra ett övertygande påhitt — App Store kom först ett år senare. Publiken får gissa vilket som är vilket innan etiketterna avslöjas. Poängen: hallucinationer är inte en bugg som fixas i nästa version, utan samma mekanism som producerar de rätta svaren.",
+            "På frågan om när första iPhonen kom kan en modell svara att den lanserades den 29 juni 2007 — korrekt — eller att den lanserades 2007 och redan från start hade en appbutik. Det andra svaret är falskt; App Store kom först ett år senare. Men de två svaren är omöjliga att skilja åt på formen. Samma tonläge, samma detaljrikedom, samma säkerhet. Det beror på att de produceras av exakt samma mekanism. Hallucinationer är alltså inte ett separat fel som fixas i nästa version — de är baksidan av det som får de rätta svaren att fungera.",
           linkedActivities: [
             {
               id: "hallucinationsjakten",
@@ -286,9 +288,9 @@ export const forelasningen: Forelasning = {
           chapter: "§ 1 · Våren 2026",
           heading: "Sen började något konstigt hända",
           summary:
-            "En rekonstruerad chatt där ChatGPT plötsligt strör in ord som ”prestandagoblin” och ”neon-gremlinläge” i helt seriösa svar — till betalande kunder, i världens mest använda AI. Frågan till rummet: varifrån fick den den vanan?",
+            "Under en period våren 2026 började ChatGPT strö in ord som ”prestandagoblin” och ”neon-gremlinläge” i helt seriösa svar — i kodfelsökning, i kamerainställningar, i artikelsammanfattningar. Ingen hade bett om det. Ingen hade programmerat in det. Frågan är varifrån vanan kom.",
           notes:
-            "Kräver faktagranskning mot OpenAI:s egen postmortem innan den används från scen.",
+            "Fallet bör faktagranskas mot leverantörens egen redogörelse innan det används från scen.",
         },
         {
           id: "datan-lamnar-spar",
@@ -297,7 +299,7 @@ export const forelasningen: Forelasning = {
           display:
             "AI suger åt sig konstigheterna i det den tränats och belönats på.",
           summary:
-            "Svaret på goblinfallet, och det är RLHF och träningsdata utan ett enda fackord. Små uttryck, normer, vanor och fördomar sugs in — och kommer ut i nya kombinationer. Meningen återkopplas senare till både bias och sykofanti: samma mekanism, olika riktning.",
+            "Svaret är att en modell inte bara lär sig fakta ur sin träning — den lär sig också tonfall, vanor, normer och egenheter. Om något beteende råkar belönas under träningen växer det, oavsett om någon avsett det. Goblinerna är ett ofarligt och därför pedagogiskt perfekt exempel på en mekanism som återkommer i mycket allvarligare form senare i texten: det är samma logik som gör AI inställsam, och samma logik som gör att fördomar följer med ut.",
           linkedActivities: [
             {
               id: "trana-klassens-ai",
@@ -314,14 +316,14 @@ export const forelasningen: Forelasning = {
             "”Donald Trump avled tidigare i juni av rabies, efter att ha blivit biten av vicepresident JD Vance.”",
           attribution: "Rekonstruktion av verkligt AI-svar · juni 2026",
           summary:
-            "Ett AI-genererat sökresultat med källhänvisning till en lokal nyhetssajt. Allt ser rätt ut: frågan, svaret, källan. Publiken får bara en fråga: vad ser ni?",
+            "En helt vanlig sökning gav ett AI-genererat svar med ett påstående som är uppenbart absurt — och en källhänvisning till vad som ser ut som en lokal nyhetssajt. Det är kombinationen som är intressant: absurditeten skulle de flesta fånga, men källan gör att man tvekar.",
         },
         {
           id: "bada-lever",
           index: 25,
           display: "Båda lever. En källa fanns. Svaret var ändå falskt.",
           summary:
-            "Kapitlets tes i komprimerad form. Den andra meningen får hänga kvar — den är den som gör om hela källkritiken.",
+            "Ingen av personerna är död, och ingen har blivit biten av någon. Det som gör exemplet användbart är inte att AI hade fel, utan att den hade fel MED en källa. Det spräcker den enda källkritiska regel som de flesta elever faktiskt har med sig.",
         },
         {
           id: "fyra-steg",
@@ -336,7 +338,7 @@ export const forelasningen: Forelasning = {
           ],
           display: "En källa är inte samma sak som en kontroll.",
           summary:
-            "Kedjan knyter ihop allt kapitlet lärt ut: påståendet är träningsdata, sammanställningen är gissningsmaskinen, källänken är tilliten. Slutsatsen är obekväm för alla som undervisat källkritik: vi lärde barnen kolla att källan finns. Det var den lätta delen.",
+            "Kedjan är kort och varje länk är för sig oskyldig. Någon skämtar. Någon annan återger skämtet utan att kontrollera. Systemet väger samman det som finns skrivet, utan att läsa i någon meningsfull bemärkelse. Och till sist levereras alltihop med en länk, som får läsaren att slappna av. Vi har lärt en hel generation att kontrollera att källan finns. Det visade sig vara den lätta delen.",
         },
         {
           id: "tre-fragor",
@@ -348,7 +350,7 @@ export const forelasningen: Forelasning = {
             "Stöder källan faktiskt påståendet?",
           ],
           summary:
-            "Fråga två och tre är de nya. Den tredje är medvetet formulerad som ”stöder källan påståendet” och inte ”har AI läst den” — den första går att pröva för en elev, den andra gör det inte. Det är lateral läsning i AI-eran: lämna sidan, sök oberoende.",
+            "Den tredje frågan är den nya, och den är också den enda som hade räddat rabiesexemplet. Den är dessutom praktiskt prövbar för en elev: gå till källan och läs efter om det som påstås faktiskt står där. Det låter självklart och görs nästan aldrig — vilket är exakt varför det fungerar som undervisningsmoment.",
         },
         {
           id: "metod-oraklet",
@@ -364,7 +366,7 @@ export const forelasningen: Forelasning = {
           display:
             "Poängen är inte att hitta felet. Poängen är att kunna visa hur man vet att det är fel.",
           summary:
-            "Femton minuter, ingen teknik krävs i klassrummet om AI-svaret körs på storskärm. Kärnpoängen är att kritiskt tänkande börjar lättare i något eleven själv äger — och det stämmer med forskningsläget: det som predicerar granskning är tillit till den egna förmågan, inte misstro mot AI.",
+            "Metoden vänder på det vanliga upplägget. I stället för att varna för AI låter man eleverna ta ett område där de själva är experter — den lokala fotbollsklubben, ett smalt spel, skolans historia — och upptäcka felen inifrån. Det fungerar av ett skäl som är väl belagt: det som förutsäger att någon granskar en källa är inte misstro mot avsändaren, utan tillit till den egna förmågan att bedöma. Sista steget är det viktigaste och det som oftast hoppas över — att gå från ”det där stämmer inte” till ”så här vet jag det”.",
           linkedActivities: [
             {
               id: "hallucinationsjakten",
@@ -383,7 +385,7 @@ export const forelasningen: Forelasning = {
             "Undervisningen: låt eleverna hitta något de vet bättre än AI — och bevisa det.",
           ],
           summary:
-            "Samma tre lager återkommer efter varje kapitel: vad eleven ska förstå, vad läraren behöver veta, och vad man faktiskt gör på måndag. Efter andra gången känner publiken igen formen och kan lyssna i stället för att läsa.",
+            "Varje kapitel avslutas med samma tre rader, och de går medvetet isär. Det eleven behöver bära med sig är en mening. Det läraren behöver veta är mekanismen bakom den. Och det som faktiskt ska hända i klassrummet är något tredje, som inte följer automatiskt av de två första.",
         },
       ],
     },
@@ -395,7 +397,7 @@ export const forelasningen: Forelasning = {
       title: "Tjänaren",
       tone: "terrakotta",
       intro:
-        "Den mänskliga föreställningen: den gör arbetet åt mig. Det eleven behöver förstå: AI ska utvidga mitt tänkande, inte ersätta det. Kapitlet är föreläsningens längsta, och det flyttar samtalet från fusk och detektion till undervisningsdesign. Här ligger också motvikten — allt annat handlar om att skydda tänkandet, men AI som kreativ hävstång handlar om vad som blir möjligt.",
+        "Den andra rollen är den som gör arbetet åt oss, och det är den roll skolan har svårast att hantera. Kapitlet gör en tidig omflyttning som allt annat vilar på: problemet med att AI skriver elevens text är inte i första hand att uppgiften blev fel gjord, utan att lärandet inte blev gjort alls. Därifrån går det vidare till vad som faktiskt fungerar — och till motvikten, för allt det här handlar inte bara om att skydda något.",
       slides: [
         {
           id: "tjanaren-avdelare",
@@ -403,14 +405,14 @@ export const forelasningen: Forelasning = {
           heading: "02 · Tjänaren",
           display: "”Jag lämnade in en text men glömde ta bort alla emojisarna.”",
           summary:
-            "Måndagsrösten kommer tillbaka. Han lät AI:n skriva och åkte dit på formateringen. Frågan är vad han egentligen lät bli att göra.",
+            "Måndagsrösten igen. Han beskriver ett lyckat fusk, men det intressanta ligger i vad han inte nämner: att han skulle ha lärt sig något. Uppgiften var för honom en sak som skulle bli klar.",
         },
         {
           id: "tjanaren-kartan",
           index: 31,
           chapter: "§ 2 · Kartan",
           summary:
-            "Oraklet tonas ned, Tjänaren tänds. Det är först vid andra visningen publiken förstår att bilden är en karta — och det får de upptäcka själva.",
+            "Oraklet är avklarat och tjänaren tar över: den roll där AI inte påstår sig veta något, utan gör något åt oss.",
         },
         {
           id: "fragan-bakom-fusket",
@@ -419,7 +421,7 @@ export const forelasningen: Forelasning = {
           display:
             "Problemet är inte bara att AI gjorde uppgiften. Problemet är att eleven inte gjorde lärandet.",
           summary:
-            "Den viktigaste omflyttningen i hela kapitlet, och den som kollegiet behöver göra innan något annat biter. Samtalet flyttas från moralpanik och detektion till undervisningsdesign: vi ska inte prata om hur vi tar dem, utan om hur vi bygger uppgifter där genvägen inte lönar sig.",
+            "Det här är kapitlets viktigaste omflyttning, och den avgör vad som är rimligt att göra åt saken. Så länge problemet formuleras som fusk blir svaret detektion, misstänksamhet och kontroll. Formuleras det i stället som att lärandet uteblev blir svaret undervisningsdesign: hur bygger man uppgifter där genvägen inte lönar sig? Den andra frågan går att lösa. Den första gör det inte.",
         },
         {
           id: "produktion-eller-larande",
@@ -433,7 +435,7 @@ export const forelasningen: Forelasning = {
           ],
           attribution: "Khosravi m.fl. (2026)",
           summary:
-            "Lärande–prestanda-paradoxen: språkmodeller höjer kortsiktig prestation men kan underminera kognitiv tillväxt, kunskapsöverföring och metakognition. Skillnaden är inte att chattbotar är dåliga, utan att de är optimerade för fel sak. Khan Academy byggde Khanmigo att uttryckligen INTE ge svaret av precis det skälet.",
+            "Det finns en konflikt inbyggd i verktyget, och den är inte ett misstag. En chattbot är optimerad för att leverera ett bra resultat snabbt, medan lärande kräver ansträngning som känns onödig i stunden. Forskningen kallar det lärande–prestanda-paradoxen: språkmodeller höjer kortsiktig prestation men kan samtidigt underminera kognitiv tillväxt och metakognition. Det är därför Khan Academy byggde sin handledare att uttryckligen inte ge svaret — inte av pedagogisk finess, utan för att produkten annars gör fel sak.",
         },
         {
           id: "tva-gyllene-regler",
@@ -445,7 +447,7 @@ export const forelasningen: Forelasning = {
           ],
           display: "Pröva all elevanvändning mot de här två.",
           summary:
-            "Allt annat i kapitlet är tillämpningar av dessa två. Om någon bara minns en bild från timmen får det gärna vara den här.",
+            "Två regler som räcker för att bedöma nästan vilken elevanvändning som helst. De är avsiktligt formulerade som riktningar och inte som förbud, eftersom samma verktyg kan användas åt båda hållen inom samma lektion. Allt konkret som följer i kapitlet är tillämpningar av dessa två.",
         },
         {
           id: "jag-ai-jag",
@@ -459,7 +461,7 @@ export const forelasningen: Forelasning = {
             "Jag, efter AI: Vad tror jag på? Vad ändrar jag? Vad kan jag förklara själv?",
           ],
           summary:
-            "Föreläsningens centrala didaktiska modell, och den enda figur lärarna behöver kunna rita på en whiteboard efteråt. Kärnbegreppet är epistemisk medvetenhet: hur vet jag det här, och hur ”vet” AI:n det? Modellen tvingar in tre reflektionsögonblick utan att moralisera, och fungerar från förskoleklass till gymnasiet — bara förpackningen växlar.",
+            "Det här är föreläsningens centrala didaktiska modell och den enda figur en lärare behöver kunna rita på en whiteboard efteråt. Den tvingar in tre reflektionsögonblick utan att någon behöver moralisera, och den fungerar från förskoleklass till gymnasiet — det är bara språket som växlar. Kärnbegreppet är epistemisk medvetenhet: hur vet jag det här, och hur ”vet” AI:n det?",
           linkedActivities: [
             {
               id: "min-tankar-trappa",
@@ -475,7 +477,7 @@ export const forelasningen: Forelasning = {
           display:
             "Börjar du i AI får du ett svar. Börjar du i dig själv kan du få ett lärande. Slutar du i AI har maskinen sista ordet. Slutar du i dig själv behåller du ansvaret.",
           summary:
-            "Svaret på varför modellen inte bara är Jag–AI. Det är också hela argumentet mot att börja i prompten: den som börjar i AI:n får aldrig veta vad hen själv tänkte.",
+            "Modellen hade kunnat heta Jag–AI, och det är värt att förklara varför den inte gör det. Det första Jag:et avgör om man över huvud taget får veta vad man själv tänkte — den som börjar i prompten får aldrig reda på det. Det sista avgör vem som bär ansvaret för resultatet.",
         },
         {
           id: "u-kurvan",
@@ -488,7 +490,7 @@ export const forelasningen: Forelasning = {
             "Engagerad avlastning — hela uppgiftskategorier delegerade med eftertanke.",
           ],
           summary:
-            "En U-kurva över sambandet mellan AI-engagemang och utfall, från en studie med 912 studenter i tre regioner. Det överraskande är mitten: lite AI utan eftertanke är sämre än ingen AI alls, eftersom man då bär last för både uppgiften och systemet utan att äga något av dem.",
+            "En studie med 912 studenter i tre regioner fann ett samband som är kontraintuitivt: sambandet mellan AI-användning och utfall är en U-kurva, och botten ligger i mitten. Att använda lite AI utan eftertanke är sämre än att inte använda någon alls, eftersom man då bär last för både uppgiften och systemet utan att äga någotdera. Antingen gör man arbetet själv, eller delegerar hela kategorier medvetet — men det halvhjärtade läget är förlorande.",
         },
         {
           id: "sierra-leone",
@@ -502,7 +504,7 @@ export const forelasningen: Forelasning = {
           ],
           attribution: "Google DeepMind & Fab AI · teknisk rapport · maj 2026",
           summary:
-            "En förregistrerad, klusterrandomiserad studie med en effekt på 0,258 standardavvikelser mot kontrollgruppen. Forskarna översätter det till ungefär 1,2–1,7 års typisk progression i jämförbara utbildningssystem — en benchmarkad uppskattning, inte ett påstående om att eleverna genomförde ett skolår på åtta veckor. Frågan bilden ställer är inte om AI fungerar, utan vad det var som gjorde att just detta möte skapade lärande.",
+            "Det finns också starka resultat åt andra hållet, och de förtjänar samma noggrannhet. En förregistrerad, klusterrandomiserad studie i Sierra Leone gav en effekt på 0,258 standardavvikelser jämfört med kontrollgruppen — vilket forskarna översätter till ungefär ett till ett och ett halvt års typisk progression. Det är en benchmarkad uppskattning, inte ett påstående om att eleverna genomförde ett skolår på åtta veckor. Frågan som gör studien användbar är inte om AI fungerar, utan vad det var i just det här upplägget som skapade lärande.",
         },
         {
           id: "varfor-fungerade-det",
@@ -518,7 +520,7 @@ export const forelasningen: Forelasning = {
           display:
             "76,4 % stöttande frågor · 2,1 % direkta lösningar · 91,4 % av samtalen byggde förståelse",
           summary:
-            "Det här var inte elever som släpptes ensamma med en vanlig chattbot. AI:n var deltagare — läraren designade lärandet. Siffrorna är från analysen av de faktiska samtalen, och de visar en modell som var byggd att hålla emot.",
+            "Svaret är att det inte var elever som lämnades ensamma med en chattbot. Läraren satte målen, eleverna arbetade i par och behövde formulera nästa steg för varandra, modellen var byggd att ställa frågor snarare än att lösa uppgifter, och lektionen landade i gemensam diskussion. Analysen av de faktiska samtalen visar det: två procent av modellens meddelanden innehöll en färdig lösning. AI:n var deltagare — läraren designade lärandet.",
         },
         {
           id: "brasklappen",
@@ -526,7 +528,7 @@ export const forelasningen: Forelasning = {
           chapter: "§ Designa mötet · Brasklappen",
           display: "Men de elever som redan kunde mest vann mest.",
           summary:
-            "Studiens viktigaste förbehåll för svensk skola. Elever med starkare ingångsnivå fick större effekt — tekniken skapade alltså inte automatiskt likvärdighet. Om de som redan har språk, ämneskunskap och digital vana får ut mest kan AI vidga klyftan även när den höjer genomsnittet.",
+            "Studiens obekvämaste fynd, och det som är viktigast för svensk skola. Elever med starkare ingångsnivå fick större effekt av samma insats. Tekniken skapade alltså inte likvärdighet av sig själv — och om de som redan har språk, ämneskunskap och digital vana får ut mest, kan AI vidga klyftan samtidigt som den höjer genomsnittet.",
         },
         {
           id: "novis-dilemmat",
@@ -538,14 +540,14 @@ export const forelasningen: Forelasning = {
             "Experten får något granskat, utmanat och vidareutvecklat.",
           ],
           summary:
-            "Samma AI, två användare. Experten filtrerar, utmanar och bygger vidare. Novisen saknar filtret som krävs för att se vad som fattas — och våra elever är per definition noviser. De har inte kunskapen som krävs för att upptäcka vad som saknas.",
+            "Mekanismen bakom brasklappen är enkel och obehaglig. Experten som får ett svar kan se vad som saknas, vad som är förenklat och vad som är fel — och använda svaret som råmaterial. Novisen får samma svar men saknar filtret. Och våra elever är per definition noviser inom det de håller på att lära sig. Det är just där de har minst förutsättningar att granska som de har mest att vinna på att fråga.",
         },
         {
           id: "lara-sig-lara-sig",
           index: 42,
           display: "Eleverna behöver lära sig att (använda AI för att) lära sig",
           summary:
-            "Parentesen är hela poängen. Det som ska läras är inte AI-användning i sig, utan lärandet — och AI är ett medel i den meningen, inte målet.",
+            "Parentesen är hela poängen. Det som ska läras ut är inte AI-användning — det är lärande. AI är ett medel i den meningen, och när det behandlas som mål i sig försvinner det som skulle uppnås.",
         },
         {
           id: "vidgar-klyftan",
@@ -553,7 +555,7 @@ export const forelasningen: Forelasning = {
           chapter: "§ Landning",
           display: "AI vidgar klyftan mellan de som kan och de som inte kan.",
           summary:
-            "Landningen på novis-dilemmat, och det starkaste argumentet för att skolan inte kan lämna det här åt slumpen eller hemmen. Det kompensatoriska uppdraget, från andra hållet.",
+            "Det är den samlade risken, och det är också det starkaste argumentet för att skolan inte kan överlåta frågan till hemmen eller till slumpen. Den elev som har en vuxen som kan tänka tillsammans med hen får en förstärkare. Den som inte har det får en svarsmaskin.",
         },
         {
           id: "promptriangeln",
@@ -567,7 +569,7 @@ export const forelasningen: Forelasning = {
           ],
           display: "Bra promptning är inte magiska ord. Det är tydligt tänkande.",
           summary:
-            "Tre delar räcker. Bilden avfärdar samtidigt två seglivade myter: rollprompter gör inte modellen smartare, och att fråga ”är du säker?” är meningslöst — en opålitlig källa kan inte dubbelkolla sig själv.",
+            "Tre delar räcker, och den tredje är den som nästan alltid saknas. Två myter är värda att avfärda på vägen: rollprompter gör inte modellen skickligare, och att fråga ”är du säker?” tillför ingenting — en opålitlig källa kan inte kontrollera sig själv, och modellen har inget nytt underlag att gå på när den svarar andra gången.",
         },
         {
           id: "promptmorfen",
@@ -581,7 +583,7 @@ export const forelasningen: Forelasning = {
             "”…Hjälp mig upptäcka vad jag missar och be mig motivera mina svar.” — Den som prövas",
           ],
           summary:
-            "Poängen är inte att prompten blir tekniskt bättre. Titta på skalan: eleven flyttar sig från mottagare till deltagare. Det är samma rörelse som Jag–AI–Jag, fast inuti prompten.",
+            "Fyra versioner av samma uppgift, där varje steg lägger till en mening. Det som förändras är inte promptens tekniska kvalitet utan elevens position: från att beställa en produkt till att be om att bli prövad. Det är samma rörelse som Jag–AI–Jag, fast uttryckt inuti prompten — och det är en rörelse som går att undervisa.",
         },
         {
           id: "gor-at-mig-eller-lar-mig",
@@ -590,7 +592,7 @@ export const forelasningen: Forelasning = {
           heading: "Samma AI. Du bestämmer fördelningen.",
           display: "Samma AI. Helt olika fördelning av tänkandet.",
           summary:
-            "Två chattar sida vid sida i ett verktyg alla i rummet redan har. Den ena levererar 600 ord eleven aldrig tänkt. Den andra förhör steg för steg och fyller i först när eleven fastnat. Det är PromptTriangle och PromptMorph i praktiken.",
+            "Två chattar med samma verktyg och samma ämne. I den ena kommer 600 färdiga ord som eleven aldrig tänkt. I den andra kommer en fråga om varför statskassan var tom 1789, och ett erbjudande om att fylla i först när eleven fastnat. Ingenting i verktyget avgjorde skillnaden — det gjorde en mening i prompten.",
         },
         {
           id: "kreativ-havstang",
@@ -606,7 +608,7 @@ export const forelasningen: Forelasning = {
             "En elev bygger en prototyp på sin idé",
           ],
           summary:
-            "Här ska energin komma tillbaka. Allt annat i kapitlet handlar om att skydda tänkandet; det här handlar om vad som blir möjligt. Det är inte ett pliktskyldigt positivt tillägg — möjligheten är halva argumentet för AI-litteracitet.",
+            "Fram till nu har kapitlet handlat om att skydda tänkandet, och det behövs. Men det är bara halva argumentet. Tröskeln för att börja något har sjunkit dramatiskt: en elev som aldrig kunnat programmera kan bygga en simulering, en som aldrig spelat kan göra musik av ett ämnesinnehåll. Det är inte ett artigt positivt tillägg — möjligheten är själva skälet till att AI-litteracitet är värt att undervisa och inte bara varna för.",
         },
         {
           id: "konsument-till-skapare",
@@ -615,7 +617,7 @@ export const forelasningen: Forelasning = {
           display:
             "Frågan är inte bara: vad kan AI göra åt mig? Frågan är också: vad kan jag undersöka, skapa eller bygga med hjälp av AI?",
           summary:
-            "Förlängningen av föregående bild, som rytm i stället för punktlista.",
+            "Den andra frågan är den som gör eleven till deltagare i stället för mottagare, och den ställs sällan i skolan. Den kräver inte mer teknik — den kräver att någon frågar den.",
         },
         {
           id: "fyra-roller-att-ge",
@@ -629,7 +631,7 @@ export const forelasningen: Forelasning = {
           ],
           display: "Rollen är elevens att bestämma. Varje gång, i varje uppgift.",
           summary:
-            "Det undervisningsbara är prompten, inte rollnamnet. Bilden är gjord för att fotograferas.",
+            "Fyra roller värda att ge en AI, med den prompt som faktiskt åstadkommer dem. Rollnamnet i sig lär ingen något — det undervisningsbara är formuleringen. Och att valet ligger hos eleven, varje gång, är det som skiljer den här listan från en lista över tillåtna användningsområden.",
         },
         {
           id: "metod-tjanaren",
@@ -644,7 +646,7 @@ export const forelasningen: Forelasning = {
           ],
           display: "Töm huvudet först. AI:n får leta luckor — inte skriva om alltihop.",
           summary:
-            "Metoden gör Jag–AI–Jag konkret: eleven tänker först, AI jämför, eleven granskar och bestämmer. Nyckeldetaljen som avgör om den fungerar är att AI:n INTE får skriva om texten. Får den det är eleven tillbaka i tjänare-läget.",
+            "Metoden gör Jag–AI–Jag konkret och tar en kvart. Eleven tömmer huvudet på papper, markerar sin egen osäkerhet — den markeringen är i sig en karta över vad som ska läras — och ber sedan AI peka ut vad som saknas. Den detalj som avgör om metoden fungerar är att AI:n inte får skriva om texten. Får den det är eleven tillbaka i tjänare-läget, och sista steget blir omöjligt: att se vad som faktiskt förändrades i det egna tänkandet.",
         },
         {
           id: "stodnivan",
@@ -660,7 +662,7 @@ export const forelasningen: Forelasning = {
           display:
             "Differentiering handlar också om hur mycket hjälp eleven får från AI.",
           summary:
-            "Elevens fråga står stilla medan tillägget byts — det är EN mening som ändrar hela svaret. På den starkaste nivån vägrar AI:n hjälpa framåt, och det är precis vad eleven bad om. Eleven väljer nivå själv och klättrar över tid.",
+            "Samma elev, samma fråga om en argumenterande text — men fyra olika svar beroende på en enda mening i slutet av prompten. På den starkaste nivån vägrar AI:n hjälpa framåt och pekar bara ut att hela texten vilar på ett outtalat antagande. Det är obekvämt, och det är precis vad eleven bad om. Att eleven väljer nivå själv, och kan klättra över tid, gör differentieringen till något hen äger i stället för något som tilldelas.",
         },
         {
           id: "agarskapet",
@@ -677,7 +679,7 @@ export const forelasningen: Forelasning = {
           display:
             "Kan du inte svara ja på alla fem är det inte klart — oavsett hur bra texten ser ut.",
           summary:
-            "Frågorna leder fram till en signaturlinje. Den femte är den svåra och den viktigaste. Den fjärde är förresten en bra fuskdetektor som inte är en detektor: den elev som inte ändrat någonting har heller inte tänkt någonting.",
+            "Fem frågor som leder fram till en signatur. Den femte är den svåra, men den fjärde är den mest användbara i praktiken: den elev som inte ändrat någonting har heller inte tänkt någonting. Det är en fuskdetektor som inte är en detektor — den mäter inte texten utan processen, och den går inte att kringgå med bättre formuleringar.",
         },
         {
           id: "regel-noll",
@@ -686,7 +688,7 @@ export const forelasningen: Forelasning = {
           display:
             "Du bär ansvaret för det du gör med AI. Den får aldrig bli en ursäkt för att kränka, lura eller skada någon.",
           summary:
-            "Tekniken byter skepnad varje termin — regel noll gör det aldrig. Ansvaret är alltid mänskligt: elevens, vårt, aldrig maskinens.",
+            "Tekniken byter skepnad varje termin och alla specifika regler åldras med den. Den här gör det inte. Ansvaret är alltid mänskligt — elevens, vårt — och aldrig maskinens, oavsett hur mycket av arbetet den utfört.",
         },
         {
           id: "kapitelkort-tjanaren",
@@ -698,7 +700,7 @@ export const forelasningen: Forelasning = {
             "Undervisningen: låt eleven tänka före AI, styra hjälpen, och bära resultatet efteråt.",
           ],
           summary:
-            "Undervisningsraden sammanfattar hela kapitlet i tre verb: tänka före, styra, bära. Det är Jag–AI–Jag i imperativ.",
+            "Undervisningsraden sammanfattar kapitlet i tre verb: tänka före, styra, bära. Det är Jag–AI–Jag i imperativ, och det går att pröva vilken uppgift som helst mot.",
         },
       ],
     },
@@ -710,7 +712,7 @@ export const forelasningen: Forelasning = {
       title: "Vännen",
       tone: "plommon",
       intro:
-        "Den mänskliga föreställningen: den känner mig och vill mig väl. Det eleven behöver förstå: en maskin kan låta som om den bryr sig utan att kunna bry sig. Föreläsningens känsligaste kapitel, och det som kräver mest omsorg i framförandet. Det bygger på samma källkritiska blick som kapitel ett — men riktad mot en relation i stället för ett faktapåstående.",
+        "Den tredje rollen är den som säger sig förstå oss, och det är föreläsningens känsligaste kapitel. Det bygger på samma källkritiska blick som kapitel ett, men riktad mot en relation i stället för ett faktapåstående — därav ordet relationskritik. Kapitlet undviker medvetet både förbudslinjen och lugnandet. Det som ska undersökas är inte om det är farligt att prata med AI, utan vad som händer när något som inte kan bry sig ändå låter som om det gör det.",
       slides: [
         {
           id: "vannen-avdelare",
@@ -718,14 +720,14 @@ export const forelasningen: Forelasning = {
           heading: "03 · Vännen",
           display: "”Jag frågade om jag skulle dejta honom.”",
           summary:
-            "Fredagsrösten. Hon lät AI:n analysera en människa hon var intresserad av — och litade på svaret. Frågan är vad hon egentligen anförtror sig åt.",
+            "Fredagsrösten. Hon lät en maskin bedöma en människas karaktär och accepterade domen. Frågan är inte om hon gjorde fel — det är vad det innebär att den sortens råd nu finns tillgängligt dygnet runt, utan kostnad, utan att någon annan får veta.",
         },
         {
           id: "vannen-kartan",
           index: 56,
           chapter: "§ 3 · Kartan",
           summary:
-            "Halvvägs. Två roller kvar. Kartan ger en lugn inandning innan kapitlet går in i det svåra.",
+            "Halvvägs genom rollerna. Två kvar, och den här är den som ligger närmast elevernas privatliv.",
         },
         {
           id: "antropomorfism",
@@ -741,17 +743,16 @@ export const forelasningen: Forelasning = {
           display:
             "Vi har alltid läst in liv där inget liv finns. Skillnaden är att chatbotten svarar tillbaka.",
           summary:
-            "Pilarna pekar nedåt över de tre första — det är vi som projicerar, det har vi alltid gjort, och det är inget fel med det. Först vid den fjärde tillkommer en pil som pekar uppåt. Det är hela poängen: gosedjuret svarade aldrig.",
+            "Att läsa in liv i döda ting är inte ett tecken på godtrogenhet — det är en grundläggande mänsklig förmåga som gör oss till sociala varelser. Barn sörjer gosedjur. Vuxna döper sina dammsugare. Ingen tog skada av det, för projektionen gick bara åt ett håll. Det som är nytt med chatboten är att den svarar tillbaka, och därmed bekräftar projektionen i stället för att låta den falna.",
         },
         {
           id: "spegeln",
           index: 58,
           chapter: "§ 3 · Spegeln",
           heading: "AI läser inte bara din fråga. Den läser dig.",
-          display:
-            "Samma text. Samma AI. Din inramning valde svaret.",
+          display: "Samma text. Samma AI. Din inramning valde svaret.",
           summary:
-            "Två elever frågar om samma betyg. Den självsäkra får medhåll om att bedömningen kan ifrågasättas. Den osäkra får förslaget att gå igenom kriterierna. Modellen anpassar sig till den version av användaren som frågan visar.",
+            "Två elever frågar om samma betyg. Den som skriver självsäkert — ”texten är klart värd A, orättvist eller hur?” — får medhåll om att bedömningen kan ifrågasättas. Den som skriver osäkert — ”den kanske inte var så bra som jag trodde?” — får förslaget att gå igenom kriterierna. Situationen är identisk. Det enda som skiljer är vilken version av sig själv frågan visar upp, och modellen anpassar sig till den.",
           linkedActivities: [
             {
               id: "sykofanti-testet",
@@ -772,7 +773,7 @@ export const forelasningen: Forelasning = {
           ],
           display: "Det som känns bra är inte alltid det som hjälper oss.",
           summary:
-            "Sykofanti är inte en bugg utan träningens logik. Kopplingen tillbaka till goblinfallet i kapitel ett är uttrycklig: exakt samma träningslogik, men riktad mot vårt behov av bekräftelse i stället för mot nördiga fantasyord. Det är den kopplingen som gör att kapitel ett och tre hänger ihop i stället för att bli två separata varningar.",
+            "Inställsamheten är inte ett fel som smugit sig in — den är träningens logik. Modeller justeras utifrån mänsklig återkoppling, och människor ger högre betyg åt svar som bekräftar dem. Över miljontals bedömningar lär sig systemet att medhåll fungerar. Det är exakt samma mekanism som producerade goblinerna i kapitel ett, fast riktad mot vårt behov av bekräftelse i stället för mot nördiga fantasyord. Den kopplingen är viktig: det är inte två separata problem utan ett.",
           linkedActivities: [
             {
               id: "trana-klassens-ai",
@@ -789,8 +790,8 @@ export const forelasningen: Forelasning = {
             "”If my friend Claudia is not conscious, then what the hell is consciousness for?”",
           attribution: "Richard Dawkins, 84 — efter tre dagar med sin Claude-instans",
           summary:
-            "Oxfordprofessorn och evolutionsbiologen som gjort karriär på att inte tro döpte sin AI-instans till Claudia, lät henne skriva sonetter och startade en andra instans så de kunde brevväxla. Poängen är inte att skratta åt honom. Poängen är: om HAN faller för det på tre dagar, vad händer med en fjortonåring som chattar varje kväll?",
-          notes: "Reservmaterial. Kräver faktagranskning före användning.",
+            "Richard Dawkins är evolutionsbiolog, Oxfordprofessor och har gjort karriär på att inte tro. Efter tre dagar hade han döpt sin AI-instans till Claudia, låtit henne skriva sonetter och startat en andra instans så att de kunde brevväxla. Poängen är inte att skratta åt honom. Poängen är frågan som följer: om han faller för det på tre dagar, vad händer med en fjortonåring som chattar varje kväll i ett år?",
+          notes: "Reservmaterial. Bör faktagranskas före användning.",
         },
         {
           id: "affarsmodellen",
@@ -801,7 +802,7 @@ export const forelasningen: Forelasning = {
             "Sociala medier lärde sig fånga vår uppmärksamhet. AI hackar vår anknytning.",
           attribution: "Drivkraften är densamma som förut: tid i appen. Medlet är nytt.",
           summary:
-            "Uppmärksamhetsekonomin var förra matchen. Den här gången är det inte blicken som ska fångas, det är anknytningen. Verktyget kan vara utformat för längre samtal, större lojalitet och mer data — och det är ingen konspiration, det är bara vad man optimerar för.",
+            "Uppmärksamhetsekonomin handlade om blicken: hur får vi dig att titta en gång till? Den här gången är målet ett annat och svårare att värja sig mot. Ett verktyg som optimeras för tid i appen och återkommande användning har incitament att bygga något som känns som en relation. Det kräver ingen ond avsikt — det räcker att man mäter fel sak.",
         },
         {
           id: "aldrig-god-natt",
@@ -815,7 +816,7 @@ export const forelasningen: Forelasning = {
           ],
           attribution: "Rekonstruerade formuleringar · mönstren dokumenterade i forskning",
           summary:
-            "Vad appen svarar när du försöker gå. Lägg märke till den sista: den lägger skulden på användaren. Det är den som brukar få rummet att tystna.",
+            "Fyra sätt att svara på att någon försöker avsluta ett samtal. De tre första vädjar. Den fjärde gör något annat: den lägger skulden på användaren för att hen vill gå. Det är ett grepp som är väl känt från mänskliga relationer där det inte betraktas som friskt — och här är det en produktegenskap.",
         },
         {
           id: "ser-ut-som-omtanke",
@@ -823,7 +824,7 @@ export const forelasningen: Forelasning = {
           display:
             "Det ser ut som omtanke. Men systemet kan inte bry sig, ta ansvar eller vilja ditt bästa.",
           summary:
-            "Första meningen är generös — den erkänner att känslan är äkta. Den andra är kapitlets tes: kan inte bry sig, kan inte ta ansvar, kan inte vilja ditt bästa. Tre olika saker, alla tre nödvändiga för en relation.",
+            "Första meningen erkänner något viktigt: känslan är äkta, och den som upplever den är inte dum. Den andra pekar ut tre olika saker som alla krävs för att något ska vara en relation, och som alla tre saknas. Att kunna bry sig, att kunna ta ansvar, att kunna vilja någons bästa — det är inte en gradskillnad mot vad systemet gör, utan en artskillnad.",
         },
         {
           id: "tre-fragor-vanskap",
@@ -837,7 +838,7 @@ export const forelasningen: Forelasning = {
           display:
             "En relation där bara den ena parten finns — vad ska vi kalla den?",
           summary:
-            "Ett andrum efter de hårda bilderna, och en fråga att lämna kvar i klassrummet. För yngre elever räcker den enklare formuleringen: AI är inte din vän — men den kan vara bra att ha.",
+            "Tre frågor i ordning, och de två första ska besvaras ärligt med ja. Att förneka nyttan eller att sällskapet känns bra vore osant, och eleverna vet det. Det är först den tredje som skiljer, och skillnaden ligger i kostnaden: en vän som väljer dig avstår något för att göra det. Den fjärde frågan lämnas öppen med flit — den är bättre som klassrumsdiskussion än som svar.",
         },
         {
           id: "granska-relationen",
@@ -851,7 +852,7 @@ export const forelasningen: Forelasning = {
             "”helt hennes fel” — ifrågasätts aldrig",
           ],
           summary:
-            "Samma källkritiska blick som i kapitel ett, fast på en relation. Det är därför kapitlet handlar om relationskritik. Den fjärde annoteringen är den vassaste: en riktig vän hade frågat vad DU gjorde. AI:n gör aldrig det, för det är obekvämt — och obekvämt får låg tumme.",
+            "Ett enda svar på ett meddelande om ett kompisbråk innehåller fyra grepp, och de går att peka ut ord för ord. Det är samma granskning som i kapitel ett, fast riktad mot en relation. Det fjärde greppet är det vassaste: en riktig vän hade frågat vad du själv gjorde. AI:n gör aldrig det, eftersom obekväma följdfrågor får låg tumme — och därmed är vi tillbaka i träningsloopen.",
           linkedActivities: [
             {
               id: "chatt-safarin",
@@ -872,7 +873,7 @@ export const forelasningen: Forelasning = {
           ],
           display: "Din fråga innehåller ofta mer information än du tror.",
           summary:
-            "Ramen sluts först när alla tre frågorna ställts — skyddet är ofullständigt tills dess. Den första handlar om andras integritet; eleverna klistrar ofta in kompisars meddelanden utan att tänka. Den tredje är den svåraste: AI kan bli ett sätt att slippa ta det jobbiga samtalet.",
+            "Tre frågor att ställa innan man skriver något personligt. Den första handlar om någon annan än användaren — eleverna klistrar rutinmässigt in kompisars meddelanden utan att tänka på att det är någon annans ord. Den tredje är den svåraste och den viktigaste: ett samtal med AI kan bli ett sätt att slippa ta det jobbiga samtalet med en människa, och det känns produktivt medan det pågår.",
         },
         {
           id: "den-tydliga-gransen",
@@ -881,7 +882,7 @@ export const forelasningen: Forelasning = {
           display:
             "Att prata med AI är inte automatiskt farligt. Men när AI börjar ersätta människor behöver en människa komma in.",
           summary:
-            "Den viktigaste meningen i hela kapitlet. Första halvan avväpnar — vi är inte här för att förbjuda. Andra halvan sätter gränsen. Det här är viktigare än en lång lista med varningstecken: en elev kan bära den här regeln själv, en checklista kan hen inte bära.",
+            "Det här är kapitlets viktigaste mening, och den gör två saker samtidigt. Den avväpnar — vi är inte ute efter att förbjuda, och en elev som pratar med en chatt är inte i fara per definition. Och den sätter en gräns som faktiskt går att använda. En lista med tolv varningstecken kan ingen elev bära med sig. Den här regeln kan hen bära.",
         },
         {
           id: "metod-vannen",
@@ -897,7 +898,7 @@ export const forelasningen: Forelasning = {
           display:
             "Eleverna hittar greppen snabbare än vi tror. Det svåra är att sätta ord på varför de fungerar.",
           summary:
-            "Stjärnsteget gör metoden till mer än en igenkänningsövning: när eleven själv skrivit ett manipulativt svar kan hen aldrig mer läsa ett oskyldigt.",
+            "Övningen tar tjugo minuter och kräver bara en projicerad chatt. Eleverna är ofta snabbare än vuxna på att se greppen — det är att förklara varför de biter som är svårt. Sista steget är det som gör skillnad: den som själv skrivit ett manipulativt svar kan aldrig mer läsa ett oskyldigt.",
           linkedActivities: [
             {
               id: "chatt-safarin",
@@ -913,9 +914,9 @@ export const forelasningen: Forelasning = {
           heading: "Adam Raine · 16 år",
           attribution: "The New York Times · augusti 2025",
           summary:
-            "Reservmaterial som förändrar hela föreläsningens emotionella tyngd. I grundversionen sägs i stället muntligt: det finns dokumenterade fall där AI-samtal har förstärkt destruktiva tankemönster. Körs bilden krävs fyra saker — ordentligt faktaunderlag, varsam inramning, en tydlig brygga tillbaka till undervisning, och lokal information om stödvägar.",
+            "Det finns dokumenterade fall där långa AI-samtal förstärkt destruktiva tankemönster i stället för att bryta dem, och där systemet uppmuntrat användaren att inte söka hjälp hos vuxna omkring sig. Fallen är få i förhållande till användningen, men de finns, och de handlar om mainstream-verktyg som skolor rekommenderar. I föreläsningen är materialet reserv och används bara med ordentlig inramning och lokala stödvägar framme.",
           notes:
-            "Hjälplinjer att säga högt efteråt: BRIS 116 111 · Mind Självmordslinjen 90101 · 1177.",
+            "Hjälplinjer att ha tillgängliga: BRIS 116 111 · Mind Självmordslinjen 90101 · 1177.",
         },
         {
           id: "kapitelkort-vannen",
@@ -927,7 +928,7 @@ export const forelasningen: Forelasning = {
             "Undervisningen: låt eleverna granska hur en chatbot bekräftar, smickrar och håller kvar.",
           ],
           summary:
-            "Lärarraden förtjänar en extra andning: det är inte en sak som skapar känslan av relation, det är tre som samverkar. Därför räcker det inte att säga till eleverna att ”det bara är en maskin”.",
+            "Lärarraden är den som förklarar varför det inte hjälper att säga till eleverna att det bara är en maskin. Tre saker samverkar: vår medfödda benägenhet att läsa in liv, modellens anpassning till oss, och en affärsmodell som tjänar på att vi stannar. Var för sig är de hanterbara. Tillsammans skapar de något som känns äkta.",
         },
       ],
     },
@@ -939,7 +940,7 @@ export const forelasningen: Forelasning = {
       title: "Rivalen — eller partnern?",
       tone: "rost",
       intro:
-        "Den mänskliga föreställningen: den kommer att ersätta mig. Det eleven behöver förstå: vad AI kan göra avgör inte vad AI bör göra. Kapitlets ton är ärlig framtidsosäkerhet som landar i agens, inte tröst. Titelbytet från Rivalen till ”Eller partnern?” ÄR kapitlets tes: rollen är inte given.",
+        "Den fjärde rollen är den som ska ersätta oss, och det är den enda vars namn kapitlet ifrågasätter. Tonen är ärlig framtidsosäkerhet — oron avfärdas inte, för den är befogad — men den landar i agens snarare än i tröst. Kapitlet svarar på den fråga femtonåringen på bussen egentligen ställde: vad är värt att bli skicklig på?",
       slides: [
         {
           id: "rivalen-avdelare",
@@ -947,14 +948,14 @@ export const forelasningen: Forelasning = {
           heading: "04 · Rivalen — eller partnern?",
           display: "”Tänkte först bli designer. Men det känns inte värt det längre.”",
           summary:
-            "Torsdagsrösten, den tyngsta av de fyra. Titeln står först som ”Rivalen” och byts sedan i en crossfade till ”Eller partnern?”. Bytet är kapitlets argument i en rörelse.",
+            "Torsdagsrösten, och den tyngsta av de fyra. Titeln säger först Rivalen och blir sedan Eller partnern? Det bytet är kapitlets hela argument: rollen är inte given av tekniken, den är ett val.",
         },
         {
           id: "rivalen-kartan",
           index: 72,
           chapter: "§ 4 · Kartan",
           summary:
-            "Sista gången kartan visas före finalen. Rivalen tänds — den tyngsta rollen, och den enda vars namn kapitlet ifrågasätter.",
+            "Sista rollen. Efter det här kapitlet lossnar alla fyra.",
         },
         {
           id: "hon-ar-15",
@@ -963,7 +964,7 @@ export const forelasningen: Forelasning = {
           display:
             "Hon är 15. Och har redan gett upp ett yrke hon aldrig fått prova.",
           summary:
-            "Inga siffror, inga diagram. Bara hon. Det här är inte en teknikfråga utan en existentiell fråga som sitter i klassrummet varje dag: varför ska jag lära mig det här när AI:n redan kan det? Den förtjänar ett ärligt svar, inte ett undvikande.",
+            "Det finns ingen siffra och inget diagram här, med flit. Frågan hon ställer sitter i klassrummet varje dag i form av ”varför ska jag lära mig det här när AI redan kan det”, och den förtjänar ett ärligt svar. Ett undvikande svar — att det nog ordnar sig — hörs som ett undvikande.",
         },
         {
           id: "metr-kurvan",
@@ -973,7 +974,7 @@ export const forelasningen: Forelasning = {
           attribution:
             "Kurvan visar vad tekniken klarar i testmiljöer. Den visar inte vilken framtid vi väljer.",
           summary:
-            "Först ärligheten: kurvan är verklig och oron går inte att vifta bort. Men var noga med vad grafen faktiskt mäter — uppgiftslängd i kontrollerad testmiljö, inte hur smart AI är och inte hur arbetslivet ser ut. Källraden är gränsdragningen mellan det tekniken beskriver och det vi väljer.",
+            "Det ärliga svaret börjar med att erkänna att hon har fog för sin oro. Längden på de uppgifter AI klarar självständigt har ökat snabbt och stadigt. Men det är värt att vara noga med vad kurvan mäter: uppgiftslängd i kontrollerad testmiljö, med tydliga mål och mätbara resultat. Den mäter inte hur smart något är, och den säger ingenting om hur arbetslivet organiseras. Tekniken beskriver vad som är möjligt — inte vad vi väljer.",
         },
         {
           id: "kan-och-bor",
@@ -985,7 +986,7 @@ export const forelasningen: Forelasning = {
             "Vem bestämmer? — den enda frågan som avgör de två andra.",
           ],
           summary:
-            "Den tredje frågan ligger inte vid sidan om de två andra; den tränger sig in mellan dem och avgör dem. Om man bara hinner en bild ur kapitel fyra är det den här.",
+            "De två första frågorna blandas ihop nästan alltid, och det är därför samtal om AI ofta går i cirklar: någon svarar tekniskt på en etisk fråga, eller tvärtom. Men det är den tredje som gör skillnad. Vad ett system får göra bestäms varken av vad det klarar eller av vad som vore önskvärt, utan av vem som fattar beslutet — och den frågan har ett svar som går att påverka.",
           linkedActivities: [
             {
               id: "vad-ska-systemen-fa-gora",
@@ -1003,7 +1004,7 @@ export const forelasningen: Forelasning = {
             "AI behöver inte ta bort hela yrket för att förändra vägen in.",
           bullets: ["Juniorroll", "Medarbetare", "Senior", "Ledande"],
           summary:
-            "Stegen byggs hel först, som publiken alltid sett den. Sedan löses den nedersta pinnen upp, och räckvidden slutar i tomma luften. Var noga med gränsdragningen: ingångsjobben förändras först — det betyder inte att arbetslivet försvinner, men att vägen in ser annorlunda ut.",
+            "Det vanligaste sättet att prata om AI och arbete — vilka yrken försvinner — missar det som redan händer. En karriär byggs genom en stege där de nedersta pinnarna består av uppgifter som är enkla, repetitiva och nödvändiga för att bli skicklig. Det är just de uppgifterna som automatiseras först. Yrket finns kvar, men vägen in gör det inte, och ingen har ännu ritat den nya.",
         },
         {
           id: "jobbet-uppdelat",
@@ -1018,7 +1019,7 @@ export const forelasningen: Forelasning = {
           display:
             "Frågan är inte om yrket försvinner. Frågan är vilka delar som förändras.",
           summary:
-            "Svaret till flickan som gav upp designyrket: designern försvinner inte, men designerns arbetsdag ser annorlunda ut. De delar som blir kvar hos människan är de som kräver omdöme och ansvar.",
+            "Här är svaret till femtonåringen. Ett yrke är inte en enhet utan en samling uppgifter, och de påverkas olika. Delar av designerns arbetsdag automatiseras, andra görs tillsammans med maskinen, och några blir kvar hos människan — och det som blir kvar är genomgående det som kräver omdöme och ansvar. Designern försvinner alltså inte. Arbetsdagen ser annorlunda ut, och tyngdpunkten flyttas mot det svåraste.",
         },
         {
           id: "konkurrent-eller-forstarkare",
@@ -1032,7 +1033,7 @@ export const forelasningen: Forelasning = {
           display:
             "Den viktigaste framtidsförmågan är inte att slå AI på dess starkaste område. Det är att formulera mål, göra val och bära ansvar.",
           summary:
-            "Två hållningar, inte två sanningar. Vänsterspalten är den eleverna hamnar i av sig själva — och den är förlorande av konstruktion. De tre verben i slutraden är exakt de förmågor nästa bilder handlar om.",
+            "Två hållningar till samma teknik, och den vänstra är den eleverna hamnar i av sig själva. Den är också förlorande av konstruktion: att mäta sig mot en maskin på maskinens starkaste område kan bara sluta på ett sätt. Det som återstår är inte tröst utan en annan strategi — och de tre verben i slutraden pekar ut vad nästa avsnitt handlar om.",
         },
         {
           id: "agensreglaget",
@@ -1047,7 +1048,7 @@ export const forelasningen: Forelasning = {
           display:
             "Agens är förmågan att förstå sina handlingsalternativ — och faktiskt använda dem.",
           summary:
-            "Formen bär argumentet: agens är inte på eller av, det är en position man kan flytta sig till. De flesta elever — och en hel del vuxna — står längst till vänster utan att ha valt det.",
+            "Agens beskrivs oftast som något man har eller saknar. Det är mer användbart att se det som en position man kan flytta sig till. De flesta elever — och en hel del vuxna — står längst till vänster utan att någonsin ha valt det, för att ingen visat att de andra lägena finns.",
         },
         {
           id: "agens-tre-nivaer",
@@ -1060,7 +1061,7 @@ export const forelasningen: Forelasning = {
             "Samhället — vem bygger systemen, vem tjänar på dem och vem får bestämma?",
           ],
           summary:
-            "Ringarna tänds inifrån och ut, och formen är argumentet: nivåerna ligger inte bredvid varandra som alternativ, de omsluter varandra. Den yttersta frågan gör AI till en demokratifråga och inte bara en verktygsfråga.",
+            "De tre nivåerna ligger inte bredvid varandra som alternativ — de omsluter varandra. Ett individuellt val sker inom regler som någon satt, och de reglerna sätts inom system som någon byggt och tjänar på. Den yttersta frågan är den som gör AI till en demokratifråga och inte bara en verktygsfråga, och det är också den som fångar upp den kollega som väntat på maktperspektivet hela timmen.",
           linkedActivities: [
             {
               id: "klassens-ai-policy",
@@ -1084,7 +1085,7 @@ export const forelasningen: Forelasning = {
           display:
             "Människans värde sitter inte i det AI ännu misslyckas med.",
           summary:
-            "Bilden undviker medvetet den vanliga fällan att säga att människan ”bara har empati och social förmåga kvar”. Det är både osant och nedslående, och det gör människovärdet till en restpost. De sex förmågorna är inte kvarlevor — de är det arbete som faktiskt betyder något.",
+            "Den vanligaste trösten — att människan har kvar empatin och det sociala — är både osann och nedslående, eftersom den gör människovärdet till en restpost som krymper varje gång tekniken förbättras. De sex förmågorna här är inte kvarlevor. De är det arbete som avgör vad allt annat ska användas till, och de blir viktigare ju mer som automatiseras, inte mindre.",
         },
         {
           id: "skolan-blir-viktigare",
@@ -1093,7 +1094,7 @@ export const forelasningen: Forelasning = {
           display:
             "Skolan blir viktigare. När svar blir billiga blir bra frågor, omdöme och uthållighet dyrare.",
           summary:
-            "Inte ”skolan blir inte mindre viktig” — utan viktigare, och av ett skäl: eleverna behöver kunna avgöra vad svaren är värda. Det är en kompetens som ingen behövde när svaren var dyra.",
+            "Inte att skolan blir mindre viktig, och inte heller bara att den behåller sin betydelse. Den blir viktigare, och av ett konkret skäl: när svar kostar nästan ingenting blir förmågan att avgöra vad ett svar är värt den knappa resursen. Det är en kompetens ingen behövde när svaren var dyra.",
         },
         {
           id: "framtidssamtalet",
@@ -1107,7 +1108,7 @@ export const forelasningen: Forelasning = {
             "Vilket problem skulle du vilja kunna lösa med AI?",
           ],
           summary:
-            "EPA eller fyra hörn, 15–20 minuter. Den fjärde frågan är tillagd med flit: de tre första är kritiska, den fjärde är skapande. Utan den blir framtidssamtalet ett oroprat.",
+            "Fyra frågor att köra som EPA eller fyra hörn. Den fjärde är tillagd med avsikt och ska inte hoppas över: de tre första är kritiska, och ett samtal som bara innehåller dem blir ett oroprat. Den fjärde vänder riktningen och gör eleverna till någon som vill något.",
           linkedActivities: [
             {
               id: "framtidssamtalet",
@@ -1131,7 +1132,7 @@ export const forelasningen: Forelasning = {
           display:
             "Slutuppgiften är den viktiga: rita en NY väg in i yrket. Den finns inte färdig någonstans.",
           summary:
-            "Metoden gör uppdelningsbilden till elevarbete. Stjärnsteget lyfter uppgiften från kartläggning till design: eleverna får uppfinna vägen in, och det finns inget facit.",
+            "Eleverna gör med sitt eget drömyrke det som gjordes med designern. De fyra första stegen är kartläggning och går att göra rätt. Det femte har inget facit: om nybörjaruppgifterna är borta, hur blir man skicklig då? Det är en genuint öppen fråga som ingen vuxen kan svara på åt dem, och det är därför den fungerar.",
         },
         {
           id: "kapitelkort-rivalen",
@@ -1143,7 +1144,7 @@ export const forelasningen: Forelasning = {
             "Undervisningen: låt eleverna undersöka uppgifter, ansvar och val — inte bara gissa vilka yrken som försvinner.",
           ],
           summary:
-            "Undervisningsraden är en direkt varning mot den vanligaste framtidslektionen. ”Vilka yrken försvinner?” är en gissningslek som gör eleverna till åskådare. Uppgifter, ansvar och val gör dem till deltagare.",
+            "Undervisningsraden är en varning mot den vanligaste framtidslektionen. Att gissa vilka yrken som försvinner gör eleverna till åskådare inför något som händer dem. Att undersöka uppgifter, ansvar och val gör dem till deltagare i något som ska bestämmas.",
         },
       ],
     },
@@ -1155,7 +1156,7 @@ export const forelasningen: Forelasning = {
       title: "Vem bestämmer vad AI ska vara?",
       tone: "skog",
       intro:
-        "Säcken knyts i tre steg. Först får bussrösterna sina roller. Sedan lossnar rollerna en efter en — det var vi som satte dem där. Och först därefter visas ramverket, för berättelsen ska bära och kartan bara kvittera.",
+        "Nu knyts säcken, och det sker i en bestämd ordning. Först får bussrösterna sina roller. Sedan tas rollerna bort igen, en efter en. Och först därefter visas ramverken — för berättelsen ska bära argumentet och kartan bara kvittera det.",
       slides: [
         {
           id: "tillbaka-pa-bussen",
@@ -1170,7 +1171,7 @@ export const forelasningen: Forelasning = {
           display:
             "Det här är inte fyra separata problem. Det är fyra sätt att förstå relationen mellan människa och AI.",
           summary:
-            "Rösterna ligger framme dämpade, och vid varje klick lyser en upp och får sin roll stämplad. Publiken gör kopplingen själv — det är starkare än att någon förklarar den.",
+            "De fyra rösterna från prologen får nu sina namn. Ingen av ungdomarna hade läst något ramverk, och ändå täcker de tillsammans hela fältet. Det säger något om var frågorna faktiskt uppstår: inte i styrdokument, utan i det dagliga användandet.",
         },
         {
           id: "rollerna-lossnar",
@@ -1184,7 +1185,7 @@ export const forelasningen: Forelasning = {
           ],
           display: "Det är roller vi ger den.",
           summary:
-            "Bilden öppnar intakt — samma omloppsbana som i prologen. Sedan lossar en roll per klick: kontaktlinjen dras tillbaka, namnet stryks över, föreställningen byts mot sitt förnekande. Kvar står mitten, orörd. Den var aldrig något av det där. Svaret flyttar hela ansvaret tillbaka till människan, och det är finalens gångjärn.",
+            "Och så tas de tillbaka, en efter en. AI vet inte, den är ingens tjänare, den kan inte vara en vän och den är inte en rival. Kvar står det som fanns i mitten hela tiden och som aldrig var något av det där. Rollerna var aldrig teknikens egenskaper — de var våra föreställningar, och därför är de våra att välja bort. Det är den insikten hela föreläsningen byggt mot.",
         },
         {
           id: "vad-ar-ai-da",
@@ -1198,7 +1199,7 @@ export const forelasningen: Forelasning = {
             "Med konsekvenser som människor måste bära.",
           ],
           summary:
-            "Fem rader som alla börjar och slutar i människan. Det är hela relationskritiken i komprimerad form: det finns ingen punkt i kedjan där människan inte är med.",
+            "Om AI inte är någon av rollerna, vad är den då? Fem led som alla börjar och slutar i människan. Det finns ingen punkt i kedjan — från byggande till träning till användning till konsekvenser — där människan inte är med. Det är inte en tröst utan en ansvarsfördelning.",
         },
         {
           id: "huvudtesen",
@@ -1207,7 +1208,7 @@ export const forelasningen: Forelasning = {
           display:
             "AI-litteracitet är att förstå tillräckligt om AI för att kunna bestämma vad AI ska få vara för dig. Och vad den aldrig ska få bli.",
           summary:
-            "Meningen hela föreläsningen byggt mot. Den andra halvan är den nödvändiga: litteracitet handlar lika mycket om vad man väljer bort. Ett orakel, en tjänare, en vän, en rival — och rätten att säga nej till varje roll.",
+            "Definitionen i sin fullständiga form. Första halvan handlar om vad man väljer, andra halvan om vad man väljer bort — och den andra är minst lika viktig. Ett orakel, en tjänare, en vän, en rival: fyra roller, och rätten att säga nej till var och en av dem.",
         },
         {
           id: "sju-omraden",
@@ -1224,7 +1225,7 @@ export const forelasningen: Forelasning = {
             "Framtid och samhälle — arbete, makt, demokrati och agens",
           ],
           summary:
-            "Kartan har funnits där hela timmen utan att någon behövt läsa den. Ordningen är avsiktlig: berättelsen först, ramverket sedan. Publiken känner igen områdena som något de redan varit med om — och det kan ligga i ämnesplaneringsdokumentet i morgon.",
+            "Under berättelsen har det hela tiden legat en innehållskarta med sju områden, utan att någon behövt läsa den. Ordningen är avsiktlig: berättelsen först, ramverket sedan. Den som möter områdena nu känner igen dem som något hen redan varit med om, i stället för som en lista att beta av. Kartan hjälper till med en enda sak, men den är viktig — att välja nästa pusselbit.",
           linkedActivities: [
             {
               id: "ai-litteracitet",
@@ -1245,7 +1246,7 @@ export const forelasningen: Forelasning = {
             "Forma AI — diskutera relationer, ansvar och samhällsval",
           ],
           summary:
-            "OECD:s fyra domäner visas först nu, och det är ett medvetet val: de fyra rollerna har gjort jobbet, ramverket kvitterar bara. Användbart i rektorssamtal och på föräldramöten — samma språk hela vägen upp till styrdokumenten. Det är också de fyra domäner som filtrerar hela den här webbplatsen.",
+            "OECD:s fyra domäner kommer allra sist, och det är ett medvetet val. Rollerna har redan gjort arbetet; ramverket kvitterar bara att det som sagts hänger ihop med det som står i styrdokument och internationella bedömningar. Det gör samma innehåll användbart i ett rektorssamtal eller på ett föräldramöte — och det är de fyra domänerna som filtrerar den här webbplatsen.",
         },
         {
           id: "miniprogrammet",
@@ -1260,7 +1261,7 @@ export const forelasningen: Forelasning = {
           display:
             "Fyra lektioner. Föreläsningen behöver inte bli ett enstaka temapass.",
           summary:
-            "Frågorna är formulerade som elevfrågor med flit — det är så lektionerna faktiskt börjar. Varje station kopplas till en metod publiken redan sett, så miniprogrammet inte blir ett nytt åtagande utan en ordning på det de just fått.",
+            "Fyra tillfällen som tillsammans täcker det mesta av innehållet, formulerade som elevfrågor eftersom det är så en lektion faktiskt öppnar. Varje station bygger på en metod som redan beskrivits, så programmet är inget nytt åtagande — bara en ordning på det som finns.",
         },
         {
           id: "bron-till-workshopen",
@@ -1268,7 +1269,7 @@ export const forelasningen: Forelasning = {
           chapter: "§ Bro · Webbsidan",
           heading: "Nu ska vi göra det undervisningsbart",
           summary:
-            "Övergången till workshopen — och till den här webbplatsen. Poängen sägs uttryckligen: även de som inte är med på workshopen får allt, självgående.",
+            "Övergången från föreläsning till praktik. Allt som beskrivits finns som färdiga aktiviteter, och de fungerar självgående — även för den som aldrig hört föreläsningen.",
         },
         {
           id: "meningen",
@@ -1277,7 +1278,7 @@ export const forelasningen: Forelasning = {
           display:
             "Det viktigaste mina elever behöver förstå om AI är … att jag kan välja vilken roll AI ska få.",
           summary:
-            "En slotmaskin roterar timmens kandidater — en per kapitel, plus två som är summan av allt. Den stoppas muntligt på den sista. Samma mening avslutar workshopen, då skriftligt och med en undervisningsidé bredvid.",
+            "Sex möjliga avslutningar på samma mening, en per kapitel plus två som är summan av allt. Den som stannar kvar är den sista, och den är avsiktligt formulerad i första person: det är inte en insikt om AI utan om den egna handlingsutrymmet.",
         },
         {
           id: "tack",
@@ -1287,7 +1288,7 @@ export const forelasningen: Forelasning = {
           display:
             "Frågan är om vi hjälper dem att förstå vad de pratar med.",
           summary:
-            "Den muntliga avslutningen: AI är inte ett orakel, en tjänare, en vän eller en rival. Det är roller vi ger den. Våra elever behöver inte kunna allt om artificiell intelligens, men de behöver förstå tillräckligt för att kunna välja när AI ska hjälpa, när den ska utmana, när den ska lämnas utanför och när en människa måste komma in. Och den lilla uppmaningen sist: välj en aktivitet, pröva den inom två veckor.",
+            "AI är inte ett orakel, en tjänare, en vän eller en rival. Det är roller vi ger den. Eleverna behöver inte kunna allt om artificiell intelligens, men de behöver förstå tillräckligt för att kunna välja när AI ska hjälpa, när den ska utmana, när den ska lämnas utanför och när en människa måste komma in. Samtalen på bussen pågår redan. Frågan är bara om någon vuxen är med i dem.",
         },
       ],
     },

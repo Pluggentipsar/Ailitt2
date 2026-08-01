@@ -138,13 +138,67 @@ export default function WorkshopSida() {
         </div>
       </section>
 
-      {/* VARFÖR ORDNINGEN */}
+      {/* VAD DET HÄR ÄR — för den som hittat hit utan att någon pekat dit */}
       <div className="container mx-auto px-4 pt-10">
-        <div className="max-w-3xl rounded-2xl border-l-4 border-teal-500 bg-white p-5 shadow-sm">
-          <div className="mb-1.5 text-xs font-bold uppercase tracking-wider text-teal-700">
-            Varför den här ordningen
+        <div className="max-w-3xl space-y-4">
+          <div className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
+            <h2 className="mb-4 text-xl font-bold text-gray-900">
+              Vad det här är
+            </h2>
+            <dl className="space-y-4 text-[15px] leading-relaxed text-gray-700">
+              <div>
+                <dt className="font-semibold text-gray-900">För vem</dt>
+                <dd>{workshop.vadDetAr.forVem}</dd>
+              </div>
+              <div>
+                <dt className="font-semibold text-gray-900">
+                  Du som håller i den
+                </dt>
+                <dd>{workshop.vadDetAr.duSomLeder}</dd>
+              </div>
+              <div>
+                <dt className="font-semibold text-gray-900">
+                  Om gruppen inte hört föreläsningen
+                </dt>
+                <dd>{workshop.vadDetAr.utanForelasningen}</dd>
+              </div>
+            </dl>
           </div>
-          <p className="leading-relaxed text-gray-700">{workshop.sekvensNot}</p>
+
+          <div className="grid gap-4 sm:grid-cols-2">
+            <div className="rounded-2xl border border-gray-200 bg-white p-5">
+              <h3 className="mb-2.5 text-sm font-bold uppercase tracking-wider text-gray-700">
+                Det här behövs i rummet
+              </h3>
+              <ul className="space-y-2 text-sm leading-snug text-gray-700">
+                {workshop.vadDetAr.detHarBehovsIRummet.map((rad, i) => (
+                  <li key={i} className="flex gap-2.5">
+                    <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-teal-500" />
+                    {rad}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="space-y-4">
+              <div className="rounded-2xl border border-gray-200 bg-white p-5">
+                <h3 className="mb-2 text-sm font-bold uppercase tracking-wider text-gray-700">
+                  Om du har mindre tid
+                </h3>
+                <p className="text-sm leading-relaxed text-gray-700">
+                  {workshop.vadDetAr.korta}
+                </p>
+              </div>
+              <div className="rounded-2xl border-l-4 border-teal-500 bg-teal-50/60 p-5">
+                <h3 className="mb-2 text-sm font-bold uppercase tracking-wider text-teal-800">
+                  Varför den här ordningen
+                </h3>
+                <p className="text-sm leading-relaxed text-gray-700">
+                  {workshop.sekvensNot}
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
