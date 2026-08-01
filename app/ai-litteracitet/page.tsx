@@ -1,7 +1,8 @@
-"use client";
-
+// Serverkomponent. Sidan har ingen interaktion, och täckningskartan räknar
+// ur hela sökindexet — det ska inte följa med ner till klienten.
 import { AiLiteracyBadge } from "@/components/ui/AiLiteracyBadge";
 import { aiLiteracyConfig } from "@/lib/aiLiteracyConfig";
+import { Tackningskarta } from "@/components/ramverk/Tackningskarta";
 
 const principles = [
   {
@@ -247,6 +248,8 @@ export default function AILitteracitetPage() {
             ))}
           </div>
         </section>
+
+        <Tackningskarta />
 
         <section className="mx-auto max-w-4xl rounded-3xl border border-cyan-100 bg-gradient-to-br from-cyan-500 via-sky-500 to-blue-600 p-12 text-center text-white shadow-xl">
           <h2 className="text-3xl font-bold drop-shadow-lg">

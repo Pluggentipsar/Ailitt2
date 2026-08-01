@@ -99,7 +99,13 @@ export default function Home() {
   //   Stadium — släpper igenom otaggat. Ett verktyg har ingen årskurs;
   //             Google Lens funkar i åk 4 och på gymnasiet. Strikt filter
   //             hade dolt hela verktygslådan på första klick.
-  //   Dimension — släpper igenom otaggat, av samma skäl (oförändrat).
+  //   Dimension — strikt. Var tidigare släppande, av samma skäl som stadium,
+  //             men det gällde när dimensionerna låg som primärfilter jämte
+  //             typ. Nu ligger de bakom ett utfällbart block och väljs
+  //             medvetet — och täckningskartan på /ai-litteracitet länkar hit
+  //             med en siffra bredvid sig. Släpper filtret igenom otaggat
+  //             stämmer inte kartans siffra med träfflistans, och då tror man
+  //             mindre på båda.
   const matcharDoman = (it: { domaner?: Doman[] }) =>
     selectedDomains.length === 0 ||
     selectedDomains.some((d) => it.domaner?.includes(d));
@@ -109,10 +115,10 @@ export default function Home() {
     !it.stadier?.length ||
     selectedStadier.some((s) => it.stadier!.includes(s));
 
+  // ELLER, som domänfiltret — flera dimensioner betyder "något av dessa".
   const matcharDimension = (it: { aiLiteracyIds?: number[] }) =>
     selectedLiteracyIds.length === 0 ||
-    !it.aiLiteracyIds?.length ||
-    selectedLiteracyIds.every((id) => it.aiLiteracyIds!.includes(id));
+    selectedLiteracyIds.some((id) => it.aiLiteracyIds?.includes(id));
 
   const sokta = useMemo(
     () =>
@@ -135,6 +141,33 @@ export default function Home() {
   useEffect(() => {
     setVisasAntal(SIDSTORLEK);
   }, [searchQuery, selectedDomains, selectedStadier, selectedLiteracyIds]);
+
+  // Filter går att länka till: /?doman=forma&stadium=ak4-6&dimension=3#search.
+  // Läses ur window i stället för useSearchParams, som skulle kräva en
+  // Suspense-gräns runt hela sidan för att den ska kunna förrenderas statiskt.
+  // Körs en gång vid montering; därefter äger komponenten sitt eget tillstånd.
+  useEffect(() => {
+    const p = new URLSearchParams(window.location.search);
+    const las = <T extends string>(nyckel: string, giltiga: readonly T[]) =>
+      (p.get(nyckel) ?? "")
+        .split(",")
+        .filter((v): v is T => (giltiga as readonly string[]).includes(v));
+
+    const domaner = las("doman", DOMAN_ORDNING);
+    const stadier = las("stadium", ARSKURSBAND_ORDNING);
+    const dimensioner = (p.get("dimension") ?? "")
+      .split(",")
+      .map(Number)
+      .filter((n) => Number.isInteger(n) && aiLiteracyConfig.some((a) => a.id === n));
+
+    if (domaner.length) setSelectedDomains(domaner);
+    if (stadier.length) setSelectedStadier(stadier);
+    if (dimensioner.length) {
+      setSelectedLiteracyIds(dimensioner);
+      // Fäll ut blocket så att det syns VARFÖR träffarna är begränsade.
+      setShowDimensions(true);
+    }
+  }, []);
 
   // Antalen i chipsen räknas mot ALLA ANDRA filter utom det egna, så siffran
   // svarar på "hur många får jag om jag klickar här" — inte "hur många ser
@@ -565,7 +598,15 @@ export default function Home() {
             <div className="mt-3">
               <p className="mb-3 text-xs text-gray-500">
                 Dimensionerna beskriver täckning över en termin. Innehåll utan
-                koppling visas alltid.
+                koppling faller bort här — verktyg tränar ingen dimension
+                förrän någon byggt en uppgift av dem.{" "}
+                <a
+                  href="/ai-litteracitet#tackning"
+                  className="font-medium underline underline-offset-2 hover:text-gray-700"
+                >
+                  Se täckningen över hela sajten
+                </a>
+                .
               </p>
               <div className="flex flex-wrap gap-2">
                 {aiLiteracyConfig.map((aspect) => (
