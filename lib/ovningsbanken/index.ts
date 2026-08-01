@@ -35,6 +35,7 @@ import { ovning as robotEllerManniska } from "./ovningar/robot-eller-manniska";
 import { ovning as stilstolden } from "./ovningar/stilstolden";
 import { ovning as turistguiden } from "./ovningar/turistguiden";
 import { ovning as klassensAiPolicy } from "./ovningar/klassens-ai-policy";
+import { ovning as vadSkaSystemenFaGora } from "./ovningar/vad-ska-systemen-fa-gora";
 
 export const nyaOvningar: BankOvning[] = [
   aiLasteAldrigKallan,
@@ -61,6 +62,7 @@ export const nyaOvningar: BankOvning[] = [
   stilstolden,
   turistguiden,
   klassensAiPolicy,
+  vadSkaSystemenFaGora,
 ];
 
 export const ovningar: BankOvning[] = [
