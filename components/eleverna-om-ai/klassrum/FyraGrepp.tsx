@@ -49,55 +49,46 @@ const GREPPEN: Grepp[] = [
   },
 ];
 
-const NANDO_NIVAER: Array<{ namn: string; beskrivning: string; farg: string }> =
-  [
-    {
-      namn: "Extra mild",
-      beskrivning: "AI sammanfattar",
-      farg: "border-sky-200 bg-sky-50 text-sky-900",
-    },
-    {
-      namn: "Mild",
-      beskrivning: "AI jämför förklaringar",
-      farg: "border-amber-200 bg-amber-50 text-amber-900",
-    },
-    {
-      namn: "Het",
-      beskrivning: "AI utmanar elevens idéer",
-      farg: "border-orange-300 bg-orange-100 text-orange-900",
-    },
-    {
-      namn: "Extra het",
-      beskrivning: "AI som kritisk expert — eleven värderar",
-      farg: "border-red-300 bg-red-100 text-red-900",
-    },
-  ];
+// Workshop-paletten i stigande hetta i stället för Tailwinds sky→red.
+const NANDO_NIVAER: Array<{ namn: string; beskrivning: string; ton: string }> = [
+  { namn: "Extra mild", beskrivning: "AI sammanfattar", ton: "havsblå" },
+  { namn: "Mild", beskrivning: "AI jämför förklaringar", ton: "skog" },
+  { namn: "Het", beskrivning: "AI utmanar dina idéer", ton: "senap" },
+  {
+    namn: "Extra het",
+    beskrivning: "AI som kritisk expert — du värderar",
+    ton: "terrakotta",
+  },
+];
 
 export function FyraGrepp() {
   const [aktivt, setAktivt] = useState(0);
   const grepp = GREPPEN[aktivt];
 
   return (
-    <div className="space-y-6">
-      {/* Flikar */}
-      <div className="flex flex-wrap gap-2">
+    <div className="mx-auto w-full max-w-[72rem] space-y-[2.5vh]">
+      {/* Flikar — icke-linjärt val är hela poängen: läraren hoppar dit
+          klassens fråga leder, inte i en förutbestämd ordning. */}
+      <div className="flex flex-wrap justify-center gap-2">
         {GREPPEN.map((g, i) => (
           <button
             key={g.id}
             type="button"
             onClick={() => setAktivt(i)}
             className={cn(
-              "inline-flex items-center gap-2 rounded-full border px-4 py-2 text-base font-semibold transition sm:text-lg",
+              "inline-flex items-center gap-2 rounded-full border-2 px-4 py-1.5 font-semibold transition",
               aktivt === i
-                ? "border-teal-600 bg-teal-600 text-white shadow-md"
-                : "border-gray-300 bg-white text-gray-700 hover:border-teal-300 hover:text-teal-700"
+                ? "border-stone-900 bg-stone-900 text-workshop-canvas"
+                : "border-stone-300 bg-white/60 text-stone-600 hover:border-stone-500"
             )}
+            style={{ fontSize: "clamp(0.75rem, 1.9vh, 1.35rem)" }}
           >
             <span
               className={cn(
-                "flex h-6 w-6 items-center justify-center rounded-full text-sm font-bold",
-                aktivt === i ? "bg-white/20 text-white" : "bg-gray-100 text-gray-500"
+                "font-display",
+                aktivt === i ? "text-workshop-canvas" : "text-stone-400"
               )}
+              style={{ fontSize: "1.3em" }}
             >
               {i + 1}
             </span>
@@ -106,26 +97,43 @@ export function FyraGrepp() {
         ))}
       </div>
 
-      {/* Aktivt grepp */}
-      <div className="space-y-5">
-        <p className="text-lg leading-relaxed text-gray-700 sm:text-xl">
+      <div className="space-y-[2vh]">
+        <p
+          className="mx-auto max-w-[54ch] text-pretty text-center leading-snug text-stone-700"
+          style={{ fontSize: "clamp(0.9rem, 2.4vh, 1.9rem)" }}
+        >
           {grepp.beskrivning}
         </p>
 
-        <div className="space-y-3">
-          <div className="flex flex-col items-end gap-1">
-            <span className="pr-1 text-xs font-semibold uppercase tracking-wide text-gray-400">
+        <div className="mx-auto max-w-[64rem] space-y-[1.5vh]">
+          <div>
+            <div
+              className="mb-1 uppercase tracking-wider text-stone-500"
+              style={{ fontSize: "clamp(0.65rem, 1.5vh, 1rem)" }}
+            >
               Eleven
-            </span>
-            <div className="max-w-[85%] rounded-2xl rounded-br-md bg-teal-600 px-5 py-4 text-lg leading-relaxed text-white shadow-sm sm:text-xl">
+            </div>
+            <div
+              className="rounded-3xl rounded-bl-md bg-stone-100 px-6 py-4 leading-snug text-stone-800"
+              style={{ fontSize: "clamp(0.9rem, 2.5vh, 2rem)" }}
+            >
               {grepp.elev}
             </div>
           </div>
-          <div className="flex flex-col items-start gap-1">
-            <span className="pl-1 text-xs font-semibold uppercase tracking-wide text-gray-400">
+          <div>
+            <div
+              className="mb-1 uppercase tracking-wider text-stone-500"
+              style={{ fontSize: "clamp(0.65rem, 1.5vh, 1rem)" }}
+            >
               AI
-            </span>
-            <div className="max-w-[85%] rounded-2xl rounded-bl-md bg-gray-100 px-5 py-4 text-lg leading-relaxed text-gray-900 shadow-sm sm:text-xl">
+            </div>
+            <div
+              className="rounded-3xl rounded-br-md px-6 py-4 leading-snug text-stone-800"
+              style={{
+                background: "var(--workshop-lila-soft)",
+                fontSize: "clamp(0.9rem, 2.5vh, 2rem)",
+              }}
+            >
               {grepp.ai}
             </div>
           </div>
@@ -133,23 +141,30 @@ export function FyraGrepp() {
 
         {/* Nivåskalan — bara för Nando-menyn */}
         {grepp.id === "nando" && (
-          <div>
-            <p className="mb-3 text-sm font-semibold uppercase tracking-wide text-gray-500">
-              Nivåskalan — eleven väljer och klättrar
-            </p>
-            <div className="grid grid-cols-1 gap-3 sm:grid-cols-4">
-              {NANDO_NIVAER.map((niva) => (
-                <div
-                  key={niva.namn}
-                  className={cn("rounded-2xl border-2 p-4", niva.farg)}
+          <div className="grid grid-cols-2 gap-2 sm:grid-cols-4">
+            {NANDO_NIVAER.map((niva) => (
+              <div
+                key={niva.namn}
+                className="rounded-2xl border-2 bg-white/50 p-3"
+                style={{ borderColor: `var(--workshop-${niva.ton})` }}
+              >
+                <p
+                  className="font-bold"
+                  style={{
+                    color: `var(--workshop-${niva.ton})`,
+                    fontSize: "clamp(0.75rem, 1.9vh, 1.3rem)",
+                  }}
                 >
-                  <p className="text-lg font-bold">{niva.namn}</p>
-                  <p className="mt-1 text-sm leading-snug opacity-80">
-                    {niva.beskrivning}
-                  </p>
-                </div>
-              ))}
-            </div>
+                  {niva.namn}
+                </p>
+                <p
+                  className="mt-0.5 leading-snug text-stone-600"
+                  style={{ fontSize: "clamp(0.65rem, 1.5vh, 1rem)" }}
+                >
+                  {niva.beskrivning}
+                </p>
+              </div>
+            ))}
           </div>
         )}
       </div>

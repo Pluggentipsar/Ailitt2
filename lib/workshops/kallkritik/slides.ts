@@ -207,6 +207,10 @@ export function slideBlocksToText(
       case "images":
         b.items.forEach((i) => rader.push(i.caption ?? i.alt));
         break;
+      case "interaktiv":
+        // Interaktionen finns bara i webbversionen — platta fallbacken.
+        rader.push(...slideBlocksToText(b.statiskFallback, faltVarden));
+        break;
     }
   }
   return rader;

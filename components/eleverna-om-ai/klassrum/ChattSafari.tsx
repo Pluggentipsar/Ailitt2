@@ -87,25 +87,44 @@ export function ChattSafari() {
   const vaxla = (id: MarkeringsId) =>
     setAktiv((nuvarande) => (nuvarande === id ? null : id));
 
+  const SMA = "clamp(0.65rem, 1.5vh, 1rem)";
+  const BUBBLA = "clamp(0.9rem, 2.5vh, 2rem)";
+
   return (
-    <div className="space-y-8">
-      {/* Exempelchatten */}
-      <div className="space-y-3">
-        <div className="flex flex-col items-end gap-1">
-          <span className="pr-1 text-xs font-semibold uppercase tracking-wide text-gray-400">
+    <div className="mx-auto w-full max-w-[68rem] space-y-[2.5vh]">
+      {/* Exempelchatten — de markerade orden är klickbara, och det är hela
+          poängen: läraren pekar ut ett knep i taget medan klassen tittar. */}
+      <div className="space-y-[1.5vh]">
+        <div>
+          <div
+            className="mb-1 uppercase tracking-wider text-stone-500"
+            style={{ fontSize: SMA }}
+          >
             Elev
-          </span>
-          <div className="max-w-[85%] rounded-2xl rounded-br-md bg-teal-600 px-5 py-4 text-lg leading-relaxed text-white shadow-sm sm:text-xl">
+          </div>
+          <div
+            className="rounded-3xl rounded-bl-md bg-stone-100 px-6 py-4 leading-snug text-stone-800"
+            style={{ fontSize: BUBBLA }}
+          >
             Jag har bråkat med min bästa kompis. Det känns som att det är helt
             hennes fel.
           </div>
         </div>
 
-        <div className="flex flex-col items-start gap-1">
-          <span className="pl-1 text-xs font-semibold uppercase tracking-wide text-gray-400">
+        <div>
+          <div
+            className="mb-1 uppercase tracking-wider text-stone-500"
+            style={{ fontSize: SMA }}
+          >
             AI
-          </span>
-          <div className="max-w-[85%] rounded-2xl rounded-bl-md bg-gray-100 px-5 py-4 text-lg leading-relaxed text-gray-900 shadow-sm sm:text-xl">
+          </div>
+          <div
+            className="rounded-3xl rounded-br-md px-6 py-4 leading-snug text-stone-800"
+            style={{
+              background: "var(--workshop-lila-soft)",
+              fontSize: BUBBLA,
+            }}
+          >
             {AI_SVAR.map((segment, i) =>
               segment.id ? (
                 <button
@@ -113,11 +132,16 @@ export function ChattSafari() {
                   type="button"
                   onClick={() => vaxla(segment.id!)}
                   className={cn(
-                    "inline cursor-pointer rounded px-0.5 font-medium underline decoration-dotted decoration-2 underline-offset-4 transition",
+                    "inline cursor-pointer rounded px-1 font-medium underline decoration-dotted decoration-2 underline-offset-4 transition",
                     aktiv === segment.id
-                      ? "bg-yellow-200 text-gray-900 decoration-yellow-500 ring-2 ring-yellow-400"
-                      : "decoration-gray-400 hover:bg-yellow-100"
+                      ? "text-stone-900 decoration-transparent"
+                      : "decoration-stone-500 hover:bg-white/50"
                   )}
+                  style={
+                    aktiv === segment.id
+                      ? { background: "var(--workshop-senap-soft)" }
+                      : undefined
+                  }
                 >
                   {segment.text}
                 </button>
@@ -131,21 +155,25 @@ export function ChattSafari() {
 
       {/* Markerings-chips */}
       <div>
-        <p className="mb-3 text-sm font-semibold uppercase tracking-wide text-gray-500">
+        <p
+          className="mb-2 text-center uppercase tracking-widest text-stone-500"
+          style={{ fontSize: SMA }}
+        >
           Klicka på ett knep för att se det i chatten
         </p>
-        <div className="flex flex-wrap gap-2">
+        <div className="flex flex-wrap justify-center gap-2">
           {(Object.keys(MARKERINGAR) as MarkeringsId[]).map((id) => (
             <button
               key={id}
               type="button"
               onClick={() => vaxla(id)}
               className={cn(
-                "rounded-full border px-4 py-2 text-base font-semibold transition sm:text-lg",
+                "rounded-full border-2 px-4 py-1.5 font-semibold transition",
                 aktiv === id
-                  ? "border-yellow-400 bg-yellow-100 text-gray-900 shadow-sm"
-                  : "border-gray-300 bg-white text-gray-700 hover:border-yellow-300 hover:bg-yellow-50"
+                  ? "border-stone-900 bg-stone-900 text-workshop-canvas"
+                  : "border-stone-300 bg-white/60 text-stone-600 hover:border-stone-500"
               )}
+              style={{ fontSize: "clamp(0.75rem, 1.9vh, 1.35rem)" }}
             >
               {MARKERINGAR[id].chip}
             </button>
@@ -153,49 +181,66 @@ export function ChattSafari() {
         </div>
 
         {aktiv && (
-          <div className="mt-4 rounded-2xl border-2 border-yellow-300 bg-yellow-50 p-5">
-            <p className="text-lg font-medium leading-relaxed text-gray-900 sm:text-xl">
+          <div
+            className="mx-auto mt-[1.5vh] max-w-[54ch] rounded-2xl border-l-4 px-5 py-3"
+            style={{
+              borderColor: "var(--workshop-senap)",
+              background: "rgba(255,255,255,0.55)",
+            }}
+          >
+            <p
+              className="text-pretty leading-snug text-stone-800"
+              style={{ fontSize: "clamp(0.85rem, 2.2vh, 1.7rem)" }}
+            >
               {MARKERINGAR[aktiv].forklaring}
             </p>
           </div>
         )}
       </div>
 
-      {/* Bokstavskoderna */}
-      <div className="rounded-2xl border border-gray-200/80 bg-white">
+      {/* Bokstavskoderna — hopfällda, för de behövs först när eleverna ska
+          koda egna chattar. På skärmen är de referens, inte innehåll. */}
+      <div className="mx-auto max-w-[60rem] rounded-2xl border border-stone-300 bg-white/50">
         <button
           type="button"
           onClick={() => setKoderOppna((o) => !o)}
-          className="flex w-full items-center justify-between gap-4 rounded-2xl px-5 py-4 text-left transition hover:bg-gray-50"
+          className="flex w-full items-center justify-between gap-4 rounded-2xl px-5 py-2.5 text-left transition hover:bg-white/60"
         >
-          <span>
-            <span className="block text-lg font-bold text-gray-900 sm:text-xl">
-              Bokstavskoderna
-            </span>
-            <span className="block text-sm text-gray-500">
-              Verktyget eleverna kodar egna chattar med
-            </span>
+          <span
+            className="font-semibold text-stone-700"
+            style={{ fontSize: "clamp(0.75rem, 1.9vh, 1.3rem)" }}
+          >
+            Bokstavskoderna — verktyget för egna chattar
           </span>
           <ChevronDown
             className={cn(
-              "h-6 w-6 shrink-0 text-gray-400 transition-transform",
+              "h-5 w-5 shrink-0 text-stone-400 transition-transform",
               koderOppna && "rotate-180"
             )}
           />
         </button>
 
         {koderOppna && (
-          <ul className="grid grid-cols-1 gap-3 border-t border-gray-100 p-5 md:grid-cols-2">
+          <ul className="grid grid-cols-1 gap-2 border-t border-stone-200 p-4 md:grid-cols-2">
             {BOKSTAVSKODER.map((kod) => (
-              <li key={kod.kod} className="flex items-start gap-4">
-                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-gray-900 font-mono text-lg font-bold text-white">
+              <li key={kod.kod} className="flex items-start gap-3">
+                <span
+                  className="flex shrink-0 items-center justify-center rounded-lg bg-stone-900 px-2 py-0.5 font-display text-workshop-canvas"
+                  style={{ fontSize: "clamp(0.85rem, 2.1vh, 1.5rem)" }}
+                >
                   {kod.kod}
                 </span>
                 <span>
-                  <span className="block text-lg font-semibold text-gray-900">
+                  <span
+                    className="block font-semibold text-stone-800"
+                    style={{ fontSize: SMA }}
+                  >
                     {kod.namn}
                   </span>
-                  <span className="block text-base leading-relaxed text-gray-600">
+                  <span
+                    className="block leading-snug text-stone-600"
+                    style={{ fontSize: SMA }}
+                  >
                     {kod.beskrivning}
                   </span>
                 </span>

@@ -325,6 +325,23 @@ function PrintBlock({
     );
   }
 
+  if (b.type === "interaktiv") {
+    // Utskrift kan inte bära interaktion — visa den statiska fallbacken.
+    return (
+      <div className="space-y-3">
+        {b.statiskFallback.map((fb, i) => (
+          <PrintBlock
+            key={i}
+            block={fb}
+            tonFarg={tonFarg}
+            varden={varden}
+            ensam={b.statiskFallback.length === 1}
+          />
+        ))}
+      </div>
+    );
+  }
+
   if (b.type === "lararfalt") {
     const varde = (varden[b.id] ?? "").trim();
     const arBild = /^https?:\/\/\S+\.(png|jpe?g|gif|webp|avif|svg)/i.test(varde);

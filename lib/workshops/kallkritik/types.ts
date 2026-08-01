@@ -136,6 +136,27 @@ export type Block =
       // helt. Använd för upprepade platser — t.ex. exempel 5 och 6 när
       // läraren bara förberett fyra.
       valfri?: boolean;
+    }
+  | {
+      // En interaktiv komponent inbäddad som slide. För det fåtal moment där
+      // interaktionen ÄR övningen och inte går att uttrycka som stegade
+      // slides: live rösträkning, klickbara markeringar i en text, icke-
+      // linjära flikar.
+      //
+      // Använd sparsamt. Ett moment som bara stegar fram innehåll ska vara
+      // författade slides — motorn gör redan det, och slides får utskrift,
+      // PowerPoint och lärarfält på köpet.
+      type: "interaktiv";
+      // Nyckel i komponentregistret, se interaktivRegistry.ts.
+      komponent: string;
+      // Vad utskrift och PowerPoint visar i stället — de kan inte bära
+      // interaktion. Utan detta blir sliden tom i exporterna, vilket är
+      // sämre än att inte ha den alls.
+      statiskFallback: Block[];
+      // Komponenten äger piltangenterna. Motorn hoppar då över sin egen
+      // tangentnavigering medan sliden visas — läraren bläddrar vidare med
+      // pilknapparna på skärmen i stället.
+      agerTangentbord?: boolean;
     };
 
 /**

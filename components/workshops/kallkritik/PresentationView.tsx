@@ -25,6 +25,7 @@ import {
 import { useLararfalt } from "@/hooks/useLararfalt";
 import { PrintDeck } from "./PrintDeck";
 import { ExportButtons } from "./ExportButtons";
+import { INTERAKTIVA_KOMPONENTER } from "./interaktivRegistry";
 
 export type { AuthoredSlide };
 
@@ -538,6 +539,31 @@ function AuthoredSlideView({
             );
           }
 
+          if (b.type === "interaktiv") {
+            const Komponent = INTERAKTIVA_KOMPONENTER[b.komponent];
+            if (!Komponent) {
+              // Okänt namn — visa fallbacken hellre än en tom slide.
+              return (
+                <div key={i} className="mx-auto max-w-[52ch] space-y-[2vh]">
+                  {b.statiskFallback.map((fb, idx) => (
+                    <p
+                      key={idx}
+                      className="text-pretty text-center font-medium leading-snug text-stone-800"
+                      style={{ fontSize: P }}
+                    >
+                      {fb.type === "p" || fb.type === "h" ? fb.text : ""}
+                    </p>
+                  ))}
+                </div>
+              );
+            }
+            return (
+              <div key={i} className="mx-auto w-full">
+                <Komponent />
+              </div>
+            );
+          }
+
           if (b.type === "lararfalt") {
             const varde = (varden[b.id] ?? "").trim();
             // Ser texten ut som en bild-URL visar vi bilden i stället.
@@ -649,23 +675,36 @@ export function PresentationEngine({
   const next = () => setSlideIdx((i) => Math.min(i + 1, total - 1));
   const prev = () => setSlideIdx((i) => Math.max(i - 1, 0));
 
+  // Interaktiva slides har egna knappar. Mellanslag skulle då både bläddra
+  // vidare OCH aktivera knappen som råkar ha fokus — därför tar komponenten
+  // över tangentbordet på de sliderna. Deklarerar blocket agerTangentbord
+  // lämnar motorn även piltangenterna ifred; läraren bläddrar med pilarna på
+  // skärmen i stället.
+  const interaktivtBlock = slide?.blocks?.find((b) => b.type === "interaktiv");
+  const harInteraktiv = Boolean(interaktivtBlock);
+  const komponentAgerTangentbord =
+    interaktivtBlock?.type === "interaktiv" && interaktivtBlock.agerTangentbord;
+
   useEffect(() => {
     const handler = (e: KeyboardEvent) => {
-      if (e.key === "ArrowRight" || e.key === " ") {
+      if (e.key === "Escape" && fullscreen) {
+        document.exitFullscreen?.();
+        setFullscreen(false);
+        return;
+      }
+      if (komponentAgerTangentbord) return;
+      if (e.key === "ArrowRight" || (e.key === " " && !harInteraktiv)) {
         e.preventDefault();
         next();
       } else if (e.key === "ArrowLeft") {
         e.preventDefault();
         prev();
-      } else if (e.key === "Escape" && fullscreen) {
-        document.exitFullscreen?.();
-        setFullscreen(false);
       }
     };
     window.addEventListener("keydown", handler);
     return () => window.removeEventListener("keydown", handler);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [total, fullscreen]);
+  }, [total, fullscreen, harInteraktiv, komponentAgerTangentbord]);
 
   useEffect(() => {
     setSlideIdx(0);

@@ -11,7 +11,7 @@
 // PDF-utskriften vägen.
 
 import type { Block } from "@/lib/workshops/kallkritik/types";
-import type { Slide } from "@/lib/workshops/kallkritik/slides";
+import { type Slide, slideBlocksToText } from "@/lib/workshops/kallkritik/slides";
 
 /** Workshop-paletten i hex — speglar :root i workshop.css. */
 const TON: Record<string, string> = {
@@ -529,6 +529,24 @@ function renderaAuthored(
           valign: "middle",
         });
       }
+      return;
+    }
+
+    if (b.type === "interaktiv") {
+      // En pptx kan inte innehålla en live-komponent. Platta fallbacken till
+      // text — hellre det än en tom slide i lärarens nedladdade fil.
+      const rader = slideBlocksToText(b.statiskFallback, faltVarden);
+      s.addText(rader.join("\n"), {
+        x: 1.0,
+        y,
+        w: B - 2.0,
+        h: hojd,
+        fontFace: BROD,
+        fontSize: 18,
+        color: BLACK,
+        align: "center",
+        valign: "middle",
+      });
       return;
     }
 

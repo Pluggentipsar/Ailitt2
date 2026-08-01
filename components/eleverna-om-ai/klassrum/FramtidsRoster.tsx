@@ -3,6 +3,14 @@
 import { useState } from "react";
 import { RotateCcw } from "lucide-react";
 
+// Live rösträkning för projektorn. Klassen räcker upp händer, läraren
+// klickar, siffrorna växer på skärmen — det är det enda momentet här som
+// inte går att uttrycka som stegade slides.
+//
+// Samtalsfrågorna och avslutningsmeningen som tidigare låg i komponenten är
+// nu egna slides i klassrumsspåret. De är statiskt innehåll och hör hemma
+// där: då följer de med i utskrift och PowerPoint.
+
 const SCENARIER = [
   "AI:n väljer varorna i din närbutik",
   "AI:n anställer butikens personal",
@@ -14,25 +22,12 @@ const SCENARIER = [
   "AI:n flyger planet du sitter i",
 ];
 
-const ALTERNATIV: { etikett: string; klass: string }[] = [
-  {
-    etikett: "Acceptera",
-    klass:
-      "border-emerald-300 bg-emerald-50 text-emerald-800 hover:bg-emerald-100",
-  },
-  {
-    etikett: "Acceptera med villkor",
-    klass: "border-amber-300 bg-amber-50 text-amber-800 hover:bg-amber-100",
-  },
-  {
-    etikett: "Vägra",
-    klass: "border-rose-300 bg-rose-50 text-rose-800 hover:bg-rose-100",
-  },
-];
-
-const SAMTALSFRAGOR = [
-  "Vilka jobb vill vi att människor gör — även om AI kan?",
-  "Vad är värt att lära sig — även om en chatbot redan kan det?",
+// Workshop-paletten i stället för Tailwinds emerald/amber/rose — sliden
+// ligger på gräddpapper och ska höra ihop med resten av spåret.
+const ALTERNATIV: { etikett: string; ton: string }[] = [
+  { etikett: "Acceptera", ton: "skog" },
+  { etikett: "Med villkor", ton: "senap" },
+  { etikett: "Vägra", ton: "terrakotta" },
 ];
 
 function nollstallda(): number[][] {
@@ -51,74 +46,62 @@ export function FramtidsRoster() {
   };
 
   return (
-    <div className="space-y-8">
-      {/* Röstningen */}
-      <div className="rounded-2xl border border-gray-200/80 bg-white/90 p-6 shadow-lg sm:p-8">
-        <div className="flex flex-wrap items-center justify-between gap-3">
-          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-gray-500">
-            Klassen räcker upp händer — läraren klickar
-          </p>
-          <button
-            onClick={() => setRoster(nollstallda())}
-            className="inline-flex items-center gap-2 rounded-full border border-gray-300 bg-white px-4 py-2 text-sm font-semibold text-gray-600 transition hover:bg-gray-50"
-          >
-            <RotateCcw className="h-4 w-4" />
-            Nollställ
-          </button>
-        </div>
-
-        <div className="mt-6 divide-y divide-gray-100">
-          {SCENARIER.map((scenario, rad) => (
-            <div
-              key={scenario}
-              className="flex flex-col gap-3 py-5 lg:flex-row lg:items-center lg:justify-between lg:gap-6"
-            >
-              <p className="text-xl font-semibold leading-snug text-gray-900 sm:text-2xl lg:max-w-md">
-                {scenario}
-              </p>
-              <div className="flex flex-wrap gap-2 sm:gap-3">
-                {ALTERNATIV.map((alternativ, kolumn) => (
-                  <button
-                    key={alternativ.etikett}
-                    onClick={() => rosta(rad, kolumn)}
-                    className={`inline-flex items-center gap-2 rounded-full border-2 px-4 py-2.5 text-base font-semibold transition active:scale-95 sm:text-lg ${alternativ.klass}`}
-                  >
-                    {alternativ.etikett}
-                    <span className="inline-flex h-7 min-w-7 items-center justify-center rounded-full bg-white px-1.5 font-mono text-base font-bold shadow-sm">
-                      {roster[rad][kolumn]}
-                    </span>
-                  </button>
-                ))}
-              </div>
-            </div>
-          ))}
-        </div>
+    <div className="mx-auto w-full max-w-[76rem]">
+      <div className="mb-[2vh] flex items-center justify-between gap-4">
+        <p
+          className="uppercase tracking-widest text-stone-500"
+          style={{ fontSize: "clamp(0.75rem, 1.8vh, 1.25rem)" }}
+        >
+          Räck upp händerna — jag klickar
+        </p>
+        <button
+          onClick={() => setRoster(nollstallda())}
+          className="inline-flex items-center gap-2 rounded-full border border-stone-300 bg-white/70 px-3 py-1.5 font-semibold text-stone-600 transition hover:bg-white"
+          style={{ fontSize: "clamp(0.7rem, 1.5vh, 1rem)" }}
+        >
+          <RotateCcw className="h-3.5 w-3.5" />
+          Nollställ
+        </button>
       </div>
 
-      {/* Samtalsfrågorna */}
-      <div className="grid gap-4 sm:grid-cols-2">
-        {SAMTALSFRAGOR.map((fraga) => (
+      <div className="divide-y divide-stone-300/70">
+        {SCENARIER.map((scenario, rad) => (
           <div
-            key={fraga}
-            className="rounded-2xl border-l-8 border-blue-500 bg-blue-50 p-6 shadow-lg sm:p-8"
+            key={scenario}
+            className="flex flex-col gap-2 py-[1.2vh] lg:flex-row lg:items-center lg:justify-between lg:gap-6"
           >
-            <p className="text-2xl font-bold leading-tight text-gray-900 sm:text-3xl">
-              {fraga}
+            <p
+              className="font-medium leading-snug text-stone-800 lg:max-w-[34ch]"
+              style={{ fontSize: "clamp(0.95rem, 2.4vh, 2rem)" }}
+            >
+              {scenario}
             </p>
+            <div className="flex shrink-0 gap-2">
+              {ALTERNATIV.map((alternativ, kolumn) => (
+                <button
+                  key={alternativ.etikett}
+                  onClick={() => rosta(rad, kolumn)}
+                  className="inline-flex items-center gap-2 rounded-full border-2 bg-white/60 px-3 py-1.5 font-semibold transition active:scale-95"
+                  style={{
+                    fontSize: "clamp(0.7rem, 1.7vh, 1.25rem)",
+                    borderColor: `var(--workshop-${alternativ.ton})`,
+                    color: `var(--workshop-${alternativ.ton})`,
+                  }}
+                >
+                  {alternativ.etikett}
+                  <span
+                    className="inline-flex min-w-[1.6em] items-center justify-center rounded-full px-1 font-bold text-white"
+                    style={{
+                      background: `var(--workshop-${alternativ.ton})`,
+                    }}
+                  >
+                    {roster[rad][kolumn]}
+                  </span>
+                </button>
+              ))}
+            </div>
           </div>
         ))}
-      </div>
-
-      {/* Avslutningsmeningen */}
-      <div className="rounded-2xl bg-gray-900 p-8 shadow-lg sm:p-10">
-        <p className="text-sm font-semibold uppercase tracking-[0.2em] text-gray-400">
-          Avsluta i en mening
-        </p>
-        <p className="mt-4 text-2xl font-bold leading-tight text-white sm:text-4xl">
-          En AI-chef är okej när{" "}
-          <span className="text-teal-300">___</span> men aldrig när{" "}
-          <span className="text-teal-300">___</span>.
-        </p>
       </div>
     </div>
   );

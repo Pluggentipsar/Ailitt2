@@ -512,6 +512,198 @@ const KLASSRUM: Record<string, KlassrumSlide[]> = {
     },
   ],
 
+  // De tre nedan bäddar in en interaktiv komponent som slide. Interaktionen
+  // ÄR övningen i respektive fall — klickbara markeringar, icke-linjära
+  // flikar, live rösträkning — och går inte att uttrycka som stegade slides.
+  // Varje interaktivt block har en statiskFallback som utskrift och
+  // PowerPoint visar i stället.
+  "chatt-safarin": [
+    {
+      blocks: [
+        { type: "h", text: "En chatt att gå på safari i" },
+        {
+          type: "p",
+          text: "Vi letar efter greppen som håller kvar dig i samtalet.",
+        },
+      ],
+    },
+    {
+      etikett: "Granska produkten — inte användaren",
+      blocks: [
+        {
+          type: "callout",
+          tone: "warning",
+          title: "Vi pratar inte om vem som chattar med vad",
+          body: "72 % av tonåringar har testat AI-kompisar. Det är designen vi undersöker.",
+        },
+      ],
+    },
+    {
+      etikett: "Klicka på greppen",
+      blocks: [
+        {
+          type: "interaktiv",
+          komponent: "ChattSafari",
+          statiskFallback: [
+            {
+              type: "example",
+              label: "Chatten vi granskar",
+              user: "Jag har bråkat med min bästa kompis. Det känns som att det är helt hennes fel.",
+              ai: "Åh vad jobbigt. Det låter verkligen orättvist mot dig. Du förtjänar bättre. Vill du berätta mer om vad som hände?",
+              note: "Flera grepp i ett svar: spegling, ensidigt medhåll, smicker — och en följdfråga som håller dörren öppen.",
+            },
+          ],
+        },
+      ],
+    },
+    {
+      etikett: "Frågan",
+      blocks: [
+        { type: "h", text: "Vad gjorde boten aldrig?" },
+        {
+          type: "p",
+          text: "Sa den emot? Frågade den hur kompisen kan ha tänkt? Föreslog den en människa?",
+        },
+      ],
+    },
+    {
+      etikett: "Er tur",
+      blocks: [
+        {
+          type: "p",
+          text: "Koda en egen chatt med bokstavskoderna. Vilket grepp återkom mest?",
+        },
+      ],
+    },
+  ],
+
+  "fyra-grepp": [
+    {
+      blocks: [
+        { type: "h", text: "Fyra grepp som skyddar tänkandet" },
+        { type: "p", text: "Inte fyra regler. Fyra vanor." },
+      ],
+    },
+    {
+      etikett: "Välj ett grepp",
+      blocks: [
+        {
+          type: "interaktiv",
+          komponent: "FyraGrepp",
+          statiskFallback: [
+            {
+              type: "list",
+              ordered: true,
+              items: [
+                "Brain dump före AI — töm huvudet först, låt AI:n jämföra och utmana",
+                "AI-pausknappen — ringa in den riktiga frågan innan du ställer den",
+                "Förtroendekalibrering — svara själv, skatta säkerheten, jämför sedan",
+                "Nando-menyn — välj AI-styrka medvetet, och klättra",
+              ],
+            },
+          ],
+        },
+      ],
+    },
+    {
+      etikett: "Det gemensamma",
+      blocks: [
+        { type: "h", text: "Alla fyra sätter DIG före AI:n i ordningen" },
+      ],
+    },
+    {
+      etikett: "Välj ett att prova",
+      blocks: [
+        {
+          type: "p",
+          text: "Ett grepp, en vecka. Vilket väljer du — och till vilken uppgift?",
+        },
+      ],
+    },
+  ],
+
+  framtidssamtalet: [
+    {
+      blocks: [
+        { type: "h", text: "Var går er gräns?" },
+        {
+          type: "p",
+          text: "Åtta scenarier. Ni röstar — sen tittar vi på mönstret.",
+        },
+      ],
+    },
+    {
+      etikett: "Tre svar per scenario",
+      blocks: [
+        {
+          type: "list",
+          items: ["Acceptera", "Acceptera med villkor", "Vägra"],
+        },
+      ],
+    },
+    {
+      etikett: "Rösta",
+      blocks: [
+        {
+          type: "interaktiv",
+          komponent: "FramtidsRoster",
+          statiskFallback: [
+            {
+              type: "p",
+              text: "Klassen röstar om åtta scenarier — från att AI:n väljer varorna i närbutiken till att AI:n flyger planet du sitter i.",
+            },
+            {
+              type: "list",
+              items: [
+                "AI:n väljer varorna i din närbutik",
+                "AI:n anställer butikens personal",
+                "AI:n är din chef på ditt första extrajobb",
+                "AI:n rättar dina prov",
+                "AI:n avgör vem som kommer in på skolan",
+                "AI:n är din kurator",
+                "AI:n är rektor",
+                "AI:n flyger planet du sitter i",
+              ],
+            },
+          ],
+        },
+      ],
+    },
+    {
+      etikett: "Titta på mönstret",
+      blocks: [
+        {
+          type: "p",
+          text: "Var vände det? Vilket scenario splittrade er mest?",
+        },
+      ],
+    },
+    {
+      etikett: "Samtalsfråga 1",
+      blocks: [
+        {
+          type: "h",
+          text: "Vilka jobb vill vi att människor gör — även om AI kan?",
+        },
+      ],
+    },
+    {
+      etikett: "Samtalsfråga 2",
+      blocks: [
+        {
+          type: "h",
+          text: "Vad är värt att lära sig — även om en chatbot redan kan det?",
+        },
+      ],
+    },
+    {
+      etikett: "Avsluta i en mening",
+      blocks: [
+        { type: "h", text: "En AI-chef är okej när ___ men aldrig när ___" },
+      ],
+    },
+  ],
+
   "vems-siffror": [
     {
       blocks: [
