@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight, BookOpen, Clock, GraduationCap, Library, ListMusic } from "lucide-react";
+import { ArrowRight, BookOpen, Clock, GraduationCap, Library, ListMusic, Presentation } from "lucide-react";
 import { DOMANER, FORSKNINGSHYLLA, LEKTIONER, METODER } from "@/lib/eleverna-om-ai/data";
 import { DomanBadge } from "@/components/eleverna-om-ai/DomanBadge";
 import { MetodKort } from "@/components/eleverna-om-ai/MetodKort";
@@ -46,6 +46,14 @@ export default function ElevernaOmAiPage() {
             <p className="mt-4 text-sm text-white/60">
               Följer med föreläsningen med samma namn &middot; Joel Rangsjö
             </p>
+            <Link
+              href="/eleverna-om-ai/forelasningen"
+              className="group mt-7 inline-flex items-center gap-2.5 rounded-full bg-white/10 px-5 py-3 text-sm font-semibold text-white ring-1 ring-white/25 backdrop-blur transition-all hover:bg-white/20"
+            >
+              <Presentation className="h-4 w-4 text-teal-300" />
+              Läs föreläsningen — bild för bild
+              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+            </Link>
           </div>
         </div>
       </section>
