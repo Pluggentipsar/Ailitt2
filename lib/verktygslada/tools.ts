@@ -845,6 +845,32 @@ export const tools: Tool[] = [
     language: "en",
     notes: "Lärarregistrering krävs. Drivs av News Literacy Project (USA).",
   },
+  {
+    id: "bara",
+    name: "BÄRA — didaktiskt arbetsbord",
+    url: "https://bara-taupe.vercel.app/",
+    description:
+      "Verktyg för att bryta ner en verklig elevuppgift i arbetsmoment och avgöra för varje moment vem som bär vad: eleven bär, AI stödjer, AI utför och eleven ansvarar, kontrollpunkt, eller kräver villkor. Ger ut en färdig elevuppgift, en A3-överenskommelse, promptkort och ett lärarunderlag.",
+    category: "larresurs-skola",
+    // Hela verktyget handlar om att avgöra NÄR och HUR AI ska användas — och
+    // uttryckligen inte om att producera med den. Renodlat styra.
+    domaner: ["styra"],
+    kind: "service",
+    price: "free",
+    requiresAccount: false,
+    language: "sv",
+    tags: [
+      "uppgiftsdesign",
+      "bedömning",
+      "AI-riktlinjer",
+      "arbetslag",
+      "workshop",
+      "åk 7-9",
+      "gymnasiet",
+    ],
+    notes:
+      "Ingen inloggning — uppgiften sparas lokalt i webbläsaren. De fem statusarna beskriver ansvar, inte tillåtelsegrad: det finns ingen skala från lite till mycket AI. Byggt av Joel Rangsjö, med redovisad forskningsgrund.",
+  },
 
   // === SVENSKA & NORDISKA KÄLLKRITIKRESURSER ===
   {
