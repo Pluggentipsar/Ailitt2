@@ -163,6 +163,15 @@ export default function WorkshopSida() {
                 <dd>{workshop.vadDetAr.utanForelasningen}</dd>
               </div>
             </dl>
+
+            <div className="mt-5 rounded-xl border-l-4 border-amber-400 bg-amber-50/70 p-4">
+              <div className="mb-1 text-xs font-bold uppercase tracking-wider text-amber-800">
+                Säg det här i inbjudan
+              </div>
+              <p className="text-[15px] leading-relaxed text-gray-800">
+                {workshop.vadDetAr.taMedTillSektionTre}
+              </p>
+            </div>
           </div>
 
           <div className="grid gap-4 sm:grid-cols-2">

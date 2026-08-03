@@ -180,42 +180,91 @@ const SEKTIONER: Sektion[] = [
       titel: "Hur styr vi AI för lärande?",
       ton: "lila",
       intro:
-        "Sektionen som flyttar samtalet från vad AI gör till vad eleven gör. Jag–AI–Jag, stödnivåer och ägarskap — allt det som gör skillnad mellan att producera och att lära sig.",
-      kommandeText:
-        "Den här sektionen byggs som ett eget moment och är ännu inte klar. Under tiden bär de här tre metoderna innehållet, och de går att köra som de är.",
+        "De tre första sektionerna handlade om vad AI gör. Den här handlar om vad eleven gör — och den byter arbetsform. I stället för övningar deltagarna provar tar de med sig en riktig uppgift ur sin egen undervisning och fattar beslut om den, moment för moment. Det är också sektionen som besvarar frågan som hänger kvar från sektion 2: om det inte går att upptäcka AI-text, vad gör man i stället? Svaret är inte bättre detektion utan bättre uppgifter.",
       stationer: [
         {
-          id: "forhors-ai",
-          titel: "Förhörs-AI:n",
+          id: "bara-fordelningen",
+          bokstav: "A",
+          titel: "Fördela ansvaret — moment för moment",
           syfte:
-            "Bygg en AI som håller emot i stället för att svara. Det är produktionsbotens motsats, och den enklaste vägen att visa skillnaden mellan att bli klar och att lära sig.",
+            "Grupperna tar en riktig elevuppgift, bryter ner den i arbetsmoment och avgör för varje moment vem som bär vad. Upptäckten kommer nästan alltid vid nedbrytningen: en enda AI-regel för hela uppgiften döljer exakt vilka tankehandlingar som lämnas över.",
+          poang:
+            "”AI tillåtet” och ”AI förbjudet” är samma sorts svar på fel fråga. Frågan är vilket moment.",
+          tid: "40 min",
+          kor: [
+            {
+              kalla: "extern",
+              titel: "BÄRA — didaktiskt arbetsbord",
+              url: "https://bara-taupe.vercel.app/workshop",
+              beskrivning:
+                "Ett verktyg där en uppgift bryts ner i moment och varje moment får en av fem statusar: eleven bär, AI stödjer, AI utför och eleven ansvarar, kontrollpunkt, eller kräver villkor. Statusarna beskriver ANSVAR, inte tillåtelsegrad — det finns ingen skala från lite till mycket AI att glida uppför. Ingen inloggning; allt sparas lokalt i webbläsaren.",
+            },
+          ],
+          alternativ: [
+            {
+              kalla: "extern",
+              titel: "Färdiga scenarier",
+              url: "https://bara-taupe.vercel.app/verktyg?start=scenarier",
+              beskrivning:
+                "Om gruppen inte har en egen uppgift med sig. Kvalitetssäkrade exempel i historia, matematik, samhällskunskap, bild och biologi som går att anpassa.",
+            },
+            { kalla: "bank", id: "uppgiftsdekompositionen" },
+          ],
+        },
+        {
+          id: "bara-situationskort",
+          bokstav: "B",
+          titel: "Pröva besluten mot verkligheten",
+          syfte:
+            "Samma uppgift, ändrade omständigheter. Situationskorten tvingar fram omprövning — och sedan jämför grupperna sina MOTIVERINGAR, inte sina placeringar. Två grupper som landat olika har ofta båda rätt, och det är i skillnaden mellan skälen som det professionella samtalet finns.",
+          poang:
+            "Ett beslut som inte går att ompröva när situationen ändras var aldrig ett beslut. Det var en regel.",
           tid: "20 min",
           kor: [
+            {
+              kalla: "extern",
+              titel: "Situationskorten",
+              url: "https://bara-taupe.vercel.app/utskrift",
+              beskrivning:
+                "Kortstudion, där situationskort, AI-roller, villkor och momentkort går att skriva ut. Analogt fungerar bättre än på skärm här — korten ska ligga på bordet och flyttas.",
+            },
+          ],
+        },
+        {
+          id: "belaggen",
+          bokstav: "C",
+          titel: "Belägg i stället för detektion",
+          syfte:
+            "Knyter ihop med sektion 2. När en inlämnad produkt inte längre ensam kan bära ett bedömningsbeslut är svaret inte att försöka avslöja AI — det är att hitta ett närliggande sätt att se samma kunnande. Muntligt försvar, en processlogg, en kort uppgift bredvid.",
+          poang:
+            "Frågan är inte ”skrev eleven det här själv?” utan ”vet jag att eleven kan det här?”",
+          tid: "15 min",
+          kor: [
+            {
+              kalla: "extern",
+              titel: "Kompletterande belägg i BÄRA",
+              url: "https://bara-taupe.vercel.app/forskningsgrund",
+              beskrivning:
+                "Femte designprincipen: läraren prövar först om det ens finns en bedömningsspänning, väljer sedan minsta tillräckliga kompletterande belägg och kopplar det till samma lärandemål. Det är en validitetsfråga, inte en övervakningsfråga.",
+            },
+          ],
+          alternativ: [
             {
               kalla: "extern",
               titel: "Förhörs-AI:n",
               url: "/eleverna-om-ai/metod/forhors-ai",
               beskrivning:
-                "Metod ur metodbanken — eleven bygger en AI som förhör utan att ge svaret.",
+                "Metod ur metodbanken — eleven bygger en AI som förhör utan att ge svaret. Kortare ingång om ni inte hinner med BÄRA.",
             },
-          ],
-          alternativ: [{ kalla: "bank", id: "trafikljus-skrivprocessen" }],
-        },
-        {
-          id: "fyra-grepp",
-          titel: "Fyra grepp som skyddar tänkandet",
-          syfte:
-            "Konkretiserar Jag–AI–Jag till fyra saker eleven faktiskt gör — och ger läraren något att sätta upp på väggen.",
-          tid: "15 min",
-          kor: [
             {
               kalla: "extern",
               titel: "Fyra grepp som skyddar tänkandet",
               url: "/eleverna-om-ai/metod/fyra-grepp",
-              beskrivning: "Metod ur metodbanken.",
+              beskrivning:
+                "Metod ur metodbanken — Jag–AI–Jag konkretiserat till fyra saker eleven gör.",
             },
+            { kalla: "bank", id: "trafikljus-skrivprocessen" },
           ],
-          alternativ: [{ kalla: "bank", id: "uppgiftsdekompositionen" }],
         },
       ],
     },
@@ -276,10 +325,13 @@ export const workshop = {
       "Skolans godkända chattbot. Vilken som helst fungerar; övningarna är inte knutna till någon leverantör.",
       "Projektor eller storskärm.",
       "Utskrivna deltagarblad till sektion 1 — de finns som PDF på övningssidan.",
+      "Utskrivna situationskort till sektion 3, från BÄRA:s kortstudio. Analogt fungerar bättre än på skärm — korten ska ligga på bordet och flyttas.",
       "En vägg eller golvyta att ställa sig längs i sektion 4.",
     ],
+    taMedTillSektionTre:
+      "Be deltagarna ta med en riktig uppgift ur sin egen undervisning till sektion 3 — helst en de faktiskt ska ge, och helst en de är osäkra på. Det är den enda förberedelse som krävs av gruppen, och den gör skillnad: utan egen uppgift blir sektionen en demonstration, med en blir den ett beslut de tar med sig hem. Finns ingen egen uppgift går det att köra på ett färdigt scenario.",
     korta:
-      "Halvdagen kan kortas till nittio minuter genom att ta sektion 1 och 2, hoppa över sektion 3 och köra fyra av tolv scenariopar i sektion 4. Ordningen ska däremot inte kastas om — se nedan.",
+      "Halvdagen kan kortas till nittio minuter genom att ta sektion 1 och 2, köra sektion 3 på ett färdigt scenario i stället för deltagarnas egna uppgifter, och välja fyra av tolv scenariopar i sektion 4. Ordningen ska däremot inte kastas om — se nedan.",
   },
   sekvensNot:
     "Ordningen är inte godtycklig. Sektion 1 visar HUR ett AI-beteende uppstår, och det gör sektion 2 begriplig i stället för skrämmande: det som ser ut som lögn är samma mekanism som producerar sanningen. Sektion 4 kräver båda — man kan inte avgöra vad ett system BÖR få göra utan att veta vad det gör och varför.",
